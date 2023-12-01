@@ -1,0 +1,41 @@
+.vars {
+    /* CSS vars to disable IDE error */
+    --xs: 0;
+    --offsetXS: 0;
+}
+
+.container {
+    --base: 12;
+    --gap: 16px;
+    --containerWidth: auto;
+
+    margin: auto;
+    max-width: 100%;
+    width: var(--containerWidth);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* gap variable is taken from Container */
+    gap: var(--gap);
+}
+
+.column {
+    --totalGaps: calc(var(--gap) * (var(--base) - 1));
+    --includedGaps: calc(var(--gap) * (var(--span) - 1));
+    --singleWidth: calc((var(--containerWidth) - var(--totalGaps)) / var(--base));
+    --totalWidth: calc(var(--singleWidth) * var(--span) + var(--includedGaps));
+    --offsetWidth: calc(var(--singleWidth) * var(--offset) + var(--gap) * var(--offset));
+
+    flex: var(--span);
+    margin-left: var(--offsetWidth);
+    max-width: var(--totalWidth);
+
+    @media (width >= 360px) {
+        --span: var(--xs);
+        --offset: var(--offsetXS);
+    }
+}
