@@ -123,6 +123,24 @@ module.exports = {
         ],
       },
     },
+    /* Disable `environment` directory imports for library files */
+    {
+      files: ['./src/lib/**/*.*'],
+      rules: {
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: [
+              {
+                group: ['**/environment/**'],
+                message:
+                  'Imports from environment directory are forbidden in the library files.',
+              },
+            ],
+          },
+        ],
+      },
+    },
   ],
 };
 
