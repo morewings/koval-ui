@@ -3,7 +3,7 @@ export enum Sizes {
     sm = 'sm',
     md = 'md',
     lg = 'lg',
-    xl = 'xl'
+    xl = 'xl',
 }
 
 export enum Offsets {
@@ -11,14 +11,14 @@ export enum Offsets {
     sm = 'offsetSM',
     md = 'offsetMD',
     lg = 'offsetLG',
-    xl = 'offsetXL'
+    xl = 'offsetXL',
 }
 
 export type SizeUnit = number;
 export type FluidUnit = 'fluid';
 
 export type SizesConfig = {
-    /** The number of columns to span on extremely small devices (≥360px) */
+    /** The number of columns to span on tiny devices (≥360px) */
     [Sizes.xs]: SizeUnit | FluidUnit;
     /** The number of columns to span on small devices (≥576px) */
     [Sizes.sm]: SizeUnit | FluidUnit;
