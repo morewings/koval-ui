@@ -1,0 +1,12 @@
+.cell {
+    align-items: center;
+    background: steelblue;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 64px;
+    justify-content: center;
+    margin-bottom: 24px;
+    width: 100%;
+}

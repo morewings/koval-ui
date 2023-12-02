@@ -1,0 +1,108 @@
+.vars {
+    /* CSS vars to disable IDE error */
+    --xs: 0;
+    --sm: 0;
+    --md: 0;
+    --lg: 0;
+    --xl: 0;
+    --offsetXS: 0;
+    --offsetSM: 0;
+    --offsetMD: 0;
+    --offsetLG: 0;
+    --offsetXL: 0;
+    --gap: 0;
+    --base: 0;
+    --containerWidth: 0;
+}
+
+.container {
+    margin: auto;
+    max-width: 100%;
+    width: var(--containerWidth);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* gap variable is taken from Container */
+    gap: var(--gap);
+}
+
+.column {
+    --totalGaps: calc(var(--gap) * (var(--base) - 1));
+    --includedGaps: calc(var(--gap) * (var(--span) - 1));
+    --singleWidth: calc((var(--containerWidth) - var(--totalGaps)) / var(--base));
+    --totalWidth: calc(var(--singleWidth) * var(--span) + var(--includedGaps));
+    --offsetWidth: calc(var(--singleWidth) * var(--offset) + var(--gap) * var(--offset));
+
+    flex: var(--span);
+    margin-left: var(--offsetWidth);
+    max-width: var(--totalWidth);
+
+    &.xs {
+        @media (width >= 360px) {
+            --span: var(--xs);
+            --offset: var(--offsetXS);
+        }
+    }
+
+    &.sm {
+        @media (width >= 576px) {
+            --span: var(--sm);
+            --offset: var(--offsetSM);
+        }
+    }
+
+    &.md {
+        @media (width >= 768px) {
+            --span: var(--md);
+            --offset: var(--offsetMD);
+        }
+    }
+
+    &.lg {
+        @media (width >= 992px) {
+            --span: var(--lg);
+            --offset: var(--offsetLG);
+        }
+    }
+
+    &.xl {
+        @media (width >= 1280px) {
+            --span: var(--xl);
+            --offset: var(--offsetXL);
+        }
+    }
+
+    &.fluid-xs {
+        @media (width >= 360px) {
+            flex-grow: 1;
+        }
+    }
+
+    &.fluid-sm {
+        @media (width >= 576px) {
+            flex-grow: 1;
+        }
+    }
+
+    &.fluid-md {
+        @media (width >= 768px) {
+            flex-grow: 1;
+        }
+    }
+
+    &.fluid-lg {
+        @media (width >= 992px) {
+            flex-grow: 1;
+        }
+    }
+
+    &.fluid-xl {
+        @media (width >= 1280px) {
+            flex-grow: 1;
+        }
+    }
+}
