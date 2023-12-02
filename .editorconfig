@@ -330,9 +330,9 @@ ij_shell_switch_cases_indented = false
 ij_shell_use_unix_line_separator = true
 
 [{*.cjs,*.js,*.js }]
-indent_size = 2
-tab_width = 2
-ij_continuation_indent_size = 2
+indent_size = 4
+tab_width = 4
+ij_continuation_indent_size = 4
 ij_visual_guides = 80
 ij_javascript_align_imports = false
 ij_javascript_align_multiline_array_initializer_expression = false
