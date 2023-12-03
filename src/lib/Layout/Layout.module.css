@@ -42,14 +42,14 @@
     max-width: var(--totalWidth);
 
     &.xs {
-        @media (width >= 360px) {
+        @media (width >= 320px) {
             --span: var(--xs);
             --offset: var(--offsetXS);
         }
     }
 
     &.sm {
-        @media (width >= 576px) {
+        @media (width >= 640px) {
             --span: var(--sm);
             --offset: var(--offsetSM);
         }
@@ -63,14 +63,14 @@
     }
 
     &.lg {
-        @media (width >= 992px) {
+        @media (width >= 1366px) {
             --span: var(--lg);
             --offset: var(--offsetLG);
         }
     }
 
     &.xl {
-        @media (width >= 1280px) {
+        @media (width >= 1920px) {
             --span: var(--xl);
             --offset: var(--offsetXL);
         }
