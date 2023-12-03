@@ -174,7 +174,7 @@ export const ContainerExample: Story = {
     },
 };
 
-export const width: Story = {
+export const ContainerFluid: Story = {
     args: {
         children: (
             <Container width={888}>
@@ -199,7 +199,7 @@ export const width: Story = {
     },
 };
 
-export const ContainerFluid: Story = {
+export const ContainerWidth: Story = {
     args: {
         children: (
             <div style={{background: 'beige', width: '666px'}}>
