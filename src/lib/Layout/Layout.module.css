@@ -1,0 +1,114 @@
+@custom-media --viewport-xs (width >= 320px);
+@custom-media --viewport-sm (width >= 640px);
+@custom-media --viewport-md (width >= 768px);
+@custom-media --viewport-lg (width >= 1366px);
+@custom-media --viewport-xl (width >= 1920px);
+
+.vars {
+    /* CSS vars to disable IDE error */
+    --xs: 0;
+    --sm: 0;
+    --md: 0;
+    --lg: 0;
+    --xl: 0;
+    --offsetXS: 0;
+    --offsetSM: 0;
+    --offsetMD: 0;
+    --offsetLG: 0;
+    --offsetXL: 0;
+    --gap: 0;
+    --base: 0;
+    --containerWidth: 0;
+}
+
+.container {
+    margin: auto;
+    max-width: 100%;
+    width: var(--containerWidth);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* gap variable is taken from Container */
+    gap: var(--gap);
+}
+
+.column {
+    --totalGaps: calc(var(--gap) * (var(--base) - 1));
+    --includedGaps: calc(var(--gap) * (var(--span) - 1));
+    --singleWidth: calc((var(--containerWidth) - var(--totalGaps)) / var(--base));
+    --totalWidth: calc(var(--singleWidth) * var(--span) + var(--includedGaps));
+    --offsetWidth: calc(var(--singleWidth) * var(--offset) + var(--gap) * var(--offset));
+
+    flex: var(--span);
+    margin-left: var(--offsetWidth);
+    max-width: var(--totalWidth);
+
+    &.xs {
+        @media (--viewport-xs) {
+            --span: var(--xs);
+            --offset: var(--offsetXS);
+        }
+    }
+
+    &.sm {
+        @media (--viewport-sm) {
+            --span: var(--sm);
+            --offset: var(--offsetSM);
+        }
+    }
+
+    &.md {
+        @media (--viewport-md) {
+            --span: var(--md);
+            --offset: var(--offsetMD);
+        }
+    }
+
+    &.lg {
+        @media (--viewport-lg) {
+            --span: var(--lg);
+            --offset: var(--offsetLG);
+        }
+    }
+
+    &.xl {
+        @media (--viewport-xl) {
+            --span: var(--xl);
+            --offset: var(--offsetXL);
+        }
+    }
+
+    &.fluid-xs {
+        @media (--viewport-xs) {
+            flex-grow: 1;
+        }
+    }
+
+    &.fluid-sm {
+        @media (--viewport-sm) {
+            flex-grow: 1;
+        }
+    }
+
+    &.fluid-md {
+        @media (--viewport-md) {
+            flex-grow: 1;
+        }
+    }
+
+    &.fluid-lg {
+        @media (--viewport-lg) {
+            flex-grow: 1;
+        }
+    }
+
+    &.fluid-xl {
+        @media (--viewport-xl) {
+            flex-grow: 1;
+        }
+    }
+}
