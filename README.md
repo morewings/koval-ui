@@ -1,6 +1,5 @@
-[![CI](https://github.com/morewings/react-library-template/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/react-library-template/actions/workflows/merge-jobs.yml)
-[![Storybook deploy](https://github.com/morewings/react-library-template/actions/workflows/pages.yml/badge.svg)](https://github.com/morewings/react-library-template/actions/workflows/pages.yml)
-[![Use this template](https://img.shields.io/badge/use%20this-template-blue?logo=githu)](https://github.com/morewings/react-library-template/generate)
+[![Deploy to GitHub Pages](https://github.com/morewings/react-forge-ui/actions/workflows/pages.yml/badge.svg)](https://github.com/morewings/react-forge-ui/actions/workflows/pages.yml)
+[![Post-merge tasks](https://github.com/morewings/react-forge-ui/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/react-forge-ui/actions/workflows/merge-jobs.yml)
 
 # Forge React components library
 
