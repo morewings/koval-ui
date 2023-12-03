@@ -1,6 +1,6 @@
 import type {FC, ReactNode} from 'react';
 import {useLocalTheme} from 'css-vars-hook';
-import {useEffect} from 'react';
+import {useMemo} from 'react';
 import classNames from 'classnames';
 
 import type {SizeUnit, FluidUnit} from './SizeTypes';
@@ -36,12 +36,10 @@ export const Container: FC<ContainerProps> = ({
     base = 12,
 }) => {
     const width = normalizeWidth(containerWidth);
-    const {LocalRoot, setTheme} = useLocalTheme();
-    useEffect(() => {
-        setTheme({containerWidth: width, base, gap: `${gap}px`});
-    }, [setTheme, width, gap, base]);
+    const {LocalRoot} = useLocalTheme();
+    const theme = useMemo(() => ({containerWidth: width, base, gap: `${gap}px`}), [width, gap, base]);
     return (
-        <LocalRoot as={as} className={classNames(classes.container, className)}>
+        <LocalRoot theme={theme} as={as} className={classNames(classes.container, className)}>
             {children}
         </LocalRoot>
     );
