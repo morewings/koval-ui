@@ -8,7 +8,7 @@
 
 [![NPM library Create React App template logo](./design/logo.png)](#)
 
-Visit [Demo Storybook](https://morewings.github.io/react-library-template/).
+Read full [docs](https://morewings.github.io/react-forge-ui/).
 
 ## Features
 
