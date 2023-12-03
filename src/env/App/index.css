@@ -1,8 +1,3 @@
-:root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    text-rendering: optimizelegibility;
-}
-
 body {
     align-items: center;
     display: flex;

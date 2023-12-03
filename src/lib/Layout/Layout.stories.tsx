@@ -24,149 +24,149 @@ export const ContainerExample: Story = {
             <Fragment>
                 <Row>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={2}>
-                        <Cell>span: 2</Cell>
+                        <Cell>space: 2</Cell>
                     </Col>
                     <Col xs={2}>
-                        <Cell>span: 2</Cell>
+                        <Cell>space: 2</Cell>
                     </Col>
                     <Col xs={2}>
-                        <Cell>span: 2</Cell>
+                        <Cell>space: 2</Cell>
                     </Col>
                     <Col xs={2}>
-                        <Cell>span: 2</Cell>
+                        <Cell>space: 2</Cell>
                     </Col>
                     <Col xs={2}>
-                        <Cell>span: 2</Cell>
+                        <Cell>space: 2</Cell>
                     </Col>
                     <Col xs={2}>
-                        <Cell>span: 2</Cell>
+                        <Cell>space: 2</Cell>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={3}>
-                        <Cell>span: 3</Cell>
+                        <Cell>space: 3</Cell>
                     </Col>
                     <Col xs={3}>
-                        <Cell>span: 3</Cell>
+                        <Cell>space: 3</Cell>
                     </Col>
                     <Col xs={3}>
-                        <Cell>span: 3</Cell>
+                        <Cell>space: 3</Cell>
                     </Col>
                     <Col xs={3}>
-                        <Cell>span: 3</Cell>
+                        <Cell>space: 3</Cell>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={4}>
-                        <Cell>span: 4</Cell>
+                        <Cell>space: 4</Cell>
                     </Col>
                     <Col xs={4}>
-                        <Cell>span: 4</Cell>
+                        <Cell>space: 4</Cell>
                     </Col>
                     <Col xs={4}>
-                        <Cell>span: 4</Cell>
+                        <Cell>space: 4</Cell>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={5}>
-                        <Cell>span: 5</Cell>
+                        <Cell>space: 5</Cell>
                     </Col>
                     <Col xs={5}>
-                        <Cell>span: 5</Cell>
+                        <Cell>space: 5</Cell>
                     </Col>
                     <Col xs={2}>
-                        <Cell>span: 2</Cell>
+                        <Cell>space: 2</Cell>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={6}>
-                        <Cell>span: 6</Cell>
+                        <Cell>space: 6</Cell>
                     </Col>
                     <Col xs={6}>
-                        <Cell>span: 6</Cell>
+                        <Cell>space: 6</Cell>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={7}>
-                        <Cell>span: 7</Cell>
+                        <Cell>space: 7</Cell>
                     </Col>
                     <Col xs={5}>
-                        <Cell>span: 5</Cell>
+                        <Cell>space: 5</Cell>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={8}>
-                        <Cell>span: 8</Cell>
+                        <Cell>space: 8</Cell>
                     </Col>
                     <Col xs={4}>
-                        <Cell>span: 4</Cell>
+                        <Cell>space: 4</Cell>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={9}>
-                        <Cell>span: 9</Cell>
+                        <Cell>space: 9</Cell>
                     </Col>
                     <Col xs={3}>
-                        <Cell>span: 3</Cell>
+                        <Cell>space: 3</Cell>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={10}>
-                        <Cell>span: 10</Cell>
+                        <Cell>space: 10</Cell>
                     </Col>
                     <Col xs={2}>
-                        <Cell>span: 2</Cell>
+                        <Cell>space: 2</Cell>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={11}>
-                        <Cell>span: 11</Cell>
+                        <Cell>space: 11</Cell>
                     </Col>
                     <Col xs={1}>
-                        <Cell>span: 1</Cell>
+                        <Cell>space: 1</Cell>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <Cell>span: 12</Cell>
+                        <Cell>space: 12</Cell>
                     </Col>
                 </Row>
             </Fragment>
@@ -202,33 +202,33 @@ export const width: Story = {
 export const ContainerFluid: Story = {
     args: {
         children: (
-            <div style={{background: 'lightgreen', width: '666px'}}>
-                <Container width={333}>
+            <div style={{background: 'beige', width: '666px'}}>
+                <Container width={555}>
                     <Row>
                         <Col xs={4}>
-                            <Cell>Takes</Cell>
+                            <Cell>With</Cell>
                         </Col>
                         <Col xs={4}>
-                            <Cell>exact</Cell>
+                            <Cell>defined</Cell>
                         </Col>
                         <Col xs={4}>
-                            <Cell>width.</Cell>
+                            <Cell>width: 555px.</Cell>
                         </Col>
                     </Row>
                 </Container>
                 <Container width="fluid">
                     <Row>
                         <Col xs={3}>
-                            <Cell>Takes</Cell>
+                            <Cell>Fluid:</Cell>
                         </Col>
                         <Col xs={3}>
                             <Cell>all</Cell>
                         </Col>
                         <Col xs={3}>
-                            <Cell>available</Cell>
+                            <Cell>parent</Cell>
                         </Col>
                         <Col xs={3}>
-                            <Cell>space.</Cell>
+                            <Cell>width.</Cell>
                         </Col>
                     </Row>
                 </Container>
@@ -244,45 +244,45 @@ export const ContainerResponsive: Story = {
                 <Container width={666}>
                     <Row>
                         <Col xs={2}>
-                            <Cell>span: 2</Cell>
+                            <Cell>space: 2</Cell>
                         </Col>
                         <Col xs={2}>
-                            <Cell>span: 2</Cell>
+                            <Cell>space: 2</Cell>
                         </Col>
                         <Col xs={2}>
-                            <Cell>span: 2</Cell>
+                            <Cell>space: 2</Cell>
                         </Col>
                         <Col xs={2}>
-                            <Cell>span: 2</Cell>
+                            <Cell>space: 2</Cell>
                         </Col>
                         <Col xs={2}>
-                            <Cell>span: 2</Cell>
+                            <Cell>space: 2</Cell>
                         </Col>
                         <Col xs={2}>
-                            <Cell>span: 2</Cell>
+                            <Cell>space: 2</Cell>
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={12} md={6}>
+                        <Col xs={12} lg={6}>
                             <Cell>
                                 <div>xs: 12</div>
-                                <div>md: 6</div>
+                                <div>lg: 6</div>
                             </Cell>
                         </Col>
                     </Row>
                     <Row>
-                        <Col sm={8} xl={2}>
+                        <Col sm={8} xl={3}>
                             <Cell>
                                 <div>sm: 8</div>
-                                <div>xl: 2</div>
+                                <div>xl: 3</div>
                             </Cell>
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={3} lg={10}>
+                        <Col md={6} lg={10}>
                             <Cell>
-                                <div>md: 4</div>
-                                <div>lg: 10</div>
+                                <div>md: 6</div>
+                                <div>lg: 8</div>
                             </Cell>
                         </Col>
                     </Row>
@@ -302,24 +302,30 @@ export const ContainerOffset: Story = {
         children: (
             <Container width={666}>
                 <Row>
-                    <Col xs={3}>
-                        <Cell>span: 3</Cell>
+                    <Col xs={2}>
+                        <Cell>space: 2</Cell>
                     </Col>
-                    <Col xs={3}>
-                        <Cell>span: 3</Cell>
+                    <Col xs={2}>
+                        <Cell>space: 2</Cell>
                     </Col>
-                    <Col xs={3}>
-                        <Cell>span: 3</Cell>
+                    <Col xs={2}>
+                        <Cell>space: 2</Cell>
                     </Col>
-                    <Col xs={3}>
-                        <Cell>span: 3</Cell>
+                    <Col xs={2}>
+                        <Cell>space: 2</Cell>
+                    </Col>
+                    <Col xs={2}>
+                        <Cell>space: 2</Cell>
+                    </Col>
+                    <Col xs={2}>
+                        <Cell>space: 2</Cell>
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={6} shiftXS={3}>
+                    <Col xs={8} shiftXS={2}>
                         <Cell>
-                            <div>xs: 6</div>
-                            <div>offset-xs: 3</div>
+                            <div>xs: 8</div>
+                            <div>shift-xs: 2</div>
                         </Cell>
                     </Col>
                 </Row>

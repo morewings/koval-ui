@@ -54,7 +54,7 @@ module.exports = {
                     {
                         pattern: '@/**',
                         group: 'internal',
-                    },
+                    }
                 ],
                 'newlines-between': 'always',
             },
