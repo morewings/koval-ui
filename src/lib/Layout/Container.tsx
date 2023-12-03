@@ -8,7 +8,7 @@ import classes from './Layout.module.css';
 
 export type ContainerProps = {
     /** Set Container width in pixels as a number or set to `fluid` to make it 100% */
-    containerWidth?: SizeUnit | FluidUnit;
+    width?: SizeUnit | FluidUnit;
     /** Set amount of columns to place in container */
     base?: number;
     /** Set a gap between columns in pixels */
@@ -20,24 +20,16 @@ export type ContainerProps = {
     children: ReactNode;
 };
 
-const normalizeWidth = (widthProp: ContainerProps['containerWidth']) => {
+const normalizeWidth = (widthProp: ContainerProps['width']) => {
     if (widthProp === 'fluid') {
         return '100%';
     }
     return `${widthProp}px`;
 };
 
-export const Container: FC<ContainerProps> = ({
-    containerWidth = 1280,
-    className,
-    as = 'div',
-    children,
-    gap = 16,
-    base = 12,
-}) => {
-    const width = normalizeWidth(containerWidth);
+export const Container: FC<ContainerProps> = ({width = 1280, className, as = 'div', children, gap = 16, base = 12}) => {
     const {LocalRoot} = useLocalTheme();
-    const theme = useMemo(() => ({containerWidth: width, base, gap: `${gap}px`}), [width, gap, base]);
+    const theme = useMemo(() => ({containerWidth: normalizeWidth(width), base, gap: `${gap}px`}), [width, gap, base]);
     return (
         <LocalRoot theme={theme} as={as} className={classNames(classes.container, className)}>
             {children}

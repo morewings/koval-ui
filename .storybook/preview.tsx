@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react';
 import {Provider} from './../src/lib/Provider';
 
 import 'the-new-css-reset/css/reset.css';
+import './../src/lib/global.css';
 
 const preview: Preview = {
     parameters: {

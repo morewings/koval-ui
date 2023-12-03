@@ -3,6 +3,7 @@ import {useMemo} from 'react';
 import {useLocalTheme} from 'css-vars-hook';
 import classNames from 'classnames';
 
+import {Offsets, Sizes} from './SizeTypes';
 import type {OffsetConfig, SizesConfig} from './SizeTypes';
 import classes from './Layout.module.css';
 
@@ -31,29 +32,29 @@ export const Col: FC<ColProps> = ({
     md,
     lg,
     xl,
-    offsetXS,
-    offsetSM,
-    offsetMD,
-    offsetLG,
-    offsetXL,
+    shiftXS,
+    shiftSM,
+    shiftMD,
+    shiftLG,
+    shiftXL,
 }) => {
     const {LocalRoot} = useLocalTheme();
 
     const theme = useMemo(
         () =>
             filterUndefined({
-                xs: xs ?? '',
-                sm: sm ?? '',
-                md: md ?? '',
-                lg: lg ?? '',
-                xl: xl ?? '',
-                offsetXS: offsetXS ?? '',
-                offsetSM: offsetSM ?? '',
-                offsetMD: offsetMD ?? '',
-                offsetLG: offsetLG ?? '',
-                offsetXL: offsetXL ?? '',
+                [Sizes.xs]: xs ?? '',
+                [Sizes.sm]: sm ?? '',
+                [Sizes.md]: md ?? '',
+                [Sizes.lg]: lg ?? '',
+                [Sizes.xl]: xl ?? '',
+                [Offsets.xs]: shiftXS ?? '',
+                [Offsets.sm]: shiftSM ?? '',
+                [Offsets.md]: shiftMD ?? '',
+                [Offsets.lg]: shiftLG ?? '',
+                [Offsets.xl]: shiftXL ?? '',
             }),
-        [xs, sm, md, lg, xl, offsetXS, offsetSM, offsetMD, offsetLG, offsetXL]
+        [xs, sm, md, lg, xl, shiftXS, shiftSM, shiftMD, shiftLG, shiftXL]
     );
     return (
         <LocalRoot

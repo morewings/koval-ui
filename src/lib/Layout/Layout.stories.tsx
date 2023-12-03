@@ -174,10 +174,10 @@ export const ContainerExample: Story = {
     },
 };
 
-export const ContainerWidth: Story = {
+export const width: Story = {
     args: {
         children: (
-            <Container containerWidth={888}>
+            <Container width={888}>
                 <Row>
                     <Col xs={3}>
                         <Cell>Takes 3 columns.</Cell>
@@ -203,7 +203,7 @@ export const ContainerFluid: Story = {
     args: {
         children: (
             <div style={{background: 'lightgreen', width: '666px'}}>
-                <Container containerWidth={333}>
+                <Container width={333}>
                     <Row>
                         <Col xs={4}>
                             <Cell>Takes</Cell>
@@ -216,7 +216,7 @@ export const ContainerFluid: Story = {
                         </Col>
                     </Row>
                 </Container>
-                <Container containerWidth="fluid">
+                <Container width="fluid">
                     <Row>
                         <Col xs={3}>
                             <Cell>Takes</Cell>
@@ -241,7 +241,7 @@ export const ContainerResponsive: Story = {
     args: {
         children: (
             <Fragment>
-                <Container containerWidth={666}>
+                <Container width={666}>
                     <Row>
                         <Col xs={2}>
                             <Cell>span: 2</Cell>
@@ -300,7 +300,7 @@ export const ContainerResponsive: Story = {
 export const ContainerOffset: Story = {
     args: {
         children: (
-            <Container containerWidth={666}>
+            <Container width={666}>
                 <Row>
                     <Col xs={3}>
                         <Cell>span: 3</Cell>
@@ -316,7 +316,7 @@ export const ContainerOffset: Story = {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={6} offsetXS={3}>
+                    <Col xs={6} shiftXS={3}>
                         <Cell>
                             <div>xs: 6</div>
                             <div>offset-xs: 3</div>
