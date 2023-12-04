@@ -6,13 +6,26 @@ import hq from 'alias-hq';
 import external from '@yelo/rollup-node-external';
 import dts from 'vite-plugin-dts';
 import postcssPresetEnv from 'postcss-preset-env';
+import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
     resolve: {
         alias: hq.get('rollup'),
     },
-    plugins: [react(), dts({rollupTypes: true})],
+    plugins: [
+        svgr({
+            svgrOptions: {
+                typescript: true,
+            },
+            esbuildOptions: {
+                loader: 'tsx',
+            },
+            include: '**/*.svg?react',
+        }),
+        react(),
+        dts({rollupTypes: true}),
+    ],
     build: {
         sourcemap: true,
         lib: {
@@ -25,7 +38,7 @@ export default defineConfig({
         rollupOptions: {
             // make sure to externalize deps that shouldn't be bundled
             // into your library
-            external: external({whitelist: [/^the-new-css-reset/]}),
+            external: external({whitelist: [/^the-new-css-reset/, /^@material-symbols/]}),
             output: {
                 // Provide global variables to use in the UMD build
                 // for externalized deps

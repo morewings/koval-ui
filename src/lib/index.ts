@@ -5,3 +5,4 @@ import './global.css';
 export {Counter} from './CounterDemo';
 export {Provider} from './Provider';
 export {Col, Row, Container} from './Layout';
+export {Icon} from './Icons';

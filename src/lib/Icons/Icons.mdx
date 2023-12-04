@@ -1,0 +1,30 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown } from "@storybook/blocks";
+import * as IconStories from "./Icon.stories";
+import { Icon } from "./Icon";
+
+<Meta title="Icons/Demo" component={Icon} of={IconStories} />
+
+# Icon
+
+## Icon props
+
+<ArgsTable of={Icon} />
+
+## Description
+
+`Icon` is an icon.
+
+## Imports
+
+<Source format={true} code={`
+const a = 'b';
+import a from 'b';
+`} />
+
+
+## Demo
+
+<Canvas of={IconStories.IconExample} />
+
+<Canvas of={IconStories.IconExample} />
+
