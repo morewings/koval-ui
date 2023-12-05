@@ -1,1 +1,4 @@
-export const theme = {};
+export const theme = {
+    fontFamily: '',
+    testColor: 'red',
+};
