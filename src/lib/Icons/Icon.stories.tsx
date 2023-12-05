@@ -1,4 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
+import Face from '@material-symbols/svg-400/sharp/face.svg?react';
 
 import {Icon} from './Icon';
 
@@ -16,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const IconExample: Story = {
     args: {
-        name: 'foo',
+        children: <Face />,
     },
 };
 
