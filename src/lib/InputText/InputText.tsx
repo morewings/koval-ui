@@ -1,7 +1,11 @@
+import {forwardRef} from 'react';
 import type {FC} from 'react';
 import classNames from 'classnames';
 
-import {IconEmail, IconError, IconValid, IconLoader} from '@/lib/Icons';
+import {IconError, IconValid, IconLoader} from '@/lib/Icons';
+import type {NativeProps, CallbackProps} from '@/internal/inputs/API.ts';
+import type {LibraryProps} from '@/internal/LibraryAPI';
+import {parseDataAttributes} from '@/internal/LibraryAPI';
 
 import classes from './InputText.module.css';
 
@@ -11,23 +15,61 @@ enum Validation {
     inProgress = 'inProgress',
 }
 
-export type Props = {
-    prefix?: FC;
-    className?: string;
-    validation?: keyof typeof Validation;
-};
+type Props = LibraryProps &
+    NativeProps &
+    CallbackProps & {
+        type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
+        prefix?: FC;
+        validation?: keyof typeof Validation;
+    };
 
-export const InputText: FC<Props> = ({prefix: Prefix = IconEmail, className, validation = 'inProgress'}) => {
-    const ValidationIcon = {
-        [Validation.error]: IconError,
-        [Validation.valid]: IconValid,
-        [Validation.inProgress]: IconLoader,
-    }[validation!];
-    return (
-        <div className={classNames(classes.wrapper, className)}>
-            {Prefix && <Prefix />}
-            <input className={classes.input} type="text" />
-            {validation && <ValidationIcon />}
-        </div>
-    );
-};
+export const InputText = forwardRef<HTMLInputElement, Props>(
+    (
+        {
+            prefix: Prefix,
+            className,
+            validation,
+            type = 'text',
+            placeholder,
+            disabled,
+            value: valueProp,
+            onChange = () => {},
+            onFocus = () => {},
+            onBlur = () => {},
+            onKeyDown = () => {},
+            onKeyUp = () => {},
+            defaultValue,
+            dataAttributes = {},
+            ...nativeProps
+        },
+        ref
+    ) => {
+        const ValidationIcon = {
+            [Validation.error]: IconError,
+            [Validation.valid]: IconValid,
+            [Validation.inProgress]: IconLoader,
+        }[validation!];
+        return (
+            <div className={classNames(classes.wrapper, className)}>
+                {Prefix && <Prefix />}
+                <input
+                    {...parseDataAttributes(dataAttributes)}
+                    {...nativeProps}
+                    ref={ref}
+                    disabled={disabled}
+                    type={type}
+                    value={valueProp}
+                    defaultValue={defaultValue}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    onFocus={onFocus}
+                    onKeyUp={onKeyUp}
+                    onKeyDown={onKeyDown}
+                />
+                {validation && <ValidationIcon />}
+            </div>
+        );
+    }
+);
+
+InputText.displayName = 'InputText';

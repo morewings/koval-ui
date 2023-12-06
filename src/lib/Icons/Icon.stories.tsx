@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import Face from '@material-symbols/svg-400/sharp/face.svg?react';
+import Face from '@material-symbols/svg-700/sharp/face.svg?react';
 
 import {Icon} from './Icon';
 
