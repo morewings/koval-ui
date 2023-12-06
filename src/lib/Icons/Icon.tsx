@@ -1,7 +1,13 @@
-import type {FC, ReactNode} from 'react';
+import type {FC, ReactElement} from 'react';
+import classNames from 'classnames';
 
 import classes from './Icon.module.css';
 
-export const Icon: FC<{children?: ReactNode}> = ({children}) => {
-    return <div className={classes.icon}>{children}</div>;
+type Props = {
+    className?: string;
+    children?: ReactElement;
+};
+
+export const Icon: FC<Props> = ({children, className}) => {
+    return <div className={classNames(classes.icon, className)}>{children}</div>;
 };

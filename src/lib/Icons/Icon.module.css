@@ -1,7 +1,18 @@
 .icon {
     & svg {
+        display: block;
         fill: currentcolor;
-        height: 36px;
-        width: 36px;
+        height: calc(var(--sizeUnit) * 4);
+        width: calc(var(--sizeUnit) * 4);
     }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rotation {
+    animation: spin 1s linear infinite;
 }

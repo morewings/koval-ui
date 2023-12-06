@@ -1,3 +1,35 @@
 .wrapper {
+    --gap: var(--sizeUnit);
+    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
+
+    align-items: center;
     display: flex;
+    flex-direction: row;
+    gap: var(--gap);
+    max-width: 100%;
+    width: 240px;
+
+    & > div {
+        flex: 0 1 auto;
+    }
+
+    & input {
+        background-color: lightgray;
+        border: 3px solid lightgray;
+        border-radius: calc(var(--sizeUnit) * 0.5);
+        flex: 1;
+        font-size: var(--textSize);
+        min-width: 0;
+        padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+
+        &:focus {
+            background-color: white;
+            border-color: grey;
+            outline: none;
+        }
+
+        &:last-child {
+            margin-right: var(--validationIconPlaceholder);
+        }
+    }
 }

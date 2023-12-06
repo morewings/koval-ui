@@ -6,10 +6,6 @@ import {Icon} from './Icon';
 const meta = {
     title: 'Icons/Demo',
     component: Icon,
-    parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
-        layout: 'fullscreen',
-    },
 } as Meta<typeof Icon>;
 
 export default meta;
