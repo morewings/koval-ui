@@ -1,33 +1,30 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import Face from '@material-symbols/svg-400/sharp/face.svg?react';
 
-import {Icon} from './Icon';
+import {InputText} from './InputText';
 
 const meta = {
-    title: 'Icons/Demo',
-    component: Icon,
+    title: 'Inputs/Text',
+    component: InputText,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
     },
-} as Meta<typeof Icon>;
+} as Meta<typeof InputText>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const IconExample: Story = {
+export const Example: Story = {
     args: {
-        children: <Face />,
+        foo: 'bar',
     },
 };
 
-export const IconSecond: Story = {
-    render: args => {
-        return <Icon {...args} />;
-    },
-    args: {
-        children: <Face />,
-    },
+export const Second: Story = {
+    // render: args => {
+    //     return <Icon {...args} />;
+    // },
+    args: {},
     parameters: {
         docs: {
             source: {language: 'tsx', type: 'code'},
