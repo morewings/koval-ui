@@ -18,7 +18,6 @@ const meta = {
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
-        inputComponent: InputText,
     },
     argTypes: {
         value: {control: 'text'},
@@ -106,11 +105,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Example: Story = {
     args: {
-        inputProps: {
-            id: 'foo',
-            required: true,
-            defaultValue: '',
-        },
+        label: 'foo',
+        children: <InputText defaultValue="hello" id="foo" required />,
     },
 };
 

@@ -27,6 +27,8 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             validator = event => {
                 if (event.target.value.length > 3) {
                     event.target.setCustomValidity('too long');
+                } else {
+                    event.target.setCustomValidity('');
                 }
             },
             ...nativeProps

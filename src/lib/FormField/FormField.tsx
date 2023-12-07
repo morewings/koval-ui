@@ -1,36 +1,27 @@
-import type {FC, ReactElement} from 'react';
+import {Children, forwardRef} from 'react';
+import type {ReactElement} from 'react';
 import classNames from 'classnames';
-import {useLocalTheme} from 'css-vars-hook';
 
 import type {LibraryProps, DataAttributes} from '@/internal/LibraryAPI';
 
 import classes from './FormField.module.css';
 
-type Props<TInputProps> = DataAttributes &
+type Props = DataAttributes &
     LibraryProps & {
-        inputComponent: FC<TInputProps>;
-        inputProps: TInputProps;
+        children: ReactElement;
+        label: string;
     };
 
-export const FormField = <TInputProps extends {id?: string; required?: boolean}>({
-    className,
-    inputComponent: Input,
-    inputProps = {} as TInputProps,
-    ...nativeProps
-}: Props<TInputProps>): ReactElement => {
-    const {LocalRoot} = useLocalTheme();
+export const FormField = forwardRef<HTMLDivElement, Props>(({className, children, label, ...nativeProps}, ref) => {
+    const inputProps = Children.only(children).props;
     return (
-        <LocalRoot {...nativeProps} className={classNames(classes.wrapper, className)}>
-            <label
-                className={classNames(classes.label, {
-                    [classes.required]: inputProps.required,
-                })}
-                htmlFor={inputProps.id}>
-                Hello
+        <div {...nativeProps} ref={ref} className={classNames(classes.wrapper, className)}>
+            <label className={classes.label} htmlFor={inputProps.id}>
+                {label} {inputProps.required && <span className={classes.required}>*</span>}
             </label>
-            <Input {...inputProps} />
-        </LocalRoot>
+            {children}
+        </div>
     );
-};
+});
 
 FormField.displayName = 'FormField';
