@@ -1,27 +1,11 @@
 import {forwardRef} from 'react';
-import type {FC} from 'react';
 import classNames from 'classnames';
 
 import {IconError, IconValid, IconLoader} from '@/lib/Icons';
-import type {NativeProps, CallbackProps} from '@/internal/inputs/API.ts';
-import type {LibraryProps, DataAttributes} from '@/internal/LibraryAPI';
 
 import classes from './InputText.module.css';
-
-enum Validation {
-    error = 'error',
-    valid = 'valid',
-    inProgress = 'inProgress',
-}
-
-type Props = DataAttributes &
-    LibraryProps &
-    NativeProps &
-    CallbackProps & {
-        type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
-        prefix?: FC;
-        validation?: keyof typeof Validation;
-    };
+import {Validation} from './Types.ts';
+import type {Props} from './Types.ts';
 
 export const InputText = forwardRef<HTMLInputElement, Props>(
     (
@@ -30,7 +14,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             className,
             validation,
             type = 'text',
-            placeholder,
+            placeholder = '',
             disabled,
             value: valueProp,
             onChange = () => {},
@@ -53,6 +37,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                 {Prefix && <Prefix />}
                 <input
                     {...nativeProps}
+                    placeholder={placeholder}
                     className={classes.input}
                     ref={ref}
                     disabled={disabled}

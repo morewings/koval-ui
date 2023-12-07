@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: var(--sizeUnit);
+
+    &.required {
+        &::after {
+            content: "*";
+            font-size: 24px;
+            margin-left: 3px;
+        }
+    }
+}
