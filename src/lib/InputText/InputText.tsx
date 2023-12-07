@@ -4,8 +4,7 @@ import classNames from 'classnames';
 
 import {IconError, IconValid, IconLoader} from '@/lib/Icons';
 import type {NativeProps, CallbackProps} from '@/internal/inputs/API.ts';
-import type {LibraryProps} from '@/internal/LibraryAPI';
-import {parseDataAttributes} from '@/internal/LibraryAPI';
+import type {LibraryProps, DataAttributes} from '@/internal/LibraryAPI';
 
 import classes from './InputText.module.css';
 
@@ -15,7 +14,8 @@ enum Validation {
     inProgress = 'inProgress',
 }
 
-type Props = LibraryProps &
+type Props = DataAttributes &
+    LibraryProps &
     NativeProps &
     CallbackProps & {
         type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
@@ -39,7 +39,6 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
-            dataAttributes = {},
             ...nativeProps
         },
         ref
@@ -53,8 +52,8 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             <div className={classNames(classes.wrapper, className)}>
                 {Prefix && <Prefix />}
                 <input
-                    {...parseDataAttributes(dataAttributes)}
                     {...nativeProps}
+                    className={classes.input}
                     ref={ref}
                     disabled={disabled}
                     type={type}

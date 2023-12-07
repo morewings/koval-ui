@@ -12,24 +12,32 @@
     & > div {
         flex: 0 1 auto;
     }
+}
 
-    & input {
-        background-color: lightgray;
-        border: 3px solid lightgray;
-        border-radius: calc(var(--sizeUnit) * 0.5);
-        flex: 1;
-        font-size: var(--textSize);
-        min-width: 0;
-        padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+.input {
+    background-color: lightgray;
+    border: 3px solid lightgray;
+    border-radius: calc(var(--sizeUnit) * 0.66);
+    flex: 1;
+    font-size: var(--textSize);
+    min-width: 0;
+    padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
 
-        &:focus {
-            background-color: white;
-            border-color: grey;
-            outline: none;
-        }
+    &:focus {
+        background-color: white;
+        border-color: grey;
+        outline: none;
+    }
 
-        &:last-child {
-            margin-right: var(--validationIconPlaceholder);
-        }
+    &:last-child {
+        margin-right: var(--validationIconPlaceholder);
+    }
+
+    &:invalid {
+        border-color: red;
+    }
+
+    &:required:valid {
+        border-color: green;
     }
 }

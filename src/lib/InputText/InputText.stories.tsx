@@ -3,7 +3,6 @@ import {fn} from '@storybook/test';
 
 import {InputText} from './InputText';
 
-('onClick, onBlur, onFocus, onKeyDown, onKeyUp, id, role, dataAttributes, className, name, required, autoFocus, autoComplete, form, onChange');
 const meta = {
     title: 'Inputs/Text',
     component: InputText,
@@ -104,18 +103,18 @@ type Story = StoryObj<typeof meta>;
 
 export const Example: Story = {
     args: {
-        value: 'bar',
+        defaultValue: 'bar',
     },
 };
 
-export const Second: Story = {
-    // render: args => {
-    //     return <Icon {...args} />;
-    // },
-    args: {},
-    parameters: {
-        docs: {
-            source: {language: 'tsx', type: 'code'},
-        },
-    },
-};
+// export const Second: Story = {
+//     render: () => {
+//         return <InputText data-hello="fal" onClick={3} />;
+//     },
+//     args: {},
+//     parameters: {
+//         docs: {
+//             source: {language: 'tsx', type: 'code'},
+//         },
+//     },
+// };
