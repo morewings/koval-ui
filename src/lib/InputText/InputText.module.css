@@ -33,11 +33,11 @@
         margin-right: var(--validationIconPlaceholder);
     }
 
-    &:required:valid {
+    &:focus:valid {
         border-color: green;
     }
 
-    &:invalid {
+    &:focus:invalid {
         border-color: red;
     }
 }

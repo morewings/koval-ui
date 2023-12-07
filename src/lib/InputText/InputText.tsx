@@ -1,4 +1,5 @@
-import {forwardRef} from 'react';
+import type {ChangeEvent} from 'react';
+import {forwardRef, useState, useCallback} from 'react';
 import classNames from 'classnames';
 
 import {IconError, IconValid, IconLoader} from '@/lib/Icons';
@@ -23,15 +24,29 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
+            validator = event => {
+                if (event.target.value.length > 3) {
+                    event.target.setCustomValidity('too long');
+                }
+            },
             ...nativeProps
         },
         ref
     ) => {
+        const [validity, setValidity] = useState(validation);
         const ValidationIcon = {
             [Validation.error]: IconError,
             [Validation.valid]: IconValid,
             [Validation.inProgress]: IconLoader,
-        }[validation!];
+        }[validity!];
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                const nextValidationState = event.target.checkValidity() ? Validation.valid : Validation.error;
+                setValidity(nextValidationState);
+                onChange(event);
+            },
+            [setValidity, onChange]
+        );
         return (
             <div className={classNames(classes.wrapper, className)}>
                 {Prefix && <Prefix />}
@@ -44,13 +59,14 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                     type={type}
                     value={valueProp}
                     defaultValue={defaultValue}
-                    onChange={onChange}
+                    onChange={handleChange}
                     onBlur={onBlur}
                     onFocus={onFocus}
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
+                    onInput={validator}
                 />
-                {validation && <ValidationIcon />}
+                {validity && <ValidationIcon />}
             </div>
         );
     }

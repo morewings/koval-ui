@@ -109,6 +109,7 @@ export const Example: Story = {
         inputProps: {
             id: 'foo',
             required: true,
+            defaultValue: '',
         },
     },
 };
