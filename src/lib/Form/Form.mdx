@@ -1,0 +1,29 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown } from "@storybook/blocks";
+import * as FormStories from "./Form.stories";
+import { Form } from "./Form";
+
+<Meta title="Inputs/Form" component={Form} />
+
+# Icon
+
+## Icon props
+
+<ArgsTable of={Form} />
+
+## Description
+
+`Icon` is an icon.
+
+## Imports
+
+<Source format={true} code={`
+const a = 'b';
+import a from 'b';
+`} />
+
+
+## Demo
+
+<Canvas of={FormStories.Example} />
+
+
