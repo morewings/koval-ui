@@ -1,0 +1,29 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown } from "@storybook/blocks";
+import * as InputRadioStories from "./InputRadio.stories";
+import { InputRadio } from "./InputRadio";
+
+<Meta title="Inputs/Radio" component={InputRadio} />
+
+# Icon
+
+## Icon props
+
+<ArgsTable of={InputRadio} />
+
+## Description
+
+`Icon` is an icon.
+
+## Imports
+
+<Source format={true} code={`
+const a = 'b';
+import a from 'b';
+`} />
+
+
+## Demo
+
+<Canvas of={InputRadioStories.Example} />
+
+
