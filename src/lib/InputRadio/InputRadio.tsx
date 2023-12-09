@@ -14,16 +14,17 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
             prefix: Prefix,
             className,
             validation,
-            type = 'text',
-            placeholder = '',
             disabled,
-            value: valueProp,
+            value,
             onChange = () => {},
             onFocus = () => {},
             onBlur = () => {},
             onKeyDown = () => {},
             onKeyUp = () => {},
-            defaultValue,
+            checked,
+            defaultChecked,
+            id,
+            label,
             validator = event => {
                 if (event.target.value.length > 3) {
                     event.target.setCustomValidity('too long');
@@ -36,11 +37,6 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
         ref
     ) => {
         const [validity, setValidity] = useState(validation);
-        const ValidationIcon = {
-            [Validation.error]: IconError,
-            [Validation.valid]: IconValid,
-            [Validation.inProgress]: IconLoader,
-        }[validity!];
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 const nextValidationState = event.target.checkValidity() ? Validation.valid : Validation.error;
@@ -51,16 +47,16 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
         );
         return (
             <div className={classNames(classes.wrapper, className)}>
-                {Prefix && <Prefix />}
                 <input
                     {...nativeProps}
-                    placeholder={placeholder}
                     className={classes.input}
                     ref={ref}
                     disabled={disabled}
-                    type={type}
-                    value={valueProp}
-                    defaultValue={defaultValue}
+                    type="radio"
+                    id={id}
+                    value={value}
+                    checked={checked}
+                    defaultChecked={defaultChecked}
                     onChange={handleChange}
                     onBlur={onBlur}
                     onFocus={onFocus}
@@ -68,7 +64,9 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
                     onKeyDown={onKeyDown}
                     onInput={validator}
                 />
-                {validity && <ValidationIcon />}
+                <label className={classes.label} htmlFor={id}>
+                    {label}
+                </label>
             </div>
         );
     }

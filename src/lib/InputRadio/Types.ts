@@ -1,7 +1,7 @@
 import type {ChangeEvent, FC} from 'react';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import type {CallbackProps, NativeProps} from '@/internal/inputs/API.ts';
+import type {CallbackProps, NativeProps} from '@/internal/inputs/interactiveAPI.ts';
 
 export enum Validation {
     error = 'error',
@@ -17,4 +17,5 @@ export type Props = DataAttributes &
         prefix?: FC;
         validation?: keyof typeof Validation;
         validator?: (event: ChangeEvent<HTMLInputElement>) => void;
+        label?: string;
     };
