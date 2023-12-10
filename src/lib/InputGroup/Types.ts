@@ -26,4 +26,5 @@ export type Props = DataAttributes &
          * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
          */
         disabled?: FieldsetHTMLAttributes<HTMLFieldSetElement>['disabled'];
+        hint?: string;
     };

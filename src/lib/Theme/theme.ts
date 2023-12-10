@@ -12,4 +12,9 @@ export const theme = {
     text: '#111111',
     // theme
     colorDo: '#FF0000',
+    // info colors
+    colorError: '#FF0000',
+    colorWarning: 'orange',
+    colorSuccess: 'green',
+    colorAction: 'blue',
 };

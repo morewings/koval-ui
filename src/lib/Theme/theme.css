@@ -13,6 +13,12 @@
 
     /* theme */
     --colorDo: #f00;
+
+    /* info colors */
+    --colorError: #ff0000;
+    --colorWarning: orange;
+    --colorSuccess: green;
+    --colorAction: blue;
 }
 
 /* Color Theme Swatches in Hex */

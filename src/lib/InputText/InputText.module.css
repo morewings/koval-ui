@@ -15,9 +15,10 @@
 }
 
 .input {
-    background-color: lightgray;
-    border: 3px solid lightgray;
+    background-color: var(--gray100);
+    border: 3px solid var(--gray100);
     border-radius: calc(var(--sizeUnit) * 0.66);
+    color: var(--text);
     flex: 1;
     font-size: var(--textSize);
     min-width: 0;
@@ -34,10 +35,10 @@
     }
 
     &:focus:valid {
-        border-color: green;
+        border-color: var(--colorSuccess);
     }
 
     &:focus:invalid {
-        border-color: red;
+        border-color: var(--colorError);
     }
 }

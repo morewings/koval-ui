@@ -1,6 +1,7 @@
 .wrapper {
     display: flex;
     flex-direction: column;
+    max-width: 100%;
 }
 
 .legend {
@@ -19,4 +20,11 @@
     flex-direction: column;
     padding-left: calc(var(--sizeUnit) * 2);
     row-gap: calc(var(--sizeUnit) * 1.5);
+}
+
+.hint {
+    color: var(--gray300);
+    font-size: 12px;
+    margin-top: calc(var(--sizeUnit) * 1.5);
+    width: 100%;
 }

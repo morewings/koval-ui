@@ -5,7 +5,7 @@ import classes from './InputGroup.module.css';
 import type {Props} from './Types.ts';
 
 export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
-    ({prefix: Prefix, className, validation, id, label, children, name, disabled, ...nativeProps}, ref) => {
+    ({prefix: Prefix, className, validation, id, label, children, name, disabled, hint, ...nativeProps}, ref) => {
         return (
             <fieldset {...nativeProps} className={classNames(classes.wrapper, className)} disabled={disabled} ref={ref}>
                 <legend className={classes.legend} data-disabled={disabled}>
@@ -22,6 +22,7 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
                         return element;
                     })}
                 </div>
+                {hint && <div className={classes.hint}>{hint}</div>}
             </fieldset>
         );
     }
