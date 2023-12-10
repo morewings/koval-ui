@@ -1,0 +1,22 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.legend {
+    cursor: default;
+    font-size: 18px;
+    margin-bottom: calc(var(--sizeUnit) * 1.5);
+    user-select: none;
+
+    &[data-disabled] {
+        color: var(--gray200);
+    }
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    padding-left: calc(var(--sizeUnit) * 2);
+    row-gap: calc(var(--sizeUnit) * 1.5);
+}

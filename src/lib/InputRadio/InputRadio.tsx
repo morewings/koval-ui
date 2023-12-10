@@ -2,8 +2,6 @@ import type {ChangeEvent} from 'react';
 import {forwardRef, useState, useCallback} from 'react';
 import classNames from 'classnames';
 
-import {IconError, IconValid, IconLoader} from '@/lib/Icons';
-
 import classes from './InputRadio.module.css';
 import {Validation} from './Types.ts';
 import type {Props} from './Types.ts';
@@ -26,17 +24,13 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
             id,
             label,
             validator = event => {
-                if (event.target.value.length > 3) {
-                    event.target.setCustomValidity('too long');
-                } else {
-                    event.target.setCustomValidity('');
-                }
+                event.target.setCustomValidity('');
             },
             ...nativeProps
         },
         ref
     ) => {
-        const [validity, setValidity] = useState(validation);
+        const [_, setValidity] = useState(validation);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 const nextValidationState = event.target.checkValidity() ? Validation.valid : Validation.error;

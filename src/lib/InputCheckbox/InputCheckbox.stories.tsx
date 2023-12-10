@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
-import {InputRadio} from './InputRadio.tsx';
+import {InputCheckbox} from './InputCheckbox.tsx';
 
 const meta = {
-    title: 'Inputs/Radio',
-    component: InputRadio,
+    title: 'Inputs/Checkbox',
+    component: InputCheckbox,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
@@ -96,7 +96,7 @@ const meta = {
             },
         },
     },
-} as Meta<typeof InputRadio>;
+} as Meta<typeof InputCheckbox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

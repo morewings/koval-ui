@@ -1,11 +1,14 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
-import {InputText} from './InputText';
+import {InputRadio} from '@/lib/InputRadio';
+import {InputCheckbox} from '@/lib/InputCheckbox';
+
+import {InputGroup} from './InputGroup.tsx';
 
 const meta = {
-    title: 'Inputs/Text',
-    component: InputText,
+    title: 'Inputs/Group',
+    component: InputGroup,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
@@ -96,14 +99,36 @@ const meta = {
             },
         },
     },
-} as Meta<typeof InputText>;
+} as Meta<typeof InputGroup>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Example: Story = {
+export const Radio: Story = {
     args: {
-        defaultValue: 'bar',
+        name: 'kitty',
+        id: 'foo',
+        label: 'Radio group',
+        // disabled: true,
+        children: [
+            <InputRadio id="foo" name="radio-demo" value="foo" label="This is a foo name" key="foo" />,
+            <InputRadio id="bar" name="radio-demo" value="bar" label="This is a bar name" key="bar" />,
+            <InputRadio id="bazz" name="radio-demo" value="bazz" label="This is a bazz name" key="bazz" />,
+        ],
+    },
+};
+
+export const Checkbox: Story = {
+    args: {
+        name: 'kitty',
+        id: 'foo',
+        label: 'Checkbox group',
+        // disabled: true,
+        children: [
+            <InputCheckbox id="zork" name="checkbox-demo" value="foo" label="This is a foo name" key="zork" required />,
+            <InputCheckbox id="gork" name="checkbox-demo" value="bar" label="This is a bar name" key="gork" />,
+            <InputCheckbox id="bork" name="checkbox-demo" value="bazz" label="This is a bazz name" key="bork" />,
+        ],
     },
 };
 

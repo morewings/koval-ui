@@ -12,7 +12,6 @@
     appearance: none;
     background-color: var(--bgColor);
     border: 3px solid var(--borderColor);
-    border-radius: 50%;
     cursor: pointer;
     display: block;
     height: 24px;
@@ -24,7 +23,6 @@
         --size: 0px;
 
         background-color: var(--centerColor);
-        border-radius: 50%;
         content: "";
         height: var(--size);
         left: 50%;
@@ -56,6 +54,7 @@
 }
 
 .label {
+    color: var(--text);
     cursor: pointer;
     margin-left: var(--sizeUnit);
 }

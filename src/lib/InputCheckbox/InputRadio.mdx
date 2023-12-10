@@ -1,0 +1,29 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown } from "@storybook/blocks";
+import * as InputCheckboxStories from "./InputCheckbox.stories";
+import { InputCheckbox } from "./InputCheckbox";
+
+<Meta title="Inputs/Checkbox" component={InputCheckbox} />
+
+# Icon
+
+## Icon props
+
+<ArgsTable of={InputCheckbox} />
+
+## Description
+
+`Icon` is an icon.
+
+## Imports
+
+<Source format={true} code={`
+const a = 'b';
+import a from 'b';
+`} />
+
+
+## Demo
+
+<Canvas of={InputCheckboxStories.Example} />
+
+

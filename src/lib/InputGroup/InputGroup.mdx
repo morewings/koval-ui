@@ -1,0 +1,35 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown } from "@storybook/blocks";
+import * as InputGroupStories from "./InputGroup.stories";
+import { InputGroup } from "./InputGroup";
+
+<Meta title="Inputs/Group" component={InputGroup} />
+
+# Icon
+
+## Icon props
+
+<ArgsTable of={InputGroup} />
+
+## Description
+
+`Icon` is an icon.
+
+## Imports
+
+<Source format={true} code={`
+const a = 'b';
+import a from 'b';
+`} />
+
+
+## Demo
+
+### Radio
+
+<Canvas of={InputGroupStories.Radio} />
+
+### Checkbox
+
+<Canvas of={InputGroupStories.Checkbox} />
+
+
