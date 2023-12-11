@@ -2,14 +2,24 @@ import type {ChangeEvent} from 'react';
 import {forwardRef, useState, useCallback} from 'react';
 import classNames from 'classnames';
 
+import type {NativePropsInteractive, CallbackPropsInteractive} from '@/internal/inputs';
+import {Validation} from '@/internal/inputs';
+import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
+
 import classes from './InputRadio.module.css';
-import {Validation} from './Types.ts';
-import type {Props} from './Types.ts';
+
+export type Props = DataAttributes &
+    LibraryProps &
+    NativePropsInteractive &
+    CallbackPropsInteractive & {
+        validation?: keyof typeof Validation;
+        validator?: (event: ChangeEvent<HTMLInputElement>) => void;
+        label?: string;
+    };
 
 export const InputRadio = forwardRef<HTMLInputElement, Props>(
     (
         {
-            prefix: Prefix,
             className,
             validation,
             disabled,

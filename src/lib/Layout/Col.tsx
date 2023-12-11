@@ -3,16 +3,19 @@ import {useMemo} from 'react';
 import {useLocalTheme} from 'css-vars-hook';
 import classNames from 'classnames';
 
+import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
+
 import {Offsets, Sizes} from './SizeTypes';
 import type {OffsetConfig, SizesConfig} from './SizeTypes';
 import classes from './Layout.module.css';
 
-export type ColProps = Partial<SizesConfig> &
+export type ColProps = DataAttributes &
+    LibraryProps &
+    Partial<SizesConfig> &
     Partial<OffsetConfig> & {
         /** Select an HTML element to render as a container */
         as?: string;
         children?: ReactNode;
-        className?: string;
     };
 
 const filterUndefined = (target: Record<string, number | string | undefined>) => {

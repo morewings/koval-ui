@@ -1,44 +1,53 @@
-import type {
-    InputHTMLAttributes,
-    ChangeEvent,
-    FocusEvent,
-    KeyboardEvent,
-    AriaAttributes
-} from 'react';
+import type {ChangeEvent, FocusEvent, InputHTMLAttributes, KeyboardEvent} from 'react';
 
-export type NativeProps = AriaAttributes & {
+export type CallbackPropsTextual<TElement = HTMLInputElement> = {
     /**
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name
+     * Provide value for controlled TextInput.
+     * Setting this prop enables controlled mode.
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#value
+     * @see https://naspersclassifieds.atlassian.net/wiki/spaces/NDS/pages/57169350329/RFC+Nexus+Input+API#Controllable-state
      */
-    name?: InputHTMLAttributes<HTMLInputElement>['name'];
-    /** Set input id attribute. */
-    id?: string;
+    value?: InputHTMLAttributes<TElement>['value'];
     /**
-     * Set native HTML `required` attribute.
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/required
+     * Provide value for non-controlled TextInput.
+     * Setting this prop enables non-controlled mode.
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#value
+     * @see https://naspersclassifieds.atlassian.net/wiki/spaces/NDS/pages/57169350329/RFC+Nexus+Input+API#Uncontrolled-input
      */
-    required?: InputHTMLAttributes<HTMLInputElement>['required'];
+    defaultValue?: InputHTMLAttributes<TElement>['defaultValue'];
     /**
-     * Provides substitute for native autofocus functionality.
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus
-     * @see https://github.com/facebook/react/issues/11851#issuecomment-351672131
+     * Disable input.
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#disabled
      */
-    autoFocus?: InputHTMLAttributes<HTMLInputElement>['autoFocus'];
+    disabled?: InputHTMLAttributes<TElement>['disabled'];
     /**
-     * Set native HTML `autocomplete` attribute.
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
+     * Set on change callback to get Event object.
+     * @see https://reactjs.org/docs/events.html#form-events
      */
-    autoComplete?: InputHTMLAttributes<HTMLInputElement>['autoComplete'];
-    /** Set native HTML `form` attribute. */
-    form?: InputHTMLAttributes<HTMLInputElement>['form'];
+    onChange?: (event: ChangeEvent<TElement>) => void;
     /**
-     * Set native ARIA role attribute
-     * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/input_role
+     * Set on focus callback to get Event object.
+     * @see https://reactjs.org/docs/events.html#onfocus
      */
-    role?: InputHTMLAttributes<HTMLInputElement>['role'];
+    onFocus?: (event: FocusEvent<TElement>) => void;
+    /**
+     * Set on blur callback to get Event object.
+     * @see https://reactjs.org/docs/events.html#onblur
+     */
+    onBlur?: (event: FocusEvent<TElement>) => void;
+    /**
+     * Set on key down callback to get Event object.
+     * @see https://reactjs.org/docs/events.html#keyboard-events
+     */
+    onKeyDown?: (event: KeyboardEvent<TElement>) => void;
+    /**
+     * Set on key up callback to get Event object.
+     * @see https://reactjs.org/docs/events.html#keyboard-events
+     */
+    onKeyUp?: (event: KeyboardEvent<TElement>) => void;
 };
 
-export type CallbackProps = {
+export type CallbackPropsInteractive = {
     /**
      * Provide value CheckboxInput.
      * NB! This prop is unlike TextInput and doesn't influence a state of input! Use `checked` prop for that.

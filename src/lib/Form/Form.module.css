@@ -1,3 +1,5 @@
 .form {
-    color: red;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--sizeUnit) * 3);
 }

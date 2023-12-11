@@ -42,3 +42,7 @@
         border-color: var(--colorError);
     }
 }
+
+/* input[type="checkbox"]:required:invalid + label {
+    color: red;
+} */

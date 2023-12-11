@@ -2,16 +2,24 @@ import type {ChangeEvent} from 'react';
 import {forwardRef, useState, useCallback} from 'react';
 import classNames from 'classnames';
 
-// import {IconError, IconValid, IconLoader} from '@/lib/Icons';
+import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
+import {Validation} from '@/internal/inputs';
+import type {NativePropsInteractive, CallbackPropsInteractive} from '@/internal/inputs';
 
 import classes from './InputCheckbox.module.css';
-import {Validation} from './Types.ts';
-import type {Props} from './Types.ts';
+
+type Props = DataAttributes &
+    LibraryProps &
+    NativePropsInteractive &
+    CallbackPropsInteractive & {
+        validation?: keyof typeof Validation;
+        validator?: (event: ChangeEvent<HTMLInputElement>) => void;
+        label?: string;
+    };
 
 export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
     (
         {
-            prefix: Prefix,
             className,
             validation,
             disabled,

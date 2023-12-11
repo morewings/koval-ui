@@ -63,3 +63,7 @@
     color: var(--gray200);
     cursor: not-allowed;
 }
+
+.input:invalid + label {
+    color: var(--errorColor);
+}

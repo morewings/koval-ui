@@ -4,6 +4,9 @@ import {fn} from '@storybook/test';
 
 import {InputText} from '@/lib/InputText';
 import {FormField} from '@/lib/FormField';
+import {InputGroup} from '@/lib/InputGroup';
+import {InputCheckbox} from '@/lib/InputCheckbox';
+import {InputRadio} from '@/lib/InputRadio';
 
 import {Form} from './Form.tsx';
 
@@ -110,11 +113,23 @@ export const Example: Story = {
         children: (
             <Fragment>
                 <FormField label="foo">
-                    <InputText defaultValue="foo" name="foo" id="foo" required />
+                    <InputText defaultValue="foo" name="foo" id="qux" required />
                 </FormField>
-                <button type="submit">Submit</button>
-                <br />
-                <button type="reset">Reset</button>
+                <InputGroup name="radio-demo" label="Radio group">
+                    <InputRadio required id="foo" value="foo" label="This is a foo name" />
+                    <InputRadio disabled id="bar" value="bar" label="This is a bar name" />
+                    <InputRadio id="bazz" value="bazz" label="This is a bazz name" />
+                </InputGroup>
+                <InputGroup name="checkbox-demo" label="Radio group">
+                    <InputCheckbox id="zork" value="foo" label="This is a foo name" key="zork" required />
+                    <InputCheckbox required id="gork" value="bar" label="This is a bar name" key="gork" />
+                    <InputCheckbox disabled id="bork" value="bazz" label="This is a bazz name" key="bork" />
+                </InputGroup>
+                <div>
+                    <button type="submit">Submit</button>
+                    <br />
+                    <button type="reset">Reset</button>
+                </div>
             </Fragment>
         ),
     },

@@ -1,12 +1,23 @@
-import type {ChangeEvent} from 'react';
+import type {ChangeEvent, FC} from 'react';
 import {forwardRef, useState, useCallback} from 'react';
 import classNames from 'classnames';
 
 import {IconError, IconValid, IconLoader} from '@/lib/Icons';
+import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
+import type {NativePropsTextual, CallbackPropsTextual} from '@/internal/inputs';
+import {Validation} from '@/internal/inputs';
 
 import classes from './InputText.module.css';
-import {Validation} from './Types.ts';
-import type {Props} from './Types.ts';
+
+type Props = DataAttributes &
+    LibraryProps &
+    NativePropsTextual &
+    CallbackPropsTextual & {
+        type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
+        prefix?: FC;
+        validation?: keyof typeof Validation;
+        validator?: (event: ChangeEvent<HTMLInputElement>) => void;
+    };
 
 export const InputText = forwardRef<HTMLInputElement, Props>(
     (
