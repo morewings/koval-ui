@@ -34,10 +34,6 @@
         width: var(--size);
     }
 
-    &:focus {
-        --borderColor: var(--gray400);
-    }
-
     &:invalid {
         --borderColor: red;
     }
@@ -51,10 +47,14 @@
     &:checked::before {
         --size: 10px;
     }
+
+    &:focus:not(:disabled, :invalid) {
+        --borderColor: var(--gray400);
+    }
 }
 
 .wrapper:hover {
-    .input {
+    .input:not(:disabled, :invalid) {
         --borderColor: var(--gray400);
     }
 }
@@ -69,6 +69,6 @@
     cursor: not-allowed;
 }
 
-/* .input:invalid + .label {
-    color: var(--errorColor);
-} */
+.input:invalid + .label {
+    color: var(--colorError);
+}

@@ -33,9 +33,7 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
             defaultChecked,
             id,
             label,
-            validator = event => {
-                event.target.setCustomValidity('');
-            },
+            validator = () => {},
             ...nativeProps
         },
         ref

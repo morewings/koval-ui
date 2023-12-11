@@ -33,9 +33,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             defaultChecked,
             id,
             label,
-            validator = event => {
-                event.target.setCustomValidity('');
-            },
+            validator = () => {},
             ...nativeProps
         },
         ref
@@ -44,6 +42,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 const nextValidationState = event.target.checkValidity() ? Validation.valid : Validation.error;
+                console.log('valid', event.target.checkValidity());
                 setValidity(nextValidationState);
                 onChange(event);
             },
