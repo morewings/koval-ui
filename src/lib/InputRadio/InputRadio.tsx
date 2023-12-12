@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import type {NativePropsInteractive, CallbackPropsInteractive} from '@/internal/inputs';
 import {Validation} from '@/internal/inputs';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
+import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputRadio.module.css';
 
@@ -29,7 +30,7 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             checked,
             defaultChecked,
-            id,
+            id: idProp,
             label,
             validatorFn = () => true,
             required,
@@ -37,6 +38,7 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
         },
         ref
     ) => {
+        const id = useInternalId(idProp);
         const [_, setValidity] = useState<keyof typeof Validation | null>(null);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {

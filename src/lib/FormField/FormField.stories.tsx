@@ -110,6 +110,13 @@ export const Example: Story = {
     },
 };
 
+export const ExampleWithoutId: Story = {
+    args: {
+        label: 'foo',
+        children: <InputText defaultValue="hello" />,
+    },
+};
+
 // export const Second: Story = {
 //     render: () => {
 //         return <InputText data-hello="fal" onClick={3} />;

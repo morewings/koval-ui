@@ -6,6 +6,7 @@ import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Validation} from '@/internal/inputs';
 import type {NativePropsInteractive, CallbackPropsInteractive} from '@/internal/inputs';
 import {IconError, IconLoader, IconValid} from '@/lib/Icons';
+import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputCheckbox.module.css';
 
@@ -30,7 +31,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             checked,
             defaultChecked,
-            id,
+            id: idProp,
             label,
             validatorFn = () => true,
             required,
@@ -38,6 +39,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
         },
         ref
     ) => {
+        const id = useInternalId(idProp);
         const [validity, setValidity] = useState<keyof typeof Validation | null>(null);
         const ValidationIcon = {
             [Validation.error]: IconError,

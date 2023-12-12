@@ -13,8 +13,16 @@ import classNames from 'classnames';
 
 import type {LibraryProps, DataAttributes} from '@/internal/LibraryAPI';
 import type {Validation} from '@/internal/inputs';
+import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputGroup.module.css';
+
+type ChildProps = {
+    name?: Props['name'];
+    disabled?: Props['disabled'];
+    required?: Props['required'];
+    id?: Props['id'];
+};
 
 type Props = DataAttributes &
     LibraryProps & {
@@ -23,9 +31,7 @@ type Props = DataAttributes &
         validation?: keyof typeof Validation;
         validator?: (event: ChangeEvent<HTMLInputElement>) => void;
         label?: string;
-        children: ReactElement<
-            {name?: string; disabled?: FieldsetHTMLAttributes<HTMLFieldSetElement>['disabled']} & unknown
-        >[];
+        children: ReactElement<ChildProps & unknown>[];
         name: string;
         /**
          * Disable input.
@@ -36,19 +42,14 @@ type Props = DataAttributes &
         hint?: string;
     };
 
-type ChildProps = {
-    name?: Props['name'];
-    disabled?: Props['disabled'];
-    required?: Props['required'];
-};
-
 export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
     (
         {prefix: Prefix, className, validation, id, label, children, name, disabled, hint, required, ...nativeProps},
         ref
     ) => {
+        const inputId = useInternalId();
         const childrenWithProps = useMemo(() => {
-            return Children.map(children, element => {
+            return Children.map(children, (element, index) => {
                 if (isValidElement(element)) {
                     const nextProps = {name} as ChildProps;
                     if (disabled !== undefined) {
@@ -57,13 +58,21 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
                     if (required !== undefined) {
                         nextProps.required = required;
                     }
+                    if (!element.props.id) {
+                        nextProps.id = `${inputId}-${index}`;
+                    }
                     return cloneElement<ChildProps>(element, nextProps);
                 }
                 return element;
             });
         }, [children, disabled, name, required]);
         return (
-            <fieldset {...nativeProps} className={classNames(classes.wrapper, className)} disabled={disabled} ref={ref}>
+            <fieldset
+                {...nativeProps}
+                className={classNames(classes.wrapper, className)}
+                disabled={disabled}
+                id={id}
+                ref={ref}>
                 <legend className={classes.legend} data-disabled={disabled}>
                     {label}
                 </legend>

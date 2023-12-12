@@ -132,6 +132,20 @@ export const Checkbox: Story = {
     },
 };
 
+export const CheckboxNoId: Story = {
+    args: {
+        name: 'kitty',
+        id: 'foo',
+        label: 'Checkbox group',
+        // disabled: true,
+        children: [
+            <InputCheckbox name="checkbox-demo" value="foo" label="This is a foo name" key="zork" required />,
+            <InputCheckbox name="checkbox-demo" value="bar" label="This is a bar name" key="gork" />,
+            <InputCheckbox name="checkbox-demo" value="bazz" label="This is a bazz name" key="bork" />,
+        ],
+    },
+};
+
 // export const Second: Story = {
 //     render: () => {
 //         return <InputText data-hello="fal" onClick={3} />;
