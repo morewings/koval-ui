@@ -1,4 +1,4 @@
-import {forwardRef, useRef} from 'react';
+import {forwardRef} from 'react';
 import type {ReactNode, SyntheticEvent} from 'react';
 import classNames from 'classnames';
 
@@ -37,8 +37,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(({className, children, ..
     const handleChange = (event: SyntheticEvent<HTMLFormElement>) => {
         console.log(event.target);
     };
-    const innerRef = useRef<HTMLFormElement>(null);
-    useInternalRef<HTMLFormElement>(ref, innerRef);
+    const innerRef = useInternalRef<HTMLFormElement>(ref);
     return (
         <form
             {...nativeProps}
