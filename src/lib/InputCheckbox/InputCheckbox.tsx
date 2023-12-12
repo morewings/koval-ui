@@ -3,7 +3,7 @@ import {forwardRef, useState, useCallback} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import {Validation} from '@/internal/inputs';
+import {Validation, defaultValidator} from '@/internal/inputs';
 import type {NativePropsInteractive, CallbackPropsInteractive} from '@/internal/inputs';
 import {IconError, IconLoader, IconValid} from '@/lib/Icons';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
@@ -33,12 +33,14 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             defaultChecked,
             id: idProp,
             label,
-            validatorFn = () => true,
+            validatorFn = defaultValidator,
             required,
             ...nativeProps
         },
         ref
     ) => {
+        const hasCustomValidation = validatorFn !== defaultValidator;
+        const [customValidation, setCustomValidation] = useState(hasCustomValidation);
         const id = useInternalId(idProp);
         const [validity, setValidity] = useState<keyof typeof Validation | null>(null);
         const ValidationIcon = {
@@ -48,11 +50,14 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
         }[validity!];
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                const nextValidationState = event.target.reportValidity() ? Validation.valid : Validation.error;
+                const isValid = event.target.reportValidity();
+                !isValid && setCustomValidation(true);
+                const validState = customValidation ? Validation.valid : null;
+                const nextValidationState = isValid ? validState : Validation.error;
                 setValidity(nextValidationState);
                 onChange(event);
             },
-            [setValidity, onChange]
+            [setValidity, onChange, customValidation, setCustomValidation]
         );
         const handleInput = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
