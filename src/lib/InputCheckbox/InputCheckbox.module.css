@@ -6,7 +6,7 @@
 
 .input {
     --bgColor: #fff;
-    --borderColor: var(--gray200);
+    --borderColor: var(--colorMi);
     --centerColor: var(--colorDo);
 
     appearance: none;
@@ -43,7 +43,7 @@
     }
 
     &:focus:not(:disabled, :invalid) {
-        --borderColor: var(--gray400);
+        --borderColor: var(--colorRe);
     }
 }
 
@@ -52,6 +52,7 @@
 
     color: var(--text);
     cursor: pointer;
+    font-size: 16px;
     margin-left: var(--sizeUnit);
     margin-right: var(--sizeUnit);
 
@@ -66,7 +67,7 @@
 
 .required {
     font-size: 24px;
-    line-height: 18px;
+    line-height: 16px;
 }
 
 .input:disabled + .label {

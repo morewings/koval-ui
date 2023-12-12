@@ -110,11 +110,11 @@ export const Example: Story = {
 
 export const WithValidation: Story = {
     render: args => {
-        const validator = (checked?: boolean) => {
+        const validator = (checked?: unknown) => {
             if (!checked) {
                 return 'Custom error!';
             }
-            return true;
+            return '';
         };
         return <InputCheckbox {...args} required validatorFn={validator} />;
     },

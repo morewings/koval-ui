@@ -34,10 +34,6 @@
         margin-right: var(--validationIconPlaceholder);
     }
 
-    &:focus:valid {
-        border-color: var(--colorSuccess);
-    }
-
     &:focus:invalid {
         border-color: var(--colorError);
     }

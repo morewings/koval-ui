@@ -11,7 +11,11 @@ export const theme = {
     gray500: '#363636',
     text: '#111111',
     // theme
-    colorDo: '#FF0000',
+    colorDo: '#ffbe99',
+    colorRe: '#806759',
+    colorMi: '#597480',
+    colorFa: '#99dfff',
+    colorSol: '#99ffdc',
     // info colors
     colorError: '#FF0000',
     colorWarning: 'orange',

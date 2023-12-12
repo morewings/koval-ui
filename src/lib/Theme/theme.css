@@ -12,10 +12,14 @@
     --text: #111;
 
     /* theme */
-    --colorDo: #f00;
+    --colorDo: #ffbe99;
+    --colorRe: #806759;
+    --colorMi: #597480;
+    --colorFa: #99dfff;
+    --colorSol: #99ffdc;
 
     /* info colors */
-    --colorError: #ff0000;
+    --colorError: #f00;
     --colorWarning: orange;
     --colorSuccess: green;
     --colorAction: blue;

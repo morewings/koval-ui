@@ -13,7 +13,6 @@ import classNames from 'classnames';
 
 import type {LibraryProps, DataAttributes} from '@/internal/LibraryAPI';
 import type {Validation} from '@/internal/inputs';
-import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputGroup.module.css';
 
@@ -47,9 +46,8 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
         {prefix: Prefix, className, validation, id, label, children, name, disabled, hint, required, ...nativeProps},
         ref
     ) => {
-        const inputId = useInternalId();
         const childrenWithProps = useMemo(() => {
-            return Children.map(children, (element, index) => {
+            return Children.map(children, element => {
                 if (isValidElement(element)) {
                     const nextProps = {name} as ChildProps;
                     if (disabled !== undefined) {
@@ -57,9 +55,6 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
                     }
                     if (required !== undefined) {
                         nextProps.required = required;
-                    }
-                    if (!element.props.id) {
-                        nextProps.id = `${inputId}-${index}`;
                     }
                     return cloneElement<ChildProps>(element, nextProps);
                 }

@@ -1,1 +1,2 @@
-export const defaultValidator = () => true;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const defaultValidator = (_: unknown | undefined) => '';

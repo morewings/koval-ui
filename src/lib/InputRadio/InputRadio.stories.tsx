@@ -108,15 +108,9 @@ export const Example: Story = {
     },
 };
 
-export const WithValidation: Story = {
+export const ValidationRequired: Story = {
     render: args => {
-        const validator = (checked?: boolean) => {
-            if (!checked) {
-                return 'Custom error!';
-            }
-            return true;
-        };
-        return <InputRadio {...args} required validatorFn={validator} />;
+        return <InputRadio {...args} required />;
     },
     args: {
         label: 'bar',

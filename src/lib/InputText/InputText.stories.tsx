@@ -1,8 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
-import type {CallbackPropsTextual} from '@/internal/inputs';
-
 import {InputText} from './InputText';
 
 const meta = {
@@ -109,16 +107,52 @@ export const Example: Story = {
     },
 };
 
-export const WithValidation: Story = {
+export const ValidationRequired: Story = {
     render: args => {
-        const validator = (value?: CallbackPropsTextual['value']) => {
+        return <InputText {...args} autoComplete="off" required />;
+    },
+    args: {
+        id: 'bar',
+    },
+};
+
+export const ValidationEmail: Story = {
+    render: args => {
+        return <InputText {...args} autoComplete="off" type="email" />;
+    },
+    args: {
+        id: 'bar',
+    },
+};
+
+export const ValidationUrl: Story = {
+    render: args => {
+        return <InputText {...args} autoComplete="off" type="url" />;
+    },
+    args: {
+        id: 'bar',
+    },
+};
+
+export const ValidationPattern: Story = {
+    render: args => {
+        return <InputText {...args} autoComplete="off" pattern="[^@\s]+@[^@\s]+" />;
+    },
+    args: {
+        id: 'bar',
+    },
+};
+
+export const ValidationCustom: Story = {
+    render: args => {
+        const validator = (value?: unknown) => {
             if (value && `${value}`.length > 3) {
                 return 'too long';
             } else {
-                return true;
+                return '';
             }
         };
-        return <InputText {...args} required validatorFn={validator} />;
+        return <InputText {...args} autoComplete="off" validatorFn={validator} />;
     },
     args: {
         id: 'bar',

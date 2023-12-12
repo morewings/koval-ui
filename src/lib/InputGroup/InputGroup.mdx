@@ -4,15 +4,15 @@ import { InputGroup } from "./InputGroup";
 
 <Meta title="Inputs/Group" component={InputGroup} />
 
-# Icon
-
-## Icon props
-
-<ArgsTable of={InputGroup} />
+# Input group
 
 ## Description
 
-`Icon` is an icon.
+`InputGroup` is a component to wrap groups of **interactive inputs**, such as `InputCheckbox` or `InputRadio`.
+
+## Props
+
+<ArgsTable of={InputGroup} />
 
 ## Imports
 
@@ -28,13 +28,37 @@ import a from 'b';
 
 <Canvas of={InputGroupStories.Radio} />
 
+### Radio with built-in validation
+
+<Canvas of={InputGroupStories.RadioBuiltinValidation} />
+
+### Radio with hint
+
+<Canvas of={InputGroupStories.RadioHint} />
+
+### Radio disabled
+
+<Canvas of={InputGroupStories.RadioDisabled} />
+
 ### Checkbox
 
 <Canvas of={InputGroupStories.Checkbox} />
 
+### Checkbox with custom validation
+
+<Canvas of={InputGroupStories.CheckboxCustomValidation} />
+
 ### Checkbox without id
 
 <Canvas of={InputGroupStories.CheckboxNoId} />
+
+### Checkbox with hint
+
+<Canvas of={InputGroupStories.CheckboxHint} />
+
+### Checkbox disabled
+
+<Canvas of={InputGroupStories.CheckboxDisabled} />
 
 
 

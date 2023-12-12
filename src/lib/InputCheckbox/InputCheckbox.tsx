@@ -3,9 +3,9 @@ import {forwardRef, useState, useCallback} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import {Validation, defaultValidator} from '@/internal/inputs';
+import {Validation, defaultValidator, useValidation} from '@/internal/inputs';
 import type {NativePropsInteractive, CallbackPropsInteractive} from '@/internal/inputs';
-import {IconError, IconLoader, IconValid} from '@/lib/Icons';
+import {IconError, IconLoader, IconValid} from '@/internal/Icons';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputCheckbox.module.css';
@@ -14,7 +14,7 @@ type Props = DataAttributes &
     LibraryProps &
     NativePropsInteractive &
     CallbackPropsInteractive & {
-        validatorFn?: (value: CallbackPropsInteractive['checked']) => string | true;
+        validatorFn?: (value: unknown) => string;
         label?: string;
     };
 
@@ -39,8 +39,6 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
         },
         ref
     ) => {
-        const hasCustomValidation = validatorFn !== defaultValidator;
-        const [customValidation, setCustomValidation] = useState(hasCustomValidation);
         const id = useInternalId(idProp);
         const [validity, setValidity] = useState<keyof typeof Validation | null>(null);
         const ValidationIcon = {
@@ -48,27 +46,12 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             [Validation.valid]: IconValid,
             [Validation.inProgress]: IconLoader,
         }[validity!];
+        const {validateInputInteractive} = useValidation({validatorFn, setValidity});
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                const isValid = event.target.reportValidity();
-                !isValid && setCustomValidation(true);
-                const validState = customValidation ? Validation.valid : null;
-                const nextValidationState = isValid ? validState : Validation.error;
-                setValidity(nextValidationState);
                 onChange(event);
             },
-            [setValidity, onChange, customValidation, setCustomValidation]
-        );
-        const handleInput = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                const validationResult = validatorFn(event.target.checked);
-                if (typeof validationResult === 'string') {
-                    event.target.setCustomValidity(validationResult);
-                } else {
-                    event.target.setCustomValidity('');
-                }
-            },
-            [validatorFn]
+            [onChange]
         );
         return (
             <div className={classNames(classes.wrapper, className)}>
@@ -87,7 +70,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
                     onFocus={onFocus}
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
-                    onInput={handleInput}
+                    onInput={validateInputInteractive}
                     required={required}
                 />
                 <label className={classes.label} htmlFor={id}>

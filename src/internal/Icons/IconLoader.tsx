@@ -11,7 +11,7 @@ type Props = {
 
 export const IconLoader: FC<Props> = ({className}) => {
     return (
-        <Icon className={classNames(classes.rotation, className)}>
+        <Icon className={classNames(classes.rotation, classes.loading, className)}>
             <Loader />
         </Icon>
     );

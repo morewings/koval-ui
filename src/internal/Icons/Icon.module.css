@@ -16,3 +16,15 @@
 .rotation {
     animation: spin 1s linear infinite;
 }
+
+.error {
+    color: var(--colorError);
+}
+
+.valid {
+    color: var(--colorSuccess);
+}
+
+.loading {
+    color: var(--colorAction);
+}
