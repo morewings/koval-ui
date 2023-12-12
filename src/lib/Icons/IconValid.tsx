@@ -3,9 +3,13 @@ import Check from '@material-symbols/svg-700/sharp/check.svg?react';
 
 import {Icon} from './Icon.tsx';
 
-export const IconValid: FC = () => {
+type Props = {
+    className?: string;
+};
+
+export const IconValid: FC<Props> = ({className}) => {
     return (
-        <Icon>
+        <Icon className={className}>
             <Check />
         </Icon>
     );

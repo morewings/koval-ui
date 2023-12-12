@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Validation} from '@/internal/inputs';
 import type {NativePropsInteractive, CallbackPropsInteractive} from '@/internal/inputs';
+import {IconError, IconLoader, IconValid} from '@/lib/Icons';
 
 import classes from './InputCheckbox.module.css';
 
@@ -12,7 +13,6 @@ type Props = DataAttributes &
     LibraryProps &
     NativePropsInteractive &
     CallbackPropsInteractive & {
-        validation?: keyof typeof Validation;
         validator?: (event: ChangeEvent<HTMLInputElement>) => void;
         label?: string;
     };
@@ -21,7 +21,6 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
     (
         {
             className,
-            validation,
             disabled,
             value,
             onChange = () => {},
@@ -34,15 +33,20 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             id,
             label,
             validator = () => {},
+            required,
             ...nativeProps
         },
         ref
     ) => {
-        const [_, setValidity] = useState(validation);
+        const [validity, setValidity] = useState<keyof typeof Validation | null>(null);
+        const ValidationIcon = {
+            [Validation.error]: IconError,
+            [Validation.valid]: IconValid,
+            [Validation.inProgress]: IconLoader,
+        }[validity!];
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 const nextValidationState = event.target.checkValidity() ? Validation.valid : Validation.error;
-                console.log('valid', event.target.checkValidity());
                 setValidity(nextValidationState);
                 onChange(event);
             },
@@ -66,10 +70,12 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
                     onInput={validator}
+                    required={required}
                 />
                 <label className={classes.label} htmlFor={id}>
-                    {label}
+                    {label} {required && <span className={classes.required}>*</span>}
                 </label>
+                {validity && <ValidationIcon className={classes.icon} />}
             </div>
         );
     }

@@ -7,6 +7,7 @@ import {
     type ChangeEvent,
     type ReactElement,
     type FieldsetHTMLAttributes,
+    useMemo,
 } from 'react';
 import classNames from 'classnames';
 
@@ -31,34 +32,42 @@ type Props = DataAttributes &
          * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
          */
         disabled?: FieldsetHTMLAttributes<HTMLFieldSetElement>['disabled'];
+        required?: boolean;
         hint?: string;
     };
 
+type ChildProps = {
+    name?: Props['name'];
+    disabled?: Props['disabled'];
+    required?: Props['required'];
+};
+
 export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
-    ({prefix: Prefix, className, validation, id, label, children, name, disabled, hint, ...nativeProps}, ref) => {
+    (
+        {prefix: Prefix, className, validation, id, label, children, name, disabled, hint, required, ...nativeProps},
+        ref
+    ) => {
+        const childrenWithProps = useMemo(() => {
+            return Children.map(children, element => {
+                if (isValidElement(element)) {
+                    const nextProps = {name} as ChildProps;
+                    if (disabled !== undefined) {
+                        nextProps.disabled = disabled;
+                    }
+                    if (required !== undefined) {
+                        nextProps.required = required;
+                    }
+                    return cloneElement<ChildProps>(element, nextProps);
+                }
+                return element;
+            });
+        }, [children, disabled, name, required]);
         return (
             <fieldset {...nativeProps} className={classNames(classes.wrapper, className)} disabled={disabled} ref={ref}>
                 <legend className={classes.legend} data-disabled={disabled}>
                     {label}
                 </legend>
-                <div className={classes.inputs}>
-                    {Children.map(children, element => {
-                        if (isValidElement(element)) {
-                            const nextProps =
-                                disabled !== undefined
-                                    ? {
-                                          name,
-                                          disabled,
-                                      }
-                                    : {name};
-                            return cloneElement<{name?: Props['name']; disabled?: Props['disabled']}>(
-                                element,
-                                nextProps
-                            );
-                        }
-                        return element;
-                    })}
-                </div>
+                <div className={classes.inputs}>{childrenWithProps}</div>
                 {hint && <div className={classes.hint}>{hint}</div>}
             </fieldset>
         );

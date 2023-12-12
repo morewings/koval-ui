@@ -5,6 +5,7 @@
 }
 
 .legend {
+    color: var(--text);
     cursor: default;
     font-size: 18px;
     margin-bottom: calc(var(--sizeUnit) * 1.5);

@@ -6,6 +6,7 @@
 }
 
 .label {
+    color: var(--text);
     cursor: pointer;
     font-size: 18px;
     line-height: 1;

@@ -3,9 +3,13 @@ import Error from '@material-symbols/svg-700/sharp/error.svg?react';
 
 import {Icon} from './Icon.tsx';
 
-export const IconError: FC = () => {
+type Props = {
+    className?: string;
+};
+
+export const IconError: FC<Props> = ({className}) => {
     return (
-        <Icon>
+        <Icon className={className}>
             <Error />
         </Icon>
     );

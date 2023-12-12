@@ -15,8 +15,7 @@ type Props = DataAttributes &
     CallbackPropsTextual & {
         type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
         prefix?: FC;
-        validation?: keyof typeof Validation;
-        validator?: (event: ChangeEvent<HTMLInputElement>) => void;
+        validatorFn?: (value: CallbackPropsTextual['value']) => string | true;
     };
 
 export const InputText = forwardRef<HTMLInputElement, Props>(
@@ -24,7 +23,6 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
         {
             prefix: Prefix,
             className,
-            validation,
             type = 'text',
             placeholder = '',
             disabled,
@@ -35,18 +33,18 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
-            validator = event => {
-                if (event.target.value.length > 3) {
-                    event.target.setCustomValidity('too long');
+            validatorFn = value => {
+                if (value && `${value}`.length > 3) {
+                    return 'too long';
                 } else {
-                    event.target.setCustomValidity('');
+                    return true;
                 }
             },
             ...nativeProps
         },
         ref
     ) => {
-        const [validity, setValidity] = useState(validation);
+        const [validity, setValidity] = useState<keyof typeof Validation | null>(null);
         const ValidationIcon = {
             [Validation.error]: IconError,
             [Validation.valid]: IconValid,
@@ -59,6 +57,17 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                 onChange(event);
             },
             [setValidity, onChange]
+        );
+        const handleInput = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                const validationResult = validatorFn(event.target.value);
+                if (typeof validationResult === 'string') {
+                    event.target.setCustomValidity(validationResult);
+                } else {
+                    event.target.setCustomValidity('');
+                }
+            },
+            [validatorFn]
         );
         return (
             <div className={classNames(classes.wrapper, className)}>
@@ -77,7 +86,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                     onFocus={onFocus}
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
-                    onInput={validator}
+                    onInput={handleInput}
                 />
                 {validity && <ValidationIcon />}
             </div>

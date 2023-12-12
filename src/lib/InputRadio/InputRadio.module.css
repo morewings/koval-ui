@@ -4,6 +4,11 @@
     flex-direction: row;
 }
 
+.label {
+    cursor: pointer;
+    margin-left: var(--sizeUnit);
+}
+
 .input {
     --bgColor: #fff;
     --borderColor: var(--gray200);
@@ -34,10 +39,6 @@
         width: var(--size);
     }
 
-    &:invalid {
-        --borderColor: red;
-    }
-
     &:disabled {
         --borderColor: var(--gray100);
 
@@ -51,24 +52,32 @@
     &:focus:not(:disabled, :invalid) {
         --borderColor: var(--gray400);
     }
+
+    &:disabled + .label {
+        color: var(--gray200);
+        cursor: not-allowed;
+    }
 }
 
 .wrapper:hover {
     .input:not(:disabled, :invalid) {
         --borderColor: var(--gray400);
     }
+
+    .input:invalid {
+        --borderColor: red;
+    }
+
+    .input:invalid + .label {
+        color: var(--colorError);
+    }
 }
 
-.label {
-    cursor: pointer;
-    margin-left: var(--sizeUnit);
+.icon {
+    margin-left: auto;
 }
 
-.input:disabled + .label {
-    color: var(--gray200);
-    cursor: not-allowed;
-}
-
-.input:invalid + .label {
-    color: var(--colorError);
+.required {
+    font-size: 24px;
+    line-height: 18px;
 }

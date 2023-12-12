@@ -32,10 +32,6 @@
         width: var(--size);
     }
 
-    &:invalid {
-        --borderColor: red;
-    }
-
     &:disabled {
         --borderColor: var(--gray100);
 
@@ -51,16 +47,19 @@
     }
 }
 
-.wrapper:hover {
-    .input:not(:disabled, :invalid) {
-        --borderColor: var(--gray400);
-    }
-}
-
 .label {
     color: var(--text);
     cursor: pointer;
     margin-left: var(--sizeUnit);
+}
+
+.icon {
+    margin-left: auto;
+}
+
+.required {
+    font-size: 24px;
+    line-height: 18px;
 }
 
 .input:disabled + .label {
@@ -68,6 +67,16 @@
     cursor: not-allowed;
 }
 
-.input:invalid + .label {
-    color: var(--colorError);
+.wrapper:hover {
+    .input:invalid {
+        --borderColor: red;
+    }
+
+    .input:invalid + .label {
+        color: var(--colorError);
+    }
+
+    .input:not(:disabled, :invalid) {
+        --borderColor: var(--gray400);
+    }
 }

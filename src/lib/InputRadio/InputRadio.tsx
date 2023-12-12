@@ -12,7 +12,6 @@ export type Props = DataAttributes &
     LibraryProps &
     NativePropsInteractive &
     CallbackPropsInteractive & {
-        validation?: keyof typeof Validation;
         validator?: (event: ChangeEvent<HTMLInputElement>) => void;
         label?: string;
     };
@@ -21,7 +20,6 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
     (
         {
             className,
-            validation,
             disabled,
             value,
             onChange = () => {},
@@ -34,11 +32,12 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
             id,
             label,
             validator = () => {},
+            required,
             ...nativeProps
         },
         ref
     ) => {
-        const [_, setValidity] = useState(validation);
+        const [_, setValidity] = useState<keyof typeof Validation | null>(null);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 const nextValidationState = event.target.checkValidity() ? Validation.valid : Validation.error;
@@ -64,10 +63,11 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
                     onFocus={onFocus}
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
+                    required={required}
                     onInput={validator}
                 />
                 <label className={classes.label} htmlFor={id}>
-                    {label}
+                    {label} {required && <span className={classes.required}>*</span>}
                 </label>
             </div>
         );

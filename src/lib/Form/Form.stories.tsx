@@ -116,9 +116,14 @@ export const Example: Story = {
                     <InputText defaultValue="foo" name="foo" id="qux" required />
                 </FormField>
                 <InputGroup name="radio-demo" label="Radio group">
-                    <InputRadio required id="foo" value="foo" label="This is a foo name" />
+                    <InputRadio id="foo" value="foo" label="This is a foo name" />
                     <InputRadio disabled id="bar" value="bar" label="This is a bar name" />
                     <InputRadio id="bazz" value="bazz" label="This is a bazz name" />
+                </InputGroup>
+                <InputGroup name="radio-demo-required" label="Radio group required" required>
+                    <InputRadio id="foo-required" value="foo-required" label="This is a foo name" />
+                    <InputRadio disabled id="bar-required" value="bar-required" label="This is a bar name" />
+                    <InputRadio id="bazz-required" value="bazz-required" label="This is a bazz name" />
                 </InputGroup>
                 <InputGroup name="checkbox-demo" label="Radio group">
                     <InputCheckbox id="zork" value="foo" label="This is a foo name" key="zork" required />
