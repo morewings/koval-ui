@@ -1,8 +1,9 @@
-import {forwardRef} from 'react';
+import {forwardRef, useRef} from 'react';
 import type {ReactNode, SyntheticEvent} from 'react';
 import classNames from 'classnames';
 
 import type {LibraryProps, DataAttributes} from '@/internal/LibraryAPI';
+import {useInnerRef} from '@/internal/hooks/useInnerRef.ts';
 
 import classes from './Form.module.css';
 
@@ -35,6 +36,8 @@ export const Form = forwardRef<HTMLFormElement, Props>(({className, children, ..
     const handleChange = (event: SyntheticEvent<HTMLFormElement>) => {
         console.log(event.target);
     };
+    const innerRef = useRef<HTMLFormElement>(null);
+    useInnerRef<HTMLFormElement>(ref, innerRef);
     return (
         <form
             {...nativeProps}
@@ -42,7 +45,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(({className, children, ..
             onInvalid={handleError}
             onReset={handleReset}
             onChange={handleChange}
-            ref={ref}
+            ref={innerRef}
             className={classNames(classes.form, className)}>
             {children}
         </form>

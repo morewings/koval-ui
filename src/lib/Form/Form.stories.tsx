@@ -140,14 +140,11 @@ export const Example: Story = {
     },
 };
 
-// export const Second: Story = {
-//     render: () => {
-//         return <InputText data-hello="fal" onClick={3} />;
-//     },
-//     args: {},
-//     parameters: {
-//         docs: {
-//             source: {language: 'tsx', type: 'code'},
-//         },
-//     },
-// };
+export const RefExample: Story = {
+    render: () => {
+        const ref = (element: never) => {
+            console.log('element', element);
+        };
+        return <Form ref={ref}>Form content</Form>;
+    },
+};
