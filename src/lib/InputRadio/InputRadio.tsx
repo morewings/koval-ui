@@ -12,7 +12,7 @@ export type Props = DataAttributes &
     LibraryProps &
     NativePropsInteractive &
     CallbackPropsInteractive & {
-        validator?: (event: ChangeEvent<HTMLInputElement>) => void;
+        validatorFn?: (value: CallbackPropsInteractive['checked']) => string | true;
         label?: string;
     };
 
@@ -31,7 +31,7 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
             defaultChecked,
             id,
             label,
-            validator = () => {},
+            validatorFn = () => true,
             required,
             ...nativeProps
         },
@@ -45,6 +45,18 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
                 onChange(event);
             },
             [setValidity, onChange]
+        );
+        // TODO: needs useFirstRender probably, doesn't validate by default
+        const handleInput = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                const validationResult = validatorFn(event.target.checked);
+                if (typeof validationResult === 'string') {
+                    event.target.setCustomValidity(validationResult);
+                } else {
+                    event.target.setCustomValidity('');
+                }
+            },
+            [validatorFn]
         );
         return (
             <div className={classNames(classes.wrapper, className)}>
@@ -64,7 +76,7 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
                     required={required}
-                    onInput={validator}
+                    onInput={handleInput}
                 />
                 <label className={classes.label} htmlFor={id}>
                     {label} {required && <span className={classes.required}>*</span>}

@@ -103,19 +103,23 @@ type Story = StoryObj<typeof meta>;
 
 export const Example: Story = {
     args: {
-        label: 'bar',
+        label: 'foo',
         id: 'foo',
     },
 };
 
-// export const Second: Story = {
-//     render: () => {
-//         return <InputText data-hello="fal" onClick={3} />;
-//     },
-//     args: {},
-//     parameters: {
-//         docs: {
-//             source: {language: 'tsx', type: 'code'},
-//         },
-//     },
-// };
+export const WithValidation: Story = {
+    render: args => {
+        const validator = (checked?: boolean) => {
+            if (!checked) {
+                return 'Custom error!';
+            }
+            return true;
+        };
+        return <InputRadio {...args} required validatorFn={validator} />;
+    },
+    args: {
+        label: 'bar',
+        id: 'bar',
+    },
+};

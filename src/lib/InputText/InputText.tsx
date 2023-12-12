@@ -33,13 +33,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
-            validatorFn = value => {
-                if (value && `${value}`.length > 3) {
-                    return 'too long';
-                } else {
-                    return true;
-                }
-            },
+            validatorFn = () => true,
             ...nativeProps
         },
         ref
@@ -52,7 +46,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
         }[validity!];
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                const nextValidationState = event.target.checkValidity() ? Validation.valid : Validation.error;
+                const nextValidationState = event.target.reportValidity() ? Validation.valid : Validation.error;
                 setValidity(nextValidationState);
                 onChange(event);
             },

@@ -22,6 +22,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(({className, children, ..
         for (const [key, value] of data.entries()) {
             formState[key] = value;
         }
+        form.reportValidity();
         console.log('formState', formState);
     };
 

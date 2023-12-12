@@ -1,6 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
+import type {CallbackPropsTextual} from '@/internal/inputs';
+
 import {InputText} from './InputText';
 
 const meta = {
@@ -107,14 +109,18 @@ export const Example: Story = {
     },
 };
 
-// export const Second: Story = {
-//     render: () => {
-//         return <InputText data-hello="fal" onClick={3} />;
-//     },
-//     args: {},
-//     parameters: {
-//         docs: {
-//             source: {language: 'tsx', type: 'code'},
-//         },
-//     },
-// };
+export const WithValidation: Story = {
+    render: args => {
+        const validator = (value?: CallbackPropsTextual['value']) => {
+            if (value && `${value}`.length > 3) {
+                return 'too long';
+            } else {
+                return true;
+            }
+        };
+        return <InputText {...args} required validatorFn={validator} />;
+    },
+    args: {
+        id: 'bar',
+    },
+};

@@ -48,9 +48,16 @@
 }
 
 .label {
+    --validationIconPlaceholder: calc(var(--sizeUnit) * 5);
+
     color: var(--text);
     cursor: pointer;
     margin-left: var(--sizeUnit);
+    margin-right: var(--sizeUnit);
+
+    &:last-child {
+        margin-right: var(--validationIconPlaceholder);
+    }
 }
 
 .icon {

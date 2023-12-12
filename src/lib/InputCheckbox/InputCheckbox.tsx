@@ -13,7 +13,7 @@ type Props = DataAttributes &
     LibraryProps &
     NativePropsInteractive &
     CallbackPropsInteractive & {
-        validator?: (event: ChangeEvent<HTMLInputElement>) => void;
+        validatorFn?: (value: CallbackPropsInteractive['checked']) => string | true;
         label?: string;
     };
 
@@ -32,7 +32,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             defaultChecked,
             id,
             label,
-            validator = () => {},
+            validatorFn = () => true,
             required,
             ...nativeProps
         },
@@ -46,11 +46,22 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
         }[validity!];
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                const nextValidationState = event.target.checkValidity() ? Validation.valid : Validation.error;
+                const nextValidationState = event.target.reportValidity() ? Validation.valid : Validation.error;
                 setValidity(nextValidationState);
                 onChange(event);
             },
             [setValidity, onChange]
+        );
+        const handleInput = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                const validationResult = validatorFn(event.target.checked);
+                if (typeof validationResult === 'string') {
+                    event.target.setCustomValidity(validationResult);
+                } else {
+                    event.target.setCustomValidity('');
+                }
+            },
+            [validatorFn]
         );
         return (
             <div className={classNames(classes.wrapper, className)}>
@@ -69,7 +80,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
                     onFocus={onFocus}
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
-                    onInput={validator}
+                    onInput={handleInput}
                     required={required}
                 />
                 <label className={classes.label} htmlFor={id}>

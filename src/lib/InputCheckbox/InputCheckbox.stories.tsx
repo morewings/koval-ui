@@ -108,14 +108,18 @@ export const Example: Story = {
     },
 };
 
-// export const Second: Story = {
-//     render: () => {
-//         return <InputText data-hello="fal" onClick={3} />;
-//     },
-//     args: {},
-//     parameters: {
-//         docs: {
-//             source: {language: 'tsx', type: 'code'},
-//         },
-//     },
-// };
+export const WithValidation: Story = {
+    render: args => {
+        const validator = (checked?: boolean) => {
+            if (!checked) {
+                return 'Custom error!';
+            }
+            return true;
+        };
+        return <InputCheckbox {...args} required validatorFn={validator} />;
+    },
+    args: {
+        label: 'bar',
+        id: 'bar',
+    },
+};
