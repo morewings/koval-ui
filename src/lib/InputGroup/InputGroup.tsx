@@ -12,7 +12,7 @@ import {
 import classNames from 'classnames';
 
 import type {LibraryProps, DataAttributes} from '@/internal/LibraryAPI';
-import type {Validation} from '@/internal/inputs';
+import type {ValidationState} from '@/internal/inputs';
 
 import classes from './InputGroup.module.css';
 
@@ -27,7 +27,7 @@ type Props = DataAttributes &
     LibraryProps & {
         type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
         prefix?: FC;
-        validation?: keyof typeof Validation;
+        validation?: keyof typeof ValidationState;
         validator?: (event: ChangeEvent<HTMLInputElement>) => void;
         label?: string;
         children: ReactElement<ChildProps & unknown>[];

@@ -4,18 +4,18 @@ import classNames from 'classnames';
 
 import {IconError, IconValid, IconLoader} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import type {NativePropsTextual, CallbackPropsTextual} from '@/internal/inputs';
-import {Validation, defaultValidator, useValidation} from '@/internal/inputs';
+import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 
 import classes from './InputText.module.css';
 
 type Props = DataAttributes &
     LibraryProps &
     NativePropsTextual &
-    CallbackPropsTextual & {
+    CallbackPropsTextual &
+    ValidationProps & {
         type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
         prefix?: FC;
-        validatorFn?: (value: unknown) => string;
     };
 
 export const InputText = forwardRef<HTMLInputElement, Props>(
@@ -38,17 +38,15 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
         },
         ref
     ) => {
-        const [validity, setValidity] = useState<keyof typeof Validation | null>(null);
+        const [validity, setValidity] = useState<keyof typeof ValidationState | null>(null);
         const ValidationIcon = {
-            [Validation.error]: IconError,
-            [Validation.valid]: IconValid,
-            [Validation.inProgress]: IconLoader,
+            [ValidationState.error]: IconError,
+            [ValidationState.valid]: IconValid,
+            [ValidationState.inProgress]: IconLoader,
         }[validity!];
-        const {validateInputTextual} = useValidation({validatorFn, setValidity});
+        const {validateTextual} = useValidation({validatorFn, setValidity});
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                // const nextValidationState = event.target.reportValidity() ? Validation.valid : Validation.error;
-                // setValidity(nextValidationState);
                 onChange(event);
             },
             [onChange]
@@ -70,7 +68,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                     onFocus={onFocus}
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
-                    onInput={validateInputTextual}
+                    onInput={validateTextual}
                 />
                 {validity && <ValidationIcon />}
             </div>

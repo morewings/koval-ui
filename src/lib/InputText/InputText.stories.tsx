@@ -158,3 +158,21 @@ export const ValidationCustom: Story = {
         id: 'bar',
     },
 };
+
+const timeout = (ms: number) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+};
+
+const validatorAsync = async () => {
+    await timeout(1000);
+    return 'Async result';
+};
+
+export const ValidationAsync: Story = {
+    render: args => {
+        return <InputText {...args} autoComplete="off" validatorFn={validatorAsync} placeholder="Async" />;
+    },
+    args: {
+        id: 'bar',
+    },
+};

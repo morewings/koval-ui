@@ -1,2 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const defaultValidator = (_: unknown | undefined) => '';
+import type {ValidationProps} from './ValidationProps.ts';
+
+export const defaultValidator: ValidationProps['validatorFn'] = (_: unknown | undefined) => '';

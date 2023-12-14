@@ -3,8 +3,8 @@ import {forwardRef, useState, useCallback} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import {Validation, defaultValidator, useValidation} from '@/internal/inputs';
-import type {NativePropsInteractive, CallbackPropsInteractive} from '@/internal/inputs';
+import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
+import type {NativePropsInteractive, CallbackPropsInteractive, ValidationProps} from '@/internal/inputs';
 import {IconError, IconLoader, IconValid} from '@/internal/Icons';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
@@ -13,8 +13,8 @@ import classes from './InputCheckbox.module.css';
 type Props = DataAttributes &
     LibraryProps &
     NativePropsInteractive &
-    CallbackPropsInteractive & {
-        validatorFn?: (value: unknown) => string;
+    CallbackPropsInteractive &
+    ValidationProps & {
         label?: string;
     };
 
@@ -40,13 +40,13 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
         ref
     ) => {
         const id = useInternalId(idProp);
-        const [validity, setValidity] = useState<keyof typeof Validation | null>(null);
+        const [validity, setValidity] = useState<keyof typeof ValidationState | null>(null);
         const ValidationIcon = {
-            [Validation.error]: IconError,
-            [Validation.valid]: IconValid,
-            [Validation.inProgress]: IconLoader,
+            [ValidationState.error]: IconError,
+            [ValidationState.valid]: IconValid,
+            [ValidationState.inProgress]: IconLoader,
         }[validity!];
-        const {validateInputInteractive} = useValidation({validatorFn, setValidity});
+        const {validateInteractive} = useValidation({validatorFn, setValidity});
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 onChange(event);
@@ -70,7 +70,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
                     onFocus={onFocus}
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
-                    onInput={validateInputInteractive}
+                    onInput={validateInteractive}
                     required={required}
                 />
                 <label className={classes.label} htmlFor={id}>

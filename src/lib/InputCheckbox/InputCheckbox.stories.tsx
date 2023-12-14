@@ -108,7 +108,7 @@ export const Example: Story = {
     },
 };
 
-export const WithValidation: Story = {
+export const Validation: Story = {
     render: args => {
         const validator = (checked?: unknown) => {
             if (!checked) {
@@ -120,6 +120,24 @@ export const WithValidation: Story = {
     },
     args: {
         label: 'bar',
+        id: 'bar',
+    },
+};
+
+const timeout = (ms: number) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+};
+
+const validatorAsync = async () => {
+    await timeout(1000);
+    return 'Async result';
+};
+
+export const ValidationAsync: Story = {
+    render: args => {
+        return <InputCheckbox {...args} validatorFn={validatorAsync} label="Async" />;
+    },
+    args: {
         id: 'bar',
     },
 };
