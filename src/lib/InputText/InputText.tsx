@@ -1,5 +1,6 @@
 import type {ChangeEvent, FC} from 'react';
-import {forwardRef, useState, useCallback} from 'react';
+import {Fragment} from 'react';
+import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
 import {IconError, IconValid, IconLoader} from '@/internal/Icons';
@@ -33,24 +34,30 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
+            initialValidity,
             validatorFn = defaultValidator,
             ...nativeProps
         },
         ref
     ) => {
-        const [validity, setValidity] = useState<keyof typeof ValidationState | null>(null);
+        const {validateTextual, validity, setValidity} = useValidation({validatorFn, initialValidity});
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
             [ValidationState.inProgress]: IconLoader,
+            [ValidationState.submitting]: Fragment,
         }[validity!];
-        const {validateTextual} = useValidation({validatorFn, setValidity});
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 onChange(event);
             },
             [onChange]
         );
+
+        const handleInvalid = useCallback(() => {
+            setValidity(ValidationState.error);
+        }, [setValidity]);
+
         return (
             <div className={classNames(classes.wrapper, className)}>
                 {Prefix && <Prefix />}
@@ -68,6 +75,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                     onFocus={onFocus}
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
+                    onInvalid={handleInvalid}
                     onInput={validateTextual}
                 />
                 {validity && <ValidationIcon />}

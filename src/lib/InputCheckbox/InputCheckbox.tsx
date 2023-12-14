@@ -1,5 +1,6 @@
 import type {ChangeEvent} from 'react';
-import {forwardRef, useState, useCallback} from 'react';
+import {Fragment} from 'react';
+import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
@@ -35,24 +36,31 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             label,
             validatorFn = defaultValidator,
             required,
+            initialValidity,
             ...nativeProps
         },
         ref
     ) => {
         const id = useInternalId(idProp);
-        const [validity, setValidity] = useState<keyof typeof ValidationState | null>(null);
+        const {validateInteractive, validity, setValidity} = useValidation({validatorFn, initialValidity});
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
             [ValidationState.inProgress]: IconLoader,
+            [ValidationState.submitting]: Fragment,
         }[validity!];
-        const {validateInteractive} = useValidation({validatorFn, setValidity});
+
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 onChange(event);
             },
             [onChange]
         );
+
+        const handleInvalid = useCallback(() => {
+            setValidity(ValidationState.error);
+        }, [setValidity]);
+
         return (
             <div className={classNames(classes.wrapper, className)}>
                 <input
@@ -71,6 +79,10 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
                     onInput={validateInteractive}
+                    onInvalid={handleInvalid}
+                    onSubmit={() => {
+                        console.log('form submit started');
+                    }}
                     required={required}
                 />
                 <label className={classes.label} htmlFor={id}>

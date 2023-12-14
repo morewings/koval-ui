@@ -108,18 +108,39 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const validator = (value?: unknown) => {
+    if (value === 'foo') {
+        return '';
+    } else {
+        return 'Value has to be foo';
+    }
+};
+
+const timeout = (ms: number) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+};
+
+const validatorAsync = async () => {
+    await timeout(1000);
+    return 'Async result';
+};
+
 export const Example: Story = {
     args: {
+        onSubmit: (_, state) => {
+            console.log('onSubmit', state);
+        },
         children: (
             <Fragment>
-                <FormField label="foo">
-                    <InputText name="foo" required />
+                <FormField label="Required input">
+                    <InputText autoComplete="off" name="foo" required />
                 </FormField>
-                <InputGroup name="radio-demo" label="Radio group">
-                    <InputRadio value="foo" label="This is a foo name" />
-                    <InputRadio disabled value="bar" label="This is a bar name" />
-                    <InputRadio value="bazz" label="This is a bazz name" />
-                </InputGroup>
+                <FormField label="Custom validation">
+                    <InputText autoComplete="off" name="foo" validatorFn={validator} />
+                </FormField>
+                <FormField label="Async validation">
+                    <InputText autoComplete="off" name="foo" validatorFn={validatorAsync} />
+                </FormField>
                 <InputGroup name="radio-demo-required" label="Radio group required" required>
                     <InputRadio value="foo-required" label="This is a foo name" />
                     <InputRadio disabled value="bar-required" label="This is a bar name" />

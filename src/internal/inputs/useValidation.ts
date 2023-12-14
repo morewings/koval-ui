@@ -1,4 +1,4 @@
-import type {Dispatch, SetStateAction, ChangeEvent} from 'react';
+import type {ChangeEvent} from 'react';
 import {useCallback, useState} from 'react';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
@@ -6,10 +6,10 @@ import type {ValidationProps} from './ValidationProps.ts';
 import {ValidationState} from './ValidationProps.ts';
 import {defaultValidator} from './defaultValidator.ts';
 
-type Props = {
-    validatorFn: ValidationProps['validatorFn'];
-    setValidity: Dispatch<SetStateAction<keyof typeof ValidationState | null>>;
-};
+// type Props = {
+//     validatorFn: ValidationProps['validatorFn'];
+//     initialValidity?: keyof typeof ValidationState;
+// };
 
 type InputMode = 'interactive' | 'textual';
 
@@ -17,11 +17,13 @@ const getValue = (event: ChangeEvent<HTMLInputElement>, mode: InputMode) => {
     return mode === 'interactive' ? event.target.checked : event.target.value;
 };
 
-export const useValidation = ({validatorFn, setValidity}: Props) => {
+export const useValidation = ({validatorFn, initialValidity}: ValidationProps) => {
     const hasCustomValidation = validatorFn !== defaultValidator;
     const [customValidation, setCustomValidation] = useState(hasCustomValidation);
 
     const isAsync = validatorFn?.constructor.name === 'AsyncFunction';
+
+    const [validity, setValidity] = useState<keyof typeof ValidationState | undefined>(initialValidity);
 
     const reportValidity = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +31,7 @@ export const useValidation = ({validatorFn, setValidity}: Props) => {
             if (!isValid && !customValidation) {
                 setCustomValidation(true);
             }
-            const validState = customValidation ? ValidationState.valid : null;
+            const validState = customValidation ? ValidationState.valid : undefined;
             const nextValidationState = isValid ? validState : ValidationState.error;
             setValidity(nextValidationState);
         },
@@ -80,5 +82,5 @@ export const useValidation = ({validatorFn, setValidity}: Props) => {
         [createValidatorSync, isAsync, createValidatorAsync]
     );
 
-    return {validateInteractive, validateTextual};
+    return {validateInteractive, validateTextual, validity, setValidity};
 };

@@ -1,4 +1,4 @@
-import {useCallback} from 'react';
+import {type ChangeEvent, useCallback} from 'react';
 import {forwardRef} from 'react';
 import type {ReactNode, SyntheticEvent, FormHTMLAttributes, InvalidEvent} from 'react';
 import classNames from 'classnames';
@@ -18,11 +18,10 @@ type NativeProps = {
 };
 
 type CallbackProps = {
-    onSubmit?: FormHTMLAttributes<HTMLFormElement>['onSubmit'];
-    onInvalid?: FormHTMLAttributes<HTMLFormElement>['onInvalid'];
-    onReset?: FormHTMLAttributes<HTMLFormElement>['onReset'];
-    onChange?: FormHTMLAttributes<HTMLFormElement>['onChange'];
-    onSubmitState?: (state: FormState) => void;
+    onSubmit?: (event: SyntheticEvent<HTMLFormElement>, formState: FormState) => void;
+    onInvalid?: (event: InvalidEvent<HTMLFormElement>, formState: FormState) => void;
+    onReset?: (event: ChangeEvent<HTMLFormElement>, formState: FormState) => void;
+    onChange?: (event: ChangeEvent<HTMLFormElement>, formState: FormState) => void;
 };
 
 type Props = DataAttributes &
@@ -33,7 +32,18 @@ type Props = DataAttributes &
     };
 
 export const Form = forwardRef<HTMLFormElement, Props>(
-    ({className, children, onSubmitState = () => {}, onSubmit = () => {}, ...nativeProps}, ref) => {
+    (
+        {
+            className,
+            children,
+            onSubmit = () => {},
+            onReset = () => {},
+            onChange = () => {},
+            onInvalid = () => {},
+            ...nativeProps
+        },
+        ref
+    ) => {
         const getFormState = useCallback((formElement: EventTarget & HTMLFormElement) => {
             const data = new FormData(formElement);
             const formState: FormState = {};
@@ -42,29 +52,41 @@ export const Form = forwardRef<HTMLFormElement, Props>(
             }
             return formState;
         }, []);
-        const handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
-            event.preventDefault();
-            const form = event.currentTarget;
-            const data = new FormData(form);
-            data.set('bar', 'bar');
-            form.reportValidity();
-            const formState = getFormState(form);
-            onSubmit(event);
-            onSubmitState(formState);
-            console.log('formState', formState);
-        };
+        const handleSubmit = useCallback(
+            (event: SyntheticEvent<HTMLFormElement>) => {
+                const form = event.currentTarget;
+                const data = new FormData(form);
+                data.set('bar', 'bar');
+                const formState = getFormState(form);
+                onSubmit(event, formState);
+            },
+            [getFormState, onSubmit]
+        );
 
-        const handleError = (event: InvalidEvent<HTMLFormElement>) => {
-            console.log('onInvalid', event.target.name);
-        };
+        const handleError = useCallback(
+            (event: InvalidEvent<HTMLFormElement>) => {
+                const formState = getFormState(event.currentTarget);
+                onInvalid(event, formState);
+            },
+            [getFormState, onInvalid]
+        );
 
-        const handleReset = (event: SyntheticEvent<HTMLFormElement>) => {
-            console.log(event.target);
-        };
+        const handleReset = useCallback(
+            (event: ChangeEvent<HTMLFormElement>) => {
+                const formState = getFormState(event.currentTarget);
+                onReset(event, formState);
+            },
+            [getFormState, onReset]
+        );
 
-        const handleChange = (event: SyntheticEvent<HTMLFormElement>) => {
-            console.log(event.target);
-        };
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLFormElement>) => {
+                const formState = getFormState(event.currentTarget);
+                onChange(event, formState);
+            },
+            [getFormState, onChange]
+        );
+
         const innerRef = useInternalRef<HTMLFormElement>(ref);
         return (
             <form
