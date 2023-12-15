@@ -1,8 +1,10 @@
 import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
 import * as InputCheckboxStories from "./InputCheckbox.stories";
-import { InputCheckbox } from "./InputCheckbox";
+import { InputCheckbox } from "./InputCheckbox.tsx";
+import { InputICheckboxAlt } from "./InputICheckboxAlt.tsx";
+import {InputRadio} from './../InputRadio';
 
-<Meta title="Inputs/Checkbox" component={InputCheckbox} />
+<Meta title="Inputs/Checkbox" component={InputCheckbox} of={InputCheckboxStories} />
 
 # Icon
 
@@ -13,6 +15,8 @@ import { InputCheckbox } from "./InputCheckbox";
 ## Description
 
 `Icon` is an icon.
+
+<Primary />
 
 ## Imports
 

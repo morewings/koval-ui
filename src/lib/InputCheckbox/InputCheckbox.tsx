@@ -91,4 +91,4 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
     }
 );
 
-InputCheckbox.displayName = 'InputRadio';
+InputCheckbox.displayName = 'InputCheckbox';

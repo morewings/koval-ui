@@ -101,6 +101,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Primary: Story = {
+    args: {
+        label: 'bar',
+        id: 'foo',
+    },
+};
+
 export const Example: Story = {
     args: {
         label: 'bar',
