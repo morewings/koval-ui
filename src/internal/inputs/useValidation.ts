@@ -17,13 +17,13 @@ const getValue = (event: ChangeEvent<HTMLInputElement>, mode: InputMode) => {
     return mode === 'interactive' ? event.target.checked : event.target.value;
 };
 
-export const useValidation = ({validatorFn, initialValidity}: ValidationProps) => {
+export const useValidation = ({validatorFn}: ValidationProps) => {
     const hasCustomValidation = validatorFn !== defaultValidator;
     const [customValidation, setCustomValidation] = useState(hasCustomValidation);
 
     const isAsync = validatorFn?.constructor.name === 'AsyncFunction';
 
-    const [validity, setValidity] = useState<keyof typeof ValidationState | undefined>(initialValidity);
+    const [validity, setValidity] = useState<keyof typeof ValidationState | null>(null);
 
     const reportValidity = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +31,7 @@ export const useValidation = ({validatorFn, initialValidity}: ValidationProps) =
             if (!isValid && !customValidation) {
                 setCustomValidation(true);
             }
-            const validState = customValidation ? ValidationState.valid : undefined;
+            const validState = customValidation ? ValidationState.valid : null;
             const nextValidationState = isValid ? validState : ValidationState.error;
             setValidity(nextValidationState);
         },

@@ -1,5 +1,4 @@
 import type {ChangeEvent, FC} from 'react';
-import {Fragment} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
@@ -10,7 +9,7 @@ import {ValidationState, defaultValidator, useValidation} from '@/internal/input
 
 import classes from './InputText.module.css';
 
-type Props = DataAttributes &
+export type Props = DataAttributes &
     LibraryProps &
     NativePropsTextual &
     CallbackPropsTextual &
@@ -34,22 +33,21 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
-            initialValidity,
             validatorFn = defaultValidator,
             ...nativeProps
         },
         ref
     ) => {
-        const {validateTextual, validity, setValidity} = useValidation({validatorFn, initialValidity});
+        const {validateTextual, validity, setValidity} = useValidation({validatorFn});
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
             [ValidationState.inProgress]: IconLoader,
-            [ValidationState.submitting]: Fragment,
         }[validity!];
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 onChange(event);
+                console.log('change');
             },
             [onChange]
         );

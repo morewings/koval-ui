@@ -1,5 +1,4 @@
 import type {ChangeEvent} from 'react';
-import {Fragment} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
@@ -11,7 +10,7 @@ import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputCheckbox.module.css';
 
-type Props = DataAttributes &
+export type Props = DataAttributes &
     LibraryProps &
     NativePropsInteractive &
     CallbackPropsInteractive &
@@ -36,18 +35,16 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             label,
             validatorFn = defaultValidator,
             required,
-            initialValidity,
             ...nativeProps
         },
         ref
     ) => {
         const id = useInternalId(idProp);
-        const {validateInteractive, validity, setValidity} = useValidation({validatorFn, initialValidity});
+        const {validateInteractive, validity, setValidity} = useValidation({validatorFn});
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
             [ValidationState.inProgress]: IconLoader,
-            [ValidationState.submitting]: Fragment,
         }[validity!];
 
         const handleChange = useCallback(
@@ -80,13 +77,13 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
                     onKeyDown={onKeyDown}
                     onInput={validateInteractive}
                     onInvalid={handleInvalid}
-                    onSubmit={() => {
-                        console.log('form submit started');
+                    onReset={() => {
+                        console.log('reset!');
                     }}
                     required={required}
                 />
-                <label className={classes.label} htmlFor={id}>
-                    {label} {required && <span className={classes.required}>*</span>}
+                <label className={classNames(classes.label, {[classes.required]: required})} htmlFor={id}>
+                    {label}
                 </label>
                 {validity && <ValidationIcon className={classes.icon} />}
             </div>

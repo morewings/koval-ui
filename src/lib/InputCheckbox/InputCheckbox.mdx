@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Story, Canvas, Source, Markdown } from "@storybook/blocks";
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
 import * as InputCheckboxStories from "./InputCheckbox.stories";
 import { InputCheckbox } from "./InputCheckbox";
 
@@ -26,14 +26,20 @@ import a from 'b';
 
 ### Default example
 
-<Canvas of={InputCheckboxStories.Example} />
+<Canvas>
+    <Story of={InputCheckboxStories.Example} />
+</Canvas>
 
 ### With validation
 
-<Canvas of={InputCheckboxStories.Validation} />
+<Canvas>
+    <Story of={InputCheckboxStories.Validation} />
+</Canvas>
 
 ### With async validation
 
-<Canvas of={InputCheckboxStories.ValidationAsync} />
+<Canvas>
+    <Story of={InputCheckboxStories.ValidationAsync} />
+</Canvas>
 
 

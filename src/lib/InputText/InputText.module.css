@@ -24,14 +24,20 @@
     min-width: 0;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
 
-    &:focus {
+    &:last-child {
+        margin-right: var(--validationIconPlaceholder);
+    }
+
+    &:disabled {
+        background-color: var(--gray100);
+        border-color: var(--gray100);
+        cursor: not-allowed;
+    }
+
+    &:focus:not(:disabled) {
         background-color: white;
         border-color: var(--colorRe);
         outline: none;
-    }
-
-    &:last-child {
-        margin-right: var(--validationIconPlaceholder);
     }
 
     &:focus:invalid {

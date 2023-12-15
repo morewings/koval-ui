@@ -3,8 +3,6 @@ import {
     Children,
     cloneElement,
     isValidElement,
-    type FC,
-    type ChangeEvent,
     type ReactElement,
     type FieldsetHTMLAttributes,
     useMemo,
@@ -23,12 +21,9 @@ type ChildProps = {
     id?: Props['id'];
 };
 
-type Props = DataAttributes &
+export type Props = DataAttributes &
     LibraryProps & {
-        type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
-        prefix?: FC;
         validation?: keyof typeof ValidationState;
-        validator?: (event: ChangeEvent<HTMLInputElement>) => void;
         label?: string;
         children: ReactElement<ChildProps & unknown>[];
         name: string;
@@ -42,18 +37,16 @@ type Props = DataAttributes &
     };
 
 export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
-    (
-        {prefix: Prefix, className, validation, id, label, children, name, disabled, hint, required, ...nativeProps},
-        ref
-    ) => {
+    ({className, validation, id, label, children, name, disabled, hint, required, ...nativeProps}, ref) => {
         const childrenWithProps = useMemo(() => {
             return Children.map(children, element => {
                 if (isValidElement(element)) {
                     const nextProps = {name} as ChildProps;
-                    if (disabled !== undefined) {
+                    /* Check if own prop is set and child doesn't have the same prop */
+                    if (disabled !== undefined && typeof element.props.disabled !== 'boolean') {
                         nextProps.disabled = disabled;
                     }
-                    if (required !== undefined) {
+                    if (required !== undefined && typeof element.props.required !== 'boolean') {
                         nextProps.required = required;
                     }
                     return cloneElement<ChildProps>(element, nextProps);

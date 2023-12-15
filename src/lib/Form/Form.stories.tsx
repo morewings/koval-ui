@@ -18,41 +18,36 @@ const meta = {
         layout: 'centered',
     },
     args: {
-        onClick: fn(),
-        onBlur: fn(),
-        onFocus: fn(),
-        onKeyDown: fn(),
-        onKeyUp: fn(),
+        onSubmit: fn(),
+        onReset: fn(),
+        onChange: fn(),
+        onInvalid: fn(),
+        autoComplete: 'off',
+        autoCapitalize: 'off',
+        noValidate: false,
     },
     argTypes: {
-        value: {control: 'text'},
-        defaultValue: {control: 'text'},
-        onClick: {
+        onSubmit: {
             table: {
                 disable: true,
             },
         },
-        onBlur: {
+        onReset: {
             table: {
                 disable: true,
             },
         },
-        onFocus: {
+        onChange: {
             table: {
                 disable: true,
             },
         },
-        onKeyDown: {
+        onInvalid: {
             table: {
                 disable: true,
             },
         },
-        onKeyUp: {
-            table: {
-                disable: true,
-            },
-        },
-        id: {
+        children: {
             table: {
                 disable: true,
             },
@@ -77,30 +72,8 @@ const meta = {
                 disable: true,
             },
         },
-        required: {
-            table: {
-                disable: true,
-            },
-        },
-        autoFocus: {
-            table: {
-                disable: true,
-            },
-        },
-        autoComplete: {
-            table: {
-                disable: true,
-            },
-        },
-        form: {
-            table: {
-                disable: true,
-            },
-        },
-        onChange: {
-            table: {
-                disable: true,
-            },
+        noValidate: {
+            control: 'boolean',
         },
     },
 } as Meta<typeof Form>;
@@ -133,20 +106,23 @@ export const Example: Story = {
         children: (
             <Fragment>
                 <FormField label="Required input">
-                    <InputText autoComplete="off" name="foo" required />
+                    <InputText autoComplete="off" name="foo" placeholder="Required input" required />
                 </FormField>
                 <FormField label="Custom validation">
-                    <InputText autoComplete="off" name="foo" validatorFn={validator} />
+                    <InputText autoComplete="off" name="bar" validatorFn={validator} />
+                </FormField>
+                <FormField label="Custom validation + required">
+                    <InputText autoComplete="off" name="grault" validatorFn={validator} required />
                 </FormField>
                 <FormField label="Async validation">
-                    <InputText autoComplete="off" name="foo" validatorFn={validatorAsync} />
+                    <InputText autoComplete="off" name="baz" validatorFn={validatorAsync} />
                 </FormField>
-                <InputGroup name="radio-demo-required" label="Radio group required" required>
+                <InputGroup name="qux" label="Radio group required" required>
                     <InputRadio value="foo-required" label="This is a foo name" />
                     <InputRadio disabled value="bar-required" label="This is a bar name" />
                     <InputRadio value="bazz-required" label="This is a bazz name" />
                 </InputGroup>
-                <InputGroup name="checkbox-demo" label="Radio group">
+                <InputGroup name="corge" label="Checkbox group">
                     <InputCheckbox value="foo" label="This is a foo name" key="zork" required />
                     <InputCheckbox required value="bar" label="This is a bar name" key="gork" />
                     <InputCheckbox disabled value="bazz" label="This is a bazz name" key="bork" />
@@ -158,14 +134,5 @@ export const Example: Story = {
                 </div>
             </Fragment>
         ),
-    },
-};
-
-export const RefExample: Story = {
-    render: () => {
-        const ref = (element: never) => {
-            console.log('element', element);
-        };
-        return <Form ref={ref}>Form content</Form>;
     },
 };

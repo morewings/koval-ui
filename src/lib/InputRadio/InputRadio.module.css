@@ -7,6 +7,13 @@
 .label {
     cursor: pointer;
     margin-left: var(--sizeUnit);
+
+    &.required::after {
+        content: "*";
+        font-size: 24px;
+        line-height: 18px;
+        margin-left: calc(var(--sizeUnit) / 2);
+    }
 }
 
 .input {
@@ -75,9 +82,4 @@
 
 .icon {
     margin-left: auto;
-}
-
-.required {
-    font-size: 24px;
-    line-height: 18px;
 }

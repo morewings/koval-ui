@@ -7,7 +7,7 @@ import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './FormField.module.css';
 
-type Props = DataAttributes &
+export type Props = DataAttributes &
     LibraryProps & {
         children: ReactElement;
         label: string;
@@ -21,8 +21,8 @@ export const FormField = forwardRef<HTMLDivElement, Props>(
         const childrenWithId = inputProps.id ? Children.only(children) : cloneElement(Children.only(children), {id});
         return (
             <div {...nativeProps} ref={ref} className={classNames(classes.wrapper, className)}>
-                <label className={classes.label} htmlFor={id}>
-                    {label} {inputProps.required && <span className={classes.required}>*</span>}
+                <label className={classNames(classes.label, {[classes.required]: inputProps.required})} htmlFor={id}>
+                    {label}
                 </label>
                 {childrenWithId}
                 {hint && <div className={classes.hint}>{hint}</div>}

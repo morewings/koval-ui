@@ -54,9 +54,10 @@ export const Form = forwardRef<HTMLFormElement, Props>(
         }, []);
         const handleSubmit = useCallback(
             (event: SyntheticEvent<HTMLFormElement>) => {
+                event.preventDefault();
                 const form = event.currentTarget;
-                const data = new FormData(form);
-                data.set('bar', 'bar');
+                // const data = new FormData(form);
+                // data.set('bar', 'bar');
                 const formState = getFormState(form);
                 onSubmit(event, formState);
             },

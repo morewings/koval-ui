@@ -10,12 +10,14 @@
     cursor: pointer;
     font-size: 18px;
     line-height: 1;
-    margin-bottom: var(--sizeUnit);
-}
+    margin-bottom: calc(var(--sizeUnit) * 2);
 
-.required {
-    font-size: 24px;
-    line-height: 18px;
+    &.required::after {
+        content: "*";
+        font-size: 24px;
+        line-height: 18px;
+        margin-left: calc(var(--sizeUnit) / 2);
+    }
 }
 
 .hint {

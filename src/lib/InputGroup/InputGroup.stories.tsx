@@ -1,5 +1,4 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {fn} from '@storybook/test';
 
 import {InputRadio} from '@/lib/InputRadio';
 import {InputCheckbox} from '@/lib/InputCheckbox';
@@ -10,49 +9,14 @@ const meta = {
     title: 'Inputs/Group',
     component: InputGroup,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {
-        onClick: fn(),
-        onBlur: fn(),
-        onFocus: fn(),
-        onKeyDown: fn(),
-        onKeyUp: fn(),
+        disabled: false,
+        hint: '',
+        required: false,
     },
     argTypes: {
-        value: {control: 'text'},
-        defaultValue: {control: 'text'},
-        onClick: {
-            table: {
-                disable: true,
-            },
-        },
-        onBlur: {
-            table: {
-                disable: true,
-            },
-        },
-        onFocus: {
-            table: {
-                disable: true,
-            },
-        },
-        onKeyDown: {
-            table: {
-                disable: true,
-            },
-        },
-        onKeyUp: {
-            table: {
-                disable: true,
-            },
-        },
-        id: {
-            table: {
-                disable: true,
-            },
-        },
         role: {
             table: {
                 disable: true,
@@ -73,11 +37,6 @@ const meta = {
                 disable: true,
             },
         },
-        required: {
-            table: {
-                disable: true,
-            },
-        },
         autoFocus: {
             table: {
                 disable: true,
@@ -88,70 +47,97 @@ const meta = {
                 disable: true,
             },
         },
-        form: {
-            table: {
-                disable: true,
-            },
-        },
-        onChange: {
-            table: {
-                disable: true,
-            },
-        },
     },
 } as Meta<typeof InputGroup>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Example: Story = {
+    argTypes: {
+        children: {
+            options: ['radio', 'checkbox'], // An array of serializable values
+            mapping: {
+                radio: [
+                    <InputRadio value="foo" label="This is a foo name" key="foo" />,
+                    <InputRadio value="bar" label="This is a bar name" key="bar" />,
+                    <InputRadio value="bazz" label="This is a bazz name" key="bazz" />,
+                ],
+                checkbox: [
+                    <InputCheckbox value="foo" label="This is a foo name" key="zork" required />,
+                    <InputCheckbox value="bar" label="This is a bar name" key="gork" disabled />,
+                    <InputCheckbox value="bazz" label="This is a bazz name" key="bork" disabled={false} />,
+                ],
+            }, // Maps serializable option values to complex arg values
+            control: {
+                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                labels: {
+                    // 'labels' maps option values to string labels
+                    radio: 'radio',
+                    checkbox: 'checkbox',
+                },
+            },
+        },
+    },
+    args: {
+        name: 'input-group-example',
+        label: 'Example group',
+        children: [
+            <InputRadio id="foo" value="foo" label="This is a foo name" key="foo" />,
+            <InputRadio id="bar" value="bar" label="This is a bar name" key="bar" disabled={true} />,
+            <InputRadio id="bazz" value="bazz" label="This is a bazz name" key="bazz" />,
+        ],
+    },
+};
+
 export const Radio: Story = {
     args: {
-        name: 'kitty',
+        name: 'radio-demo',
         label: 'Radio group',
         // disabled: true,
         children: [
-            <InputRadio id="foo" name="radio-demo1" value="foo" label="This is a foo name" key="foo" />,
-            <InputRadio id="bar" name="radio-demo1" value="bar" label="This is a bar name" key="bar" disabled={true} />,
-            <InputRadio id="bazz" name="radio-demo1" value="bazz" label="This is a bazz name" key="bazz" />,
+            <InputRadio id="foo" value="foo" label="This is a foo name" key="foo" />,
+            <InputRadio id="bar" value="bar" label="This is a bar name" key="bar" disabled={true} />,
+            <InputRadio id="bazz" value="bazz" label="This is a bazz name" key="bazz" />,
         ],
     },
 };
 
 export const RadioBuiltinValidation: Story = {
     args: {
-        name: 'kitty',
+        name: 'radio-builtin-validation-demo',
         label: 'Radio group',
         // disabled: true,
         children: [
-            <InputRadio name="radio-demo2" value="foo" label="This is a foo name" key="foo" required />,
-            <InputRadio name="radio-demo2" value="bar" label="This is a bar name" key="bar" />,
-            <InputRadio name="radio-demo2" value="bazz" label="This is a bazz name" key="bazz" />,
+            <InputRadio value="foo" label="This is a foo name" key="foo" required />,
+            <InputRadio value="bar" label="This is a bar name" key="bar" />,
+            <InputRadio value="bazz" label="This is a bazz name" key="bazz" />,
         ],
     },
 };
 
 export const RadioNoId: Story = {
     args: {
-        name: 'kitty',
+        name: 'radio-no-id-demo',
         label: 'Radio group',
         // disabled: true,
         children: [
-            <InputRadio name="checkbox-demo" value="foo" label="This is a foo name" key="zork" />,
-            <InputRadio name="checkbox-demo" value="bar" label="This is a bar name" key="gork" />,
-            <InputRadio name="checkbox-demo" value="bazz" label="This is a bazz name" key="bork" />,
+            <InputRadio value="foo" label="This is a foo name" key="zork" />,
+            <InputRadio value="bar" label="This is a bar name" key="gork" />,
+            <InputRadio value="bazz" label="This is a bazz name" key="bork" />,
         ],
     },
 };
 
 export const RadioHint: Story = {
     args: {
-        name: 'kitty',
         label: 'Radio group',
         hint: 'This is hint example',
+        name: 'radio-hint-demo',
         children: [
-            <InputRadio name="checkbox-demo" value="foo" label="This is a foo name" key="zork" />,
-            <InputRadio name="checkbox-demo" value="bar" label="This is a bar name" key="gork" />,
-            <InputRadio name="checkbox-demo" value="bazz" label="This is a bazz name" key="bork" />,
+            <InputRadio value="foo" label="This is a foo name" key="zork" />,
+            <InputRadio value="bar" label="This is a bar name" key="gork" />,
+            <InputRadio value="bazz" label="This is a bazz name" key="bork" />,
         ],
     },
 };

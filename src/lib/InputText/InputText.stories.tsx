@@ -16,6 +16,8 @@ const meta = {
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
+        required: false,
+        placeholder: '',
     },
     argTypes: {
         value: {control: 'text'},
@@ -70,17 +72,7 @@ const meta = {
                 disable: true,
             },
         },
-        required: {
-            table: {
-                disable: true,
-            },
-        },
         autoFocus: {
-            table: {
-                disable: true,
-            },
-        },
-        autoComplete: {
             table: {
                 disable: true,
             },
@@ -91,6 +83,16 @@ const meta = {
             },
         },
         onChange: {
+            table: {
+                disable: true,
+            },
+        },
+        validatorFn: {
+            table: {
+                disable: true,
+            },
+        },
+        prefix: {
             table: {
                 disable: true,
             },

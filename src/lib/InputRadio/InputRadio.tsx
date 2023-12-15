@@ -1,13 +1,10 @@
 import type {ChangeEvent} from 'react';
-import {Fragment} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
 import type {NativePropsInteractive, CallbackPropsInteractive, ValidationProps} from '@/internal/inputs';
-import {useValidation, ValidationState} from '@/internal/inputs';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
-import {IconError, IconLoader, IconValid} from '@/internal/Icons';
 
 import classes from './InputRadio.module.css';
 
@@ -35,28 +32,18 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
             id: idProp,
             label,
             required,
-            initialValidity,
             ...nativeProps
         },
         ref
     ) => {
         const id = useInternalId(idProp);
-        const {validity, setValidity} = useValidation({initialValidity});
-        const ValidationIcon = {
-            [ValidationState.error]: IconError,
-            [ValidationState.valid]: IconValid,
-            [ValidationState.inProgress]: IconLoader,
-            [ValidationState.submitting]: Fragment,
-        }[validity!];
+
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 onChange(event);
             },
             [onChange]
         );
-        const handleInvalid = useCallback(() => {
-            setValidity(ValidationState.error);
-        }, [setValidity]);
         return (
             <div className={classNames(classes.wrapper, className)}>
                 <input
@@ -74,13 +61,11 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
                     onFocus={onFocus}
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
-                    onInvalid={handleInvalid}
                     required={required}
                 />
-                <label className={classes.label} htmlFor={id}>
-                    {label} {required && <span className={classes.required}>*</span>}
+                <label className={classNames(classes.label, {[classes.required]: required})} htmlFor={id}>
+                    {label}
                 </label>
-                {validity && <ValidationIcon className={classes.icon} />}
             </div>
         );
     }
