@@ -1,0 +1,163 @@
+.button {
+    align-items: center;
+    background-color: var(--bgColor);
+    border: 3px solid var(--borderColor);
+    border-radius: calc(var(--sizeUnit) * 0.66);
+    color: var(--textColor);
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    font-size: var(--fontSize);
+    font-weight: 500;
+    gap: calc(var(--sizeUnit) * var(--sizeScaleFactor));
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+    padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) calc(var(--sizeUnit) * 3 * var(--sizeScaleFactor));
+    user-select: none;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &:active:not(:disabled) {
+        left: 1px;
+        position: relative;
+        top: 1px;
+    }
+}
+
+/* Variants */
+
+.primary {
+    --borderColor: var(--colorDo);
+    --bgColor: var(--colorDo);
+    --textColor: var(--colorRe);
+
+    &:hover {
+        --borderColor: var(--colorRe);
+        --bgColor: var(--colorRe);
+        --textColor: var(--background000);
+    }
+
+    &:disabled {
+        --borderColor: var(--background100);
+        --bgColor: var(--background000);
+        --textColor: var(--background300);
+    }
+}
+
+.success {
+    --borderColor: var(--colorSuccess);
+    --bgColor: var(--background000);
+    --textColor: var(--colorSuccess);
+
+    &:hover {
+        --borderColor: var(--colorSuccess);
+        --bgColor: var(--colorSuccess);
+        --textColor: var(--background000);
+    }
+
+    &:disabled {
+        --borderColor: var(--background100);
+        --bgColor: var(--background000);
+        --textColor: var(--background300);
+    }
+}
+
+.danger {
+    --borderColor: var(--colorError);
+    --bgColor: var(--background000);
+    --textColor: var(--colorError);
+
+    &:hover {
+        --borderColor: var(--colorError);
+        --bgColor: var(--colorError);
+        --textColor: var(--background000);
+    }
+
+    &:disabled {
+        --borderColor: var(--background100);
+        --bgColor: var(--background000);
+        --textColor: var(--background300);
+    }
+}
+
+.action {
+    --borderColor: var(--colorAction);
+    --bgColor: var(--background000);
+    --textColor: var(--colorAction);
+
+    &:hover {
+        --borderColor: var(--colorAction);
+        --bgColor: var(--colorAction);
+        --textColor: var(--background000);
+    }
+
+    &:disabled {
+        --borderColor: var(--background100);
+        --bgColor: var(--background000);
+        --textColor: var(--background300);
+    }
+}
+
+.alternative {
+    --borderColor: var(--colorDo);
+    --bgColor: var(--background000);
+    --textColor: var(--colorRe);
+
+    &:hover {
+        --borderColor: var(--colorRe);
+        --bgColor: var(--colorRe);
+        --textColor: var(--background000);
+    }
+
+    &:disabled {
+        --borderColor: var(--background100);
+        --bgColor: var(--background000);
+        --textColor: var(--background300);
+    }
+}
+
+.link {
+    --borderColor: transparent;
+    --bgColor: transparent;
+    --textColor: var(--colorAction);
+
+    border-bottom-color: var(--colorDo);
+    padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) 0 calc(var(--sizeUnit) * var(--sizeScaleFactor));
+
+    &:hover {
+        border-bottom-color: var(--colorAction);
+    }
+
+    &:disabled {
+        --bgColor: var(--background000);
+        --textColor: var(--background300);
+
+        border-bottom-color: var(--background100);
+    }
+}
+
+/* Sizes */
+
+.small {
+    --sizeScaleFactor: 1;
+    --fontSize: 14px;
+}
+
+.medium {
+    --sizeScaleFactor: 1.5;
+    --fontSize: 16px;
+}
+
+.large {
+    --sizeScaleFactor: 2;
+    --fontSize: 18px;
+}
+
+.icon {
+    & svg {
+        height: calc(var(--fontSize) * 1.2);
+        width: calc(var(--fontSize) * 1.2);
+    }
+}

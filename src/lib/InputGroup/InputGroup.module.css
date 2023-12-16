@@ -5,14 +5,15 @@
 }
 
 .legend {
-    color: var(--text);
+    color: var(--textColor);
     cursor: default;
     font-size: 18px;
+    font-weight: 500;
     margin-bottom: calc(var(--sizeUnit) * 1.5);
     user-select: none;
 
     &[data-disabled] {
-        color: var(--gray200);
+        color: var(--background200);
     }
 }
 
@@ -24,7 +25,7 @@
 }
 
 .hint {
-    color: var(--gray300);
+    color: var(--background300);
     font-size: 12px;
     margin-top: calc(var(--sizeUnit) * 1.5);
     width: 100%;

@@ -7,6 +7,7 @@ import {FormField} from '@/lib/FormField';
 import {InputGroup} from '@/lib/InputGroup';
 import {InputCheckbox} from '@/lib/InputCheckbox';
 import {InputRadio} from '@/lib/InputRadio';
+import {Button} from '@/lib/Button';
 
 import {Form} from './Form.tsx';
 
@@ -129,10 +130,11 @@ export const Example: Story = {
                     <InputCheckbox required value="bar" label="This is a bar name" key="gork" />
                     <InputCheckbox disabled value="bazz" label="This is a bazz name" key="bork" />
                 </InputGroup>
-                <div>
-                    <button type="submit">Submit</button>
-                    <br />
-                    <button type="reset">Reset</button>
+                <div style={{display: 'flex', gap: '12px'}}>
+                    <Button type="submit">Submit</Button>
+                    <Button type="reset" variant="alternative">
+                        Reset
+                    </Button>
                 </div>
             </Fragment>
         ),

@@ -59,7 +59,7 @@
     "@material-symbols/svg-700": "^0.14.1",
     "awesome-debounce-promise": "^2.1.0",
     "classnames": "^2.3.2",
-    "css-vars-hook": "^0.6.19",
+    "css-vars-hook": "^0.6.22",
     "lodash": "^4.17.21",
     "the-new-css-reset": "^1.11.2"
   },

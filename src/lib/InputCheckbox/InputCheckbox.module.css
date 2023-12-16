@@ -6,8 +6,8 @@
 
 .input {
     --bgColor: #fff;
-    --borderColor: var(--colorMi);
-    --centerColor: var(--colorDo);
+    --borderColor: var(--background200);
+    --centerColor: var(--colorRe);
 
     appearance: none;
     background-color: var(--bgColor);
@@ -33,7 +33,7 @@
     }
 
     &:disabled {
-        --borderColor: var(--gray100);
+        --borderColor: var(--background100);
 
         cursor: not-allowed;
     }
@@ -44,13 +44,14 @@
 
     &:focus:not(:disabled, :invalid) {
         --borderColor: var(--colorRe);
+        --centerColor: var(--colorDo);
     }
 }
 
 .label {
     --validationIconPlaceholder: calc(var(--sizeUnit) * 5);
 
-    color: var(--text);
+    color: var(--textColor);
     cursor: pointer;
     font-size: 16px;
     margin-left: var(--sizeUnit);
@@ -61,6 +62,7 @@
     }
 
     &.required::after {
+        color: var(--colorDo);
         content: "*";
         font-size: 24px;
         line-height: 18px;
@@ -73,7 +75,7 @@
 }
 
 .input:disabled + .label {
-    color: var(--gray200);
+    color: var(--background200);
     cursor: not-allowed;
 }
 
@@ -87,6 +89,7 @@
     }
 
     .input:not(:disabled, :invalid) {
-        --borderColor: var(--gray400);
+        --borderColor: var(--colorRe);
+        --centerColor: var(--colorDo);
     }
 }
