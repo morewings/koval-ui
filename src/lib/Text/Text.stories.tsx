@@ -89,6 +89,11 @@ export const Primary: Story = {
                         <li>Ordered item 2</li>
                         <li>Ordered item 3</li>
                     </ol>
+                    <blockquote>
+                        Words can be like X-rays, if you use them properly—they’ll go through anything. You read and
+                        you’re pierced.
+                        <cite>George Clooney</cite>
+                    </blockquote>
                 </Text>
             </div>
         );

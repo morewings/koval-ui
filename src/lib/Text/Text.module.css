@@ -187,3 +187,36 @@
         width: 1em;
     }
 }
+
+.blockquote,
+.text blockquote {
+    background: var(--colorMi);
+    border-left: 3px solid var(--colorRe);
+    color: var(--color);
+    font-size: var(--fontSizeLarge);
+    font-style: italic;
+    margin-bottom: calc(var(--sizeUnit) * 2);
+    margin-left: calc(var(--sizeUnit) * 6);
+    padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 3);
+    position: relative;
+
+    &::before {
+        color: var(--colorDo);
+        content: "“";
+        font-family: serif;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: var(--fontWeightBold);
+        left: -42px;
+        line-height: 1;
+        position: absolute;
+        top: 0;
+    }
+
+    & cite {
+        display: block;
+        font-size: var(--fontSizeSmall);
+        margin-top: calc(var(--sizeUnit) * 2);
+        text-align: right;
+    }
+}

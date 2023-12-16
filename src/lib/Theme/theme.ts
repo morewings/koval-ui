@@ -28,7 +28,7 @@ export const theme = {
     background500: '#363636',
     background600: '#000000',
     // theme
-    colorDo: '#ffbe99',
+    colorDo: '#e3a075',
     colorRe: '#61483a',
     colorMi: '#ffdea6',
     colorFa: '#597480',
