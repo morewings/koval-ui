@@ -220,3 +220,37 @@
         text-align: right;
     }
 }
+
+.description-list,
+.text dl {
+    margin-bottom: calc(var(--sizeUnit) * 2);
+
+    & dt {
+        color: var(--colorDo);
+        font-size: var(--fontSizeLarge);
+        font-weight: var(--fontWeightBolder);
+        margin-bottom: calc(var(--sizeUnit) * 1);
+    }
+
+    & dd {
+        border-bottom: 1px solid var(--colorDo);
+        margin-bottom: calc(var(--sizeUnit) * 1);
+        padding-bottom: calc(var(--sizeUnit) * 1);
+    }
+}
+
+.keyboard,
+.text kbd {
+    background-color: var(--colorDo);
+    border-color: var(--colorMi) var(--colorRe) var(--colorRe) var(--colorMi);
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px 3px 4px;
+    color: var(--background000);
+    font-family: monospace, sans-serif;
+    font-size: var(--fontSizeSmall);
+    margin: 0;
+    outline: 0;
+    padding: 0 5px;
+    vertical-align: baseline;
+}

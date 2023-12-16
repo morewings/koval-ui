@@ -69,6 +69,8 @@ export const Primary: Story = {
                         <br />
                         This is <sub>subscript</sub> and <sup>superscript</sup>
                         <br />
+                        This is <kbd>Shift</kbd> and <kbd>Ctrl</kbd>
+                        <br />
                     </p>
                     <ul>
                         <li>Unordered item 1</li>
@@ -79,21 +81,22 @@ export const Primary: Story = {
                         <li>Ordered item 1</li>
                         <li>Ordered item 2</li>
                         <li>Ordered item 3</li>
-                        <li>Ordered item 1</li>
-                        <li>Ordered item 2</li>
-                        <li>Ordered item 3</li>
-                        <li>Ordered item 1</li>
-                        <li>Ordered item 2</li>
-                        <li>Ordered item 3</li>
-                        <li>Ordered item 1</li>
-                        <li>Ordered item 2</li>
-                        <li>Ordered item 3</li>
                     </ol>
                     <blockquote>
                         Words can be like X-rays, if you use them properly—they’ll go through anything. You read and
                         you’re pierced.
                         <cite>George Clooney</cite>
                     </blockquote>
+                    <dl>
+                        <dt>Beast of Bodmin</dt>
+                        <dd>A large feline inhabiting Bodmin Moor.</dd>
+
+                        <dt>Morgawr</dt>
+                        <dd>A sea serpent.</dd>
+
+                        <dt>Owlman</dt>
+                        <dd>A giant owl-like creature.</dd>
+                    </dl>
                 </Text>
             </div>
         );
