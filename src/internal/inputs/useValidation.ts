@@ -41,7 +41,7 @@ export const useValidation = ({validatorFn}: ValidationProps) => {
     const createValidatorSync = useCallback(
         (mode: InputMode, event: ChangeEvent<HTMLInputElement>) => {
             const value = getValue(event, mode);
-            const validationError = validatorFn?.(value);
+            const validationError = validatorFn?.(value, event.target.validity);
             event.target.setCustomValidity(validationError as string);
             reportValidity(event);
         },
@@ -58,7 +58,7 @@ export const useValidation = ({validatorFn}: ValidationProps) => {
             setValidity(ValidationState.inProgress);
             let validationError = '';
             try {
-                validationError = await debouncedValidator(value);
+                validationError = await debouncedValidator(value, event.target.validity);
             } catch (error) {
                 event.target.setCustomValidity(error as string);
             }

@@ -81,8 +81,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const validator = (value?: unknown) => {
-    if (value === 'foo') {
+const validator = (value: unknown, state: ValidityState) => {
+    console.log('state', state);
+    if (value === '' || value === 'foo') {
         return '';
     } else {
         return 'Value has to be foo';
@@ -100,7 +101,8 @@ const validatorAsync = async () => {
 
 export const Example: Story = {
     args: {
-        onSubmit: (_, state) => {
+        onSubmit: (event, state) => {
+            event.preventDefault();
             console.log('onSubmit', state);
         },
         children: (

@@ -5,5 +5,5 @@ export enum ValidationState {
 }
 
 export type ValidationProps = {
-    validatorFn?: (value: unknown) => string | Promise<string>;
+    validatorFn?: (value: unknown, validityState: ValidityState) => string | Promise<string>;
 };
