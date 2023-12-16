@@ -192,6 +192,7 @@
 .text blockquote {
     background: var(--colorMi);
     border-left: 3px solid var(--colorRe);
+    border-radius: 0 var(--sizeUnit) var(--sizeUnit) 0;
     color: var(--color);
     font-size: var(--fontSizeLarge);
     font-style: italic;
