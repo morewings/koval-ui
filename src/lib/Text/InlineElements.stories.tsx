@@ -22,6 +22,7 @@ const meta = {
 } as Meta<typeof B | typeof A | typeof Ins | typeof Del>;
 
 export default meta;
+// @ts-expect-error too complex
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {

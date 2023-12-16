@@ -20,6 +20,7 @@ const meta = {
 } as Meta<typeof Ul | typeof Ol | typeof Dl>;
 
 export default meta;
+// @ts-expect-error too complex
 type Story = StoryObj<typeof meta>;
 
 export const Unordered: Story = {

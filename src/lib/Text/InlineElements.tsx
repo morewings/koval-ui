@@ -2,26 +2,30 @@ import type {ReactNode} from 'react';
 import {forwardRef} from 'react';
 import classNames from 'classnames';
 
+import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
+
 import classes from './Text.module.css';
 
-export type Props = {
-    children?: ReactNode;
-    className?: string;
-};
+export type Props = DataAttributes &
+    LibraryProps & {
+        children?: ReactNode;
+    };
 
-export const A = forwardRef<HTMLAnchorElement, Props & {href?: string}>(({children, className, href = '#'}, ref) => {
-    return (
-        <a href={href} className={classNames(classes.link, className)} ref={ref}>
-            {children}
-        </a>
-    );
-});
+export const A = forwardRef<HTMLAnchorElement, Props & {href?: string}>(
+    ({children, className, href = '#', ...nativeProps}, ref) => {
+        return (
+            <a {...nativeProps} href={href} className={classNames(classes.link, className)} ref={ref}>
+                {children}
+            </a>
+        );
+    }
+);
 
 A.displayName = 'A';
 
-export const B = forwardRef<HTMLElement, Props>(({children, className}, ref) => {
+export const B = forwardRef<HTMLElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <b className={classNames(classes.bold, className)} ref={ref}>
+        <b {...nativeProps} className={classNames(classes.bold, className)} ref={ref}>
             {children}
         </b>
     );
@@ -29,9 +33,9 @@ export const B = forwardRef<HTMLElement, Props>(({children, className}, ref) => 
 
 B.displayName = 'B';
 
-export const Strong = forwardRef<HTMLElement, Props>(({children, className}, ref) => {
+export const Strong = forwardRef<HTMLElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <strong className={classNames(classes.strong, className)} ref={ref}>
+        <strong {...nativeProps} className={classNames(classes.strong, className)} ref={ref}>
             {children}
         </strong>
     );
@@ -41,9 +45,9 @@ Strong.displayName = 'Strong';
 
 B.displayName = 'B';
 
-export const I = forwardRef<HTMLElement, Props>(({children, className}, ref) => {
+export const I = forwardRef<HTMLElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <i className={classNames(classes.italic, className)} ref={ref}>
+        <i {...nativeProps} className={classNames(classes.italic, className)} ref={ref}>
             {children}
         </i>
     );
@@ -51,9 +55,9 @@ export const I = forwardRef<HTMLElement, Props>(({children, className}, ref) => 
 
 I.displayName = 'I';
 
-export const Em = forwardRef<HTMLElement, Props>(({children, className}, ref) => {
+export const Em = forwardRef<HTMLElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <em className={classNames(classes.emphasized, className)} ref={ref}>
+        <em {...nativeProps} className={classNames(classes.emphasized, className)} ref={ref}>
             {children}
         </em>
     );
@@ -61,9 +65,9 @@ export const Em = forwardRef<HTMLElement, Props>(({children, className}, ref) =>
 
 Em.displayName = 'Em';
 
-export const Mark = forwardRef<HTMLElement, Props>(({children, className}, ref) => {
+export const Mark = forwardRef<HTMLElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <mark className={classNames(classes.marked, className)} ref={ref}>
+        <mark {...nativeProps} className={classNames(classes.marked, className)} ref={ref}>
             {children}
         </mark>
     );
@@ -71,9 +75,9 @@ export const Mark = forwardRef<HTMLElement, Props>(({children, className}, ref) 
 
 Mark.displayName = 'Mark';
 
-export const Small = forwardRef<HTMLElement, Props>(({children, className}, ref) => {
+export const Small = forwardRef<HTMLElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <small className={classNames(classes.small, className)} ref={ref}>
+        <small {...nativeProps} className={classNames(classes.small, className)} ref={ref}>
             {children}
         </small>
     );
@@ -81,9 +85,9 @@ export const Small = forwardRef<HTMLElement, Props>(({children, className}, ref)
 
 Small.displayName = 'Small';
 
-export const Del = forwardRef<HTMLModElement, Props>(({children, className}, ref) => {
+export const Del = forwardRef<HTMLModElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <del className={classNames(classes.deleted, className)} ref={ref}>
+        <del {...nativeProps} className={classNames(classes.deleted, className)} ref={ref}>
             {children}
         </del>
     );
@@ -91,9 +95,9 @@ export const Del = forwardRef<HTMLModElement, Props>(({children, className}, ref
 
 Del.displayName = 'Del';
 
-export const Ins = forwardRef<HTMLModElement, Props>(({children, className}, ref) => {
+export const Ins = forwardRef<HTMLModElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <ins className={classNames(classes.inserted, className)} ref={ref}>
+        <ins {...nativeProps} className={classNames(classes.inserted, className)} ref={ref}>
             {children}
         </ins>
     );
@@ -101,9 +105,9 @@ export const Ins = forwardRef<HTMLModElement, Props>(({children, className}, ref
 
 Ins.displayName = 'Ins';
 
-export const Sub = forwardRef<HTMLElement, Props>(({children, className}, ref) => {
+export const Sub = forwardRef<HTMLElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <sub className={classNames(classes.subscript, className)} ref={ref}>
+        <sub {...nativeProps} className={classNames(classes.subscript, className)} ref={ref}>
             {children}
         </sub>
     );
@@ -111,9 +115,9 @@ export const Sub = forwardRef<HTMLElement, Props>(({children, className}, ref) =
 
 Sub.displayName = 'Sub';
 
-export const Sup = forwardRef<HTMLElement, Props>(({children, className}, ref) => {
+export const Sup = forwardRef<HTMLElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <sup className={classNames(classes.superscript, className)} ref={ref}>
+        <sup {...nativeProps} className={classNames(classes.superscript, className)} ref={ref}>
             {children}
         </sup>
     );
@@ -121,9 +125,9 @@ export const Sup = forwardRef<HTMLElement, Props>(({children, className}, ref) =
 
 Sup.displayName = 'Sup';
 
-export const Kbd = forwardRef<HTMLElement, Props>(({children, className}, ref) => {
+export const Kbd = forwardRef<HTMLElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <kbd className={classNames(classes.keyboard, className)} ref={ref}>
+        <kbd {...nativeProps} className={classNames(classes.keyboard, className)} ref={ref}>
             {children}
         </kbd>
     );

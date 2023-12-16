@@ -2,16 +2,18 @@ import type {ReactNode} from 'react';
 import {forwardRef} from 'react';
 import classNames from 'classnames';
 
+import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
+
 import classes from './Text.module.css';
 
-export type Props = {
-    children?: ReactNode;
-    className?: string;
-};
+export type Props = DataAttributes &
+    LibraryProps & {
+        children?: ReactNode;
+    };
 
-export const H1 = forwardRef<HTMLHeadingElement, Props>(({children, className}, ref) => {
+export const H1 = forwardRef<HTMLHeadingElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <h1 className={classNames(classes.header1, className)} ref={ref}>
+        <h1 {...nativeProps} className={classNames(classes.header1, className)} ref={ref}>
             {children}
         </h1>
     );
@@ -19,9 +21,9 @@ export const H1 = forwardRef<HTMLHeadingElement, Props>(({children, className}, 
 
 H1.displayName = 'H1';
 
-export const H2 = forwardRef<HTMLHeadingElement, Props>(({children, className}, ref) => {
+export const H2 = forwardRef<HTMLHeadingElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <h2 className={classNames(classes.header2, className)} ref={ref}>
+        <h2 {...nativeProps} className={classNames(classes.header2, className)} ref={ref}>
             {children}
         </h2>
     );
@@ -29,9 +31,9 @@ export const H2 = forwardRef<HTMLHeadingElement, Props>(({children, className}, 
 
 H2.displayName = 'H2';
 
-export const H3 = forwardRef<HTMLHeadingElement, Props>(({children, className}, ref) => {
+export const H3 = forwardRef<HTMLHeadingElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <h3 className={classNames(classes.header3, className)} ref={ref}>
+        <h3 {...nativeProps} className={classNames(classes.header3, className)} ref={ref}>
             {children}
         </h3>
     );
@@ -39,9 +41,9 @@ export const H3 = forwardRef<HTMLHeadingElement, Props>(({children, className}, 
 
 H3.displayName = 'H3';
 
-export const H4 = forwardRef<HTMLHeadingElement, Props>(({children, className}, ref) => {
+export const H4 = forwardRef<HTMLHeadingElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <h4 className={classNames(classes.header4, className)} ref={ref}>
+        <h4 {...nativeProps} className={classNames(classes.header4, className)} ref={ref}>
             {children}
         </h4>
     );
@@ -49,9 +51,9 @@ export const H4 = forwardRef<HTMLHeadingElement, Props>(({children, className}, 
 
 H4.displayName = 'H4';
 
-export const H5 = forwardRef<HTMLHeadingElement, Props>(({children, className}, ref) => {
+export const H5 = forwardRef<HTMLHeadingElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <h5 className={classNames(classes.header5, className)} ref={ref}>
+        <h5 {...nativeProps} className={classNames(classes.header5, className)} ref={ref}>
             {children}
         </h5>
     );
@@ -59,9 +61,9 @@ export const H5 = forwardRef<HTMLHeadingElement, Props>(({children, className}, 
 
 H5.displayName = 'H5';
 
-export const H6 = forwardRef<HTMLHeadingElement, Props>(({children, className}, ref) => {
+export const H6 = forwardRef<HTMLHeadingElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <h6 className={classNames(classes.header6, className)} ref={ref}>
+        <h6 {...nativeProps} className={classNames(classes.header6, className)} ref={ref}>
             {children}
         </h6>
     );
