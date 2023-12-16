@@ -24,7 +24,7 @@ export default defineConfig({
             include: '**/*.svg?react',
         }),
         react(),
-        dts({rollupTypes: true}),
+        dts({rollupTypes: true, exclude: ['**/*.stories.(ts|tsx)']}),
     ],
     build: {
         sourcemap: true,
@@ -44,6 +44,10 @@ export default defineConfig({
                 // for externalized deps
                 globals: {
                     react: 'React',
+                    'react/jsx-runtime': 'JsxRuntime',
+                    'css-vars-hook': 'CssVarsHook',
+                    classNames: 'ClassNames',
+                    'awesome-debounce-promise': 'AwesomeDebouncePromise',
                 },
             },
         },
