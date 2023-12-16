@@ -20,7 +20,7 @@
     border-radius: calc(var(--sizeUnit) * 0.66);
     color: var(--textColor);
     flex: 1;
-    font-size: var(--textSize);
+    font-size: var(--fontSizeMedium);
     min-width: 0;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
 

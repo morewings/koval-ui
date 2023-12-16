@@ -53,7 +53,7 @@
 
     color: var(--textColor);
     cursor: pointer;
-    font-size: 16px;
+    font-size: var(--fontSizeMedium);
     margin-left: var(--sizeUnit);
     margin-right: var(--sizeUnit);
 

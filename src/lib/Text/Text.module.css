@@ -1,0 +1,189 @@
+.text {
+    --bgColor: var(--background000);
+    --color: var(--textColor);
+
+    background-color: var(--bgColor);
+    width: 100%;
+}
+
+.text h1,
+.header1 {
+    color: var(--color);
+    font-size: var(--fontSizeH1);
+    font-weight: 600;
+    margin-bottom: calc(var(--sizeUnit) * 3);
+}
+
+.text h2,
+.header2 {
+    color: var(--color);
+    font-size: var(--fontSizeH2);
+    font-weight: 600;
+    margin-bottom: calc(var(--sizeUnit) * 3);
+}
+
+.text h3,
+.header3 {
+    color: var(--color);
+    font-size: var(--fontSizeH3);
+    font-weight: 600;
+    margin-bottom: calc(var(--sizeUnit) * 3);
+}
+
+.text h4,
+.header4 {
+    color: var(--color);
+    font-size: var(--fontSizeH4);
+    font-weight: 600;
+    margin-bottom: calc(var(--sizeUnit) * 2);
+}
+
+.text h5,
+.header5 {
+    color: var(--color);
+    font-size: var(--fontSizeH5);
+    font-weight: 600;
+    margin-bottom: calc(var(--sizeUnit) * 3);
+}
+
+.text h6,
+.header6 {
+    color: var(--color);
+    font-size: var(--fontSizeH6);
+    font-weight: 600;
+    margin-bottom: calc(var(--sizeUnit) * 3);
+}
+
+.text p,
+.paragraph {
+    color: var(--color);
+    font-size: var(--fontSizeText);
+    line-height: 1.33;
+    margin-bottom: calc(var(--sizeUnit) * 2);
+}
+
+.text a,
+.link {
+    border-bottom: 1px solid var(--colorAction);
+    color: var(--colorAction);
+
+    &:hover {
+        border-bottom-color: var(--colorDo);
+    }
+}
+
+.text b,
+.bold {
+    color: var(--color);
+    font-weight: 600;
+}
+
+.text strong,
+.strong {
+    color: var(--colorRe);
+    font-weight: 600;
+}
+
+.text i,
+.italic {
+    color: var(--color);
+    font-style: italic;
+}
+
+.text em,
+.emphasized {
+    color: var(--colorRe);
+    font-style: italic;
+}
+
+.text mark,
+.marked {
+    background: var(--colorMi);
+    color: var(--color);
+}
+
+.text small,
+.small {
+    color: var(--color);
+    font-size: 12px;
+}
+
+.text del,
+.deleted {
+    color: var(--color);
+    text-decoration: var(--colorDo) solid line-through;
+}
+
+.text ins,
+.inserted {
+    color: var(--color);
+    text-decoration: var(--colorDo) solid underline;
+}
+
+.text sub,
+.subscript {
+    color: var(--color);
+    font-size: var(--fontSizeExtraSmall);
+    vertical-align: sub;
+}
+
+.text sup,
+.superscript {
+    color: var(--color);
+    font-size: var(--fontSizeExtraSmall);
+    vertical-align: super;
+}
+
+.text ul,
+.text ol,
+.ul,
+.ol {
+    color: var(--color);
+    margin-bottom: calc(var(--sizeUnit) * 2);
+    padding-left: calc(var(--sizeUnit) * 2);
+}
+
+.ul,
+.text ul {
+    & li {
+        align-items: center;
+        display: flex;
+    }
+
+    & li::before {
+        align-self: center;
+        background-color: var(--colorDo);
+        border-radius: 3px;
+        content: " ";
+        height: 6px;
+        margin-right: 6px;
+        width: 6px;
+    }
+}
+
+.ol,
+.text ol {
+    counter-reset: li;
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    & li {
+        align-items: center;
+        counter-increment: li;
+        display: flex;
+        margin-bottom: 3px;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    & li::before {
+        align-self: center;
+        color: var(--colorDo);
+        content: counter(li);
+        direction: rtl;
+        font-size: var(--fontSizeSmall);
+        margin-left: -0.5em;
+        margin-right: 6px;
+        text-align: right;
+        vertical-align: middle;
+        width: 1em;
+    }
+}

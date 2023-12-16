@@ -142,17 +142,17 @@
 
 .small {
     --sizeScaleFactor: 1;
-    --fontSize: 14px;
+    --fontSize: var(--fontSizeSmall);
 }
 
 .medium {
     --sizeScaleFactor: 1.5;
-    --fontSize: 16px;
+    --fontSize: var(--fontSizeMedium);
 }
 
 .large {
     --sizeScaleFactor: 2;
-    --fontSize: 18px;
+    --fontSize: var(--fontSizeLarge);
 }
 
 .icon {

@@ -8,8 +8,8 @@
 .label {
     color: var(--textColor);
     cursor: pointer;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: var(--fontSizeLarge);
+    font-weight: var(--fontWeightBolder);
     line-height: 1;
     margin-bottom: calc(var(--sizeUnit) * 2);
 
@@ -24,7 +24,7 @@
 
 .hint {
     color: var(--background300);
-    font-size: 12px;
+    font-size: var(--fontSizeExtraSmall);
     margin-top: var(--sizeUnit);
     width: 100%;
 }

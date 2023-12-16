@@ -2,7 +2,24 @@
     --fontFamily: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --sizeUnit: 6px;
-    --textSize: 16px;
+
+    /* font sizes */
+    --fontSizeH1: 36px;
+    --fontSizeH2: 28px;
+    --fontSizeH3: 24px;
+    --fontSizeH4: 22px;
+    --fontSizeH5: 18px;
+    --fontSizeH6: 16px;
+    --fontSizeText: 16px;
+    --fontSizeMedium: 16px;
+    --fontSizeLarge: 18px;
+    --fontSizeSmall: 14px;
+    --fontSizeExtraSmall: 12px;
+
+    /* font weights */
+    --fontWeightNormal: 400;
+    --fontWeightBolder: 500;
+    --fontWeightBold: 600;
 
     /* colors */
     --textColor: #111;
