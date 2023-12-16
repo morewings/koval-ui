@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 240px;
+}
+
+.label {
+    color: var(--text);
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: calc(var(--sizeUnit) * 2);
+
+    &.required::after {
+        content: "*";
+        font-size: 24px;
+        line-height: 18px;
+        margin-left: calc(var(--sizeUnit) / 2);
+    }
+}
+
+.hint {
+    color: var(--gray300);
+    font-size: 12px;
+    margin-top: var(--sizeUnit);
+    width: 100%;
+}

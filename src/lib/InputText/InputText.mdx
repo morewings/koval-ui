@@ -1,0 +1,54 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown } from "@storybook/blocks";
+import * as InputTextStories from "./InputText.stories";
+import { InputText } from "./InputText";
+
+<Meta title="Inputs/Text" component={InputText} />
+
+# Icon
+
+## Icon props
+
+<ArgsTable of={InputText} />
+
+## Description
+
+`Icon` is an icon.
+
+## Imports
+
+<Source format={true} code={`
+const a = 'b';
+import a from 'b';
+`} />
+
+
+## Demo
+
+### Default example
+
+<Canvas of={InputTextStories.Example} />
+
+### Validation: required
+
+<Canvas of={InputTextStories.ValidationRequired} />
+
+### Validation: email
+
+<Canvas of={InputTextStories.ValidationEmail} />
+
+### Validation: url
+
+<Canvas of={InputTextStories.ValidationUrl} />
+
+### Validation: pattern
+
+<Canvas of={InputTextStories.ValidationPattern} />
+
+### Validation: custom
+
+<Canvas of={InputTextStories.ValidationCustom} />
+
+### Validation: async
+
+<Canvas of={InputTextStories.ValidationAsync} />
+

@@ -1,0 +1,85 @@
+.wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.label {
+    cursor: pointer;
+    margin-left: var(--sizeUnit);
+
+    &.required::after {
+        content: "*";
+        font-size: 24px;
+        line-height: 18px;
+        margin-left: calc(var(--sizeUnit) / 2);
+    }
+}
+
+.input {
+    --bgColor: #fff;
+    --borderColor: var(--gray200);
+    --centerColor: var(--colorDo);
+
+    appearance: none;
+    background-color: var(--bgColor);
+    border: 3px solid var(--borderColor);
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    height: 24px;
+    margin: 0;
+    position: relative;
+    width: 24px;
+
+    &::before {
+        --size: 0px;
+
+        background-color: var(--centerColor);
+        border-radius: 50%;
+        content: "";
+        height: var(--size);
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: var(--size);
+    }
+
+    &:disabled {
+        --borderColor: var(--gray100);
+
+        cursor: not-allowed;
+    }
+
+    &:checked::before {
+        --size: 10px;
+    }
+
+    &:focus:not(:disabled, :invalid) {
+        --borderColor: var(--gray400);
+    }
+
+    &:disabled + .label {
+        color: var(--gray200);
+        cursor: not-allowed;
+    }
+}
+
+.wrapper:hover {
+    .input:not(:disabled, :invalid) {
+        --borderColor: var(--gray400);
+    }
+
+    .input:invalid {
+        --borderColor: red;
+    }
+
+    .input:invalid + .label {
+        color: var(--colorError);
+    }
+}
+
+.icon {
+    margin-left: auto;
+}

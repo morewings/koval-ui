@@ -54,7 +54,7 @@ module.exports = {
                     {
                         pattern: '@/**',
                         group: 'internal',
-                    }
+                    },
                 ],
                 'newlines-between': 'always',
             },
@@ -80,7 +80,16 @@ module.exports = {
         ],
         'react-refresh/only-export-components': ['warn', {allowConstantExport: true}],
         '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-        '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: "_", ignoreRestSiblings: true }],
+        '@typescript-eslint/no-unused-vars': [
+            'error',
+            {
+                argsIgnorePattern: '^_',
+                varsIgnorePattern: '^_',
+                caughtErrorsIgnorePattern: '^_',
+                ignoreRestSiblings: true,
+                args: 'after-used',
+            },
+        ],
     },
     overrides: [
         /* Allow require imports for internal scripts */

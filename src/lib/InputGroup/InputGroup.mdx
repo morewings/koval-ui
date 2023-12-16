@@ -1,0 +1,67 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown } from "@storybook/blocks";
+import * as InputGroupStories from "./InputGroup.stories";
+import { InputGroup } from "./InputGroup";
+
+<Meta title="Inputs/Group" component={InputGroup} />
+
+# Input group
+
+## Description
+
+`InputGroup` is a component to wrap groups of **interactive inputs**, such as `InputCheckbox` or `InputRadio`.
+
+## Props
+
+<ArgsTable of={InputGroup} />
+
+## Imports
+
+<Source format={true} code={`
+const a = 'b';
+import a from 'b';
+`} />
+
+
+## Demo
+
+<Canvas><Story of={InputGroupStories.Example} /></Canvas>
+
+### Radio
+
+<Canvas of={InputGroupStories.Radio} />
+
+### Radio with built-in validation
+
+<Canvas of={InputGroupStories.RadioBuiltinValidation} />
+
+### Radio with hint
+
+<Canvas of={InputGroupStories.RadioHint} />
+
+### Radio disabled
+
+<Canvas of={InputGroupStories.RadioDisabled} />
+
+### Checkbox
+
+<Canvas of={InputGroupStories.Checkbox} />
+
+### Checkbox with custom validation
+
+<Canvas of={InputGroupStories.CheckboxCustomValidation} />
+
+### Checkbox without id
+
+<Canvas of={InputGroupStories.CheckboxNoId} />
+
+### Checkbox with hint
+
+<Canvas of={InputGroupStories.CheckboxHint} />
+
+### Checkbox disabled
+
+<Canvas of={InputGroupStories.CheckboxDisabled} />
+
+
+
+

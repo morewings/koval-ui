@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react';
-import {Provider} from './../src/lib/Provider';
+import {Provider} from './../src/lib/Provider/index.ts';
 
 import 'the-new-css-reset/css/reset.css';
 import './../src/lib/global.css';
@@ -12,6 +12,9 @@ const preview: Preview = {
                 color: /(background|color)$/i,
                 date: /Date$/i,
             },
+        },
+        parameters: {
+            layout: 'centered',
         },
     },
     decorators: [
