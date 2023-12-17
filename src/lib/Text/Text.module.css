@@ -2,7 +2,6 @@
 
 .text {
     --bgColor: var(--background000);
-    --color: var(--textColor);
 
     background-color: var(--bgColor);
     width: 100%;
@@ -10,7 +9,7 @@
 
 .text h1,
 .header1 {
-    color: var(--color);
+    color: var(--textColor);
     font-size: var(--fontSizeH1);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 3);
@@ -18,7 +17,7 @@
 
 .text h2,
 .header2 {
-    color: var(--color);
+    color: var(--textColor);
     font-size: var(--fontSizeH2);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 3);
@@ -26,7 +25,7 @@
 
 .text h3,
 .header3 {
-    color: var(--color);
+    color: var(--textColor);
     font-size: var(--fontSizeH3);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 3);
@@ -34,7 +33,7 @@
 
 .text h4,
 .header4 {
-    color: var(--color);
+    color: var(--textColor);
     font-size: var(--fontSizeH4);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 2);
@@ -42,7 +41,7 @@
 
 .text h5,
 .header5 {
-    color: var(--color);
+    color: var(--textColor);
     font-size: var(--fontSizeH5);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 2);
@@ -50,7 +49,7 @@
 
 .text h6,
 .header6 {
-    color: var(--color);
+    color: var(--textColor);
     font-size: var(--fontSizeH6);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 2);
@@ -58,7 +57,7 @@
 
 .text p,
 .paragraph {
-    color: var(--color);
+    color: var(--textColor);
     font-size: var(--fontSizeText);
     line-height: 1.33;
     margin-bottom: calc(var(--sizeUnit) * 2);
@@ -76,7 +75,7 @@
 
 .text b,
 .bold {
-    color: var(--color);
+    color: var(--textColor);
     font-weight: 600;
 }
 
@@ -88,7 +87,7 @@
 
 .text i,
 .italic {
-    color: var(--color);
+    color: var(--textColor);
     font-style: italic;
 }
 
@@ -102,13 +101,13 @@
 .text mark,
 .marked {
     background: var(--colorMi);
-    color: var(--color);
+    color: var(--textColor);
     padding: 0 calc(var(--sizeUnit) / 2);
 }
 
 .text small,
 .small {
-    color: var(--color);
+    color: var(--textColor);
     font-size: 12px;
 }
 
@@ -129,14 +128,14 @@
 
 .text sub,
 .subscript {
-    color: var(--color);
+    color: var(--textColor);
     font-size: var(--fontSizeExtraSmall);
     vertical-align: sub;
 }
 
 .text sup,
 .superscript {
-    color: var(--color);
+    color: var(--textColor);
     font-size: var(--fontSizeExtraSmall);
     vertical-align: super;
 }
@@ -145,7 +144,7 @@
 .text ol,
 .ul,
 .ol {
-    color: var(--color);
+    color: var(--textColor);
     margin-bottom: calc(var(--sizeUnit) * 2);
     padding-left: calc(var(--sizeUnit) * 2);
 }
@@ -199,7 +198,7 @@
     background: var(--colorMi);
     border-left: 3px solid var(--colorRe);
     border-radius: 0 var(--sizeUnit) var(--sizeUnit) 0;
-    color: var(--color);
+    color: var(--textColor);
     font-size: var(--fontSizeLarge);
     font-style: italic;
     margin-bottom: calc(var(--sizeUnit) * 2);
@@ -317,7 +316,7 @@
 .code,
 .text code {
     background-color: var(--background100);
-    color: var(--background500);
+    color: var(--textColor);
     font-family: var(--fontFamilyMonospace);
     font-size: var(--fontSizeSmall);
     padding: 0 3px;
@@ -327,12 +326,31 @@
 .text pre {
     background-color: var(--background100);
     border-radius: var(--sizeUnit);
+    color: var(--textColor);
     display: block;
     font-family: var(--fontFamilyMonospace);
     font-size: var(--fontSizeSmall);
     margin-bottom: calc(var(--sizeUnit) * 2);
     max-width: 100%;
     overflow: auto;
-    padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 3);
+    padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 3) calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 12);
+    position: relative;
     white-space: pre;
+
+    &::before {
+        color: var(--colorRe);
+        content: "</>";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: var(--fontWeightBold);
+        left: 6px;
+        line-height: 1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        padding-right: 6px;
+        padding-left: 6px;
+        padding-top: 6px;
+        border-right: 3px solid var(--colorDo);
+    }
 }
