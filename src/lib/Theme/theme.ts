@@ -23,7 +23,7 @@ export const theme = {
     textColor: '#111111',
     background000: 'white',
     background100: '#dedede',
-    background200: '#a9a9a9',
+    background200: '#bdbdbd',
     background300: '#808080',
     background400: '#525252',
     background500: '#363636',

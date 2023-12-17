@@ -27,13 +27,11 @@ export const Primary: Story = {
     render: args => {
         return (
             <Pre {...args}>
-                {`
-return (
+                {`return (
     <a {...nativeProps} href={href} className={classNames(classes.link, className)} ref={ref}>
         {children}
     </a>
-);
-                `}
+);`}
             </Pre>
         );
     },
