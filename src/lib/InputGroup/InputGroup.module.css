@@ -7,12 +7,12 @@
 .legend {
     color: var(--textColor);
     cursor: default;
-    font-size: 18px;
+    font-size: var(--fontSizeLarge);
     font-weight: 500;
     margin-bottom: calc(var(--sizeUnit) * 1.5);
     user-select: none;
 
-    &[data-disabled] {
+    &[data-disabled="true"] {
         color: var(--background200);
     }
 }
@@ -26,7 +26,7 @@
 
 .hint {
     color: var(--background300);
-    font-size: 12px;
+    font-size: var(--fontSizeExtraSmall);
     margin-top: calc(var(--sizeUnit) * 1.5);
     width: 100%;
 }

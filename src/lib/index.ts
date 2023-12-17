@@ -12,3 +12,29 @@ export {InputRadio} from './InputRadio';
 export {InputText} from './InputText';
 export {theme} from './Theme';
 export type {ThemeType} from './Theme';
+export {
+    Text,
+    P,
+    Ul,
+    Ol,
+    Dl,
+    A,
+    Strong,
+    Sup,
+    Sub,
+    Small,
+    B,
+    Mark,
+    Ins,
+    I,
+    Em,
+    Del,
+    Kbd,
+    H1,
+    H2,
+    H3,
+    H4,
+    H5,
+    H6,
+    BlockQuote,
+} from './Text';

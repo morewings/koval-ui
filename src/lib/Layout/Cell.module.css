@@ -1,6 +1,6 @@
 .cell {
     align-items: center;
-    background: steelblue;
+    background: var(--colorRe);
     border-radius: 4px;
     color: var(--background000);
     display: flex;

@@ -8,9 +8,9 @@
     display: inline-flex;
     flex-direction: row;
     font-size: var(--fontSize);
-    font-weight: 500;
+    font-weight: var(--fontWeightBolder);
     gap: calc(var(--sizeUnit) * var(--sizeScaleFactor));
-    letter-spacing: 0.3px;
+    letter-spacing: 1px;
     line-height: 1.2;
     padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) calc(var(--sizeUnit) * 3 * var(--sizeScaleFactor));
     user-select: none;
@@ -31,7 +31,7 @@
 .primary {
     --borderColor: var(--colorDo);
     --bgColor: var(--colorDo);
-    --textColor: var(--colorRe);
+    --textColor: var(--background000);
 
     &:hover {
         --borderColor: var(--colorRe);
@@ -123,11 +123,11 @@
     --bgColor: transparent;
     --textColor: var(--colorAction);
 
-    border-bottom-color: var(--colorDo);
+    border-bottom-color: var(--colorAction);
     padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) 0 calc(var(--sizeUnit) * var(--sizeScaleFactor));
 
     &:hover {
-        border-bottom-color: var(--colorAction);
+        border-bottom-color: var(--colorDo);
     }
 
     &:disabled {
@@ -142,17 +142,17 @@
 
 .small {
     --sizeScaleFactor: 1;
-    --fontSize: 14px;
+    --fontSize: var(--fontSizeSmall);
 }
 
 .medium {
     --sizeScaleFactor: 1.5;
-    --fontSize: 16px;
+    --fontSize: var(--fontSizeMedium);
 }
 
 .large {
     --sizeScaleFactor: 2;
-    --fontSize: 18px;
+    --fontSize: var(--fontSizeLarge);
 }
 
 .icon {
