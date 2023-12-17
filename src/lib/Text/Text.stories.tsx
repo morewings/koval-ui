@@ -97,6 +97,43 @@ export const Primary: Story = {
                         <dt>Owlman</dt>
                         <dd>A giant owl-like creature.</dd>
                     </dl>
+                    <table>
+                        <caption>He-Man and Skeletor facts</caption>
+                        <thead>
+                            <tr>
+                                <th>Header content 1</th>
+                                <th>Header content 2</th>
+                                <th>Header content 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Body content 1</td>
+                                <td>
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged.
+                                </td>
+                                <td>Body content 3</td>
+                            </tr>
+                            <tr>
+                                <td>Body content 1</td>
+                                <td>Body content 2</td>
+                                <td>Body content 3</td>
+                            </tr>
+                            <tr>
+                                <td>Body content 1</td>
+                                <td>Body content 2</td>
+                                <td>Body content 3</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Footer content 1</td>
+                                <td>Footer content 2</td>
+                                <td>Footer content 3</td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </Text>
             </div>
         );

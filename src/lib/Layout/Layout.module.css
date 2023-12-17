@@ -1,8 +1,4 @@
-@custom-media --viewport-xs (width >= 320px);
-@custom-media --viewport-sm (width >= 640px);
-@custom-media --viewport-md (width >= 992px);
-@custom-media --viewport-lg (width >= 1366px);
-@custom-media --viewport-xl (width >= 1920px);
+@import url("./customMedia.css");
 
 .vars {
     /* CSS vars to disable IDE error */

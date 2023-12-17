@@ -12,7 +12,7 @@
     margin-bottom: calc(var(--sizeUnit) * 1.5);
     user-select: none;
 
-    &[data-disabled] {
+    &[data-disabled="true"] {
         color: var(--background200);
     }
 }

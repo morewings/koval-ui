@@ -123,11 +123,11 @@
     --bgColor: transparent;
     --textColor: var(--colorAction);
 
-    border-bottom-color: var(--colorDo);
+    border-bottom-color: var(--colorAction);
     padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) 0 calc(var(--sizeUnit) * var(--sizeScaleFactor));
 
     &:hover {
-        border-bottom-color: var(--colorAction);
+        border-bottom-color: var(--colorDo);
     }
 
     &:disabled {

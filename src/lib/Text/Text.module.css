@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 .text {
     --bgColor: var(--background000);
     --color: var(--textColor);
@@ -94,6 +96,7 @@
 .emphasized {
     color: var(--colorRe);
     font-style: italic;
+    font-weight: var(--fontWeightBolder);
 }
 
 .text mark,
@@ -110,14 +113,15 @@
 
 .text del,
 .deleted {
-    color: var(--color);
-    text-decoration: var(--colorDo) solid line-through;
+    background: var(--colorError);
+    color: var(--background000);
+    text-decoration: var(--background000) solid line-through;
 }
 
 .text ins,
 .inserted {
-    color: var(--color);
-    text-decoration: var(--colorDo) solid underline;
+    background: var(--colorSuccess);
+    color: var(--background000);
 }
 
 .text sub,
@@ -165,7 +169,6 @@
 .text ol {
     counter-reset: li;
 
-    /* stylelint-disable-next-line no-descending-specificity */
     & li {
         align-items: center;
         counter-increment: li;
@@ -173,7 +176,6 @@
         margin-bottom: 3px;
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
     & li::before {
         align-self: center;
         color: var(--colorDo);
@@ -254,4 +256,52 @@
     outline: 0;
     padding: 0 5px;
     vertical-align: baseline;
+}
+
+/* Used only in Table component */
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.table,
+.text table {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    color: var(--textColor);
+    font-size: var(--fontSizeSmall);
+    margin-bottom: calc(var(--sizeUnit) * 2);
+    table-layout: auto;
+    width: 100%;
+
+    & > tr:hover td,
+    & > *:not(tfoot) tr:hover td {
+        background-color: var(--colorSol);
+    }
+
+    & th,
+    & td {
+        border: 1px solid var(--background100);
+        color: var(--textColor);
+        min-width: 166px;
+        padding: 12px;
+    }
+
+    & th {
+        background: var(--colorDo);
+        color: var(--background000);
+        font-weight: var(--fontWeightBolder);
+        letter-spacing: 0.3px;
+    }
+
+    & tfoot td {
+        background: var(--colorFa);
+        color: var(--background000);
+        font-weight: var(--fontWeightBolder);
+    }
+
+    & caption {
+        font-size: var(--fontSizeLarge);
+        padding: 12px 0;
+    }
 }
