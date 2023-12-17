@@ -137,8 +137,9 @@ export const Primary: Story = {
                         </tfoot>
                     </table>
                     <pre>
-                        It has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged.
+                        {`It has survived not only five centuries,
+    but also the leap into electronic typesetting,
+        remaining essentially unchanged.`}
                     </pre>
                 </Text>
             </div>

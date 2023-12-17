@@ -45,7 +45,7 @@
     color: var(--color);
     font-size: var(--fontSizeH5);
     font-weight: 600;
-    margin-bottom: calc(var(--sizeUnit) * 3);
+    margin-bottom: calc(var(--sizeUnit) * 2);
 }
 
 .text h6,
@@ -53,7 +53,7 @@
     color: var(--color);
     font-size: var(--fontSizeH6);
     font-weight: 600;
-    margin-bottom: calc(var(--sizeUnit) * 3);
+    margin-bottom: calc(var(--sizeUnit) * 2);
 }
 
 .text p,
