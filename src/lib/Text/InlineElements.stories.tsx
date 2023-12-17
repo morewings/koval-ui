@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {Fragment} from 'react';
 // import {fn} from '@storybook/test';
 
-import {A, Del, Em, Ins, I, Mark, B, Sub, Sup, Small, Strong, Kbd} from './InlineElements.tsx';
+import {A, Del, Em, Ins, I, Mark, B, Sub, Sup, Small, Strong, Kbd, Code} from './InlineElements.tsx';
 
 const meta = {
     title: 'Typography/Inline Elements',
@@ -53,6 +53,8 @@ export const Primary: Story = {
                 This is <Sub {...args}>subscript</Sub> and <Sup>superscript</Sup>
                 <br />
                 This is <Kbd {...args}>Shift</Kbd> and <Kbd>Ctrl</Kbd>
+                <br />
+                This is <Code {...args}>code</Code>
                 <br />
             </Fragment>
         );

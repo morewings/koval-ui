@@ -1,6 +1,7 @@
 export const theme = {
     fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
+    fontFamilyMonospace: `"SF Mono", "Courier New", FreeMono, "Nimbus Mono PS", Cousine, monospace`,
     sizeUnit: '6px',
     // font sizes
     fontSizeH1: '36px',
@@ -39,5 +40,12 @@ export const theme = {
     colorSuccess: 'green',
     colorAction: 'blue',
 };
+
+// /* Color Theme Swatches in Hex */
+// .color-theme_logo-1-hex { color: #F2A007; }
+// .color-theme_logo-2-hex { color: #F25D07; }
+// .color-theme_logo-3-hex { color: #BF1506; }
+// .color-theme_logo-4-hex { color: #8C1308; }
+// .color-theme_logo-5-hex { color: #261111; }
 
 export type ThemeType = Partial<typeof theme>;

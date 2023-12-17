@@ -71,6 +71,8 @@ export const Primary: Story = {
                         <br />
                         This is <kbd>Shift</kbd> and <kbd>Ctrl</kbd>
                         <br />
+                        This is <code>alert(&lsquo;Hello world&rsquo;)</code> example
+                        <br />
                     </p>
                     <ul>
                         <li>Unordered item 1</li>
@@ -134,6 +136,10 @@ export const Primary: Story = {
                             </tr>
                         </tfoot>
                     </table>
+                    <pre>
+                        It has survived not only five centuries, but also the leap into electronic typesetting,
+                        remaining essentially unchanged.
+                    </pre>
                 </Text>
             </div>
         );

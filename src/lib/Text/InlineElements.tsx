@@ -134,3 +134,13 @@ export const Kbd = forwardRef<HTMLElement, Props>(({children, className, ...nati
 });
 
 Kbd.displayName = 'Kbd';
+
+export const Code = forwardRef<HTMLElement, Props>(({children, className, ...nativeProps}, ref) => {
+    return (
+        <code {...nativeProps} className={classNames(classes.code, className)} ref={ref}>
+            {children}
+        </code>
+    );
+});
+
+Code.displayName = 'Code';

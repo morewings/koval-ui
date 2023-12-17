@@ -288,7 +288,7 @@
     }
 
     & th {
-        background: var(--colorDo);
+        background: var(--colorRe);
         color: var(--background000);
         font-weight: var(--fontWeightBolder);
         letter-spacing: 0.3px;
@@ -304,4 +304,26 @@
         font-size: var(--fontSizeLarge);
         padding: 12px 0;
     }
+}
+
+.code,
+.text code {
+    background-color: var(--background100);
+    color: var(--background500);
+    font-family: var(--fontFamilyMonospace);
+    font-size: var(--fontSizeSmall);
+    padding: 0 3px;
+}
+
+.preformatted,
+.text pre {
+    background-color: var(--background100);
+    display: block;
+    font-family: var(--fontFamilyMonospace);
+    font-size: var(--fontSizeSmall);
+    margin-bottom: calc(var(--sizeUnit) * 2);
+    max-width: 100%;
+    overflow: auto;
+    padding: calc(var(--sizeUnit) * 2);
+    white-space: pre;
 }
