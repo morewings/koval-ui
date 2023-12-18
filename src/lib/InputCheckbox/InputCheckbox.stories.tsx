@@ -1,3 +1,5 @@
+import type {ChangeEvent} from 'react';
+import {useState, useCallback} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
@@ -16,10 +18,12 @@ const meta = {
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
+        value: '',
+        disabled: false,
+        required: false,
     },
     argTypes: {
         value: {control: 'text'},
-        defaultValue: {control: 'text'},
         onClick: {
             table: {
                 disable: true,
@@ -55,22 +59,12 @@ const meta = {
                 disable: true,
             },
         },
-        dataAttributes: {
-            table: {
-                disable: true,
-            },
-        },
         className: {
             table: {
                 disable: true,
             },
         },
         name: {
-            table: {
-                disable: true,
-            },
-        },
-        required: {
             table: {
                 disable: true,
             },
@@ -95,6 +89,11 @@ const meta = {
                 disable: true,
             },
         },
+        validatorFn: {
+            table: {
+                disable: true,
+            },
+        },
     },
 } as Meta<typeof InputCheckbox>;
 
@@ -105,13 +104,53 @@ export const Primary: Story = {
     args: {
         label: 'bar',
         id: 'foo',
+        defaultChecked: false,
     },
 };
 
-export const Example: Story = {
-    args: {
-        label: 'bar',
-        id: 'foo',
+export const Controlled: Story = {
+    render: args => {
+        const [checked, setChecked] = useState(false);
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                setChecked(event.target.checked);
+            },
+            [setChecked]
+        );
+        const validator = useCallback((checked?: unknown) => {
+            if (!checked) {
+                return 'Custom error!';
+            }
+            return '';
+        }, []);
+        return <InputCheckbox {...args} onChange={handleChange} checked={checked} validatorFn={validator} />;
+    },
+};
+
+Controlled.args = {
+    label: 'bar',
+    id: 'foo',
+};
+
+Controlled.argTypes = {
+    checked: {
+        table: {
+            disable: true,
+        },
+    },
+    defaultChecked: {
+        table: {
+            disable: true,
+        },
+    },
+};
+
+Controlled.parameters = {
+    docs: {
+        source: {
+            language: 'tsx',
+            type: 'code',
+        },
     },
 };
 

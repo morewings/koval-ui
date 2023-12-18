@@ -4,32 +4,35 @@ import { InputCheckbox } from "./InputCheckbox.tsx";
 
 <Meta title="Inputs/Checkbox" component={InputCheckbox} of={InputCheckboxStories} />
 
-# Icon
-
-## Icon props
-
-<ArgsTable of={InputCheckbox} />
+# Checkbox
 
 ## Description
 
-`Icon` is an icon.
-
-<Primary />
+`Checkbox` is a checkbox.
 
 ## Imports
 
-<Source format={true} code={`
-const a = 'b';
-import a from 'b';
-`} />
+<Markdown>{`
+\`\`\`ts
+import {InputCheckbox} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+## Checkbox props
+
+<ArgsTable of={InputCheckbox} />
+
+
 
 
 ## Demo
 
-### Default example
+### Controlled
 
-<Canvas>
-    <Story of={InputCheckboxStories.Example} />
+<Canvas source={{type: 'dynamic'}}>
+    <Story of={InputCheckboxStories.Controlled} />
 </Canvas>
 
 ### With validation

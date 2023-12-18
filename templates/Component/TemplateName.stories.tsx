@@ -24,8 +24,30 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    render: args => {
+    render: function Render(args) {
         return <TemplateName {...args} />;
     },
     args: {},
+};
+
+export const WithCode: Story = {
+    render: args => {
+        // here comes the code
+        return <TemplateName {...args} />;
+    },
+};
+
+WithCode.args = {
+    id: 'foo',
+};
+
+WithCode.argTypes = {};
+
+WithCode.parameters = {
+    docs: {
+        source: {
+            language: 'tsx',
+            type: 'code',
+        },
+    },
 };
