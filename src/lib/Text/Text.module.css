@@ -338,6 +338,8 @@
     white-space: pre;
 
     &::before {
+        border-right: 3px solid var(--colorDo);
+        bottom: 0;
         color: var(--colorRe);
         content: "</>";
         font-size: 24px;
@@ -345,12 +347,12 @@
         font-weight: var(--fontWeightBold);
         left: 6px;
         line-height: 1;
+        padding-left: 6px;
+        padding-right: 6px;
+        padding-top: 6px;
         position: absolute;
         top: 0;
-        bottom: 0;
-        padding-right: 6px;
-        padding-left: 6px;
-        padding-top: 6px;
-        border-right: 3px solid var(--colorDo);
     }
 }
+
+/* hello */
