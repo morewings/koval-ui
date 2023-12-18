@@ -7,26 +7,24 @@ import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 
-import classes from './InputText.module.css';
+import classes from './TemplateName.module.css';
 
 export type Props = DataAttributes &
     LibraryProps &
     NativePropsTextual &
     CallbackPropsTextual &
     ValidationProps & {
-        type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
         prefix?: FC;
     };
 
-export const InputText = forwardRef<HTMLInputElement, Props>(
+export const TemplateName = forwardRef<HTMLInputElement, Props>(
     (
         {
             prefix: Prefix,
             className,
-            type = 'text',
             placeholder = '',
             disabled,
-            value: valueProp,
+            value,
             onChange = () => {},
             onFocus = () => {},
             onBlur = () => {},
@@ -54,9 +52,8 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
         const handleInvalid = useCallback(() => {
             setValidity(ValidationState.error);
         }, [setValidity]);
-
         return (
-            <div className={classNames(classes.wrapper, className)}>
+            <div className={classNames(classes['template-name'], className)}>
                 {Prefix && <Prefix />}
                 <input
                     {...nativeProps}
@@ -64,8 +61,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                     className={classes.input}
                     ref={ref}
                     disabled={disabled}
-                    type={type}
-                    value={valueProp}
+                    value={value}
                     defaultValue={defaultValue}
                     onChange={handleChange}
                     onBlur={onBlur}
@@ -81,4 +77,4 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
     }
 );
 
-InputText.displayName = 'InputText';
+TemplateName.displayName = 'TemplateName';

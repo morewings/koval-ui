@@ -19,6 +19,22 @@
         "index": "templates/Component/index.ts",
         "mdx": "templates/Component/TemplateName.mdx"
       }
+    },
+    "input": {
+      "path": "src/lib",
+      "withLazy": false,
+      "withStory": true,
+      "withStyle": true,
+      "withTest": false,
+      "withIndex": true,
+      "withMdx": true,
+      "customTemplates": {
+        "component": "templates/Input/TemplateName.tsx",
+        "style": "templates/Input/TemplateName.module.css",
+        "story": "templates/Input/TemplateName.stories.tsx",
+        "index": "templates/Input/index.ts",
+        "mdx": "templates/Input/TemplateName.mdx"
+      }
     }
   },
   "usesStyledComponents": false
