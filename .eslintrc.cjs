@@ -137,5 +137,22 @@ module.exports = {
                 ],
             },
         },
+        /* Disable `template` directory imports for all files */
+        {
+            files: ['./src/**/*.*'],
+            rules: {
+                'no-restricted-imports': [
+                    'error',
+                    {
+                        patterns: [
+                            {
+                                group: ['**/templates/**'],
+                                message: 'Imports from templates directory are forbidden.',
+                            },
+                        ],
+                    },
+                ],
+            },
+        },
     ],
 };
