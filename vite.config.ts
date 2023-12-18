@@ -46,7 +46,7 @@ export default defineConfig({
                     react: 'React',
                     'react/jsx-runtime': 'JsxRuntime',
                     'css-vars-hook': 'CssVarsHook',
-                    classNames: 'ClassNames',
+                    classnames: 'ClassNames',
                     'awesome-debounce-promise': 'AwesomeDebouncePromise',
                 },
             },
