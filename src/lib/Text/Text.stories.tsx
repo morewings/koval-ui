@@ -141,6 +141,12 @@ export const Primary: Story = {
     but also the leap into electronic typesetting,
         remaining essentially unchanged.`}
                     </pre>
+                    <p>
+                        This is meter:{' '}
+                        <meter value={55} min={0} low={30} high={60} max={100} optimum={50}>
+                            80/100
+                        </meter>
+                    </p>
                 </Text>
             </div>
         );

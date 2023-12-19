@@ -6,3 +6,4 @@ export {H1, H2, H3, H4, H5, H6} from './Headers.tsx';
 export {BlockQuote} from './BlockQuote.tsx';
 export {Pre} from './Preformatted.tsx';
 export {Table} from './Table.tsx';
+export {Meter} from './Meter.tsx';

@@ -354,3 +354,48 @@
         top: 0;
     }
 }
+
+.meter,
+.text meter {
+    --background: var(--background100);
+    --optimum: var(--colorSuccess);
+    --subOptimum: var(--colorWarning);
+    --subSubOptimum: var(--colorError);
+    --height: calc(var(--sizeUnit) * 2);
+    --borderRadius: var(--sizeUnit);
+    --borderColor: var(--colorRe);
+
+    /* Style for Firefox */
+    background: var(--background);
+    border: 1px solid var(--borderColor);
+    border-radius: var(--borderRadius);
+    display: inline-block;
+    height: var(--height);
+    width: calc(var(--sizeUnit) * 25);
+
+    /* Style for Chrome, etc. */
+    &::-webkit-meter-bar {
+        background: var(--background);
+        border: 1px solid var(--borderColor);
+        border-radius: var(--borderRadius);
+        height: var(--height);
+    }
+
+    /* The green (optimum) bar */
+    &:-moz-meter-optimum::-moz-meter-bar,
+    &::-webkit-meter-optimum-value {
+        background: var(--optimum);
+    }
+
+    /* The yellow (sub-optimum) bar */
+    &:-moz-meter-sub-optimum::-moz-meter-bar,
+    &::-webkit-meter-suboptimum-value {
+        background: var(--subOptimum);
+    }
+
+    /* The red (even less good) bar */
+    &::-webkit-meter-even-less-good-value,
+    &:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+        background: var(--subSubOptimum);
+    }
+}
