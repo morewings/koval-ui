@@ -272,7 +272,7 @@
 
 .table,
 .text table {
-    border: 1px solid gray;
+    border: 2px solid var(--background000);
     border-collapse: collapse;
     color: var(--textColor);
     font-size: var(--fontSizeSmall);
@@ -282,7 +282,7 @@
 
     & > tr:hover td,
     & > *:not(tfoot) tr:hover td {
-        background-color: var(--colorMi);
+        background-color: var(--colorSol);
     }
 
     & th,
@@ -298,6 +298,10 @@
         color: var(--background000);
         font-weight: var(--fontWeightBolder);
         letter-spacing: 0.3px;
+    }
+
+    & td {
+        background: var(--background000);
     }
 
     & tfoot td {

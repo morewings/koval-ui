@@ -38,13 +38,13 @@ export const Primary: Story = {
         return <Picture {...args} />;
     },
     args: {
-        src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/painted-hand-298-332.jpg',
-        width: 298,
-        height: 332,
+        src: 'https://picsum.photos/300/333',
+        width: 300,
+        height: 333,
         alt: 'Image description',
         sources: [
             {
-                src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/surfer-240-200.jpg',
+                src: 'https://picsum.photos/600/666',
                 mediaCondition: '(orientation: portrait)',
             },
         ],

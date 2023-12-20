@@ -17,6 +17,16 @@ const meta = {
                 disable: true,
             },
         },
+        id: {
+            table: {
+                disable: true,
+            },
+        },
+        role: {
+            table: {
+                disable: true,
+            },
+        },
     },
 } as Meta<typeof TemplateName>;
 
@@ -24,7 +34,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    render: function Render(args) {
+    render: args => {
         return <TemplateName {...args} />;
     },
     args: {},

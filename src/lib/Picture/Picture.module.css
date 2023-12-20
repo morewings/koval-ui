@@ -1,3 +1,5 @@
 .picture {
-    --foo: "bar";
+    & img {
+        display: block;
+    }
 }
