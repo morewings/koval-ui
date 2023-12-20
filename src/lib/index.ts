@@ -37,4 +37,5 @@ export {
     H5,
     H6,
     BlockQuote,
+    Meter,
 } from './Text';
