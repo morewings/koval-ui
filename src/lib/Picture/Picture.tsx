@@ -42,27 +42,26 @@ type Source = {
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#width
      */
     height?: number;
-};
-
-type SourceWidth = Source & {
-    /**
-     * Provide the source image width descriptor. Has to be a positive integer directly followed by w. E.g. 480w
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#srcset
-     * @see https://developer.mozilla.org/en-US/docs/Glossary/Intrinsic_Size
-     */
-    intrinsicWidth?: IntrinsicWidth;
-    density?: never;
-};
-
-type SourceDensity = Source & {
-    intrinsicWidth?: never;
-    /**
-     * Provide the source image pixel density descriptor. Has to be a positive floating point number directly followed by x. E.g. 2x
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#srcset
-     * @see https://developer.mozilla.org/en-US/docs/Glossary/Intrinsic_Size
-     */
-    density?: DensityDescriptor;
-};
+} & (
+    | {
+          /**
+           * Provide the source image width descriptor. Has to be a positive integer directly followed by w. E.g. 480w
+           * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#srcset
+           * @see https://developer.mozilla.org/en-US/docs/Glossary/Intrinsic_Size
+           */
+          intrinsicWidth?: IntrinsicWidth;
+          density?: never;
+      }
+    | {
+          intrinsicWidth?: never;
+          /**
+           * Provide the source image pixel density descriptor. Has to be a positive floating point number directly followed by x. E.g. 2x
+           * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#srcset
+           * @see https://developer.mozilla.org/en-US/docs/Glossary/Intrinsic_Size
+           */
+          density?: DensityDescriptor;
+      }
+);
 
 export type Props = DataAttributes &
     LibraryProps & {
@@ -91,7 +90,7 @@ export type Props = DataAttributes &
          * @see SourceDensity
          * @see SourceWidth
          */
-        sources?: (SourceDensity | SourceWidth)[];
+        sources?: Source[];
         /**
          * Set image loading behavior
          * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/loading
