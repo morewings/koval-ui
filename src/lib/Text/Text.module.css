@@ -272,7 +272,7 @@
 
 .table,
 .text table {
-    border: 1px solid gray;
+    border: 2px solid var(--background000);
     border-collapse: collapse;
     color: var(--textColor);
     font-size: var(--fontSizeSmall);
@@ -282,7 +282,7 @@
 
     & > tr:hover td,
     & > *:not(tfoot) tr:hover td {
-        background-color: var(--colorMi);
+        background-color: var(--colorSol);
     }
 
     & th,
@@ -298,6 +298,10 @@
         color: var(--background000);
         font-weight: var(--fontWeightBolder);
         letter-spacing: 0.3px;
+    }
+
+    & td {
+        background: var(--background000);
     }
 
     & tfoot td {
@@ -328,8 +332,9 @@
     border-radius: var(--sizeUnit);
     color: var(--textColor);
     display: block;
-    font-family: var(--fontFamilyMonospace);
+    font-family: var(--fontFamily);
     font-size: var(--fontSizeSmall);
+    line-height: 1.5;
     margin-bottom: calc(var(--sizeUnit) * 2);
     max-width: 100%;
     overflow: auto;
@@ -341,10 +346,10 @@
         border-right: 3px solid var(--colorDo);
         bottom: 0;
         color: var(--colorRe);
-        content: "</>";
-        font-size: 24px;
+        content: "{x}";
+        font-size: 36px;
         font-style: normal;
-        font-weight: var(--fontWeightBold);
+        font-weight: var(--fontWeightNormal);
         left: 6px;
         line-height: 1;
         padding-left: 6px;

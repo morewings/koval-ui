@@ -1,0 +1,30 @@
+.vars {
+    --position: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: var(--position);
+    margin-bottom: calc(var(--sizeUnit) * 3);
+}
+
+.figure {
+    background: var(--background000);
+    border: 3px solid var(--colorMi);
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 2) var(--sizeUnit);
+
+    &:hover {
+        border-color: var(--colorRe);
+    }
+
+    & figcaption {
+        color: var(--colorFa);
+        font-size: var(--fontSizeSmall);
+        font-style: italic;
+        margin-top: calc(var(--sizeUnit) * 1);
+        text-align: center;
+    }
+}

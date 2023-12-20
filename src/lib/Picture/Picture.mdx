@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {Picture} from './Picture.tsx';
+import * as PictureStories from "./Picture.stories.tsx";
+
+<Meta title="Components/Picture" of={PictureStories} />
+
+# Picture
+
+## Description
+
+Picture is a React component.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Picture} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgsTable of={Picture}/>
+

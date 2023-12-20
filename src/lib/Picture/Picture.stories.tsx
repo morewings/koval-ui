@@ -1,22 +1,17 @@
 import type {Meta, StoryObj} from '@storybook/react';
 // import {fn} from '@storybook/test';
 
-import {TemplateName} from './TemplateName.tsx';
+import {Picture} from './Picture.tsx';
 
 const meta = {
-    title: 'Components/TemplateName',
-    component: TemplateName,
+    title: 'Components/Picture',
+    component: Picture,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {},
     argTypes: {
-        className: {
-            table: {
-                disable: true,
-            },
-        },
         id: {
             table: {
                 disable: true,
@@ -27,23 +22,39 @@ const meta = {
                 disable: true,
             },
         },
+        className: {
+            table: {
+                disable: true,
+            },
+        },
     },
-} as Meta<typeof TemplateName>;
+} as Meta<typeof Picture>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    render: args => {
-        return <TemplateName {...args} />;
+    render: function Render(args) {
+        return <Picture {...args} />;
     },
-    args: {},
+    args: {
+        src: 'https://picsum.photos/300/333',
+        width: 300,
+        height: 333,
+        alt: 'Image description',
+        sources: [
+            {
+                src: 'https://picsum.photos/600/666',
+                mediaCondition: '(orientation: portrait)',
+            },
+        ],
+    },
 };
 
 export const WithCode: Story = {
     render: args => {
         // here comes the code
-        return <TemplateName {...args} />;
+        return <Picture {...args} />;
     },
 };
 
