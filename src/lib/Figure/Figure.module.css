@@ -27,4 +27,9 @@
         margin-top: calc(var(--sizeUnit) * 1);
         text-align: center;
     }
+
+    /* Reset inserted component margin margin */
+    & *:first-child {
+        margin-bottom: 0;
+    }
 }
