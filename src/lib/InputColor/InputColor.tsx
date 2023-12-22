@@ -136,10 +136,23 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                         onKeyUp={onKeyUp}
                         onKeyDown={onKeyDown}
                     />*/}
-                    <input type="color" className={classes['input-alt']}/>
+                    <input
+                        {...nativeProps}
+                        ref={ref}
+                        type="color"
+                        disabled={disabled}
+                        value={value}
+                        defaultValue={defaultValue}
+                        className={classes['input-alt']}
+                        onChange={handleChange}
+                        onInvalid={handleInvalid}
+                        onInput={handleInput}
+                        onBlur={handleBlur}
+                        onKeyUp={onKeyUp}
+                        onKeyDown={onKeyDown}
+                    />
 
                     <IconPalette className={classNames(classes.icon, {[classes.focus]: isDisplayFocused})} />
-
                 </div>
                 <input
                     value={displayValue}
