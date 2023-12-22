@@ -1,0 +1,104 @@
+.input-date {
+    --gap: var(--sizeUnit);
+    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
+
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: var(--gap);
+    max-width: 100%;
+}
+
+.toggle {
+    --toggleWidth: calc(var(--sizeUnit) * 4);
+    --toggleHeight: var(--toggleWidth);
+
+    cursor: pointer;
+    height: var(--toggleHeight);
+    position: relative;
+    width: var(--toggleWidth);
+}
+
+.icon {
+    color: var(--colorDo);
+    cursor: pointer;
+    height: var(--toggleHeight);
+    width: var(--toggleWidth);
+
+    &.focus {
+        color: var(--colorRe);
+    }
+}
+
+.input {
+    cursor: pointer;
+    height: var(--toggleHeight);
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: var(--toggleWidth);
+}
+
+.input:disabled + .icon {
+    color: var(--background100);
+}
+
+.input:focus:not(:disabled) + .icon {
+    color: var(--colorAction);
+}
+
+.input:focus:invalid:not(:disabled) + .icon,
+.input:invalid:not(:disabled) + .focus {
+    color: var(--colorError);
+}
+
+.input-display {
+    background-color: var(--colorMi);
+    border: 3px solid var(--colorDo);
+    border-radius: calc(var(--sizeUnit) * 0.66);
+    color: var(--textColor);
+    flex: 1;
+    font-size: var(--fontSizeMedium);
+    min-width: 0;
+    padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+
+    &:last-child {
+        margin-right: var(--validationIconPlaceholder);
+    }
+
+    &.invalid:focus {
+        border-color: var(--colorError);
+    }
+
+    &.invalid.focus {
+        border-color: var(--colorError);
+    }
+
+    &:disabled {
+        background-color: var(--background100);
+        border-color: var(--background100);
+        cursor: not-allowed;
+    }
+}
+
+.input-date:hover {
+    & .icon {
+        color: var(--colorAction);
+    }
+
+    & .input-display {
+        &.invalid:not(:disabled) {
+            border-color: var(--colorError);
+        }
+    }
+
+    & .input:invalid:not(:disabled) + .icon {
+        color: var(--colorError);
+    }
+}
+
+.validity {
+    margin-left: auto;
+}

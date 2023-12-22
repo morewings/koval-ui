@@ -20,7 +20,8 @@
     "declaration-block-no-redundant-longhand-properties": null,
     "custom-property-pattern": ["^[a-z][a-zA-Z0-9]+$", {
       "message":  "Expected \"%s\" variable name to be lower camelCase"
-    }]
+    }],
+    "no-descending-specificity": null
   },
   "plugins": [
     "stylelint-order"

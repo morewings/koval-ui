@@ -2,6 +2,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
 import {InputText} from '@/lib/InputText';
+import {InputDate} from '@/lib/InputDate';
 
 import {FormField} from './FormField';
 
@@ -18,6 +19,7 @@ const meta = {
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
+        hint: 'This is hint',
     },
     argTypes: {
         value: {control: 'text'},
@@ -97,23 +99,47 @@ const meta = {
                 disable: true,
             },
         },
+        children: {
+            options: ['text', 'date'], // An array of serializable values
+            mapping: {
+                text: <InputText />,
+                date: <InputDate />,
+            }, // Maps serializable option values to complex arg values
+            control: {
+                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                labels: {
+                    // 'labels' maps option values to string labels
+                    text: 'With Text Input',
+                    date: 'With Date Input',
+                },
+            },
+        },
     },
 } as Meta<typeof FormField>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Example: Story = {
+export const Primary: Story = {
     args: {
         label: 'foo',
-        children: <InputText defaultValue="hello" id="foo" required />,
+    },
+    render: ({children = <InputText />, ...args}) => {
+        return <FormField {...args}>{children}</FormField>;
     },
 };
 
-export const ExampleWithoutId: Story = {
+export const ExampleWithId: Story = {
     args: {
         label: 'foo',
-        children: <InputText defaultValue="hello" />,
+        id: 'foo',
+    },
+    render: args => {
+        return (
+            <FormField {...args}>
+                <InputText />
+            </FormField>
+        );
     },
 };
 
