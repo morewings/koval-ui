@@ -1,14 +1,13 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
-import {type ChangeEvent, useCallback, useState} from 'react';
+import type {ChangeEvent} from 'react';
+import {useState, useCallback} from 'react';
 
-import {validatorSync, validatorAsync} from '@/internal/inputs';
-
-import {InputText} from './InputText';
+import {InputColor} from './InputColor.tsx';
 
 const meta = {
-    title: 'Inputs/Text',
-    component: InputText,
+    title: 'Inputs/Color',
+    component: InputColor,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
@@ -20,10 +19,7 @@ const meta = {
         onKeyDown: fn(),
         onKeyUp: fn(),
         required: false,
-        placeholder: '',
-        readOnly: false,
-        disabled: false,
-        autoComplete: 'off',
+        placeholder: 'YYYY-MM-DD',
     },
     argTypes: {
         value: {control: 'text'},
@@ -63,11 +59,6 @@ const meta = {
                 disable: true,
             },
         },
-        dataAttributes: {
-            table: {
-                disable: true,
-            },
-        },
         className: {
             table: {
                 disable: true,
@@ -94,35 +85,8 @@ const meta = {
             },
         },
         validatorFn: {
-            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
-            mapping: {
-                noValidator: undefined,
-                syncValidator: validatorSync,
-                asyncValidator: validatorAsync,
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noValidator: 'No custom validator',
-                    syncValidator: 'Sync validator (value.length < 4)',
-                    asyncValidator: 'Async validator (value.length < 4)',
-                },
-            },
-        },
-        pattern: {
-            options: ['noPattern', 'withPattern'], // An array of serializable values
-            mapping: {
-                noPattern: undefined,
-                withPattern: '[^@\\s]+@[^@\\s]+',
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noPattern: 'No pattern',
-                    withPattern: 'With pattern ([^@\\s]+@[^@\\s]+)',
-                },
+            table: {
+                disable: true,
             },
         },
         prefix: {
@@ -131,36 +95,23 @@ const meta = {
             },
         },
     },
-} as Meta<typeof InputText>;
+} as Meta<typeof InputColor>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        return <InputText {...args} />;
+        return <InputColor {...args} />;
     },
     args: {
-        defaultValue: '',
-        placeholder: 'Text input',
-    },
-    argTypes: {
-        value: {
-            table: {
-                disable: true,
-            },
-        },
-        defaultValue: {
-            table: {
-                disable: true,
-            },
-        },
+        defaultValue: '#e66465',
     },
 };
 
 export const ControlledState: Story = {
     render: args => {
-        const [value, setValue] = useState(args.value);
+        const [value, setValue] = useState('2018-07-22');
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 console.log('Value captured:', event.target.value);
@@ -168,15 +119,47 @@ export const ControlledState: Story = {
             },
             [setValue]
         );
-        return <InputText {...args} value={value} onChange={handleChange} />;
+        return <InputColor {...args} value={value} onChange={handleChange} />;
     },
 };
 
 ControlledState.args = {
-    value: 'Controlled value',
+    min: '2018-01-01',
+    max: '2018-12-31',
 };
 
-ControlledState.argTypes = {
+ControlledState.argTypes = {};
+
+ControlledState.parameters = {
+    docs: {
+        source: {
+            language: 'tsx',
+            type: 'code',
+        },
+    },
+};
+
+export const CustomValidation: Story = {
+    render: args => {
+        const validatorFn = useCallback((value: unknown) => {
+            console.log('Value captured:', value);
+            return value !== '2018-07-22' ? 'Has to be 2018-07-22' : '';
+        }, []);
+        return <InputColor {...args} defaultValue="2018-07-22" validatorFn={validatorFn} />;
+    },
+};
+
+CustomValidation.args = {
+    min: '2018-01-01',
+    max: '2018-12-31',
+};
+
+CustomValidation.argTypes = {
+    value: {
+        table: {
+            disable: true,
+        },
+    },
     defaultValue: {
         table: {
             disable: true,
@@ -184,7 +167,7 @@ ControlledState.argTypes = {
     },
 };
 
-ControlledState.parameters = {
+CustomValidation.parameters = {
     docs: {
         source: {
             language: 'tsx',

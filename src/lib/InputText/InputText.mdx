@@ -1,54 +1,30 @@
-import { Meta, ArgsTable, Story, Canvas, Source, Markdown } from "@storybook/blocks";
+import { Meta, ArgsTable, Story, Canvas, Source, Primary } from "@storybook/blocks";
 import * as InputTextStories from "./InputText.stories";
 import { InputText } from "./InputText";
 
-<Meta title="Inputs/Text" component={InputText} />
+<Meta title="Inputs/Text" of={InputTextStories} />
 
-# Icon
-
-## Icon props
-
-<ArgsTable of={InputText} />
-
-## Description
+# Text Input
 
 `Icon` is an icon.
 
 ## Imports
 
-<Source format={true} code={`
-const a = 'b';
-import a from 'b';
+<Source format={true} language="ts" code={`
+import {InputText} from 'react-forge-ui';
 `} />
 
+<Primary />
 
-## Demo
+## Icon props
 
-### Default example
+<ArgsTable of={InputText} />
 
-<Canvas of={InputTextStories.Example} />
+## Controlled mode
 
-### Validation: required
+<Canvas>
+    <Story of={InputTextStories.ControlledState} />
+</Canvas>
 
-<Canvas of={InputTextStories.ValidationRequired} />
 
-### Validation: email
-
-<Canvas of={InputTextStories.ValidationEmail} />
-
-### Validation: url
-
-<Canvas of={InputTextStories.ValidationUrl} />
-
-### Validation: pattern
-
-<Canvas of={InputTextStories.ValidationPattern} />
-
-### Validation: custom
-
-<Canvas of={InputTextStories.ValidationCustom} />
-
-### Validation: async
-
-<Canvas of={InputTextStories.ValidationAsync} />
 

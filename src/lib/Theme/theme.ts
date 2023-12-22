@@ -3,6 +3,7 @@ export const theme = {
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
     fontFamilyMonospace: `"SF Mono", "Courier New", FreeMono, "Nimbus Mono PS", Cousine, monospace`,
     sizeUnit: '6px',
+    inputWidth: '240px',
     // font sizes
     fontSizeH1: '36px',
     fontSizeH2: '28px',

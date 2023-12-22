@@ -34,6 +34,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             defaultValue,
             validatorFn = defaultValidator,
+            readOnly,
             ...nativeProps
         },
         ref
@@ -55,11 +56,19 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             setValidity(ValidationState.error);
         }, [setValidity]);
 
+        const handleSelect = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                readOnly && event.target.select();
+            },
+            [readOnly]
+        );
+
         return (
             <div className={classNames(classes.wrapper, className)}>
                 {Prefix && <Prefix />}
                 <input
                     {...nativeProps}
+                    readOnly={readOnly}
                     placeholder={placeholder}
                     className={classes.input}
                     ref={ref}
@@ -74,6 +83,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                     onKeyDown={onKeyDown}
                     onInvalid={handleInvalid}
                     onInput={validateTextual}
+                    onSelect={handleSelect}
                 />
                 {validity && <ValidationIcon />}
             </div>

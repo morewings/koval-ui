@@ -64,6 +64,11 @@ export type NativePropsTextual = {
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern
      */
     pattern?: InputHTMLAttributes<HTMLInputElement>['pattern'];
+    /**
+     * Makes the element not mutable, meaning the user can not edit the control
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly
+     */
+    readOnly?: InputHTMLAttributes<HTMLInputElement>['readOnly'];
     // not valid for textInput move to number
     // max?: InputHTMLAttributes<HTMLInputElement>['max'];
     // min?: InputHTMLAttributes<HTMLInputElement>['min'];

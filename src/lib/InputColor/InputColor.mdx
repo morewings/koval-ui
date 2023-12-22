@@ -1,0 +1,18 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {InputColor} from './InputColor.tsx';
+import * as InputColorStories from "./InputColor.stories.tsx";
+
+<Meta title="Inputs/Color" of={InputColorStories} />
+
+# Color Input
+
+Text tba.
+
+<Primary />
+
+<ArgsTable of={InputColor}/>
+
+<Canvas>
+    <Story of={InputColorStories.ControlledState} />
+</Canvas>
+
