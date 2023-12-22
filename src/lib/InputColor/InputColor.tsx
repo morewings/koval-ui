@@ -120,7 +120,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
         return (
             <LocalRoot theme={theme} className={classNames(classes['input-color'], className)}>
                 <div className={classes.toggle}>
-                    <input
+                    {/*<input
                         {...nativeProps}
                         ref={ref}
                         className={classes.input}
@@ -135,8 +135,11 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                         onBlur={handleBlur}
                         onKeyUp={onKeyUp}
                         onKeyDown={onKeyDown}
-                    />
+                    />*/}
+                    <input type="color" className={classes['input-alt']}/>
+
                     <IconPalette className={classNames(classes.icon, {[classes.focus]: isDisplayFocused})} />
+
                 </div>
                 <input
                     value={displayValue}

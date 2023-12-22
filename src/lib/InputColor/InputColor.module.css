@@ -14,7 +14,7 @@
 }
 
 .toggle {
-    --toggleWidth: calc(var(--sizeUnit) * 4);
+    --toggleWidth: calc(var(--sizeUnit) * 6);
     --toggleHeight: var(--toggleWidth);
 
     cursor: pointer;
@@ -24,10 +24,24 @@
 }
 
 .icon {
+    align-items: center;
     color: var(--colorDo);
     cursor: pointer;
+    display: flex;
+    flex-direction: row; /* make flex direction horizontal */
     height: var(--toggleHeight);
+    justify-content: center; /* center items horizontally, in this case */
+    left: 50%;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: var(--toggleWidth);
+
+    & svg {
+        height: calc(var(--sizeUnit) * 4);
+        width: calc(var(--sizeUnit) * 4);
+    }
 
     &.focus {
         color: var(--colorRe);
@@ -35,16 +49,32 @@
 }
 
 .input {
+    border: 3px solid var(--colorDo);
     cursor: pointer;
     height: var(--toggleHeight);
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
     width: var(--toggleWidth);
+
+    &:focus {
+        border-color: var(--colorRe);
+    }
+
+    /*
+    opacity: 0;
+    */
 }
 
-.input:disabled + .icon {
+.input-alt {
+    cursor: pointer;
+    height: var(--toggleHeight);
+    opacity: 0;
+    width: var(--toggleWidth);
+
+    &:focus {
+        border-color: var(--colorRe);
+    }
+}
+
+/* .input:disabled + .icon {
     color: var(--background100);
 }
 
@@ -55,7 +85,7 @@
 .input:focus:invalid:not(:disabled) + .icon,
 .input:invalid:not(:disabled) + .focus {
     color: var(--colorError);
-}
+} */
 
 .input-display {
     background-color: var(--selectedColor);
