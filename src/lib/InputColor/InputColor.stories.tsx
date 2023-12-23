@@ -102,11 +102,17 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        return <InputColor {...args} />;
+        const [value, setValue] = useState('#e66465');
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                console.log('Value captured:', event.target.value);
+                setValue(event.target.value);
+            },
+            [setValue]
+        );
+        return <InputColor {...args} defaultValue={value} onChange={handleChange} />;
     },
-    args: {
-        defaultValue: '#e66465',
-    },
+    args: {},
 };
 
 export const ControlledState: Story = {

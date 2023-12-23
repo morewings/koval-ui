@@ -48,21 +48,6 @@
     }
 }
 
-.input {
-    border: 3px solid var(--colorDo);
-    cursor: pointer;
-    height: var(--toggleHeight);
-    width: var(--toggleWidth);
-
-    &:focus {
-        border-color: var(--colorRe);
-    }
-
-    /*
-    opacity: 0;
-    */
-}
-
 .input-alt {
     cursor: pointer;
     height: var(--toggleHeight);
@@ -78,7 +63,7 @@
     }
 }
 
- .input-alt:disabled + .icon {
+.input-alt:disabled + .icon {
     color: var(--background100);
 }
 
@@ -93,7 +78,7 @@
 
 .input-display {
     background-color: var(--selectedColor);
-    border: 3px solid var(--colorDo);
+    border: 3px solid var(--colorRe);
     border-radius: calc(var(--sizeUnit) * 0.66);
     color: var(--invertedColor);
     flex: 1;

@@ -56,12 +56,8 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             }),
             [displayValue]
         );
-        const handleChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                onChange(event);
-            },
-            [onChange]
-        );
+
+        /* onChange callback makes color picker to lose focus. It triggered in onBlur instead. */
 
         const handleInvalid = useCallback(() => {
             setValidity(ValidationState.error);
@@ -71,27 +67,31 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
         const handleFocus = useCallback(
             (event: FocusEvent<HTMLInputElement>) => {
                 onFocus(event);
-                setFocused(true);
-            },
-            [onFocus]
-        );
-        const handleBlur = useCallback(
-            (event: FocusEvent<HTMLInputElement>) => {
-                onBlur(event);
-                setFocused(false);
-                setDisplayValue(event.target.value);
                 setTheme({
                     selectedColor: event.target.value,
-                    invertedColor: invertColor(event.target.value, true),
-                    borderColor: invertColor(event.target.value, false),
+                    invertedColor: 'transparent',
                 });
             },
-            [onBlur, setDisplayValue, setTheme]
+            [onFocus, setTheme]
         );
 
         const [isDisplayFocused, setDisplayFocused] = useState(false);
         const [isFocused, setFocused] = useState(false);
         const [isInvalid, setInvalid] = useState(false);
+
+        const handleBlur = useCallback(
+            (event: FocusEvent<HTMLInputElement>) => {
+                setTheme({
+                    selectedColor: event.target.value,
+                    invertedColor: invertColor(event.target.value, true),
+                });
+                onBlur(event);
+                setFocused(false);
+                onChange(event);
+                setDisplayValue(event.target.value);
+            },
+            [onBlur, onChange, setDisplayValue, setTheme]
+        );
 
         const handleDisplayFocus = useCallback(
             (event: FocusEvent<HTMLInputElement>) => {
@@ -117,25 +117,19 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             [validateTextual, setInvalid]
         );
 
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                setTheme({
+                    selectedColor: event.target.value,
+                    invertedColor: invertColor(event.target.value, true),
+                });
+            },
+            [setTheme]
+        );
+
         return (
             <LocalRoot theme={theme} className={classNames(classes['input-color'], className)}>
                 <div className={classes.toggle}>
-                    {/*<input
-                        {...nativeProps}
-                        ref={ref}
-                        className={classes.input}
-                        type="color"
-                        disabled={disabled}
-                        value={value}
-                        defaultValue={defaultValue}
-                        onChange={handleChange}
-                        onInvalid={handleInvalid}
-                        onInput={handleInput}
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
-                        onKeyUp={onKeyUp}
-                        onKeyDown={onKeyDown}
-                    />*/}
                     <input
                         {...nativeProps}
                         ref={ref}
@@ -144,14 +138,14 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                         value={value}
                         defaultValue={defaultValue}
                         className={classes['input-alt']}
-                        onChange={handleChange}
                         onInvalid={handleInvalid}
                         onInput={handleInput}
                         onBlur={handleBlur}
                         onKeyUp={onKeyUp}
                         onKeyDown={onKeyDown}
+                        onFocus={handleFocus}
+                        onChange={handleChange}
                     />
-
                     <IconPalette className={classNames(classes.icon, {[classes.focus]: isDisplayFocused})} />
                 </div>
                 <input
