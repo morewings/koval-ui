@@ -3,6 +3,7 @@ import {fn} from '@storybook/test';
 
 import {InputText} from '@/lib/InputText';
 import {InputDate} from '@/lib/InputDate';
+import {InputColor} from '@/lib/InputColor';
 
 import {FormField} from './FormField';
 
@@ -100,10 +101,11 @@ const meta = {
             },
         },
         children: {
-            options: ['text', 'date'], // An array of serializable values
+            options: ['text', 'date', 'color'], // An array of serializable values
             mapping: {
                 text: <InputText />,
                 date: <InputDate />,
+                color: <InputColor defaultValue="#CECECE" />,
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
@@ -111,6 +113,7 @@ const meta = {
                     // 'labels' maps option values to string labels
                     text: 'With Text Input',
                     date: 'With Date Input',
+                    color: 'With Color Input',
                 },
             },
         },
@@ -134,23 +137,7 @@ export const ExampleWithId: Story = {
         label: 'foo',
         id: 'foo',
     },
-    render: args => {
-        return (
-            <FormField {...args}>
-                <InputText />
-            </FormField>
-        );
+    render: ({children = <InputText />, ...args}) => {
+        return <FormField {...args}>{children}</FormField>;
     },
 };
-
-// export const Second: Story = {
-//     render: () => {
-//         return <InputText data-hello="fal" onClick={3} />;
-//     },
-//     args: {},
-//     parameters: {
-//         docs: {
-//             source: {language: 'tsx', type: 'code'},
-//         },
-//     },
-// };

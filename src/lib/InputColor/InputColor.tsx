@@ -107,7 +107,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                     <IconPalette className={classNames(classes.icon)} />
                 </div>
                 <label htmlFor={id} className={classes.label} ref={labelRef}>
-                    {displayValue || placeholder}
+                    {displayValue.toLowerCase() || placeholder}
                 </label>
             </LocalRoot>
         );
