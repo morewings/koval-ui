@@ -11,6 +11,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
+    width: 166px;
 }
 
 .toggle {
@@ -72,7 +73,7 @@
 }
 
 .input-alt:focus:invalid:not(:disabled) + .icon,
-.input-alt:invalid:not(:disabled) + .focus {
+.input-alt:invalid:not(:disabled):focus + .icon {
     color: var(--colorError);
 }
 
@@ -81,6 +82,7 @@
     border: 3px solid var(--colorRe);
     border-radius: calc(var(--sizeUnit) * 0.66);
     color: var(--invertedColor);
+    cursor: pointer;
     flex: 1;
     font-size: var(--fontSizeMedium);
     min-width: 0;
@@ -90,19 +92,16 @@
         margin-right: var(--validationIconPlaceholder);
     }
 
-    &.invalid:focus {
-        border-color: var(--colorError);
-    }
-
-    &.invalid.focus {
-        border-color: var(--colorError);
-    }
-
     &:disabled {
         background-color: var(--background100);
         border-color: var(--background100);
         cursor: not-allowed;
     }
+}
+
+/* Firefox doesn't support has: selector at the moment. */
+.toggle:has(.input-alt:invalid:not(:disabled)) + .input-display {
+    border-color: var(--colorError);
 }
 
 .input-color:hover {
@@ -116,7 +115,7 @@
         }
     }
 
-    & .input:invalid:not(:disabled) + .icon {
+    & .input-alt:invalid:not(:disabled) + .icon {
         color: var(--colorError);
     }
 }

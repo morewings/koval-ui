@@ -19,7 +19,7 @@ const meta = {
         onKeyDown: fn(),
         onKeyUp: fn(),
         required: false,
-        placeholder: 'YYYY-MM-DD',
+        placeholder: '#000000',
     },
     argTypes: {
         value: {control: 'text'},

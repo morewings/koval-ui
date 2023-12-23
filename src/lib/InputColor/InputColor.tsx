@@ -1,6 +1,5 @@
 import type {ChangeEvent, FocusEvent} from 'react';
-import {useMemo} from 'react';
-import {useState} from 'react';
+import {useMemo, useRef} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
@@ -10,7 +9,7 @@ import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {defaultValidator} from '@/internal/inputs';
 import {ValidationState, useValidation} from '@/internal/inputs';
-import {useControllableState} from '@/internal/hooks/useControllableState.ts';
+import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputColor.module.css';
 import {invertColor} from './invertColor.ts';
@@ -25,7 +24,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
     (
         {
             className,
-            placeholder = 'YYYY-MM-DD',
+            placeholder = '#000000',
             disabled,
             value,
             onChange = () => {},
@@ -35,24 +34,25 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             defaultValue,
             validatorFn = defaultValidator,
+            id: idProp,
             ...nativeProps
         },
         ref
     ) => {
+        const id = useInternalId(idProp);
         const {validateTextual, validity, setValidity} = useValidation({validatorFn});
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
             [ValidationState.inProgress]: IconLoader,
         }[validity!];
-        const [displayValue, setDisplayValue] = useControllableState({value, defaultValue});
 
         const {LocalRoot, setTheme} = useLocalTheme();
+        const displayValue = (value ?? defaultValue ?? '') as string;
         const theme = useMemo(
             () => ({
-                selectedColor: displayValue as string,
-                invertedColor: invertColor(displayValue as string, true),
-                borderColor: invertColor(displayValue as string, false),
+                selectedColor: displayValue,
+                invertedColor: invertColor(displayValue, true),
             }),
             [displayValue]
         );
@@ -61,7 +61,6 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
 
         const handleInvalid = useCallback(() => {
             setValidity(ValidationState.error);
-            setInvalid(true);
         }, [setValidity]);
 
         const handleFocus = useCallback(
@@ -69,15 +68,11 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                 onFocus(event);
                 setTheme({
                     selectedColor: event.target.value,
-                    invertedColor: 'transparent',
+                    invertedColor: invertColor(event.target.value, true),
                 });
             },
             [onFocus, setTheme]
         );
-
-        const [isDisplayFocused, setDisplayFocused] = useState(false);
-        const [isFocused, setFocused] = useState(false);
-        const [isInvalid, setInvalid] = useState(false);
 
         const handleBlur = useCallback(
             (event: FocusEvent<HTMLInputElement>) => {
@@ -86,36 +81,19 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                     invertedColor: invertColor(event.target.value, true),
                 });
                 onBlur(event);
-                setFocused(false);
                 onChange(event);
-                setDisplayValue(event.target.value);
             },
-            [onBlur, onChange, setDisplayValue, setTheme]
+            [onBlur, onChange, setTheme]
         );
-
-        const handleDisplayFocus = useCallback(
-            (event: FocusEvent<HTMLInputElement>) => {
-                event.target.select();
-                setDisplayFocused(true);
-            },
-            [setDisplayFocused]
-        );
-
-        const handleDisplayBlur = useCallback(() => {
-            setDisplayFocused(false);
-        }, [setDisplayFocused]);
-
-        const handleSelect = useCallback((event: FocusEvent<HTMLInputElement>) => {
-            event.target.select();
-        }, []);
 
         const handleInput = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                setInvalid(false);
                 validateTextual(event);
             },
-            [validateTextual, setInvalid]
+            [validateTextual]
         );
+
+        const labelRef = useRef<HTMLLabelElement>(null);
 
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
@@ -123,6 +101,9 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                     selectedColor: event.target.value,
                     invertedColor: invertColor(event.target.value, true),
                 });
+                if (labelRef?.current) {
+                    labelRef.current.innerText = event.target.value;
+                }
             },
             [setTheme]
         );
@@ -132,6 +113,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                 <div className={classes.toggle}>
                     <input
                         {...nativeProps}
+                        id={id}
                         ref={ref}
                         type="color"
                         disabled={disabled}
@@ -146,23 +128,11 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                         onFocus={handleFocus}
                         onChange={handleChange}
                     />
-                    <IconPalette className={classNames(classes.icon, {[classes.focus]: isDisplayFocused})} />
+                    <IconPalette className={classNames(classes.icon)} />
                 </div>
-                <input
-                    value={displayValue}
-                    type="text"
-                    tabIndex={-1}
-                    readOnly={true}
-                    placeholder={placeholder}
-                    onBlur={handleDisplayBlur}
-                    onFocus={handleDisplayFocus}
-                    onSelect={handleSelect}
-                    disabled={disabled}
-                    className={classNames(classes['input-display'], {
-                        [classes.invalid]: isInvalid,
-                        [classes.focus]: isFocused,
-                    })}
-                />
+                <label htmlFor={id} className={classNames(classes['input-display'])} ref={labelRef}>
+                    {displayValue || placeholder}
+                </label>
                 {validity && <ValidationIcon className={classes.validity} />}
             </LocalRoot>
         );
