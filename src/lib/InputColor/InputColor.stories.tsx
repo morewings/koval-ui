@@ -1,15 +1,13 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
+import type {ChangeEvent} from 'react';
+import {useState, useCallback} from 'react';
 
-import {InputText} from '@/lib/InputText';
-import {InputDate} from '@/lib/InputDate';
-import {InputColor} from '@/lib/InputColor';
-
-import {FormField} from './FormField';
+import {InputColor} from './InputColor.tsx';
 
 const meta = {
-    title: 'Inputs/FormField',
-    component: FormField,
+    title: 'Inputs/Color',
+    component: InputColor,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
@@ -20,7 +18,8 @@ const meta = {
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
-        hint: 'This is hint',
+        required: false,
+        placeholder: '#000000',
     },
     argTypes: {
         value: {control: 'text'},
@@ -60,11 +59,6 @@ const meta = {
                 disable: true,
             },
         },
-        dataAttributes: {
-            table: {
-                disable: true,
-            },
-        },
         className: {
             table: {
                 disable: true,
@@ -75,17 +69,7 @@ const meta = {
                 disable: true,
             },
         },
-        required: {
-            table: {
-                disable: true,
-            },
-        },
         autoFocus: {
-            table: {
-                disable: true,
-            },
-        },
-        autoComplete: {
             table: {
                 disable: true,
             },
@@ -100,44 +84,33 @@ const meta = {
                 disable: true,
             },
         },
-        children: {
-            options: ['text', 'date', 'color'], // An array of serializable values
-            mapping: {
-                text: <InputText />,
-                date: <InputDate />,
-                color: <InputColor defaultValue="#CECECE" />,
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    text: 'With Text Input',
-                    date: 'With Date Input',
-                    color: 'With Color Input',
-                },
+        validatorFn: {
+            table: {
+                disable: true,
+            },
+        },
+        prefix: {
+            table: {
+                disable: true,
             },
         },
     },
-} as Meta<typeof FormField>;
+} as Meta<typeof InputColor>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    args: {
-        label: 'foo',
+    render: args => {
+        const [value, setValue] = useState('#CCCCCC');
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                console.log('Value captured:', event.target.value);
+                setValue(event.target.value);
+            },
+            [setValue]
+        );
+        return <InputColor {...args} defaultValue={value} onChange={handleChange} />;
     },
-    render: ({children = <InputText />, ...args}) => {
-        return <FormField {...args}>{children}</FormField>;
-    },
-};
-
-export const ExampleWithId: Story = {
-    args: {
-        label: 'foo',
-        id: 'foo',
-    },
-    render: ({children = <InputText />, ...args}) => {
-        return <FormField {...args}>{children}</FormField>;
-    },
+    args: {},
 };

@@ -1,0 +1,104 @@
+.input-date {
+    --gap: var(--sizeUnit);
+    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
+
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: var(--gap);
+    max-width: 100%;
+    width: calc(var(--sizeUnit) * 32);
+}
+
+.toggle {
+    --toggleWidth: calc(var(--sizeUnit) * 4);
+    --toggleHeight: var(--toggleWidth);
+
+    cursor: pointer;
+    height: var(--toggleHeight);
+    position: relative;
+    width: var(--toggleWidth);
+}
+
+.icon {
+    color: var(--colorDo);
+    cursor: pointer;
+    height: var(--toggleHeight);
+    width: var(--toggleWidth);
+}
+
+.input {
+    cursor: pointer;
+    height: var(--toggleHeight);
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: var(--toggleWidth);
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.input:disabled + .icon {
+    color: var(--background100);
+}
+
+.input:focus:not(:disabled) + .icon {
+    color: var(--colorAction);
+}
+
+.input:focus:invalid:not(:disabled) + .icon,
+.input:invalid:not(:disabled) + .focus {
+    color: var(--colorError);
+}
+
+.label {
+    background-color: var(--colorMi);
+    border: 3px solid var(--colorMi);
+    border-radius: calc(var(--sizeUnit) * 0.66);
+    color: var(--textColor);
+    cursor: pointer;
+    flex: 1;
+    font-size: var(--fontSizeMedium);
+    min-width: 0;
+    padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+
+    &:last-child {
+        margin-right: var(--validationIconPlaceholder);
+    }
+
+    &[data-disabled="true"] {
+        background-color: var(--background100);
+        border-color: var(--background100);
+        cursor: not-allowed;
+    }
+}
+
+/* Firefox doesn't support has: selector at the moment. */
+.toggle:has(.input:focus:not(:disabled)) + .label {
+    border-color: var(--colorRe);
+}
+
+/* Firefox doesn't support has: selector at the moment. */
+.toggle:has(.input:invalid:focus:not(:disabled)) + .label,
+.toggle:has(.input:invalid:hover:not(:disabled)) + .label,
+.toggle:has(.input:invalid:not(:disabled)) + .label:hover {
+    border-color: var(--colorError);
+}
+
+.input-date:hover {
+    & .input:not(:disabled) + .icon {
+        color: var(--colorAction);
+    }
+
+    & .input:invalid:not(:disabled) + .icon {
+        color: var(--colorError);
+    }
+}
+
+.validity {
+    margin-left: auto;
+}

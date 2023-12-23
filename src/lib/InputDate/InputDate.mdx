@@ -1,0 +1,18 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {InputDate} from './InputDate.tsx';
+import * as InputDateStories from "./InputDate.stories.tsx";
+
+<Meta title="Inputs/Date" of={InputDateStories} />
+
+# Date Input
+
+Text tba.
+
+<Primary />
+
+<ArgsTable of={InputDate}/>
+
+<Canvas>
+    <Story of={InputDateStories.ControlledState} />
+</Canvas>
+

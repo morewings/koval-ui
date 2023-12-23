@@ -7,7 +7,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
-    width: 240px;
+    width: var(--inputWidth);
 
     & > div {
         flex: 0 1 auto;
@@ -32,6 +32,11 @@
         color: var(--colorFa);
     }
 
+    &:read-only {
+        background-color: var(--colorMi);
+        border: 3px solid var(--colorDo);
+    }
+
     &:disabled {
         background-color: var(--background100);
         border-color: var(--background100);
@@ -42,13 +47,13 @@
         color: transparent;
     }
 
-    &:focus:not(:disabled) {
+    &:focus:not(:disabled, :read-only) {
         background-color: var(--background000);
         border-color: var(--colorRe);
         outline: none;
     }
 
-    &:focus:invalid {
+    &:focus:not(:disabled, :read-only):invalid {
         border-color: var(--colorError);
     }
 }

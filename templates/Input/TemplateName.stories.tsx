@@ -4,7 +4,7 @@ import {fn} from '@storybook/test';
 import {TemplateName} from './TemplateName.tsx';
 
 const meta = {
-    title: 'Components/TemplateName',
+    title: 'Inputs/TemplateName',
     component: TemplateName,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
@@ -16,6 +16,7 @@ const meta = {
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
+        required: false,
     },
     argTypes: {
         value: {control: 'text'},
@@ -31,6 +32,11 @@ const meta = {
             },
         },
         onFocus: {
+            table: {
+                disable: true,
+            },
+        },
+        autoComplete: {
             table: {
                 disable: true,
             },
@@ -51,11 +57,6 @@ const meta = {
             },
         },
         role: {
-            table: {
-                disable: true,
-            },
-        },
-        dataAttributes: {
             table: {
                 disable: true,
             },

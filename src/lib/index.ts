@@ -38,4 +38,10 @@ export {
     H6,
     BlockQuote,
     Meter,
+    Code,
+    Pre,
+    Table,
 } from './Text';
+export {InputDate} from './InputDate';
+export {Figure} from './Figure';
+export {Picture} from './Picture';
