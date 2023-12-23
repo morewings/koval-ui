@@ -102,7 +102,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        const [value, setValue] = useState('#e66465');
+        const [value, setValue] = useState('#CCCCCC');
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 console.log('Value captured:', event.target.value);
@@ -113,71 +113,4 @@ export const Primary: Story = {
         return <InputColor {...args} defaultValue={value} onChange={handleChange} />;
     },
     args: {},
-};
-
-export const ControlledState: Story = {
-    render: args => {
-        const [value, setValue] = useState('2018-07-22');
-        const handleChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                console.log('Value captured:', event.target.value);
-                setValue(event.target.value);
-            },
-            [setValue]
-        );
-        return <InputColor {...args} value={value} onChange={handleChange} />;
-    },
-};
-
-ControlledState.args = {
-    min: '2018-01-01',
-    max: '2018-12-31',
-};
-
-ControlledState.argTypes = {};
-
-ControlledState.parameters = {
-    docs: {
-        source: {
-            language: 'tsx',
-            type: 'code',
-        },
-    },
-};
-
-export const CustomValidation: Story = {
-    render: args => {
-        const validatorFn = useCallback((value: unknown) => {
-            console.log('Value captured:', value);
-            return value !== '2018-07-22' ? 'Has to be 2018-07-22' : '';
-        }, []);
-        return <InputColor {...args} defaultValue="2018-07-22" validatorFn={validatorFn} />;
-    },
-};
-
-CustomValidation.args = {
-    min: '2018-01-01',
-    max: '2018-12-31',
-};
-
-CustomValidation.argTypes = {
-    value: {
-        table: {
-            disable: true,
-        },
-    },
-    defaultValue: {
-        table: {
-            disable: true,
-        },
-    },
-};
-
-CustomValidation.parameters = {
-    docs: {
-        source: {
-            language: 'tsx',
-            type: 'code',
-        },
-    },
 };

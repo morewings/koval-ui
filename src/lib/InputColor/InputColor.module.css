@@ -1,8 +1,6 @@
 .input-color {
     --gap: var(--sizeUnit);
-    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
     --selectedColor: var(--colorDo);
-    --borderColor: var(--colorDo);
     --invertedColor: var(--textColor);
 
     align-items: center;
@@ -11,7 +9,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
-    width: 166px;
+    width: calc(var(--sizeUnit) * 24);
 }
 
 .toggle {
@@ -87,10 +85,6 @@
     font-size: var(--fontSizeMedium);
     min-width: 0;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
-
-    &:last-child {
-        margin-right: var(--validationIconPlaceholder);
-    }
 
     &:disabled {
         background-color: var(--background100);

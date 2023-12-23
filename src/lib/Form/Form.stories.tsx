@@ -8,6 +8,7 @@ import {InputGroup} from '@/lib/InputGroup';
 import {InputCheckbox} from '@/lib/InputCheckbox';
 import {InputRadio} from '@/lib/InputRadio';
 import {InputDate} from '@/lib/InputDate';
+import {InputColor} from '@/lib/InputColor';
 import {Button} from '@/lib/Button';
 
 import {Form} from './Form.tsx';
@@ -133,6 +134,9 @@ export const Example: Story = {
                 </InputGroup>
                 <FormField label="Date input">
                     <InputDate required defaultValue="2018-07-22" />
+                </FormField>
+                <FormField label="Color input">
+                    <InputColor value="#CCCCCC" />
                 </FormField>
                 <div style={{display: 'flex', gap: '12px'}}>
                     <Button type="submit">Submit</Button>

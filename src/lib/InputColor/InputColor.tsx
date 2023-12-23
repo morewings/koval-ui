@@ -4,11 +4,9 @@ import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
 
-import {IconError, IconValid, IconLoader, IconPalette} from '@/internal/Icons';
+import {IconPalette} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
-import {defaultValidator} from '@/internal/inputs';
-import {ValidationState, useValidation} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputColor.module.css';
@@ -17,14 +15,14 @@ import {invertColor} from './invertColor.ts';
 export type Props = DataAttributes &
     LibraryProps &
     Omit<NativePropsTextual, 'maxLength' | 'minLength' | 'autoComplete' | 'inputMode'> &
-    CallbackPropsTextual &
-    ValidationProps & {min?: string; max?: string};
+    CallbackPropsTextual<HTMLInputElement> &
+    Omit<ValidationProps, 'validatorFn'> & {min?: string; max?: string};
 
 export const InputColor = forwardRef<HTMLInputElement, Props>(
     (
         {
             className,
-            placeholder = '#000000',
+            placeholder = '#??????',
             disabled,
             value,
             onChange = () => {},
@@ -33,22 +31,15 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
-            validatorFn = defaultValidator,
             id: idProp,
             ...nativeProps
         },
         ref
     ) => {
         const id = useInternalId(idProp);
-        const {validateTextual, validity, setValidity} = useValidation({validatorFn});
-        const ValidationIcon = {
-            [ValidationState.error]: IconError,
-            [ValidationState.valid]: IconValid,
-            [ValidationState.inProgress]: IconLoader,
-        }[validity!];
 
         const {LocalRoot, setTheme} = useLocalTheme();
-        const displayValue = (value ?? defaultValue ?? '') as string;
+        const displayValue = (value ?? defaultValue) as string;
         const theme = useMemo(
             () => ({
                 selectedColor: displayValue,
@@ -58,10 +49,6 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
         );
 
         /* onChange callback makes color picker to lose focus. It triggered in onBlur instead. */
-
-        const handleInvalid = useCallback(() => {
-            setValidity(ValidationState.error);
-        }, [setValidity]);
 
         const handleFocus = useCallback(
             (event: FocusEvent<HTMLInputElement>) => {
@@ -86,15 +73,9 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             [onBlur, onChange, setTheme]
         );
 
-        const handleInput = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                validateTextual(event);
-            },
-            [validateTextual]
-        );
-
         const labelRef = useRef<HTMLLabelElement>(null);
 
+        /* onChange callback makes color picker to lose focus. It triggered in onBlur instead. */
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 setTheme({
@@ -117,11 +98,8 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                         ref={ref}
                         type="color"
                         disabled={disabled}
-                        value={value}
-                        defaultValue={defaultValue}
+                        defaultValue={displayValue}
                         className={classes['input-alt']}
-                        onInvalid={handleInvalid}
-                        onInput={handleInput}
                         onBlur={handleBlur}
                         onKeyUp={onKeyUp}
                         onKeyDown={onKeyDown}
@@ -133,7 +111,6 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                 <label htmlFor={id} className={classNames(classes['input-display'])} ref={labelRef}>
                     {displayValue || placeholder}
                 </label>
-                {validity && <ValidationIcon className={classes.validity} />}
             </LocalRoot>
         );
     }
