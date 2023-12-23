@@ -75,9 +75,9 @@
     color: var(--colorError);
 }
 
-.input-display {
+.label {
     background-color: var(--selectedColor);
-    border: 3px solid var(--colorRe);
+    border: 3px solid var(--selectedColor);
     border-radius: calc(var(--sizeUnit) * 0.66);
     color: var(--invertedColor);
     cursor: pointer;
@@ -94,16 +94,21 @@
 }
 
 /* Firefox doesn't support has: selector at the moment. */
-.toggle:has(.input-alt:invalid:not(:disabled)) + .input-display {
+.toggle:has(.input-alt:focus:not(:disabled)) + .label {
+    border-color: var(--colorRe);
+}
+
+/* Firefox doesn't support has: selector at the moment. */
+.toggle:has(.input-alt:invalid:not(:disabled)) + .label {
     border-color: var(--colorError);
 }
 
 .input-color:hover {
-    & .input-alt:not(:disabled) .icon {
+    & .input-alt:not(:disabled) + .icon {
         color: var(--colorAction);
     }
 
-    & .input-display {
+    & .label {
         &.invalid:not(:disabled) {
             border-color: var(--colorError);
         }

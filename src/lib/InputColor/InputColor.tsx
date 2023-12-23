@@ -48,8 +48,6 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             [displayValue]
         );
 
-        /* onChange callback makes color picker to lose focus. It triggered in onBlur instead. */
-
         const handleFocus = useCallback(
             (event: FocusEvent<HTMLInputElement>) => {
                 onFocus(event);
@@ -108,7 +106,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                     />
                     <IconPalette className={classNames(classes.icon)} />
                 </div>
-                <label htmlFor={id} className={classNames(classes['input-display'])} ref={labelRef}>
+                <label htmlFor={id} className={classes.label} ref={labelRef}>
                     {displayValue || placeholder}
                 </label>
             </LocalRoot>

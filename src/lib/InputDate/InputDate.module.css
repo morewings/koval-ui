@@ -8,7 +8,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
-    width: var(--inputWidth);
+    width: calc(var(--sizeUnit) * 32);
 }
 
 .toggle {
@@ -26,10 +26,6 @@
     cursor: pointer;
     height: var(--toggleHeight);
     width: var(--toggleWidth);
-
-    &.focus {
-        color: var(--colorRe);
-    }
 }
 
 .input {
@@ -40,6 +36,10 @@
     position: absolute;
     top: 0;
     width: var(--toggleWidth);
+
+    &:disabled {
+        cursor: not-allowed;
+    }
 }
 
 .input:disabled + .icon {
@@ -55,11 +55,12 @@
     color: var(--colorError);
 }
 
-.input-display {
+.label {
     background-color: var(--colorMi);
-    border: 3px solid var(--colorDo);
+    border: 3px solid var(--colorMi);
     border-radius: calc(var(--sizeUnit) * 0.66);
     color: var(--textColor);
+    cursor: pointer;
     flex: 1;
     font-size: var(--fontSizeMedium);
     min-width: 0;
@@ -69,30 +70,28 @@
         margin-right: var(--validationIconPlaceholder);
     }
 
-    &.invalid:focus {
-        border-color: var(--colorError);
-    }
-
-    &.invalid.focus {
-        border-color: var(--colorError);
-    }
-
-    &:disabled {
+    &[data-disabled="true"] {
         background-color: var(--background100);
         border-color: var(--background100);
         cursor: not-allowed;
     }
 }
 
-.input-date:hover {
-    & .icon {
-        color: var(--colorAction);
-    }
+/* Firefox doesn't support has: selector at the moment. */
+.toggle:has(.input:focus:not(:disabled)) + .label {
+    border-color: var(--colorRe);
+}
 
-    & .input-display {
-        &.invalid:not(:disabled) {
-            border-color: var(--colorError);
-        }
+/* Firefox doesn't support has: selector at the moment. */
+.toggle:has(.input:invalid:focus:not(:disabled)) + .label,
+.toggle:has(.input:invalid:hover:not(:disabled)) + .label,
+.toggle:has(.input:invalid:not(:disabled)) + .label:hover {
+    border-color: var(--colorError);
+}
+
+.input-date:hover {
+    & .input:not(:disabled) + .icon {
+        color: var(--colorAction);
     }
 
     & .input:invalid:not(:disabled) + .icon {
