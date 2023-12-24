@@ -24,7 +24,7 @@
 
 .icon {
     align-items: center;
-    color: var(--colorDo);
+    color: var(--colorFa);
     cursor: pointer;
     display: flex;
     flex-direction: row; /* make flex direction horizontal */
@@ -62,7 +62,7 @@
 }
 
 .input-alt:focus:not(:disabled) + .icon {
-    color: var(--colorAction);
+    color: var(--colorDo);
 }
 
 .input-alt:focus:invalid:not(:disabled) + .icon,
@@ -98,7 +98,7 @@
 
 .input-color:hover {
     & .input-alt:not(:disabled) + .icon {
-        color: var(--colorAction);
+        color: var(--colorDo);
     }
 
     & .label {

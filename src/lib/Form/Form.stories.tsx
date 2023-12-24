@@ -10,7 +10,9 @@ import {InputRadio} from '@/lib/InputRadio';
 import {InputDate} from '@/lib/InputDate';
 import {InputColor} from '@/lib/InputColor';
 import {InputTime} from '@/lib/InputTime';
+import {InputRange} from '@/lib/InputRange';
 import {Button} from '@/lib/Button';
+import {validatorSync, validatorAsync} from '@/internal/inputs';
 
 import {Form} from './Form.tsx';
 
@@ -85,24 +87,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const validator = (value: unknown, state: ValidityState) => {
-    console.log('state', state);
-    if (value === '' || value === 'foo') {
-        return '';
-    } else {
-        return 'Value has to be foo';
-    }
-};
-
-const timeout = (ms: number) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-};
-
-const validatorAsync = async () => {
-    await timeout(1000);
-    return 'Async result';
-};
-
 export const Example: Story = {
     args: {
         onSubmit: (event, state) => {
@@ -115,10 +99,10 @@ export const Example: Story = {
                     <InputText autoComplete="off" name="foo" placeholder="Required input" required />
                 </FormField>
                 <FormField label="Custom validation">
-                    <InputText autoComplete="off" name="bar" validatorFn={validator} />
+                    <InputText autoComplete="off" name="bar" validatorFn={validatorSync} />
                 </FormField>
                 <FormField label="Custom validation + required">
-                    <InputText autoComplete="off" name="grault" validatorFn={validator} required />
+                    <InputText autoComplete="off" name="grault" validatorFn={validatorSync} required />
                 </FormField>
                 <FormField label="Async validation">
                     <InputText autoComplete="off" name="baz" validatorFn={validatorAsync} />
@@ -141,6 +125,9 @@ export const Example: Story = {
                 </FormField>
                 <FormField label="Time input">
                     <InputTime required />
+                </FormField>
+                <FormField label="Range input">
+                    <InputRange required={true} />
                 </FormField>
                 <div style={{display: 'flex', gap: '12px'}}>
                     <Button type="submit">Submit</Button>

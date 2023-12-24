@@ -3,6 +3,7 @@ import {fn} from '@storybook/test';
 import {type ChangeEvent, useCallback, useState} from 'react';
 
 import {validatorSync, validatorAsync} from '@/internal/inputs';
+import {CloudUpload} from '@/internal/Icons';
 
 import {InputText} from './InputText';
 
@@ -121,8 +122,18 @@ const meta = {
             },
         },
         prefix: {
-            table: {
-                disable: true,
+            options: ['noPrefix', 'withPrefix'],
+            mapping: {
+                noPrefix: undefined,
+                withPrefix: CloudUpload,
+            },
+            control: {
+                type: 'radio',
+                labels: {
+                    // 'labels' maps option values to string labels
+                    noPrefix: 'No prefix',
+                    withPrefix: 'With prefix',
+                },
             },
         },
     },

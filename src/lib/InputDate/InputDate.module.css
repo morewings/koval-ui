@@ -22,7 +22,7 @@
 }
 
 .icon {
-    color: var(--colorDo);
+    color: var(--colorFa);
     cursor: pointer;
     height: var(--toggleHeight);
     width: var(--toggleWidth);
@@ -47,7 +47,7 @@
 }
 
 .input:focus:not(:disabled) + .icon {
-    color: var(--colorAction);
+    color: var(--colorDo);
 }
 
 .input:focus:invalid:not(:disabled) + .icon,
@@ -89,7 +89,7 @@
 
 .input-date:hover {
     & .input:not(:disabled) + .icon {
-        color: var(--colorAction);
+        color: var(--colorDo);
     }
 
     & .input:invalid:not(:disabled) + .icon {

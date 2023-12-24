@@ -13,6 +13,7 @@ export {InputText} from './InputText';
 export {InputDate} from './InputDate';
 export {InputColor} from './InputColor';
 export {InputTime} from './InputTime';
+export {InputRange} from './InputRange';
 export {theme} from './Theme';
 export type {ThemeType} from './Theme';
 export {
