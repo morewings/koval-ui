@@ -1,16 +1,13 @@
-import type {FC} from 'react';
+import type {FC, SVGProps} from 'react';
 import Calendar from '@material-symbols/svg-700/sharp/calendar_month.svg?react';
+import classNames from 'classnames';
 
-import {Icon} from './Icon.tsx';
+import classes from './Icon.module.css';
 
-type Props = {
+type Props = SVGProps<SVGSVGElement> & {
     className?: string;
 };
 
-export const IconCalendar: FC<Props> = ({className}) => {
-    return (
-        <Icon className={className}>
-            <Calendar />
-        </Icon>
-    );
+export const IconCalendar: FC<Props> = ({className, ...restProps}) => {
+    return <Calendar className={classNames(classes.icon, className)} {...restProps} />;
 };

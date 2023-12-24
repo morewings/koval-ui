@@ -4,6 +4,7 @@ import {fn} from '@storybook/test';
 import {InputText} from '@/lib/InputText';
 import {InputDate} from '@/lib/InputDate';
 import {InputColor} from '@/lib/InputColor';
+import {InputTime} from '@/lib/InputTime';
 
 import {FormField} from './FormField';
 
@@ -101,11 +102,12 @@ const meta = {
             },
         },
         children: {
-            options: ['text', 'date', 'color'], // An array of serializable values
+            options: ['text', 'date', 'color', 'time'], // An array of serializable values
             mapping: {
                 text: <InputText />,
                 date: <InputDate />,
                 color: <InputColor defaultValue="#CECECE" />,
+                time: <InputTime />,
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
@@ -114,6 +116,7 @@ const meta = {
                     text: 'With Text Input',
                     date: 'With Date Input',
                     color: 'With Color Input',
+                    time: 'With Time Input',
                 },
             },
         },

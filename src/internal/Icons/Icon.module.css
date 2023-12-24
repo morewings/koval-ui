@@ -1,10 +1,8 @@
 .icon {
-    & svg {
-        display: block;
-        fill: currentcolor;
-        height: calc(var(--sizeUnit) * 4);
-        width: calc(var(--sizeUnit) * 4);
-    }
+    display: block;
+    fill: currentcolor;
+    height: calc(var(--sizeUnit) * 4);
+    width: calc(var(--sizeUnit) * 4);
 }
 
 @keyframes spin {

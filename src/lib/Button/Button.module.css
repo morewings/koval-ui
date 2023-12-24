@@ -156,8 +156,6 @@
 }
 
 .icon {
-    & svg {
-        height: calc(var(--fontSize) * 1.2);
-        width: calc(var(--fontSize) * 1.2);
-    }
+    height: calc(var(--fontSize) * 1.2);
+    width: calc(var(--fontSize) * 1.2);
 }

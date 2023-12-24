@@ -1,16 +1,13 @@
-import type {FC} from 'react';
+import type {FC, SVGProps} from 'react';
 import Palette from '@material-symbols/svg-700/sharp/palette.svg?react';
+import classNames from 'classnames';
 
-import {Icon} from './Icon.tsx';
+import classes from './Icon.module.css';
 
-type Props = {
+type Props = SVGProps<SVGSVGElement> & {
     className?: string;
 };
 
-export const IconPalette: FC<Props> = ({className}) => {
-    return (
-        <Icon className={className}>
-            <Palette />
-        </Icon>
-    );
+export const IconPalette: FC<Props> = ({className, ...restProps}) => {
+    return <Palette className={classNames(classes.icon, className)} {...restProps} />;
 };
