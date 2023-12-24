@@ -93,7 +93,7 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
 
         const theme = useMemo(
             () => ({
-                outputLength: max.toString().length,
+                outputLength: max.toString().length + scaleUnit.length,
             }),
             [max]
         );
@@ -131,7 +131,7 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
                     </datalist>
                 </div>
                 <LocalRoot as="output" theme={theme} className={classes.output}>
-                    {displayValue || max / 2}
+                    {displayValue || max / 2} {scaleUnit}
                 </LocalRoot>
                 {validity && <ValidationIcon className={classes.validation} />}
             </div>

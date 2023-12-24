@@ -86,6 +86,7 @@
     }
 }
 
+.icon:has(+ .input:hover:invalid:not(:disabled)),
 .icon:has(+ .input:focus:invalid:not(:disabled)),
 .icon:has(+ .input:invalid:not(:disabled)):hover {
     color: var(--colorError);
@@ -96,5 +97,9 @@
 }
 
 .icon:has(+ .input:focus:not(:disabled)) {
+    color: var(--colorDo);
+}
+
+.icon:has(+ .input:hover:not(:disabled, :focus, :invalid)) {
     color: var(--colorDo);
 }

@@ -59,30 +59,30 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             [onFocus, setTheme]
         );
 
+        const labelRef = useRef<HTMLLabelElement>(null);
+
         const handleBlur = useCallback(
             (event: FocusEvent<HTMLInputElement>) => {
                 setTheme({
-                    selectedColor: event.target.value,
                     invertedColor: invertColor(event.target.value, true),
                 });
+
+                if (labelRef?.current) {
+                    labelRef.current.innerText = event.target.value;
+                }
                 onBlur(event);
                 onChange(event);
             },
-            [onBlur, onChange, setTheme]
+            [setTheme, onBlur, onChange]
         );
-
-        const labelRef = useRef<HTMLLabelElement>(null);
 
         /* onChange callback makes color picker to lose focus. It triggered in onBlur instead. */
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 setTheme({
                     selectedColor: event.target.value,
-                    invertedColor: invertColor(event.target.value, true),
+                    invertedColor: 'transparent',
                 });
-                if (labelRef?.current) {
-                    labelRef.current.innerText = event.target.value;
-                }
             },
             [setTheme]
         );
@@ -103,6 +103,9 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                         onKeyDown={onKeyDown}
                         onFocus={handleFocus}
                         onChange={handleChange}
+                        onMouseUp={() => {
+                            console.log('up');
+                        }}
                     />
                     <IconPalette className={classNames(classes.icon)} />
                 </div>
