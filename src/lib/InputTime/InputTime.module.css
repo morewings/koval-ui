@@ -20,9 +20,9 @@
     border-radius: calc(var(--sizeUnit) * 0.66);
     color: var(--textColor);
     flex: 1;
-    font-family: var(--fontFamilyMonospace);
+    font-family: var(--fontFamily);
     font-size: var(--fontSizeMedium);
-    font-weight: var(--fontWeightBold);
+    font-weight: var(--fontWeightBolder);
     line-height: var(--fontSizeMedium);
     min-width: 0;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
