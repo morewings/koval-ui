@@ -1,18 +1,13 @@
-import type {FC} from 'react';
+import type {FC, SVGProps} from 'react';
 import CloudUploadIcon from '@material-symbols/svg-700/sharp/cloud_upload.svg?react';
-// import classNames from 'classnames';
+import classNames from 'classnames';
 
-// import classes from './Icon.module.css';
-import {Icon} from './Icon.tsx';
+import classes from './Icon.module.css';
 
-type Props = {
+type Props = SVGProps<SVGSVGElement> & {
     className?: string;
 };
 
-export const CloudUpload: FC<Props> = ({className}) => {
-    return (
-        <Icon className={className}>
-            <CloudUploadIcon />
-        </Icon>
-    );
+export const CloudUpload: FC<Props> = ({className, ...restProps}) => {
+    return <CloudUploadIcon className={classNames(classes.icon, className)} {...restProps} />;
 };

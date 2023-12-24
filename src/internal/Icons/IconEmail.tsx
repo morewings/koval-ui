@@ -1,12 +1,13 @@
-import type {FC} from 'react';
+import type {FC, SVGProps} from 'react';
 import Email from '@material-symbols/svg-700/sharp/alternate_email.svg?react';
+import classNames from 'classnames';
 
-import {Icon} from './Icon.tsx';
+import classes from './Icon.module.css';
 
-export const IconEmail: FC = () => {
-    return (
-        <Icon>
-            <Email />
-        </Icon>
-    );
+type Props = SVGProps<SVGSVGElement> & {
+    className?: string;
+};
+
+export const IconEmail: FC<Props> = ({className, ...restProps}) => {
+    return <Email className={classNames(classes.icon, className)} {...restProps} />;
 };

@@ -1,18 +1,13 @@
-import type {FC} from 'react';
+import type {FC, SVGProps} from 'react';
 import Loader from '@material-symbols/svg-700/sharp/progress_activity.svg?react';
 import classNames from 'classnames';
 
-import {Icon} from './Icon.tsx';
 import classes from './Icon.module.css';
 
-type Props = {
+type Props = SVGProps<SVGSVGElement> & {
     className?: string;
 };
 
-export const IconLoader: FC<Props> = ({className}) => {
-    return (
-        <Icon className={classNames(classes.rotation, classes.loading, className)}>
-            <Loader />
-        </Icon>
-    );
+export const IconLoader: FC<Props> = ({className, ...restProps}) => {
+    return <Loader className={classNames(classes.icon, classes.rotation, classes.loading, className)} {...restProps} />;
 };

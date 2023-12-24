@@ -77,12 +77,10 @@
     }
 }
 
-/* Firefox doesn't support has: selector at the moment. */
 .toggle:has(.input:focus:not(:disabled)) + .label {
     border-color: var(--colorRe);
 }
 
-/* Firefox doesn't support has: selector at the moment. */
 .toggle:has(.input:invalid:focus:not(:disabled)) + .label,
 .toggle:has(.input:invalid:hover:not(:disabled)) + .label,
 .toggle:has(.input:invalid:not(:disabled)) + .label:hover {

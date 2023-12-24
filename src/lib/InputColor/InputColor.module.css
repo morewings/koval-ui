@@ -13,7 +13,7 @@
 }
 
 .toggle {
-    --toggleWidth: calc(var(--sizeUnit) * 6);
+    --toggleWidth: calc(var(--sizeUnit) * 4);
     --toggleHeight: var(--toggleWidth);
 
     cursor: pointer;
@@ -28,19 +28,14 @@
     cursor: pointer;
     display: flex;
     flex-direction: row; /* make flex direction horizontal */
-    height: var(--toggleHeight);
+    height: calc(var(--sizeUnit) * 4);
     justify-content: center; /* center items horizontally, in this case */
     left: 50%;
     pointer-events: none;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: var(--toggleWidth);
-
-    & svg {
-        height: calc(var(--sizeUnit) * 4);
-        width: calc(var(--sizeUnit) * 4);
-    }
+    width: calc(var(--sizeUnit) * 4);
 
     &.focus {
         color: var(--colorRe);
@@ -93,12 +88,10 @@
     }
 }
 
-/* Firefox doesn't support has: selector at the moment. */
 .toggle:has(.input-alt:focus:not(:disabled)) + .label {
     border-color: var(--colorRe);
 }
 
-/* Firefox doesn't support has: selector at the moment. */
 .toggle:has(.input-alt:invalid:not(:disabled)) + .label {
     border-color: var(--colorError);
 }

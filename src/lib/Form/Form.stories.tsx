@@ -9,6 +9,7 @@ import {InputCheckbox} from '@/lib/InputCheckbox';
 import {InputRadio} from '@/lib/InputRadio';
 import {InputDate} from '@/lib/InputDate';
 import {InputColor} from '@/lib/InputColor';
+import {InputTime} from '@/lib/InputTime';
 import {Button} from '@/lib/Button';
 
 import {Form} from './Form.tsx';
@@ -137,6 +138,9 @@ export const Example: Story = {
                 </FormField>
                 <FormField label="Color input">
                     <InputColor value="#CCCCCC" />
+                </FormField>
+                <FormField label="Time input">
+                    <InputTime required />
                 </FormField>
                 <div style={{display: 'flex', gap: '12px'}}>
                     <Button type="submit">Submit</Button>

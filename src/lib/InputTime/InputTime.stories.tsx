@@ -1,14 +1,15 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
-import {type ChangeEvent, useCallback, useState} from 'react';
+import type {ChangeEvent} from 'react';
+import {useCallback, useState} from 'react';
 
 import {validatorSync, validatorAsync} from '@/internal/inputs';
 
-import {InputText} from './InputText';
+import {InputTime} from './InputTime.tsx';
 
 const meta = {
-    title: 'Inputs/Text',
-    component: InputText,
+    title: 'Inputs/Time',
+    component: InputTime,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
@@ -105,35 +106,20 @@ const meta = {
                 },
             },
         },
-        pattern: {
-            options: ['noPattern', 'withPattern'], // An array of serializable values
-            mapping: {
-                noPattern: undefined,
-                withPattern: '[^@\\s]+@[^@\\s]+',
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noPattern: 'No pattern',
-                    withPattern: 'With pattern ([^@\\s]+@[^@\\s]+)',
-                },
-            },
-        },
         prefix: {
             table: {
                 disable: true,
             },
         },
     },
-} as Meta<typeof InputText>;
+} as Meta<typeof InputTime>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        return <InputText {...args} />;
+        return <InputTime {...args} />;
     },
     args: {
         defaultValue: '',
@@ -163,12 +149,12 @@ export const ControlledState: Story = {
             },
             [setValue]
         );
-        return <InputText {...args} value={value} onChange={handleChange} />;
+        return <InputTime {...args} onChange={handleChange} value={value} />;
     },
 };
 
 ControlledState.args = {
-    value: 'Controlled value',
+    value: '12:15',
 };
 
 ControlledState.argTypes = {

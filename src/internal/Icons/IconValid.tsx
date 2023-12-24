@@ -1,19 +1,13 @@
-import type {FC} from 'react';
+import type {FC, SVGProps} from 'react';
 import Check from '@material-symbols/svg-700/sharp/check.svg?react';
 import classNames from 'classnames';
 
 import classes from '@/internal/Icons/Icon.module.css';
 
-import {Icon} from './Icon.tsx';
-
-type Props = {
+type Props = SVGProps<SVGSVGElement> & {
     className?: string;
 };
 
-export const IconValid: FC<Props> = ({className}) => {
-    return (
-        <Icon className={classNames(classes.valid, className)}>
-            <Check />
-        </Icon>
-    );
+export const IconValid: FC<Props> = ({className, ...restProps}) => {
+    return <Check className={classNames(classes.icon, classes.valid, className)} {...restProps} />;
 };

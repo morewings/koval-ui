@@ -10,6 +10,9 @@ export {InputCheckbox} from './InputCheckbox';
 export {InputGroup} from './InputGroup';
 export {InputRadio} from './InputRadio';
 export {InputText} from './InputText';
+export {InputDate} from './InputDate';
+export {InputColor} from './InputColor';
+export {InputTime} from './InputTime';
 export {theme} from './Theme';
 export type {ThemeType} from './Theme';
 export {
@@ -42,6 +45,5 @@ export {
     Pre,
     Table,
 } from './Text';
-export {InputDate} from './InputDate';
 export {Figure} from './Figure';
 export {Picture} from './Picture';

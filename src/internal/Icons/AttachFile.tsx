@@ -1,18 +1,13 @@
-import type {FC} from 'react';
+import type {FC, SVGProps} from 'react';
 import AttachFileIcon from '@material-symbols/svg-700/sharp/attach_file.svg?react';
-// import classNames from 'classnames';
+import classNames from 'classnames';
 
-// import classes from './Icon.module.css';
-import {Icon} from './Icon.tsx';
+import classes from './Icon.module.css';
 
-type Props = {
+type Props = SVGProps<SVGSVGElement> & {
     className?: string;
 };
 
-export const AttachFile: FC<Props> = ({className}) => {
-    return (
-        <Icon className={className}>
-            <AttachFileIcon />
-        </Icon>
-    );
+export const AttachFile: FC<Props> = ({className, ...restProps}) => {
+    return <AttachFileIcon className={classNames(classes.icon, className)} {...restProps} />;
 };

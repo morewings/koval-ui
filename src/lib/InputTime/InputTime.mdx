@@ -1,0 +1,22 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {InputTime} from './InputTime.tsx';
+import * as InputTimeStories from "./InputTime.stories.tsx";
+
+<Meta title="Inputs/Time" of={InputTimeStories} />
+
+# InputTime
+
+No `validatorFn`.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {InputTime} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgsTable of={InputTime}/>
+

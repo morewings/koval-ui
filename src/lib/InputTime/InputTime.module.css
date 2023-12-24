@@ -1,0 +1,96 @@
+.input-time {
+    --gap: var(--sizeUnit);
+    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap);
+    max-width: 100%;
+    width: 144px;
+
+    & > div {
+        flex: 0 1 auto;
+    }
+}
+
+.input {
+    background-color: var(--colorMi);
+    border: 3px solid var(--colorMi);
+    border-radius: calc(var(--sizeUnit) * 0.66);
+    color: var(--textColor);
+    flex: 1;
+    font-family: var(--fontFamily);
+    font-size: var(--fontSizeMedium);
+    font-weight: var(--fontWeightBolder);
+    line-height: var(--fontSizeMedium);
+    min-width: 0;
+    padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+    text-align: center;
+
+    &::-webkit-calendar-picker-indicator {
+        background: none;
+        display: none;
+    }
+
+    &::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    &:last-child {
+        margin-right: var(--validationIconPlaceholder);
+    }
+
+    &::placeholder {
+        color: var(--colorFa);
+    }
+
+    &:read-only {
+        background-color: var(--colorMi);
+        border: 3px solid var(--colorDo);
+    }
+
+    &:disabled {
+        background-color: var(--background100);
+        border-color: var(--background100);
+        cursor: not-allowed;
+    }
+
+    &:focus::placeholder {
+        color: transparent;
+    }
+
+    &:focus:not(:disabled, :read-only) {
+        background-color: var(--background000);
+        border-color: var(--colorRe);
+        outline: none;
+    }
+
+    &:focus:not(:disabled, :read-only):invalid {
+        border-color: var(--colorError);
+    }
+}
+
+.icon {
+    --iconWidth: calc(var(--sizeUnit) * 4);
+    --iconHeight: var(--toggleWidth);
+
+    color: var(--colorDo);
+    cursor: pointer;
+    height: var(--iconWidth);
+    position: relative;
+    width: var(--iconWidth);
+
+    &:active {
+        outline: none;
+    }
+}
+
+.icon:has(+ .input:focus:invalid:not(:disabled)),
+.icon:has(+ .input:invalid:not(:disabled)):hover {
+    color: var(--colorError);
+}
+
+.icon:has(+ .input:focus:not(:disabled)) {
+    color: var(--colorAction);
+}
