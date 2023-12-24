@@ -15,7 +15,7 @@ export const validatorAsync = async (value?: unknown) => {
     console.log('Value captured:', value);
     await timeout(1000);
     if (value && `${value}`.length > 3) {
-        return 'too long';
+        return `Last captured: ${value}`;
     } else {
         return '';
     }

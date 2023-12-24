@@ -6,6 +6,7 @@ import {IconError, IconValid, IconLoader} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
+import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputText.module.css';
 
@@ -35,6 +36,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             defaultValue,
             validatorFn = defaultValidator,
             readOnly,
+            id,
             ...nativeProps
         },
         ref
@@ -63,11 +65,18 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             [readOnly]
         );
 
+        const inputId = useInternalId(id);
+
         return (
             <div className={classNames(classes.wrapper, className)}>
-                {Prefix && <Prefix />}
+                {Prefix && (
+                    <label className={classes.prefix} htmlFor={inputId}>
+                        <Prefix />
+                    </label>
+                )}
                 <input
                     {...nativeProps}
+                    id={inputId}
                     readOnly={readOnly}
                     placeholder={placeholder}
                     className={classes.input}

@@ -129,7 +129,6 @@ export const Controlled: Story = {
 
 Controlled.args = {
     label: 'bar',
-    id: 'foo',
 };
 
 Controlled.argTypes = {
@@ -166,7 +165,6 @@ export const Validation: Story = {
     },
     args: {
         label: 'bar',
-        id: 'bar',
     },
 };
 
@@ -183,7 +181,5 @@ export const ValidationAsync: Story = {
     render: args => {
         return <InputCheckbox {...args} validatorFn={validatorAsync} label="Async" />;
     },
-    args: {
-        id: 'bar',
-    },
+    args: {},
 };

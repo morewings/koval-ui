@@ -62,3 +62,26 @@
     font-size: 24px;
     line-height: 18px;
 }
+
+.prefix {
+    color: var(--colorFa);
+    flex-shrink: 0;
+    height: calc(var(--sizeUnit) * 4);
+    width: calc(var(--sizeUnit) * 4);
+    cursor: pointer;
+
+    & svg {
+        height: inherit;
+        width: inherit;
+        color: inherit;
+    }
+
+    &:hover {
+        color: var(--colorDo);
+    }
+}
+
+.prefix:has(+ .input:invalid:not(:disabled)):hover,
+.prefix:has(+ .input:focus:invalid:not(:disabled)) {
+    color: var(--colorError);
+}

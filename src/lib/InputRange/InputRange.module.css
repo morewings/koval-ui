@@ -1,0 +1,182 @@
+.vars {
+    --outputLength: 1;
+}
+
+.input-range {
+    --gap: var(--sizeUnit);
+    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
+
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap);
+    max-width: 100%;
+    width: var(--inputWidth);
+}
+
+.input {
+    --trackHeight: calc(var(--sizeUnit) / 2);
+    --sliderHeight: calc(var(--sizeUnit) * 3);
+    --sliderWidth: var(--sliderHeight);
+    --trackColor: var(--colorMi);
+    --trackColorActive: var(--colorDo);
+    --thumbColor: var(--colorSol);
+    --thumbColorActive: var(--colorFa);
+
+    &::-moz-range-track {
+        background: var(--trackColor);
+        height: var(--trackHeight);
+    }
+
+    &::-webkit-slider-runnable-track {
+        appearance: none;
+        background: var(--trackColor);
+        height: var(--trackHeight);
+    }
+
+    &::-webkit-slider-thumb {
+        appearance: none;
+        background-color: var(--thumbColor);
+        border: none;
+        border-radius: 50%;
+        cursor: grab;
+        height: var(--sliderHeight);
+        margin-top: calc(var(--trackHeight) / 2 - var(--sliderHeight) / 2);
+        width: var(--sliderWidth);
+    }
+
+    &::-moz-range-thumb {
+        background-color: var(--thumbColor);
+        border: none;
+        cursor: grab;
+    }
+
+    &:active {
+        &::-moz-range-thumb {
+            cursor: grabbing;
+        }
+
+        &::-webkit-slider-thumb {
+            cursor: grabbing;
+        }
+    }
+
+    &:disabled {
+        &::-moz-range-thumb {
+            cursor: not-allowed;
+            background-color: var(--background100);
+        }
+
+        &::-webkit-slider-thumb {
+            cursor: not-allowed;
+            background-color: var(--background100);
+        }
+        &::-moz-range-track {
+            background: var(--background100);
+        }
+
+        &::-webkit-slider-runnable-track {
+            background: var(--background100);
+        }
+    }
+
+    &:active:not(:disabled),
+    &:focus:not(:disabled) {
+        &::-moz-range-thumb {
+            background-color: var(--thumbColorActive);
+        }
+
+        &::-webkit-slider-thumb {
+            background-color: var(--thumbColorActive);
+        }
+
+        &::-moz-range-track {
+            background: var(--trackColorActive);
+        }
+
+        &::-webkit-slider-runnable-track {
+            background: var(--trackColorActive);
+        }
+    }
+
+    &:focus:invalid {
+        &::-moz-range-track {
+            background: var(--colorError);
+        }
+
+        &::-webkit-slider-runnable-track {
+            background: var(--colorError);
+        }
+    }
+}
+
+.scale {
+    color: var(--colorFa);
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fontFamily);
+    font-size: var(--fontSizeExtraSmall);
+    font-weight: var(--fontWeightBold);
+    justify-content: space-between;
+    user-select: none;
+    width: 100%;
+    writing-mode: vertical-lr;
+}
+
+.input:disabled + .scale {
+    color: var(--background100);
+}
+
+.mark {
+    padding: 0;
+}
+
+.output {
+    color: var(--colorFa);
+    flex-shrink: 0;
+    font-size: var(--fontSizeMedium);
+    font-weight: var(--fontWeightBold);
+    text-align: right;
+    width: calc(var(--outputLength) * 1ch);
+
+    &:last-child {
+        margin-right: var(--validationIconPlaceholder);
+    }
+}
+
+.scale-wrapper:has(.input:disabled) + .output {
+    color: var(--background100);
+}
+
+.scale-wrapper:has(.input:focus:invalid:not(:disabled)) + .output {
+    color: var(--colorError);
+}
+
+.validation {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.prefix {
+    color: var(--colorFa);
+    flex-shrink: 0;
+    height: calc(var(--sizeUnit) * 4);
+    width: calc(var(--sizeUnit) * 4);
+    cursor: pointer;
+
+    & svg {
+        height: inherit;
+        width: inherit;
+        color: inherit;
+    }
+
+    &:hover {
+        color: var(--colorDo);
+    }
+}
+
+.prefix:has(+ .scale-wrapper .input:invalid:not(:disabled)):hover,
+.prefix:has(+ .scale-wrapper .input:focus:invalid:not(:disabled)) {
+    color: var(--colorError);
+}

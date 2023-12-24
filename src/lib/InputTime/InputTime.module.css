@@ -75,7 +75,7 @@
     --iconWidth: calc(var(--sizeUnit) * 4);
     --iconHeight: var(--toggleWidth);
 
-    color: var(--colorDo);
+    color: var(--colorFa);
     cursor: pointer;
     height: var(--iconWidth);
     position: relative;
@@ -91,6 +91,10 @@
     color: var(--colorError);
 }
 
+.icon:has(+ .input:not(:invalid, :disabled)):hover {
+    color: var(--colorDo);
+}
+
 .icon:has(+ .input:focus:not(:disabled)) {
-    color: var(--colorAction);
+    color: var(--colorDo);
 }

@@ -70,9 +70,11 @@ export const InputTime = forwardRef<HTMLInputElement, Props>(
 
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
+                const isValid = event.target.checkValidity();
+                isValid && setValidity(ValidationState.valid);
                 onChange(event);
             },
-            [onChange]
+            [onChange, setValidity]
         );
 
         return (

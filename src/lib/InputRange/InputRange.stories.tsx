@@ -1,39 +1,38 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
-import {type ChangeEvent, useCallback, useState} from 'react';
 
-import {validatorSync, validatorAsync} from '@/internal/inputs';
 import {CloudUpload} from '@/internal/Icons';
 
-import {InputText} from './InputText';
+import {InputRange} from './InputRange.tsx';
+
+const timeout = (ms: number) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+};
 
 const meta = {
-    title: 'Inputs/Text',
-    component: InputText,
+    title: 'Inputs/Range',
+    component: InputRange,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {
-        onClick: fn(),
+        onChange: fn(),
         onBlur: fn(),
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
         required: false,
-        placeholder: '',
-        readOnly: false,
+        min: 0,
+        max: 100,
+        bars: 3,
+        step: 1,
+        scaleUnit: 'F',
         disabled: false,
-        autoComplete: 'off',
     },
     argTypes: {
         value: {control: 'text'},
         defaultValue: {control: 'text'},
-        onClick: {
-            table: {
-                disable: true,
-            },
-        },
         onBlur: {
             table: {
                 disable: true,
@@ -93,31 +92,29 @@ const meta = {
             options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
             mapping: {
                 noValidator: undefined,
-                syncValidator: validatorSync,
-                asyncValidator: validatorAsync,
+                syncValidator: (value: number) => {
+                    if (value > 66) {
+                        return 'Too big';
+                    }
+                    return '';
+                },
+                asyncValidator: async (value: number) => {
+                    console.log('Value captured:', value);
+                    await timeout(1000);
+                    if (value > 66) {
+                        return `Too long. Value captured: ${value}`;
+                    } else {
+                        return '';
+                    }
+                },
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
                 labels: {
                     // 'labels' maps option values to string labels
                     noValidator: 'No custom validator',
-                    syncValidator: 'Sync validator (value.length < 4)',
-                    asyncValidator: 'Async validator (value.length < 4)',
-                },
-            },
-        },
-        pattern: {
-            options: ['noPattern', 'withPattern'], // An array of serializable values
-            mapping: {
-                noPattern: undefined,
-                withPattern: '[^@\\s]+@[^@\\s]+',
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noPattern: 'No pattern',
-                    withPattern: 'With pattern ([^@\\s]+@[^@\\s]+)',
+                    syncValidator: 'Sync validator (value > 66 )',
+                    asyncValidator: 'Async validator (value > 66 )',
                 },
             },
         },
@@ -137,64 +134,16 @@ const meta = {
             },
         },
     },
-} as Meta<typeof InputText>;
+} as Meta<typeof InputRange>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        return <InputText {...args} />;
+        return <InputRange {...args} />;
     },
     args: {
-        defaultValue: '',
-        placeholder: 'Text input',
-    },
-    argTypes: {
-        value: {
-            table: {
-                disable: true,
-            },
-        },
-        defaultValue: {
-            table: {
-                disable: true,
-            },
-        },
-    },
-};
-
-export const ControlledState: Story = {
-    render: args => {
-        const [value, setValue] = useState(args.value);
-        const handleChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                console.log('Value captured:', event.target.value);
-                setValue(event.target.value);
-            },
-            [setValue]
-        );
-        return <InputText {...args} value={value} onChange={handleChange} />;
-    },
-};
-
-ControlledState.args = {
-    value: 'Controlled value',
-};
-
-ControlledState.argTypes = {
-    defaultValue: {
-        table: {
-            disable: true,
-        },
-    },
-};
-
-ControlledState.parameters = {
-    docs: {
-        source: {
-            language: 'tsx',
-            type: 'code',
-        },
+        defaultValue: 50,
     },
 };

@@ -18,13 +18,13 @@ export const FormField = forwardRef<HTMLDivElement, Props>(
     ({className, children, label, hint, ...nativeProps}, ref) => {
         const inputProps = Children.only(children).props;
         const id = useInternalId(inputProps.id);
-        const childrenWithId = inputProps.id ? Children.only(children) : cloneElement(Children.only(children), {id});
+        const childrenWithProps = inputProps.id ? Children.only(children) : cloneElement(Children.only(children), {id});
         return (
             <div {...nativeProps} ref={ref} className={classNames(classes.wrapper, className)}>
                 <label className={classNames(classes.label, {[classes.required]: inputProps.required})} htmlFor={id}>
                     {label}
                 </label>
-                {childrenWithId}
+                {childrenWithProps}
                 {hint && <div className={classes.hint}>{hint}</div>}
             </div>
         );
