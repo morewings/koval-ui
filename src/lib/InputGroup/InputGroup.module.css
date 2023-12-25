@@ -5,7 +5,7 @@
 }
 
 .legend {
-    color: var(--textColor);
+    color: var(--colorFa);
     cursor: default;
     font-size: var(--fontSizeLarge);
     font-weight: 500;

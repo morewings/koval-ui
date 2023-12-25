@@ -6,7 +6,7 @@
 }
 
 .label {
-    color: var(--textColor);
+    color: var(--colorFa);
     cursor: pointer;
     font-size: var(--fontSizeLarge);
     font-weight: var(--fontWeightBolder);

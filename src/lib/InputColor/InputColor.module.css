@@ -38,7 +38,7 @@
     width: calc(var(--sizeUnit) * 4);
 
     &.focus {
-        color: var(--colorRe);
+        color: var(--colorDo);
     }
 }
 
@@ -97,8 +97,8 @@
 }
 
 .input-color:hover {
-    & .input-alt:not(:disabled) + .icon {
-        color: var(--colorDo);
+    & .input-alt:not(:disabled, :focus) + .icon {
+        color: var(--colorRe);
     }
 
     & .label {

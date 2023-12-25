@@ -11,13 +11,13 @@
 
 .figure {
     background: var(--background000);
-    border: 3px solid var(--colorMi);
+    border: 3px solid var(--colorFa);
     display: flex;
     flex-direction: column;
     padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 2) var(--sizeUnit);
 
     &:hover {
-        border-color: var(--colorRe);
+        border-color: var(--colorDo);
     }
 
     & figcaption {
