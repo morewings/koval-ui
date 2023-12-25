@@ -1,0 +1,25 @@
+.textarea {}
+
+
+.input {
+    background-color: var(--colorMi);
+    border: 3px solid var(--colorMi);
+    border-radius: calc(var(--sizeUnit) * 0.66);
+    color: var(--textColor);
+    flex: 1;
+    font-size: var(--fontSizeSmall);
+    line-height: 1.5;
+    min-width: 0;
+    padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 2);
+    resize: both;
+
+    &:focus:not(:disabled, :read-only) {
+        background-color: var(--background000);
+        border-color: var(--colorRe);
+        outline: none;
+    }
+
+    &:focus:not(:disabled, :read-only):invalid {
+        border-color: var(--colorError);
+    }
+}
