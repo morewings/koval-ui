@@ -1,5 +1,18 @@
-.textarea {}
+.wrapper {
+    --gap: var(--sizeUnit);
+    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
 
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap);
+    max-width: 100%;
+    width: var(--inputWidth);
+
+    & > div {
+        flex: 0 1 auto;
+    }
+}
 
 .input {
     background-color: var(--colorMi);
@@ -12,6 +25,10 @@
     min-width: 0;
     padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 2);
     resize: both;
+
+    &:last-child {
+        margin-right: var(--validationIconPlaceholder);
+    }
 
     &:focus:not(:disabled, :read-only) {
         background-color: var(--background000);

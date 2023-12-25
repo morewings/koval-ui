@@ -52,8 +52,16 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
         const handleInvalid = useCallback(() => {
             setValidity(ValidationState.error);
         }, [setValidity]);
+
+        const handleInput = useCallback(
+            (event: ChangeEvent<HTMLTextAreaElement>) => {
+                validateTextual(event);
+            },
+            [validateTextual]
+        );
+
         return (
-            <div className={classNames(classes.textarea, className)}>
+            <div className={classNames(classes.wrapper, className)}>
                 {Prefix && <Prefix />}
                 <textarea
                     {...nativeProps}
@@ -69,7 +77,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
                     onKeyUp={onKeyUp}
                     onKeyDown={onKeyDown}
                     onInvalid={handleInvalid}
-                    onInput={validateTextual}
+                    onInput={handleInput}
+                    required={true}
                 />
                 {validity && <ValidationIcon />}
             </div>
