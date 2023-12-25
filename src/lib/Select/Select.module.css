@@ -1,0 +1,26 @@
+.wrapper {
+    --gap: var(--sizeUnit);
+    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap);
+    max-width: 100%;
+    width: var(--inputWidth);
+
+    & > div {
+        flex: 0 1 auto;
+    }
+}
+
+.select {
+    background-color: var(--colorMi);
+    border: 3px solid var(--colorMi);
+    border-radius: calc(var(--sizeUnit) * 0.66);
+    color: var(--textColor);
+    flex: 1;
+    font-size: var(--fontSizeMedium);
+    min-width: 0;
+    padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+}
