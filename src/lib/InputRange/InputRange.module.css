@@ -21,7 +21,7 @@
     --trackColor: var(--colorMi);
     --trackColorActive: var(--colorDo);
     --thumbColor: var(--colorSol);
-    --thumbColorActive: var(--colorFa);
+    --thumbColorActive: var(--colorRe);
 
     &::-moz-range-track {
         background: var(--trackColor);
@@ -63,14 +63,15 @@
 
     &:disabled {
         &::-moz-range-thumb {
-            cursor: not-allowed;
             background-color: var(--background100);
+            cursor: not-allowed;
         }
 
         &::-webkit-slider-thumb {
-            cursor: not-allowed;
             background-color: var(--background100);
+            cursor: not-allowed;
         }
+
         &::-moz-range-track {
             background: var(--background100);
         }
@@ -160,15 +161,15 @@
 
 .prefix {
     color: var(--colorFa);
+    cursor: pointer;
     flex-shrink: 0;
     height: calc(var(--sizeUnit) * 4);
     width: calc(var(--sizeUnit) * 4);
-    cursor: pointer;
 
     & svg {
+        color: inherit;
         height: inherit;
         width: inherit;
-        color: inherit;
     }
 
     &:hover {
