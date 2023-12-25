@@ -7,14 +7,14 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
-    width: var(--inputWidth);
+    width: auto;
 
     & > div {
         flex: 0 1 auto;
     }
 }
 
-.input {
+.textarea {
     background-color: var(--colorMi);
     border: 3px solid var(--colorMi);
     border-radius: calc(var(--sizeUnit) * 0.66);
@@ -24,7 +24,7 @@
     line-height: 1.5;
     min-width: 0;
     padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 2);
-    resize: both;
+    resize: var(--resize);
 
     &:last-child {
         margin-right: var(--validationIconPlaceholder);
@@ -39,4 +39,55 @@
     &:focus:not(:disabled, :read-only):invalid {
         border-color: var(--colorError);
     }
+
+    &::placeholder {
+        color: var(--colorFa);
+        opacity: 0.66;
+    }
+
+    &:read-only {
+        background-color: var(--colorMi);
+        border: 3px solid var(--colorDo);
+    }
+
+    &:disabled {
+        background-color: var(--background100);
+        border-color: var(--background100);
+        cursor: not-allowed;
+    }
+
+    &:focus::placeholder {
+        color: transparent;
+    }
+}
+
+.prefix {
+    color: var(--colorFa);
+    cursor: pointer;
+    flex-shrink: 0;
+    height: calc(var(--sizeUnit) * 4);
+    width: calc(var(--sizeUnit) * 4);
+
+    & svg {
+        color: inherit;
+        height: inherit;
+        width: inherit;
+    }
+
+    &:hover {
+        color: var(--colorRe);
+    }
+}
+
+.prefix:has(+ .textarea:invalid:not(:disabled)):hover,
+.prefix:has(+ .textarea:focus:invalid:not(:disabled)) {
+    color: var(--colorError);
+}
+
+.prefix:has(+ .textarea:focus:not(:disabled, :invalid)) {
+    color: var(--colorDo);
+}
+
+.prefix:has(+ .textarea:hover:not(:disabled, :invalid, :focus)) {
+    color: var(--colorRe);
 }

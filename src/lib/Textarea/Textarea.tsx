@@ -1,20 +1,48 @@
-import type {ChangeEvent, FC} from 'react';
+import type {ChangeEvent, FC, TextareaHTMLAttributes} from 'react';
+import {useMemo} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
+import {useLocalTheme} from 'css-vars-hook';
 
 import {IconError, IconValid, IconLoader} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
+import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './Textarea.module.css';
 
 export type Props = DataAttributes &
     LibraryProps &
-    NativePropsTextual &
+    Omit<NativePropsTextual, 'inputMode' | 'pattern'> &
     CallbackPropsTextual<HTMLTextAreaElement> &
     ValidationProps & {
         prefix?: FC;
+        /**
+         * The visible width of the text control, in average character widths.
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#cols
+         */
+        cols?: TextareaHTMLAttributes<HTMLTextAreaElement>['cols'];
+        /**
+         * The number of visible text lines for the control.
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#rows
+         */
+        rows?: TextareaHTMLAttributes<HTMLTextAreaElement>['rows'];
+        /**
+         * Specifies whether the Textarea is subject to spell checking by the underlying browser/OS.
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#spellcheck
+         */
+        spellCheck?: TextareaHTMLAttributes<HTMLTextAreaElement>['spellCheck'];
+        /**
+         * Indicates how the control should wrap the value for form submission.
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#wrap
+         */
+        wrap?: TextareaHTMLAttributes<HTMLTextAreaElement>['wrap'];
+        /**
+         * Set Textarea resizing behavior.
+         * @see https://developer.mozilla.org/en-US/docs/Web/CSS/resize
+         */
+        resize?: 'horizontal' | 'vertical' | 'both' | 'none';
     };
 
 export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
@@ -32,6 +60,11 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
             onKeyUp = () => {},
             defaultValue,
             validatorFn = defaultValidator,
+            id,
+            readOnly,
+            cols = 20,
+            rows = 3,
+            resize = 'both',
             ...nativeProps
         },
         ref
@@ -60,13 +93,39 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
             [validateTextual]
         );
 
+        const handleSelect = useCallback(
+            (event: ChangeEvent<HTMLTextAreaElement>) => {
+                readOnly && event.target.select();
+            },
+            [readOnly]
+        );
+
+        const textareaId = useInternalId(id);
+
+        const {LocalRoot} = useLocalTheme();
+
+        const theme = useMemo(
+            () => ({
+                resize,
+            }),
+            [resize]
+        );
+
         return (
-            <div className={classNames(classes.wrapper, className)}>
-                {Prefix && <Prefix />}
+            <LocalRoot theme={theme} className={classNames(classes.wrapper, className)}>
+                {Prefix && (
+                    <label className={classes.prefix} htmlFor={textareaId}>
+                        <Prefix />
+                    </label>
+                )}
                 <textarea
                     {...nativeProps}
+                    cols={cols}
+                    rows={rows}
+                    readOnly={readOnly}
+                    id={textareaId}
                     placeholder={placeholder}
-                    className={classes.input}
+                    className={classes.textarea}
                     ref={ref}
                     disabled={disabled}
                     value={value}
@@ -78,10 +137,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
                     onKeyDown={onKeyDown}
                     onInvalid={handleInvalid}
                     onInput={handleInput}
-                    required={true}
+                    onSelect={handleSelect}
                 />
                 {validity && <ValidationIcon />}
-            </div>
+            </LocalRoot>
         );
     }
 );
