@@ -20,7 +20,7 @@
 .input {
     --bgColor: #fff;
     --borderColor: var(--colorFa);
-    --centerColor: var(--colorFa);
+    --centerColor: var(--colorSol);
 
     appearance: none;
     background-color: var(--bgColor);
@@ -70,7 +70,7 @@
 
 .wrapper:hover {
     .input:not(:disabled, :invalid) {
-        --borderColor: var(--colorDo);
+        --borderColor: var(--colorRe);
         --centerColor: var(--colorDo);
     }
 
