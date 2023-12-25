@@ -88,8 +88,8 @@
 }
 
 .input-date:hover {
-    & .input:not(:disabled) + .icon {
-        color: var(--colorDo);
+    & .input:not(:disabled, :focus) + .icon {
+        color: var(--colorRe);
     }
 
     & .input:invalid:not(:disabled) + .icon {

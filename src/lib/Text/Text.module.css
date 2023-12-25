@@ -9,7 +9,7 @@
 
 .text h1,
 .header1 {
-    color: var(--textColor);
+    color: var(--colorFa);
     font-size: var(--fontSizeH1);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 3);
@@ -17,7 +17,7 @@
 
 .text h2,
 .header2 {
-    color: var(--textColor);
+    color: var(--colorFa);
     font-size: var(--fontSizeH2);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 3);
@@ -25,7 +25,7 @@
 
 .text h3,
 .header3 {
-    color: var(--textColor);
+    color: var(--colorFa);
     font-size: var(--fontSizeH3);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 3);
@@ -33,7 +33,7 @@
 
 .text h4,
 .header4 {
-    color: var(--textColor);
+    color: var(--colorFa);
     font-size: var(--fontSizeH4);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 2);
@@ -41,7 +41,7 @@
 
 .text h5,
 .header5 {
-    color: var(--textColor);
+    color: var(--colorFa);
     font-size: var(--fontSizeH5);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 2);
@@ -49,7 +49,7 @@
 
 .text h6,
 .header6 {
-    color: var(--textColor);
+    color: var(--colorFa);
     font-size: var(--fontSizeH6);
     font-weight: 600;
     margin-bottom: calc(var(--sizeUnit) * 2);
@@ -159,7 +159,7 @@
 
     & li::before {
         align-self: center;
-        background-color: var(--colorDo);
+        background-color: var(--colorFa);
         border-radius: calc(var(--sizeUnit) / 2);
         content: " ";
         height: var(--sizeUnit);
@@ -181,7 +181,7 @@
 
     & li::before {
         align-self: center;
-        color: var(--colorDo);
+        color: var(--colorFa);
         content: counter(li);
         direction: rtl;
         font-size: var(--fontSizeSmall);
@@ -195,10 +195,10 @@
 
 .blockquote,
 .text blockquote {
-    background: var(--colorMi);
-    border-left: 3px solid var(--colorRe);
+    background: var(--colorFa);
+    border-left: 3px solid var(--colorFa);
     border-radius: 0 var(--sizeUnit) var(--sizeUnit) 0;
-    color: var(--textColor);
+    color: var(--colorMi);
     font-size: var(--fontSizeLarge);
     font-style: italic;
     margin-bottom: calc(var(--sizeUnit) * 2);
@@ -239,7 +239,7 @@
     }
 
     & dd {
-        border-bottom: 1px solid var(--colorDo);
+        border-bottom: 1px solid var(--colorFa);
         margin-bottom: calc(var(--sizeUnit) * 1);
         padding-bottom: calc(var(--sizeUnit) * 1);
     }

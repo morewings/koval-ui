@@ -65,23 +65,31 @@
 
 .prefix {
     color: var(--colorFa);
+    cursor: pointer;
     flex-shrink: 0;
     height: calc(var(--sizeUnit) * 4);
     width: calc(var(--sizeUnit) * 4);
-    cursor: pointer;
 
     & svg {
+        color: inherit;
         height: inherit;
         width: inherit;
-        color: inherit;
     }
 
     &:hover {
-        color: var(--colorDo);
+        color: var(--colorRe);
     }
 }
 
 .prefix:has(+ .input:invalid:not(:disabled)):hover,
 .prefix:has(+ .input:focus:invalid:not(:disabled)) {
     color: var(--colorError);
+}
+
+.prefix:has(+ .input:focus:not(:disabled, :invalid)) {
+    color: var(--colorDo);
+}
+
+.prefix:has(+ .input:hover:not(:disabled, :invalid, :focus)) {
+    color: var(--colorRe);
 }

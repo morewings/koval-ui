@@ -19,8 +19,8 @@
 
 .input {
     --bgColor: #fff;
-    --borderColor: var(--background200);
-    --centerColor: var(--colorRe);
+    --borderColor: var(--colorFa);
+    --centerColor: var(--colorSol);
 
     appearance: none;
     background-color: var(--bgColor);
@@ -58,7 +58,7 @@
     }
 
     &:focus:not(:disabled, :invalid) {
-        --borderColor: var(--colorRe);
+        --borderColor: var(--colorDo);
         --centerColor: var(--colorDo);
     }
 
