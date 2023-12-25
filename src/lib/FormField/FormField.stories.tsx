@@ -6,6 +6,7 @@ import {InputDate} from '@/lib/InputDate';
 import {InputColor} from '@/lib/InputColor';
 import {InputTime} from '@/lib/InputTime';
 import {InputRange} from '@/lib/InputRange';
+import {Textarea} from '@/lib/Textarea';
 
 import {FormField} from './FormField';
 
@@ -110,6 +111,7 @@ const meta = {
                 color: <InputColor defaultValue="#CECECE" />,
                 time: <InputTime />,
                 range: <InputRange />,
+                textarea: <Textarea />,
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
@@ -120,6 +122,7 @@ const meta = {
                     color: 'With Color Input',
                     time: 'With Time Input',
                     range: 'With Range Input',
+                    textarea: 'With Textarea',
                 },
             },
         },
