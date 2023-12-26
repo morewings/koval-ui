@@ -1,3 +1,5 @@
+@import url("@/internal/inputs/stateSelectorsInteractive.css");
+
 .wrapper {
     align-items: center;
     display: flex;
@@ -47,7 +49,7 @@
         width: var(--size);
     }
 
-    &:disabled {
+    &:--disabledSelector {
         --borderColor: var(--background100);
 
         cursor: not-allowed;
@@ -57,28 +59,28 @@
         --size: 10px;
     }
 
-    &:focus:not(:disabled, :invalid) {
+    &:--focusSelector {
         --borderColor: var(--colorDo);
         --centerColor: var(--colorDo);
     }
 
-    &:disabled + .label {
+    &:--disabledSelector + .label {
         color: var(--background200);
         cursor: not-allowed;
     }
 }
 
 .wrapper:hover {
-    .input:not(:disabled, :invalid) {
+    .input:not(:--disabledSelector, :--invalidSelector) {
         --borderColor: var(--colorRe);
         --centerColor: var(--colorDo);
     }
 
-    .input:invalid {
+    .input:--invalidSelector {
         --borderColor: red;
     }
 
-    .input:invalid + .label {
+    .input:--invalidSelector + .label {
         color: var(--colorError);
     }
 }

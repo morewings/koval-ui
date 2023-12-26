@@ -35,6 +35,18 @@
         "index": "templates/Input/index.ts",
         "mdx": "templates/Input/TemplateName.mdx"
       }
+    },
+    "icon": {
+      "path": "src/internal/Icons",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": false,
+      "withTest": false,
+      "withIndex": false,
+      "withMdx": false,
+      "customTemplates": {
+        "component": "templates/Icon/TemplateName.tsx"
+      }
     }
   },
   "usesStyledComponents": false

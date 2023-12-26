@@ -1,4 +1,4 @@
-import type {ChangeEvent, FormEvent} from 'react';
+import type {FormEvent} from 'react';
 import {useCallback, useState} from 'react';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
@@ -8,15 +8,13 @@ import {defaultValidator} from './defaultValidator.ts';
 
 type InputMode = 'interactive' | 'textual';
 
-/* TODO: fix all (event.target as HTMLInputElement) assignments */
-
-const getValue = (event: FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>, mode: InputMode) => {
-    return mode === 'interactive'
-        ? (event.target as HTMLInputElement).checked
-        : (event.target as HTMLInputElement | HTMLTextAreaElement).value;
+const getValue = <TEvent extends FormEvent, TElement extends HTMLInputElement>(event: TEvent, mode: InputMode) => {
+    return mode === 'interactive' ? (event.target as TElement).checked : (event.target as TElement).value;
 };
 
-export const useValidation = ({validatorFn}: ValidationProps) => {
+export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInputElement>({
+    validatorFn,
+}: ValidationProps) => {
     const hasCustomValidation = validatorFn !== defaultValidator;
     const [customValidation, setCustomValidation] = useState(hasCustomValidation);
 
@@ -25,8 +23,8 @@ export const useValidation = ({validatorFn}: ValidationProps) => {
     const [validity, setValidity] = useState<keyof typeof ValidationState | null>(null);
 
     const reportValidity = useCallback(
-        (event: FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>) => {
-            const isValid = (event.target as HTMLInputElement | HTMLTextAreaElement).reportValidity();
+        (event: TEvent) => {
+            const isValid = (event.target as TElement).reportValidity();
             if (!isValid && !customValidation) {
                 setCustomValidation(true);
             }
@@ -38,13 +36,10 @@ export const useValidation = ({validatorFn}: ValidationProps) => {
     );
 
     const createValidatorSync = useCallback(
-        (mode: InputMode, event: FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>) => {
+        (mode: InputMode, event: TEvent) => {
             const value = getValue(event, mode);
-            const validationError = validatorFn?.(
-                value,
-                (event.target as HTMLInputElement | HTMLTextAreaElement).validity
-            );
-            (event.target as HTMLInputElement | HTMLTextAreaElement).setCustomValidity(validationError as string);
+            const validationError = validatorFn?.(value, (event.target as TElement).validity);
+            (event.target as TElement).setCustomValidity(validationError as string);
             reportValidity(event);
         },
         [validatorFn, reportValidity]
@@ -54,35 +49,31 @@ export const useValidation = ({validatorFn}: ValidationProps) => {
     const debouncedValidator = useCallback(AwesomeDebouncePromise(validatorFn!, 1000), [validatorFn]);
 
     const createValidatorAsync = useCallback(
-        async (mode: InputMode, event: FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>) => {
-            (event.target as HTMLInputElement | HTMLTextAreaElement).setCustomValidity('');
+        async (mode: InputMode, event: TEvent) => {
+            (event.target as TElement).setCustomValidity('');
             const value = getValue(event, mode);
             setValidity(ValidationState.inProgress);
             let validationError = '';
             try {
-                validationError = await debouncedValidator(
-                    value,
-                    (event.target as HTMLInputElement | HTMLTextAreaElement).validity
-                );
+                validationError = await debouncedValidator(value, (event.target as TElement).validity);
             } catch (error) {
-                (event.target as HTMLInputElement | HTMLTextAreaElement).setCustomValidity(error as string);
+                (event.target as TElement).setCustomValidity(error as string);
             }
-            (event.target as HTMLInputElement | HTMLTextAreaElement).setCustomValidity(validationError);
+            (event.target as TElement).setCustomValidity(validationError);
             reportValidity(event);
         },
         [setValidity, debouncedValidator, reportValidity]
     );
 
     const validateInteractive = useCallback(
-        (event: ChangeEvent<HTMLInputElement>) => {
+        (event: TEvent) => {
             return isAsync ? createValidatorAsync('interactive', event) : createValidatorSync('interactive', event);
         },
         [createValidatorAsync, createValidatorSync, isAsync]
     );
 
     const validateTextual = useCallback(
-        (event: FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>) => {
-            /* TODO: check if this type can be fixed */
+        (event: TEvent) => {
             return isAsync ? createValidatorAsync('textual', event) : createValidatorSync('textual', event);
         },
         [createValidatorSync, isAsync, createValidatorAsync]

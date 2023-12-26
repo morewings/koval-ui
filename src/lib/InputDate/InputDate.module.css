@@ -1,3 +1,5 @@
+@import url("@/internal/inputs/stateSelectorsTextual.css");
+
 .input-date {
     --gap: var(--sizeUnit);
     --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
@@ -42,16 +44,16 @@
     }
 }
 
-.input:disabled + .icon {
+.input:--disabledSelector + .icon {
     color: var(--background100);
 }
 
-.input:focus:not(:disabled) + .icon {
+.input:--focusSelector + .icon {
     color: var(--colorDo);
 }
 
-.input:focus:invalid:not(:disabled) + .icon,
-.input:invalid:not(:disabled) + .focus {
+.input:--invalidSelector:focus + .icon,
+.input:--invalidSelector + .focus {
     color: var(--colorError);
 }
 
@@ -77,13 +79,13 @@
     }
 }
 
-.toggle:has(.input:focus:not(:disabled)) + .label {
+.toggle:has(.input:--focusSelector) + .label {
     border-color: var(--colorRe);
 }
 
-.toggle:has(.input:invalid:focus:not(:disabled)) + .label,
-.toggle:has(.input:invalid:hover:not(:disabled)) + .label,
-.toggle:has(.input:invalid:not(:disabled)) + .label:hover {
+.toggle:has(.input:--invalidSelector:focus) + .label,
+.toggle:has(.input:--invalidSelector:hover) + .label,
+.toggle:has(.input:--invalidSelector) + .label:hover {
     border-color: var(--colorError);
 }
 
@@ -92,7 +94,7 @@
         color: var(--colorRe);
     }
 
-    & .input:invalid:not(:disabled) + .icon {
+    & .input:--invalidSelector + .icon {
         color: var(--colorError);
     }
 }

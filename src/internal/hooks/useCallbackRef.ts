@@ -13,6 +13,7 @@ export const useSafeLayoutEffect = isBrowser() ? useLayoutEffect : useEffect;
  * @param fn the function to persist
  * @param deps the function dependency list
  */
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 export function useCallbackRef<T extends (...args: any[]) => any>(
     fn: T | undefined,
     deps: React.DependencyList = []

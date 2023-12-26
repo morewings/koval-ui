@@ -1,3 +1,5 @@
+@import url("@/internal/inputs/stateSelectorsInteractive.css");
+
 .vars {
     --outputLength: 1;
 }
@@ -51,17 +53,7 @@
         cursor: grab;
     }
 
-    &:active {
-        &::-moz-range-thumb {
-            cursor: grabbing;
-        }
-
-        &::-webkit-slider-thumb {
-            cursor: grabbing;
-        }
-    }
-
-    &:disabled {
+    &:--disabledSelector {
         &::-moz-range-thumb {
             background-color: var(--background100);
             cursor: not-allowed;
@@ -81,8 +73,18 @@
         }
     }
 
-    &:active:not(:disabled),
-    &:focus:not(:disabled) {
+    &:active:not(:--disabledSelector) {
+        &::-moz-range-thumb {
+            cursor: grabbing;
+        }
+
+        &::-webkit-slider-thumb {
+            cursor: grabbing;
+        }
+    }
+
+    &:active:not(:--disabledSelector),
+    &:--focusSelector {
         &::-moz-range-thumb {
             background-color: var(--thumbColorActive);
         }
@@ -100,7 +102,7 @@
         }
     }
 
-    &:focus:invalid {
+    &:--invalidSelector:focus {
         &::-moz-range-track {
             background: var(--colorError);
         }
@@ -125,7 +127,7 @@
     writing-mode: vertical-lr;
 }
 
-.input:disabled + .scale {
+.input:--disabledSelector + .scale {
     color: var(--background100);
 }
 
@@ -146,11 +148,11 @@
     }
 }
 
-.scale-wrapper:has(.input:disabled) + .output {
+.scale-wrapper:has(.input:--disabledSelector) + .output {
     color: var(--background100);
 }
 
-.scale-wrapper:has(.input:focus:invalid:not(:disabled)) + .output {
+.scale-wrapper:has(.input:--invalidSelector:focus) + .output {
     color: var(--colorError);
 }
 
@@ -177,7 +179,7 @@
     }
 }
 
-.prefix:has(+ .scale-wrapper .input:invalid:not(:disabled)):hover,
-.prefix:has(+ .scale-wrapper .input:focus:invalid:not(:disabled)) {
+.prefix:has(+ .scale-wrapper .input:--invalidSelector):hover,
+.prefix:has(+ .scale-wrapper .input:--invalidSelector:focus) {
     color: var(--colorError);
 }

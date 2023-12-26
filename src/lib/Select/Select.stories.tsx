@@ -1,15 +1,14 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
-import {type ChangeEvent, useCallback, useState} from 'react';
 
 import {validatorAsync, validatorSync} from '@/internal/inputs';
 import {CloudUpload} from '@/internal/Icons';
 
-import {Textarea} from './Textarea.tsx';
+import {Select} from './Select.tsx';
 
 const meta = {
-    title: 'Inputs/Textarea',
-    component: Textarea,
+    title: 'Inputs/Select',
+    component: Select,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
@@ -19,22 +18,12 @@ const meta = {
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
-        onChange: fn(),
         required: false,
-        placeholder: '',
-        readOnly: false,
-        disabled: false,
-        rows: 3,
-        cols: 20,
+        multiple: false,
     },
     argTypes: {
         value: {control: 'text'},
         defaultValue: {control: 'text'},
-        onClick: {
-            table: {
-                disable: true,
-            },
-        },
         onBlur: {
             table: {
                 disable: true,
@@ -128,51 +117,32 @@ const meta = {
             },
         },
     },
-} as Meta<typeof Textarea>;
+} as Meta<typeof Select>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        return <Textarea {...args} />;
+        return <Select {...args} />;
     },
-    args: {
-        placeholder: 'This is Textarea',
-    },
+    args: {},
 };
 
-export const ControlledState: Story = {
+export const WithCode: Story = {
     render: args => {
-        const [value, setValue] = useState(args.value);
-        const handleChange = useCallback(
-            (event: ChangeEvent<HTMLTextAreaElement>) => {
-                console.log('Value captured:', event.target.value);
-                setValue(event.target.value);
-            },
-            [setValue]
-        );
-        return (
-            <div>
-                <Textarea {...args} value={value} onChange={handleChange} />
-            </div>
-        );
+        // here comes the code
+        return <Select {...args} />;
     },
 };
 
-ControlledState.args = {
-    value: 'Controlled value',
+WithCode.args = {
+    id: 'foo',
 };
 
-ControlledState.argTypes = {
-    defaultValue: {
-        table: {
-            disable: true,
-        },
-    },
-};
+WithCode.argTypes = {};
 
-ControlledState.parameters = {
+WithCode.parameters = {
     docs: {
         source: {
             language: 'tsx',

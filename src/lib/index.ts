@@ -15,6 +15,7 @@ export {InputColor} from './InputColor';
 export {InputTime} from './InputTime';
 export {InputRange} from './InputRange';
 export {Textarea} from './Textarea';
+export {Select} from './Select';
 export {theme} from './Theme';
 export type {ThemeType} from './Theme';
 export {
