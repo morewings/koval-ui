@@ -1,6 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
+import {validatorAsync, validatorSync} from '@/internal/inputs';
+import {CloudUpload} from '@/internal/Icons';
+
 import {Select} from './Select.tsx';
 
 const meta = {
@@ -11,21 +14,16 @@ const meta = {
         layout: 'centered',
     },
     args: {
-        onClick: fn(),
         onBlur: fn(),
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
         required: false,
+        multiple: false,
     },
     argTypes: {
         value: {control: 'text'},
         defaultValue: {control: 'text'},
-        onClick: {
-            table: {
-                disable: true,
-            },
-        },
         onBlur: {
             table: {
                 disable: true,
@@ -87,13 +85,35 @@ const meta = {
             },
         },
         validatorFn: {
-            table: {
-                disable: true,
+            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
+            mapping: {
+                noValidator: undefined,
+                syncValidator: validatorSync,
+                asyncValidator: validatorAsync,
+            }, // Maps serializable option values to complex arg values
+            control: {
+                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                labels: {
+                    // 'labels' maps option values to string labels
+                    noValidator: 'No custom validator',
+                    syncValidator: 'Sync validator (value.length < 4)',
+                    asyncValidator: 'Async validator (value.length < 4)',
+                },
             },
         },
         prefix: {
-            table: {
-                disable: true,
+            options: ['noPrefix', 'withPrefix'],
+            mapping: {
+                noPrefix: undefined,
+                withPrefix: CloudUpload,
+            },
+            control: {
+                type: 'radio',
+                labels: {
+                    // 'labels' maps option values to string labels
+                    noPrefix: 'No prefix',
+                    withPrefix: 'With prefix',
+                },
             },
         },
     },

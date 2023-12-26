@@ -55,7 +55,7 @@ export default defineConfig({
     css: {
         postcss: {
             plugins: [
-                postcssPresetEnv(), // add options if needed
+                postcssPresetEnv({stage: 1}), // add options if needed
             ],
         },
     },

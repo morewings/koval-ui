@@ -1,0 +1,6 @@
+/* Interactive inputs don't support read-only state */
+
+@custom-selector :--disabledSelector :disabled;
+@custom-selector :--invalidSelector :invalid:not(:disabled);
+@custom-selector :--focusSelector :focus:not(:disabled, :invalid);
+@custom-selector :--hoverSelector :hover:not(:disabled, :invalid, :focus);

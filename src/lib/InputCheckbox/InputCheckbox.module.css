@@ -1,3 +1,5 @@
+@import url("@/internal/inputs/stateSelectorsTextual.css");
+
 .wrapper {
     align-items: center;
     display: flex;
@@ -32,7 +34,7 @@
         width: var(--size);
     }
 
-    &:disabled {
+    &:--disabledSelector {
         --borderColor: var(--background100);
 
         cursor: not-allowed;
@@ -42,7 +44,7 @@
         --size: 10px;
     }
 
-    &:focus:not(:disabled, :invalid) {
+    &:--focusSelector {
         --borderColor: var(--colorDo);
         --centerColor: var(--colorDo);
     }
@@ -74,7 +76,7 @@
     margin-left: auto;
 }
 
-.input:disabled + .label {
+.input:--disabledSelector + .label {
     color: var(--background200);
     cursor: not-allowed;
 }

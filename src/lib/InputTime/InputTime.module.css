@@ -1,3 +1,5 @@
+@import url("@/internal/inputs/stateSelectorsTextual.css");
+
 .input-time {
     --gap: var(--sizeUnit);
     --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
@@ -45,28 +47,28 @@
         color: var(--colorFa);
     }
 
-    &:read-only {
+    &:--readOnlySelector {
         background-color: var(--colorMi);
         border: 3px solid var(--colorDo);
     }
 
-    &:disabled {
+    &:--disabledSelector {
         background-color: var(--background100);
         border-color: var(--background100);
         cursor: not-allowed;
     }
 
-    &:focus::placeholder {
+    &:--focusSelector::placeholder {
         color: transparent;
     }
 
-    &:focus:not(:disabled, :read-only) {
+    &:--focusSelector {
         background-color: var(--background000);
         border-color: var(--colorRe);
         outline: none;
     }
 
-    &:focus:not(:disabled, :read-only):invalid {
+    &:--invalidSelector:focus {
         border-color: var(--colorError);
     }
 }
@@ -86,20 +88,21 @@
     }
 }
 
-.icon:has(+ .input:hover:invalid:not(:disabled)),
-.icon:has(+ .input:focus:invalid:not(:disabled)),
-.icon:has(+ .input:invalid:not(:disabled)):hover {
+.icon:has(+ .input:--invalidSelector:hover),
+.icon:has(+ .input:--invalidSelector:focus),
+.icon:has(+ .input:--invalidSelector):hover {
     color: var(--colorError);
 }
 
-.icon:has(+ .input:not(:invalid, :disabled)):hover {
+.icon:hover:has(+ .input:not(:--disabledSelector)),
+.icon:has(+ .input:--hoverSelector) {
+    color: var(--colorRe);
+}
+
+.icon:has(+ .input:--focusSelector) {
     color: var(--colorDo);
 }
 
-.icon:has(+ .input:focus:not(:disabled)) {
-    color: var(--colorDo);
-}
-
-.icon:has(+ .input:hover:not(:disabled, :focus, :invalid)) {
-    color: var(--colorDo);
+.icon:has(+ .input:--disabledSelector) {
+    cursor: not-allowed;
 }

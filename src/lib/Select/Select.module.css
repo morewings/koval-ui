@@ -1,3 +1,6 @@
+@import url("@/internal/inputs/stateSelectorsInteractive.css");
+@custom-selector :--multiple [multiple];
+
 .wrapper {
     --gap: var(--sizeUnit);
     --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
@@ -14,13 +17,118 @@
     }
 }
 
+.wrapper:has(.select:--multiple) {
+    align-items: flex-start;
+}
+
+.icon-wrapper {
+    max-width: 100%;
+    position: relative;
+
+    &:last-child {
+        margin-right: var(--validationIconPlaceholder);
+    }
+}
+
 .select {
     background-color: var(--colorMi);
     border: 3px solid var(--colorMi);
     border-radius: calc(var(--sizeUnit) * 0.66);
     color: var(--textColor);
+    cursor: pointer;
     flex: 1;
     font-size: var(--fontSizeMedium);
+    max-width: 100%;
     min-width: 0;
-    padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+    overflow: hidden;
+    padding: var(--sizeUnit) calc(var(--sizeUnit) * 6) var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:--multiple {
+        padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+
+        & option {
+            padding-bottom: var(--sizeUnit);
+            padding-top: var(--sizeUnit);
+        }
+    }
+
+    &:disabled {
+        background-color: var(--background100);
+        border-color: var(--background100);
+        cursor: not-allowed;
+    }
+
+    &:--invalidSelector:focus {
+        background-color: var(--background000);
+        border-color: var(--colorError);
+    }
+
+    &:not(:--multiple) {
+        padding: var(--sizeUnit) calc(var(--sizeUnit) * 6) var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+    }
+
+    &:--focusSelector {
+        background-color: var(--background000);
+        border-color: var(--colorRe);
+        outline: none;
+    }
+}
+
+.icon {
+    color: var(--colorFa);
+    height: calc(var(--sizeUnit) * 3);
+    pointer-events: none;
+    position: absolute;
+    right: calc(var(--sizeUnit) / 2);
+    top: 50%;
+    transform: translate(0, -50%);
+    width: calc(var(--sizeUnit) * 3);
+}
+
+.select:--focusSelector + .icon {
+    color: var(--colorDo);
+}
+
+.select:--hoverSelector + .icon {
+    color: var(--colorRe);
+}
+
+.prefix {
+    color: var(--colorFa);
+    cursor: pointer;
+    flex-shrink: 0;
+    height: calc(var(--sizeUnit) * 4);
+    width: calc(var(--sizeUnit) * 4);
+
+    & svg {
+        color: inherit;
+        height: inherit;
+        width: inherit;
+    }
+}
+
+.prefix:has(+ .icon-wrapper .select:disabled) {
+    cursor: not-allowed;
+}
+
+.prefix:has(+ .icon-wrapper .select:--focusSelector) {
+    color: var(--colorDo);
+}
+
+.prefix:has(+ .icon-wrapper .select:--hoverSelector) {
+    color: var(--colorRe);
+}
+
+.prefix:has(+ .icon-wrapper .select:--invalidSelector):hover {
+    color: var(--colorError);
+}
+
+.prefix:has(+ .icon-wrapper .select:--invalidSelector:hover) {
+    color: var(--colorError);
+}
+
+.validation {
+    flex-shrink: 0;
 }

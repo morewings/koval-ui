@@ -7,6 +7,7 @@ import {InputColor} from '@/lib/InputColor';
 import {InputTime} from '@/lib/InputTime';
 import {InputRange} from '@/lib/InputRange';
 import {Textarea} from '@/lib/Textarea';
+import {Select} from '@/lib/Select';
 
 import {FormField} from './FormField';
 
@@ -104,7 +105,7 @@ const meta = {
             },
         },
         children: {
-            options: ['text', 'date', 'color', 'time', 'range'], // An array of serializable values
+            options: ['text', 'date', 'color', 'time', 'range', 'select'], // An array of serializable values
             mapping: {
                 text: <InputText />,
                 date: <InputDate />,
@@ -112,6 +113,13 @@ const meta = {
                 time: <InputTime />,
                 range: <InputRange />,
                 textarea: <Textarea />,
+                select: (
+                    <Select>
+                        <option value="Option 1">Option 1</option>
+                        <option value="Option 2">Option 2</option>
+                        <option value="Option 3">Option 3</option>
+                    </Select>
+                ),
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
@@ -123,6 +131,7 @@ const meta = {
                     time: 'With Time Input',
                     range: 'With Range Input',
                     textarea: 'With Textarea',
+                    select: 'With Select',
                 },
             },
         },

@@ -19,6 +19,7 @@ const meta = {
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
+        onChange: fn(),
         required: false,
         placeholder: '',
         readOnly: false,
@@ -151,7 +152,11 @@ export const ControlledState: Story = {
             },
             [setValue]
         );
-        return <Textarea {...args} value={value} onChange={handleChange} />;
+        return (
+            <div>
+                <Textarea {...args} value={value} onChange={handleChange} />
+            </div>
+        );
     },
 };
 

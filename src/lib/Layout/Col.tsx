@@ -19,7 +19,6 @@ export type ColProps = DataAttributes &
     };
 
 const filterUndefined = (target: Record<string, number | string | undefined>) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return Object.fromEntries(Object.entries(target).filter(([_, v]) => v !== undefined)) as Record<
         string,
         number | string

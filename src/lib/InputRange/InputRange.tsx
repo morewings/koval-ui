@@ -95,7 +95,7 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
             () => ({
                 outputLength: max.toString().length + scaleUnit.length,
             }),
-            [max]
+            [max, scaleUnit]
         );
 
         return (
