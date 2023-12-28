@@ -81,15 +81,15 @@
     height: calc(var(--sizeUnit) * 3);
     pointer-events: none;
     position: absolute;
-    right: calc(var(--sizeUnit) / 2);
+    right: calc(var(--sizeUnit) * 2);
     top: 50%;
     transform: translate(0, -50%);
     width: calc(var(--sizeUnit) * 3);
 }
 
-.select:--focusSelector + .icon {
+/* .select:--focusSelector + .icon {
     color: var(--colorDo);
-}
+} */
 
 .select:--hoverSelector + .icon {
     color: var(--colorRe);

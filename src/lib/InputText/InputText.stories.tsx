@@ -27,8 +27,6 @@ const meta = {
         autoComplete: 'off',
     },
     argTypes: {
-        value: {control: 'text'},
-        defaultValue: {control: 'text'},
         onClick: {
             table: {
                 disable: true,
@@ -146,10 +144,7 @@ export const Primary: Story = {
     render: args => {
         return <InputText {...args} />;
     },
-    args: {
-        defaultValue: '',
-        placeholder: 'Text input',
-    },
+    args: {},
     argTypes: {
         value: {
             table: {

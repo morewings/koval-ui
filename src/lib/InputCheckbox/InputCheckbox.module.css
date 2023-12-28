@@ -1,4 +1,4 @@
-@import url("@/internal/inputs/stateSelectorsTextual.css");
+@import url("@/internal/inputs/stateSelectorsInteractive.css");
 
 .wrapper {
     align-items: center;
@@ -82,16 +82,16 @@
 }
 
 .wrapper:hover {
-    .input:invalid {
+    .input {
+        --borderColor: var(--colorRe);
+        --centerColor: var(--colorDo);
+    }
+
+    .input:--invalidSelector {
         --borderColor: red;
     }
 
-    .input:invalid + .label {
+    .input:--invalidSelector + .label {
         color: var(--colorError);
-    }
-
-    .input:not(:disabled, :invalid) {
-        --borderColor: var(--colorRe);
-        --centerColor: var(--colorDo);
     }
 }

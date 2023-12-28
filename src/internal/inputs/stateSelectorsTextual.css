@@ -1,6 +1,8 @@
 /* Textual inputs support read-only state */
 @custom-selector :--disabledSelector :disabled;
 @custom-selector :--readOnlySelector :read-only:not(:disabled);
-@custom-selector :--invalidSelector :invalid:not(:disabled, :read-only);
-@custom-selector :--focusSelector :focus:not(:disabled, :read-only, :invalid);
-@custom-selector :--hoverSelector :hover:not(:disabled, :invalid, :focus, :read-only);
+@custom-selector :--invalidSelector :user-invalid:not(:disabled, :read-only);
+@custom-selector :--focusSelector :focus:not(:disabled, :read-only, :user-invalid);
+@custom-selector :--hoverSelector :hover:not(:disabled, :user-invalid, :focus, :read-only);
+
+/* @custom-selector :--invalidSelector :invalid:not(:disabled, :read-only); */

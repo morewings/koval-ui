@@ -1,6 +1,6 @@
-@import url("@/internal/inputs/stateSelectorsTextual.css");
+@import url("@/internal/inputs/stateSelectorsInteractive.css");
 
-.input-date {
+.input-file {
     --gap: var(--sizeUnit);
     --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
 
@@ -10,7 +10,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
-    width: calc(var(--sizeUnit) * 32);
+    width: var(--inputWidth);
 }
 
 .toggle {
@@ -19,14 +19,8 @@
 
     cursor: pointer;
     height: var(--toggleHeight);
+    overflow: hidden;
     position: relative;
-    width: var(--toggleWidth);
-}
-
-.icon {
-    color: var(--colorFa);
-    cursor: pointer;
-    height: var(--toggleHeight);
     width: var(--toggleWidth);
 }
 
@@ -44,29 +38,28 @@
     }
 }
 
-.input:--disabledSelector + .icon {
-    color: var(--background100);
-}
-
-.input:--focusSelector + .icon {
-    color: var(--colorDo);
-}
-
-.input:--invalidSelector:focus + .icon {
-    color: var(--colorError);
+.icon {
+    color: var(--colorFa);
+    cursor: pointer;
+    height: var(--toggleHeight);
+    width: var(--toggleWidth);
 }
 
 .label {
     background-color: var(--colorMi);
     border: 3px solid var(--colorMi);
     border-radius: calc(var(--sizeUnit) * 0.66);
-    color: var(--textColor);
+    color: var(--colorFa);
     cursor: pointer;
-    flex: 1;
+    flex-grow: 1;
     font-size: var(--fontSizeMedium);
-    height: var(--inputHeight);
+    line-height: 1.2;
+    min-height: calc(var(--sizeUnit) * 6.33);
     min-width: 0;
+    overflow: hidden;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     &:last-child {
         margin-right: var(--validationIconPlaceholder);
@@ -79,6 +72,18 @@
     }
 }
 
+.input:--disabledSelector + .icon {
+    color: var(--background100);
+}
+
+.input:--focusSelector + .icon {
+    color: var(--colorDo);
+}
+
+.input:--invalidSelector:focus + .icon {
+    color: var(--colorError);
+}
+
 .toggle:has(.input:--focusSelector) + .label {
     border-color: var(--colorRe);
 }
@@ -89,8 +94,8 @@
     border-color: var(--colorError);
 }
 
-.input-date:hover {
-    & .input:not(:--disabledSelector) + .icon {
+.input-file:hover {
+    & .input:not(:disabled, :focus) + .icon {
         color: var(--colorRe);
     }
 

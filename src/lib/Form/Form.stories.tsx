@@ -13,6 +13,7 @@ import {InputTime} from '@/lib/InputTime';
 import {InputRange} from '@/lib/InputRange';
 import {Textarea} from '@/lib/Textarea';
 import {Select} from '@/lib/Select';
+import {InputFile} from '@/lib/InputFile';
 import {Button} from '@/lib/Button';
 import {validatorSync, validatorAsync} from '@/internal/inputs';
 
@@ -140,6 +141,9 @@ export const Example: Story = {
                         <option value="Option 2">Option 2</option>
                         <option value="Option 3">Option 3</option>
                     </Select>
+                </FormField>
+                <FormField label="File Input">
+                    <InputFile required={true} />
                 </FormField>
                 <div style={{display: 'flex', gap: '12px'}}>
                     <Button type="submit">Submit</Button>
