@@ -4,6 +4,7 @@ export const theme = {
     fontFamilyMonospace: `"SF Mono", "Courier New", FreeMono, "Nimbus Mono PS", Cousine, monospace`,
     sizeUnit: '6px',
     inputWidth: '240px',
+    inputHeight: '38px',
     // font sizes
     fontSizeH1: '36px',
     fontSizeH2: '28px',

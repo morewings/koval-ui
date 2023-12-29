@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
-import {AttachFile, CloudUpload} from '@/internal/Icons';
+import {IconFile, CloudUpload} from '@/internal/Icons';
 
 import {Button} from './Button.tsx';
 
@@ -35,7 +35,7 @@ const meta = {
             options: ['noPrefix', 'withPrefix'], // An array of serializable values
             mapping: {
                 noPrefix: undefined,
-                withPrefix: AttachFile,
+                withPrefix: IconFile,
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio', // Type 'select' is automatically inferred when 'options' is defined

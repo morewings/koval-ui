@@ -53,9 +53,9 @@ export const Form = forwardRef<HTMLFormElement, Props>(
             return formState;
         }, []);
         const handleSubmit = useCallback(
-            (event: SyntheticEvent<HTMLFormElement>) => {
+            (event: SyntheticEvent<HTMLFormElement, SubmitEvent>) => {
                 event.preventDefault();
-                const form = event.currentTarget;
+                const form = event.currentTarget as HTMLFormElement;
                 // const data = new FormData(form);
                 // data.set('bar', 'bar');
                 const formState = getFormState(form);
@@ -92,6 +92,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(
         return (
             <form
                 {...nativeProps}
+                autoFocus={true}
                 onSubmit={handleSubmit}
                 onInvalid={handleError}
                 onReset={handleReset}
