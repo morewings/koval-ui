@@ -43,6 +43,7 @@
     }
 
     &:--invalidSelector:focus {
+        background-color: var(--background000);
         border-color: var(--colorError);
     }
 
