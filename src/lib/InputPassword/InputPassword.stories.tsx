@@ -1,16 +1,17 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
-import {TemplateName} from './TemplateName.tsx';
+import {InputPassword} from './InputPassword.tsx';
 
 const meta = {
-    title: 'Inputs/TemplateName',
-    component: TemplateName,
+    title: 'Inputs/Password',
+    component: InputPassword,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {
+        onClick: fn(),
         onBlur: fn(),
         onFocus: fn(),
         onKeyDown: fn(),
@@ -96,14 +97,14 @@ const meta = {
             },
         },
     },
-} as Meta<typeof TemplateName>;
+} as Meta<typeof InputPassword>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        return <TemplateName {...args} />;
+        return <InputPassword {...args} />;
     },
     args: {},
 };
@@ -111,7 +112,7 @@ export const Primary: Story = {
 export const WithCode: Story = {
     render: args => {
         // here comes the code
-        return <TemplateName {...args} />;
+        return <InputPassword {...args} />;
     },
 };
 
