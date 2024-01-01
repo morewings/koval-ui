@@ -1,5 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
+import {type ChangeEvent, useCallback, useState} from 'react';
+
+import {validatorAsync, validatorSync} from '@/internal/inputs';
 
 import {InputPassword} from './InputPassword.tsx';
 
@@ -17,10 +20,22 @@ const meta = {
         onKeyDown: fn(),
         onKeyUp: fn(),
         required: false,
+        autoComplete: 'off',
+        placeholder: 'Password',
+        readOnly: false,
+        disabled: false,
     },
     argTypes: {
-        value: {control: 'text'},
-        defaultValue: {control: 'text'},
+        value: {
+            table: {
+                disable: true,
+            },
+        },
+        defaultValue: {
+            table: {
+                disable: true,
+            },
+        },
         onClick: {
             table: {
                 disable: true,
@@ -87,13 +102,40 @@ const meta = {
             },
         },
         validatorFn: {
-            table: {
-                disable: true,
+            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
+            mapping: {
+                noValidator: undefined,
+                syncValidator: validatorSync,
+                asyncValidator: validatorAsync,
+            }, // Maps serializable option values to complex arg values
+            control: {
+                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                labels: {
+                    // 'labels' maps option values to string labels
+                    noValidator: 'No custom validator',
+                    syncValidator: 'Sync validator (value.length < 4)',
+                    asyncValidator: 'Async validator (value.length < 4)',
+                },
             },
         },
         prefix: {
             table: {
                 disable: true,
+            },
+        },
+        pattern: {
+            options: ['noPattern', 'withPattern'], // An array of serializable values
+            mapping: {
+                noPattern: undefined,
+                withPattern: '[^@\\s]+@[^@\\s]+',
+            }, // Maps serializable option values to complex arg values
+            control: {
+                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                labels: {
+                    // 'labels' maps option values to string labels
+                    noPattern: 'No pattern',
+                    withPattern: 'With pattern ([^@\\s]+@[^@\\s]+)',
+                },
             },
         },
     },
@@ -109,20 +151,33 @@ export const Primary: Story = {
     args: {},
 };
 
-export const WithCode: Story = {
+export const ControlledState: Story = {
     render: args => {
-        // here comes the code
-        return <InputPassword {...args} />;
+        const [value, setValue] = useState(args.value);
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                console.log('Value captured:', event.target.value);
+                setValue(event.target.value);
+            },
+            [setValue]
+        );
+        return <InputPassword {...args} value={value} onChange={handleChange} />;
     },
 };
 
-WithCode.args = {
-    id: 'foo',
+ControlledState.args = {
+    value: 'Controlled value',
 };
 
-WithCode.argTypes = {};
+ControlledState.argTypes = {
+    defaultValue: {
+        table: {
+            disable: true,
+        },
+    },
+};
 
-WithCode.parameters = {
+ControlledState.parameters = {
     docs: {
         source: {
             language: 'tsx',

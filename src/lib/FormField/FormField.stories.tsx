@@ -9,6 +9,7 @@ import {InputRange} from '@/lib/InputRange';
 import {Textarea} from '@/lib/Textarea';
 import {Select} from '@/lib/Select';
 import {InputFile} from '@/lib/InputFile';
+import {InputPassword} from '@/lib/InputPassword';
 
 import {FormField} from './FormField';
 
@@ -106,7 +107,7 @@ const meta = {
             },
         },
         children: {
-            options: ['text', 'date', 'color', 'time', 'range', 'select', 'file'], // An array of serializable values
+            options: ['text', 'date', 'color', 'time', 'range', 'select', 'file', 'password'], // An array of serializable values
             mapping: {
                 text: <InputText />,
                 date: <InputDate />,
@@ -115,6 +116,7 @@ const meta = {
                 range: <InputRange />,
                 textarea: <Textarea />,
                 file: <InputFile />,
+                password: <InputPassword />,
                 select: (
                     <Select>
                         <option value="Option 1">Option 1</option>
@@ -135,6 +137,7 @@ const meta = {
                     textarea: 'With Textarea',
                     select: 'With Select',
                     file: 'With File Input',
+                    password: 'With Password Input',
                 },
             },
         },
