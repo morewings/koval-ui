@@ -3,6 +3,8 @@ import {fn} from '@storybook/test';
 import type {ChangeEvent} from 'react';
 import {useState, useCallback} from 'react';
 
+import {timeout} from '@/internal/inputs/validatorMocks.ts';
+
 import {InputDate} from './InputDate.tsx';
 
 const meta = {
@@ -20,9 +22,15 @@ const meta = {
         onKeyUp: fn(),
         required: false,
         placeholder: 'YYYY-MM-DD',
+        disabled: false,
+        readOnly: false,
     },
     argTypes: {
-        value: {control: 'text'},
+        value: {
+            table: {
+                disable: true,
+            },
+        },
         defaultValue: {control: 'text'},
         onClick: {
             table: {
@@ -85,13 +93,35 @@ const meta = {
             },
         },
         validatorFn: {
-            table: {
-                disable: true,
-            },
-        },
-        prefix: {
-            table: {
-                disable: true,
+            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
+            mapping: {
+                noValidator: undefined,
+                syncValidator: (value?: unknown) => {
+                    console.log('Value captured:', value);
+                    if (value && value === '2018-07-23') {
+                        return '';
+                    } else {
+                        return 'Should be 2018-07-23';
+                    }
+                },
+                asyncValidator: async (value?: unknown) => {
+                    console.log('Value captured:', value);
+                    await timeout(1000);
+                    if (value && value === '2018-07-23') {
+                        return '';
+                    } else {
+                        return `Last captured: ${value}`;
+                    }
+                },
+            }, // Maps serializable option values to complex arg values
+            control: {
+                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                labels: {
+                    // 'labels' maps option values to string labels
+                    noValidator: 'No custom validator',
+                    syncValidator: 'Sync validator (2018-07-23)',
+                    asyncValidator: 'Async validator (2018-07-23)',
+                },
             },
         },
     },
@@ -133,43 +163,6 @@ ControlledState.args = {
 ControlledState.argTypes = {};
 
 ControlledState.parameters = {
-    docs: {
-        source: {
-            language: 'tsx',
-            type: 'code',
-        },
-    },
-};
-
-export const CustomValidation: Story = {
-    render: args => {
-        const validatorFn = useCallback((value: unknown) => {
-            console.log('Value captured:', value);
-            return value !== '2018-07-22' ? 'Has to be 2018-07-22' : '';
-        }, []);
-        return <InputDate {...args} defaultValue="2018-07-22" validatorFn={validatorFn} />;
-    },
-};
-
-CustomValidation.args = {
-    min: '2018-01-01',
-    max: '2018-12-31',
-};
-
-CustomValidation.argTypes = {
-    value: {
-        table: {
-            disable: true,
-        },
-    },
-    defaultValue: {
-        table: {
-            disable: true,
-        },
-    },
-};
-
-CustomValidation.parameters = {
     docs: {
         source: {
             language: 'tsx',

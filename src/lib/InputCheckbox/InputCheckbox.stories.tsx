@@ -3,6 +3,8 @@ import {useState, useCallback} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
+import {validatorAsyncBoolean, validatorSyncBoolean} from '@/internal/inputs';
+
 import {InputCheckbox} from './InputCheckbox.tsx';
 
 const meta = {
@@ -90,8 +92,20 @@ const meta = {
             },
         },
         validatorFn: {
-            table: {
-                disable: true,
+            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
+            mapping: {
+                noValidator: undefined,
+                syncValidator: validatorSyncBoolean,
+                asyncValidator: validatorAsyncBoolean,
+            }, // Maps serializable option values to complex arg values
+            control: {
+                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                labels: {
+                    // 'labels' maps option values to string labels
+                    noValidator: 'No custom validator',
+                    syncValidator: 'Sync validator (value !== true)',
+                    asyncValidator: 'Async validator (value !== true)',
+                },
             },
         },
     },
@@ -105,6 +119,19 @@ export const Primary: Story = {
         label: 'bar',
         id: 'foo',
         defaultChecked: false,
+        value: 'foo',
+    },
+    argTypes: {
+        checked: {
+            table: {
+                disable: true,
+            },
+        },
+        defaultChecked: {
+            table: {
+                disable: true,
+            },
+        },
     },
 };
 
@@ -117,13 +144,7 @@ export const Controlled: Story = {
             },
             [setChecked]
         );
-        const validator = useCallback((checked?: unknown) => {
-            if (!checked) {
-                return 'Custom error!';
-            }
-            return '';
-        }, []);
-        return <InputCheckbox {...args} onChange={handleChange} checked={checked} validatorFn={validator} />;
+        return <InputCheckbox {...args} onChange={handleChange} checked={checked} />;
     },
 };
 
@@ -142,6 +163,23 @@ Controlled.argTypes = {
             disable: true,
         },
     },
+    validatorFn: {
+        options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
+        mapping: {
+            noValidator: undefined,
+            syncValidator: validatorSyncBoolean,
+            asyncValidator: validatorAsyncBoolean,
+        }, // Maps serializable option values to complex arg values
+        control: {
+            type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+            labels: {
+                // 'labels' maps option values to string labels
+                noValidator: 'No custom validator',
+                syncValidator: 'Sync validator (value !== true)',
+                asyncValidator: 'Async validator (value !== true)',
+            },
+        },
+    },
 };
 
 Controlled.parameters = {
@@ -151,35 +189,4 @@ Controlled.parameters = {
             type: 'code',
         },
     },
-};
-
-export const Validation: Story = {
-    render: args => {
-        const validator = (checked?: unknown) => {
-            if (!checked) {
-                return 'Custom error!';
-            }
-            return '';
-        };
-        return <InputCheckbox {...args} required validatorFn={validator} />;
-    },
-    args: {
-        label: 'bar',
-    },
-};
-
-const timeout = (ms: number) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-};
-
-const validatorAsync = async () => {
-    await timeout(1000);
-    return 'Async result';
-};
-
-export const ValidationAsync: Story = {
-    render: args => {
-        return <InputCheckbox {...args} validatorFn={validatorAsync} label="Async" />;
-    },
-    args: {},
 };

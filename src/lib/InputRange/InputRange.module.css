@@ -20,10 +20,10 @@
     --trackHeight: calc(var(--sizeUnit) / 2);
     --sliderHeight: calc(var(--sizeUnit) * 3);
     --sliderWidth: var(--sliderHeight);
-    --trackColor: var(--colorMi);
-    --trackColorActive: var(--colorDo);
+    --trackColor: var(--colorFa);
+    --trackColorActive: var(--colorRe);
     --thumbColor: var(--colorSol);
-    --thumbColorActive: var(--colorRe);
+    --thumbColorActive: var(--colorDo);
 
     &::-moz-range-track {
         background: var(--trackColor);
@@ -51,6 +51,16 @@
         background-color: var(--thumbColor);
         border: none;
         cursor: grab;
+    }
+
+    &:--hoverSelector {
+        &::-moz-range-track {
+            background: var(--trackColorActive);
+        }
+
+        &::-webkit-slider-runnable-track {
+            background: var(--trackColorActive);
+        }
     }
 
     &:--disabledSelector {

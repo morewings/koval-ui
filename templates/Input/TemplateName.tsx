@@ -53,7 +53,7 @@ export const TemplateName = forwardRef<HTMLInputElement, Props>(
             setValidity(ValidationState.error);
         }, [setValidity]);
         return (
-            <div className={classNames(classes['template-name'], className)}>
+            <div className={classNames(classes.wrapper, className)}>
                 {Prefix && <Prefix />}
                 <input
                     {...nativeProps}

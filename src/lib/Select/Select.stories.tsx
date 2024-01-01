@@ -1,5 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
+import {type ChangeEvent, useCallback, useState} from 'react';
 
 import {validatorAsync, validatorSync} from '@/internal/inputs';
 import {CloudUpload} from '@/internal/Icons';
@@ -124,25 +125,75 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        return <Select {...args} />;
+        return (
+            <Select {...args}>
+                <option value="foo">Option 1</option>
+                <option value="Option 2">Option 2</option>
+                <option value="Option 3">Option 3</option>
+                <option value="Option 4">Option 4</option>
+                <option value="Option 5">Option 5</option>
+                <option value="Option long">Option that has too long of a value to fit</option>
+            </Select>
+        );
     },
-    args: {},
+    args: {
+        defaultValue: 'Option 3',
+    },
+    argTypes: {
+        value: {
+            table: {
+                disable: true,
+            },
+        },
+        defaultValue: {
+            table: {
+                disable: true,
+            },
+        },
+    },
 };
 
-export const WithCode: Story = {
+export const ControlledState: Story = {
     render: args => {
-        // here comes the code
-        return <Select {...args} />;
+        const [value, setValue] = useState(args.value);
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLSelectElement>) => {
+                console.log('Value captured:', event.target.value);
+                setValue(event.target.value);
+            },
+            [setValue]
+        );
+        return (
+            <Select {...args} onChange={handleChange} value={value}>
+                <option value="foo">Option 1</option>
+                <option value="Option 2">Option 2</option>
+                <option value="Option 3">Option 3</option>
+                <option value="Option 4">Option 4</option>
+                <option value="Option 5">Option 5</option>
+                <option value="Option long">Option that has too long of a value to fit</option>
+            </Select>
+        );
     },
 };
 
-WithCode.args = {
-    id: 'foo',
+ControlledState.args = {
+    value: 'Option 2',
 };
 
-WithCode.argTypes = {};
+ControlledState.argTypes = {
+    defaultValue: {
+        table: {
+            disable: true,
+        },
+    },
+    value: {
+        table: {
+            disable: true,
+        },
+    },
+};
 
-WithCode.parameters = {
+ControlledState.parameters = {
     docs: {
         source: {
             language: 'tsx',

@@ -3,7 +3,7 @@ import {fn} from '@storybook/test';
 import type {ChangeEvent} from 'react';
 import {useCallback, useState} from 'react';
 
-import {validatorSync, validatorAsync} from '@/internal/inputs';
+import {timeout} from '@/internal/inputs';
 
 import {InputTime} from './InputTime.tsx';
 
@@ -93,16 +93,31 @@ const meta = {
             options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
             mapping: {
                 noValidator: undefined,
-                syncValidator: validatorSync,
-                asyncValidator: validatorAsync,
+                syncValidator: (value?: unknown) => {
+                    console.log('Value captured:', value);
+                    if (value && value !== '23:23') {
+                        return 'Should be 23:23';
+                    } else {
+                        return '';
+                    }
+                },
+                asyncValidator: async (value?: unknown) => {
+                    console.log('Value captured:', value);
+                    await timeout(1000);
+                    if (value && value !== '23:23') {
+                        return `Should be 23:23! Last captured: ${value}`;
+                    } else {
+                        return '';
+                    }
+                },
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
                 labels: {
                     // 'labels' maps option values to string labels
                     noValidator: 'No custom validator',
-                    syncValidator: 'Sync validator (value.length < 4)',
-                    asyncValidator: 'Async validator (value.length < 4)',
+                    syncValidator: 'Sync validator (value === 23:23)',
+                    asyncValidator: 'Async validator (value === 23:23)',
                 },
             },
         },

@@ -1,6 +1,6 @@
 @import url("@/internal/inputs/stateSelectorsInteractive.css");
 @import url("@/internal/inputs/stateSelectorsTextual.css");
 
-.template-name {
+.wrapper {
     --foo: "bar";
 }

@@ -12,7 +12,7 @@ export type Props = DataAttributes &
     LibraryProps &
     NativePropsInteractive &
     CallbackPropsInteractive &
-    ValidationProps & {
+    Omit<ValidationProps, 'validatorFn'> & {
         label?: string;
     };
 

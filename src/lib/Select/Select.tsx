@@ -1,4 +1,4 @@
-import type {ChangeEvent, FC, SelectHTMLAttributes, FocusEvent} from 'react';
+import type {ChangeEvent, FC, SelectHTMLAttributes, FocusEvent, ReactNode} from 'react';
 import {forwardRef, useCallback, useState} from 'react';
 import classNames from 'classnames';
 
@@ -21,6 +21,7 @@ export type Props = DataAttributes &
     NativePropsInteractive &
     CallbackPropsTextual<HTMLSelectElement> &
     ValidationProps & {
+        children?: ReactNode;
         prefix?: FC;
         multiple?: SelectHTMLAttributes<HTMLSelectElement>['multiple'];
     };
@@ -41,6 +42,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
             validatorFn = defaultValidator,
             id,
             multiple,
+            children,
             ...nativeProps
         },
         ref
@@ -113,12 +115,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                         onKeyDown={onKeyDown}
                         onInvalid={handleInvalid}
                         onInput={validateTextual}>
-                        <option value="Option 1">Option 1</option>
-                        <option value="Option 2">Option 2</option>
-                        <option value="Option 3">Option 3</option>
-                        <option value="Option 4">Option 4</option>
-                        <option value="Option 5">Option 5</option>
-                        <option value="Option long">Option that has too long of a value to fit</option>
+                        {children}
                     </select>
                     {!multiple && <Icon className={classes.icon} />}
                 </div>

@@ -139,6 +139,7 @@ export const Primary: Story = {
     },
     args: {
         placeholder: 'This is Textarea',
+        defaultValue: 'hello',
     },
 };
 

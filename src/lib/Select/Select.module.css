@@ -54,7 +54,7 @@
         }
     }
 
-    &:disabled {
+    &:--disabledSelector {
         background-color: var(--background100);
         border-color: var(--background100);
         cursor: not-allowed;
@@ -87,10 +87,6 @@
     width: calc(var(--sizeUnit) * 3);
 }
 
-/* .select:--focusSelector + .icon {
-    color: var(--colorDo);
-} */
-
 .select:--hoverSelector + .icon {
     color: var(--colorRe);
 }
@@ -109,7 +105,7 @@
     }
 }
 
-.prefix:has(+ .icon-wrapper .select:disabled) {
+.prefix:has(+ .icon-wrapper .select:--disabledSelector) {
     cursor: not-allowed;
 }
 

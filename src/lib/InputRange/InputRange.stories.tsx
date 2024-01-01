@@ -1,5 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
+import {type ChangeEvent, useCallback, useState} from 'react';
 
 import {CloudUpload} from '@/internal/Icons';
 
@@ -145,5 +146,42 @@ export const Primary: Story = {
     },
     args: {
         defaultValue: 50,
+    },
+};
+
+export const Controlled: Story = {
+    render: args => {
+        const [value, setValue] = useState('33');
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                setValue(event.target.value);
+            },
+            [setValue]
+        );
+        return <InputRange {...args} onChange={handleChange} value={value} />;
+    },
+};
+
+Controlled.args = {};
+
+Controlled.argTypes = {
+    defaultValue: {
+        table: {
+            disable: true,
+        },
+    },
+    value: {
+        table: {
+            disable: true,
+        },
+    },
+};
+
+Controlled.parameters = {
+    docs: {
+        source: {
+            language: 'tsx',
+            type: 'code',
+        },
     },
 };

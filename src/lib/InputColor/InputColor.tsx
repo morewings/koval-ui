@@ -1,4 +1,4 @@
-import type {ChangeEvent, FocusEvent} from 'react';
+import type {ChangeEvent, FocusEvent, InputHTMLAttributes} from 'react';
 import {useMemo, useRef} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
@@ -6,7 +6,7 @@ import {useLocalTheme} from 'css-vars-hook';
 
 import {IconPalette} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import type {CallbackPropsTextual, ValidationProps, NativePropsInteractive} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputColor.module.css';
@@ -14,9 +14,15 @@ import {invertColor} from './invertColor.ts';
 
 export type Props = DataAttributes &
     LibraryProps &
-    Omit<NativePropsTextual, 'maxLength' | 'minLength' | 'autoComplete' | 'inputMode'> &
-    CallbackPropsTextual<HTMLInputElement> &
-    Omit<ValidationProps, 'validatorFn'> & {min?: string; max?: string};
+    NativePropsInteractive &
+    CallbackPropsTextual &
+    Omit<ValidationProps, 'validatorFn'> & {
+        /**
+         * Set text for placeholder.
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder
+         */
+        placeholder?: InputHTMLAttributes<HTMLInputElement>['placeholder'];
+    };
 
 export const InputColor = forwardRef<HTMLInputElement, Props>(
     (
@@ -88,7 +94,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
         );
 
         return (
-            <LocalRoot theme={theme} className={classNames(classes['input-color'], className)}>
+            <LocalRoot theme={theme} className={classNames(classes.wrapper, className)}>
                 <div className={classes.toggle}>
                     <input
                         {...nativeProps}
@@ -97,15 +103,12 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                         type="color"
                         disabled={disabled}
                         defaultValue={displayValue}
-                        className={classes['input-alt']}
+                        className={classes.input}
                         onBlur={handleBlur}
                         onKeyUp={onKeyUp}
                         onKeyDown={onKeyDown}
                         onFocus={handleFocus}
                         onChange={handleChange}
-                        onMouseUp={() => {
-                            console.log('up');
-                        }}
                     />
                     <IconPalette className={classNames(classes.icon)} />
                 </div>

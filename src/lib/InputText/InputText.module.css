@@ -38,6 +38,7 @@
     &:--readOnlySelector {
         background-color: var(--colorMi);
         border: 3px solid var(--colorDo);
+        user-select: all;
     }
 
     &:--disabledSelector {
