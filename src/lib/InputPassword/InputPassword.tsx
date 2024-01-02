@@ -1,26 +1,27 @@
-import type {ChangeEvent, FC} from 'react';
+import type {ChangeEvent} from 'react';
+import {useMemo} from 'react';
+import {useState} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
-import {IconError, IconValid, IconLoader} from '@/internal/Icons';
+import {IconError, IconValid, IconLoader, IconLock, IconLockOpen} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
+import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
-import classes from './TemplateName.module.css';
+import classes from './InputPassword.module.css';
 
-export type Props = DataAttributes &
-    LibraryProps &
-    NativePropsTextual &
-    CallbackPropsTextual &
-    ValidationProps & {
-        prefix?: FC;
-    };
+export type Props = DataAttributes & LibraryProps & NativePropsTextual & CallbackPropsTextual & ValidationProps;
 
-export const TemplateName = forwardRef<HTMLInputElement, Props>(
+enum InputType {
+    password = 'password',
+    text = 'text',
+}
+
+export const InputPassword = forwardRef<HTMLInputElement, Props>(
     (
         {
-            prefix: Prefix,
             className,
             placeholder = '',
             disabled,
@@ -32,6 +33,8 @@ export const TemplateName = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             defaultValue,
             validatorFn = defaultValidator,
+            id,
+            readOnly,
             ...nativeProps
         },
         ref
@@ -52,15 +55,46 @@ export const TemplateName = forwardRef<HTMLInputElement, Props>(
         const handleInvalid = useCallback(() => {
             setValidity(ValidationState.error);
         }, [setValidity]);
+
+        const inputId = useInternalId(id);
+
+        const handleSelect = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                readOnly && event.target.select();
+            },
+            [readOnly]
+        );
+
+        const [type, setType] = useState<keyof typeof InputType>(InputType.password);
+
+        const Icon = useMemo(
+            () =>
+                ({
+                    [InputType.text]: IconLockOpen,
+                    [InputType.password]: IconLock,
+                })[type],
+            [type]
+        );
+
+        const handleIconClick = useCallback(() => {
+            type === InputType.password && setType(InputType.text);
+            type === InputType.text && setType(InputType.password);
+        }, [type, setType]);
+
         return (
             <div className={classNames(classes.wrapper, className)}>
-                {Prefix && <Prefix />}
+                <label tabIndex={-1} onClick={handleIconClick} className={classes.prefix} htmlFor={inputId}>
+                    <Icon />
+                </label>
                 <input
                     {...nativeProps}
+                    id={inputId}
+                    readOnly={readOnly}
                     placeholder={placeholder}
                     className={classes.input}
                     ref={ref}
                     disabled={disabled}
+                    type={type}
                     value={value}
                     defaultValue={defaultValue}
                     onChange={handleChange}
@@ -70,6 +104,7 @@ export const TemplateName = forwardRef<HTMLInputElement, Props>(
                     onKeyDown={onKeyDown}
                     onInvalid={handleInvalid}
                     onInput={validateTextual}
+                    onSelect={handleSelect}
                 />
                 {validity && <ValidationIcon />}
             </div>
@@ -77,4 +112,4 @@ export const TemplateName = forwardRef<HTMLInputElement, Props>(
     }
 );
 
-TemplateName.displayName = 'TemplateName';
+InputPassword.displayName = 'InputPassword';

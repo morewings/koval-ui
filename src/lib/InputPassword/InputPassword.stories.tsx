@@ -2,44 +2,56 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 import {type ChangeEvent, useCallback, useState} from 'react';
 
-import {CloudUpload} from '@/internal/Icons';
+import {validatorAsync, validatorSync} from '@/internal/inputs';
 
-import {InputRange} from './InputRange.tsx';
-
-const timeout = (ms: number) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-};
+import {InputPassword} from './InputPassword.tsx';
 
 const meta = {
-    title: 'Inputs/Range',
-    component: InputRange,
+    title: 'Inputs/Password',
+    component: InputPassword,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {
-        onChange: fn(),
+        onClick: fn(),
         onBlur: fn(),
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
         required: false,
-        min: 0,
-        max: 100,
-        bars: 3,
-        step: 1,
-        scaleUnit: 'F',
+        autoComplete: 'off',
+        placeholder: 'Password',
+        readOnly: false,
         disabled: false,
     },
     argTypes: {
-        value: {control: 'text'},
-        defaultValue: {control: 'text'},
+        value: {
+            table: {
+                disable: true,
+            },
+        },
+        defaultValue: {
+            table: {
+                disable: true,
+            },
+        },
+        onClick: {
+            table: {
+                disable: true,
+            },
+        },
         onBlur: {
             table: {
                 disable: true,
             },
         },
         onFocus: {
+            table: {
+                disable: true,
+            },
+        },
+        autoComplete: {
             table: {
                 disable: true,
             },
@@ -93,91 +105,79 @@ const meta = {
             options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
             mapping: {
                 noValidator: undefined,
-                syncValidator: (value: number) => {
-                    if (value > 66) {
-                        return 'Too big';
-                    }
-                    return '';
-                },
-                asyncValidator: async (value: number) => {
-                    console.log('Value captured:', value);
-                    await timeout(1000);
-                    if (value > 66) {
-                        return `Too long. Value captured: ${value}`;
-                    } else {
-                        return '';
-                    }
-                },
+                syncValidator: validatorSync,
+                asyncValidator: validatorAsync,
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
                 labels: {
                     // 'labels' maps option values to string labels
                     noValidator: 'No custom validator',
-                    syncValidator: 'Sync validator (value > 66 )',
-                    asyncValidator: 'Async validator (value > 66 )',
+                    syncValidator: 'Sync validator (value.length < 4)',
+                    asyncValidator: 'Async validator (value.length < 4)',
                 },
             },
         },
         prefix: {
-            options: ['noPrefix', 'withPrefix'],
-            mapping: {
-                noPrefix: undefined,
-                withPrefix: CloudUpload,
+            table: {
+                disable: true,
             },
+        },
+        pattern: {
+            options: ['noPattern', 'withPattern'], // An array of serializable values
+            mapping: {
+                noPattern: undefined,
+                withPattern: '[^@\\s]+@[^@\\s]+',
+            }, // Maps serializable option values to complex arg values
             control: {
-                type: 'radio',
+                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
                 labels: {
                     // 'labels' maps option values to string labels
-                    noPrefix: 'No prefix',
-                    withPrefix: 'With prefix',
+                    noPattern: 'No pattern',
+                    withPattern: 'With pattern ([^@\\s]+@[^@\\s]+)',
                 },
             },
         },
     },
-} as Meta<typeof InputRange>;
+} as Meta<typeof InputPassword>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        return <InputRange {...args} />;
+        return <InputPassword {...args} />;
     },
-    args: {
-        defaultValue: 50,
-    },
+    args: {},
 };
 
-export const Controlled: Story = {
+export const ControlledState: Story = {
     render: args => {
-        const [value, setValue] = useState('33');
+        const [value, setValue] = useState(args.value);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
+                console.log('Value captured:', event.target.value);
                 setValue(event.target.value);
             },
             [setValue]
         );
-        return <InputRange {...args} onChange={handleChange} value={value} />;
+        return <InputPassword {...args} value={value} onChange={handleChange} />;
     },
 };
 
-Controlled.args = {};
+ControlledState.args = {
+    value: 'Controlled value',
+};
 
-Controlled.argTypes = {
+ControlledState.argTypes = {
     defaultValue: {
         table: {
             disable: true,
         },
     },
-    value: {
-        table: {
-            disable: true,
-        },
-    },
 };
 
-Controlled.parameters = {
+ControlledState.parameters = {
     docs: {
         source: {
             language: 'tsx',

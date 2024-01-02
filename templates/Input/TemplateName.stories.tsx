@@ -11,7 +11,6 @@ const meta = {
         layout: 'centered',
     },
     args: {
-        onClick: fn(),
         onBlur: fn(),
         onFocus: fn(),
         onKeyDown: fn(),

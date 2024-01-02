@@ -92,11 +92,6 @@ export type NativePropsInteractive = {
      * @see https://github.com/facebook/react/issues/11851#issuecomment-351672131
      */
     autoFocus?: InputHTMLAttributes<HTMLInputElement>['autoFocus'];
-    /**
-     * Set native HTML `autocomplete` attribute.
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
-     */
-    autoComplete?: InputHTMLAttributes<HTMLInputElement>['autoComplete'];
     /** Set native HTML `form` attribute. */
     form?: InputHTMLAttributes<HTMLInputElement>['form'];
     /**

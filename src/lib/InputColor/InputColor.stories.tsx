@@ -1,7 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
-import type {ChangeEvent} from 'react';
-import {useState, useCallback} from 'react';
+import {type ChangeEvent, useCallback, useState} from 'react';
 
 import {InputColor} from './InputColor.tsx';
 
@@ -20,9 +19,14 @@ const meta = {
         onKeyUp: fn(),
         required: false,
         placeholder: '#000000',
+        disabled: false,
     },
     argTypes: {
-        value: {control: 'text'},
+        value: {
+            table: {
+                disable: true,
+            },
+        },
         defaultValue: {control: 'text'},
         onClick: {
             table: {
@@ -84,11 +88,6 @@ const meta = {
                 disable: true,
             },
         },
-        validatorFn: {
-            table: {
-                disable: true,
-            },
-        },
         prefix: {
             table: {
                 disable: true,
@@ -102,6 +101,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
+        return <InputColor {...args} />;
+    },
+    args: {
+        defaultValue: '#CCCCCC',
+    },
+};
+
+export const ControlledState: Story = {
+    render: args => {
         const [value, setValue] = useState('#CCCCCC');
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
@@ -110,7 +118,19 @@ export const Primary: Story = {
             },
             [setValue]
         );
-        return <InputColor {...args} defaultValue={value} onChange={handleChange} />;
+        return <InputColor {...args} value={value} onChange={handleChange} />;
     },
-    args: {},
+};
+
+ControlledState.args = {};
+
+ControlledState.argTypes = {};
+
+ControlledState.parameters = {
+    docs: {
+        source: {
+            language: 'tsx',
+            type: 'code',
+        },
+    },
 };

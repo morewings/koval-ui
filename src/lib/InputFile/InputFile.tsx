@@ -13,7 +13,7 @@ import classes from './InputFile.module.css';
 
 export type Props = DataAttributes &
     LibraryProps &
-    Omit<NativePropsTextual, 'inputMode' | 'maxLength' | 'minLength' | 'pattern'> &
+    Omit<NativePropsTextual, 'inputMode' | 'maxLength' | 'minLength' | 'pattern' | 'readOnly'> &
     CallbackPropsTextual & {
         accept?: InputHTMLAttributes<HTMLInputElement>['accept'];
         multiple?: InputHTMLAttributes<HTMLInputElement>['multiple'];

@@ -1,5 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
+import {type ChangeEvent, useCallback, useState} from 'react';
 
 import {InputRadio} from './InputRadio.tsx';
 
@@ -16,10 +17,11 @@ const meta = {
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
+        disabled: false,
+        value: 'foo',
     },
     argTypes: {
         value: {control: 'text'},
-        defaultValue: {control: 'text'},
         onClick: {
             table: {
                 disable: true,
@@ -101,19 +103,61 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Example: Story = {
+export const Primary: Story = {
     args: {
         label: 'foo',
         id: 'foo',
+        defaultChecked: false,
+    },
+    argTypes: {
+        checked: {
+            table: {
+                disable: true,
+            },
+        },
+        defaultChecked: {
+            table: {
+                disable: true,
+            },
+        },
     },
 };
 
-export const ValidationRequired: Story = {
+export const Controlled: Story = {
     render: args => {
-        return <InputRadio {...args} required />;
+        const [checked, setChecked] = useState(false);
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                setChecked(event.target.checked);
+            },
+            [setChecked]
+        );
+        return <InputRadio {...args} onChange={handleChange} checked={checked} />;
     },
-    args: {
-        label: 'bar',
-        id: 'bar',
+};
+
+Controlled.args = {
+    label: 'bar',
+};
+
+Controlled.argTypes = {
+    checked: {
+        table: {
+            disable: true,
+        },
+    },
+    defaultChecked: {
+        table: {
+            disable: true,
+        },
+    },
+};
+
+Controlled.parameters = {
+    docs: {
+        source: {
+            language: 'tsx',
+            type: 'code',
+        },
     },
 };

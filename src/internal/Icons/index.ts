@@ -10,3 +10,5 @@ export {IconPalette} from './IconPalette.tsx';
 export {IconClock} from './IconClock.tsx';
 export {IconExpand} from './IconExpand.tsx';
 export {IconCollapse} from './IconCollapse.tsx';
+export {IconLock} from './IconLock.tsx';
+export {IconLockOpen} from './IconLockOpen.tsx';

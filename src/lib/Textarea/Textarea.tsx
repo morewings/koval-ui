@@ -1,6 +1,5 @@
 import type {ChangeEvent, FC, TextareaHTMLAttributes} from 'react';
-import {useMemo} from 'react';
-import {forwardRef, useCallback} from 'react';
+import {forwardRef, useCallback, useMemo} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
 
@@ -111,8 +110,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
             [resize]
         );
 
+        /* Required to save focus when validation changes*/
+        /* eslint-disable-next-line react-hooks/exhaustive-deps */
+        const LocalRootMemoized = useMemo(() => LocalRoot, []);
+
         return (
-            <LocalRoot theme={theme} className={classNames(classes.wrapper, className)}>
+            <LocalRootMemoized theme={theme} className={classNames(classes.wrapper, className)}>
                 {Prefix && (
                     <label className={classes.prefix} htmlFor={textareaId}>
                         <Prefix />
@@ -140,7 +143,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
                     onSelect={handleSelect}
                 />
                 {validity && <ValidationIcon />}
-            </LocalRoot>
+            </LocalRootMemoized>
         );
     }
 );

@@ -17,7 +17,6 @@ const meta = {
         onKeyDown: fn(),
         onKeyUp: fn(),
         required: false,
-        readOnly: false,
         disabled: false,
         multiple: false,
         placeholder: '',

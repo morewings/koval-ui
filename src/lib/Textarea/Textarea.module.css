@@ -1,3 +1,9 @@
+@import url("@/internal/inputs/stateSelectorsTextual.css");
+
+.vars {
+    --resize: "";
+}
+
 .wrapper {
     --gap: var(--sizeUnit);
     --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
@@ -30,13 +36,14 @@
         margin-right: var(--validationIconPlaceholder);
     }
 
-    &:focus:not(:disabled, :read-only) {
+    &:--focusSelector {
         background-color: var(--background000);
         border-color: var(--colorRe);
         outline: none;
     }
 
-    &:focus:not(:disabled, :read-only):invalid {
+    &:--invalidSelector:focus {
+        background-color: var(--background000);
         border-color: var(--colorError);
     }
 
@@ -45,18 +52,18 @@
         opacity: 0.66;
     }
 
-    &:read-only {
+    &:--readOnlySelector {
         background-color: var(--colorMi);
         border: 3px solid var(--colorDo);
     }
 
-    &:disabled {
+    &:--disabledSelector {
         background-color: var(--background100);
         border-color: var(--background100);
         cursor: not-allowed;
     }
 
-    &:focus::placeholder {
+    &:--focusSelector::placeholder {
         color: transparent;
     }
 }
@@ -79,15 +86,15 @@
     }
 }
 
-.prefix:has(+ .textarea:invalid:not(:disabled)):hover,
-.prefix:has(+ .textarea:focus:invalid:not(:disabled)) {
+.prefix:has(+ .textarea:--invalidSelector):hover,
+.prefix:has(+ .textarea:--invalidSelector:focus) {
     color: var(--colorError);
 }
 
-.prefix:has(+ .textarea:focus:not(:disabled, :invalid)) {
+.prefix:has(+ .textarea:--focusSelector) {
     color: var(--colorDo);
 }
 
-.prefix:has(+ .textarea:hover:not(:disabled, :invalid, :focus)) {
+.prefix:has(+ .textarea:--hoverSelector) {
     color: var(--colorRe);
 }

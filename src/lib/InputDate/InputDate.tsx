@@ -14,7 +14,7 @@ import classes from './InputDate.module.css';
 
 export type Props = DataAttributes &
     LibraryProps &
-    Omit<NativePropsTextual, 'maxLength' | 'minLength' | 'autoComplete' | 'inputMode'> &
+    Omit<NativePropsTextual, 'maxLength' | 'minLength' | 'autoComplete' | 'inputMode' | 'pattern'> &
     CallbackPropsTextual &
     ValidationProps & {min?: string; max?: string};
 
@@ -83,7 +83,7 @@ export const InputDate = forwardRef<HTMLInputElement, Props>(
         );
 
         return (
-            <div className={classNames(classes['input-date'], className)}>
+            <div className={classNames(classes.wrapper, className)}>
                 <div className={classes.toggle}>
                     <input
                         {...nativeProps}
@@ -102,9 +102,11 @@ export const InputDate = forwardRef<HTMLInputElement, Props>(
                         onKeyUp={onKeyUp}
                         onKeyDown={onKeyDown}
                     />
-                    <IconCalendar className={classNames(classes.icon)} />
+                    <label htmlFor={id} className={classes.icon}>
+                        <IconCalendar />
+                    </label>
                 </div>
-                <label data-disabled={disabled} htmlFor={id} className={classes.label} ref={labelRef}>
+                <label htmlFor={id} className={classes.label} ref={labelRef}>
                     {displayValue || placeholder}
                 </label>
                 {validity && <ValidationIcon className={classes.validity} />}

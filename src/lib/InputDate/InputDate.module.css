@@ -1,6 +1,6 @@
 @import url("@/internal/inputs/stateSelectorsTextual.css");
 
-.input-date {
+.wrapper {
     --gap: var(--sizeUnit);
     --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
 
@@ -27,10 +27,13 @@
     color: var(--colorFa);
     cursor: pointer;
     height: var(--toggleHeight);
+    position: absolute;
     width: var(--toggleWidth);
+    z-index: 2;
 }
 
 .input {
+    appearance: none;
     cursor: pointer;
     height: var(--toggleHeight);
     left: 0;
@@ -38,8 +41,9 @@
     position: absolute;
     top: 0;
     width: var(--toggleWidth);
+    z-index: 1;
 
-    &:disabled {
+    &:--disabledSelector {
         cursor: not-allowed;
     }
 }
@@ -67,20 +71,29 @@
     height: var(--inputHeight);
     min-width: 0;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+    user-select: all;
 
     &:last-child {
         margin-right: var(--validationIconPlaceholder);
-    }
-
-    &[data-disabled="true"] {
-        background-color: var(--background100);
-        border-color: var(--background100);
-        cursor: not-allowed;
     }
 }
 
 .toggle:has(.input:--focusSelector) + .label {
     border-color: var(--colorRe);
+}
+
+.toggle:has(.input:--readOnlySelector) + .label:hover,
+.toggle:has(.input:--readOnlySelector:hover) + .label,
+.toggle:has(.input:--readOnlySelector:focus) + .label {
+    background-color: var(--colorMi);
+    border: 3px solid var(--colorDo);
+    user-select: all;
+}
+
+.toggle:has(.input:--disabledSelector) + .label {
+    background-color: var(--background100);
+    border-color: var(--background100);
+    cursor: not-allowed;
 }
 
 .toggle:has(.input:--invalidSelector:focus) + .label,
@@ -89,7 +102,7 @@
     border-color: var(--colorError);
 }
 
-.input-date:hover {
+.wrapper:hover {
     & .input:not(:--disabledSelector) + .icon {
         color: var(--colorRe);
     }

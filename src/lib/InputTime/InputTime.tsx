@@ -14,7 +14,7 @@ export type Props = DataAttributes &
     LibraryProps &
     Omit<NativePropsTextual, 'maxLength' | 'minLength' | 'autoComplete' | 'inputMode'> &
     Omit<CallbackPropsTextual, 'onChange'> &
-    Omit<ValidationProps, 'validatorFn'> & {
+    ValidationProps & {
         onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
         min?: string;
         max?: string;
@@ -33,12 +33,13 @@ export const InputTime = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
+            validatorFn = defaultValidator,
             ...nativeProps
         },
         ref
     ) => {
         const inputRef = useInternalRef(ref);
-        const {validity, setValidity} = useValidation({validatorFn: defaultValidator});
+        const {validity, setValidity, validateTextual} = useValidation({validatorFn});
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
@@ -95,6 +96,7 @@ export const InputTime = forwardRef<HTMLInputElement, Props>(
                     onKeyDown={handleKeyDown}
                     onInvalid={handleInvalid}
                     onChange={handleChange}
+                    onInput={validateTextual}
                 />
                 {validity && <ValidationIcon />}
             </div>

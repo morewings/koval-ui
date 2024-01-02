@@ -1,4 +1,6 @@
-.input-color {
+@import url("@/internal/inputs/stateSelectorsInteractive.css");
+
+.wrapper {
     --gap: var(--sizeUnit);
     --selectedColor: var(--colorDo);
     --invertedColor: var(--textColor);
@@ -36,37 +38,32 @@
     top: 50%;
     transform: translate(-50%, -50%);
     width: calc(var(--sizeUnit) * 4);
-
-    &.focus {
-        color: var(--colorDo);
-    }
 }
 
-.input-alt {
+.input {
     cursor: pointer;
     height: var(--toggleHeight);
     opacity: 0;
     width: var(--toggleWidth);
 
-    &:focus {
+    &:--focusSelector {
         border-color: var(--colorRe);
     }
 
-    &:disabled {
+    &:--disabledSelector {
         cursor: not-allowed;
     }
 }
 
-.input-alt:disabled + .icon {
+.input:--disabledSelector + .icon {
     color: var(--background100);
 }
 
-.input-alt:focus:not(:disabled) + .icon {
+.input:--focusSelector + .icon {
     color: var(--colorDo);
 }
 
-.input-alt:focus:invalid:not(:disabled) + .icon,
-.input-alt:invalid:not(:disabled):focus + .icon {
+.input:--invalidSelector:focus + .icon {
     color: var(--colorError);
 }
 
@@ -81,33 +78,45 @@
     min-width: 0;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
 
-    &:disabled {
+    &:--disabledSelector {
         background-color: var(--background100);
         border-color: var(--background100);
         cursor: not-allowed;
     }
 }
 
-.toggle:has(.input-alt:focus:not(:disabled)) + .label {
+.toggle:has(.input:--focusSelector) + .label {
     border-color: var(--colorRe);
 }
 
-.toggle:has(.input-alt:invalid:not(:disabled)) + .label {
+.toggle:has(.input:--invalidSelector) + .label {
     border-color: var(--colorError);
 }
 
-.input-color:hover {
-    & .input-alt:not(:disabled, :focus) + .icon {
+.toggle:has(.input:--disabledSelector) + .label {
+    background: var(--background100);
+    border-color: var(--background100);
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.toggle:has(.input:--readOnlySelector:focus) + .label,
+.toggle:has(.input:--readOnlySelector:hover) + .label,
+.toggle:has(.input:--readOnlySelector) + .label:hover {
+    background-color: var(--colorMi);
+    border: 3px solid var(--colorDo);
+}
+
+.wrapper:hover {
+    & .input + .icon {
         color: var(--colorRe);
     }
 
-    & .label {
-        &.invalid:not(:disabled) {
-            border-color: var(--colorError);
-        }
+    & .input:--disabledSelector + .icon {
+        color: var(--background100);
     }
 
-    & .input-alt:invalid:not(:disabled) + .icon {
+    & .input:--invalidSelector + .icon {
         color: var(--colorError);
     }
 }
