@@ -12,7 +12,7 @@ import classes from './InputTime.module.css';
 
 export type Props = DataAttributes &
     LibraryProps &
-    Omit<NativePropsTextual, 'maxLength' | 'minLength' | 'autoComplete' | 'inputMode'> &
+    Omit<NativePropsTextual, 'maxLength' | 'minLength' | 'autoComplete' | 'inputMode' | 'size'> &
     Omit<CallbackPropsTextual, 'onChange'> &
     ValidationProps & {
         onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -79,7 +79,7 @@ export const InputTime = forwardRef<HTMLInputElement, Props>(
         );
 
         return (
-            <div className={classNames(classes['input-time'], className)}>
+            <div className={classNames(classes.wrapper, className)}>
                 <IconClock tabIndex={-1} onClick={handleIconClick} className={classes.icon} />
                 <input
                     {...nativeProps}

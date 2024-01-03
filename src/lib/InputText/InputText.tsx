@@ -1,4 +1,4 @@
-import type {ChangeEvent, FC} from 'react';
+import type {ChangeEvent, FC, InputHTMLAttributes} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
@@ -15,7 +15,17 @@ export type Props = DataAttributes &
     NativePropsTextual &
     CallbackPropsTextual &
     ValidationProps & {
+        /**
+         * Define a type of TextInput. Allows developer to optionally set one from supported
+         * text-like input types instead of default 'text'.
+         * Non-text types such as `number` or `week` are not allowed.
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types
+         */
         type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
+        /**
+         * Define the width of the input in characters
+         */
+        size?: InputHTMLAttributes<HTMLInputElement>['size'];
         prefix?: FC;
     };
 
@@ -36,6 +46,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             defaultValue,
             validatorFn = defaultValidator,
             readOnly,
+            size = 16,
             id,
             ...nativeProps
         },
@@ -76,6 +87,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                 )}
                 <input
                     {...nativeProps}
+                    size={size}
                     id={inputId}
                     readOnly={readOnly}
                     placeholder={placeholder}

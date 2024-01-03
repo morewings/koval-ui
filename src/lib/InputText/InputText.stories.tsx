@@ -25,6 +25,7 @@ const meta = {
         readOnly: false,
         disabled: false,
         autoComplete: 'off',
+        size: 16,
     },
     argTypes: {
         onClick: {

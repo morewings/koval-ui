@@ -15,6 +15,7 @@ import {Textarea} from '@/lib/Textarea';
 import {Select} from '@/lib/Select';
 import {InputFile} from '@/lib/InputFile';
 import {InputPassword} from '@/lib/InputPassword';
+import {InputNumber} from '@/lib/InputNumber';
 import {Button} from '@/lib/Button';
 import {validatorSync, validatorAsync} from '@/internal/inputs';
 
@@ -146,9 +147,11 @@ export const Example: Story = {
                 <FormField label="File Input">
                     <InputFile required={true} />
                 </FormField>
-                InputPassword
                 <FormField label="Password Input">
                     <InputPassword required={true} />
+                </FormField>
+                <FormField label="Number Input">
+                    <InputNumber required={true} />
                 </FormField>
                 <div style={{display: 'flex', gap: '12px'}}>
                     <Button type="submit">Submit</Button>

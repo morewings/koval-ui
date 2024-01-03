@@ -20,6 +20,7 @@ const meta = {
         disabled: false,
         multiple: false,
         placeholder: '',
+        size: 16,
     },
     argTypes: {
         value: {

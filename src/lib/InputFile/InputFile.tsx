@@ -1,7 +1,9 @@
 import type {ChangeEvent, InputHTMLAttributes} from 'react';
+import {useMemo} from 'react';
 import {useState} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
+import {useLocalTheme} from 'css-vars-hook';
 
 import {IconError, IconValid, IconLoader, IconFile} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
@@ -33,10 +35,19 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
+            size = 16,
             ...nativeProps
         },
         ref
     ) => {
+        const {LocalRoot} = useLocalTheme();
+        const theme = useMemo(
+            () => ({
+                inputWidth: `${size}ch`,
+            }),
+            [size]
+        );
+
         const id = useInternalId(idProp);
         const [filename, setFileName] = useState('');
         const {validateTextual, validity, setValidity} = useValidation({validatorFn: defaultValidator});
@@ -58,7 +69,7 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
             setValidity(ValidationState.error);
         }, [setValidity]);
         return (
-            <div className={classNames(classes['input-file'], className)}>
+            <LocalRoot theme={theme} className={classNames(classes['input-file'], className)}>
                 <div className={classes.toggle}>
                     <input
                         {...nativeProps}
@@ -84,7 +95,7 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
                     {filename || placeholder}
                 </label>
                 {validity && <ValidationIcon className={classes.validity} />}
-            </div>
+            </LocalRoot>
         );
     }
 );

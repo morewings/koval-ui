@@ -1,6 +1,7 @@
 import type {ChangeEvent, FC, SelectHTMLAttributes, FocusEvent, ReactNode} from 'react';
-import {forwardRef, useCallback, useState} from 'react';
+import {forwardRef, useCallback, useState, useMemo} from 'react';
 import classNames from 'classnames';
+import {useLocalTheme} from 'css-vars-hook';
 
 import {IconError, IconValid, IconLoader, IconExpand, IconCollapse} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
@@ -24,6 +25,10 @@ export type Props = DataAttributes &
         children?: ReactNode;
         prefix?: FC;
         multiple?: SelectHTMLAttributes<HTMLSelectElement>['multiple'];
+        /**
+         * Define the width of the input in characters
+         */
+        size?: SelectHTMLAttributes<HTMLSelectElement>['size'];
     };
 
 export const Select = forwardRef<HTMLSelectElement, Props>(
@@ -43,10 +48,19 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
             id,
             multiple,
             children,
+            size = 16,
             ...nativeProps
         },
         ref
     ) => {
+        const {LocalRoot} = useLocalTheme();
+        const theme = useMemo(
+            () => ({
+                selectWidth: `${size}ch`,
+            }),
+            [size]
+        );
+
         const {validateTextual, validity, setValidity} = useValidation({validatorFn});
         const ValidationIcon = {
             [ValidationState.error]: IconError,
@@ -92,7 +106,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
         );
 
         return (
-            <div className={classNames(classes.wrapper, className)}>
+            <LocalRoot theme={theme} className={classNames(classes.wrapper, className)}>
                 {Prefix && (
                     <label className={classes.prefix} htmlFor={selectId}>
                         <Prefix />
@@ -120,7 +134,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                     {!multiple && <Icon className={classes.icon} />}
                 </div>
                 {validity && <ValidationIcon className={classes.validation} />}
-            </div>
+            </LocalRoot>
         );
     }
 );

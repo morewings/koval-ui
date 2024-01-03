@@ -35,6 +35,7 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
             validatorFn = defaultValidator,
             id,
             readOnly,
+            size = 16,
             ...nativeProps
         },
         ref
@@ -88,6 +89,7 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
                 </label>
                 <input
                     {...nativeProps}
+                    size={size}
                     id={inputId}
                     readOnly={readOnly}
                     placeholder={placeholder}

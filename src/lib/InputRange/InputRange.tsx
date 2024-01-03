@@ -15,7 +15,7 @@ import classes from './InputRange.module.css';
 
 export type Props = DataAttributes &
     LibraryProps &
-    NativePropsNumeric &
+    Omit<NativePropsNumeric, 'size'> &
     CallbackPropsTextual &
     ValidationProps & {
         prefix?: FC<{className?: string} & SVGProps<SVGSVGElement> & unknown>;

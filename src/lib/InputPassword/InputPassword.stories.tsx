@@ -24,6 +24,7 @@ const meta = {
         placeholder: 'Password',
         readOnly: false,
         disabled: false,
+        size: 16,
     },
     argTypes: {
         value: {
