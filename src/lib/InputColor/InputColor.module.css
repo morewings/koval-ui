@@ -11,7 +11,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
-    width: calc(var(--sizeUnit) * 24);
+    width: auto;
 }
 
 .toggle {
@@ -71,12 +71,15 @@
     background-color: var(--selectedColor);
     border: 3px solid var(--selectedColor);
     border-radius: calc(var(--sizeUnit) * 0.66);
+    box-sizing: content-box;
     color: var(--invertedColor);
     cursor: pointer;
-    flex: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
     font-size: var(--fontSizeMedium);
     min-width: 0;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+    width: 7ch;
 
     &:--disabledSelector {
         background-color: var(--background100);

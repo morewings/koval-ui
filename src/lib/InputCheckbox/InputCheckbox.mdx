@@ -2,7 +2,7 @@ import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@stor
 import * as InputCheckboxStories from "./InputCheckbox.stories";
 import { InputCheckbox } from "./InputCheckbox.tsx";
 
-<Meta title="Inputs/Checkbox" component={InputCheckbox} of={InputCheckboxStories} />
+<Meta title="Inputs/Checkbox" of={InputCheckboxStories} />
 
 # Checkbox
 
@@ -24,27 +24,5 @@ import {InputCheckbox} from 'react-forge-ui';
 
 <ArgsTable of={InputCheckbox} />
 
-
-
-
-## Demo
-
-### Controlled
-
-<Canvas source={{type: 'dynamic'}}>
-    <Story of={InputCheckboxStories.Controlled} />
-</Canvas>
-
-### With validation
-
-<Canvas>
-    <Story of={InputCheckboxStories.Validation} />
-</Canvas>
-
-### With async validation
-
-<Canvas>
-    <Story of={InputCheckboxStories.ValidationAsync} />
-</Canvas>
 
 

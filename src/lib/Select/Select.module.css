@@ -1,6 +1,10 @@
 @import url("@/internal/inputs/stateSelectorsInteractive.css");
 @custom-selector :--multiple [multiple];
 
+.vars {
+    --selectWidth: 3ch;
+}
+
 .wrapper {
     --gap: var(--sizeUnit);
     --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
@@ -10,7 +14,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
-    width: var(--inputWidth);
+    width: auto;
 
     & > div {
         flex: 0 1 auto;
@@ -22,7 +26,7 @@
 }
 
 .icon-wrapper {
-    max-width: 100%;
+    max-width: calc(100% - var(--validationIconPlaceholder));
     position: relative;
 
     &:last-child {
@@ -44,6 +48,7 @@
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 6) var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: var(--selectWidth);
 
     &:--multiple {
         padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
@@ -105,6 +110,10 @@
     }
 }
 
+.prefix:has(+ .icon-wrapper .select:--multiple) {
+    margin-top: var(--sizeUnit);
+}
+
 .prefix:has(+ .icon-wrapper .select:--disabledSelector) {
     cursor: not-allowed;
 }
@@ -127,4 +136,8 @@
 
 .validation {
     flex-shrink: 0;
+}
+
+.wrapper:has(.select:--multiple) .validation {
+    margin-top: var(--sizeUnit);
 }

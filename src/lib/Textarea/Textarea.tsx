@@ -13,7 +13,7 @@ import classes from './Textarea.module.css';
 
 export type Props = DataAttributes &
     LibraryProps &
-    Omit<NativePropsTextual, 'inputMode' | 'pattern'> &
+    Omit<NativePropsTextual, 'inputMode' | 'pattern' | 'size'> &
     CallbackPropsTextual<HTMLTextAreaElement> &
     ValidationProps & {
         prefix?: FC;
@@ -142,7 +142,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
                     onInput={handleInput}
                     onSelect={handleSelect}
                 />
-                {validity && <ValidationIcon />}
+                {validity && <ValidationIcon className={classes.validation} />}
             </LocalRootMemoized>
         );
     }

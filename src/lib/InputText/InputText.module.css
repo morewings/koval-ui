@@ -9,7 +9,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
-    width: var(--inputWidth);
+    width: auto;
 
     & > div {
         flex: 0 1 auto;
@@ -23,6 +23,7 @@
     color: var(--textColor);
     flex: 1;
     font-size: var(--fontSizeMedium);
+    max-width: 100%;
     min-width: 0;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
 
@@ -58,6 +59,7 @@
     }
 
     &:--invalidSelector:focus {
+        background-color: var(--background000);
         border-color: var(--colorError);
     }
 }

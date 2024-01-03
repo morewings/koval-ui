@@ -6,14 +6,7 @@ export type NativePropsTextual = {
      */
     name?: InputHTMLAttributes<HTMLInputElement>['name'];
     /** Set input id attribute. */
-    id?: string;
-    /**
-     * Define a type of TextInput. Allows developer to optionally set one from supported
-     * text-like input types instead of default 'text'.
-     * Non-text types such as `number` or `week` are not allowed.
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types
-     */
-    // type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
+    id?: string; // TODO: merge with library props
     /**
      * Provides a hint about the type of data that might be entered by the user while
      * editing the element or its contents. This allows the browser to display an
@@ -58,7 +51,7 @@ export type NativePropsTextual = {
      * Set native ARIA role attribute
      * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/input_role
      */
-    role?: InputHTMLAttributes<HTMLInputElement>['role'];
+    role?: InputHTMLAttributes<HTMLInputElement>['role']; // TODO: merge with library props
     /**
      * Pattern attribute specifies a regular expression the form control's value should match.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern
@@ -69,34 +62,27 @@ export type NativePropsTextual = {
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly
      */
     readOnly?: InputHTMLAttributes<HTMLInputElement>['readOnly'];
-    // not valid for textInput move to number
-    // max?: InputHTMLAttributes<HTMLInputElement>['max'];
-    // min?: InputHTMLAttributes<HTMLInputElement>['min'];
+    /**
+     * Define the width of the input in characters
+     */
+    size?: InputHTMLAttributes<HTMLInputElement>['size'];
 };
 
-export type NativePropsInteractive = {
+export type NativePropsNumeric = Omit<NativePropsTextual, 'inputMode' | 'pattern'> & {
+    min?: InputHTMLAttributes<HTMLInputElement>['min'];
     /**
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name
+     * Define the maximum value that is acceptable and valid for the input
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/max
      */
-    name?: InputHTMLAttributes<HTMLInputElement>['name'];
-    /** Set input id attribute. */
-    id?: string;
+    max?: InputHTMLAttributes<HTMLInputElement>['max'];
     /**
-     * Set native HTML `required` attribute.
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/required
+     * Specify the granularity that the value must adhere to
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/step
      */
-    required?: InputHTMLAttributes<HTMLInputElement>['required'];
-    /**
-     * Provides substitute for native autofocus functionality.
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus
-     * @see https://github.com/facebook/react/issues/11851#issuecomment-351672131
-     */
-    autoFocus?: InputHTMLAttributes<HTMLInputElement>['autoFocus'];
-    /** Set native HTML `form` attribute. */
-    form?: InputHTMLAttributes<HTMLInputElement>['form'];
-    /**
-     * Set native ARIA role attribute
-     * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/input_role
-     */
-    role?: InputHTMLAttributes<HTMLInputElement>['role'];
+    step?: InputHTMLAttributes<HTMLInputElement>['step'];
 };
+
+export type NativePropsInteractive = Omit<
+    NativePropsTextual,
+    'inputMode' | 'pattern' | 'readOnly' | 'minLength' | 'maxLength' | 'autoComplete' | 'placeholder' | 'size'
+>;

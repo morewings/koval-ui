@@ -2,36 +2,32 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 import {type ChangeEvent, useCallback, useState} from 'react';
 
-import {validatorAsync, validatorSync} from '@/internal/inputs';
+import {timeout} from '@/internal/inputs';
 
-import {InputPassword} from './InputPassword.tsx';
+import {InputNumber} from './InputNumber.tsx';
 
 const meta = {
-    title: 'Inputs/Password',
-    component: InputPassword,
+    title: 'Inputs/Number',
+    component: InputNumber,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {
-        onClick: fn(),
         onBlur: fn(),
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
         required: false,
-        autoComplete: 'off',
-        placeholder: 'Password',
         readOnly: false,
         disabled: false,
-        size: 16,
+        min: -100,
+        max: 100,
+        step: 10,
+        size: 9,
     },
     argTypes: {
-        value: {
-            table: {
-                disable: true,
-            },
-        },
+        value: {control: 'text'},
         defaultValue: {
             table: {
                 disable: true,
@@ -106,79 +102,76 @@ const meta = {
             options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
             mapping: {
                 noValidator: undefined,
-                syncValidator: validatorSync,
-                asyncValidator: validatorAsync,
+                syncValidator: (value: number) => {
+                    if (value > 66) {
+                        return 'Too big';
+                    }
+                    return '';
+                },
+                asyncValidator: async (value: number) => {
+                    console.log('Value captured:', value);
+                    await timeout(1000);
+                    if (value > 66) {
+                        return `Too big. Value captured: ${value}`;
+                    } else {
+                        return '';
+                    }
+                },
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
                 labels: {
                     // 'labels' maps option values to string labels
                     noValidator: 'No custom validator',
-                    syncValidator: 'Sync validator (value.length < 4)',
-                    asyncValidator: 'Async validator (value.length < 4)',
-                },
-            },
-        },
-        prefix: {
-            table: {
-                disable: true,
-            },
-        },
-        pattern: {
-            options: ['noPattern', 'withPattern'], // An array of serializable values
-            mapping: {
-                noPattern: undefined,
-                withPattern: '[^@\\s]+@[^@\\s]+',
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noPattern: 'No pattern',
-                    withPattern: 'With pattern ([^@\\s]+@[^@\\s]+)',
+                    syncValidator: 'Sync validator (value > 66 )',
+                    asyncValidator: 'Async validator (value > 66 )',
                 },
             },
         },
     },
-} as Meta<typeof InputPassword>;
+} as Meta<typeof InputNumber>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        return <InputPassword {...args} />;
+        return <InputNumber {...args} />;
     },
     args: {},
 };
 
-export const ControlledState: Story = {
+export const Controlled: Story = {
     render: args => {
-        const [value, setValue] = useState(args.value);
+        const [value, setValue] = useState<string | number>(33);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                console.log('Value captured:', event.target.value);
                 setValue(event.target.value);
             },
             [setValue]
         );
-        return <InputPassword {...args} value={value} onChange={handleChange} />;
+        return <InputNumber {...args} onChange={handleChange} value={value} />;
     },
 };
 
-ControlledState.args = {
-    value: 'Controlled value',
+Controlled.args = {
+    step: 11,
 };
 
-ControlledState.argTypes = {
+Controlled.argTypes = {
     defaultValue: {
+        table: {
+            disable: true,
+        },
+    },
+    value: {
         table: {
             disable: true,
         },
     },
 };
 
-ControlledState.parameters = {
+Controlled.parameters = {
     docs: {
         source: {
             language: 'tsx',

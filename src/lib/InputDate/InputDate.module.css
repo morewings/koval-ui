@@ -10,7 +10,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
-    width: calc(var(--sizeUnit) * 32);
+    width: auto;
 }
 
 .toggle {
@@ -64,14 +64,17 @@
     background-color: var(--colorMi);
     border: 3px solid var(--colorMi);
     border-radius: calc(var(--sizeUnit) * 0.66);
+    box-sizing: content-box;
     color: var(--textColor);
     cursor: pointer;
-    flex: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
     font-size: var(--fontSizeMedium);
-    height: var(--inputHeight);
+    height: calc(var(--inputHeight) - var(--sizeUnit) * 3);
     min-width: 0;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
     user-select: all;
+    width: 10ch;
 
     &:last-child {
         margin-right: var(--validationIconPlaceholder);

@@ -29,7 +29,7 @@
     font-size: var(--fontSizeSmall);
     line-height: 1.5;
     min-width: 0;
-    padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 2);
+    padding: calc(var(--sizeUnit) * 1) calc(var(--sizeUnit) * 2);
     resize: var(--resize);
 
     &:last-child {
@@ -73,6 +73,7 @@
     cursor: pointer;
     flex-shrink: 0;
     height: calc(var(--sizeUnit) * 4);
+    margin-top: var(--sizeUnit);
     width: calc(var(--sizeUnit) * 4);
 
     & svg {
@@ -97,4 +98,8 @@
 
 .prefix:has(+ .textarea:--hoverSelector) {
     color: var(--colorRe);
+}
+
+.validation {
+    margin-top: var(--sizeUnit);
 }

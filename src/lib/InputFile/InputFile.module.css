@@ -1,5 +1,9 @@
 @import url("@/internal/inputs/stateSelectorsInteractive.css");
 
+.vars {
+    --inputWidth: 16ch;
+}
+
 .input-file {
     --gap: var(--sizeUnit);
     --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
@@ -10,7 +14,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
-    width: var(--inputWidth);
+    width: auto;
 }
 
 .toggle {
@@ -54,21 +58,17 @@
     flex-grow: 1;
     font-size: var(--fontSizeMedium);
     line-height: 1.2;
+    max-width: calc(100% - var(--validationIconPlaceholder));
     min-height: calc(var(--sizeUnit) * 6.33);
     min-width: 0;
     overflow: hidden;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: var(--inputWidth);
 
     &:last-child {
         margin-right: var(--validationIconPlaceholder);
-    }
-
-    &[data-disabled="true"] {
-        background-color: var(--background100);
-        border-color: var(--background100);
-        cursor: not-allowed;
     }
 }
 
@@ -82,6 +82,12 @@
 
 .input:--invalidSelector:focus + .icon {
     color: var(--colorError);
+}
+
+.toggle:has(.input:--disabledSelector) + .label {
+    background-color: var(--background100);
+    border-color: var(--background100);
+    cursor: not-allowed;
 }
 
 .toggle:has(.input:--focusSelector) + .label {

@@ -21,6 +21,7 @@ const meta = {
         onKeyUp: fn(),
         required: false,
         multiple: false,
+        size: 16,
     },
     argTypes: {
         value: {control: 'text'},

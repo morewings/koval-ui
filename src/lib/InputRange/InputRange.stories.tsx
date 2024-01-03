@@ -3,12 +3,9 @@ import {fn} from '@storybook/test';
 import {type ChangeEvent, useCallback, useState} from 'react';
 
 import {CloudUpload} from '@/internal/Icons';
+import {timeout} from '@/internal/inputs';
 
 import {InputRange} from './InputRange.tsx';
-
-const timeout = (ms: number) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-};
 
 const meta = {
     title: 'Inputs/Range',
@@ -103,7 +100,7 @@ const meta = {
                     console.log('Value captured:', value);
                     await timeout(1000);
                     if (value > 66) {
-                        return `Too long. Value captured: ${value}`;
+                        return `Too big. Value captured: ${value}`;
                     } else {
                         return '';
                     }

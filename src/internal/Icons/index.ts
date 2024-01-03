@@ -12,3 +12,5 @@ export {IconExpand} from './IconExpand.tsx';
 export {IconCollapse} from './IconCollapse.tsx';
 export {IconLock} from './IconLock.tsx';
 export {IconLockOpen} from './IconLockOpen.tsx';
+export {IconArrowUp} from './IconArrowUp.tsx';
+export {IconArrowDown} from './IconArrowDown.tsx';

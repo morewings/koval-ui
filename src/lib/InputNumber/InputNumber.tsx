@@ -1,25 +1,29 @@
-import type {ChangeEvent} from 'react';
-import {useMemo} from 'react';
-import {useState} from 'react';
+import type {ChangeEvent, InputHTMLAttributes, FormEvent} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
-import {IconError, IconValid, IconLoader, IconLock, IconLockOpen} from '@/internal/Icons';
+import {IconError, IconValid, IconLoader, IconArrowUp, IconArrowDown} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import type {NativePropsNumeric, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
-import {useInternalId} from '@/internal/hooks/useInternalId.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
-import classes from './InputPassword.module.css';
+import classes from './InputNumber.module.css';
 
-export type Props = DataAttributes & LibraryProps & NativePropsTextual & CallbackPropsTextual & ValidationProps;
+export type Props = DataAttributes &
+    LibraryProps &
+    NativePropsNumeric &
+    CallbackPropsTextual &
+    ValidationProps & {
+        /**
+         * Define the width of the input in characters
+         */
+        size?: InputHTMLAttributes<HTMLInputElement>['size'];
+    };
 
-enum InputType {
-    password = 'password',
-    text = 'text',
-}
+const ChangeEventSpinner = new Event('change', {bubbles: true});
 
-export const InputPassword = forwardRef<HTMLInputElement, Props>(
+export const InputNumber = forwardRef<HTMLInputElement, Props>(
     (
         {
             className,
@@ -33,9 +37,8 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             defaultValue,
             validatorFn = defaultValidator,
-            id,
-            readOnly,
-            size = 16,
+            size = 10,
+            step = 1,
             ...nativeProps
         },
         ref
@@ -57,46 +60,34 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
             setValidity(ValidationState.error);
         }, [setValidity]);
 
-        const inputId = useInternalId(id);
+        const inputRef = useInternalRef(ref);
 
-        const handleSelect = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                readOnly && event.target.select();
-            },
-            [readOnly]
-        );
+        const handleDecrement = useCallback(() => {
+            inputRef.current!.stepDown(Number(step));
+            inputRef.current!.dispatchEvent(ChangeEventSpinner);
+            validateTextual(ChangeEventSpinner as unknown as FormEvent);
+        }, [inputRef, validateTextual, step]);
 
-        const [type, setType] = useState<keyof typeof InputType>(InputType.password);
-
-        const Icon = useMemo(
-            () =>
-                ({
-                    [InputType.text]: IconLockOpen,
-                    [InputType.password]: IconLock,
-                })[type],
-            [type]
-        );
-
-        const handleIconClick = useCallback(() => {
-            type === InputType.password && setType(InputType.text);
-            type === InputType.text && setType(InputType.password);
-        }, [type, setType]);
+        const handleIncrement = useCallback(() => {
+            inputRef.current!.stepUp(Number(step));
+            inputRef.current!.dispatchEvent(ChangeEventSpinner);
+            validateTextual(ChangeEventSpinner as unknown as FormEvent);
+        }, [inputRef, validateTextual, step]);
 
         return (
             <div className={classNames(classes.wrapper, className)}>
-                <label tabIndex={-1} onClick={handleIconClick} className={classes.prefix} htmlFor={inputId}>
-                    <Icon />
-                </label>
+                <div className={classes.spinner}>
+                    <IconArrowUp tabIndex={-1} onClick={handleIncrement} />
+                    <IconArrowDown tabIndex={-1} onClick={handleDecrement} />
+                </div>
                 <input
                     {...nativeProps}
                     size={size}
-                    id={inputId}
-                    readOnly={readOnly}
+                    type="number"
                     placeholder={placeholder}
                     className={classes.input}
-                    ref={ref}
+                    ref={inputRef}
                     disabled={disabled}
-                    type={type}
                     value={value}
                     defaultValue={defaultValue}
                     onChange={handleChange}
@@ -106,12 +97,11 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
                     onKeyDown={onKeyDown}
                     onInvalid={handleInvalid}
                     onInput={validateTextual}
-                    onSelect={handleSelect}
                 />
-                {validity && <ValidationIcon />}
+                {validity && <ValidationIcon className={classes.validation} />}
             </div>
         );
     }
 );
 
-InputPassword.displayName = 'InputPassword';
+InputNumber.displayName = 'InputNumber';

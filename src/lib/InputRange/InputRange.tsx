@@ -6,7 +6,7 @@ import {useLocalTheme} from 'css-vars-hook';
 
 import {IconError, IconValid, IconLoader} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import type {NativePropsNumeric, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 import {useControllableState} from '@/internal/hooks/useControllableState.ts';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
@@ -15,16 +15,10 @@ import classes from './InputRange.module.css';
 
 export type Props = DataAttributes &
     LibraryProps &
-    Omit<
-        NativePropsTextual,
-        'pattern' | 'placeholder' | 'minLength' | 'maxLength' | 'readOnly' | 'autoComplete' | 'inputMode'
-    > &
+    Omit<NativePropsNumeric, 'size'> &
     CallbackPropsTextual &
     ValidationProps & {
         prefix?: FC<{className?: string} & SVGProps<SVGSVGElement> & unknown>;
-        min?: number;
-        max?: number;
-        step?: number;
         bars?: number;
         scaleUnit?: string;
     };
@@ -127,11 +121,11 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
                         max={max}
                     />
                     <datalist id={scaleId} className={classes.scale}>
-                        {createOptions({min, max, bars, scaleUnit})}
+                        {createOptions({min: Number(min), max: Number(max), bars, scaleUnit})}
                     </datalist>
                 </div>
                 <LocalRoot as="output" theme={theme} className={classes.output}>
-                    {displayValue || max / 2} {scaleUnit}
+                    {displayValue || Number(max) / 2} {scaleUnit}
                 </LocalRoot>
                 {validity && <ValidationIcon className={classes.validation} />}
             </div>

@@ -82,7 +82,7 @@
 }
 
 .wrapper:hover {
-    .input {
+    .input:not(:--disabledSelector) {
         --borderColor: var(--colorRe);
         --centerColor: var(--colorDo);
     }
