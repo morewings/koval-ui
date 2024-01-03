@@ -1,0 +1,122 @@
+@import url("@/internal/inputs/stateSelectorsTextual.css");
+
+.wrapper {
+    --gap: var(--sizeUnit);
+    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap);
+    max-width: 100%;
+    width: 300px;
+
+    & > div {
+        flex: 0 1 auto;
+    }
+}
+
+.input {
+    appearance: textfield;
+    background-color: var(--colorMi);
+    border: 3px solid var(--colorMi);
+    border-radius: calc(var(--sizeUnit) * 0.66);
+    color: var(--textColor);
+    flex-grow: 0;
+    font-size: var(--fontSizeMedium);
+    max-width: calc(100% - var(--validationIconPlaceholder));
+    min-width: 0;
+    padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+
+    &:last-child {
+        margin-right: var(--validationIconPlaceholder);
+    }
+
+    &::-webkit-inner-spin-button {
+        appearance: none;
+    }
+
+    &::placeholder {
+        color: var(--colorFa);
+        opacity: 0.66;
+    }
+
+    &:--readOnlySelector {
+        background-color: var(--colorMi);
+        border: 3px solid var(--colorDo);
+        user-select: all;
+    }
+
+    &:--disabledSelector {
+        background-color: var(--background100);
+        border-color: var(--background100);
+        cursor: not-allowed;
+    }
+
+    &:--focusSelector::placeholder {
+        color: transparent;
+    }
+
+    &:--focusSelector {
+        background-color: var(--background000);
+        border-color: var(--colorRe);
+        outline: none;
+    }
+
+    &:--invalidSelector:focus {
+        border-color: var(--colorError);
+    }
+}
+
+.spinner {
+    align-items: center; /* center items horizontally, in this case */
+    color: var(--colorFa);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* make flex direction vertical */
+    flex-shrink: 0;
+    height: calc(var(--sizeUnit) * 6);
+    justify-content: center; /* center items vertically, in this case */
+    width: calc(var(--sizeUnit) * 4);
+
+    & svg {
+        color: inherit;
+        height: calc(var(--sizeUnit) * 3);
+        width: calc(var(--sizeUnit) * 3);
+
+        &:active {
+            color: var(--colorDo);
+        }
+    }
+
+    &:hover {
+        color: var(--colorRe);
+    }
+}
+
+.spinner:has(+ .input:--disabledSelector) {
+    cursor: not-allowed;
+
+    & svg {
+        color: var(--background100);
+        pointer-events: none;
+    }
+}
+
+.spinner:has(+ .input:--invalidSelector):hover,
+.spinner:has(+ .input:--invalidSelector:hover),
+.spinner:has(+ .input:--invalidSelector:focus) {
+    color: var(--colorError);
+}
+
+.spinner:has(+ .input:--focusSelector) {
+    color: var(--colorDo);
+}
+
+.spinner:has(+ .input:--hoverSelector) {
+    color: var(--colorRe);
+}
+
+.validation {
+    flex-shrink: 0;
+}

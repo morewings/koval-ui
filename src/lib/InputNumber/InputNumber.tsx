@@ -1,30 +1,32 @@
-import type {ChangeEvent, FC} from 'react';
+import type {ChangeEvent, InputHTMLAttributes, FormEvent} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
-import {IconError, IconValid, IconLoader} from '@/internal/Icons';
+import {IconError, IconValid, IconLoader, IconArrowUp, IconArrowDown} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import type {NativePropsNumeric, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
-import {useInternalId} from '@/internal/hooks/useInternalId.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
-import classes from './InputText.module.css';
+import classes from './InputNumber.module.css';
 
 export type Props = DataAttributes &
     LibraryProps &
-    NativePropsTextual &
+    NativePropsNumeric &
     CallbackPropsTextual &
     ValidationProps & {
-        type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
-        prefix?: FC;
+        /**
+         * Define the width of the input in characters
+         */
+        size?: InputHTMLAttributes<HTMLInputElement>['size'];
     };
 
-export const InputText = forwardRef<HTMLInputElement, Props>(
+const ChangeEventSpinner = new Event('change', {bubbles: true});
+
+export const InputNumber = forwardRef<HTMLInputElement, Props>(
     (
         {
-            prefix: Prefix,
             className,
-            type = 'text',
             placeholder = '',
             disabled,
             value,
@@ -35,8 +37,8 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             defaultValue,
             validatorFn = defaultValidator,
-            readOnly,
-            id,
+            size = 10,
+            step = 1,
             ...nativeProps
         },
         ref
@@ -58,31 +60,34 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             setValidity(ValidationState.error);
         }, [setValidity]);
 
-        const handleSelect = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                readOnly && event.target.select();
-            },
-            [readOnly]
-        );
+        const inputRef = useInternalRef(ref);
 
-        const inputId = useInternalId(id);
+        const handleDecrement = useCallback(() => {
+            inputRef.current!.stepDown(Number(step));
+            inputRef.current!.dispatchEvent(ChangeEventSpinner);
+            validateTextual(ChangeEventSpinner as unknown as FormEvent);
+        }, [inputRef, validateTextual, step]);
+
+        const handleIncrement = useCallback(() => {
+            inputRef.current!.stepUp(Number(step));
+            inputRef.current!.dispatchEvent(ChangeEventSpinner);
+            validateTextual(ChangeEventSpinner as unknown as FormEvent);
+        }, [inputRef, validateTextual, step]);
 
         return (
             <div className={classNames(classes.wrapper, className)}>
-                {Prefix && (
-                    <label className={classes.prefix} htmlFor={inputId}>
-                        <Prefix />
-                    </label>
-                )}
+                <div className={classes.spinner}>
+                    <IconArrowUp tabIndex={-1} onClick={handleIncrement} />
+                    <IconArrowDown tabIndex={-1} onClick={handleDecrement} />
+                </div>
                 <input
                     {...nativeProps}
-                    id={inputId}
-                    readOnly={readOnly}
+                    size={size}
+                    type="number"
                     placeholder={placeholder}
                     className={classes.input}
-                    ref={ref}
+                    ref={inputRef}
                     disabled={disabled}
-                    type={type}
                     value={value}
                     defaultValue={defaultValue}
                     onChange={handleChange}
@@ -92,12 +97,11 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                     onKeyDown={onKeyDown}
                     onInvalid={handleInvalid}
                     onInput={validateTextual}
-                    onSelect={handleSelect}
                 />
-                {validity && <ValidationIcon />}
+                {validity && <ValidationIcon className={classes.validation} />}
             </div>
         );
     }
 );
 
-InputText.displayName = 'InputText';
+InputNumber.displayName = 'InputNumber';

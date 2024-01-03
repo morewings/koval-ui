@@ -2,41 +2,53 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 import {type ChangeEvent, useCallback, useState} from 'react';
 
-import {CloudUpload} from '@/internal/Icons';
 import {timeout} from '@/internal/inputs';
 
-import {InputRange} from './InputRange.tsx';
+import {InputNumber} from './InputNumber.tsx';
 
 const meta = {
-    title: 'Inputs/Range',
-    component: InputRange,
+    title: 'Inputs/Number',
+    component: InputNumber,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {
-        onChange: fn(),
         onBlur: fn(),
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
         required: false,
-        min: 0,
-        max: 100,
-        bars: 3,
-        step: 1,
-        scaleUnit: 'F',
+        readOnly: false,
         disabled: false,
+        min: -100,
+        max: 100,
+        step: 10,
+        size: 9,
     },
     argTypes: {
         value: {control: 'text'},
-        defaultValue: {control: 'text'},
+        defaultValue: {
+            table: {
+                disable: true,
+            },
+        },
+        onClick: {
+            table: {
+                disable: true,
+            },
+        },
         onBlur: {
             table: {
                 disable: true,
             },
         },
         onFocus: {
+            table: {
+                disable: true,
+            },
+        },
+        autoComplete: {
             table: {
                 disable: true,
             },
@@ -116,50 +128,35 @@ const meta = {
                 },
             },
         },
-        prefix: {
-            options: ['noPrefix', 'withPrefix'],
-            mapping: {
-                noPrefix: undefined,
-                withPrefix: CloudUpload,
-            },
-            control: {
-                type: 'radio',
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noPrefix: 'No prefix',
-                    withPrefix: 'With prefix',
-                },
-            },
-        },
     },
-} as Meta<typeof InputRange>;
+} as Meta<typeof InputNumber>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        return <InputRange {...args} />;
+        return <InputNumber {...args} />;
     },
-    args: {
-        defaultValue: 50,
-    },
+    args: {},
 };
 
 export const Controlled: Story = {
     render: args => {
-        const [value, setValue] = useState('33');
+        const [value, setValue] = useState<string | number>(33);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 setValue(event.target.value);
             },
             [setValue]
         );
-        return <InputRange {...args} onChange={handleChange} value={value} />;
+        return <InputNumber {...args} onChange={handleChange} value={value} />;
     },
 };
 
-Controlled.args = {};
+Controlled.args = {
+    step: 11,
+};
 
 Controlled.argTypes = {
     defaultValue: {

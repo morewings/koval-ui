@@ -1,4 +1,4 @@
-export type {NativePropsTextual, NativePropsInteractive} from './NativeProps.ts';
+export type {NativePropsTextual, NativePropsInteractive, NativePropsNumeric} from './NativeProps.ts';
 export {ValidationState} from './ValidationProps.ts';
 export type {ValidationProps} from './ValidationProps.ts';
 export type {CallbackPropsTextual, CallbackPropsInteractive} from './CallbackProps.ts';
