@@ -61,9 +61,7 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
                 disabled={disabled}
                 id={id}
                 ref={ref}>
-                <legend className={classes.legend} data-disabled={disabled}>
-                    {label}
-                </legend>
+                <legend className={classNames(classes.legend, {[classes.disabled]: disabled})}>{label}</legend>
                 <div className={classes.inputs}>{childrenWithProps}</div>
                 {hint && <div className={classes.hint}>{hint}</div>}
             </fieldset>

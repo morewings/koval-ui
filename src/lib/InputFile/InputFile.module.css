@@ -70,12 +70,6 @@
     &:last-child {
         margin-right: var(--validationIconPlaceholder);
     }
-
-    &[data-disabled="true"] {
-        background-color: var(--background100);
-        border-color: var(--background100);
-        cursor: not-allowed;
-    }
 }
 
 .input:--disabledSelector + .icon {
@@ -88,6 +82,12 @@
 
 .input:--invalidSelector:focus + .icon {
     color: var(--colorError);
+}
+
+.toggle:has(.input:--disabledSelector) + .label {
+    background-color: var(--background100);
+    border-color: var(--background100);
+    cursor: not-allowed;
 }
 
 .toggle:has(.input:--focusSelector) + .label {

@@ -91,7 +91,7 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
                     />
                     <IconFile className={classNames(classes.icon)} />
                 </div>
-                <label data-disabled={disabled} htmlFor={id} className={classes.label}>
+                <label htmlFor={id} className={classes.label}>
                     {filename || placeholder}
                 </label>
                 {validity && <ValidationIcon className={classes.validity} />}
