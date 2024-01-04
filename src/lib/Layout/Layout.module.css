@@ -18,9 +18,16 @@
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
     margin: auto;
     max-width: 100%;
     width: var(--containerWidth);
+
+    &.full-height {
+        min-height: 100vh;
+    }
 }
 
 .row {
@@ -107,4 +114,38 @@
             flex-grow: 1;
         }
     }
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    &.sticky {
+        position: sticky;
+        top: 0;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.aside {
+    display: flex;
+    width: auto;
 }

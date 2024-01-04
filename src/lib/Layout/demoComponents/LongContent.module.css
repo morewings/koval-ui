@@ -1,0 +1,13 @@
+.long {
+    align-items: center; /* center items horizontally, in this case */
+    background: color-mix(in srgb, rebeccapurple 20%, transparent);
+    border: 2px dashed rebeccapurple;
+    color: rebeccapurple;
+    display: flex;
+    flex-direction: column; /* make flex direction vertical */
+    flex-grow: 1;
+    height: calc(100vh + 333px);
+    justify-content: flex-start; /* center items vertically, in this case */
+    margin: calc(var(--sizeUnit) / 2);
+    padding: calc(var(--sizeUnit) * 4);
+}

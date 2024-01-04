@@ -1,0 +1,26 @@
+.fill {
+    align-items: center; /* center items horizontally, in this case */
+    background-image: linear-gradient(
+        45deg,
+        var(--colorSol) 25%,
+        var(--colorMi) 25%,
+        var(--colorMi) 50%,
+        var(--colorSol) 50%,
+        var(--colorSol) 75%,
+        var(--colorMi) 75%,
+        var(--colorMi) 100%
+    );
+    background-size: 56.57px 56.57px;
+    display: flex;
+    flex-direction: column; /* make flex direction vertical */
+    flex-grow: 1;
+    justify-content: center; /* center items vertically, in this case */
+}
+
+.text {
+    background: var(--background000);
+    font-size: var(--fontSizeLarge);
+    font-weight: var(--fontWeightBold);
+    padding: calc(var(--sizeUnit) * 4);
+    color: var(--colorFa);
+}

@@ -1,0 +1,22 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {Page} from './Page.tsx';
+import * as PageStories from "./Page.stories.tsx";
+
+<Meta title="Layout/Page" of={PageStories} />
+
+# Select
+
+Text tba.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Select} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgsTable of={Page}/>
+

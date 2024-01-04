@@ -4,10 +4,10 @@ import {Fragment} from 'react';
 import {Container} from './Container';
 import {Row} from './Row';
 import {Col} from './Col';
-import {Cell} from './Cell';
+import {Cell} from './demoComponents/Cell';
 
 const meta = {
-    title: 'Layout/Container',
+    title: 'Layout/Grid',
     component: Container,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout

@@ -2,7 +2,7 @@
 import 'the-new-css-reset/css/reset.css';
 
 export {Provider} from './Provider';
-export {Col, Row, Container} from './Layout';
+export {Col, Row, Container, Main, Footer, Sidebar, Header, Content} from './Layout';
 export {Button} from './Button';
 export {Form} from './Form';
 export {FormField} from './FormField';
