@@ -19,8 +19,8 @@
 
 .text {
     background: var(--background000);
+    color: var(--colorFa);
     font-size: var(--fontSizeLarge);
     font-weight: var(--fontWeightBold);
     padding: calc(var(--sizeUnit) * 4);
-    color: var(--colorFa);
 }
