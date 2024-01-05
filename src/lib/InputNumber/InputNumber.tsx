@@ -82,6 +82,7 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
                 </div>
                 <input
                     {...nativeProps}
+                    step={step}
                     size={size}
                     type="number"
                     placeholder={placeholder}
