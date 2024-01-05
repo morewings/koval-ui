@@ -1,6 +1,6 @@
 export {Col} from './Col.tsx';
 export {Row} from './Row.tsx';
-export {Container} from './Container.tsx';
+export {Grid} from './Grid.tsx';
 export {Page} from './Page.tsx';
 export {Main} from './Main.tsx';
 export {Footer} from './Footer.tsx';

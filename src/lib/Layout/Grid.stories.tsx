@@ -1,24 +1,24 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {Fragment} from 'react';
 
-import {Container} from './Container';
+import {Grid} from './Grid.tsx';
 import {Row} from './Row';
 import {Col} from './Col';
 import {Cell} from './demoComponents/Cell';
 
 const meta = {
     title: 'Layout/Grid',
-    component: Container,
+    component: Grid,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
     },
-} as Meta<typeof Container>;
+} as Meta<typeof Grid>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ContainerExample: Story = {
+export const GridExample: Story = {
     args: {
         children: (
             <Fragment>
@@ -174,10 +174,10 @@ export const ContainerExample: Story = {
     },
 };
 
-export const ContainerFluid: Story = {
+export const GridFluid: Story = {
     args: {
         children: (
-            <Container width={888}>
+            <Grid width={888}>
                 <Row>
                     <Col xs={3}>
                         <Cell>Takes 3 columns.</Cell>
@@ -194,16 +194,16 @@ export const ContainerFluid: Story = {
                         <Cell>Takes 6 columns.</Cell>
                     </Col>
                 </Row>
-            </Container>
+            </Grid>
         ),
     },
 };
 
-export const ContainerWidth: Story = {
+export const GridWidth: Story = {
     args: {
         children: (
             <div style={{background: 'beige', width: '666px'}}>
-                <Container width={555}>
+                <Grid width={555}>
                     <Row>
                         <Col xs={4}>
                             <Cell>With</Cell>
@@ -215,8 +215,8 @@ export const ContainerWidth: Story = {
                             <Cell>width: 555px.</Cell>
                         </Col>
                     </Row>
-                </Container>
-                <Container width="fluid">
+                </Grid>
+                <Grid width="fluid">
                     <Row>
                         <Col xs={3}>
                             <Cell>Fluid:</Cell>
@@ -231,17 +231,17 @@ export const ContainerWidth: Story = {
                             <Cell>width.</Cell>
                         </Col>
                     </Row>
-                </Container>
+                </Grid>
             </div>
         ),
     },
 };
 
-export const ContainerResponsive: Story = {
+export const GridResponsive: Story = {
     args: {
         children: (
             <Fragment>
-                <Container width={666}>
+                <Grid width={666}>
                     <Row>
                         <Col xs={2}>
                             <Cell>space: 2</Cell>
@@ -291,16 +291,16 @@ export const ContainerResponsive: Story = {
                             <Cell>xs:12</Cell>
                         </Col>
                     </Row>
-                </Container>
+                </Grid>
             </Fragment>
         ),
     },
 };
 
-export const ContainerOffset: Story = {
+export const GridOffset: Story = {
     args: {
         children: (
-            <Container width={666}>
+            <Grid width={666}>
                 <Row>
                     <Col xs={2}>
                         <Cell>space: 2</Cell>
@@ -329,7 +329,7 @@ export const ContainerOffset: Story = {
                         </Cell>
                     </Col>
                 </Row>
-            </Container>
+            </Grid>
         ),
     },
 };

@@ -17,7 +17,7 @@
     --containerWidth: 0;
 }
 
-.container {
+.grid {
     display: flex;
     flex-direction: column;
     height: auto;

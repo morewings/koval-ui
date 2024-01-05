@@ -1,38 +1,38 @@
 import { Meta, ArgsTable, Story } from "@storybook/blocks";
 import * as GridStories from './Grid.stories';
-import { Container } from "./Container";
+import { Grid } from "./Grid.tsx";
 
-<Meta title="Layout/Grid" component={Container} />
+<Meta title="Layout/Grid" component={Grid} />
 
 # Example Component Demo
 
 ## Counter props
 
-<ArgsTable of={Container} />
+<ArgsTable of={Grid} />
 
 ## Description
 
-`Counter` component provides user basic interface to increment counter by one.
+`Grid` component provides user basic interface to increment counter by one.
 
 ## Demo
 
-<Story of={GridStories.ContainerExample} />
+<Story of={GridStories.GridExample} />
 
 ## Demo 2
 
-<Story of={GridStories.ContainerResponsive} />
+<Story of={GridStories.GridResponsive} />
 
 ## Demo 3
 
-<Story of={GridStories.ContainerOffset} />
+<Story of={GridStories.GridOffset} />
 
 ## Demo 4
 
-<Story of={GridStories.ContainerFluid} />
+<Story of={GridStories.GridFluid} />
 
 ## Demo 5
 
-<Story of={GridStories.ContainerWidth} />
+<Story of={GridStories.GridWidth} />
 
 
 
