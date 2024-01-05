@@ -114,3 +114,51 @@ export const Width: Story = {
         gap: 16,
     },
 };
+
+export const GridInsideGrid: Story = {
+    name: 'Grid inside Grid',
+    parameters: {
+        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
+        layout: 'fullscreen',
+    },
+    render: args => (
+        <Grid {...args}>
+            <Row>
+                <Col xs={3}>
+                    <Cell>Space 3</Cell>
+                </Col>
+                <Col xs={3}>
+                    <Cell>Space 3</Cell>
+                </Col>
+                <Col xs={3}>
+                    <Cell>Space 3</Cell>
+                </Col>
+                <Col xs={3}>
+                    <Cell>Space 3</Cell>
+                </Col>
+            </Row>
+            <Row>
+                <Col xs={6}>
+                    <Cell>Space 6</Cell>
+                </Col>
+                <Col xs={6}>
+                    <Grid>
+                        <Row>
+                            <Col xs={6}>
+                                <Cell>Space 6 inner Grid</Cell>
+                            </Col>
+                            <Col xs={6}>
+                                <Cell>Space 6 inner Grid</Cell>
+                            </Col>
+                        </Row>
+                    </Grid>
+                </Col>
+            </Row>
+        </Grid>
+    ),
+    args: {
+        width: 'fluid',
+        base: 12,
+        gap: 16,
+    },
+};
