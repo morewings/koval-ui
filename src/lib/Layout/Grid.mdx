@@ -1,38 +1,39 @@
-import { Meta, ArgsTable, Story } from "@storybook/blocks";
+import { Meta, ArgsTable, Story, Primary, Markdown } from "@storybook/blocks";
 import * as GridStories from './Grid.stories';
 import { Grid } from "./Grid.tsx";
+import {Row} from './Row';
+import {Col} from './Col';
 
-<Meta title="Layout/Grid" component={Grid} />
+<Meta title="Layout/Grid" of={GridStories} />
 
-# Example Component Demo
-
-## Counter props
-
-<ArgsTable of={Grid} />
+# Grid
 
 ## Description
 
 `Grid` component provides user basic interface to increment counter by one.
 
-## Demo
+## Imports
 
-<Story of={GridStories.GridExample} />
+<Markdown>{`
+\`\`\`ts
+import {Select} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
 
-## Demo 2
+<Primary />
 
-<Story of={GridStories.GridResponsive} />
+## Grid props
 
-## Demo 3
+<ArgsTable of={Grid} />
 
-<Story of={GridStories.GridOffset} />
+## Row props
 
-## Demo 4
+<ArgsTable of={Row} />
 
-<Story of={GridStories.GridFluid} />
+## Col props
 
-## Demo 5
+<ArgsTable of={Col} />
 
-<Story of={GridStories.GridWidth} />
 
 
 

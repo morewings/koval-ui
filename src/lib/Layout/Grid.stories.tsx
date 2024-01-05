@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {Fragment} from 'react';
 
-import {Grid} from './Grid.tsx';
+import {Grid} from './Grid';
 import {Row} from './Row';
 import {Col} from './Col';
 import {Cell} from './demoComponents/Cell';
+import {offsetExample, defaultExample, fluidExample, responsiveExample} from './demoComponents/GridExample';
 
 const meta = {
     title: 'Layout/Grid',
@@ -13,323 +13,104 @@ const meta = {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
     },
+    argTypes: {
+        as: {
+            table: {
+                disable: true,
+            },
+        },
+        id: {
+            table: {
+                disable: true,
+            },
+        },
+        role: {
+            table: {
+                disable: true,
+            },
+        },
+        className: {
+            table: {
+                disable: true,
+            },
+        },
+    },
 } as Meta<typeof Grid>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const GridExample: Story = {
+export const Primary: Story = {
     args: {
-        children: (
-            <Fragment>
-                <Row>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
-                    </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
-                    </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
-                    </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
-                    </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
-                    </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={3}>
-                        <Cell>space: 3</Cell>
-                    </Col>
-                    <Col xs={3}>
-                        <Cell>space: 3</Cell>
-                    </Col>
-                    <Col xs={3}>
-                        <Cell>space: 3</Cell>
-                    </Col>
-                    <Col xs={3}>
-                        <Cell>space: 3</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={4}>
-                        <Cell>space: 4</Cell>
-                    </Col>
-                    <Col xs={4}>
-                        <Cell>space: 4</Cell>
-                    </Col>
-                    <Col xs={4}>
-                        <Cell>space: 4</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={5}>
-                        <Cell>space: 5</Cell>
-                    </Col>
-                    <Col xs={5}>
-                        <Cell>space: 5</Cell>
-                    </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={6}>
-                        <Cell>space: 6</Cell>
-                    </Col>
-                    <Col xs={6}>
-                        <Cell>space: 6</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={7}>
-                        <Cell>space: 7</Cell>
-                    </Col>
-                    <Col xs={5}>
-                        <Cell>space: 5</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={8}>
-                        <Cell>space: 8</Cell>
-                    </Col>
-                    <Col xs={4}>
-                        <Cell>space: 4</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={9}>
-                        <Cell>space: 9</Cell>
-                    </Col>
-                    <Col xs={3}>
-                        <Cell>space: 3</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={10}>
-                        <Cell>space: 10</Cell>
-                    </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={11}>
-                        <Cell>space: 11</Cell>
-                    </Col>
-                    <Col xs={1}>
-                        <Cell>space: 1</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={12}>
-                        <Cell>space: 12</Cell>
-                    </Col>
-                </Row>
-            </Fragment>
-        ),
+        width: 1280,
+        base: 12,
+        gap: 16,
     },
+    argTypes: {
+        children: {
+            options: ['default', 'responsive', 'fluid', 'offset'],
+            mapping: {
+                default: defaultExample,
+                responsive: responsiveExample,
+                fluid: fluidExample,
+                offset: offsetExample,
+            },
+            control: {
+                type: 'radio',
+                labels: {
+                    // 'labels' maps option values to string labels
+                    default: 'Default',
+                    responsive: 'responsive',
+                    fluid: 'fluid',
+                    offset: 'offset',
+                },
+            },
+        },
+    },
+    render: ({children = defaultExample, ...args}) => <Grid {...args}>{children}</Grid>,
 };
 
-export const GridFluid: Story = {
-    args: {
-        children: (
-            <Grid width={888}>
+export const Width: Story = {
+    parameters: {
+        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
+        layout: 'centered',
+    },
+    render: args => (
+        <div style={{background: 'beige', width: '666px'}}>
+            <Grid {...args}>
                 <Row>
-                    <Col xs={3}>
-                        <Cell>Takes 3 columns.</Cell>
+                    <Col xs={4}>
+                        <Cell>With</Cell>
                     </Col>
-                    <Col xs="fluid">
-                        <Cell>Takes the rest of the width.</Cell>
+                    <Col xs={4}>
+                        <Cell>defined</Cell>
                     </Col>
-                </Row>
-                <Row>
-                    <Col xs="fluid">
-                        <Cell>Takes the rest of the width.</Cell>
-                    </Col>
-                    <Col xs={6}>
-                        <Cell>Takes 6 columns.</Cell>
+                    <Col xs={4}>
+                        <Cell>width: 555px.</Cell>
                     </Col>
                 </Row>
             </Grid>
-        ),
-    },
-};
-
-export const GridWidth: Story = {
-    args: {
-        children: (
-            <div style={{background: 'beige', width: '666px'}}>
-                <Grid width={555}>
-                    <Row>
-                        <Col xs={4}>
-                            <Cell>With</Cell>
-                        </Col>
-                        <Col xs={4}>
-                            <Cell>defined</Cell>
-                        </Col>
-                        <Col xs={4}>
-                            <Cell>width: 555px.</Cell>
-                        </Col>
-                    </Row>
-                </Grid>
-                <Grid width="fluid">
-                    <Row>
-                        <Col xs={3}>
-                            <Cell>Fluid:</Cell>
-                        </Col>
-                        <Col xs={3}>
-                            <Cell>all</Cell>
-                        </Col>
-                        <Col xs={3}>
-                            <Cell>parent</Cell>
-                        </Col>
-                        <Col xs={3}>
-                            <Cell>width.</Cell>
-                        </Col>
-                    </Row>
-                </Grid>
-            </div>
-        ),
-    },
-};
-
-export const GridResponsive: Story = {
-    args: {
-        children: (
-            <Fragment>
-                <Grid width={666}>
-                    <Row>
-                        <Col xs={2}>
-                            <Cell>space: 2</Cell>
-                        </Col>
-                        <Col xs={2}>
-                            <Cell>space: 2</Cell>
-                        </Col>
-                        <Col xs={2}>
-                            <Cell>space: 2</Cell>
-                        </Col>
-                        <Col xs={2}>
-                            <Cell>space: 2</Cell>
-                        </Col>
-                        <Col xs={2}>
-                            <Cell>space: 2</Cell>
-                        </Col>
-                        <Col xs={2}>
-                            <Cell>space: 2</Cell>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12} lg={6}>
-                            <Cell>
-                                <div>xs: 12</div>
-                                <div>lg: 6</div>
-                            </Cell>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col sm={8} xl={3}>
-                            <Cell>
-                                <div>sm: 8</div>
-                                <div>xl: 3</div>
-                            </Cell>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md={6} lg={10}>
-                            <Cell>
-                                <div>md: 6</div>
-                                <div>lg: 8</div>
-                            </Cell>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <Cell>xs:12</Cell>
-                        </Col>
-                    </Row>
-                </Grid>
-            </Fragment>
-        ),
-    },
-};
-
-export const GridOffset: Story = {
-    args: {
-        children: (
-            <Grid width={666}>
+            <Grid width="fluid">
                 <Row>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
+                    <Col xs={3}>
+                        <Cell>Fluid:</Cell>
                     </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
+                    <Col xs={3}>
+                        <Cell>all</Cell>
                     </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
+                    <Col xs={3}>
+                        <Cell>parent</Cell>
                     </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
-                    </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
-                    </Col>
-                    <Col xs={2}>
-                        <Cell>space: 2</Cell>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={8} shiftXS={2}>
-                        <Cell>
-                            <div>xs: 8</div>
-                            <div>shift-xs: 2</div>
-                        </Cell>
+                    <Col xs={3}>
+                        <Cell>width.</Cell>
                     </Col>
                 </Row>
             </Grid>
-        ),
+        </div>
+    ),
+    args: {
+        width: 555,
+        base: 12,
+        gap: 16,
     },
 };
