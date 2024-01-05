@@ -17,9 +17,12 @@ const meta = {
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
-        docs: {iframeHeight: 600},
     },
-    args: {},
+    args: {
+        width: 'fluid',
+        gap: 0,
+        base: 12,
+    },
     argTypes: {
         as: {
             table: {
@@ -42,21 +45,46 @@ const meta = {
             },
         },
         children: {
-            options: ['noChildren', 'withChildren', 'withScroll', 'withStickyHeader', 'onlyFooter'],
+            options: [
+                'noChildren',
+                'withLeftSidebar',
+                'withRightSidebar',
+                'withScroll',
+                'withStickyHeader',
+                'onlyFooter',
+            ],
             mapping: {
                 noChildren: <ContainerFill>This is container</ContainerFill>,
-                withChildren: (
+                withLeftSidebar: (
                     <Fragment>
                         <Header>
                             <ElementFill color="blue">Header</ElementFill>
                         </Header>
                         <Content>
-                            <Sidebar>
-                                <ElementFill color="green">Sidebar</ElementFill>
+                            <Sidebar xs={3}>
+                                <ElementFill color="green">Sidebar: xs={3}</ElementFill>
                             </Sidebar>
                             <Main>
-                                <ElementFill color="violet">Main</ElementFill>
+                                <ElementFill color="violet">Main: xs=&quot;fluid&quot;</ElementFill>
                             </Main>
+                        </Content>
+                        <Footer>
+                            <ElementFill color="brown">Footer</ElementFill>
+                        </Footer>
+                    </Fragment>
+                ),
+                withRightSidebar: (
+                    <Fragment>
+                        <Header>
+                            <ElementFill color="blue">Header</ElementFill>
+                        </Header>
+                        <Content>
+                            <Main>
+                                <ElementFill color="violet">Main: xs=&quot;fluid&quot;</ElementFill>
+                            </Main>
+                            <Sidebar xs={3}>
+                                <ElementFill color="green">Sidebar: xs={3}</ElementFill>
+                            </Sidebar>
                         </Content>
                         <Footer>
                             <ElementFill color="brown">Footer</ElementFill>
@@ -69,8 +97,8 @@ const meta = {
                             <ElementFill color="blue">Header</ElementFill>
                         </Header>
                         <Content>
-                            <Sidebar>
-                                <ElementFill color="green">Sidebar</ElementFill>
+                            <Sidebar xs={3}>
+                                <ElementFill color="green">Sidebar xs={3}</ElementFill>
                             </Sidebar>
                             <Main>
                                 <LongContent />
@@ -87,8 +115,8 @@ const meta = {
                             <ElementFill color="blue">Sticky Header</ElementFill>
                         </Header>
                         <Content>
-                            <Sidebar>
-                                <ElementFill color="green">Sidebar</ElementFill>
+                            <Sidebar xs={3}>
+                                <ElementFill color="green">Sidebar xs={3}</ElementFill>
                             </Sidebar>
                             <Main>
                                 <LongContent />
@@ -114,7 +142,8 @@ const meta = {
                 type: 'radio',
                 labels: {
                     noChildren: 'No content',
-                    withChildren: 'With content',
+                    withLeftSidebar: 'With left sidebar',
+                    withRightSidebar: 'With right sidebar',
                     withScroll: 'With scroll',
                     withStickyHeader: 'With sticky Header',
                     onlyFooter: 'Without Content, just Footer',
@@ -135,4 +164,11 @@ export const Primary: Story = {
         children: <ContainerFill>This is container</ContainerFill>,
     },
     argTypes: {},
+    parameters: {
+        docs: {
+            story: {
+                height: 333,
+            },
+        },
+    },
 };

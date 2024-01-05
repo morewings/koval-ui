@@ -19,8 +19,6 @@ export type Props = DataAttributes &
         gap?: number;
         /** Select HTML element to render as a container */
         as?: string;
-        /** Make container to take all vertical space */
-        fullHeight?: boolean;
         children: ReactNode;
     };
 
@@ -32,7 +30,7 @@ const normalizeWidth = (widthProp: Props['width']) => {
 };
 
 export const Grid = forwardRef<HTMLElement, Props>(
-    ({width = 1280, className, as = 'div', children, gap = 16, base = 12, fullHeight = false, ...nativeProps}, ref) => {
+    ({width = 1280, className, as = 'div', children, gap = 16, base = 12, ...nativeProps}, ref) => {
         const {LocalRoot, ref: internalRef} = useLocalTheme();
         useLinkRefs(ref, internalRef);
         const theme = useMemo(
@@ -40,11 +38,7 @@ export const Grid = forwardRef<HTMLElement, Props>(
             [width, gap, base]
         );
         return (
-            <LocalRoot
-                {...nativeProps}
-                theme={theme}
-                as={as}
-                className={classNames(classes.grid, {[classes['full-height']]: fullHeight}, className)}>
+            <LocalRoot {...nativeProps} theme={theme} as={as} className={classNames(classes.grid, className)}>
                 {children}
             </LocalRoot>
         );

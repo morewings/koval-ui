@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary, Controls } from "@storybook/blocks";
 import {Page} from './Page.tsx';
 import {Header} from './Header.tsx';
 import {Footer} from './Footer.tsx';
@@ -21,11 +21,11 @@ import {Select} from 'react-forge-ui';
 \`\`\`
 `}</Markdown>
 
-<Primary />
-
 ## Page props
 
-<ArgsTable of={Page}/>
+<Controls of={PageStories.Primary}/>
+
+<Primary />
 
 ## Header props
 

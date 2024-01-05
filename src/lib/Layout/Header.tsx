@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 
+import {Row} from './Row.tsx';
 import classes from './Layout.module.css';
 
 export type Props = DataAttributes &
@@ -16,12 +17,13 @@ export type Props = DataAttributes &
 export const Header: FC<Props> = forwardRef<HTMLDivElement, Props>(
     ({children, sticky = false, className, ...restProps}, ref) => {
         return (
-            <header
+            <Row
                 {...restProps}
+                as="header"
                 ref={ref}
                 className={classNames(classes.header, {[classes.sticky]: sticky}, className)}>
                 {children}
-            </header>
+            </Row>
         );
     }
 );

@@ -24,10 +24,6 @@
     margin: auto;
     max-width: 100%;
     width: var(--containerWidth);
-
-    &.full-height {
-        min-height: 100vh;
-    }
 }
 
 .row {
@@ -138,7 +134,8 @@
 .main {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
+
+    /* flex-grow: 1; */
 }
 
 .footer {

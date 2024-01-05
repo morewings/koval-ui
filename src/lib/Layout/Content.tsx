@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 
+import {Row} from './Row.tsx';
 import classes from './Layout.module.css';
 
 export type Props = DataAttributes &
@@ -13,9 +14,9 @@ export type Props = DataAttributes &
 
 export const Content = forwardRef<HTMLDivElement, Props>(({children, className, ...restProps}, ref) => {
     return (
-        <div {...restProps} ref={ref} className={classNames(classes.content, className)}>
+        <Row {...restProps} ref={ref} className={classNames(classes.content, className)}>
             {children}
-        </div>
+        </Row>
     );
 });
 
