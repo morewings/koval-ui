@@ -1,0 +1,19 @@
+.fill {
+    --color: var(--colorDo);
+
+    align-items: center; /* center items horizontally, in this case */
+    background: color-mix(in srgb, var(--color) 20%, transparent);
+    border: 2px dashed var(--color);
+    display: flex;
+    flex-direction: column; /* make flex direction vertical */
+    flex-grow: 1;
+    justify-content: center; /* center items vertically, in this case */
+    margin: calc(var(--sizeUnit) / 2);
+}
+
+.text {
+    color: var(--color);
+    font-size: var(--fontSizeLarge);
+    font-weight: var(--fontWeightBold);
+    padding: calc(var(--sizeUnit) * 4);
+}

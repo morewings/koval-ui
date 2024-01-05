@@ -1,8 +1,10 @@
-import type {ReactNode, FC} from 'react';
+import {forwardRef} from 'react';
+import type {ReactNode} from 'react';
 import {useLocalTheme} from 'css-vars-hook';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
+import {useLinkRefs} from '@/internal/hooks/useLinkRefs.ts';
 
 import classes from './Layout.module.css';
 
@@ -13,11 +15,14 @@ type RowProps = DataAttributes &
         children: ReactNode;
     };
 
-export const Row: FC<RowProps> = ({className, children, as = 'div'}) => {
-    const {LocalRoot} = useLocalTheme();
+export const Row = forwardRef<HTMLElement, RowProps>(({className, children, as = 'div', ...nativeProps}, ref) => {
+    const {LocalRoot, ref: internalRef} = useLocalTheme();
+    useLinkRefs(ref, internalRef);
     return (
-        <LocalRoot as={as} className={classNames(classes.row, className)}>
+        <LocalRoot {...nativeProps} as={as} className={classNames(classes.row, className)}>
             {children}
         </LocalRoot>
     );
-};
+});
+
+Row.displayName = 'Row';
