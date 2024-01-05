@@ -66,13 +66,13 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
             inputRef.current!.stepDown();
             inputRef.current!.dispatchEvent(ChangeEventSpinner);
             validateTextual(ChangeEventSpinner as unknown as FormEvent);
-        }, [inputRef, validateTextual, step]);
+        }, [inputRef, validateTextual]);
 
         const handleIncrement = useCallback(() => {
             inputRef.current!.stepUp();
             inputRef.current!.dispatchEvent(ChangeEventSpinner);
             validateTextual(ChangeEventSpinner as unknown as FormEvent);
-        }, [inputRef, validateTextual, step]);
+        }, [inputRef, validateTextual]);
 
         return (
             <div className={classNames(classes.wrapper, className)}>
