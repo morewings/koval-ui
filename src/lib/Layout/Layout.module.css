@@ -117,9 +117,9 @@
     flex-direction: column;
     min-height: 100vh;
 
-    /* Fix for iOS Safari not capable to display 100vh */
+    /** Fix for iOS Safari not capable to display 100vh. See: https://developer.mozilla.org/en-US/docs/Web/CSS/length#dynamic */
     @supports (-webkit-touch-callout: none) {
-        height: 100dvh;
+        min-height: 100dvh;
     }
 }
 
