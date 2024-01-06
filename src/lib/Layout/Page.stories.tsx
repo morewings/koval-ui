@@ -45,6 +45,7 @@ const meta = {
             },
         },
         children: {
+            name: 'page layout',
             options: [
                 'noChildren',
                 'withLeftSidebar',
@@ -161,7 +162,24 @@ export const Primary: Story = {
         return <Page {...args} />;
     },
     args: {
-        children: <ContainerFill>This is container</ContainerFill>,
+        children: (
+            <Fragment>
+                <Header>
+                    <ElementFill color="blue">Header</ElementFill>
+                </Header>
+                <Content>
+                    <Sidebar xs={3}>
+                        <ElementFill color="green">Sidebar: xs={3}</ElementFill>
+                    </Sidebar>
+                    <Main>
+                        <ElementFill color="violet">Main: xs=&quot;fluid&quot;</ElementFill>
+                    </Main>
+                </Content>
+                <Footer>
+                    <ElementFill color="brown">Footer</ElementFill>
+                </Footer>
+            </Fragment>
+        ),
     },
     argTypes: {},
     parameters: {

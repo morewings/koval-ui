@@ -75,9 +75,9 @@ export const Width: Story = {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
-    render: args => (
+    render: () => (
         <div style={{background: 'beige', width: '666px'}}>
-            <Grid {...args}>
+            <Grid width={555}>
                 <Row>
                     <Col xs={4}>
                         <Cell>With</Cell>
@@ -108,11 +108,6 @@ export const Width: Story = {
             </Grid>
         </div>
     ),
-    args: {
-        width: 555,
-        base: 12,
-        gap: 16,
-    },
 };
 
 export const GridInsideGrid: Story = {
@@ -120,6 +115,7 @@ export const GridInsideGrid: Story = {
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
+        controls: {hideNoControlsWarning: true},
     },
     render: args => (
         <Grid {...args}>

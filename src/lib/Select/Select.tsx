@@ -20,7 +20,7 @@ enum DropdownState {
 export type Props = DataAttributes &
     LibraryProps &
     NativePropsInteractive &
-    CallbackPropsTextual<HTMLSelectElement> &
+    Omit<CallbackPropsTextual<HTMLSelectElement>, 'defaultValue'> &
     ValidationProps & {
         children?: ReactNode;
         prefix?: FC;
@@ -43,7 +43,6 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
             onBlur = () => {},
             onKeyDown = () => {},
             onKeyUp = () => {},
-            defaultValue,
             validatorFn = defaultValidator,
             id,
             multiple,
@@ -121,7 +120,6 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                         ref={inputRef}
                         disabled={disabled}
                         value={value}
-                        defaultValue={defaultValue}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         onFocus={handleFocus}
