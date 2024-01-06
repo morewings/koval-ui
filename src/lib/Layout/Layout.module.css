@@ -116,6 +116,11 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+    /* Fix for iOS Safari not capable to display 100vh */
+    @supports (-webkit-touch-callout: none) {
+        height: 100dvh;
+    }
 }
 
 .header {

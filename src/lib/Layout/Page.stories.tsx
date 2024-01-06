@@ -1,23 +1,19 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {Fragment} from 'react';
 
 import {Page} from './Page.tsx';
-import {Header} from './Header.tsx';
-import {Content} from './Content.tsx';
-import {Footer} from './Footer.tsx';
-import {Sidebar} from './Sidebar.tsx';
-import {Main} from './Main.tsx';
-import {ElementFill} from './demoComponents/ElementFill.tsx';
-import {LongContent} from './demoComponents/LongContent.tsx';
-import {ContainerFill} from './demoComponents/ContainerFill.tsx';
+import {
+    noChildren,
+    withGrid,
+    withStickyHeader,
+    withScroll,
+    withRightSidebar,
+    withLeftSidebar,
+    onlyFooter,
+} from './demoComponents/PageExample.tsx';
 
 const meta = {
     title: 'Layout/Page',
     component: Page,
-    parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
-        layout: 'fullscreen',
-    },
     args: {
         width: 'fluid',
         gap: 0,
@@ -44,113 +40,6 @@ const meta = {
                 disable: true,
             },
         },
-        children: {
-            name: 'page layout',
-            options: [
-                'noChildren',
-                'withLeftSidebar',
-                'withRightSidebar',
-                'withScroll',
-                'withStickyHeader',
-                'onlyFooter',
-            ],
-            mapping: {
-                noChildren: <ContainerFill>This is container</ContainerFill>,
-                withLeftSidebar: (
-                    <Fragment>
-                        <Header>
-                            <ElementFill color="blue">Header</ElementFill>
-                        </Header>
-                        <Content>
-                            <Sidebar xs={3}>
-                                <ElementFill color="green">Sidebar: xs={3}</ElementFill>
-                            </Sidebar>
-                            <Main>
-                                <ElementFill color="violet">Main: xs=&quot;fluid&quot;</ElementFill>
-                            </Main>
-                        </Content>
-                        <Footer>
-                            <ElementFill color="brown">Footer</ElementFill>
-                        </Footer>
-                    </Fragment>
-                ),
-                withRightSidebar: (
-                    <Fragment>
-                        <Header>
-                            <ElementFill color="blue">Header</ElementFill>
-                        </Header>
-                        <Content>
-                            <Main>
-                                <ElementFill color="violet">Main: xs=&quot;fluid&quot;</ElementFill>
-                            </Main>
-                            <Sidebar xs={3}>
-                                <ElementFill color="green">Sidebar: xs={3}</ElementFill>
-                            </Sidebar>
-                        </Content>
-                        <Footer>
-                            <ElementFill color="brown">Footer</ElementFill>
-                        </Footer>
-                    </Fragment>
-                ),
-                withScroll: (
-                    <Fragment>
-                        <Header>
-                            <ElementFill color="blue">Header</ElementFill>
-                        </Header>
-                        <Content>
-                            <Sidebar xs={3}>
-                                <ElementFill color="green">Sidebar xs={3}</ElementFill>
-                            </Sidebar>
-                            <Main>
-                                <LongContent />
-                            </Main>
-                        </Content>
-                        <Footer>
-                            <ElementFill color="brown">Footer</ElementFill>
-                        </Footer>
-                    </Fragment>
-                ),
-                withStickyHeader: (
-                    <Fragment>
-                        <Header sticky={true}>
-                            <ElementFill color="blue">Sticky Header</ElementFill>
-                        </Header>
-                        <Content>
-                            <Sidebar xs={3}>
-                                <ElementFill color="green">Sidebar xs={3}</ElementFill>
-                            </Sidebar>
-                            <Main>
-                                <LongContent />
-                            </Main>
-                        </Content>
-                        <Footer>
-                            <ElementFill color="brown">Footer</ElementFill>
-                        </Footer>
-                    </Fragment>
-                ),
-                onlyFooter: (
-                    <Fragment>
-                        <Header>
-                            <ElementFill color="blue">Header</ElementFill>
-                        </Header>
-                        <Footer>
-                            <ElementFill color="brown">Footer</ElementFill>
-                        </Footer>
-                    </Fragment>
-                ),
-            },
-            control: {
-                type: 'radio',
-                labels: {
-                    noChildren: 'No content',
-                    withLeftSidebar: 'With left sidebar',
-                    withRightSidebar: 'With right sidebar',
-                    withScroll: 'With scroll',
-                    withStickyHeader: 'With sticky Header',
-                    onlyFooter: 'Without Content, just Footer',
-                },
-            },
-        },
     },
 } as Meta<typeof Page>;
 
@@ -162,26 +51,75 @@ export const Primary: Story = {
         return <Page {...args} />;
     },
     args: {
-        children: (
-            <Fragment>
-                <Header>
-                    <ElementFill color="blue">Header</ElementFill>
-                </Header>
-                <Content>
-                    <Sidebar xs={3}>
-                        <ElementFill color="green">Sidebar: xs={3}</ElementFill>
-                    </Sidebar>
-                    <Main>
-                        <ElementFill color="violet">Main: xs=&quot;fluid&quot;</ElementFill>
-                    </Main>
-                </Content>
-                <Footer>
-                    <ElementFill color="brown">Footer</ElementFill>
-                </Footer>
-            </Fragment>
-        ),
+        children: withLeftSidebar,
     },
-    argTypes: {},
+    argTypes: {
+        children: {
+            name: 'page layout',
+            options: [
+                'noChildren',
+                'withLeftSidebar',
+                'withRightSidebar',
+                'withScroll',
+                'withStickyHeader',
+                'onlyFooter',
+                'withGrid',
+            ],
+            mapping: {
+                noChildren,
+                withLeftSidebar,
+                withRightSidebar,
+                withScroll,
+                withStickyHeader,
+                onlyFooter,
+                withGrid,
+            },
+            control: {
+                type: 'radio',
+                labels: {
+                    noChildren: 'No content',
+                    withLeftSidebar: 'With left sidebar',
+                    withRightSidebar: 'With right sidebar',
+                    withScroll: 'With scroll',
+                    withStickyHeader: 'With sticky Header',
+                    onlyFooter: 'Without Content, just Footer',
+                    withGrid: 'With grid inside',
+                },
+            },
+        },
+    },
+    parameters: {
+        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
+        layout: 'fullscreen',
+        docs: {
+            story: {
+                height: 333,
+            },
+        },
+    },
+};
+
+export const WithGrid: Story = {
+    render: args => {
+        return <Page {...args} />;
+    },
+    args: {
+        width: 999,
+        gap: 16,
+        children: withGrid,
+    },
+    argTypes: {
+        children: {
+            table: {
+                disable: true,
+            },
+        },
+        gap: {
+            table: {
+                disable: true,
+            },
+        },
+    },
     parameters: {
         docs: {
             story: {
