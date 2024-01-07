@@ -38,7 +38,7 @@
 .column {
     --gapsTotal: calc(var(--gap) * (var(--base) - 1));
     --gapsIncluded: calc(var(--gap) * (var(--space) - 1));
-    --singleSpaceWidth: calc((var(--containerWidth) - var(--gapsTotal)) / var(--base));
+    --singleSpaceWidth: calc((100% - var(--gapsTotal)) / var(--base));
     --shiftWidth: calc(var(--singleSpaceWidth) * var(--shift) + var(--gap) * var(--shift));
     --columnWidth: calc(var(--singleSpaceWidth) * var(--space) + var(--gapsIncluded));
 
@@ -118,7 +118,7 @@
     min-height: 100vh;
 
     /** Fix for iOS Safari not capable to display 100vh. See: https://developer.mozilla.org/en-US/docs/Web/CSS/length#dynamic */
-    @supports (-webkit-touch-callout: none) {
+    @supports (min-height: 100dvh) {
         min-height: 100dvh;
     }
 }
