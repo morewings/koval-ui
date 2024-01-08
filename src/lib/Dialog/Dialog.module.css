@@ -1,0 +1,8 @@
+.dialog {
+    border: none;
+    outline: none;
+}
+
+.dialog::backdrop {
+    background: color-mix(in srgb, var(--colorDo) 60%, transparent);
+}
