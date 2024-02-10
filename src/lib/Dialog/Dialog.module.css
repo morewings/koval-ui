@@ -1,8 +1,39 @@
 .dialog {
+    --shadowColor: color-mix(in srgb, var(--colorFa) 66%, transparent);
+
     border: none;
+    box-shadow: 3px 3px 3px 0 var(--shadowColor);
+    max-height: calc(100vh - 2 * 6 * var(--sizeUnit));
+    max-width: calc(100% - var(--sizeUnit) * 8);
     outline: none;
+    padding: calc(var(--sizeUnit) * 3);
+    position: relative;
+    width: calc(var(--sizeUnit) * 77);
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
 }
 
 .dialog::backdrop {
-    background: color-mix(in srgb, var(--colorDo) 60%, transparent);
+    background: color-mix(in srgb, var(--colorDo) 33%, transparent);
+}
+
+.close {
+    color: var(--colorFa);
+    cursor: pointer;
+    height: 36px;
+    position: absolute;
+    right: var(--sizeUnit);
+    top: var(--sizeUnit);
+    width: 36px;
+
+    &:hover {
+        color: var(--colorDo);
+    }
+}
+
+.header {
+    padding-right: calc(3 * var(--sizeUnit));
 }

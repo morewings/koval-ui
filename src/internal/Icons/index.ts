@@ -14,3 +14,4 @@ export {IconLock} from './IconLock.tsx';
 export {IconLockOpen} from './IconLockOpen.tsx';
 export {IconArrowUp} from './IconArrowUp.tsx';
 export {IconArrowDown} from './IconArrowDown.tsx';
+export {IconClose} from './IconClose.tsx';

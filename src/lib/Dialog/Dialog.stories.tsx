@@ -1,19 +1,22 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {useState, useCallback, useRef, useEffect} from 'react';
+import {useCallback, useRef, useEffect} from 'react';
+
 // import {fn} from '@storybook/test';
 
 import {Page} from '@/lib/Layout';
 import {Button} from '@/lib/Button';
-import {P} from '@/lib/Text';
+import {P, H3} from '@/lib/Text';
 
 import {Dialog} from './Dialog.tsx';
+import {DialogHeader} from './DialogHeader.tsx';
+import {useDialogState} from './useDialogState.tsx';
 
 const meta = {
     title: 'Components/Dialog',
     component: Dialog,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
-        layout: 'centered',
+        layout: 'fullscreen',
     },
     args: {},
     argTypes: {
@@ -39,32 +42,45 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    render: ({open, ...args}) => {
-        const [isOpen, setOpen] = useState(open);
-        const openDialog = useCallback(() => {
-            setOpen(true);
-        }, [setOpen]);
+    render: ({...args}) => {
+        // const [isOpen, setOpen] = useState(open);
+        const {closeDialog, openDialog} = useDialogState('foo');
+        const handleOpen = useCallback(() => {
+            openDialog();
+        }, [openDialog]);
 
-        const closeDialog = useCallback(() => {
-            setOpen(false);
-        }, [setOpen]);
+        const handleClose = useCallback(() => {
+            closeDialog();
+        }, [closeDialog]);
+
         return (
             <Page>
-                <Button onClick={openDialog}>Open dialog</Button>
-                <Dialog {...args} open={isOpen}>
-                    <P>this is Dialog</P>
-                    <Button onClick={closeDialog}>Close dialog</Button>
+                <div style={{display: 'flex', gap: '12px'}}>
+                    <Button onClick={handleOpen}>Open dialog</Button>
+                </div>
+                <Dialog {...args}>
+                    <DialogHeader>
+                        <H3>This is header of dialog!</H3>
+                    </DialogHeader>
+                    <P>
+                        On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
+                        and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot
+                        foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail
+                        in their duty through weakness of will, which is the same as saying through shrinking from toil
+                        and pain
+                    </P>
+                    <Button onClick={handleClose}>Close dialog</Button>
                 </Dialog>
             </Page>
         );
     },
     args: {
-        open: true,
+        id: 'foo',
     },
 };
 
 export const RefExample: Story = {
-    render: ({open, ...args}) => {
+    render: ({...args}) => {
         const dialogRef = useRef<HTMLDialogElement>(null);
 
         useEffect(() => {}, [open]);
@@ -77,17 +93,19 @@ export const RefExample: Story = {
             dialogRef.current?.close();
         }, []);
 
-        useEffect(() => {
-            if (open) {
-                openDialog();
-            } else {
-                closeDialog();
-            }
-        }, [closeDialog, open, openDialog]);
+        // useEffect(() => {
+        //     if (open) {
+        //         openDialog();
+        //     } else {
+        //         closeDialog();
+        //     }
+        // }, [closeDialog, open, openDialog]);
 
         return (
             <Page>
-                <Button onClick={openDialog}>Open dialog</Button>
+                <div style={{display: 'flex', gap: '12px'}}>
+                    <Button onClick={openDialog}>Open dialog</Button>
+                </div>
                 <Dialog {...args} ref={dialogRef}>
                     <P>this is Dialog</P>
                     <Button onClick={closeDialog}>Close dialog</Button>
@@ -96,32 +114,56 @@ export const RefExample: Story = {
         );
     },
     args: {
-        open: true,
+        id: 'bar',
     },
 };
 
-export const WithCode: Story = {
-    render: args => {
-        // here comes the code
+export const DialogInDialog: Story = {
+    name: 'Dialog in dialog',
+    render: () => {
+        // const [isOpen, setOpen] = useState(open);
+        const {closeDialog: closeFirst, openDialog: openFirst} = useDialogState('baz');
+        const {closeDialog: closeSecond, openDialog: openSecond} = useDialogState('qux');
+        const handleOpenFirst = useCallback(() => {
+            openFirst();
+        }, [openFirst]);
+
+        const handleCloseFirst = useCallback(() => {
+            closeFirst();
+        }, [closeFirst]);
+
+        const handleOpenSecond = useCallback(() => {
+            openSecond();
+        }, [openSecond]);
+
+        const handleCloseSecond = useCallback(() => {
+            closeSecond();
+        }, [closeSecond]);
+
         return (
-            <Page>
-                <Dialog {...args}>this is Dialog</Dialog>
+            <Page width={666}>
+                <div style={{display: 'flex', gap: '12px'}}>
+                    <Button onClick={handleOpenFirst}>Open first dialog</Button>
+                    <Button onClick={handleOpenSecond}>Open second dialog</Button>
+                </div>
+                <Dialog id="baz">
+                    <P>This is 1st level Dialog.</P>
+                    <div style={{display: 'flex', gap: '12px'}}>
+                        <Button size="small" variant="alternative" onClick={handleCloseFirst}>
+                            Close first dialog
+                        </Button>
+                        <Button size="small" onClick={handleOpenSecond}>
+                            Open second dialog
+                        </Button>
+                    </div>
+                </Dialog>
+                <Dialog id="qux">
+                    <P>This is 2nd level Dialog.</P>
+                    <Button size="small" variant="alternative" onClick={handleCloseSecond}>
+                        Close second dialog
+                    </Button>
+                </Dialog>
             </Page>
         );
-    },
-};
-
-WithCode.args = {
-    id: 'foo',
-};
-
-WithCode.argTypes = {};
-
-WithCode.parameters = {
-    docs: {
-        source: {
-            language: 'tsx',
-            type: 'code',
-        },
     },
 };
