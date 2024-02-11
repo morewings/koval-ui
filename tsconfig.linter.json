@@ -7,6 +7,7 @@
     "src",
     ".eslintrc.cjs",
     "commitlint.config.js",
+    "release.config.cjs",
     ".storybook/*.ts",
     ".storybook/*.tsx",
     "templates/**/*.ts",
