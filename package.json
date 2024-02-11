@@ -52,7 +52,7 @@
     "generate:component": "npx generate-react-cli component",
     "generate:input": "npx generate-react-cli component --type=input",
     "generate:icon": "npx generate-react-cli component --type=icon --flat",
-    "prepare": "is-ci || husky install"
+    "prepare": "is-ci || husky"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
