@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {Dialog} from './Dialog.tsx';
+import * as DialogStories from "./Dialog.stories.tsx";
+
+<Meta title="Components/Dialog" of={DialogStories} />
+
+# Dialog
+
+## Description
+
+Dialog is a React component.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Dialog, DialogFooter, DialogBody, DialogHeader, useDialogState} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<ArgsTable of={Dialog}/>
+
+<Primary />
+

@@ -63,7 +63,6 @@ export const Primary: Story = {
                 'withScroll',
                 'withStickyHeader',
                 'onlyFooter',
-                'withGrid',
             ],
             mapping: {
                 noChildren,
@@ -72,7 +71,6 @@ export const Primary: Story = {
                 withScroll,
                 withStickyHeader,
                 onlyFooter,
-                withGrid,
             },
             control: {
                 type: 'radio',
@@ -83,7 +81,6 @@ export const Primary: Story = {
                     withScroll: 'With scroll',
                     withStickyHeader: 'With sticky Header',
                     onlyFooter: 'Without Content, just Footer',
-                    withGrid: 'With grid inside',
                 },
             },
         },

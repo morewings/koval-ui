@@ -34,7 +34,7 @@ export const Button: FC<Props> = ({
             className={classNames(classes.button, classes[variant], classes[size], className)}
             disabled={disabled}>
             {Prefix && <Prefix className={classes.icon} />}
-            {children}
+            <div className={classes.content}>{children}</div>
             {Suffix && <Suffix className={classes.icon} />}
         </button>
     );

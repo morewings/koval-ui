@@ -9,6 +9,7 @@
     flex-grow: 1;
     justify-content: center; /* center items vertically, in this case */
     margin: calc(var(--sizeUnit) / 2);
+    padding: calc(var(--sizeUnit) * 3) 0;
 }
 
 .text {
