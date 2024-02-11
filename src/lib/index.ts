@@ -52,3 +52,4 @@ export {
 } from './Text';
 export {Figure} from './Figure';
 export {Picture} from './Picture';
+export {Dialog, DialogFooter, DialogBody, DialogHeader, useDialogState} from './Dialog';

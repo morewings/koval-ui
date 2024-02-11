@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {useCallback, useRef, useEffect} from 'react';
+import {useCallback} from 'react';
 
 // import {fn} from '@storybook/test';
 
@@ -9,6 +9,8 @@ import {P, H3} from '@/lib/Text';
 
 import {Dialog} from './Dialog.tsx';
 import {DialogHeader} from './DialogHeader.tsx';
+import {DialogBody} from './DialogBody.tsx';
+import {DialogFooter} from './DialogFooter.tsx';
 import {useDialogState} from './useDialogState.tsx';
 
 const meta = {
@@ -18,7 +20,10 @@ const meta = {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
     },
-    args: {},
+    args: {
+        closeOnClickOutside: true,
+        showCloseButton: true,
+    },
     argTypes: {
         className: {
             table: {
@@ -26,6 +31,11 @@ const meta = {
             },
         },
         id: {
+            table: {
+                disable: true,
+            },
+        },
+        onToggle: {
             table: {
                 disable: true,
             },
@@ -62,14 +72,18 @@ export const Primary: Story = {
                     <DialogHeader>
                         <H3>This is header of dialog!</H3>
                     </DialogHeader>
-                    <P>
-                        On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
-                        and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot
-                        foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail
-                        in their duty through weakness of will, which is the same as saying through shrinking from toil
-                        and pain
-                    </P>
-                    <Button onClick={handleClose}>Close dialog</Button>
+                    <DialogBody>
+                        <P>
+                            On the other hand, we denounce with righteous indignation and dislike men who are so
+                            beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that
+                            they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to
+                            those who fail in their duty through weakness of will, which is the same as saying through
+                            shrinking from toil and pain
+                        </P>
+                    </DialogBody>
+                    <DialogFooter>
+                        <Button onClick={handleClose}>Close dialog</Button>
+                    </DialogFooter>
                 </Dialog>
             </Page>
         );
@@ -79,42 +93,73 @@ export const Primary: Story = {
     },
 };
 
-export const RefExample: Story = {
+export const LongText: Story = {
     render: ({...args}) => {
-        const dialogRef = useRef<HTMLDialogElement>(null);
+        // const [isOpen, setOpen] = useState(open);
+        const {closeDialog, openDialog} = useDialogState('bazz');
+        const handleOpen = useCallback(() => {
+            openDialog();
+        }, [openDialog]);
 
-        useEffect(() => {}, [open]);
-
-        const openDialog = useCallback(() => {
-            dialogRef.current?.showModal();
-        }, []);
-
-        const closeDialog = useCallback(() => {
-            dialogRef.current?.close();
-        }, []);
-
-        // useEffect(() => {
-        //     if (open) {
-        //         openDialog();
-        //     } else {
-        //         closeDialog();
-        //     }
-        // }, [closeDialog, open, openDialog]);
+        const handleClose = useCallback(() => {
+            closeDialog();
+        }, [closeDialog]);
 
         return (
             <Page>
                 <div style={{display: 'flex', gap: '12px'}}>
-                    <Button onClick={openDialog}>Open dialog</Button>
+                    <Button onClick={handleOpen}>Open dialog</Button>
                 </div>
-                <Dialog {...args} ref={dialogRef}>
-                    <P>this is Dialog</P>
-                    <Button onClick={closeDialog}>Close dialog</Button>
+                <Dialog {...args}>
+                    <DialogHeader>
+                        <H3>This is header of dialog!</H3>
+                    </DialogHeader>
+                    <DialogBody>
+                        <P>
+                            On the other hand, we denounce with righteous indignation and dislike men who are so
+                            beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that
+                            they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to
+                            those who fail in their duty through weakness of will, which is the same as saying through
+                            shrinking from toil and pain
+                        </P>
+                        <P>
+                            On the other hand, we denounce with righteous indignation and dislike men who are so
+                            beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that
+                            they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to
+                            those who fail in their duty through weakness of will, which is the same as saying through
+                            shrinking from toil and pain
+                        </P>
+                        <P>
+                            On the other hand, we denounce with righteous indignation and dislike men who are so
+                            beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that
+                            they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to
+                            those who fail in their duty through weakness of will, which is the same as saying through
+                            shrinking from toil and pain
+                        </P>
+                        <P>
+                            On the other hand, we denounce with righteous indignation and dislike men who are so
+                            beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that
+                            they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to
+                            those who fail in their duty through weakness of will, which is the same as saying through
+                            shrinking from toil and pain
+                        </P>
+                        <P>
+                            On the other hand, we denounce with righteous indignation and dislike men who are so
+                            beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that
+                            they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to
+                            those who fail in their duty through weakness of will, which is the same as saying through
+                            shrinking from toil and pain
+                        </P>
+                    </DialogBody>
+                    <DialogFooter>
+                        <Button onClick={handleClose}>Close dialog</Button>
+                    </DialogFooter>
                 </Dialog>
             </Page>
         );
     },
     args: {
-        id: 'bar',
+        id: 'bazz',
     },
 };
 
@@ -143,25 +188,31 @@ export const DialogInDialog: Story = {
         return (
             <Page width={666}>
                 <div style={{display: 'flex', gap: '12px'}}>
-                    <Button onClick={handleOpenFirst}>Open first dialog</Button>
-                    <Button onClick={handleOpenSecond}>Open second dialog</Button>
+                    <Button onClick={handleOpenFirst}>Open first</Button>
+                    <Button onClick={handleOpenSecond}>Open second</Button>
                 </div>
                 <Dialog id="baz">
-                    <P>This is 1st level Dialog.</P>
-                    <div style={{display: 'flex', gap: '12px'}}>
+                    <DialogBody>
+                        <P>This is 1st level Dialog.</P>
+                    </DialogBody>
+                    <DialogFooter>
                         <Button size="small" variant="alternative" onClick={handleCloseFirst}>
-                            Close first dialog
+                            Close first
                         </Button>
                         <Button size="small" onClick={handleOpenSecond}>
-                            Open second dialog
+                            Open second
                         </Button>
-                    </div>
+                    </DialogFooter>
                 </Dialog>
                 <Dialog id="qux">
-                    <P>This is 2nd level Dialog.</P>
-                    <Button size="small" variant="alternative" onClick={handleCloseSecond}>
-                        Close second dialog
-                    </Button>
+                    <DialogBody>
+                        <P>This is 2nd level Dialog.</P>
+                    </DialogBody>
+                    <DialogFooter>
+                        <Button size="small" variant="alternative" onClick={handleCloseSecond}>
+                            Close second
+                        </Button>
+                    </DialogFooter>
                 </Dialog>
             </Page>
         );

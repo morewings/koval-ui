@@ -11,17 +11,32 @@ import classes from './Dialog.module.css';
 
 export type Props = DataAttributes &
     LibraryProps & {
+        /** Provide unique id for Dialog */
         id: NonNullable<LibraryProps['id']>;
         children?: ReactNode;
+        /** Configure outside click behavior */
         closeOnClickOutside?: boolean;
+        /** Callback triggered when Dialog toggles */
         onToggle?: (open: boolean) => void;
+        /** Display close icon at the right top corner */
+        showCloseButton?: boolean;
     };
 
 export const Dialog = forwardRef<HTMLDialogElement, Props>(
-    ({children, className, closeOnClickOutside, onToggle = () => {}, id, ...nativeProps}, ref) => {
+    (
+        {
+            children,
+            className,
+            closeOnClickOutside = true,
+            showCloseButton = true,
+            onToggle = () => {},
+            id,
+            ...nativeProps
+        },
+        ref
+    ) => {
         const dialogRef = useInternalRef(ref);
         const {isOpen, closeDialog} = useDialogState(id);
-        console.log(isOpen);
         useEffect(() => {
             if (isOpen) {
                 dialogRef.current?.showModal();
@@ -39,10 +54,10 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
         const handleClick = useCallback(
             (event: MouseEvent<typeof dialogRef.current>) => {
                 if ((event.target as HTMLDialogElement).nodeName === 'DIALOG') {
-                    handleSelfClose();
+                    closeOnClickOutside && handleSelfClose();
                 }
             },
-            [dialogRef, handleSelfClose]
+            [dialogRef, handleSelfClose, closeOnClickOutside]
         );
 
         const handleKeyPress = useCallback(
@@ -58,10 +73,10 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
                 id={id}
                 onKeyDown={handleKeyPress}
                 onClick={handleClick}
-                className={classNames(classes.dialog, className)}
+                className={classNames(classes.dialog, {[classes.flex]: isOpen}, className)}
                 ref={dialogRef}>
-                <IconClose className={classes.close} onClick={handleSelfClose} />
-                <div className={classes.flex}>{children}</div>
+                {showCloseButton && <IconClose className={classes.close} onClick={handleSelfClose} />}
+                {children}
             </dialog>
         );
     }

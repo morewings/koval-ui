@@ -1,10 +1,13 @@
+@import url("./../Layout/customMedia.css");
+
 .dialog {
     --shadowColor: color-mix(in srgb, var(--colorFa) 66%, transparent);
 
     border: none;
     box-shadow: 3px 3px 3px 0 var(--shadowColor);
-    max-height: calc(100vh - 2 * 6 * var(--sizeUnit));
+    max-height: calc(100vh - 2 * 12 * var(--sizeUnit));
     max-width: calc(100% - var(--sizeUnit) * 8);
+    min-height: calc(var(--sizeUnit) * 42);
     outline: none;
     padding: calc(var(--sizeUnit) * 3);
     position: relative;
@@ -23,17 +26,31 @@
 .close {
     color: var(--colorFa);
     cursor: pointer;
-    height: 36px;
+    height: calc(4 * var(--sizeUnit));
     position: absolute;
     right: var(--sizeUnit);
     top: var(--sizeUnit);
-    width: 36px;
+    width: calc(4 * var(--sizeUnit));
 
     &:hover {
         color: var(--colorDo);
     }
 }
 
-.header {
-    padding-right: calc(3 * var(--sizeUnit));
+.body {
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: auto;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: calc(2 * var(--sizeUnit));
+    margin-top: auto;
+    padding-top: calc(3 * var(--sizeUnit));
+
+    @media (--viewport-md) {
+        flex-direction: row;
+    }
 }
