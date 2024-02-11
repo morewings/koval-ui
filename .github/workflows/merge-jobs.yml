@@ -11,6 +11,11 @@ jobs:
   build-publish:
 
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
 
     steps:
       - name: Checkout
@@ -49,6 +54,9 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Build and publish NPM package
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pnpm install
           pnpm run build
