@@ -48,11 +48,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Run merge tasks
+      - name: Build and publish NPM package
         run: |
           pnpm install
-
-      - name: Publish NPM package
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+          pnpm run build
+          pnpm run semantic-release
