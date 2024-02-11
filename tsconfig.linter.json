@@ -6,6 +6,7 @@
     "*.config.ts",
     "src",
     ".eslintrc.cjs",
+    "commitlint.config.js",
     ".storybook/*.ts",
     ".storybook/*.tsx",
     "templates/**/*.ts",
