@@ -119,7 +119,7 @@
     "react-dom": "18.2.0",
     "semantic-release": "23.0.2",
     "storybook": "7.6.14",
-    "stylelint": "15.11.0",
+    "stylelint": "16.2.1",
     "stylelint-config-prettier": "9.0.5",
     "stylelint-config-standard": "34.0.0",
     "stylelint-order": "6.0.4",
