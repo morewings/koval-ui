@@ -1,4 +1,5 @@
 @import url("@/internal/inputs/stateSelectorsInteractive.css");
+
 @custom-selector :--multiple [multiple];
 
 .vars {
