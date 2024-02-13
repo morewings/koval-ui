@@ -16,10 +16,6 @@
     flex-direction: column;
     padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 2);
 
-    &:hover {
-        border-color: var(--colorDo);
-    }
-
     & figcaption {
         color: var(--colorFa);
         font-size: var(--fontSizeSmall);

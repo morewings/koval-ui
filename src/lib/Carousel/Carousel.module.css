@@ -1,0 +1,97 @@
+.vars {
+    --width: 0;
+    --height: 0;
+    --rotations: 0;
+    --cellsAmount: 0;
+    --index: 0;
+}
+
+.carousel {
+    width: auto;
+}
+
+.scene {
+    height: calc(var(--height) * 1px);
+    overflow: hidden;
+
+    /* Perspective makes Carousel look more 3Dish. Which may be needed for expanded design. */
+
+    /* perspective: 666px; */
+    position: relative;
+    width: calc(var(--width) * 1px);
+}
+
+.viewport {
+    /* See more at https://3dtransforms.desandro.com/carousel */
+    --rotate: calc(var(--rotations) * (360 / var(--cellsAmount)));
+    --translate: calc(var(--width) / (2 * tan(pi / var(--cellsAmount))));
+
+    box-sizing: border-box;
+    height: 100%;
+    transform: translateZ(calc(var(--translate) * -1px)) rotateY(calc(var(--rotate) * -1deg));
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    width: 100%;
+}
+
+.navigation {
+    align-items: center;
+    bottom: 0;
+    color: var(--colorFa);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: calc(var(--sizeUnit) * 6);
+    z-index: 2;
+
+    &:hover {
+        background: color-mix(in srgb, var(--colorMi) 66%, transparent);
+    }
+
+    &.left {
+        left: 0;
+    }
+
+    &.right {
+        right: 0;
+    }
+}
+
+.icon {
+    height: calc(var(--sizeUnit) * 6);
+    width: calc(var(--sizeUnit) * 6);
+}
+
+.dots {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: calc(var(--sizeUnit) * 1.5);
+    height: calc(var(--sizeUnit) * 5);
+    justify-content: center;
+    overflow: hidden;
+}
+
+.dot {
+    background: var(--colorFa);
+    border-radius: var(--sizeUnit);
+    flex-shrink: 0;
+    height: calc(var(--sizeUnit) * 1.5);
+    width: calc(var(--sizeUnit) * 1.5);
+
+    &.active {
+        background: var(--colorDo);
+    }
+}
+
+.cell {
+    --cellRotate: calc(var(--index) * (360 / var(--cellsAmount)));
+
+    position: absolute;
+    transform: rotateY(calc(var(--cellRotate) * 1deg)) translateZ(calc(var(--translate) * 1px));
+    transition: transform 1s ease-out;
+}
