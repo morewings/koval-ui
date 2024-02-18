@@ -1,4 +1,4 @@
-[![Deploy to GitHub Pages](https://github.com/morewings/react-forge-ui/actions/workflows/pages.yml/badge.svg)](https://github.com/morewings/react-forge-ui/actions/workflows/pages.yml)
+[![Deploy Storybook](https://github.com/morewings/react-forge-ui/actions/workflows/pages.yml/badge.svg)](https://github.com/morewings/react-forge-ui/actions/workflows/pages.yml)
 [![Post-merge tasks](https://github.com/morewings/react-forge-ui/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/react-forge-ui/actions/workflows/merge-jobs.yml)
 [![types included](https://img.shields.io/github/package-json/types/morewings/react-forge-ui)](https://github.com/morewings/react-forge-ui)
 [![npm version](https://badge.fury.io/js/react-forge-ui.svg)](https://www.npmjs.com/package/react-forge-ui)
