@@ -15,7 +15,7 @@ dependencies:
     specifier: ^2.5.1
     version: 2.5.1
   css-vars-hook:
-    specifier: ^0.7.00
+    specifier: 0.7.0
     version: 0.7.0(react-dom@18.2.0)(react@18.2.0)
   lodash:
     specifier: ^4.17.21
