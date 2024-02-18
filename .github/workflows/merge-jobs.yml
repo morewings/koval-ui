@@ -11,15 +11,17 @@ jobs:
   build-publish:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: write # to be able to publish a GitHub release
-      issues: write # to be able to comment on released issues
-      pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
+#    permissions:
+#      contents: write # to be able to publish a GitHub release
+#      issues: write # to be able to comment on released issues
+#      pull-requests: write # to be able to comment on released pull requests
+#      id-token: write # to enable use of OIDC for npm provenance
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Cancel Workflow Action
         uses: styfle/cancel-workflow-action@0.12.1
@@ -55,7 +57,7 @@ jobs:
 
       - name: Build and publish NPM package
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pnpm install
