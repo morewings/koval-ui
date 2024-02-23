@@ -12,8 +12,10 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
-        parameters: {
-            layout: 'centered',
+        options: {
+            storySort: {
+                order: ['Intro', 'Layout', 'Inputs', 'Typography', 'Components'],
+            },
         },
     },
     decorators: [
