@@ -54,3 +54,4 @@ export {Figure} from './Figure';
 export {Picture} from './Picture';
 export {Dialog, DialogFooter, DialogBody, DialogHeader, useDialogState} from './Dialog';
 export {Carousel} from './Carousel';
+export {Tabs, Tab} from './Tabs';
