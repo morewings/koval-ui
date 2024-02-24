@@ -23,4 +23,10 @@ TBA
 
 ### Add styles
 
+## Acknowledgments
+
+<img width="222" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains Logo (Main) logo.">
+
+This project is developed using amazing **Webstorm IDE** provided by [Jetbrains](https://www.jetbrains.com).
+
 
