@@ -1,5 +1,5 @@
 import type {ReactNode, Context} from 'react';
-import {useReducer} from 'react';
+import {useReducer, useMemo} from 'react';
 
 type FactoryProps<TState, TAction> = {
     context: Context<{dispatch: (action: TAction) => void; state: TState}>;
@@ -13,5 +13,6 @@ export const createStoreProvider =
     ({children}: {children?: ReactNode}) => {
         const {Provider} = context;
         const [state, dispatch] = useReducer(reducer, initialState);
-        return <Provider value={{state, dispatch}}>{children}</Provider>;
+        const memoizedValue = useMemo(() => ({state, dispatch}), [state]);
+        return <Provider value={memoizedValue}>{children}</Provider>;
     };
