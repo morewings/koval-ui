@@ -15,8 +15,8 @@ dependencies:
     specifier: ^2.5.1
     version: 2.5.1
   css-vars-hook:
-    specifier: 0.7.1
-    version: 0.7.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: 0.7.2
+    version: 0.7.2(react-dom@18.2.0)(react@18.2.0)
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -7162,8 +7162,8 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /css-vars-hook@0.7.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-wkMSHAfxs6ytEzeST6cAPM06ghOh+V1QB/AwCnnLwtGfOCkFzJiYIAkjiW5VWCqvRh3IeIV0Slktzi0VoElECA==}
+  /css-vars-hook@0.7.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-WK7P7SR2aa4rbsKRTrjciWtb2JGLc7N8W+jVtt+s9rRVW0LHvYr/MpQOKDR/sTzTbd9Cz7uMD8Q8FJycbIMEpA==}
     engines: {node: '>=16'}
     peerDependencies:
       react: '>=18.2.0'

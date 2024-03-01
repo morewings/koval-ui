@@ -1,13 +1,13 @@
 import type {MutableRefObject} from 'react';
 import {useMemo, useState, useEffect} from 'react';
 
-export const useIsInViewport = (ref: MutableRefObject<HTMLElement>) => {
+export const useIsInViewport = (ref: MutableRefObject<HTMLElement | null>) => {
     const [isIntersecting, setIsIntersecting] = useState(false);
 
     const observer = useMemo(() => new IntersectionObserver(([entry]) => setIsIntersecting(entry.isIntersecting)), []);
 
     useEffect(() => {
-        observer.observe(ref.current);
+        ref.current && observer.observe(ref.current);
 
         return () => {
             observer.disconnect();

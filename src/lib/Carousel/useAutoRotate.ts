@@ -7,7 +7,7 @@ import {useDocumentVisible} from '@/internal/hooks/useDocumentVisible.ts';
 type Props = {
     rotateFn: () => void;
     interval?: number | null;
-    ref: MutableRefObject<HTMLElement>;
+    ref: MutableRefObject<HTMLElement | null>;
 };
 
 export const useAutoRotate = ({rotateFn, interval = null, ref}: Props) => {
