@@ -110,12 +110,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
             [resize]
         );
 
-        /* Required to save focus when validation changes*/
-        /* eslint-disable-next-line react-hooks/exhaustive-deps */
-        const LocalRootMemoized = useMemo(() => LocalRoot, []);
-
         return (
-            <LocalRootMemoized theme={theme} className={classNames(classes.wrapper, className)}>
+            <LocalRoot theme={theme} className={classNames(classes.wrapper, className)}>
                 {Prefix && (
                     <label className={classes.prefix} htmlFor={textareaId}>
                         <Prefix />
@@ -143,7 +139,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
                     onSelect={handleSelect}
                 />
                 {validity && <ValidationIcon className={classes.validation} />}
-            </LocalRootMemoized>
+            </LocalRoot>
         );
     }
 );

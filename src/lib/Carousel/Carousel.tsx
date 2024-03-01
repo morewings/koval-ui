@@ -107,15 +107,8 @@ export const Carousel = forwardRef<HTMLDivElement, Props>(
             [width, height, cellsAmount, visible]
         );
 
-        /**
-         * Has to be empty array to avoid rerenders.
-         * TODO: investigate css-vars-hook
-         */
-        /* eslint-disable-next-line react-hooks/exhaustive-deps */
-        const LocalRootMemoized = useMemo(() => LocalRoot, []);
-
         return (
-            <LocalRootMemoized {...nativeProps} theme={theme} className={classNames(classes.carousel, className)}>
+            <LocalRoot {...nativeProps} theme={theme} className={classNames(classes.carousel, className)}>
                 <div className={classes.scene}>
                     {showArrows && (
                         <button className={classNames(classes.navigation, classes.left)} onClick={handleDecrement}>
@@ -130,7 +123,7 @@ export const Carousel = forwardRef<HTMLDivElement, Props>(
                     )}
                 </div>
                 {showDots && <Dots amount={Children.toArray(children).length} active={visibleIndex} />}
-            </LocalRootMemoized>
+            </LocalRoot>
         );
     }
 );
