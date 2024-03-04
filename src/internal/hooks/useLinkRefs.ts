@@ -4,7 +4,7 @@ import {useImperativeHandle, useRef} from 'react';
 /** This hook allows to merge forwarded ref with component's inner ref. Inner ref has to be created as MutableRefObject. */
 export const useLinkRefs = <TElement = HTMLElement>(
     outerRef: ForwardedRef<TElement>,
-    innerRef: MutableRefObject<TElement>
+    innerRef: MutableRefObject<TElement | null>
 ) => {
     const backupRef = useRef<TElement | null>(null);
 

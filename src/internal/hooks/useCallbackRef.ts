@@ -1,10 +1,6 @@
-import {useCallback, useRef, useLayoutEffect, useEffect} from 'react';
+import {useCallback, useRef} from 'react';
 
-export function isBrowser() {
-    return Boolean(globalThis?.document);
-}
-
-export const useSafeLayoutEffect = isBrowser() ? useLayoutEffect : useEffect;
+import {useSafeLayoutEffect} from './useSafeLayoutEffect.ts';
 
 /**
  * React hook to persist any value between renders,

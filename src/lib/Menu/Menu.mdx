@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {Menu} from './Menu.tsx';
+import * as MenuStories from "./Menu.stories.tsx";
+
+<Meta title="Components/Menu" of={MenuStories} />
+
+# Menu
+
+## Description
+
+Menu is a React component.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Menu} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgsTable of={Menu}/>
+
