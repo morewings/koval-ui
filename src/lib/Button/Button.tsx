@@ -19,7 +19,7 @@ export type Props = DataAttributes &
         suffix?: FC<HTMLAttributes<HTMLOrSVGElement> & unknown>;
     };
 
-export const Button: FC<Props> = forwardRef<HTMLButtonElement, Props>(
+export const Button = forwardRef<HTMLButtonElement, Props>(
     (
         {
             children,

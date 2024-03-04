@@ -1,7 +1,7 @@
 import type {MutableRefObject} from 'react';
 import {useState} from 'react';
 
-import {useSafeLayoutEffect} from '@/internal/hooks/useCallbackRef.ts';
+import {useSafeLayoutEffect} from '@/internal/hooks/useSafeLayoutEffect.ts';
 
 export const useIsOverflow = <TElement extends HTMLElement | null>(ref: MutableRefObject<TElement>) => {
     const [overflowY, setOverflowY] = useState<boolean | undefined>(undefined);
