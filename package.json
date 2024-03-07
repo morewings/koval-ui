@@ -61,7 +61,7 @@
     "react-dom": ">=18.0.0"
   },
   "dependencies": {
-    "@material-symbols/svg-700": "^0.14.6",
+    "@material-symbols/svg-700": "^0.16.0",
     "awesome-debounce-promise": "^2.1.0",
     "classnames": "^2.5.1",
     "css-vars-hook": "0.7.2",
