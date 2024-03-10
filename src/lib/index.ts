@@ -56,3 +56,4 @@ export {Dialog, DialogFooter, DialogBody, DialogHeader, useDialogState} from './
 export {Carousel} from './Carousel';
 export {Tabs, Tab} from './Tabs';
 export {Menu} from './Menu';
+export {Tooltip} from './Tooltip';
