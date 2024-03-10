@@ -3,7 +3,10 @@ import {useCallback, useEffect, useRef, useState} from 'react';
 
 import {EventType, useEventListener} from '@/internal/hooks/useEventListener.ts';
 
-export const useFocusTrap = (element: HTMLElement | null, isOpen: boolean, condition: boolean) => {
+/**
+ * React hook. Makes provided HTMLElement retain focus inside. Works conditionally using last parameter.
+ */
+export const useFocusTrap = (element: HTMLElement | null, isOpen: boolean, condition = true) => {
     const focusableElementsRef = useRef<NodeListOf<HTMLElement>>(null);
     const [elements, setElements] = useState<(HTMLElement | null)[]>([]);
     useEffect(() => {

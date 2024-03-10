@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {Tooltip} from './Tooltip.tsx';
+import * as TooltipStories from "./Tooltip.stories.tsx";
+
+<Meta title="Components/Tooltip" of={TooltipStories} />
+
+# Tooltip
+
+## Description
+
+Tooltip is a React component.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Tooltip} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgsTable of={Tooltip}/>
+
