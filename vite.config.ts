@@ -53,6 +53,9 @@ export default defineConfig({
         },
     },
     css: {
+        modules: {
+            localsConvention: 'camelCase',
+        },
         postcss: {
             plugins: [
                 postcssPresetEnv({stage: 1}), // add options if needed

@@ -59,3 +59,4 @@ export {Menu} from './Menu';
 export {Tooltip} from './Tooltip';
 export {Notification, useNotificationState} from './Notification';
 export {Toast, useToastState} from './Toast';
+export {Pagination} from './Pagination';
