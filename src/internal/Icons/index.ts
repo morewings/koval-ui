@@ -21,3 +21,6 @@ export {IconScroll} from './IconScroll.tsx';
 export {IconWarning} from './IconWarning.tsx';
 export {IconInfo} from './IconInfo.tsx';
 export {IconSuccess} from './IconSuccess.tsx';
+export {IconForward} from './IconForward.tsx';
+export {IconBackward} from './IconBackward.tsx';
+export {IconEnter} from './IconEnter.tsx';

@@ -1,0 +1,127 @@
+.pagination {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.buttons {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    min-width: 288px;
+}
+
+.page-button {
+    align-items: center;
+    background: var(--colorFa);
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-family: var(--fontFamilyMonospace);
+    font-size: var(--fontSizeSmall);
+    font-weight: var(--fontWeightBold);
+    height: 24px;
+    justify-content: center;
+    letter-spacing: 0.8px;
+    min-width: 24px;
+    padding: 0 6px;
+
+    &:hover {
+        background: var(--colorDo);
+    }
+
+    &:focus {
+        background: var(--colorDo);
+    }
+
+    &.active {
+        background: var(--colorDo);
+        pointer-events: none;
+    }
+}
+
+.ellipsis {
+    align-items: center;
+    color: var(--colorFa);
+    cursor: default;
+    display: flex;
+    flex-direction: row;
+    font-size: var(--fontSizeLarge);
+    font-weight: var(--fontWeightBold);
+    height: 24px;
+    justify-content: center;
+    user-select: none;
+    width: 24px;
+}
+
+.navigation {
+    --digits: 2;
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+}
+
+.navigation-block {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    justify-content: center;
+}
+
+.input {
+    appearance: textfield;
+    background-color: var(--colorMi);
+    border: 2px solid var(--colorMi);
+    border-radius: calc(var(--sizeUnit) * 0.66);
+    box-sizing: content-box;
+    color: var(--textColor);
+    flex-grow: 0;
+    font-size: var(--fontSizeSmall);
+    padding: calc(var(--sizeUnit) / 2) calc(var(--sizeUnit) * 1);
+    text-align: center;
+    width: calc(var(--digits) * 1ch);
+
+    &:focus {
+        background-color: var(--background000);
+        border-color: var(--colorDo);
+        outline: none;
+
+        &.error {
+            border-color: var(--colorError);
+        }
+    }
+
+    &::-webkit-inner-spin-button {
+        appearance: none;
+    }
+}
+
+.navigation-button {
+    cursor: pointer;
+
+    &:hover .icon {
+        color: var(--colorDo);
+    }
+
+    &:focus .icon {
+        color: var(--colorDo);
+    }
+
+    &:disabled .icon {
+        color: var(--background100);
+        cursor: not-allowed;
+    }
+}
+
+.icon {
+    color: var(--colorFa);
+}
