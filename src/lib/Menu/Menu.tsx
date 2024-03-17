@@ -16,11 +16,21 @@ import classes from './Menu.module.css';
 export type Props = DataAttributes &
     LibraryProps & {
         children: ReactNode;
+        /** Control visibility of Menu */
         isOpen?: boolean;
+        /**
+         * Provide Tooltip content
+         * @example
+         * <Menu content={<div>Foo<div>} //... />
+         */
         content: ReactNode;
+        /** Set class name of reference component wrapper */
         referenceClassName?: string;
+        /** Provide callback for open/close events */
         onToggle?: (openState: boolean) => void;
+        /** Focus on first element when open and trap focus */
         trapFocus?: boolean;
+        /** Align Menu width with reference element */
         alignWidth?: boolean;
     };
 
