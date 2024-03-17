@@ -35,7 +35,7 @@ const meta = {
     args: {
         onToggle: fn(),
         isOpen: false,
-        trapFocus: true,
+        interactive: true,
     },
     argTypes: {
         className: {
