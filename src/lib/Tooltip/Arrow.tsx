@@ -1,25 +1,36 @@
-import {forwardRef} from 'react';
+import {forwardRef, useMemo} from 'react';
+import type {RefObject} from 'react';
 import type {Placement} from '@floating-ui/react-dom';
 import classNames from 'classnames';
+import {useLocalTheme} from 'css-vars-hook';
+
+import {useLinkRefs} from '@/internal/hooks/useLinkRefs.ts';
 
 import classes from './Tooltip.module.css';
 
 export type Props = {
     placement: Placement;
-    x?: number;
-    y?: number;
+    left?: number;
+    top?: number;
 };
 
-export const Arrow = forwardRef<HTMLDivElement, Props>(({placement, x, y}, ref) => {
+export const Arrow = forwardRef<HTMLDivElement, Props>(({placement, left, top}, ref) => {
     const position = placement.split('-')[0];
+    const {LocalRoot, ref: rootRef} = useLocalTheme();
+    const theme = useMemo(() => {
+        const result = {} as {top?: Props['top']; left?: Props['left']};
+        if (top) {
+            result.top = top;
+        }
+        if (left) {
+            result.left = left;
+        }
+        return result;
+    }, [left, top]);
+    useLinkRefs<HTMLDivElement>(ref, rootRef as RefObject<HTMLDivElement>);
     return (
-        <div
-            ref={ref}
-            style={{
-                position: 'absolute',
-                left: x,
-                top: y,
-            }}
+        <LocalRoot
+            theme={theme}
             className={classNames(classes.arrow, {
                 [classes.bottom]: position === 'bottom',
                 [classes.left]: position === 'left',
@@ -27,7 +38,7 @@ export const Arrow = forwardRef<HTMLDivElement, Props>(({placement, x, y}, ref) 
                 [classes.right]: position === 'right',
             })}>
             <div className={classes.triangle}></div>
-        </div>
+        </LocalRoot>
     );
 });
 

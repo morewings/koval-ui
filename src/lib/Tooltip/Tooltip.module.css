@@ -4,6 +4,10 @@
     width: auto;
 }
 
+.unfocusable {
+    pointer-events: none;
+}
+
 .provider {
     font-family: var(--fontFamily);
 }
@@ -12,7 +16,7 @@
     --bgColor: var(--colorMi);
 
     background: var(--bgColor);
-    border-radius: calc(var(--sizeUnit) * 2);
+    border-radius: calc(var(--sizeUnit) * 1);
     box-sizing: border-box;
     min-width: 144px;
     padding: calc(var(--sizeUnit) * 2);
@@ -20,10 +24,14 @@
 
 .arrow {
     --size: calc((var(--sizeUnit) * 2));
+    --left: auto;
+    --top: auto;
 
     display: flex;
     height: var(--size);
+    left: calc(var(--left) * 1px);
     position: absolute;
+    top: calc(var(--top) * 1px);
     width: var(--size);
 
     &.bottom {

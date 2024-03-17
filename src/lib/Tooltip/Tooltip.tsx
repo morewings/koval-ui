@@ -18,11 +18,21 @@ import classes from './Tooltip.module.css';
 export type Props = DataAttributes &
     LibraryProps & {
         children: ReactNode;
+        /** Control visibility of Tooltip */
         isOpen?: boolean;
+        /**
+         * Provide Tooltip content
+         * @example
+         * <Tooltip content={<div>Foo<div>} //... />
+         */
         content: ReactNode;
+        /** Set class name of reference component wrapper */
         referenceClassName?: string;
+        /** Provide callback for open/close events */
         onToggle?: (openState: boolean) => void;
-        trapFocus?: boolean;
+        /** Make user interactions with Tooltip possible */
+        interactive?: boolean;
+        /** Define recommended placement for Tooltip content, applied when possible */
         placement?: Placement;
     };
 
@@ -35,7 +45,7 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
             content,
             referenceClassName,
             onToggle = () => {},
-            trapFocus = true,
+            interactive = true,
             placement: placementProp = 'bottom',
             ...nativeProps
         },
@@ -71,7 +81,7 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
         }, [setOpen]);
 
         useDismiss(handleDismiss, refs.reference.current, isOpen);
-        useFocusTrap(refs.floating.current, isOpen, trapFocus);
+        useFocusTrap(refs.floating.current, isOpen, interactive);
 
         return (
             <Fragment>
@@ -80,14 +90,17 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
                 </div>
                 {isOpen && (
                     <Portal>
-                        <div ref={refs.setFloating} style={floatingStyles}>
+                        <div
+                            ref={refs.setFloating}
+                            style={floatingStyles}
+                            className={classNames({[classes.unfocusable]: !interactive})}>
                             <LocalRoot className={classes.provider} theme={getTheme()}>
                                 <div {...nativeProps} ref={ref} className={classNames(classes.tooltip, className)}>
                                     <Arrow
                                         ref={arrowRef}
                                         placement={placement}
-                                        x={middlewareData.arrow?.x}
-                                        y={middlewareData.arrow?.y}
+                                        left={middlewareData.arrow?.x}
+                                        top={middlewareData.arrow?.y}
                                     />
                                     {content}
                                 </div>
