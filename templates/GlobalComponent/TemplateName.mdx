@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {TemplateName} from './TemplateName.tsx';
+import * as TemplateNameStories from "./TemplateName.stories.tsx";
+
+<Meta title="Components/TemplateName" of={TemplateNameStories} />
+
+# TemplateName
+
+## Description
+
+TemplateName is a React component.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {TemplateName} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgsTable of={TemplateName}/>
+
