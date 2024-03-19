@@ -51,6 +51,7 @@
     "build:docs": "storybook build",
     "generate:component": "npx generate-react-cli component",
     "generate:input": "npx generate-react-cli component --type=input",
+    "generate:global": "npx generate-react-cli component --type=global",
     "generate:icon": "npx generate-react-cli component --type=icon --flat",
     "commitlint": "commitlint",
     "semantic-release": "semantic-release",

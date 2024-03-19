@@ -3,6 +3,7 @@
   "usesCssModule": true,
   "cssPreprocessor": "css",
   "testLibrary": "Testing Library",
+  "usesStyledComponents": false,
   "component": {
     "default": {
       "path": "src/lib",
@@ -47,7 +48,30 @@
       "customTemplates": {
         "component": "templates/Icon/TemplateName.tsx"
       }
+    },
+    "global": {
+      "path": "src/lib",
+      "withLazy": false,
+      "withStory": true,
+      "withStyle": true,
+      "withTest": false,
+      "withIndex": true,
+      "withMdx": true,
+      "withContext": true,
+      "withProvider": true,
+      "withReducer": true,
+      "withHook": true,
+      "customTemplates": {
+        "component": "templates/GlobalComponent/TemplateName.tsx",
+        "style": "templates/GlobalComponent/TemplateName.module.css",
+        "story": "templates/GlobalComponent/TemplateName.stories.tsx",
+        "index": "templates/GlobalComponent/index.ts",
+        "mdx": "templates/GlobalComponent/TemplateName.mdx",
+        "context": "templates/GlobalComponent/TemplateNameContext.ts",
+        "provider": "templates/GlobalComponent/TemplateNameProvider.ts",
+        "reducer": "templates/GlobalComponent/TemplateNameReducer.ts",
+        "hook": "templates/GlobalComponent/useTemplateNameState.tsx"
+      }
     }
-  },
-  "usesStyledComponents": false
+  }
 }

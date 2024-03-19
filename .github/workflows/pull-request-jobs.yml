@@ -60,6 +60,7 @@ jobs:
           pnpm run start:docs --smoke-test --quiet
           pnpm run build
           pnpm run generate:component Foo --dry-run
-          pnpm run generate:input Foo --dry-run
-          pnpm run generate:icon Foo --dry-run
+          pnpm run generate:input Bar --dry-run
+          pnpm run generate:global Buzz --dry-run
+          pnpm run generate:icon Qux --dry-run
           pnpm run semantic-release --dry-run
