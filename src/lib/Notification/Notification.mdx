@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {Notification} from './Notification.tsx';
+import * as NotificationStories from "./Notification.stories.tsx";
+
+<Meta title="Components/Notification" of={NotificationStories} />
+
+# Notification
+
+## Description
+
+Notification is a React component.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Notification} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgsTable of={Notification}/>
+
