@@ -58,3 +58,4 @@ export {Tabs, Tab} from './Tabs';
 export {Menu} from './Menu';
 export {Tooltip} from './Tooltip';
 export {Notification, useNotificationState} from './Notification';
+export {Toast, useToastState} from './Toast';

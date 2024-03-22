@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {Toast} from './Toast.tsx';
+import * as ToastStories from "./Toast.stories.tsx";
+
+<Meta title="Components/Toast" of={ToastStories} />
+
+# Toast
+
+## Description
+
+Toast is a React component.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Toast} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgsTable of={Toast}/>
+

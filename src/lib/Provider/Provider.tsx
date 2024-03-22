@@ -4,6 +4,7 @@ import {RootThemeProvider} from 'css-vars-hook';
 import {theme as themeGeneric} from '@/lib/Theme';
 import {DialogProvider} from '@/lib/Dialog';
 import {NotificationProvider} from '@/lib/Notification';
+import {ToastProvider} from '@/lib/Toast';
 
 import classes from './Provider.module.css';
 
@@ -13,7 +14,9 @@ export const Provider: FC<Props> = ({children, theme = themeGeneric}) => {
     return (
         <RootThemeProvider theme={theme} className={classes.provider}>
             <DialogProvider>
-                <NotificationProvider>{children}</NotificationProvider>
+                <NotificationProvider>
+                    <ToastProvider>{children}</ToastProvider>
+                </NotificationProvider>
             </DialogProvider>
         </RootThemeProvider>
     );
