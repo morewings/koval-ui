@@ -18,3 +18,6 @@ export {IconClose} from './IconClose.tsx';
 export {IconArrowLeft} from './IconArrowLeft.tsx';
 export {IconArrowRight} from './IconArrowRight.tsx';
 export {IconScroll} from './IconScroll.tsx';
+export {IconWarning} from './IconWarning.tsx';
+export {IconInfo} from './IconInfo.tsx';
+export {IconSuccess} from './IconSuccess.tsx';

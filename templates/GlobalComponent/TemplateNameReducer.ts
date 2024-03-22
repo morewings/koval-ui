@@ -10,12 +10,12 @@ export enum Actions {
     TEMPLATE_NAME_OPEN = 'TEMPLATE_NAME_OPEN',
 }
 
-/** Dialog ID type */
+/** TemplateName ID type */
 export type Id = string;
 
-/** Dialog state type */
+/** TemplateName state type */
 export type TemplateNameState = {
-    /** List of open modals' IDs */
+    /** List of open TemplateName IDs */
     open: Id[];
 };
 
@@ -24,7 +24,7 @@ export const initialState = {
 } as TemplateNameState;
 
 export type TemplateNameAction = {
-    /** ID of target Dialog */
+    /** ID of target TemplateName */
     id: Id;
     /** Action name */
     type: Actions;

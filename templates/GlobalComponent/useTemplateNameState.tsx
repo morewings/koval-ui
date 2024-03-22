@@ -12,23 +12,23 @@ const useSelector = (callback: (arg0: TemplateNameState) => string | undefined) 
 
 export const useTemplateNameState = (id: string) => {
     const {dispatch} = useTemplateNameContext();
-    const openNotification = useCallback(() => {
+    const openTemplateName = useCallback(() => {
         dispatch({
             type: Actions.TEMPLATE_NAME_OPEN,
             id,
         });
     }, [id, dispatch]);
-    const closeNotification = useCallback(() => {
+    const closeTemplateName = useCallback(() => {
         dispatch({
             type: Actions.TEMPLATE_NAME_CLOSE,
             id,
         });
     }, [id, dispatch]);
-    const topDialogId = useSelector((state: TemplateNameState) => last(state.open));
-    const isOpen = id === topDialogId;
+    const topTemplateNameId = useSelector((state: TemplateNameState) => last(state.open));
+    const isOpen = id === topTemplateNameId;
     return {
-        openNotification,
-        closeNotification,
+        openTemplateName,
+        closeTemplateName,
         isOpen,
     };
 };

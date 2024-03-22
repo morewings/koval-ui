@@ -1,0 +1,91 @@
+.toast {
+    --mainColor: var(--colorDo);
+    --shadowColor: color-mix(in srgb, var(--background600) 11%, transparent);
+
+    background: var(--background000);
+    border: 3px solid var(--mainColor);
+    border-radius: 6px;
+    bottom: 36px;
+    box-shadow: 6px 6px 3px 0 var(--shadowColor);
+    left: 50%;
+    max-width: 320px;
+    position: fixed;
+    transform: translate(-50%);
+
+    &.success {
+        --mainColor: var(--colorSuccess);
+    }
+
+    &.error {
+        --mainColor: var(--colorError);
+    }
+
+    &.warning {
+        --mainColor: var(--colorWarning);
+    }
+}
+
+.title {
+    color: var(--colorFa);
+    font-size: var(--fontSizeMedium);
+    font-weight: var(--fontWeightBolder);
+
+    &:not(:last-child) {
+        margin-bottom: 6px;
+    }
+}
+
+.content {
+    align-items: center;
+    color: var(--colorFa);
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    padding: 12px;
+}
+
+.left {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: auto;
+}
+
+.icon {
+    color: var(--mainColor);
+    height: 36px;
+    width: 36px;
+}
+
+.body {
+    font-size: var(--fontSizeSmall);
+    line-height: 1.2;
+}
+
+.provider {
+    font-family: var(--fontFamily);
+}
+
+.action {
+    align-items: center;
+    background: var(--background000);
+    border-top: 1px solid var(--colorFa);
+    color: var(--colorFa);
+    cursor: pointer;
+    display: flex;
+    font-size: var(--fontSizeSmall);
+    font-weight: var(--fontWeightBolder);
+    gap: 6px;
+    justify-content: center;
+    padding: 3px 0;
+    width: 100%;
+
+    &:hover {
+        background: var(--colorFa);
+        color: var(--background000);
+    }
+
+    & svg {
+        height: 18px;
+        width: 18px;
+    }
+}
