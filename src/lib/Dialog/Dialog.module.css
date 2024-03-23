@@ -4,7 +4,8 @@
     --shadowColor: color-mix(in srgb, var(--colorFa) 66%, transparent);
 
     border: none;
-    box-shadow: 3px 3px 3px 0 var(--shadowColor);
+    border-radius: 6px;
+    box-shadow: var(--shadow200);
     max-height: calc(100vh - 2 * 12 * var(--sizeUnit));
     max-width: calc(100% - var(--sizeUnit) * 8);
     min-height: calc(var(--sizeUnit) * 42);
@@ -23,13 +24,17 @@
     background: color-mix(in srgb, var(--colorDo) 33%, transparent);
 }
 
+.header {
+    padding-bottom: calc(3 * var(--sizeUnit));
+}
+
 .close {
     color: var(--colorFa);
     cursor: pointer;
     height: calc(4 * var(--sizeUnit));
     position: absolute;
-    right: var(--sizeUnit);
-    top: var(--sizeUnit);
+    right: calc(1.5 * var(--sizeUnit));
+    top: calc(1.5 * var(--sizeUnit));
     width: calc(4 * var(--sizeUnit));
 
     &:hover {

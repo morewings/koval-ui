@@ -1,12 +1,11 @@
 .toast {
     --mainColor: var(--colorDo);
-    --shadowColor: color-mix(in srgb, var(--background600) 11%, transparent);
 
     background: var(--background000);
     border: 3px solid var(--mainColor);
     border-radius: 6px;
     bottom: 36px;
-    box-shadow: 6px 6px 3px 0 var(--shadowColor);
+    box-shadow: var(--shadow100);
     left: 50%;
     max-width: 320px;
     position: fixed;

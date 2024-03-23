@@ -9,12 +9,10 @@
 }
 
 .menu {
-    --shadowColor: color-mix(in srgb, var(--colorDo) 66%, transparent);
-
     background: var(--background000);
     border: calc(var(--sizeUnit) / 2) solid var(--colorDo);
-    border-radius: calc(var(--sizeUnit) / 2);
-    box-shadow: 0 0 calc(var(--sizeUnit) / 2) 1px var(--shadowColor);
+    border-radius: var(--sizeUnit);
+    box-shadow: var(--shadow100);
     box-sizing: border-box;
     padding: var(--sizeUnit);
 }
