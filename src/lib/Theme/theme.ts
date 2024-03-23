@@ -41,6 +41,10 @@ export const theme = {
     colorWarning: 'orange',
     colorSuccess: 'green',
     colorAction: 'blue',
+    // shadow config
+    shadowColor: 'color-mix(in srgb, var(--background600) 11%, transparent)',
+    shadow100: '6px 6px 3px 0 var(--shadowColor)',
+    shadow200: '9px 9px 3px 0 var(--shadowColor)',
 };
 
 // /* Color Theme Swatches in Hex */
