@@ -36,9 +36,7 @@ export const Arrow = forwardRef<HTMLDivElement, Props>(({placement, left, top}, 
                 [classes.left]: position === 'left',
                 [classes.top]: position === 'top',
                 [classes.right]: position === 'right',
-            })}>
-            <div className={classes.triangle}></div>
-        </LocalRoot>
+            })}></LocalRoot>
     );
 });
 

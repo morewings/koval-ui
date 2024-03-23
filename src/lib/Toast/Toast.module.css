@@ -3,11 +3,11 @@
 
     background: var(--background000);
     border: 3px solid var(--mainColor);
-    border-radius: 6px;
-    bottom: 36px;
+    border-radius: var(--sizeUnit);
+    bottom: calc(var(--sizeUnit) * 6);
     box-shadow: var(--shadow100);
     left: 50%;
-    max-width: 320px;
+    max-width: calc(var(--sizeUnit) * 55);
     position: fixed;
     transform: translate(-50%);
 
@@ -30,7 +30,7 @@
     font-weight: var(--fontWeightBolder);
 
     &:not(:last-child) {
-        margin-bottom: 6px;
+        margin-bottom: var(--sizeUnit);
     }
 }
 
@@ -39,8 +39,8 @@
     color: var(--colorFa);
     display: flex;
     flex-direction: row;
-    gap: 12px;
-    padding: 12px;
+    gap: calc(var(--sizeUnit) * 2);
+    padding: calc(var(--sizeUnit) * 2);
 }
 
 .left {
@@ -51,8 +51,8 @@
 
 .icon {
     color: var(--mainColor);
-    height: 36px;
-    width: 36px;
+    height: calc(var(--sizeUnit) * 6);
+    width: calc(var(--sizeUnit) * 6);
 }
 
 .body {
@@ -73,9 +73,9 @@
     display: flex;
     font-size: var(--fontSizeSmall);
     font-weight: var(--fontWeightBolder);
-    gap: 6px;
+    gap: var(--sizeUnit);
     justify-content: center;
-    padding: 3px 0;
+    padding: calc(var(--sizeUnit) / 2) 0;
     width: 100%;
 
     &:hover {
@@ -84,7 +84,7 @@
     }
 
     & svg {
-        height: 18px;
-        width: 18px;
+        height: calc(var(--sizeUnit) * 3);
+        width: calc(var(--sizeUnit) * 3);
     }
 }
