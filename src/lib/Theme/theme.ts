@@ -43,6 +43,7 @@ export const theme = {
     colorAction: 'blue',
     // shadow config
     shadowColor: 'color-mix(in srgb, var(--background600) 11%, transparent)',
+    shadow050: '3px 3px 1px 0 var(--shadowColor)',
     shadow100: '6px 6px 3px 0 var(--shadowColor)',
     shadow200: '9px 9px 3px 0 var(--shadowColor)',
 };

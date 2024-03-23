@@ -13,62 +13,52 @@
 }
 
 .tooltip {
-    --bgColor: var(--colorMi);
+    --bgColor: var(--colorDo);
 
-    background: var(--bgColor);
+    background: var(--background000);
+    border: 3px solid var(--bgColor);
     border-radius: calc(var(--sizeUnit) * 1);
+    box-shadow: var(--shadow100);
     box-sizing: border-box;
-    min-width: 144px;
+    min-width: calc(var(--sizeUnit) * 24);
     padding: calc(var(--sizeUnit) * 2);
 }
 
 .arrow {
-    --size: calc((var(--sizeUnit) * 2));
+    --size: calc((var(--sizeUnit) * 3));
     --left: auto;
     --top: auto;
 
-    display: flex;
+    background: var(--background000);
+    border-bottom: inherit;
+    border-right: inherit;
     height: var(--size);
-    left: calc(var(--left) * 1px);
     position: absolute;
-    top: calc(var(--top) * 1px);
     width: var(--size);
 
+    &.top {
+        box-shadow: var(--shadow050);
+        left: calc(var(--left) * 1px);
+        top: calc(100% - (var(--size) / 2));
+        transform: rotate(45deg);
+    }
+
     &.bottom {
-        top: calc((var(--size) - 2px) * -1);
+        bottom: calc(100% - (var(--size) / 2));
+        left: calc(var(--left) * 1px);
+        transform: rotate(225deg);
     }
 
     &.left {
-        right: calc((var(--size) - 2px) * -1);
-
-        & .triangle {
-            transform: rotate(90deg);
-        }
-    }
-
-    &.top {
-        bottom: calc((var(--size) - 2px) * -1);
-
-        & .triangle {
-            transform: rotate(180deg);
-        }
+        box-shadow: var(--shadow050);
+        left: calc(100% - (var(--size) / 2));
+        top: calc(var(--top) * 1px);
+        transform: rotate(315deg);
     }
 
     &.right {
-        left: calc((var(--size) - 2px) * -1);
-
-        & .triangle {
-            transform: rotate(270deg);
-        }
+        right: calc(100% - (var(--size) / 2));
+        top: calc(var(--top) * 1px);
+        transform: rotate(135deg);
     }
-}
-
-.triangle {
-    border-color: transparent transparent var(--bgColor) transparent;
-    border-style: solid;
-    border-width: 0 calc(var(--size) / 2) var(--size);
-    height: 0;
-    margin-top: auto;
-    transform: rotate(0deg);
-    width: 0;
 }

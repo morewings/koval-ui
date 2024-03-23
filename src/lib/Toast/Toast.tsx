@@ -8,6 +8,7 @@ import {useRootTheme, useLocalTheme} from 'css-vars-hook';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Portal} from '@/internal/Portal';
 import {IconError, IconInfo, IconSuccess, IconWarning} from '@/internal/Icons';
+import {useInterval} from '@/internal/hooks/useInterval.ts';
 
 import {useToastState} from './useToastState.tsx';
 import classes from './Toast.module.css';
@@ -27,15 +28,30 @@ export type ActionProps = {
 
 export type Props = DataAttributes &
     LibraryProps & {
+        /** Provide unique id to the Toast */
         id: NonNullable<LibraryProps['id']>;
         children?: ReactNode;
+        /**
+         * Provide array of Actions to display below Toast
+         * @see ActionProps
+         */
         actions?: ActionProps[];
+        /**
+         * Provide Icon component to show instead default one
+         */
         icon?: FC;
+        /** Select design variant of Toast to show */
         variant?: keyof typeof Variants;
+        /** Provide a main text to display inside Toast */
         title: string;
+        /** Provide an additional text to display inside Toast */
         body?: string;
+        /** Callback triggered when user click one of provided Actions. Called with the name of Action */
         onClick?: (name: string) => void;
+        /** Callback triggered when user click closes Toast */
         onToggle?: (isOpen: boolean) => void;
+        /** Set time in seconds to auto close Toast */
+        autoClose?: number;
     };
 
 const Action: FC<ActionProps & {onClick: NonNullable<Props['onClick']>}> = ({title, icon: Icon, onClick, name}) => {
@@ -63,6 +79,7 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
             onClick = () => {},
             onToggle = () => {},
             id,
+            autoClose = null,
             ...nativeProps
         },
         ref
@@ -81,6 +98,9 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
         useEffect(() => {
             onToggle(isOpen);
         }, [isOpen, onToggle]);
+        const needsAutoClose = typeof autoClose === 'number';
+        const interval = needsAutoClose ? autoClose * 1000 : null;
+        useInterval({callback: closeToast, interval, condition: needsAutoClose});
         return (
             isOpen && (
                 <Portal>
