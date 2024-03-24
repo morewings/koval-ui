@@ -1,4 +1,4 @@
-import {useCallback, useEffect} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 
 import {useNotificationContext} from './NotificationContext.ts';
 import type {NotificationProps, NotificationState} from './NotificationReducer.ts';
@@ -24,6 +24,8 @@ export const useNotificationState = (id: string) => {
     const instance = useNotificationInstance(id);
     const notificationProps = useNotificationProps(id);
     const isOpen = useSelector((state: NotificationState) => state.open.some(notificationId => notificationId === id));
+    const [permission, setPermission] = useState<NotificationPermission>();
+
     const handleSelfClose = useCallback(() => {
         dispatch({
             type: Actions.NOTIFICATION_CLOSE,
@@ -39,18 +41,24 @@ export const useNotificationState = (id: string) => {
     }, [handleSelfClose, instance]);
 
     const openNotification = useCallback(() => {
+        const currentPermission = window?.Notification?.permission;
+
         /* Partially supported in Firefox. The new notification will not re-appear */
         if (isOpen) {
             instance?.close();
         }
-        if (window.Notification.permission === 'granted') {
+        if (currentPermission === 'granted') {
             dispatch({type: Actions.NOTIFICATION_OPEN, id, instance: createNotification(notificationProps)});
-        } else if (window.Notification.permission !== 'denied') {
-            window.Notification.requestPermission().then(nextPermission => {
+            setPermission(currentPermission);
+        } else if (currentPermission !== 'denied') {
+            window?.Notification?.requestPermission().then(nextPermission => {
+                setPermission(nextPermission);
                 if (nextPermission === 'granted') {
                     dispatch({type: Actions.NOTIFICATION_OPEN, id, instance: createNotification(notificationProps)});
                 }
             });
+        } else if (currentPermission === 'denied') {
+            setPermission(currentPermission);
         }
     }, [dispatch, id, instance, isOpen, notificationProps]);
 
@@ -86,6 +94,6 @@ export const useNotificationState = (id: string) => {
          * Indicates the current permission granted by the user for the current origin to display web notifications
          * @see https://developer.mozilla.org/en-US/docs/Web/API/Notification/permission_static
          */
-        permission: window.Notification.permission,
+        permission,
     };
 };

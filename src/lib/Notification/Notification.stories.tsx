@@ -37,8 +37,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        const {openNotification, closeNotification, permission} = useNotificationState('foo');
-        console.log('permission', permission);
+        const {openNotification, closeNotification} = useNotificationState('foo');
         return (
             <Fragment>
                 <Button onClick={openNotification}>open notification</Button>
