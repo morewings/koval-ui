@@ -1,5 +1,11 @@
 .picture {
+    max-height: 100%;
+    max-width: 100%;
+
     & img {
         display: block;
+        height: auto;
+        max-height: inherit;
+        max-width: inherit;
     }
 }

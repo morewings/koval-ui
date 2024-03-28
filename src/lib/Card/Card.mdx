@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {Card} from './Card.tsx';
+import * as CardStories from "./Card.stories.tsx";
+
+<Meta title="Components/Card" of={CardStories} />
+
+# Card
+
+## Description
+
+Card is a React component.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Card} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgsTable of={Card}/>
+
