@@ -13,7 +13,7 @@ export type Props = DataAttributes &
 
 export const TemplateName = forwardRef<HTMLDivElement, Props>(({children, className, ...nativeProps}, ref) => {
     return (
-        <div {...nativeProps} className={classNames(classes['template-name'], className)} ref={ref}>
+        <div {...nativeProps} className={classNames(classes.templateName, className)} ref={ref}>
             {children}
         </div>
     );
