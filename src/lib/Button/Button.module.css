@@ -9,7 +9,7 @@
     flex-direction: row;
     font-size: var(--fontSize);
     font-weight: var(--fontWeightBolder);
-    gap: calc(var(--sizeUnit) * var(--sizeScaleFactor));
+    gap: calc(var(--sizeUnit) * var(--sizeScaleFactor) / 2);
     letter-spacing: 1px;
     line-height: 1.2;
     padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) calc(var(--sizeUnit) * 3 * var(--sizeScaleFactor));
@@ -19,15 +19,44 @@
         cursor: not-allowed;
     }
 
-    &:active:not(:disabled) {
-        left: 1px;
-        position: relative;
-        top: 1px;
+    &:active:not(:disabled) .content,
+    &:active:not(:disabled) .icon {
+        transform: translate(3px, 3px);
+    }
+
+    &.small:active:not(:disabled) .content,
+    &.small:active:not(:disabled) .icon {
+        transform: translate(2px, 2px);
+    }
+
+    &:focus-visible:not(:disabled) {
+        border-color: var(--colorRe);
     }
 }
 
+/* Code to add text and icon shadows */
+
+/* .button {
+    &:hover:not(:disabled) .icon {
+        filter: drop-shadow(3px 3px 1px rgb(0 0 0 / 33%));
+    }
+
+    &:active:not(:disabled) .icon {
+        filter: none;
+    }
+
+    &:hover:not(:disabled) .content {
+        text-shadow: 3px 3px 2px rgb(0 0 0 / 33%);
+    }
+
+    &:active:not(:disabled) .content {
+        text-shadow: none;
+    }
+} */
+
 .content {
     overflow: hidden;
+    padding-right: 4px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -164,6 +193,7 @@
 }
 
 .icon {
+    flex-shrink: 0;
     height: calc(var(--fontSize) * 1.2);
     width: calc(var(--fontSize) * 1.2);
 }
