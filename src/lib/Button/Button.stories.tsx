@@ -6,7 +6,7 @@ import {IconFile, CloudUpload} from '@/internal/Icons';
 import {Button} from './Button.tsx';
 
 const meta = {
-    title: 'Inputs/Button',
+    title: 'Components/Button',
     component: Button,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
