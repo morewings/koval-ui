@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import {IconSuccess, IconDanger, IconLink} from '@/internal/Icons';
 import {ActionTypes} from '@/internal/Actions';
 
-import classes from './Card.module.css';
+import classes from './Dialog.module.css';
 
 export type Props = {
     title?: string;

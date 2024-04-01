@@ -1,7 +1,7 @@
 .card {
     border: 3px solid var(--colorDo);
     border-radius: 12px;
-    display: flex;
+    display: block;
     max-width: 100%;
     overflow: hidden;
 
@@ -106,6 +106,10 @@
     &:not(:only-child, :last-child) {
         border-right: 3px solid var(--colorDo);
     }
+
+    &:not(:only-child) {
+        width: 50%;
+    }
 }
 
 .horizontal .action-button {
@@ -143,6 +147,7 @@
 }
 
 .action-label {
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
