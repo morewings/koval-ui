@@ -126,7 +126,7 @@
     "react-dom": "18.2.0",
     "semantic-release": "23.0.6",
     "storybook": "7.6.17",
-    "stylelint": "16.2.1",
+    "stylelint": "16.3.1",
     "stylelint-config-standard": "36.0.0",
     "stylelint-order": "6.0.4",
     "stylelint-prettier": "5.0.0",
