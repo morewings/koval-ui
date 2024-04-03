@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.0.8
     version: 2.0.8(react-dom@18.2.0)(react@18.2.0)
   '@material-symbols/svg-700':
-    specifier: ^0.16.0
-    version: 0.16.0
+    specifier: ^0.17.0
+    version: 0.17.1
   awesome-debounce-promise:
     specifier: ^2.1.0
     version: 2.1.0
@@ -3846,8 +3846,8 @@ packages:
       call-bind: 1.0.7
     dev: true
 
-  /@material-symbols/svg-700@0.16.0:
-    resolution: {integrity: sha512-1lco3k3RHx4odwz/UPAujZIJ2Gcp32xvoEMm+yllH4MrzwPC2xxkUwIu72Ot5gWFeYds9QQus4YuEPQLW4mPeQ==}
+  /@material-symbols/svg-700@0.17.1:
+    resolution: {integrity: sha512-8cTnqgDlzPiO8GvCJ6a2U3sAGXkXYUUwr1VCgmsHQXkNnqS+tfOcWY7ZCDhjofXhwlrAYbVqpUMPQiYtgfKq0Q==}
     dev: false
 
   /@mdx-js/react@2.3.0(react@18.2.0):
