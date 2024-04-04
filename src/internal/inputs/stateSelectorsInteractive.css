@@ -2,7 +2,7 @@
 
 @custom-selector :--disabledSelector :disabled;
 @custom-selector :--invalidSelector :user-invalid:not(:disabled);
-@custom-selector :--focusSelector :focus:not(:disabled, :user-invalid);
-@custom-selector :--hoverSelector :hover:not(:disabled, :user-invalid, :focus);
+@custom-selector :--focusSelector :focus-visible:not(:disabled, :user-invalid);
+@custom-selector :--hoverSelector :hover:not(:disabled, :user-invalid, :focus-visible);
 
 /* @custom-selector :--invalidSelector :invalid:not(:disabled); */
