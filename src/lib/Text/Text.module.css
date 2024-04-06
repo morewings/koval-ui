@@ -166,8 +166,11 @@
 .ul,
 .ol {
     color: var(--textColor);
-    margin-bottom: calc(var(--sizeUnit) * 2);
     padding-left: calc(var(--sizeUnit) * 2);
+
+    &:not(:last-child) {
+        margin-bottom: calc(var(--sizeUnit) * 2);
+    }
 }
 
 .ul,
