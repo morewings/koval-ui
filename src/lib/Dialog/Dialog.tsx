@@ -65,8 +65,8 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
 
         const handleClick = useCallback(
             (event: MouseEvent<typeof dialogRef.current>) => {
-                if ((event.target as HTMLDialogElement).nodeName === 'DIALOG') {
-                    closeOnClickOutside && handleSelfClose();
+                if ((event.target as HTMLDialogElement).nodeName === 'DIALOG' && closeOnClickOutside) {
+                    handleSelfClose();
                 }
             },
             [dialogRef, handleSelfClose, closeOnClickOutside]
