@@ -1,5 +1,10 @@
 @import url("@/lib/Layout/customMedia.css");
 
+/* To be added to document.body by effect hook */
+.no-scroll {
+    overflow: hidden;
+}
+
 .dialog {
     --shadowColor: color-mix(in srgb, var(--colorFa) 66%, transparent);
 

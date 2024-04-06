@@ -52,8 +52,10 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
         useEffect(() => {
             if (isOpen) {
                 dialogRef.current?.showModal();
+                document.body.classList.add(classes.noScroll);
             } else {
                 dialogRef.current?.close();
+                document.body.classList.remove(classes.noScroll);
             }
             onToggle(isOpen);
         }, [dialogRef, onToggle, isOpen]);
