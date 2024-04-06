@@ -22,6 +22,7 @@ const meta = {
         closeOnClickOutside: true,
         showCloseButton: true,
         closeLabel: 'Close',
+        trapFocus: true,
     },
     argTypes: {
         className: {

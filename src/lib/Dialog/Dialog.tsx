@@ -6,6 +6,7 @@ import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {IconClose} from '@/internal/Icons';
 import {H3} from '@/lib';
+import {useFocusTrap} from '@/internal/hooks/useFocusTrap.ts';
 
 import type {Props as ActionProps} from './Action.tsx';
 import {Action} from './Action.tsx';
@@ -29,6 +30,8 @@ export type Props = DataAttributes &
         dialogTitle?: string;
         /** Provide a localized value for close button */
         closeLabel?: string;
+        /** Enable focus trap for Dialog */
+        trapFocus?: boolean;
     };
 
 export const Dialog = forwardRef<HTMLDialogElement, Props>(
@@ -43,12 +46,14 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
             actions = [],
             dialogTitle,
             closeLabel = 'Close',
+            trapFocus = true,
             ...nativeProps
         },
         ref
     ) => {
         const dialogRef = useInternalRef(ref);
         const {isOpen, closeDialog} = useDialogState(id);
+        useFocusTrap(dialogRef.current, isOpen, trapFocus);
         useEffect(() => {
             if (isOpen) {
                 dialogRef.current?.showModal();
