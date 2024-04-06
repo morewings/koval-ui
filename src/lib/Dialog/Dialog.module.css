@@ -98,12 +98,14 @@
         color: var(--background000);
     }
 
-    &:focus-visible {
-        background: var(--colorDo);
-        color: var(--background000);
+    &:focus-visible:not(:hover) {
+        color: var(--colorDo);
     }
 
     &:active {
+        background: var(--colorDo);
+        color: var(--background000);
+
         & .action-label,
         & .action-icon {
             left: 3px;
