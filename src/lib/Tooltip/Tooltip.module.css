@@ -39,25 +39,25 @@
     &.top {
         box-shadow: var(--shadow050);
         left: calc(var(--left) * 1px);
-        top: calc(100% - (var(--size) / 2));
+        top: calc(100% - (var(--size) / 2) - 1px);
         transform: rotate(45deg);
     }
 
     &.bottom {
-        bottom: calc(100% - (var(--size) / 2));
+        bottom: calc(100% - (var(--size) / 2) - 1px);
         left: calc(var(--left) * 1px);
         transform: rotate(225deg);
     }
 
     &.left {
         box-shadow: var(--shadow050);
-        left: calc(100% - (var(--size) / 2));
+        left: calc(100% - (var(--size) / 2) - 1px);
         top: calc(var(--top) * 1px);
         transform: rotate(315deg);
     }
 
     &.right {
-        right: calc(100% - (var(--size) / 2));
+        right: calc(100% - (var(--size) / 2) - 1px);
         top: calc(var(--top) * 1px);
         transform: rotate(135deg);
     }
