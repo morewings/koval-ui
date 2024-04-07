@@ -10,7 +10,7 @@
 
 .vertical.bordered {
     & .nav-link {
-        padding: 9px 0;
+        padding: calc(var(--sizeUnit) * 1.5) 0;
 
         &:not(:last-child) {
             border-bottom: 1px solid var(--background100);
@@ -36,13 +36,13 @@
     }
 
     & .nav-link {
-        padding: 6px 12px;
+        padding: var(--sizeUnit) calc(var(--sizeUnit) * 2);
     }
 }
 
 .horizontal.bordered {
     & .nav-link {
-        padding: 6px 18px;
+        padding: var(--sizeUnit) calc(var(--sizeUnit) * 3);
 
         &:not(:last-child) {
             border-right: 1px solid var(--background100);
@@ -58,8 +58,8 @@
     display: flex;
     flex-direction: row;
     font-weight: var(--fontWeightNormal);
-    gap: 6px;
-    padding: 6px 0;
+    gap: var(--sizeUnit);
+    padding: var(--sizeUnit) 0;
     position: relative;
 
     &:hover {
@@ -84,23 +84,25 @@
 }
 
 .nav-link-icon {
-    height: 18px;
-    width: 18px;
+    height: calc(var(--sizeUnit) * 3);
+    width: calc(var(--sizeUnit) * 3);
 }
 
 .default-icon {
+    --size: calc(var(--sizeUnit) * 3);
+
     align-items: center;
     border: 2px solid var(--baseColor);
-    border-radius: 9px;
+    border-radius: calc(var(--size) / 2);
     color: var(--baseColor);
     display: flex;
     flex-direction: row;
     font-size: 9px;
     font-weight: var(--fontWeightBold);
-    height: 18px;
+    height: var(--size);
     justify-content: center;
     line-height: 14px;
-    width: 18px;
+    width: var(--size);
 }
 
 .compact .nav-link-icon {
@@ -109,15 +111,17 @@
 }
 
 .compact .default-icon {
-    border-radius: 12px;
+    --size: calc(var(--sizeUnit) * 4);
+
+    border-radius: calc(var(--size) / 2);
     font-size: 12px;
-    height: 24px;
+    height: var(--size);
     line-height: 20px;
-    width: 24px;
+    width: var(--size);
 }
 
 .nav-link-title {
     &:first-child {
-        margin-left: 24px;
+        margin-left: calc(var(--sizeUnit) * 4);
     }
 }
