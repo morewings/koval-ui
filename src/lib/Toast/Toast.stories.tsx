@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {Fragment} from 'react';
 import {fn} from '@storybook/test';
 
-import {IconFile} from '@/internal/Icons';
+import {CloudUpload, IconFile} from '@/internal/Icons';
 import {Button} from '@/lib/Button';
 
 import {Toast} from './Toast.tsx';
@@ -85,6 +85,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const actions = [
+    {title: 'Default Action', onClick: fn()},
+    {title: 'With Icon', icon: IconFile, onClick: fn()},
+    {title: 'Link Action', type: 'link', onClick: fn()},
+    {title: 'Overridden icon', type: 'link', icon: CloudUpload, onClick: fn()},
+    [
+        {title: 'Danger Action', type: 'danger', onClick: fn()},
+        {title: 'Success Action', type: 'success', onClick: fn()},
+    ],
+];
+
 export const Primary: Story = {
     render: args => {
         const id = 'foo';
@@ -100,6 +111,24 @@ export const Primary: Story = {
     args: {
         title: 'Hello, world!',
         body: 'This is Toast example.',
+    },
+    argTypes: {
+        actions: {
+            options: ['noActions', 'withAllActions'], // An array of serializable values
+            mapping: {
+                noActions: undefined,
+                withAllActions: actions,
+            }, // Maps serializable option values to complex arg values
+            control: {
+                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                labels: {
+                    // 'labels' maps option values to string labels
+                    noActions: 'No actions',
+                    with2Actions: '2 actions',
+                    withAllActions: 'With all actions',
+                },
+            },
+        },
     },
 };
 

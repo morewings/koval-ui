@@ -1,5 +1,4 @@
 import type {FC, ReactNode} from 'react';
-import {useCallback} from 'react';
 import {useEffect} from 'react';
 import {forwardRef} from 'react';
 import classNames from 'classnames';
@@ -7,11 +6,13 @@ import {useRootTheme, useLocalTheme} from 'css-vars-hook';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Portal} from '@/internal/Portal';
-import {IconError, IconInfo, IconSuccess, IconWarning} from '@/internal/Icons';
+import {IconClose, IconError, IconInfo, IconSuccess, IconWarning} from '@/internal/Icons';
 import {useInterval} from '@/internal/hooks/useInterval.ts';
 
 import {useToastState} from './useToastState.tsx';
 import classes from './Toast.module.css';
+import type {Props as ActionProps} from './Action.tsx';
+import {Action} from './Action.tsx';
 
 enum Variants {
     default = 'default',
@@ -20,22 +21,13 @@ enum Variants {
     warning = 'warning',
 }
 
-export type ActionProps = {
-    name: string;
-    title: string;
-    icon?: FC;
-};
-
 export type Props = DataAttributes &
     LibraryProps & {
         /** Provide unique id to the Toast */
         id: NonNullable<LibraryProps['id']>;
         children?: ReactNode;
-        /**
-         * Provide array of Actions to display below Toast
-         * @see ActionProps
-         */
-        actions?: ActionProps[];
+        /** Provide an array of actions with callbacks */
+        actions?: (ActionProps | [ActionProps, ActionProps])[];
         /**
          * Provide Icon component to show instead default one
          */
@@ -46,25 +38,13 @@ export type Props = DataAttributes &
         title: string;
         /** Provide an additional text to display inside Toast */
         body?: string;
-        /** Callback triggered when user click one of provided Actions. Called with the name of Action */
-        onClick?: (name: string) => void;
         /** Callback triggered when user click closes Toast */
         onToggle?: (isOpen: boolean) => void;
         /** Set time in seconds to auto close Toast */
         autoClose?: number;
+        /** Provide custom label for close Toast action */
+        closeLabel?: string;
     };
-
-const Action: FC<ActionProps & {onClick: NonNullable<Props['onClick']>}> = ({title, icon: Icon, onClick, name}) => {
-    const handleClick = useCallback(() => {
-        onClick(name);
-    }, [name, onClick]);
-    return (
-        <button onClick={handleClick} className={classes.action}>
-            {Icon && <Icon />}
-            {title}
-        </button>
-    );
-};
 
 export const Toast = forwardRef<HTMLDivElement, Props>(
     (
@@ -76,10 +56,10 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
             variant = Variants.default,
             title,
             body,
-            onClick = () => {},
             onToggle = () => {},
             id,
             autoClose = null,
+            closeLabel = 'Close',
             ...nativeProps
         },
         ref
@@ -126,16 +106,28 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
                                     {body && <div className={classes.body}>{body}</div>}
                                 </div>
                             </div>
-                            <div className={classes.actions}>
-                                {actions.map(({name, title, icon}) => {
-                                    return (
-                                        <Action onClick={onClick} icon={icon} name={name} title={title} key={name} />
-                                    );
+                            <footer className={classes.actions}>
+                                {actions.map((actionSlot, i) => {
+                                    if (Array.isArray(actionSlot)) {
+                                        const [left, right] = actionSlot;
+                                        return (
+                                            <div key={`${id}-${i}`} className={classes.row}>
+                                                <Action {...left} />
+                                                <Action {...right} />
+                                            </div>
+                                        );
+                                    } else {
+                                        return (
+                                            <div key={`${id}-${i}`} className={classes.row}>
+                                                <Action {...actionSlot} />
+                                            </div>
+                                        );
+                                    }
                                 })}
-                                <button onClick={closeToast} className={classes.action}>
-                                    ✕
-                                </button>
-                            </div>
+                                <div key={`${id}-close`} className={classes.row}>
+                                    <Action onClick={closeToast} icon={IconClose} title={closeLabel} />
+                                </div>
+                            </footer>
                         </div>
                     </Provider>
                 </Portal>

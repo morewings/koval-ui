@@ -48,18 +48,6 @@
     }
 }
 
-.footer {
-    display: flex;
-    flex-direction: column;
-    gap: calc(2 * var(--sizeUnit));
-    margin-top: auto;
-    padding-top: calc(3 * var(--sizeUnit));
-
-    @media (--viewport-md) {
-        flex-direction: row;
-    }
-}
-
 .actions {
     display: flex;
     flex-direction: column;
