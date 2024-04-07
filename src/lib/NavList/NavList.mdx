@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {NavList} from './NavList.tsx';
+import * as NavListStories from "./NavList.stories.tsx";
+
+<Meta title="Components/NavList" of={NavListStories} />
+
+# NavList
+
+## Description
+
+NavList is a React component.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {NavList} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgsTable of={NavList}/>
+
