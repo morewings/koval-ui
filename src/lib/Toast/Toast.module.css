@@ -126,7 +126,7 @@
     white-space: nowrap;
 
     &:hover {
-        background: var(--colorDo);
+        background: var(--colorFa);
         color: var(--background000);
     }
 
@@ -135,7 +135,7 @@
     }
 
     &:active {
-        background: var(--colorDo);
+        background: var(--colorFa);
         color: var(--background000);
 
         & .action-label,
