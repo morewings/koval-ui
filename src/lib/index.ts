@@ -63,3 +63,4 @@ export {Pagination} from './Pagination';
 export {Card} from './Card';
 export {NavLink, NavList} from './NavList';
 export {Progress} from './Progress';
+export {Drawer, useDrawerState} from './Drawer';

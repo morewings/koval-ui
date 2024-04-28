@@ -80,7 +80,7 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
             setOpen(false);
         }, [setOpen]);
 
-        useDismiss(handleDismiss, refs.reference.current, isOpen);
+        useDismiss(handleDismiss, refs.reference, isOpen);
         useFocusTrap(refs.floating.current, isOpen, interactive);
 
         return (

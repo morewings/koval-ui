@@ -11,7 +11,7 @@
     letter-spacing: 0.33px;
 }
 
-@keyframes animate-stripes {
+@keyframes animate-progress {
     0% {
         transform: translateX(0);
     }
@@ -47,7 +47,6 @@
     &::-moz-progress-bar {
         background: var(--color);
         border-radius: calc(var(--height) / 2);
-        width: 50%;
     }
 
     &::-webkit-progress-bar {
@@ -62,11 +61,12 @@
 
     &:indeterminate {
         &::-moz-progress-bar {
-            animation: animate-stripes 3s linear infinite;
+            animation: animate-progress 3s linear infinite;
+            width: 50%;
         }
 
         &::-webkit-progress-value {
-            animation: animate-stripes 3s linear infinite;
+            animation: animate-progress 3s linear infinite;
             inline-size: 50%;
         }
     }

@@ -1,0 +1,42 @@
+.provider {
+    font-family: var(--fontFamily);
+}
+
+.drawer {
+    background: var(--colorMi);
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 24px;
+    position: fixed;
+    top: 0;
+    width: 300px;
+}
+
+.left {
+    box-shadow: var(--shadow100);
+    left: 0;
+    transform: translate(-100%, 0);
+}
+
+.right {
+    box-shadow: calc(var(--sizeUnit) * -1) var(--sizeUnit) calc(var(--sizeUnit) / 2) 0 var(--shadowColor);
+    right: 0;
+    transform: translate(100%, 0);
+}
+
+.enter {
+    transition: transform 300ms ease-out;
+}
+
+.enter-active {
+    transform: translate(0, 0);
+}
+
+.enter-done {
+    transform: translate(0, 0);
+}
+
+.exit {
+    transition: transform 300ms ease-out;
+}

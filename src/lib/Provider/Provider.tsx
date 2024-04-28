@@ -5,6 +5,7 @@ import {theme as themeGeneric} from '@/lib/Theme';
 import {DialogProvider} from '@/lib/Dialog';
 import {NotificationProvider} from '@/lib/Notification';
 import {ToastProvider} from '@/lib/Toast';
+import {DrawerProvider} from '@/lib/Drawer';
 
 import classes from './Provider.module.css';
 
@@ -15,7 +16,9 @@ export const Provider: FC<Props> = ({children, theme = themeGeneric}) => {
         <RootThemeProvider theme={theme} className={classes.provider}>
             <DialogProvider>
                 <NotificationProvider>
-                    <ToastProvider>{children}</ToastProvider>
+                    <ToastProvider>
+                        <DrawerProvider>{children}</DrawerProvider>
+                    </ToastProvider>
                 </NotificationProvider>
             </DialogProvider>
         </RootThemeProvider>
