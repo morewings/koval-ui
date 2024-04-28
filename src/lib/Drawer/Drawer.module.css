@@ -7,7 +7,7 @@
     bottom: 0;
     display: flex;
     flex-direction: column;
-    padding: 12px 24px;
+    padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 4);
     position: fixed;
     top: 0;
     width: 300px;
