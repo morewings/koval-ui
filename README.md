@@ -6,22 +6,41 @@
 
 # Forge React components library
 
-
 [![NPM library Create React App template logo](./design/logo.png)](#)
 
-Read full [docs](https://morewings.github.io/react-forge-ui/).
+React Forge UI is component library built for modern browsers. Each component tries to utilize built in browser APIs to full extent.
 
 ## Features
 
-- Supports **Typescript** and **Javascript**.
+- Supports **Typescript**, bundled types.
+- **ESM** and **commonjs** bundles.
+- Compatible with **Nextjs**.
+- CSS Flex column-based layout.
+- Inputs compatible with **react-hook-form** and similar libraries.
+- Built-in form validation.
+- Typography components.
+
+See [Forge Storybook](https://morewings.github.io/react-forge-ui/).
 
 ## Quickstart
 
-TBA
+Install library with the package manager of your choice
 
-### Installation
+```bash
+npm i react-forge-ui
+```
 
-### Add styles
+Include Forge css styles and wrap your application with Provider.
+
+```jsx
+import {Provider} from 'react-forge-ui';
+import 'react-forge-ui/dist/style.css'
+
+const App = ({children}) => {
+    //...
+    return <Provider>{children}</Provider>
+}
+```
 
 ## Acknowledgments
 

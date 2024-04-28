@@ -15,7 +15,9 @@ type Item = {
 export type Props = DataAttributes &
     LibraryProps & {
         children?: ReactNode;
+        /** Provide a list of items to render inside breadcrumbs */
         items: Item[];
+        /** Enable to show '...' after first breadcrumb item */
         showEllipsis?: boolean;
     };
 
