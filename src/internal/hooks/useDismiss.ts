@@ -1,4 +1,4 @@
-import type {MouseEvent, KeyboardEvent} from 'react';
+import type {MouseEvent, KeyboardEvent, MutableRefObject} from 'react';
 import {useCallback} from 'react';
 
 import {EventType, useEventListener} from '@/internal/hooks/useEventListener.ts';
@@ -6,9 +6,13 @@ import {EventType, useEventListener} from '@/internal/hooks/useEventListener.ts'
 /**
  * React hook. Triggers provided callback when ESC key pressed or registered click outside provided element
  */
-export const useDismiss = (callback: () => void, element: HTMLElement | null, isOpen: boolean) => {
+export const useDismiss = <TElement extends HTMLElement | null>(
+    callback: () => void,
+    ref: MutableRefObject<TElement>,
+    isOpen: boolean
+) => {
     const handleKeyDown = useCallback(
-        (event: KeyboardEvent<HTMLElement>) => {
+        (event: KeyboardEvent<TElement>) => {
             if (isOpen && event.key === 'Escape') {
                 callback();
             }
@@ -19,12 +23,12 @@ export const useDismiss = (callback: () => void, element: HTMLElement | null, is
     useEventListener(EventType.keydown, handleKeyDown);
 
     const handleMouseDown = useCallback(
-        (event: MouseEvent<HTMLElement>) => {
-            if (isOpen && (event.target as HTMLElement).contains(element)) {
+        (event: MouseEvent<TElement>) => {
+            if (isOpen && (event.target as TElement)!.contains(ref.current)) {
                 callback();
             }
         },
-        [callback, isOpen, element]
+        [callback, isOpen, ref]
     );
 
     useEventListener(EventType.mousedown, handleMouseDown);

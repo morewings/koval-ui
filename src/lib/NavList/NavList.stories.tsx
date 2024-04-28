@@ -16,7 +16,8 @@ const meta = {
     args: {
         mode: 'full',
         bordered: true,
-        variant: 'vertical',
+        layout: 'vertical',
+        variant: 'normal',
     },
     argTypes: {
         className: {
@@ -43,7 +44,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     render: args => {
         const parentSize = useMemo(() => {
-            return args.variant === 'vertical' ? {height: 666} : {width: 999};
+            return args.layout === 'vertical' ? {height: 666} : {width: 999};
         }, [args]);
         return (
             <div style={parentSize}>

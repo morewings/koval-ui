@@ -2,6 +2,18 @@
     display: flex;
 }
 
+.normal {
+    --textColor: var(--colorFa);
+    --hoverColor: var(--colorDo);
+    --borderColor: var(--background100);
+}
+
+.inverted {
+    --textColor: var(--colorRe);
+    --hoverColor: var(--background000);
+    --borderColor: var(--background400);
+}
+
 .compact {
     & .nav-link .nav-link-title {
         display: none;
@@ -13,7 +25,7 @@
         padding: calc(var(--sizeUnit) * 1.5) 0;
 
         &:not(:last-child) {
-            border-bottom: 1px solid var(--background100);
+            border-bottom: 1px solid var(--borderColor);
         }
     }
 }
@@ -63,12 +75,12 @@
     position: relative;
 
     &:hover {
-        --baseColor: var(--colorDo);
+        --baseColor: var(--hoverColor);
     }
 }
 
 .default {
-    --baseColor: var(--colorFa);
+    --baseColor: var(--textColor);
 }
 
 .link {
