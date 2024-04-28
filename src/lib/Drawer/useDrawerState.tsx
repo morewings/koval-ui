@@ -23,8 +23,8 @@ export const useDrawerState = (id: string) => {
             id,
         });
     }, [id, dispatch]);
-    const topDrawerId = useSelector((state: DrawerState) => state.open);
-    const isOpen = id === topDrawerId;
+    const openDrawerId = useSelector((state: DrawerState) => state.open);
+    const isOpen = id === openDrawerId;
     return {
         openDrawer,
         closeDrawer,

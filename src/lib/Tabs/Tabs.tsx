@@ -11,6 +11,7 @@ import {IconScroll} from '@/internal/Icons';
 import type {Props as TabProps} from './Tab.tsx';
 import {TabButton} from './TabButton.tsx';
 import classes from './Tabs.module.css';
+import {TabsProvider} from './TabContext.tsx';
 
 export type Props = DataAttributes &
     LibraryProps & {
@@ -69,42 +70,28 @@ export const Tabs = forwardRef<HTMLDivElement, Props>(
             [children]
         );
 
-        const visibleTab = useMemo(
-            () =>
-                (Children.toArray(children) as ReactElement<TabProps>[]).find(element => {
-                    return element.props.name === selected;
-                }),
-            [children, selected]
-        );
-
         const headerRef = useRef<HTMLElement>(null);
 
         const {overflowX} = useIsOverflow(headerRef);
 
         return (
-            <LocalRoot {...nativeProps} theme={theme} className={classNames(classes.tabs, className)}>
-                <div className={classes.viewport}>
-                    <header ref={headerRef} className={classes.header}>
-                        {tabs.map(({tabName, icon}) => {
-                            return (
-                                <TabButton
-                                    key={tabName}
-                                    icon={icon}
-                                    onClick={handleClick}
-                                    selected={selected === tabName}
-                                    tabName={tabName}
-                                />
-                            );
-                        })}
-                    </header>
-                    {overflowX && (
-                        <div className={classes['overflow-indicator']}>
-                            <IconScroll />
-                        </div>
-                    )}
-                </div>
-                <div className={classes.content}>{visibleTab}</div>
-            </LocalRoot>
+            <TabsProvider value={selected}>
+                <LocalRoot {...nativeProps} theme={theme} className={classNames(classes.tabs, className)}>
+                    <div className={classes.viewport}>
+                        <header ref={headerRef} className={classes.header}>
+                            {tabs.map(({tabName, icon}) => {
+                                return <TabButton key={tabName} icon={icon} onClick={handleClick} tabName={tabName} />;
+                            })}
+                        </header>
+                        {overflowX && (
+                            <div className={classes['overflow-indicator']}>
+                                <IconScroll />
+                            </div>
+                        )}
+                    </div>
+                    <div className={classes.content}>{children}</div>
+                </LocalRoot>
+            </TabsProvider>
         );
     }
 );
