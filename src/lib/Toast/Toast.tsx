@@ -3,11 +3,13 @@ import {useEffect} from 'react';
 import {forwardRef} from 'react';
 import classNames from 'classnames';
 import {useRootTheme, useLocalTheme} from 'css-vars-hook';
+import {CSSTransition} from 'react-transition-group';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Portal} from '@/internal/Portal';
 import {IconClose, IconError, IconInfo, IconSuccess, IconWarning} from '@/internal/Icons';
 import {useInterval} from '@/internal/hooks/useInterval.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import {useToastState} from './useToastState.tsx';
 import classes from './Toast.module.css';
@@ -46,6 +48,11 @@ export type Props = DataAttributes &
         closeLabel?: string;
     };
 
+const transitionClasses = {
+    enterActive: classes.enterActive,
+    exitActive: classes.exitActive,
+};
+
 export const Toast = forwardRef<HTMLDivElement, Props>(
     (
         {
@@ -62,7 +69,7 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
             closeLabel = 'Close',
             ...nativeProps
         },
-        ref
+        refProp
     ) => {
         const {isOpen, closeToast} = useToastState(id);
         const {LocalRoot: Provider} = useLocalTheme();
@@ -81,10 +88,11 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
         const needsAutoClose = typeof autoClose === 'number';
         const interval = needsAutoClose ? autoClose * 1000 : null;
         useInterval({callback: closeToast, interval, condition: needsAutoClose});
+        const ref = useInternalRef(refProp);
         return (
-            isOpen && (
-                <Portal>
-                    <Provider className={classes.provider} theme={getTheme()}>
+            <Portal>
+                <Provider className={classes.provider} theme={getTheme()}>
+                    <CSSTransition in={isOpen} nodeRef={ref} timeout={333} unmountOnExit classNames={transitionClasses}>
                         <div
                             {...nativeProps}
                             className={classNames(
@@ -129,9 +137,9 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
                                 </div>
                             </footer>
                         </div>
-                    </Provider>
-                </Portal>
-            )
+                    </CSSTransition>
+                </Provider>
+            </Portal>
         );
     }
 );
