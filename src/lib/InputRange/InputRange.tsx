@@ -124,6 +124,7 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
                         {createOptions({min: Number(min), max: Number(max), bars, scaleUnit})}
                     </datalist>
                 </div>
+                {/* TODO: add htmlFor when CSS vars hook supports it */}
                 <LocalRoot as="output" theme={theme} className={classes.output}>
                     {displayValue || Number(max) / 2} {scaleUnit}
                 </LocalRoot>
