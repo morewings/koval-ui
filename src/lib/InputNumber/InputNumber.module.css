@@ -28,6 +28,10 @@
     min-width: 0;
     padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
 
+    @supports (background: -webkit-named-image(i)) {
+        width: calc(var(--size) * 1ch);
+    }
+
     &:last-child {
         margin-right: var(--validationIconPlaceholder);
     }

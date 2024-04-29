@@ -1,6 +1,8 @@
 import type {ChangeEvent, InputHTMLAttributes, FormEvent} from 'react';
+import {useMemo} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
+import {useLocalTheme} from 'css-vars-hook';
 
 import {IconError, IconValid, IconLoader, IconArrowUp, IconArrowDown} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
@@ -74,8 +76,11 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
             validateTextual(ChangeEventSpinner as unknown as FormEvent);
         }, [inputRef, validateTextual]);
 
+        const {LocalRoot} = useLocalTheme();
+        const theme = useMemo(() => ({size}), [size]);
+
         return (
-            <div className={classNames(classes.wrapper, className)}>
+            <LocalRoot className={classNames(classes.wrapper, className)} theme={theme}>
                 <div className={classes.spinner}>
                     <IconArrowUp tabIndex={-1} onClick={handleIncrement} />
                     <IconArrowDown tabIndex={-1} onClick={handleDecrement} />
@@ -100,7 +105,7 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
                     onInput={validateTextual}
                 />
                 {validity && <ValidationIcon className={classes.validation} />}
-            </div>
+            </LocalRoot>
         );
     }
 );
