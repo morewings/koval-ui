@@ -93,6 +93,20 @@ const meta = {
                 disable: true,
             },
         },
+        predefinedColors: {
+            options: ['noColors', 'withColors'],
+            mapping: {
+                noColors: undefined,
+                withColors: ['#800000', '#8B0000', '#A52A2A', '#DC143C'],
+            },
+            control: {
+                type: 'radio',
+                labels: {
+                    noColors: 'No predefined colors',
+                    withColors: 'With predefined colors',
+                },
+            },
+        },
     },
 } as Meta<typeof InputColor>;
 

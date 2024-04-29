@@ -22,6 +22,11 @@ export type Props = DataAttributes &
          * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder
          */
         placeholder?: InputHTMLAttributes<HTMLInputElement>['placeholder'];
+        /**
+         * Provide a list if predefined colors to show in a browser-provided interface. Colors have to be in HEX format #000000.
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist#color_type
+         */
+        predefinedColors?: string[];
     };
 
 export const InputColor = forwardRef<HTMLInputElement, Props>(
@@ -38,6 +43,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             defaultValue,
             id: idProp,
+            predefinedColors = [],
             ...nativeProps
         },
         ref
@@ -93,6 +99,9 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             [setTheme]
         );
 
+        const hasPredefinedColors = predefinedColors.length > 0;
+        const predefinedColorsListId = `${id}_predefinedColors`;
+
         return (
             <LocalRoot theme={theme} className={classNames(classes.wrapper, className)}>
                 <div className={classes.toggle}>
@@ -109,12 +118,20 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                         onKeyDown={onKeyDown}
                         onFocus={handleFocus}
                         onChange={handleChange}
+                        list={hasPredefinedColors ? predefinedColorsListId : undefined}
                     />
                     <IconPalette className={classNames(classes.icon)} />
                 </div>
                 <label htmlFor={id} className={classes.label} ref={labelRef}>
                     {displayValue.toLowerCase() || placeholder}
                 </label>
+                {hasPredefinedColors && (
+                    <datalist id={predefinedColorsListId}>
+                        {predefinedColors.map(color => {
+                            return <option key={color} value={color} />;
+                        })}
+                    </datalist>
+                )}
             </LocalRoot>
         );
     }
