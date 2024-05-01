@@ -13,7 +13,7 @@ importers:
         version: 2.0.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@material-symbols/svg-700':
         specifier: ^0.17.0
-        version: 0.17.1
+        version: 0.17.4
       awesome-debounce-promise:
         specifier: ^2.1.0
         version: 2.1.0
@@ -1664,8 +1664,8 @@ packages:
     resolution: {integrity: sha512-/gKJun8NNiWGZJkGzI/Ragc53cOdcLNdzjLaIa+GEjguQs0ulsurx8WN0jijdK9yPqDvziX995sMRLyLt1uZMQ==}
     engines: {node: '>= 0.4'}
 
-  '@material-symbols/svg-700@0.17.1':
-    resolution: {integrity: sha512-8cTnqgDlzPiO8GvCJ6a2U3sAGXkXYUUwr1VCgmsHQXkNnqS+tfOcWY7ZCDhjofXhwlrAYbVqpUMPQiYtgfKq0Q==}
+  '@material-symbols/svg-700@0.17.4':
+    resolution: {integrity: sha512-bmDNovWUB8jlB9gynUP71PCq0aZyw7MvF+GsglxHugnaLLiMtpNIsGRBeMZBlYLRxw7qzdaTSohHqKSvf8NARw==}
 
   '@mdx-js/react@2.3.0':
     resolution: {integrity: sha512-zQH//gdOmuu7nt2oJR29vFhDv88oGPmVw6BggmrHeMI+xgEkp1B2dX9/bMBSYtK0dyLX/aOmesKS09g222K1/g==}
@@ -9505,7 +9505,7 @@ snapshots:
     dependencies:
       call-bind: 1.0.7
 
-  '@material-symbols/svg-700@0.17.1': {}
+  '@material-symbols/svg-700@0.17.4': {}
 
   '@mdx-js/react@2.3.0(react@18.2.0)':
     dependencies:
