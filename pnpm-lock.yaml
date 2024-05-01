@@ -220,8 +220,8 @@ importers:
         specifier: 5.2.10
         version: 5.2.10(@types/node@20.12.3)
       vite-plugin-dts:
-        specifier: 3.8.1
-        version: 3.8.1(@types/node@20.12.3)(rollup@4.14.0)(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.3))
+        specifier: 3.9.0
+        version: 3.9.0(@types/node@20.12.3)(rollup@4.14.0)(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.3))
       vite-plugin-svgr:
         specifier: 4.2.0
         version: 4.2.0(rollup@4.14.0)(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.3))
@@ -7675,8 +7675,8 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  vite-plugin-dts@3.8.1:
-    resolution: {integrity: sha512-zEYyQxH7lKto1VTKZHF3ZZeOPkkJgnMrePY4VxDHfDSvDjmYMMfWjZxYmNwW8QxbaItWJQhhXY+geAbyNphI7g==}
+  vite-plugin-dts@3.9.0:
+    resolution: {integrity: sha512-pwFIEYQ3LZvMafkEGvNnileb6af5JuyZsBfYQrTDYxdeGEy0OS4B4hCsLPo5YGnhK5k9EzyO6BXVO6y+Lt5T2A==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       typescript: '*'
@@ -16787,7 +16787,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite-plugin-dts@3.8.1(@types/node@20.12.3)(rollup@4.14.0)(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.3)):
+  vite-plugin-dts@3.9.0(@types/node@20.12.3)(rollup@4.14.0)(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.3)):
     dependencies:
       '@microsoft/api-extractor': 7.43.0(@types/node@20.12.3)
       '@rollup/pluginutils': 5.1.0(rollup@4.14.0)
