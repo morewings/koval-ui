@@ -38,7 +38,6 @@
     left: 50%;
     max-width: calc(var(--sizeUnit) * 55);
     position: fixed;
-    transform: translateX(-50%);
 
     &.success {
         --mainColor: var(--colorSuccess);

@@ -1,13 +1,14 @@
 import type {ReactNode} from 'react';
+import {useMemo} from 'react';
 import {useLocalTheme, useRootTheme} from 'css-vars-hook';
 import {forwardRef} from 'react';
 import classNames from 'classnames';
-import {CSSTransition} from 'react-transition-group';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Portal} from '@/internal/Portal';
 import {useInternalRef} from '@/internal/hooks/useInternalRef';
 import {useDismiss} from '@/internal/hooks/useDismiss';
+import {TransitionSlideLeft, TransitionSlideRight} from '@/lib/Transitions';
 
 import classes from './Drawer.module.css';
 import {useDrawerState} from './useDrawerState.tsx';
@@ -26,13 +27,6 @@ export type Props = DataAttributes &
         id: string;
     };
 
-const transitionClasses = {
-    enterActive: classes.enterActive,
-    enterDone: classes.enterDone,
-    enter: classes.enter,
-    exit: classes.exit,
-};
-
 export const Drawer = forwardRef<HTMLDivElement, Props>(
     ({children, className, placement = Placements.left, id, ...nativeProps}, refProp) => {
         const ref = useInternalRef(refProp);
@@ -41,11 +35,16 @@ export const Drawer = forwardRef<HTMLDivElement, Props>(
         const {getTheme} = useRootTheme();
         const {LocalRoot} = useLocalTheme();
 
+        const Transition = useMemo(
+            () => ({[Placements.left]: TransitionSlideLeft, [Placements.right]: TransitionSlideRight})[placement],
+            [placement]
+        );
+
         useDismiss(closeDrawer, ref, isOpen);
 
         return (
             <Portal>
-                <CSSTransition in={isOpen} nodeRef={ref} timeout={300} classNames={transitionClasses} unmountOnExit>
+                <Transition show={isOpen} nodeRef={ref}>
                     <LocalRoot theme={getTheme()} className={classes.provider}>
                         <div
                             {...nativeProps}
@@ -61,7 +60,7 @@ export const Drawer = forwardRef<HTMLDivElement, Props>(
                             {children}
                         </div>
                     </LocalRoot>
-                </CSSTransition>
+                </Transition>
             </Portal>
         );
     }

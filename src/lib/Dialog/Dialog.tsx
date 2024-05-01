@@ -1,13 +1,13 @@
 import type {ReactNode, MouseEvent, KeyboardEvent} from 'react';
 import {forwardRef, useEffect, useCallback} from 'react';
 import classNames from 'classnames';
-import {CSSTransition} from 'react-transition-group';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {IconClose} from '@/internal/Icons';
 import {H3} from '@/lib';
 import {useFocusTrap} from '@/internal/hooks/useFocusTrap.ts';
+import {TransitionSlideTop} from '@/lib/Transitions';
 
 import type {Props as ActionProps} from './Action.tsx';
 import {Action} from './Action.tsx';
@@ -35,11 +35,6 @@ export type Props = DataAttributes &
         trapFocus?: boolean;
     };
 
-const transitionClasses = {
-    enterActive: classes.enterActive,
-    exitActive: classes.exitActive,
-};
-
 export const Dialog = forwardRef<HTMLDialogElement, Props>(
     (
         {
@@ -64,9 +59,6 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
             if (isOpen) {
                 dialogRef.current?.showModal();
                 document.body.classList.add(classes.noScroll);
-            } else {
-                // dialogRef.current?.close();
-                document.body.classList.remove(classes.noScroll);
             }
             onToggle(isOpen);
         }, [dialogRef, onToggle, isOpen]);
@@ -92,49 +84,54 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
             [handleSelfClose]
         );
 
-        console.log('isOpen', isOpen);
+        const handleExit = useCallback(() => {
+            dialogRef.current?.close();
+            document.body.classList.remove(classes.noScroll);
+        }, [dialogRef]);
 
         return (
-            <CSSTransition in={isOpen} nodeRef={dialogRef} timeout={333} classNames={transitionClasses} unmountOnExit>
+            <TransitionSlideTop unmountNode={false} show={isOpen} nodeRef={dialogRef} onExit={handleExit}>
                 <dialog
                     {...nativeProps}
                     id={id}
                     onKeyDown={handleKeyPress}
                     onClick={handleClick}
-                    className={classNames(classes.dialog, {[classes.flex]: isOpen}, className)}
+                    className={classNames(classes.dialog, className)}
                     ref={dialogRef}>
-                    {dialogTitle && (
-                        <header className={classNames(classes.header, className)}>
-                            <H3>{dialogTitle}</H3>
-                        </header>
-                    )}
-                    <div className={classNames(classes.body, className)}>{children}</div>
-                    <footer className={classes.actions}>
-                        {actions.map((actionSlot, i) => {
-                            if (Array.isArray(actionSlot)) {
-                                const [left, right] = actionSlot;
-                                return (
-                                    <div key={`${id}-${i}`} className={classes.row}>
-                                        <Action {...left} />
-                                        <Action {...right} />
-                                    </div>
-                                );
-                            } else {
-                                return (
-                                    <div key={`${id}-${i}`} className={classes.row}>
-                                        <Action {...actionSlot} />
-                                    </div>
-                                );
-                            }
-                        })}
-                        {showCloseButton && (
-                            <div key={`${id}-close`} className={classes.row}>
-                                <Action onClick={handleSelfClose} icon={IconClose} title={closeLabel} />
-                            </div>
+                    <div className={classes.flex}>
+                        {dialogTitle && (
+                            <header className={classNames(classes.header, className)}>
+                                <H3>{dialogTitle}</H3>
+                            </header>
                         )}
-                    </footer>
+                        <div className={classNames(classes.body, className)}>{children}</div>
+                        <footer className={classes.actions}>
+                            {actions.map((actionSlot, i) => {
+                                if (Array.isArray(actionSlot)) {
+                                    const [left, right] = actionSlot;
+                                    return (
+                                        <div key={`${id}-${i}`} className={classes.row}>
+                                            <Action {...left} />
+                                            <Action {...right} />
+                                        </div>
+                                    );
+                                } else {
+                                    return (
+                                        <div key={`${id}-${i}`} className={classes.row}>
+                                            <Action {...actionSlot} />
+                                        </div>
+                                    );
+                                }
+                            })}
+                            {showCloseButton && (
+                                <div key={`${id}-close`} className={classes.row}>
+                                    <Action onClick={handleSelfClose} icon={IconClose} title={closeLabel} />
+                                </div>
+                            )}
+                        </footer>
+                    </div>
                 </dialog>
-            </CSSTransition>
+            </TransitionSlideTop>
         );
     }
 );

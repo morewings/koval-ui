@@ -3,13 +3,15 @@ import {useEffect, useRef} from 'react';
 export enum EventType {
     keydown = 'keydown',
     mousedown = 'mousedown',
+    animationend = 'animationend',
 }
 
-export const useEventListener = <TEvent>(
+export const useEventListener = <TEvent, TElement extends HTMLElement | null>(
     eventType: keyof typeof EventType,
     callback: (event: TEvent) => void,
-    element = window
+    elementProp?: TElement
 ) => {
+    const element = elementProp ?? window;
     const callbackRef = useRef(callback);
 
     useEffect(() => {
