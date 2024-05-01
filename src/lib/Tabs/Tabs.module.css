@@ -90,16 +90,3 @@
     overflow: auto;
     width: 100%;
 }
-
-.enter {
-    opacity: 0;
-}
-
-.enter-active {
-    opacity: 1;
-    transition: opacity 333ms ease-in;
-}
-
-.exit {
-    display: none;
-}

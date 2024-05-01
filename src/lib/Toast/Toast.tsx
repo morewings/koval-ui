@@ -3,13 +3,13 @@ import {useEffect} from 'react';
 import {forwardRef} from 'react';
 import classNames from 'classnames';
 import {useRootTheme, useLocalTheme} from 'css-vars-hook';
-import {CSSTransition} from 'react-transition-group';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Portal} from '@/internal/Portal';
 import {IconClose, IconError, IconInfo, IconSuccess, IconWarning} from '@/internal/Icons';
 import {useInterval} from '@/internal/hooks/useInterval.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
+import {TransitionSlideBottom} from '@/lib/Transitions';
 
 import {useToastState} from './useToastState.tsx';
 import classes from './Toast.module.css';
@@ -47,11 +47,6 @@ export type Props = DataAttributes &
         /** Provide custom label for close Toast action */
         closeLabel?: string;
     };
-
-const transitionClasses = {
-    enterActive: classes.enterActive,
-    exitActive: classes.exitActive,
-};
 
 export const Toast = forwardRef<HTMLDivElement, Props>(
     (
@@ -91,8 +86,8 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
         const ref = useInternalRef(refProp);
         return (
             <Portal>
-                <Provider className={classes.provider} theme={getTheme()}>
-                    <CSSTransition in={isOpen} nodeRef={ref} timeout={333} unmountOnExit classNames={transitionClasses}>
+                <TransitionSlideBottom show={isOpen} nodeRef={ref}>
+                    <Provider className={classes.provider} theme={getTheme()}>
                         <div
                             {...nativeProps}
                             className={classNames(
@@ -137,8 +132,8 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
                                 </div>
                             </footer>
                         </div>
-                    </CSSTransition>
-                </Provider>
+                    </Provider>
+                </TransitionSlideBottom>
             </Portal>
         );
     }

@@ -70,6 +70,14 @@ export const Tabs = forwardRef<HTMLDivElement, Props>(
             [children]
         );
 
+        const visibleTab = useMemo(
+            () =>
+                (Children.toArray(children) as ReactElement<TabProps>[]).find(
+                    element => element.props.name === selected
+                ),
+            [children, selected]
+        );
+
         const headerRef = useRef<HTMLElement>(null);
 
         const {overflowX} = useIsOverflow(headerRef);
@@ -89,7 +97,7 @@ export const Tabs = forwardRef<HTMLDivElement, Props>(
                             </div>
                         )}
                     </div>
-                    <div className={classes.content}>{children}</div>
+                    <div className={classes.content}>{visibleTab}</div>
                 </LocalRoot>
             </TabsProvider>
         );
