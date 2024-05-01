@@ -74,7 +74,7 @@
     "@material-symbols/svg-700": "^0.17.0",
     "awesome-debounce-promise": "^2.1.0",
     "classnames": "^2.5.1",
-    "css-vars-hook": "0.7.2",
+    "css-vars-hook": "0.7.3",
     "lodash": "^4.17.21",
     "the-new-css-reset": "^1.11.2"
   },
