@@ -4,6 +4,7 @@ import {fn} from '@storybook/test';
 
 import {CloudUpload, IconFile} from '@/internal/Icons';
 import {Button} from '@/lib/Button';
+import {ButtonGroup} from '@/lib/ButtonGroup';
 
 import {Toast} from './Toast.tsx';
 import {useToastState} from './useToastState.tsx';
@@ -102,8 +103,10 @@ export const Primary: Story = {
         const {openToast, closeToast} = useToastState(id);
         return (
             <Fragment>
-                <Button onClick={openToast}>Open toast</Button>
-                <Button onClick={closeToast}>Close toast</Button>
+                <ButtonGroup>
+                    <Button onClick={openToast}>Open toast</Button>
+                    <Button onClick={closeToast}>Close toast</Button>
+                </ButtonGroup>
                 <Toast {...args} id={id} />
             </Fragment>
         );
@@ -138,11 +141,12 @@ export const Multiple: Story = {
         const {openToast: openBar, closeToast: closeBar} = useToastState('bar');
         return (
             <Fragment>
-                <Button onClick={openFoo}>Open foo</Button>
-                <Button onClick={closeFoo}>Close foo</Button>
-                <br />
-                <Button onClick={openBar}>Open bar</Button>
-                <Button onClick={closeBar}>Close bar</Button>
+                <ButtonGroup layout="vertical">
+                    <Button onClick={openFoo}>Open foo</Button>
+                    <Button onClick={closeFoo}>Close foo</Button>
+                    <Button onClick={openBar}>Open bar</Button>
+                    <Button onClick={closeBar}>Close bar</Button>
+                </ButtonGroup>
                 <Toast id="foo" title="Foo toast" />
                 <Toast id="bar" title="Bar toast" />
             </Fragment>
