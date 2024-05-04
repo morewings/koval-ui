@@ -5,3 +5,4 @@ export type {CallbackPropsTextual, CallbackPropsInteractive} from './CallbackPro
 export {defaultValidator} from './defaultValidator.ts';
 export {useValidation} from './useValidation.ts';
 export {validatorSync, validatorAsync, timeout, validatorAsyncBoolean, validatorSyncBoolean} from './validatorMocks.ts';
+export {useHandleFormReset} from './useHandleFormReset.ts';

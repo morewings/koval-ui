@@ -6,7 +6,9 @@ import classNames from 'classnames';
 import type {LibraryProps, DataAttributes} from '@/internal/LibraryAPI';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
+import {withFormProvider} from './withFormProvider.tsx';
 import classes from './Form.module.css';
+import {useFormActions, useFormSelectors} from './useFormContext.ts';
 
 type FormState = Record<string, FormDataEntryValue>;
 
@@ -31,7 +33,7 @@ type Props = DataAttributes &
         children: ReactNode;
     };
 
-export const Form = forwardRef<HTMLFormElement, Props>(
+const Form = forwardRef<HTMLFormElement, Props>(
     (
         {
             className,
@@ -72,20 +74,25 @@ export const Form = forwardRef<HTMLFormElement, Props>(
             [getFormState, onInvalid]
         );
 
+        const {markAsPristine, markAsDirty} = useFormActions();
+
         const handleReset = useCallback(
             (event: ChangeEvent<HTMLFormElement>) => {
                 const formState = getFormState(event.currentTarget);
+                markAsPristine();
                 onReset(event, formState);
             },
-            [getFormState, onReset]
+            [getFormState, onReset, markAsPristine]
         );
 
+        const {pristine} = useFormSelectors();
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLFormElement>) => {
+                pristine && markAsDirty();
                 const formState = getFormState(event.currentTarget);
                 onChange(event, formState);
             },
-            [getFormState, onChange]
+            [getFormState, onChange, markAsDirty, pristine]
         );
 
         const innerRef = useInternalRef<HTMLFormElement>(ref);
@@ -106,3 +113,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(
 );
 
 Form.displayName = 'Form';
+
+const WrappedForm = withFormProvider(Form);
+
+export {WrappedForm as Form};

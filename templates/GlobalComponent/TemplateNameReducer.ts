@@ -2,8 +2,8 @@
  * Action names collection
  * @example
  * import { Actions } from './TemplateNameReducer';
- * dispatch({ type: TemplateName.TEMPLATE_NAME_CLOSE})
- * dispatch({ type: TemplateName.TEMPLATE_NAME_OPEN})
+ * dispatch({ type: Actions.TEMPLATE_NAME_CLOSE})
+ * dispatch({ type: Actions.TEMPLATE_NAME_OPEN})
  * */
 export enum Actions {
     TEMPLATE_NAME_CLOSE = 'TEMPLATE_NAME_CLOSE',

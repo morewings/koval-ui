@@ -5,6 +5,7 @@ import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import type {ValidationProps} from './ValidationProps.ts';
 import {ValidationState} from './ValidationProps.ts';
 import {defaultValidator} from './defaultValidator.ts';
+import {useHandleFormReset} from './useHandleFormReset.ts';
 
 type InputMode = 'interactive' | 'textual';
 
@@ -21,6 +22,8 @@ export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInp
     const isAsync = validatorFn?.constructor.name === 'AsyncFunction';
 
     const [validity, setValidity] = useState<keyof typeof ValidationState | null>(null);
+
+    useHandleFormReset(setValidity);
 
     const reportValidity = useCallback(
         (event: TEvent) => {
