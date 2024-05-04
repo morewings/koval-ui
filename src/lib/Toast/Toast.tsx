@@ -9,7 +9,7 @@ import {Portal} from '@/internal/Portal';
 import {IconClose, IconError, IconInfo, IconSuccess, IconWarning} from '@/internal/Icons';
 import {useInterval} from '@/internal/hooks/useInterval.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
-import {TransitionSlideBottom} from '@/lib/Transitions';
+import {TransitionSlideBottom} from '@/internal/Transitions';
 
 import {useToastState} from './useToastState.tsx';
 import classes from './Toast.module.css';

@@ -1,7 +1,7 @@
 import type {FC, HTMLAttributes, ReactNode} from 'react';
 import {useRef} from 'react';
 
-import {TransitionFade} from '@/lib/Transitions';
+import {TransitionFade} from '@/internal/Transitions';
 
 import classes from './Tabs.module.css';
 import {useActiveTab} from './TabContext.tsx';

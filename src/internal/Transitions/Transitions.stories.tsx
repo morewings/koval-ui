@@ -13,7 +13,7 @@ import {
 } from './index.ts';
 
 const meta = {
-    title: 'Components/Transitions',
+    title: 'Internal/Transitions',
     component: TransitionFade,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout

@@ -8,7 +8,7 @@ import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Portal} from '@/internal/Portal';
 import {useInternalRef} from '@/internal/hooks/useInternalRef';
 import {useDismiss} from '@/internal/hooks/useDismiss';
-import {TransitionSlideLeft, TransitionSlideRight} from '@/lib/Transitions';
+import {TransitionSlideLeft, TransitionSlideRight} from '@/internal/Transitions';
 
 import classes from './Drawer.module.css';
 import {useDrawerState} from './useDrawerState.tsx';
