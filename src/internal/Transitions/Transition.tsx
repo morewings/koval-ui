@@ -1,4 +1,5 @@
 import type {FC, MutableRefObject, ReactNode} from 'react';
+import {useMemo} from 'react';
 import {useState} from 'react';
 
 import {useEventListener} from '@/internal/hooks/useEventListener.ts';
@@ -54,27 +55,37 @@ export const Transition: FC<Props> = ({
         show && setRender(show);
     }, [show]);
 
+    const classNames = useMemo(
+        () => ({
+            enter: enterClassName.split(' '),
+            exit: exitClassName.split(' '),
+            exitDone: exitDoneClassName.split(' '),
+            enterDone: enterDoneClassName.split(' '),
+        }),
+        [enterClassName, enterDoneClassName, exitClassName, exitDoneClassName]
+    );
+
     useSafeLayoutEffect(() => {
         if (show) {
-            nodeRef.current?.classList.add(enterClassName);
-            nodeRef.current?.classList.remove(exitClassName);
-            nodeRef.current?.classList.remove(exitDoneClassName);
+            nodeRef.current?.classList.add(...classNames.enter);
+            nodeRef.current?.classList.remove(...classNames.exit);
+            nodeRef.current?.classList.remove(...classNames.exitDone);
         } else {
-            nodeRef.current?.classList.add(exitClassName);
-            nodeRef.current?.classList.remove(enterClassName);
-            nodeRef.current?.classList.remove(enterDoneClassName);
+            nodeRef.current?.classList.add(...classNames.exit);
+            nodeRef.current?.classList.remove(...classNames.enter);
+            nodeRef.current?.classList.remove(...classNames.enterDone);
         }
-    }, [enterClassName, exitClassName, nodeRef, show, shouldRender, isFirstRender]);
+    }, [classNames, nodeRef, show, shouldRender, isFirstRender]);
 
     const handleAnimationEnd = () => {
         if (show && shouldRender) {
             onEnter();
-            nodeRef.current?.classList.remove(enterClassName);
-            nodeRef.current?.classList.add(enterDoneClassName);
+            nodeRef.current?.classList.remove(...classNames.enter);
+            nodeRef.current?.classList.add(...classNames.enterDone);
         } else if (shouldRender) {
             onExit();
-            nodeRef.current?.classList.remove(exitClassName);
-            nodeRef.current?.classList.add(exitDoneClassName);
+            nodeRef.current?.classList.remove(...classNames.exit);
+            nodeRef.current?.classList.add(...classNames.exitDone);
             setRender(false);
         }
     };

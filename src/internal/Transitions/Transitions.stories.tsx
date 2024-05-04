@@ -4,13 +4,7 @@ import {fn} from '@storybook/test';
 
 import {Picture, Button} from '@/lib';
 
-import {
-    TransitionFade,
-    TransitionSlideBottom,
-    TransitionSlideTop,
-    TransitionSlideRight,
-    TransitionSlideLeft,
-} from './index.ts';
+import {TransitionFade, TransitionSlideBottom, TransitionSlideRight, TransitionSlideLeft} from './index.ts';
 
 const meta = {
     title: 'Internal/Transitions',
@@ -117,36 +111,6 @@ export const SlideBottom: Story = {
                         alt="Image description"
                     />
                 </TransitionSlideBottom>
-            </div>
-        );
-    },
-    args: {
-        show: true,
-    },
-};
-
-export const SlideTop: Story = {
-    render: args => {
-        const ref = useRef(null);
-        const [visible, setVisible] = useState(true);
-        const handleClick = useCallback(() => {
-            setVisible(!visible);
-        }, [visible]);
-        const transitionName = visible ? 'exit' : 'enter';
-        return (
-            <div style={{height: 666}}>
-                <div style={{marginBottom: 32}}>
-                    <Button onClick={handleClick}>Trigger {transitionName} transition</Button>
-                </div>
-                <TransitionSlideTop {...args} show={visible} nodeRef={ref}>
-                    <Picture
-                        ref={ref}
-                        src="https://picsum.photos/333/333"
-                        width={333}
-                        height={333}
-                        alt="Image description"
-                    />
-                </TransitionSlideTop>
             </div>
         );
     },
