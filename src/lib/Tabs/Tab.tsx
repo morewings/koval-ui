@@ -4,7 +4,6 @@ import {useRef} from 'react';
 import {TransitionFade} from '@/internal/Transitions';
 
 import classes from './Tabs.module.css';
-import {useActiveTab} from './TabContext.tsx';
 
 export type Props = {
     name: string;
@@ -12,11 +11,10 @@ export type Props = {
     icon?: FC<HTMLAttributes<HTMLOrSVGElement> & unknown>;
 };
 
-export const Tab: FC<Props> = ({children, name}) => {
-    const active = useActiveTab();
+export const Tab: FC<Props> = ({children}) => {
     const ref = useRef(null);
     return (
-        <TransitionFade nodeRef={ref} show={name === active}>
+        <TransitionFade nodeRef={ref} show={true}>
             <div ref={ref} className={classes.tab}>
                 {children}
             </div>

@@ -11,7 +11,6 @@ import {IconScroll} from '@/internal/Icons';
 import type {Props as TabProps} from './Tab.tsx';
 import {TabButton} from './TabButton.tsx';
 import classes from './Tabs.module.css';
-import {TabsProvider} from './TabContext.tsx';
 
 export type Props = DataAttributes &
     LibraryProps & {
@@ -83,23 +82,29 @@ export const Tabs = forwardRef<HTMLDivElement, Props>(
         const {overflowX} = useIsOverflow(headerRef);
 
         return (
-            <TabsProvider value={selected}>
-                <LocalRoot {...nativeProps} theme={theme} className={classNames(classes.tabs, className)}>
-                    <div className={classes.viewport}>
-                        <header ref={headerRef} className={classes.header}>
-                            {tabs.map(({tabName, icon}) => {
-                                return <TabButton key={tabName} icon={icon} onClick={handleClick} tabName={tabName} />;
-                            })}
-                        </header>
-                        {overflowX && (
-                            <div className={classes['overflow-indicator']}>
-                                <IconScroll />
-                            </div>
-                        )}
-                    </div>
-                    <div className={classes.content}>{visibleTab}</div>
-                </LocalRoot>
-            </TabsProvider>
+            <LocalRoot {...nativeProps} theme={theme} className={classNames(classes.tabs, className)}>
+                <div className={classes.viewport}>
+                    <header ref={headerRef} className={classes.header}>
+                        {tabs.map(({tabName, icon}) => {
+                            return (
+                                <TabButton
+                                    key={tabName}
+                                    icon={icon}
+                                    onClick={handleClick}
+                                    tabName={tabName}
+                                    activeName={selected}
+                                />
+                            );
+                        })}
+                    </header>
+                    {overflowX && (
+                        <div className={classes['overflow-indicator']}>
+                            <IconScroll />
+                        </div>
+                    )}
+                </div>
+                <div className={classes.content}>{visibleTab}</div>
+            </LocalRoot>
         );
     }
 );
