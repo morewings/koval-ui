@@ -53,6 +53,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
         ref
     ) => {
         const {validateTextual, validity, setValidity} = useValidation({validatorFn});
+
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
