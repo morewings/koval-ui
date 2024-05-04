@@ -4,6 +4,7 @@ import {Fragment, useCallback} from 'react';
 // import {fn} from '@storybook/test';
 import {NavList, NavLink, H2, Button} from '@/lib';
 import {CloudUpload, IconFile} from '@/internal/Icons';
+import {ButtonGroup} from '@/lib/ButtonGroup';
 
 import {Drawer} from './Drawer.tsx';
 import {useDrawerState} from './useDrawerState.tsx';
@@ -77,8 +78,10 @@ export const Multiple: Story = {
         }, [closeDrawerBar, isOpenBar, openDrawerBar]);
         return (
             <Fragment>
-                <Button onClick={handleClickFoo}>Toggle Drawer #1</Button>
-                <Button onClick={handleClickBar}>Toggle Drawer #2</Button>
+                <ButtonGroup>
+                    <Button onClick={handleClickFoo}>Toggle Drawer #1</Button>
+                    <Button onClick={handleClickBar}>Toggle Drawer #2</Button>
+                </ButtonGroup>
                 <Drawer id="foo" placement="left">
                     <H2>Foo drawer</H2>
                 </Drawer>

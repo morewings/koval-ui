@@ -1,9 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {useCallback, useMemo} from 'react';
+import {Fragment, useCallback, useMemo} from 'react';
 import {fn} from '@storybook/test';
 
 import {Page} from '@/lib/Layout';
 import {Button} from '@/lib/Button';
+import {ButtonGroup} from '@/lib/ButtonGroup';
 import {P} from '@/lib/Text';
 import {CloudUpload, IconFile} from '@/internal/Icons';
 
@@ -199,18 +200,18 @@ export const DialogInDialog: Story = {
         );
 
         return (
-            <Page width={666}>
-                <div style={{display: 'flex', gap: '12px'}}>
+            <Fragment>
+                <ButtonGroup>
                     <Button onClick={openFirst}>Open first</Button>
                     <Button onClick={openSecond}>Open second</Button>
-                </div>
+                </ButtonGroup>
                 <Dialog id="baz" actions={actionsFirst} showCloseButton={false}>
                     <P>This is 1st level Dialog.</P>
                 </Dialog>
                 <Dialog id="qux" actions={actionsSecond} showCloseButton={false}>
                     <P>This is 2nd level Dialog.</P>
                 </Dialog>
-            </Page>
+            </Fragment>
         );
     },
 };

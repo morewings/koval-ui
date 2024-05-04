@@ -3,6 +3,7 @@ import {Fragment} from 'react';
 import {fn} from '@storybook/test';
 
 import {Button} from '@/lib';
+import {ButtonGroup} from '@/lib/ButtonGroup';
 
 import {Notification} from './Notification.tsx';
 import {useNotificationState} from './useNotificationState.tsx';
@@ -40,10 +41,10 @@ export const Primary: Story = {
         const {openNotification, closeNotification} = useNotificationState('foo');
         return (
             <Fragment>
-                <Button onClick={openNotification}>open notification</Button>
-                <br />
-                <Button onClick={closeNotification}>close notification</Button>
-                <br />
+                <ButtonGroup layout="vertical">
+                    <Button onClick={openNotification}>open notification</Button>
+                    <Button onClick={closeNotification}>close notification</Button>
+                </ButtonGroup>
                 <Notification {...args} />
             </Fragment>
         );
@@ -63,14 +64,12 @@ export const Multiple: Story = {
         const {openNotification: openBar, closeNotification: closeBar} = useNotificationState('bar');
         return (
             <Fragment>
-                <Button onClick={openFoo}>open foo</Button>
-                <br />
-                <Button onClick={openBar}>open bar</Button>
-                <br />
-                <Button onClick={closeFoo}>close foo</Button>
-                <br />
-                <Button onClick={closeBar}>close bar</Button>
-                <br />
+                <ButtonGroup layout="vertical">
+                    <Button onClick={openFoo}>open foo</Button>
+                    <Button onClick={openBar}>open bar</Button>
+                    <Button onClick={closeFoo}>close foo</Button>
+                    <Button onClick={closeBar}>close bar</Button>
+                </ButtonGroup>
                 <Notification
                     {...args}
                     title="Foo notification"

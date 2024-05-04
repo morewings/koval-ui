@@ -1,0 +1,17 @@
+.button-group {
+    background: var(--background100);
+    border-radius: 3px;
+    display: inline-flex;
+    gap: calc(var(--sizeUnit) * 2);
+    max-width: 100%;
+    padding: calc(var(--sizeUnit) * 2);
+    width: auto;
+
+    &.horizontal {
+        flex-direction: row;
+    }
+
+    &.vertical {
+        flex-direction: column;
+    }
+}

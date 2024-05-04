@@ -85,7 +85,7 @@
 
 .success {
     --borderColor: var(--colorSuccess);
-    --bgColor: var(--background000);
+    --bgColor: transparent;
     --textColor: var(--colorSuccess);
 
     &:hover {
@@ -103,7 +103,7 @@
 
 .danger {
     --borderColor: var(--colorError);
-    --bgColor: var(--background000);
+    --bgColor: transparent;
     --textColor: var(--colorError);
 
     &:hover {
@@ -121,7 +121,7 @@
 
 .action {
     --borderColor: var(--colorAction);
-    --bgColor: var(--background000);
+    --bgColor: transparent;
     --textColor: var(--colorAction);
 
     &:hover {
@@ -139,7 +139,7 @@
 
 .alternative {
     --borderColor: var(--colorDo);
-    --bgColor: var(--background000);
+    --bgColor: transparent;
     --textColor: var(--colorRe);
 
     &:hover {
