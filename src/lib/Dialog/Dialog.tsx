@@ -7,8 +7,8 @@ import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {IconClose} from '@/internal/Icons';
 import {H3} from '@/lib';
 import {useFocusTrap} from '@/internal/hooks/useFocusTrap.ts';
-import {TransitionSlideTop} from '@/internal/Transitions';
 
+import {TransitionDialog} from './TransitionDialog.tsx';
 import type {Props as ActionProps} from './Action.tsx';
 import {Action} from './Action.tsx';
 import {useDialogState} from './useDialogState.tsx';
@@ -90,7 +90,7 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
         }, [dialogRef]);
 
         return (
-            <TransitionSlideTop unmountNode={false} show={isOpen} nodeRef={dialogRef} onExit={handleExit}>
+            <TransitionDialog unmountNode={true} show={isOpen} nodeRef={dialogRef} onExit={handleExit}>
                 <dialog
                     {...nativeProps}
                     id={id}
@@ -131,7 +131,7 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
                         </footer>
                     </div>
                 </dialog>
-            </TransitionSlideTop>
+            </TransitionDialog>
         );
     }
 );
