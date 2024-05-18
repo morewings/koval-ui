@@ -34,7 +34,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    render: function Render(args) {
+    render: args => {
         return <Picture {...args} />;
     },
     args: {
@@ -51,24 +51,14 @@ export const Primary: Story = {
     },
 };
 
-export const WithCode: Story = {
+export const Responsive: Story = {
     render: args => {
-        // here comes the code
         return <Picture {...args} />;
     },
-};
-
-WithCode.args = {
-    id: 'foo',
-};
-
-WithCode.argTypes = {};
-
-WithCode.parameters = {
-    docs: {
-        source: {
-            language: 'tsx',
-            type: 'code',
-        },
+    args: {
+        src: 'https://picsum.photos/999/666',
+        width: 999,
+        height: 666,
+        alt: 'Image description',
     },
 };
