@@ -70,8 +70,10 @@ const actionsTwo = [
     ],
 ];
 
+// TODO: why args don't work here?
+
 export const Primary: Story = {
-    render: ({...args}) => {
+    render: () => {
         const {openDialog} = useDialogState('foo');
         const handleOpen = useCallback(() => {
             openDialog();
@@ -82,7 +84,7 @@ export const Primary: Story = {
                 <div style={{display: 'flex', gap: '12px'}}>
                     <Button onClick={handleOpen}>Open dialog</Button>
                 </div>
-                <Dialog {...args}>
+                <Dialog id="foo" dialogTitle="This is the title of dialog!">
                     <P>
                         On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
                         and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot
@@ -94,10 +96,7 @@ export const Primary: Story = {
             </Page>
         );
     },
-    args: {
-        id: 'foo',
-        dialogTitle: 'This is the title of dialog!',
-    },
+    args: {},
     argTypes: {
         actions: {
             options: ['noActions', 'with2Actions', 'withAllActions'], // An array of serializable values
@@ -120,19 +119,15 @@ export const Primary: Story = {
 };
 
 export const LongText: Story = {
-    render: ({...args}) => {
-        // const [isOpen, setOpen] = useState(open);
+    render: () => {
         const {openDialog} = useDialogState('bazz');
-        const handleOpen = useCallback(() => {
-            openDialog();
-        }, [openDialog]);
 
         return (
-            <Page>
+            <Fragment>
                 <div style={{display: 'flex', gap: '12px'}}>
-                    <Button onClick={handleOpen}>Open dialog</Button>
+                    <Button onClick={openDialog}>Open dialog</Button>
                 </div>
-                <Dialog {...args}>
+                <Dialog id="bazz" dialogTitle="This is the title of dialog!">
                     <P>
                         On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
                         and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot
@@ -169,12 +164,8 @@ export const LongText: Story = {
                         and pain
                     </P>
                 </Dialog>
-            </Page>
+            </Fragment>
         );
-    },
-    args: {
-        id: 'bazz',
-        dialogTitle: 'This is the title of dialog!',
     },
 };
 
