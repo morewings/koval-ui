@@ -1,4 +1,6 @@
 import type {MutableRefObject, ReactNode} from 'react';
+import {useEffect} from 'react';
+import {useRef} from 'react';
 import {Children, forwardRef, useMemo, useState, useCallback} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
@@ -51,15 +53,39 @@ export const Carousel = forwardRef<HTMLDivElement, Props>(
         },
         ref
     ) => {
-        const {LocalRoot, ref: innerRef} = useLocalTheme();
-
-        useLinkRefs<HTMLDivElement>(ref, innerRef as MutableRefObject<HTMLDivElement>);
-
         const initialState = defaultVisible !== 0 ? defaultVisible - 1 : defaultVisible;
 
         const [visible, setVisible] = useState(initialState);
 
         const cellsAmount = Children.toArray(children).length;
+
+        const {LocalRoot, ref: innerRef} = useLocalTheme();
+
+        useLinkRefs<HTMLDivElement>(ref, innerRef as MutableRefObject<HTMLDivElement>);
+
+        const viewPortRef = useRef<HTMLDivElement>(null);
+
+        const [elementWidth, setElementWidth] = useState(width);
+        const [elementHeight, setElementHeight] = useState(height);
+
+        useEffect(() => {
+            const refWidth = viewPortRef.current?.offsetWidth;
+            if (refWidth !== elementWidth) {
+                const refHeight = refWidth && height * (refWidth / width);
+                refWidth && setElementWidth(refWidth);
+                refHeight && setElementHeight(refHeight);
+            }
+        }, [width, height, elementWidth]);
+
+        const theme = useMemo(
+            () => ({
+                width: elementWidth,
+                height: elementHeight,
+                cellsAmount,
+                rotations: visible,
+            }),
+            [elementWidth, elementHeight, cellsAmount, visible]
+        );
 
         const visibleIndex = getVisibleIndex(visible, cellsAmount);
 
@@ -96,16 +122,6 @@ export const Carousel = forwardRef<HTMLDivElement, Props>(
                 }),
             [children]
         );
-        // TODO: calculate width. Make Carousel responsive.
-        const theme = useMemo(
-            () => ({
-                width,
-                height,
-                cellsAmount,
-                rotations: visible,
-            }),
-            [width, height, cellsAmount, visible]
-        );
 
         return (
             <LocalRoot {...nativeProps} theme={theme} className={classNames(classes.carousel, className)}>
@@ -115,7 +131,9 @@ export const Carousel = forwardRef<HTMLDivElement, Props>(
                             <IconArrowLeft className={classes.icon} />
                         </button>
                     )}
-                    <div className={classes.viewport}>{cells}</div>
+                    <div className={classes.viewport} ref={viewPortRef}>
+                        {cells}
+                    </div>
                     {showArrows && (
                         <button className={classNames(classes.navigation, classes.right)} onClick={handleIncrement}>
                             <IconArrowRight className={classes.icon} />
