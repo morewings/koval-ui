@@ -7,16 +7,18 @@
 }
 
 .carousel {
-    width: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: calc(var(--width) * 1px);
 }
 
 .scene {
-    height: calc(var(--height) * 1px);
+    aspect-ratio: calc(var(--width) / var(--height));
+    max-width: 100%;
     overflow: hidden;
 
-    /* Perspective makes Carousel look more 3Dish. Which may be needed for expanded design. */
-
-    /* perspective: 666px; */
+    /* Perspective makes Carousel look more 3Dish. Which may be needed for expanded design. perspective: 666px; */
     position: relative;
     width: calc(var(--width) * 1px);
 }
