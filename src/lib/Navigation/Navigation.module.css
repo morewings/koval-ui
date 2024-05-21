@@ -25,7 +25,7 @@
 
 .nav-list {
     --textColor: var(--background000);
-    --hoverColor: var(--background100);
+    --hoverColor: var(--colorRe);
 
     display: flex;
     flex-grow: 0;
@@ -99,6 +99,12 @@
 
     &:hover {
         --baseColor: var(--hoverColor);
+
+        text-shadow: 1px 1px 1px var(--colorMi);
+
+        & .nav-link-icon {
+            filter: drop-shadow(1px 1px 1px var(--colorMi));
+        }
     }
 }
 
