@@ -50,8 +50,8 @@ export const Primary: Story = {
             <div style={parentSize}>
                 <NavList {...args}>
                     <NavLink title="Foo" href="#" icon={IconFile} />
-                    <NavLink title="Bar" type="success" href="#" />
-                    <NavLink title="Bazz" type="link" href="#" icon={CloudUpload} />
+                    <NavLink title="Bar" href="#" />
+                    <NavLink title="Bazz" href="#" icon={CloudUpload} />
                     <NavLink title="Wery Longer name" href="#" />
                     <NavLink title="Shifted" shift={true} href="#" icon={CloudUpload} />
                 </NavList>

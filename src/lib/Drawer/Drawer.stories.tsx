@@ -2,12 +2,13 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {Fragment, useCallback} from 'react';
 
 // import {fn} from '@storybook/test';
-import {NavList, NavLink, H2, Button} from '@/lib';
+import {NavList, NavLink, H2, Button, NavBrand} from '@/lib';
 import {CloudUpload, IconFile} from '@/internal/Icons';
 import {ButtonGroup} from '@/lib/ButtonGroup';
 
 import {Drawer} from './Drawer.tsx';
 import {useDrawerState} from './useDrawerState.tsx';
+import classes from './Drawer.module.css';
 
 const meta = {
     title: 'Components/Drawer',
@@ -49,11 +50,11 @@ export const Primary: Story = {
             <Fragment>
                 <Button onClick={handleClick}>Toggle Drawer</Button>
                 <Drawer {...args}>
-                    <H2>Navigation</H2>
+                    <NavBrand className={classes.brand}>Navigation</NavBrand>
                     <NavList>
                         <NavLink title="Foo" href="#" icon={IconFile} />
-                        <NavLink title="Bar" type="success" href="#" />
-                        <NavLink title="Bazz" type="link" href="#" icon={CloudUpload} />
+                        <NavLink title="Bar" href="#" />
+                        <NavLink title="Bazz" href="#" icon={CloudUpload} />
                         <NavLink title="Wery Longer name" href="#" />
                         <NavLink title="Shifted" shift={true} href="#" icon={CloudUpload} />
                     </NavList>

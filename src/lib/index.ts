@@ -61,7 +61,7 @@ export {Notification, useNotificationState} from './Notification';
 export {Toast, useToastState} from './Toast';
 export {Pagination} from './Pagination';
 export {Card} from './Card';
-export {NavLink, NavList, NavPanel} from './Navigation';
+export {NavLink, NavList, NavPanel, NavBrand} from './Navigation';
 export {Progress} from './Progress';
 export {Drawer, useDrawerState} from './Drawer';
 export {Breadcrumbs} from './Breadcrumbs';
