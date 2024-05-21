@@ -11,12 +11,14 @@ export type Props = DataAttributes &
         children?: ReactNode;
     };
 
-export const TemplateName = forwardRef<HTMLDivElement, Props>(({children, className, ...nativeProps}, ref) => {
-    return (
-        <div {...nativeProps} className={classNames(classes.templateName, className)} ref={ref}>
-            {children}
-        </div>
-    );
-});
+export const TemplateName = forwardRef<HTMLDivElement, Props>(
+    ({children, className, ...nativeProps}, ref) => {
+        return (
+            <div {...nativeProps} className={classNames(classes.templateName, className)} ref={ref}>
+                {children}
+            </div>
+        );
+    }
+);
 
 TemplateName.displayName = 'TemplateName';
