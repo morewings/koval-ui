@@ -1,10 +1,9 @@
-import type {FC, ElementType, HTMLAttributes} from 'react';
+import type {FC, ElementType, HTMLAttributes, AriaAttributes, ReactNode} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 
-import {DefaultIcon} from './DefaultIcon.tsx';
-import classes from './NavList.module.css';
+import classes from './Navigation.module.css';
 
 enum LinkTypes {
     default = 'default',
@@ -18,22 +17,26 @@ export type Props = DataAttributes &
         type?: keyof typeof LinkTypes;
         title: string;
         href: string;
-        as?: ElementType<{href: any}>; //eslint-disable-line @typescript-eslint/no-explicit-any
+        as?: ElementType<
+            AriaAttributes &
+                DataAttributes & {href: string; className?: string; title?: string; children?: ReactNode} & unknown
+        >;
         icon?: FC<HTMLAttributes<HTMLOrSVGElement> & unknown>;
         shift?: boolean;
+        isCurrent?: boolean;
     };
 
 export const NavLink: FC<Props> = ({
     title,
     as: Component = 'a',
     href,
-    icon,
+    icon: Icon,
     shift = false,
     className,
     type = LinkTypes.default,
+    isCurrent,
     ...nativeProps
 }) => {
-    const Icon = icon ?? DefaultIcon;
     return (
         <Component
             {...nativeProps}
@@ -42,6 +45,7 @@ export const NavLink: FC<Props> = ({
                 classes.navLink,
                 {
                     [classes.shift]: shift,
+                    [classes.current]: isCurrent,
                     [classes.success]: type === LinkTypes.success,
                     [classes.default]: type === LinkTypes.default,
                     [classes.link]: type === LinkTypes.link,
