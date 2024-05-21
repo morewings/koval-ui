@@ -19,6 +19,11 @@
 }
 
 .right {
-    box-shadow: calc(var(--sizeUnit) * -1) var(--sizeUnit) calc(var(--sizeUnit) / 2) 0 var(--shadowColor);
+    box-shadow: calc(var(--sizeUnit) * -1) var(--sizeUnit) calc(var(--sizeUnit) / 2) 0
+        var(--shadowColor);
     right: 0;
+}
+
+.brand {
+    margin-bottom: calc(var(--sizeUnit) * 4);
 }

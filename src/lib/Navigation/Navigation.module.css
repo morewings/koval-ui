@@ -54,7 +54,7 @@
 .horizontal {
     align-items: center;
     flex-direction: row;
-    gap: calc(var(--sizeUnit) * 3);
+    gap: calc(var(--sizeUnit) * 5);
 
     & .shift {
         margin-left: auto;
@@ -84,7 +84,7 @@
 /* Link styles */
 
 .nav-link {
-    --baseColor: var(--colorAction);
+    --baseColor: var(--textColor);
 
     align-items: center;
     color: var(--baseColor);
@@ -96,6 +96,7 @@
     padding: calc(var(--sizeUnit) / 2) 0;
     position: relative;
     text-shadow: var(--textShadow);
+    user-select: none;
 
     &:hover {
         --baseColor: var(--hoverColor);
@@ -106,22 +107,6 @@
             filter: drop-shadow(1px 1px 1px var(--colorMi));
         }
     }
-}
-
-.default {
-    --baseColor: var(--textColor);
-}
-
-.link {
-    --baseColor: var(--colorAction);
-}
-
-.success {
-    --baseColor: var(--colorSuccess);
-}
-
-.danger {
-    --baseColor: var(--colorError);
 }
 
 .current {
