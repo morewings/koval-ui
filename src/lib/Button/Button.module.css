@@ -13,10 +13,16 @@
     letter-spacing: 1px;
     line-height: 1.2;
     padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) calc(var(--sizeUnit) * 3 * var(--sizeScaleFactor));
+    text-shadow: var(--textShadow);
     user-select: none;
+
+    &:hover {
+        text-shadow: none;
+    }
 
     &:disabled {
         cursor: not-allowed;
+        text-shadow: none;
     }
 
     &:active:not(:disabled) .content,
@@ -56,7 +62,6 @@
 
 .content {
     overflow: hidden;
-    padding-right: 4px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -69,6 +74,8 @@
     --borderColor: var(--colorDo);
     --bgColor: var(--colorDo);
     --textColor: var(--background000);
+
+    text-shadow: var(--textShadow);
 
     &:hover {
         --borderColor: var(--colorRe);
@@ -85,13 +92,13 @@
 
 .success {
     --borderColor: var(--colorSuccess);
-    --bgColor: transparent;
-    --textColor: var(--colorSuccess);
+    --bgColor: var(--colorSuccess);
+    --textColor: var(--background000);
 
     &:hover {
         --borderColor: var(--colorSuccess);
-        --bgColor: var(--colorSuccess);
-        --textColor: var(--background000);
+        --bgColor: transparent;
+        --textColor: var(--colorSuccess);
     }
 
     &:disabled {
@@ -103,13 +110,13 @@
 
 .danger {
     --borderColor: var(--colorError);
-    --bgColor: transparent;
-    --textColor: var(--colorError);
+    --bgColor: var(--colorError);
+    --textColor: var(--background000);
 
     &:hover {
         --borderColor: var(--colorError);
-        --bgColor: var(--colorError);
-        --textColor: var(--background000);
+        --bgColor: transparent;
+        --textColor: var(--colorError);
     }
 
     &:disabled {
@@ -121,13 +128,13 @@
 
 .action {
     --borderColor: var(--colorAction);
-    --bgColor: transparent;
-    --textColor: var(--colorAction);
+    --bgColor: var(--colorAction);
+    --textColor: var(--background000);
 
     &:hover {
         --borderColor: var(--colorAction);
-        --bgColor: var(--colorAction);
-        --textColor: var(--background000);
+        --bgColor: transparent;
+        --textColor: var(--colorAction);
     }
 
     &:disabled {
@@ -141,6 +148,8 @@
     --borderColor: var(--colorDo);
     --bgColor: transparent;
     --textColor: var(--colorRe);
+
+    text-shadow: none;
 
     &:hover {
         --borderColor: var(--colorRe);
@@ -162,6 +171,7 @@
 
     border-bottom-color: var(--colorAction);
     padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) 0 calc(var(--sizeUnit) * var(--sizeScaleFactor));
+    text-shadow: none;
 
     &:hover {
         border-bottom-color: var(--colorDo);

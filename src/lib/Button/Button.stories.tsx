@@ -26,6 +26,16 @@ const meta = {
                 disable: true,
             },
         },
+        id: {
+            table: {
+                disable: true,
+            },
+        },
+        role: {
+            table: {
+                disable: true,
+            },
+        },
         variant: {
             control: {
                 type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
