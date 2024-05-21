@@ -46,6 +46,7 @@ const Form = forwardRef<HTMLFormElement, Props>(
         },
         ref
     ) => {
+        const {markAsPristine, markAsDirty} = useFormActions();
         const getFormState = useCallback((formElement: EventTarget & HTMLFormElement) => {
             const data = new FormData(formElement);
             const formState: FormState = {};
@@ -68,13 +69,12 @@ const Form = forwardRef<HTMLFormElement, Props>(
 
         const handleError = useCallback(
             (event: InvalidEvent<HTMLFormElement>) => {
+                markAsDirty();
                 const formState = getFormState(event.currentTarget);
                 onInvalid(event, formState);
             },
-            [getFormState, onInvalid]
+            [getFormState, markAsDirty, onInvalid]
         );
-
-        const {markAsPristine, markAsDirty} = useFormActions();
 
         const handleReset = useCallback(
             (event: ChangeEvent<HTMLFormElement>) => {

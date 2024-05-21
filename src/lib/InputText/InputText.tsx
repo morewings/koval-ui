@@ -48,6 +48,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             readOnly,
             size = 16,
             id,
+            required,
             ...nativeProps
         },
         ref
@@ -67,8 +68,8 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
         );
 
         const handleInvalid = useCallback(() => {
-            setValidity(ValidationState.error);
-        }, [setValidity]);
+            required && setValidity(ValidationState.error);
+        }, [required, setValidity]);
 
         const handleSelect = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
@@ -88,6 +89,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                 )}
                 <input
                     {...nativeProps}
+                    required={required}
                     size={size}
                     id={inputId}
                     readOnly={readOnly}
