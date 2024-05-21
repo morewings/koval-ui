@@ -4,7 +4,9 @@ import {useMemo, useReducer, forwardRef} from 'react';
 import {FormReducer, initialState} from './FormReducer.ts';
 import {FormContext} from './FormContext.tsx';
 
-export const withFormProvider = <TProps extends JSX.IntrinsicAttributes>(Component: ExoticComponent<TProps>) => {
+export const withFormProvider = <TProps extends JSX.IntrinsicAttributes>(
+    Component: ExoticComponent<TProps>
+) => {
     const {Provider} = FormContext;
     const FormProvider = forwardRef<HTMLFormElement, TProps>((props, ref) => {
         const [state, dispatch] = useReducer(FormReducer, initialState);

@@ -11,12 +11,14 @@ export type Props = DataAttributes &
         children?: ReactNode;
     };
 
-export const Text: FC<Props> = forwardRef<HTMLDivElement, Props>(({children, className, ...nativeProps}, ref) => {
-    return (
-        <div {...nativeProps} ref={ref} className={classNames(classes.text, className)}>
-            {children}
-        </div>
-    );
-});
+export const Text: FC<Props> = forwardRef<HTMLDivElement, Props>(
+    ({children, className, ...nativeProps}, ref) => {
+        return (
+            <div {...nativeProps} ref={ref} className={classNames(classes.text, className)}>
+                {children}
+            </div>
+        );
+    }
+);
 
 Text.displayName = 'Text';

@@ -68,8 +68,16 @@ export const Primary: Story = {
 
 export const Multiple: Story = {
     render: () => {
-        const {isOpen: isOpenFoo, closeDrawer: closeDrawerFoo, openDrawer: openDrawerFoo} = useDrawerState('foo');
-        const {isOpen: isOpenBar, closeDrawer: closeDrawerBar, openDrawer: openDrawerBar} = useDrawerState('bar');
+        const {
+            isOpen: isOpenFoo,
+            closeDrawer: closeDrawerFoo,
+            openDrawer: openDrawerFoo,
+        } = useDrawerState('foo');
+        const {
+            isOpen: isOpenBar,
+            closeDrawer: closeDrawerBar,
+            openDrawer: openDrawerBar,
+        } = useDrawerState('bar');
         const handleClickFoo = useCallback(() => {
             isOpenFoo ? closeDrawerFoo() : openDrawerFoo();
         }, [closeDrawerFoo, isOpenFoo, openDrawerFoo]);

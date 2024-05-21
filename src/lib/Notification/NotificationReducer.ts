@@ -82,7 +82,10 @@ const without = <TValue>(value: TValue, array: TValue[]) => {
     return array.filter(member => member !== value);
 };
 
-export const NotificationReducer = (state = initialState, action: NotificationAction): NotificationState => {
+export const NotificationReducer = (
+    state = initialState,
+    action: NotificationAction
+): NotificationState => {
     switch (action.type) {
         case Actions.NOTIFICATION_CLOSE: {
             const {id} = action;

@@ -1,4 +1,11 @@
-import type {FC, DetailedHTMLProps, ButtonHTMLAttributes, MouseEvent, HTMLAttributes, ReactNode} from 'react';
+import type {
+    FC,
+    DetailedHTMLProps,
+    ButtonHTMLAttributes,
+    MouseEvent,
+    HTMLAttributes,
+    ReactNode,
+} from 'react';
 import {forwardRef} from 'react';
 import classNames from 'classnames';
 
@@ -11,7 +18,10 @@ export type Props = DataAttributes &
     LibraryProps & {
         children?: ReactNode;
         onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-        type?: DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>['type'];
+        type?: DetailedHTMLProps<
+            ButtonHTMLAttributes<HTMLButtonElement>,
+            HTMLButtonElement
+        >['type'];
         disabled?: boolean;
         variant?: keyof typeof Variants;
         size?: keyof typeof Sizes;

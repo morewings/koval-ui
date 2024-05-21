@@ -37,7 +37,21 @@ export type Props = DataAttributes &
     };
 
 export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
-    ({className, validation, id, label, children, name, disabled, hint, required, ...nativeProps}, ref) => {
+    (
+        {
+            className,
+            validation,
+            id,
+            label,
+            children,
+            name,
+            disabled,
+            hint,
+            required,
+            ...nativeProps
+        },
+        ref
+    ) => {
         const childrenWithProps = useMemo(() => {
             return Children.map(children, element => {
                 if (isValidElement(element)) {
@@ -61,7 +75,9 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
                 disabled={disabled}
                 id={id}
                 ref={ref}>
-                <legend className={classNames(classes.legend, {[classes.disabled]: disabled})}>{label}</legend>
+                <legend className={classNames(classes.legend, {[classes.disabled]: disabled})}>
+                    {label}
+                </legend>
                 <div className={classes.inputs}>{childrenWithProps}</div>
                 {hint && <div className={classes.hint}>{hint}</div>}
             </fieldset>

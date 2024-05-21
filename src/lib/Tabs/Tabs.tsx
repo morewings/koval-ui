@@ -22,7 +22,18 @@ export type Props = DataAttributes &
     };
 
 export const Tabs = forwardRef<HTMLDivElement, Props>(
-    ({children, className, selected: selectedProp, width, height, onToggle = () => {}, ...nativeProps}, ref) => {
+    (
+        {
+            children,
+            className,
+            selected: selectedProp,
+            width,
+            height,
+            onToggle = () => {},
+            ...nativeProps
+        },
+        ref
+    ) => {
         const {LocalRoot, ref: innerRef} = useLocalTheme();
 
         useLinkRefs(ref as ForwardedRef<HTMLElement>, innerRef);
@@ -39,7 +50,10 @@ export const Tabs = forwardRef<HTMLDivElement, Props>(
         }, [height, width]);
 
         const initiallySelected = useMemo(
-            () => (selectedProp ? selectedProp : (Children.toArray(children)[0] as ReactElement<TabProps>).props.name),
+            () =>
+                selectedProp
+                    ? selectedProp
+                    : (Children.toArray(children)[0] as ReactElement<TabProps>).props.name,
             [children, selectedProp]
         );
 
@@ -82,7 +96,10 @@ export const Tabs = forwardRef<HTMLDivElement, Props>(
         const {overflowX} = useIsOverflow(headerRef);
 
         return (
-            <LocalRoot {...nativeProps} theme={theme} className={classNames(classes.tabs, className)}>
+            <LocalRoot
+                {...nativeProps}
+                theme={theme}
+                className={classNames(classes.tabs, className)}>
                 <div className={classes.viewport}>
                     <header ref={headerRef} className={classes.header}>
                         {tabs.map(({tabName, icon}) => {

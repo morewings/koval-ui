@@ -70,7 +70,10 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
 
         const handleClick = useCallback(
             (event: MouseEvent<typeof dialogRef.current>) => {
-                if ((event.target as HTMLDialogElement).nodeName === 'DIALOG' && closeOnClickOutside) {
+                if (
+                    (event.target as HTMLDialogElement).nodeName === 'DIALOG' &&
+                    closeOnClickOutside
+                ) {
                     handleSelfClose();
                 }
             },
@@ -90,7 +93,11 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
         }, [dialogRef]);
 
         return (
-            <TransitionDialog unmountNode={true} show={isOpen} nodeRef={dialogRef} onExit={handleExit}>
+            <TransitionDialog
+                unmountNode={true}
+                show={isOpen}
+                nodeRef={dialogRef}
+                onExit={handleExit}>
                 <dialog
                     {...nativeProps}
                     id={id}
@@ -125,7 +132,11 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
                             })}
                             {showCloseButton && (
                                 <div key={`${id}-close`} className={classes.row}>
-                                    <Action onClick={handleSelfClose} icon={IconClose} title={closeLabel} />
+                                    <Action
+                                        onClick={handleSelfClose}
+                                        icon={IconClose}
+                                        title={closeLabel}
+                                    />
                                 </div>
                             )}
                         </footer>

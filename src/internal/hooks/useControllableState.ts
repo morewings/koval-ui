@@ -4,7 +4,8 @@ import {useCallback, useState} from 'react';
 import {useCallbackRef} from './useCallbackRef.ts';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-const isFunction = <T extends Function = Function>(value: unknown): value is T => typeof value === 'function';
+const isFunction = <T extends Function = Function>(value: unknown): value is T =>
+    typeof value === 'function';
 
 export function runIfFn<T, U>(valueOrFn: T | ((...fnArgs: U[]) => T), ...args: U[]): T {
     return isFunction(valueOrFn) ? valueOrFn(...args) : valueOrFn;
@@ -34,7 +35,12 @@ export type UseControllableStateProps<T> = {
  * @param props
  */
 export function useControllableState<T>(props: UseControllableStateProps<T>) {
-    const {value: valueProp, defaultValue, onChange, shouldUpdate = (prev, next) => prev !== next} = props;
+    const {
+        value: valueProp,
+        defaultValue,
+        onChange,
+        shouldUpdate = (prev, next) => prev !== next,
+    } = props;
     const onChangeProp = useCallbackRef(onChange);
     const shouldUpdateProp = useCallbackRef(shouldUpdate);
 

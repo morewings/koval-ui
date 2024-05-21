@@ -4,7 +4,10 @@ import {useLocalTheme} from 'css-vars-hook';
 
 import classes from './ElementFill.module.css';
 
-export const ElementFill: FC<{children: ReactNode; color?: string}> = ({children, color = 'pink'}) => {
+export const ElementFill: FC<{children: ReactNode; color?: string}> = ({
+    children,
+    color = 'pink',
+}) => {
     const {LocalRoot} = useLocalTheme();
     const theme = useMemo(() => ({color}), [color]);
     return (

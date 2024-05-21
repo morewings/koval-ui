@@ -10,5 +10,7 @@ export const useLinkRefs = <TElement = HTMLElement>(
 
     const normalizedRef = innerRef ? innerRef : backupRef;
 
-    useImperativeHandle<TElement | null, TElement | null>(outerRef, () => normalizedRef.current, [normalizedRef]);
+    useImperativeHandle<TElement | null, TElement | null>(outerRef, () => normalizedRef.current, [
+        normalizedRef,
+    ]);
 };

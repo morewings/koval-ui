@@ -3,7 +3,9 @@ import {useState} from 'react';
 
 import {useSafeLayoutEffect} from '@/internal/hooks/useSafeLayoutEffect.ts';
 
-export const useIsOverflow = <TElement extends HTMLElement | null>(ref: MutableRefObject<TElement>) => {
+export const useIsOverflow = <TElement extends HTMLElement | null>(
+    ref: MutableRefObject<TElement>
+) => {
     const [overflowY, setOverflowY] = useState<boolean | undefined>(undefined);
     const [overflowX, setOverflowX] = useState<boolean | undefined>(undefined);
 

@@ -27,8 +27,8 @@ export const Primary: Story = {
     render: args => {
         return (
             <BlockQuote {...args}>
-                Words can be like X-rays, if you use them properly—they’ll go through anything. You read and you’re
-                pierced.
+                Words can be like X-rays, if you use them properly—they’ll go through anything. You
+                read and you’re pierced.
                 <cite>George Clooney</cite>
             </BlockQuote>
         );

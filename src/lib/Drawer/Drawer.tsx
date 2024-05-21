@@ -36,7 +36,11 @@ export const Drawer = forwardRef<HTMLDivElement, Props>(
         const {LocalRoot} = useLocalTheme();
 
         const Transition = useMemo(
-            () => ({[Placements.left]: TransitionSlideLeft, [Placements.right]: TransitionSlideRight})[placement],
+            () =>
+                ({
+                    [Placements.left]: TransitionSlideLeft,
+                    [Placements.right]: TransitionSlideRight,
+                })[placement],
             [placement]
         );
 

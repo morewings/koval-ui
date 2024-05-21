@@ -6,7 +6,11 @@ import {useLocalTheme} from 'css-vars-hook';
 
 import {IconPalette} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import type {CallbackPropsTextual, ValidationProps, NativePropsInteractive} from '@/internal/inputs';
+import type {
+    CallbackPropsTextual,
+    ValidationProps,
+    NativePropsInteractive,
+} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputColor.module.css';

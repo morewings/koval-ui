@@ -10,7 +10,12 @@ export const Dots: FC<{amount: number; active: number}> = ({amount, active}) => 
         <div className={classes.dots}>
             {dotsArray.map((_, i) => {
                 const isActive = i === active;
-                return <div className={classNames(classes.dot, {[classes.active]: isActive})} key={i} />;
+                return (
+                    <div
+                        className={classNames(classes.dot, {[classes.active]: isActive})}
+                        key={i}
+                    />
+                );
             })}
         </div>
     );

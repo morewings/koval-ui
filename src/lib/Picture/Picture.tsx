@@ -95,7 +95,10 @@ export type Props = DataAttributes &
          * Set image loading behavior
          * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/loading
          */
-        loading?: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>['loading'];
+        loading?: DetailedHTMLProps<
+            ImgHTMLAttributes<HTMLImageElement>,
+            HTMLImageElement
+        >['loading'];
     };
 
 export const Picture = forwardRef<HTMLDivElement, Props>(

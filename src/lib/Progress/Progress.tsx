@@ -34,7 +34,10 @@ export type Props = DataAttributes &
     };
 
 export const Progress = forwardRef<HTMLProgressElement, Props>(
-    ({max = 100, value, className, variant = Variants.plain, label, id: idProp, ...nativeProps}, ref) => {
+    (
+        {max = 100, value, className, variant = Variants.plain, label, id: idProp, ...nativeProps},
+        ref
+    ) => {
         const id = useInternalId(idProp);
         return (
             <div className={classes.wrapper}>
@@ -48,7 +51,11 @@ export const Progress = forwardRef<HTMLProgressElement, Props>(
                     id={id}
                     max={max}
                     value={value}
-                    className={classNames(classes.progress, {[classes.dashed]: variant === Variants.dashed}, className)}
+                    className={classNames(
+                        classes.progress,
+                        {[classes.dashed]: variant === Variants.dashed},
+                        className
+                    )}
                     ref={ref}
                 />
             </div>

@@ -4,7 +4,12 @@ import {fn} from '@storybook/test';
 
 import {Picture, Button} from '@/lib';
 
-import {TransitionFade, TransitionSlideBottom, TransitionSlideRight, TransitionSlideLeft} from './index.ts';
+import {
+    TransitionFade,
+    TransitionSlideBottom,
+    TransitionSlideRight,
+    TransitionSlideLeft,
+} from './index.ts';
 
 const meta = {
     title: 'Internal/Transitions',

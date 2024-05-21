@@ -15,14 +15,16 @@ type RowProps = DataAttributes &
         children: ReactNode;
     };
 
-export const Row = forwardRef<HTMLElement, RowProps>(({className, children, as = 'div', ...nativeProps}, ref) => {
-    const {LocalRoot, ref: internalRef} = useLocalTheme();
-    useLinkRefs(ref, internalRef);
-    return (
-        <LocalRoot {...nativeProps} as={as} className={classNames(classes.row, className)}>
-            {children}
-        </LocalRoot>
-    );
-});
+export const Row = forwardRef<HTMLElement, RowProps>(
+    ({className, children, as = 'div', ...nativeProps}, ref) => {
+        const {LocalRoot, ref: internalRef} = useLocalTheme();
+        useLinkRefs(ref, internalRef);
+        return (
+            <LocalRoot {...nativeProps} as={as} className={classNames(classes.row, className)}>
+                {children}
+            </LocalRoot>
+        );
+    }
+);
 
 Row.displayName = 'Row';

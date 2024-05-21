@@ -37,16 +37,17 @@ export const Primary: Story = {
                     <h5>Header 5</h5>
                     <h6>Header 6</h6>
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. This text is{' '}
-                        <a href="#">long url example</a>. Lorem Ipsum has been the industry&apos;s standard dummy text
-                        ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-                        type specimen book.
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        This text is <a href="#">long url example</a>. Lorem Ipsum has been the
+                        industry&apos;s standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a type specimen book.
                     </p>
                     <p>
-                        It has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                        Aldus PageMaker including versions of Lorem Ipsum.
+                        It has survived not only five centuries, but also the leap into electronic
+                        typesetting, remaining essentially unchanged. It was popularised in the
+                        1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                        and more recently with desktop publishing software like Aldus PageMaker
+                        including versions of Lorem Ipsum.
                     </p>
                     <p>
                         This text is <a href="#">url</a>
@@ -85,8 +86,8 @@ export const Primary: Story = {
                         <li>Ordered item 3</li>
                     </ol>
                     <blockquote>
-                        Words can be like X-rays, if you use them properly—they’ll go through anything. You read and
-                        you’re pierced.
+                        Words can be like X-rays, if you use them properly—they’ll go through
+                        anything. You read and you’re pierced.
                         <cite>George Clooney</cite>
                     </blockquote>
                     <dl>
@@ -112,8 +113,8 @@ export const Primary: Story = {
                             <tr>
                                 <td>Body content 1</td>
                                 <td>
-                                    It has survived not only five centuries, but also the leap into electronic
-                                    typesetting, remaining essentially unchanged.
+                                    It has survived not only five centuries, but also the leap into
+                                    electronic typesetting, remaining essentially unchanged.
                                 </td>
                                 <td>Body content 3</td>
                             </tr>

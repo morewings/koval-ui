@@ -20,7 +20,8 @@ export const useEventListener = <TEvent, TElement extends HTMLElement | null>(
 
     useEffect(() => {
         if (element == null) return;
-        const handler = ((e: TEvent) => callbackRef.current(e)) as unknown as EventListenerOrEventListenerObject;
+        const handler = ((e: TEvent) =>
+            callbackRef.current(e)) as unknown as EventListenerOrEventListenerObject;
         element.addEventListener(eventType, handler);
 
         return () => element.removeEventListener(eventType, handler);

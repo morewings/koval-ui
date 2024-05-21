@@ -101,13 +101,23 @@ export const Example: Story = {
         children: (
             <Fragment>
                 <FormField label="Required input">
-                    <InputText autoComplete="off" name="foo" placeholder="Required input" required />
+                    <InputText
+                        autoComplete="off"
+                        name="foo"
+                        placeholder="Required input"
+                        required
+                    />
                 </FormField>
                 <FormField label="Custom validation">
                     <InputText autoComplete="off" name="bar" validatorFn={validatorSync} />
                 </FormField>
                 <FormField label="Custom validation + required">
-                    <InputText autoComplete="off" name="grault" validatorFn={validatorSync} required />
+                    <InputText
+                        autoComplete="off"
+                        name="grault"
+                        validatorFn={validatorSync}
+                        required
+                    />
                 </FormField>
                 <FormField label="Async validation">
                     <InputText autoComplete="off" name="baz" validatorFn={validatorAsync} />

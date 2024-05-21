@@ -23,7 +23,9 @@ export const useNotificationState = (id: string) => {
     const {dispatch} = useNotificationContext();
     const instance = useNotificationInstance(id);
     const notificationProps = useNotificationProps(id);
-    const isOpen = useSelector((state: NotificationState) => state.open.some(notificationId => notificationId === id));
+    const isOpen = useSelector((state: NotificationState) =>
+        state.open.some(notificationId => notificationId === id)
+    );
     const [permission, setPermission] = useState<NotificationPermission>();
 
     const handleSelfClose = useCallback(() => {
@@ -48,13 +50,21 @@ export const useNotificationState = (id: string) => {
             instance?.close();
         }
         if (currentPermission === 'granted') {
-            dispatch({type: Actions.NOTIFICATION_OPEN, id, instance: createNotification(notificationProps)});
+            dispatch({
+                type: Actions.NOTIFICATION_OPEN,
+                id,
+                instance: createNotification(notificationProps),
+            });
             setPermission(currentPermission);
         } else if (currentPermission !== 'denied') {
             window?.Notification?.requestPermission().then(nextPermission => {
                 setPermission(nextPermission);
                 if (nextPermission === 'granted') {
-                    dispatch({type: Actions.NOTIFICATION_OPEN, id, instance: createNotification(notificationProps)});
+                    dispatch({
+                        type: Actions.NOTIFICATION_OPEN,
+                        id,
+                        instance: createNotification(notificationProps),
+                    });
                 }
             });
         } else if (currentPermission === 'denied') {

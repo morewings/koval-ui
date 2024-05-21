@@ -19,7 +19,12 @@ export type Props = DataAttributes &
         href: string;
         as?: ElementType<
             AriaAttributes &
-                DataAttributes & {href: string; className?: string; title?: string; children?: ReactNode} & unknown
+                DataAttributes & {
+                    href: string;
+                    className?: string;
+                    title?: string;
+                    children?: ReactNode;
+                } & unknown
         >;
         icon?: FC<HTMLAttributes<HTMLOrSVGElement> & unknown>;
         shift?: boolean;

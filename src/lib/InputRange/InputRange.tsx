@@ -23,13 +23,29 @@ export type Props = DataAttributes &
         scaleUnit?: string;
     };
 
-const createOptions = ({min, max, bars, scaleUnit}: {min: number; max: number; bars: number; scaleUnit?: string}) => {
+const createOptions = ({
+    min,
+    max,
+    bars,
+    scaleUnit,
+}: {
+    min: number;
+    max: number;
+    bars: number;
+    scaleUnit?: string;
+}) => {
     const total = max - min;
     const singleBar = total / bars;
     const scale = new Array(bars + 1).fill('');
     return scale.map((_, i) => {
         const value = Math.floor(min + singleBar * i);
-        return <option value={value} label={`- ${value}${scaleUnit}`} className={classes.mark} key={i}></option>;
+        return (
+            <option
+                value={value}
+                label={`- ${value}${scaleUnit}`}
+                className={classes.mark}
+                key={i}></option>
+        );
     });
 };
 

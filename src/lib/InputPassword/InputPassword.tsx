@@ -12,7 +12,11 @@ import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
 import classes from './InputPassword.module.css';
 
-export type Props = DataAttributes & LibraryProps & NativePropsTextual & CallbackPropsTextual & ValidationProps;
+export type Props = DataAttributes &
+    LibraryProps &
+    NativePropsTextual &
+    CallbackPropsTextual &
+    ValidationProps;
 
 enum InputType {
     password = 'password',
@@ -84,7 +88,11 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
 
         return (
             <div className={classNames(classes.wrapper, className)}>
-                <label tabIndex={-1} onClick={handleIconClick} className={classes.prefix} htmlFor={inputId}>
+                <label
+                    tabIndex={-1}
+                    onClick={handleIconClick}
+                    className={classes.prefix}
+                    htmlFor={inputId}>
                     <Icon />
                 </label>
                 <input

@@ -60,8 +60,10 @@ export const Primary: Story = {
 
 export const Multiple: Story = {
     render: args => {
-        const {openNotification: openFoo, closeNotification: closeFoo} = useNotificationState('foo');
-        const {openNotification: openBar, closeNotification: closeBar} = useNotificationState('bar');
+        const {openNotification: openFoo, closeNotification: closeFoo} =
+            useNotificationState('foo');
+        const {openNotification: openBar, closeNotification: closeBar} =
+            useNotificationState('bar');
         return (
             <Fragment>
                 <ButtonGroup layout="vertical">

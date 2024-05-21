@@ -2,7 +2,11 @@ import type {ChangeEvent} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
-import type {NativePropsInteractive, CallbackPropsInteractive, ValidationProps} from '@/internal/inputs';
+import type {
+    NativePropsInteractive,
+    CallbackPropsInteractive,
+    ValidationProps,
+} from '@/internal/inputs';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
@@ -63,7 +67,9 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
                     onKeyDown={onKeyDown}
                     required={required}
                 />
-                <label className={classNames(classes.label, {[classes.required]: required})} htmlFor={id}>
+                <label
+                    className={classNames(classes.label, {[classes.required]: required})}
+                    htmlFor={id}>
                     {label}
                 </label>
             </div>

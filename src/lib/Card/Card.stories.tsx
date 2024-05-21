@@ -95,14 +95,15 @@ export const Primary: Story = {
             <Card {...args}>
                 <H2>Header</H2>
                 <P>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc cursus, orci non porttitor semper,
-                    sapien magna vestibulum est, eu feugiat mi enim sed enim. Ut ullamcorper, urna sit amet rutrum
-                    varius, nisi urna dictum diam, vel blandit velit urna a metus. Vestibulum accumsan dictum nulla eget
-                    lobortis.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc cursus, orci non
+                    porttitor semper, sapien magna vestibulum est, eu feugiat mi enim sed enim. Ut
+                    ullamcorper, urna sit amet rutrum varius, nisi urna dictum diam, vel blandit
+                    velit urna a metus. Vestibulum accumsan dictum nulla eget lobortis.
                 </P>
                 <P>
-                    Nunc sed sem semper, porttitor turpis sit amet, laoreet sapien. Pellentesque porta mollis convallis.
-                    Aliquam consequat mi et dui vehicula, nec posuere mauris aliquam.
+                    Nunc sed sem semper, porttitor turpis sit amet, laoreet sapien. Pellentesque
+                    porta mollis convallis. Aliquam consequat mi et dui vehicula, nec posuere mauris
+                    aliquam.
                 </P>
             </Card>
         );

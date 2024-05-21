@@ -38,7 +38,11 @@ export const Grid = forwardRef<HTMLElement, Props>(
             [width, gap, base]
         );
         return (
-            <LocalRoot {...nativeProps} theme={theme} as={as} className={classNames(classes.grid, className)}>
+            <LocalRoot
+                {...nativeProps}
+                theme={theme}
+                as={as}
+                className={classNames(classes.grid, className)}>
                 {children}
             </LocalRoot>
         );

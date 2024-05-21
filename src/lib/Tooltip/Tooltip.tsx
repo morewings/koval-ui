@@ -85,7 +85,9 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
 
         return (
             <Fragment>
-                <div ref={refs.setReference} className={classNames(classes.reference, referenceClassName)}>
+                <div
+                    ref={refs.setReference}
+                    className={classNames(classes.reference, referenceClassName)}>
                     {children}
                 </div>
                 {isOpen && (
@@ -95,7 +97,10 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
                             style={floatingStyles}
                             className={classNames({[classes.unfocusable]: !interactive})}>
                             <LocalRoot className={classes.provider} theme={getTheme()}>
-                                <div {...nativeProps} ref={ref} className={classNames(classes.tooltip, className)}>
+                                <div
+                                    {...nativeProps}
+                                    ref={ref}
+                                    className={classNames(classes.tooltip, className)}>
                                     <Arrow
                                         ref={arrowRef}
                                         placement={placement}

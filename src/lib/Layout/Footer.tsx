@@ -12,12 +12,14 @@ export type Props = DataAttributes &
         children?: ReactNode;
     };
 
-export const Footer = forwardRef<HTMLDivElement, Props>(({children, className, ...restProps}, ref) => {
-    return (
-        <Row {...restProps} ref={ref} className={classNames(classes.footer, className)}>
-            {children}
-        </Row>
-    );
-});
+export const Footer = forwardRef<HTMLDivElement, Props>(
+    ({children, className, ...restProps}, ref) => {
+        return (
+            <Row {...restProps} ref={ref} className={classNames(classes.footer, className)}>
+                {children}
+            </Row>
+        );
+    }
+);
 
 Footer.displayName = 'Footer';

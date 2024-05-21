@@ -122,10 +122,15 @@ export const Carousel = forwardRef<HTMLDivElement, Props>(
         );
 
         return (
-            <LocalRoot {...nativeProps} theme={theme} className={classNames(classes.carousel, className)}>
+            <LocalRoot
+                {...nativeProps}
+                theme={theme}
+                className={classNames(classes.carousel, className)}>
                 <div className={classes.scene}>
                     {showArrows && (
-                        <button className={classNames(classes.navigation, classes.left)} onClick={handleDecrement}>
+                        <button
+                            className={classNames(classes.navigation, classes.left)}
+                            onClick={handleDecrement}>
                             <IconArrowLeft className={classes.icon} />
                         </button>
                     )}
@@ -133,12 +138,16 @@ export const Carousel = forwardRef<HTMLDivElement, Props>(
                         {cells}
                     </div>
                     {showArrows && (
-                        <button className={classNames(classes.navigation, classes.right)} onClick={handleIncrement}>
+                        <button
+                            className={classNames(classes.navigation, classes.right)}
+                            onClick={handleIncrement}>
                             <IconArrowRight className={classes.icon} />
                         </button>
                     )}
                 </div>
-                {showDots && <Dots amount={Children.toArray(children).length} active={visibleIndex} />}
+                {showDots && (
+                    <Dots amount={Children.toArray(children).length} active={visibleIndex} />
+                )}
             </LocalRoot>
         );
     }

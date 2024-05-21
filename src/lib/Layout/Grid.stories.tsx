@@ -4,7 +4,12 @@ import {Grid} from './Grid';
 import {Row} from './Row';
 import {Col} from './Col';
 import {Cell} from './demoComponents/Cell';
-import {offsetExample, defaultExample, fluidExample, responsiveExample} from './demoComponents/GridExample';
+import {
+    offsetExample,
+    defaultExample,
+    fluidExample,
+    responsiveExample,
+} from './demoComponents/GridExample';
 
 const meta = {
     title: 'Layout/Grid',

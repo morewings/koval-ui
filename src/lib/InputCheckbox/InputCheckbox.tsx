@@ -4,7 +4,11 @@ import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
-import type {NativePropsInteractive, CallbackPropsInteractive, ValidationProps} from '@/internal/inputs';
+import type {
+    NativePropsInteractive,
+    CallbackPropsInteractive,
+    ValidationProps,
+} from '@/internal/inputs';
 import {IconError, IconLoader, IconValid} from '@/internal/Icons';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 
@@ -82,7 +86,9 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
                     }}
                     required={required}
                 />
-                <label className={classNames(classes.label, {[classes.required]: required})} htmlFor={id}>
+                <label
+                    className={classNames(classes.label, {[classes.required]: required})}
+                    htmlFor={id}>
                     {label}
                 </label>
                 {validity && <ValidationIcon className={classes.icon} />}

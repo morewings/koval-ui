@@ -128,7 +128,11 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
                                     }
                                 })}
                                 <div key={`${id}-close`} className={classes.row}>
-                                    <Action onClick={closeToast} icon={IconClose} title={closeLabel} />
+                                    <Action
+                                        onClick={closeToast}
+                                        icon={IconClose}
+                                        title={closeLabel}
+                                    />
                                 </div>
                             </footer>
                         </div>

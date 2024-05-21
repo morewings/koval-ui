@@ -66,7 +66,12 @@ export const Example: Story = {
                 checkbox: [
                     <InputCheckbox value="foo" label="This is a foo name" key="zork" required />,
                     <InputCheckbox value="bar" label="This is a bar name" key="gork" disabled />,
-                    <InputCheckbox value="bazz" label="This is a bazz name" key="bork" disabled={false} />,
+                    <InputCheckbox
+                        value="bazz"
+                        label="This is a bazz name"
+                        key="bork"
+                        disabled={false}
+                    />,
                 ],
             }, // Maps serializable option values to complex arg values
             control: {
@@ -84,7 +89,13 @@ export const Example: Story = {
         label: 'Example group',
         children: [
             <InputRadio id="foo" value="foo" label="This is a foo name" key="foo" />,
-            <InputRadio id="bar" value="bar" label="This is a bar name" key="bar" disabled={true} />,
+            <InputRadio
+                id="bar"
+                value="bar"
+                label="This is a bar name"
+                key="bar"
+                disabled={true}
+            />,
             <InputRadio id="bazz" value="bazz" label="This is a bazz name" key="bazz" />,
         ],
     },
@@ -97,7 +108,13 @@ export const Radio: Story = {
         // disabled: true,
         children: [
             <InputRadio id="foo" value="foo" label="This is a foo name" key="foo" />,
-            <InputRadio id="bar" value="bar" label="This is a bar name" key="bar" disabled={true} />,
+            <InputRadio
+                id="bar"
+                value="bar"
+                label="This is a bar name"
+                key="bar"
+                disabled={true}
+            />,
             <InputRadio id="bazz" value="bazz" label="This is a bazz name" key="bazz" />,
         ],
     },
@@ -160,7 +177,14 @@ export const Checkbox: Story = {
         name: 'kitty',
         label: 'Checkbox group',
         children: [
-            <InputCheckbox id="zork" name="checkbox-demo" value="foo" label="This is a foo name" key="zork" required />,
+            <InputCheckbox
+                id="zork"
+                name="checkbox-demo"
+                value="foo"
+                label="This is a foo name"
+                key="zork"
+                required
+            />,
             <InputCheckbox
                 id="gork"
                 name="checkbox-demo"
@@ -169,7 +193,13 @@ export const Checkbox: Story = {
                 key="gork"
                 disabled={true}
             />,
-            <InputCheckbox id="bork" name="checkbox-demo" value="bazz" label="This is a bazz name" key="bork" />,
+            <InputCheckbox
+                id="bork"
+                name="checkbox-demo"
+                value="bazz"
+                label="This is a bazz name"
+                key="bork"
+            />,
         ],
     },
 };
@@ -189,7 +219,12 @@ export const CheckboxCustomValidation: Story = {
                     return !value ? 'Custom message' : '';
                 }}
             />,
-            <InputCheckbox name="checkbox-demo" value="bar" label="This is a bar name" key="gork" />,
+            <InputCheckbox
+                name="checkbox-demo"
+                value="bar"
+                label="This is a bar name"
+                key="gork"
+            />,
             <InputCheckbox
                 name="checkbox-demo"
                 value="bazz"
@@ -208,9 +243,24 @@ export const CheckboxNoId: Story = {
         name: 'kitty',
         label: 'Checkbox group',
         children: [
-            <InputCheckbox name="checkbox-demo" value="foo" label="This is a foo name" key="zork" />,
-            <InputCheckbox name="checkbox-demo" value="bar" label="This is a bar name" key="gork" />,
-            <InputCheckbox name="checkbox-demo" value="bazz" label="This is a bazz name" key="bork" />,
+            <InputCheckbox
+                name="checkbox-demo"
+                value="foo"
+                label="This is a foo name"
+                key="zork"
+            />,
+            <InputCheckbox
+                name="checkbox-demo"
+                value="bar"
+                label="This is a bar name"
+                key="gork"
+            />,
+            <InputCheckbox
+                name="checkbox-demo"
+                value="bazz"
+                label="This is a bazz name"
+                key="bork"
+            />,
         ],
     },
 };
@@ -221,9 +271,24 @@ export const CheckboxHint: Story = {
         label: 'Checkbox group',
         hint: 'This is hint example',
         children: [
-            <InputCheckbox name="checkbox-demo" value="foo" label="This is a foo name" key="zork" />,
-            <InputCheckbox name="checkbox-demo" value="bar" label="This is a bar name" key="gork" />,
-            <InputCheckbox name="checkbox-demo" value="bazz" label="This is a bazz name" key="bork" />,
+            <InputCheckbox
+                name="checkbox-demo"
+                value="foo"
+                label="This is a foo name"
+                key="zork"
+            />,
+            <InputCheckbox
+                name="checkbox-demo"
+                value="bar"
+                label="This is a bar name"
+                key="gork"
+            />,
+            <InputCheckbox
+                name="checkbox-demo"
+                value="bazz"
+                label="This is a bazz name"
+                key="bork"
+            />,
         ],
     },
 };
@@ -234,9 +299,24 @@ export const CheckboxDisabled: Story = {
         label: 'Checkbox group',
         disabled: true,
         children: [
-            <InputCheckbox name="checkbox-demo" value="foo" label="This is a foo name" key="zork" />,
-            <InputCheckbox name="checkbox-demo" value="bar" label="This is a bar name" key="gork" />,
-            <InputCheckbox name="checkbox-demo" value="bazz" label="This is a bazz name" key="bork" />,
+            <InputCheckbox
+                name="checkbox-demo"
+                value="foo"
+                label="This is a foo name"
+                key="zork"
+            />,
+            <InputCheckbox
+                name="checkbox-demo"
+                value="bar"
+                label="This is a bar name"
+                key="gork"
+            />,
+            <InputCheckbox
+                name="checkbox-demo"
+                value="bazz"
+                label="This is a bazz name"
+                key="bork"
+            />,
         ],
     },
 };

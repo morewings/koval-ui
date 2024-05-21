@@ -47,12 +47,42 @@ export const Primary: Story = {
     render: args => {
         return (
             <Carousel {...args}>
-                <Picture src="https://picsum.photos/666/333?1" width={666} height={333} alt="Image description" />
-                <Picture src="https://picsum.photos/666/333?2" width={666} height={333} alt="Image description" />
-                <Picture src="https://picsum.photos/666/333?3" width={666} height={333} alt="Image description" />
-                <Picture src="https://picsum.photos/666/333?4" width={666} height={333} alt="Image description" />
-                <Picture src="https://picsum.photos/666/333?5" width={666} height={333} alt="Image description" />
-                <Picture src="https://picsum.photos/666/333?6" width={666} height={333} alt="Image description" />
+                <Picture
+                    src="https://picsum.photos/666/333?1"
+                    width={666}
+                    height={333}
+                    alt="Image description"
+                />
+                <Picture
+                    src="https://picsum.photos/666/333?2"
+                    width={666}
+                    height={333}
+                    alt="Image description"
+                />
+                <Picture
+                    src="https://picsum.photos/666/333?3"
+                    width={666}
+                    height={333}
+                    alt="Image description"
+                />
+                <Picture
+                    src="https://picsum.photos/666/333?4"
+                    width={666}
+                    height={333}
+                    alt="Image description"
+                />
+                <Picture
+                    src="https://picsum.photos/666/333?5"
+                    width={666}
+                    height={333}
+                    alt="Image description"
+                />
+                <Picture
+                    src="https://picsum.photos/666/333?6"
+                    width={666}
+                    height={333}
+                    alt="Image description"
+                />
             </Carousel>
         );
     },
@@ -70,22 +100,52 @@ export const ComplexContent: Story = {
         return (
             <Carousel {...args}>
                 <Figure caption="Image #1">
-                    <Picture src="https://picsum.photos/666/360?1" width={666} height={360} alt="Image description" />
+                    <Picture
+                        src="https://picsum.photos/666/360?1"
+                        width={666}
+                        height={360}
+                        alt="Image description"
+                    />
                 </Figure>
                 <Figure caption="Image #2">
-                    <Picture src="https://picsum.photos/666/360?2" width={666} height={360} alt="Image description" />
+                    <Picture
+                        src="https://picsum.photos/666/360?2"
+                        width={666}
+                        height={360}
+                        alt="Image description"
+                    />
                 </Figure>
                 <Figure caption="Image #3">
-                    <Picture src="https://picsum.photos/666/360?3" width={666} height={360} alt="Image description" />
+                    <Picture
+                        src="https://picsum.photos/666/360?3"
+                        width={666}
+                        height={360}
+                        alt="Image description"
+                    />
                 </Figure>
                 <Figure caption="Image #4">
-                    <Picture src="https://picsum.photos/666/360?4" width={666} height={360} alt="Image description" />
+                    <Picture
+                        src="https://picsum.photos/666/360?4"
+                        width={666}
+                        height={360}
+                        alt="Image description"
+                    />
                 </Figure>
                 <Figure caption="Image #5">
-                    <Picture src="https://picsum.photos/666/360?5" width={666} height={360} alt="Image description" />
+                    <Picture
+                        src="https://picsum.photos/666/360?5"
+                        width={666}
+                        height={360}
+                        alt="Image description"
+                    />
                 </Figure>
                 <Figure caption="Image #6">
-                    <Picture src="https://picsum.photos/666/360?6" width={666} height={360} alt="Image description" />
+                    <Picture
+                        src="https://picsum.photos/666/360?6"
+                        width={666}
+                        height={360}
+                        alt="Image description"
+                    />
                 </Figure>
             </Carousel>
         );

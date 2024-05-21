@@ -11,12 +11,14 @@ export type Props = DataAttributes &
         contentEditable?: HTMLAttributes<HTMLPreElement>['contentEditable'];
     };
 
-export const Pre = forwardRef<HTMLPreElement, Props>(({children, className, ...nativeProps}, ref) => {
-    return (
-        <pre {...nativeProps} className={classNames(classes.preformatted, className)} ref={ref}>
-            {children}
-        </pre>
-    );
-});
+export const Pre = forwardRef<HTMLPreElement, Props>(
+    ({children, className, ...nativeProps}, ref) => {
+        return (
+            <pre {...nativeProps} className={classNames(classes.preformatted, className)} ref={ref}>
+                {children}
+            </pre>
+        );
+    }
+);
 
 Pre.displayName = 'Pre';

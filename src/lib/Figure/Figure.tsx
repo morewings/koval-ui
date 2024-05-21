@@ -31,7 +31,10 @@ export const Figure = forwardRef<HTMLDivElement, Props>(
         const {LocalRoot} = useLocalTheme();
         return (
             <LocalRoot theme={theme} className={classes.wrapper}>
-                <figure {...nativeProps} className={classNames(classes.figure, className)} ref={ref}>
+                <figure
+                    {...nativeProps}
+                    className={classNames(classes.figure, className)}
+                    ref={ref}>
                     {children}
                     {caption && <figcaption>{caption}</figcaption>}
                 </figure>

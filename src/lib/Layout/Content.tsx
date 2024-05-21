@@ -12,12 +12,14 @@ export type Props = DataAttributes &
         children?: ReactNode;
     };
 
-export const Content = forwardRef<HTMLDivElement, Props>(({children, className, ...restProps}, ref) => {
-    return (
-        <Row {...restProps} ref={ref} className={classNames(classes.content, className)}>
-            {children}
-        </Row>
-    );
-});
+export const Content = forwardRef<HTMLDivElement, Props>(
+    ({children, className, ...restProps}, ref) => {
+        return (
+            <Row {...restProps} ref={ref} className={classNames(classes.content, className)}>
+                {children}
+            </Row>
+        );
+    }
+);
 
 Content.displayName = 'Content';

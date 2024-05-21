@@ -167,7 +167,9 @@ export const Pagination = forwardRef<HTMLDivElement, Props>(
                         </div>
                         <div className={classes.navigationBlock}>
                             <input
-                                className={classNames(classes.input, {[classes.error]: !checkValidity(inputPage)})}
+                                className={classNames(classes.input, {
+                                    [classes.error]: !checkValidity(inputPage),
+                                })}
                                 min={first}
                                 max={last}
                                 pattern="[0-9]{10}"

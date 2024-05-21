@@ -10,8 +10,13 @@ import {getFormState} from './getFormState.ts';
 
 type InputMode = 'interactive' | 'textual';
 
-const getValue = <TEvent extends FormEvent, TElement extends HTMLInputElement>(event: TEvent, mode: InputMode) => {
-    return mode === 'interactive' ? (event.target as TElement).checked : (event.target as TElement).value;
+const getValue = <TEvent extends FormEvent, TElement extends HTMLInputElement>(
+    event: TEvent,
+    mode: InputMode
+) => {
+    return mode === 'interactive'
+        ? (event.target as TElement).checked
+        : (event.target as TElement).value;
 };
 
 export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInputElement>({
@@ -43,7 +48,11 @@ export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInp
         (mode: InputMode, event: TEvent) => {
             const value = getValue(event, mode);
             const formState = getFormState((event.target as TElement)!.form);
-            const validationError = validatorFn?.(value, (event.target as TElement).validity, formState);
+            const validationError = validatorFn?.(
+                value,
+                (event.target as TElement).validity,
+                formState
+            );
             (event.target as TElement).setCustomValidity(validationError as string);
             reportValidity(event);
         },
@@ -51,7 +60,9 @@ export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInp
     );
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const debouncedValidator = useCallback(AwesomeDebouncePromise(validatorFn!, 1000), [validatorFn]);
+    const debouncedValidator = useCallback(AwesomeDebouncePromise(validatorFn!, 1000), [
+        validatorFn,
+    ]);
 
     const createValidatorAsync = useCallback(
         async (mode: InputMode, event: TEvent) => {
@@ -61,7 +72,11 @@ export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInp
             setValidity(ValidationState.inProgress);
             let validationError = '';
             try {
-                validationError = await debouncedValidator(value, (event.target as TElement).validity, formState);
+                validationError = await debouncedValidator(
+                    value,
+                    (event.target as TElement).validity,
+                    formState
+                );
             } catch (error) {
                 (event.target as TElement).setCustomValidity(error as string);
             }
@@ -73,14 +88,18 @@ export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInp
 
     const validateInteractive = useCallback(
         (event: TEvent) => {
-            return isAsync ? createValidatorAsync('interactive', event) : createValidatorSync('interactive', event);
+            return isAsync
+                ? createValidatorAsync('interactive', event)
+                : createValidatorSync('interactive', event);
         },
         [createValidatorAsync, createValidatorSync, isAsync]
     );
 
     const validateTextual = useCallback(
         (event: TEvent) => {
-            return isAsync ? createValidatorAsync('textual', event) : createValidatorSync('textual', event);
+            return isAsync
+                ? createValidatorAsync('textual', event)
+                : createValidatorSync('textual', event);
         },
         [createValidatorSync, isAsync, createValidatorAsync]
     );

@@ -41,10 +41,11 @@ const tableDemo = (
             <tr>
                 <td>Body content 1</td>
                 <td>
-                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                    PageMaker including versions of Lorem Ipsum.
+                    It has survived not only five centuries, but also the leap into electronic
+                    typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                    with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                    recently with desktop publishing software like Aldus PageMaker including
+                    versions of Lorem Ipsum.
                 </td>
                 <td>Body content 3</td>
                 <td>Body content 4</td>

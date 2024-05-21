@@ -5,7 +5,11 @@ import {useLocalTheme} from 'css-vars-hook';
 
 import {IconError, IconValid, IconLoader, IconExpand, IconCollapse} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import type {NativePropsInteractive, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import type {
+    NativePropsInteractive,
+    CallbackPropsTextual,
+    ValidationProps,
+} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';

@@ -11,12 +11,17 @@ export type Props = DataAttributes &
         children?: ReactNode;
     };
 
-export const BlockQuote = forwardRef<HTMLQuoteElement, Props>(({children, className, ...nativeProps}, ref) => {
-    return (
-        <blockquote {...nativeProps} className={classNames(classes.blockquote, className)} ref={ref}>
-            {children}
-        </blockquote>
-    );
-});
+export const BlockQuote = forwardRef<HTMLQuoteElement, Props>(
+    ({children, className, ...nativeProps}, ref) => {
+        return (
+            <blockquote
+                {...nativeProps}
+                className={classNames(classes.blockquote, className)}
+                ref={ref}>
+                {children}
+            </blockquote>
+        );
+    }
+);
 
 BlockQuote.displayName = 'BlockQuote';

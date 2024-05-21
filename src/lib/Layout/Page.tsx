@@ -8,7 +8,10 @@ import classes from './Layout.module.css';
 export type Props = GridProps;
 
 export const Page = forwardRef<HTMLDivElement, Props>(
-    ({width = 'fluid', className, as = 'div', children, gap = 0, base = 12, ...nativeProps}, ref) => {
+    (
+        {width = 'fluid', className, as = 'div', children, gap = 0, base = 12, ...nativeProps},
+        ref
+    ) => {
         return (
             <Grid
                 {...nativeProps}

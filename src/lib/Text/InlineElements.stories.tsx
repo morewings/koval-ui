@@ -2,7 +2,21 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {Fragment} from 'react';
 // import {fn} from '@storybook/test';
 
-import {A, Del, Em, Ins, I, Mark, B, Sub, Sup, Small, Strong, Kbd, Code} from './InlineElements.tsx';
+import {
+    A,
+    Del,
+    Em,
+    Ins,
+    I,
+    Mark,
+    B,
+    Sub,
+    Sup,
+    Small,
+    Strong,
+    Kbd,
+    Code,
+} from './InlineElements.tsx';
 
 const meta = {
     title: 'Typography/Inline Elements',

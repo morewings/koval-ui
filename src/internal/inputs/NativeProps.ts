@@ -68,7 +68,10 @@ export type NativePropsTextual = {
     size?: InputHTMLAttributes<HTMLInputElement>['size'];
 };
 
-export type NativePropsNumeric = Omit<NativePropsTextual, 'inputMode' | 'pattern' | 'maxLength' | 'minLength'> & {
+export type NativePropsNumeric = Omit<
+    NativePropsTextual,
+    'inputMode' | 'pattern' | 'maxLength' | 'minLength'
+> & {
     min?: InputHTMLAttributes<HTMLInputElement>['min'];
     /**
      * Define the maximum value that is acceptable and valid for the input
@@ -84,5 +87,12 @@ export type NativePropsNumeric = Omit<NativePropsTextual, 'inputMode' | 'pattern
 
 export type NativePropsInteractive = Omit<
     NativePropsTextual,
-    'inputMode' | 'pattern' | 'readOnly' | 'minLength' | 'maxLength' | 'autoComplete' | 'placeholder' | 'size'
+    | 'inputMode'
+    | 'pattern'
+    | 'readOnly'
+    | 'minLength'
+    | 'maxLength'
+    | 'autoComplete'
+    | 'placeholder'
+    | 'size'
 >;

@@ -9,5 +9,10 @@ type Props = SVGProps<SVGSVGElement> & {
 };
 
 export const IconLoader: FC<Props> = ({className, ...restProps}) => {
-    return <Loader className={classNames(classes.icon, classes.rotation, classes.loading, className)} {...restProps} />;
+    return (
+        <Loader
+            className={classNames(classes.icon, classes.rotation, classes.loading, className)}
+            {...restProps}
+        />
+    );
 };

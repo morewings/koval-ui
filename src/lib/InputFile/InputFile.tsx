@@ -50,7 +50,9 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
 
         const id = useInternalId(idProp);
         const [filename, setFileName] = useState('');
-        const {validateTextual, validity, setValidity} = useValidation({validatorFn: defaultValidator});
+        const {validateTextual, validity, setValidity} = useValidation({
+            validatorFn: defaultValidator,
+        });
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,

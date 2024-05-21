@@ -11,12 +11,14 @@ export type Props = DataAttributes &
         children?: ReactNode;
     };
 
-export const P = forwardRef<HTMLParagraphElement, Props>(({children, className, ...nativeProps}, ref) => {
-    return (
-        <p {...nativeProps} className={classNames(classes.paragraph, className)} ref={ref}>
-            {children}
-        </p>
-    );
-});
+export const P = forwardRef<HTMLParagraphElement, Props>(
+    ({children, className, ...nativeProps}, ref) => {
+        return (
+            <p {...nativeProps} className={classNames(classes.paragraph, className)} ref={ref}>
+                {children}
+            </p>
+        );
+    }
+);
 
 P.displayName = 'P';

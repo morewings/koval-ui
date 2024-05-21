@@ -108,7 +108,18 @@ const meta = {
             },
         },
         children: {
-            options: ['text', 'date', 'color', 'time', 'range', 'select', 'file', 'password', 'textarea', 'number'], // An array of serializable values
+            options: [
+                'text',
+                'date',
+                'color',
+                'time',
+                'range',
+                'select',
+                'file',
+                'password',
+                'textarea',
+                'number',
+            ], // An array of serializable values
             mapping: {
                 text: <InputText />,
                 date: <InputDate />,

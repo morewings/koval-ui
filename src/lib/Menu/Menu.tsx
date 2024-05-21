@@ -84,14 +84,19 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
 
         return (
             <Fragment>
-                <div ref={refs.setReference} className={classNames(classes.reference, referenceClassName)}>
+                <div
+                    ref={refs.setReference}
+                    className={classNames(classes.reference, referenceClassName)}>
                     {children}
                 </div>
                 {isOpen && (
                     <Portal>
                         <div ref={refs.setFloating} style={floatingStyles}>
                             <LocalRoot className={classes.provider} theme={getTheme()}>
-                                <div {...nativeProps} ref={ref} className={classNames(classes.menu, className)}>
+                                <div
+                                    {...nativeProps}
+                                    ref={ref}
+                                    className={classNames(classes.menu, className)}>
                                     {content}
                                 </div>
                             </LocalRoot>
