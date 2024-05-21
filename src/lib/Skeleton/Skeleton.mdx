@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {SkeletonFrame} from './Skeleton.tsx';
+import * as SkeletonStories from "./Skeleton.stories.tsx";
+
+<Meta title="Components/Skeleton" of={SkeletonStories} />
+
+# Skeleton
+
+## Description
+
+Skeleton is a React component.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Skeleton} from 'react-forge-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgsTable of={SkeletonFrame}/>
+

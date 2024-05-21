@@ -375,7 +375,8 @@
     line-height: 1.5;
     max-width: 100%;
     overflow: auto;
-    padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 3) calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 12);
+    padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 3) calc(var(--sizeUnit) * 2)
+        calc(var(--sizeUnit) * 12);
     position: relative;
     white-space: pre;
 

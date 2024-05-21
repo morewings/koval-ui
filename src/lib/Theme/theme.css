@@ -1,7 +1,7 @@
 /* stylelint-disable value-keyword-case */
 :root {
-    --fontFamily: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --fontFamily: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial,
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --fontFamilyMonospace: "SF Mono", "Courier New", FreeMono, "Nimbus Mono PS", Cousine, monospace;
     --sizeUnit: 6px;
     --inputWidth: 240px;
