@@ -7,7 +7,6 @@ import type {ValidationState} from './ValidationProps.ts';
 
 export const useHandleFormReset = (setValidity: Dispatch<ValidationState | null>) => {
     const {pristine} = useFormSelectors();
-    console.log('pristine', pristine);
     useEffect(() => {
         pristine && setValidity(null);
     }, [pristine, setValidity]);

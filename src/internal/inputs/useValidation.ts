@@ -6,6 +6,7 @@ import type {ValidationProps} from './ValidationProps.ts';
 import {ValidationState} from './ValidationProps.ts';
 import {defaultValidator} from './defaultValidator.ts';
 import {useHandleFormReset} from './useHandleFormReset.ts';
+import {getFormState} from './getFormState.ts';
 
 type InputMode = 'interactive' | 'textual';
 
@@ -41,7 +42,8 @@ export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInp
     const createValidatorSync = useCallback(
         (mode: InputMode, event: TEvent) => {
             const value = getValue(event, mode);
-            const validationError = validatorFn?.(value, (event.target as TElement).validity);
+            const formState = getFormState((event.target as TElement)!.form);
+            const validationError = validatorFn?.(value, (event.target as TElement).validity, formState);
             (event.target as TElement).setCustomValidity(validationError as string);
             reportValidity(event);
         },
@@ -55,10 +57,11 @@ export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInp
         async (mode: InputMode, event: TEvent) => {
             (event.target as TElement).setCustomValidity('');
             const value = getValue(event, mode);
+            const formState = getFormState((event.target as TElement)!.form);
             setValidity(ValidationState.inProgress);
             let validationError = '';
             try {
-                validationError = await debouncedValidator(value, (event.target as TElement).validity);
+                validationError = await debouncedValidator(value, (event.target as TElement).validity, formState);
             } catch (error) {
                 (event.target as TElement).setCustomValidity(error as string);
             }

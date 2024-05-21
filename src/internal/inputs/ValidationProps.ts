@@ -1,3 +1,5 @@
+import type {FormState} from './getFormState.ts';
+
 export enum ValidationState {
     error = 'error',
     valid = 'valid',
@@ -5,5 +7,5 @@ export enum ValidationState {
 }
 
 export type ValidationProps = {
-    validatorFn?: (value: unknown, validityState: ValidityState) => string | Promise<string>;
+    validatorFn?: (value: unknown, validityState: ValidityState, formState: FormState) => string | Promise<string>;
 };
