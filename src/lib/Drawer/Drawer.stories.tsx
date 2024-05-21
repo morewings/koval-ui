@@ -50,7 +50,7 @@ export const Primary: Story = {
                 <Button onClick={handleClick}>Toggle Drawer</Button>
                 <Drawer {...args}>
                     <H2>Navigation</H2>
-                    <NavList bordered={false}>
+                    <NavList>
                         <NavLink title="Foo" href="#" icon={IconFile} />
                         <NavLink title="Bar" type="success" href="#" />
                         <NavLink title="Bazz" type="link" href="#" icon={CloudUpload} />

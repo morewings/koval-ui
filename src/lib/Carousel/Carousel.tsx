@@ -1,7 +1,5 @@
 import type {MutableRefObject, ReactNode} from 'react';
-import {useEffect} from 'react';
-import {useRef} from 'react';
-import {Children, forwardRef, useMemo, useState, useCallback} from 'react';
+import {Children, forwardRef, useMemo, useState, useCallback, useRef, useEffect} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
 

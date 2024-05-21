@@ -46,6 +46,7 @@ export const theme = {
     shadow050: '3px 3px 3px 0 var(--shadowColor)',
     shadow100: '6px 6px 3px 0 var(--shadowColor)',
     shadow200: '9px 9px 3px 0 var(--shadowColor)',
+    textShadow: '1px 1px 1px rgb(0 0 0 / 66%)',
 };
 
 // /* Color Theme Swatches in Hex */

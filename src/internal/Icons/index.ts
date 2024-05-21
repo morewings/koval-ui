@@ -26,3 +26,4 @@ export {IconBackward} from './IconBackward.tsx';
 export {IconEnter} from './IconEnter.tsx';
 export {IconDanger} from './IconDanger.tsx';
 export {IconLink} from './IconLink.tsx';
+export {IconMenu} from './IconMenu.tsx';
