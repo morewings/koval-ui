@@ -12,7 +12,8 @@
     gap: calc(var(--sizeUnit) * var(--sizeScaleFactor) / 2);
     letter-spacing: 1px;
     line-height: 1.2;
-    padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) calc(var(--sizeUnit) * 3 * var(--sizeScaleFactor));
+    padding: calc(var(--sizeUnit) * var(--sizeScaleFactor))
+        calc(var(--sizeUnit) * 3 * var(--sizeScaleFactor));
     text-shadow: var(--textShadow);
     user-select: none;
 
@@ -170,7 +171,8 @@
     --textColor: var(--colorAction);
 
     border-bottom-color: var(--colorAction);
-    padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) 0 calc(var(--sizeUnit) * var(--sizeScaleFactor));
+    padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) 0
+        calc(var(--sizeUnit) * var(--sizeScaleFactor));
     text-shadow: none;
 
     &:hover {

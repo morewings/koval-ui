@@ -72,7 +72,8 @@
     }
 
     &:not(:--multiple) {
-        padding: var(--sizeUnit) calc(var(--sizeUnit) * 6) var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+        padding: var(--sizeUnit) calc(var(--sizeUnit) * 6) var(--sizeUnit)
+            calc(var(--sizeUnit) * 1.5);
     }
 
     &:--focusSelector {
