@@ -2,7 +2,7 @@
 [![Post-merge tasks](https://github.com/morewings/react-forge-ui/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/react-forge-ui/actions/workflows/merge-jobs.yml)
 [![types included](https://img.shields.io/github/package-json/types/morewings/react-forge-ui)](https://github.com/morewings/react-forge-ui)
 [![npm version](https://badge.fury.io/js/react-forge-ui.svg)](https://www.npmjs.com/package/react-forge-ui)
-[![npm bundle size](https://deno.bundlejs.com/badge?q=react-forge-ui@latest&config={"esbuild":{"external":["react","react-dom"]}}})](https://bundlejs.com/?q=react-forge-ui@latest&config={"analysis":"treemap","esbuild":{"external":["react","react-dom"]}})
+[![npm bundle size](https://deno.bundlejs.com/badge?q=react-forge-ui@latest&config={"esbuild":{"external":["react","react-dom"]}})](https://bundlejs.com/?q=react-forge-ui@latest&config={"analysis":"treemap","esbuild":{"external":["react","react-dom"]}})
 
 # Forge React components library
 
