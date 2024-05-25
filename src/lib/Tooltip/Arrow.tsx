@@ -1,5 +1,4 @@
 import {forwardRef, useMemo} from 'react';
-import type {RefObject} from 'react';
 import type {Placement} from '@floating-ui/react-dom';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
@@ -16,7 +15,7 @@ export type Props = {
 
 export const Arrow = forwardRef<HTMLDivElement, Props>(({placement, left, top}, ref) => {
     const position = placement.split('-')[0];
-    const {LocalRoot, ref: rootRef} = useLocalTheme();
+    const {LocalRoot, ref: rootRef} = useLocalTheme<HTMLDivElement>();
     const theme = useMemo(() => {
         const result = {} as {top?: Props['top']; left?: Props['left']};
         if (top) {
@@ -27,7 +26,7 @@ export const Arrow = forwardRef<HTMLDivElement, Props>(({placement, left, top}, 
         }
         return result;
     }, [left, top]);
-    useLinkRefs<HTMLDivElement>(ref, rootRef as RefObject<HTMLDivElement>);
+    useLinkRefs<HTMLDivElement>(ref, rootRef);
     return (
         <LocalRoot
             theme={theme}

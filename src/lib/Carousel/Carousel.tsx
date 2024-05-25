@@ -1,4 +1,4 @@
-import type {MutableRefObject, ReactNode} from 'react';
+import type {ReactNode} from 'react';
 import {Children, forwardRef, useMemo, useState, useCallback, useRef, useEffect} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
@@ -57,9 +57,9 @@ export const Carousel = forwardRef<HTMLDivElement, Props>(
 
         const cellsAmount = Children.toArray(children).length;
 
-        const {LocalRoot, ref: innerRef} = useLocalTheme();
+        const {LocalRoot, ref: innerRef} = useLocalTheme<HTMLDivElement>();
 
-        useLinkRefs<HTMLDivElement>(ref, innerRef as MutableRefObject<HTMLDivElement>);
+        useLinkRefs(ref, innerRef);
 
         const viewPortRef = useRef<HTMLDivElement>(null);
 

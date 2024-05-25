@@ -1,4 +1,4 @@
-import type {ReactElement, ForwardedRef} from 'react';
+import type {ReactElement} from 'react';
 import {useEffect, useMemo, forwardRef, Children, useState, useCallback, useRef} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
@@ -34,9 +34,9 @@ export const Tabs = forwardRef<HTMLDivElement, Props>(
         },
         ref
     ) => {
-        const {LocalRoot, ref: innerRef} = useLocalTheme();
+        const {LocalRoot, ref: innerRef} = useLocalTheme<HTMLDivElement>();
 
-        useLinkRefs(ref as ForwardedRef<HTMLElement>, innerRef);
+        useLinkRefs(ref, innerRef);
 
         const theme = useMemo(() => {
             let theme = {};

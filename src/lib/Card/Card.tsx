@@ -1,4 +1,4 @@
-import type {ReactNode, RefObject} from 'react';
+import type {ReactNode} from 'react';
 import {forwardRef, useMemo} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
@@ -48,8 +48,8 @@ export const Card = forwardRef<HTMLDivElement, Props>(
         ref
     ) => {
         const id = useInternalId(idProp);
-        const {LocalRoot, ref: internalRef} = useLocalTheme();
-        useLinkRefs<HTMLDivElement>(ref, internalRef as RefObject<HTMLDivElement>);
+        const {LocalRoot, ref: internalRef} = useLocalTheme<HTMLDivElement>();
+        useLinkRefs(ref, internalRef);
         const theme = useMemo(
             () => ({width: width ? `${width}px` : 'auto', height: height ? `${height}px` : 'auto'}),
             [height, width]

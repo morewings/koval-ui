@@ -1,4 +1,3 @@
-import type {MutableRefObject} from 'react';
 import {useMemo, forwardRef} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
@@ -27,8 +26,8 @@ export const SkeletonText = forwardRef<HTMLDivElement, Props>(
         },
         ref
     ) => {
-        const {LocalRoot, ref: innerRef} = useLocalTheme();
-        useLinkRefs(ref, innerRef as MutableRefObject<HTMLDivElement | null>);
+        const {LocalRoot, ref: innerRef} = useLocalTheme<HTMLDivElement>();
+        useLinkRefs(ref, innerRef);
         const theme = useMemo(
             () => ({
                 width: normalizeUnit(width),
