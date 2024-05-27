@@ -1,4 +1,3 @@
-import {omit} from 'lodash/fp';
 /**
  * Action names collection
  * @example
@@ -82,6 +81,12 @@ const without = <TValue>(value: TValue, array: TValue[]) => {
     return array.filter(member => member !== value);
 };
 
+const omit = <TObject extends Record<string, unknown>>(obj: TObject, key: keyof TObject) => {
+    const nextObject = {...obj};
+    delete nextObject[key];
+    return nextObject;
+};
+
 export const NotificationReducer = (
     state = initialState,
     action: NotificationAction
@@ -90,7 +95,7 @@ export const NotificationReducer = (
         case Actions.NOTIFICATION_CLOSE: {
             const {id} = action;
             const nextOpen = without(id, state.open);
-            const nextInstances = omit([id], state.instances);
+            const nextInstances = omit(state.instances, id);
             return {
                 ...state,
                 open: nextOpen,
