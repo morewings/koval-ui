@@ -8,6 +8,7 @@
     ".eslintrc.cjs",
     "commitlint.config.js",
     "release.config.cjs",
+    "convertStyle.ts",
     ".storybook/*.ts",
     ".storybook/*.tsx",
     "templates/**/*.ts",
