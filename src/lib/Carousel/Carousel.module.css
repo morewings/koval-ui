@@ -39,18 +39,18 @@
 .navigation {
     align-items: center;
     bottom: 0;
-    color: var(--colorFa);
+    color: var(--fg-color-fa);
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: absolute;
     top: 0;
-    width: calc(var(--sizeUnit) * 6);
+    width: calc(var(--fg-size-unit) * 6);
     z-index: 2;
 
     &:hover {
-        background: color-mix(in srgb, var(--colorMi) 66%, transparent);
+        background: color-mix(in srgb, var(--fg-color-mi) 66%, transparent);
     }
 
     &.left {
@@ -63,8 +63,8 @@
 }
 
 .icon {
-    height: calc(var(--sizeUnit) * 6);
-    width: calc(var(--sizeUnit) * 6);
+    height: calc(var(--fg-size-unit) * 6);
+    width: calc(var(--fg-size-unit) * 6);
 }
 
 .dots {
@@ -72,21 +72,21 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: calc(var(--sizeUnit) * 1.5);
-    height: calc(var(--sizeUnit) * 5);
+    gap: calc(var(--fg-size-unit) * 1.5);
+    height: calc(var(--fg-size-unit) * 5);
     justify-content: center;
     overflow: hidden;
 }
 
 .dot {
-    background: var(--colorFa);
-    border-radius: var(--sizeUnit);
+    background: var(--fg-color-fa);
+    border-radius: var(--fg-size-unit);
     flex-shrink: 0;
-    height: calc(var(--sizeUnit) * 1.5);
-    width: calc(var(--sizeUnit) * 1.5);
+    height: calc(var(--fg-size-unit) * 1.5);
+    width: calc(var(--fg-size-unit) * 1.5);
 
     &.active {
-        background: var(--colorDo);
+        background: var(--fg-color-do);
     }
 }
 

@@ -5,8 +5,8 @@
 }
 
 .input-file {
-    --gap: var(--sizeUnit);
-    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
+    --gap: var(--fg-size-unit);
+    --validationIconPlaceholder: calc(var(--fg-size-unit) * 4 + var(--gap));
 
     align-items: center;
     display: flex;
@@ -18,7 +18,7 @@
 }
 
 .toggle {
-    --toggleWidth: calc(var(--sizeUnit) * 4);
+    --toggleWidth: calc(var(--fg-size-unit) * 4);
     --toggleHeight: var(--toggleWidth);
 
     cursor: pointer;
@@ -43,26 +43,26 @@
 }
 
 .icon {
-    color: var(--colorFa);
+    color: var(--fg-color-fa);
     cursor: pointer;
     height: var(--toggleHeight);
     width: var(--toggleWidth);
 }
 
 .label {
-    background-color: var(--colorMi);
-    border: 3px solid var(--colorMi);
-    border-radius: calc(var(--sizeUnit) * 0.66);
-    color: var(--colorFa);
+    background-color: var(--fg-color-mi);
+    border: 3px solid var(--fg-color-mi);
+    border-radius: calc(var(--fg-size-unit) * 0.66);
+    color: var(--fg-color-fa);
     cursor: pointer;
     flex-grow: 1;
-    font-size: var(--fontSizeMedium);
+    font-size: var(--fg-font-size-medium);
     line-height: 1.2;
     max-width: calc(100% - var(--validationIconPlaceholder));
-    min-height: calc(var(--sizeUnit) * 6.33);
+    min-height: calc(var(--fg-size-unit) * 6.33);
     min-width: 0;
     overflow: hidden;
-    padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+    padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
     text-overflow: ellipsis;
     white-space: nowrap;
     width: var(--inputWidth);
@@ -73,40 +73,40 @@
 }
 
 .input:--disabledSelector + .icon {
-    color: var(--background100);
+    color: var(--fg-background-100);
 }
 
 .input:--focusSelector + .icon {
-    color: var(--colorDo);
+    color: var(--fg-color-do);
 }
 
 .input:--invalidSelector:focus + .icon {
-    color: var(--colorError);
+    color: var(--fg-color-error);
 }
 
 .toggle:has(.input:--disabledSelector) + .label {
-    background-color: var(--background100);
-    border-color: var(--background100);
+    background-color: var(--fg-background-100);
+    border-color: var(--fg-background-100);
     cursor: not-allowed;
 }
 
 .toggle:has(.input:--focusSelector) + .label {
-    border-color: var(--colorRe);
+    border-color: var(--fg-color-re);
 }
 
 .toggle:has(.input:--invalidSelector:focus) + .label,
 .toggle:has(.input:--invalidSelector:hover) + .label,
 .toggle:has(.input:--invalidSelector) + .label:hover {
-    border-color: var(--colorError);
+    border-color: var(--fg-color-error);
 }
 
 .input-file:hover {
     & .input:not(:disabled, :focus) + .icon {
-        color: var(--colorRe);
+        color: var(--fg-color-re);
     }
 
     & .input:--invalidSelector + .icon {
-        color: var(--colorError);
+        color: var(--fg-color-error);
     }
 }
 

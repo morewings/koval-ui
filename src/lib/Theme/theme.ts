@@ -1,5 +1,5 @@
 export const theme = {
-    fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
     fontFamilyMonospace: `"SF Mono", "Courier New", FreeMono, "Nimbus Mono PS", Cousine, monospace`,
     sizeUnit: '6px',
@@ -42,10 +42,10 @@ export const theme = {
     colorSuccess: 'green',
     colorAction: 'blue',
     // shadow config
-    shadowColor: 'color-mix(in srgb, var(--background600) 11%, transparent)',
-    shadow050: '3px 3px 3px 0 var(--shadowColor)',
-    shadow100: '6px 6px 3px 0 var(--shadowColor)',
-    shadow200: '9px 9px 3px 0 var(--shadowColor)',
+    shadowColor: 'color-mix(in srgb, var(--fg-background-600) 11%, transparent)',
+    shadow050: '3px 3px 3px 0 var(--fg-shadow-Color)',
+    shadow100: '6px 6px 3px 0 var(--fg-shadow-Color)',
+    shadow200: '9px 9px 3px 0 var(--fg-shadow-Color)',
     textShadow: '1px 1px 1px rgb(0 0 0 / 66%)',
 };
 

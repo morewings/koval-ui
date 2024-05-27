@@ -1,16 +1,10 @@
 import fs from 'fs';
 
 import {theme} from './src/lib/Theme/theme.ts';
-
-const convertName = (str: string) =>
-    str
-        // camelToKebabCase
-        .replace(/[A-Z]/g, (letter: string) => `-${letter.toLowerCase()}`)
-        // split numbers
-        .replace(/(?<=\D)\d/g, (num: string) => `-${num}`);
+import {convertThemeVarName} from './src/internal/utils/convertThemeVarName';
 
 const styleString = Object.entries(theme)
-    .map(([key, value]) => `--fg-${convertName(key)}: ${value};`)
+    .map(([key, value]) => `${convertThemeVarName(key)}: ${value};`)
     .join('\n');
 
 const template = `

@@ -5,25 +5,25 @@
 }
 
 .input-range {
-    --gap: var(--sizeUnit);
-    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
+    --gap: var(--fg-size-unit);
+    --validationIconPlaceholder: calc(var(--fg-size-unit) * 4 + var(--gap));
 
     align-items: flex-start;
     display: flex;
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
-    width: var(--inputWidth);
+    width: var(--fg-input-width);
 }
 
 .input {
-    --trackHeight: calc(var(--sizeUnit) / 2);
-    --sliderHeight: calc(var(--sizeUnit) * 3);
+    --trackHeight: calc(var(--fg-size-unit) / 2);
+    --sliderHeight: calc(var(--fg-size-unit) * 3);
     --sliderWidth: var(--sliderHeight);
-    --trackColor: var(--colorFa);
-    --trackColorActive: var(--colorRe);
-    --thumbColor: var(--colorSol);
-    --thumbColorActive: var(--colorDo);
+    --trackColor: var(--fg-color-fa);
+    --trackColorActive: var(--fg-color-re);
+    --thumbColor: var(--fg-color-sol);
+    --thumbColorActive: var(--fg-color-do);
 
     &::-moz-range-track {
         background: var(--trackColor);
@@ -65,21 +65,21 @@
 
     &:--disabledSelector {
         &::-moz-range-thumb {
-            background-color: var(--background100);
+            background-color: var(--fg-background-100);
             cursor: not-allowed;
         }
 
         &::-webkit-slider-thumb {
-            background-color: var(--background100);
+            background-color: var(--fg-background-100);
             cursor: not-allowed;
         }
 
         &::-moz-range-track {
-            background: var(--background100);
+            background: var(--fg-background-100);
         }
 
         &::-webkit-slider-runnable-track {
-            background: var(--background100);
+            background: var(--fg-background-100);
         }
     }
 
@@ -114,23 +114,23 @@
 
     &:--invalidSelector:focus {
         &::-moz-range-track {
-            background: var(--colorError);
+            background: var(--fg-color-error);
         }
 
         &::-webkit-slider-runnable-track {
-            background: var(--colorError);
+            background: var(--fg-color-error);
         }
     }
 }
 
 .scale {
-    color: var(--colorFa);
+    color: var(--fg-color-fa);
     cursor: default;
     display: flex;
     flex-direction: column;
-    font-family: var(--fontFamily);
-    font-size: var(--fontSizeExtraSmall);
-    font-weight: var(--fontWeightBold);
+    font-family: var(--fg-font-family);
+    font-size: var(--fg-font-size-extra-small);
+    font-weight: var(--fg-font-weight-bold);
     justify-content: space-between;
     user-select: none;
     width: 100%;
@@ -138,7 +138,7 @@
 }
 
 .input:--disabledSelector + .scale {
-    color: var(--background100);
+    color: var(--fg-background-100);
 }
 
 .mark {
@@ -146,10 +146,10 @@
 }
 
 .output {
-    color: var(--colorFa);
+    color: var(--fg-color-fa);
     flex-shrink: 0;
-    font-size: var(--fontSizeMedium);
-    font-weight: var(--fontWeightBold);
+    font-size: var(--fg-font-size-medium);
+    font-weight: var(--fg-font-weight-bold);
     text-align: right;
     width: calc(var(--outputLength) * 1ch);
 
@@ -159,11 +159,11 @@
 }
 
 .scale-wrapper:has(.input:--disabledSelector) + .output {
-    color: var(--background100);
+    color: var(--fg-background-100);
 }
 
 .scale-wrapper:has(.input:--invalidSelector:focus) + .output {
-    color: var(--colorError);
+    color: var(--fg-color-error);
 }
 
 .validation {
@@ -172,11 +172,11 @@
 }
 
 .prefix {
-    color: var(--colorFa);
+    color: var(--fg-color-fa);
     cursor: pointer;
     flex-shrink: 0;
-    height: calc(var(--sizeUnit) * 4);
-    width: calc(var(--sizeUnit) * 4);
+    height: calc(var(--fg-size-unit) * 4);
+    width: calc(var(--fg-size-unit) * 4);
 
     & svg {
         color: inherit;
@@ -185,11 +185,11 @@
     }
 
     &:hover {
-        color: var(--colorDo);
+        color: var(--fg-color-do);
     }
 }
 
 .prefix:has(+ .scale-wrapper .input:--invalidSelector):hover,
 .prefix:has(+ .scale-wrapper .input:--invalidSelector:focus) {
-    color: var(--colorError);
+    color: var(--fg-color-error);
 }

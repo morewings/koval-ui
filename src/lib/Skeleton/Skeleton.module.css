@@ -5,10 +5,11 @@
 
 .skeleton-frame {
     border-radius: calc(var(--borderRadius) * 1px);
-    box-shadow: 0 0 calc(var(--sizeUnit) * 2) 0 color-mix(in srgb, var(--colorFa) 22%, transparent);
+    box-shadow: 0 0 calc(var(--fg-size-unit) * 2) 0
+        color-mix(in srgb, var(--fg-color-fa) 22%, transparent);
     height: var(--height);
     margin: calc(var(--marginY) * 1px) calc(var(--marginX) * 1px);
-    padding: calc(var(--sizeUnit) * 3);
+    padding: calc(var(--fg-size-unit) * 3);
     width: var(--width);
 }
 
@@ -19,7 +20,7 @@
 }
 
 .skeleton-shape {
-    --loadingGrey: color-mix(in srgb, var(--colorFa) 11%, transparent);
+    --loadingGrey: color-mix(in srgb, var(--fg-color-fa) 11%, transparent);
 
     animation: 1s loading ease-in-out infinite;
     background: linear-gradient(
@@ -46,13 +47,13 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    gap: calc(var(--sizeUnit) * 4);
+    gap: calc(var(--fg-size-unit) * 4);
     justify-content: center;
     margin: calc(var(--marginY) * 1px) calc(var(--marginX) * 1px);
 }
 
 .skeleton-button {
-    width: calc(var(--sizeUnit) * 60);
+    width: calc(var(--fg-size-unit) * 60);
 }
 
 .short-line {

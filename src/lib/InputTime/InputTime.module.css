@@ -1,8 +1,8 @@
 @import url("@/internal/inputs/stateSelectorsTextual.css");
 
 .wrapper {
-    --gap: var(--sizeUnit);
-    --validationIconPlaceholder: calc(var(--sizeUnit) * 4 + var(--gap));
+    --gap: var(--fg-size-unit);
+    --validationIconPlaceholder: calc(var(--fg-size-unit) * 4 + var(--gap));
 
     align-items: center;
     display: flex;
@@ -17,21 +17,21 @@
 }
 
 .input {
-    background-color: var(--colorMi);
-    border: 3px solid var(--colorMi);
-    border-radius: calc(var(--sizeUnit) * 0.66);
+    background-color: var(--fg-color-mi);
+    border: 3px solid var(--fg-color-mi);
+    border-radius: calc(var(--fg-size-unit) * 0.66);
     color: var(--textColor);
     flex-grow: 0;
     flex-shrink: 0;
-    font-family: var(--fontFamily);
-    font-size: var(--fontSizeMedium);
-    font-weight: var(--fontWeightBolder);
-    height: var(--inputHeight);
-    line-height: var(--fontSizeMedium);
+    font-family: var(--fg-font-family);
+    font-size: var(--fg-font-size-medium);
+    font-weight: var(--fg-font-weight-bolder);
+    height: var(--fg-input-height);
+    line-height: var(--fg-font-size-medium);
     min-width: 0;
-    padding: var(--sizeUnit) calc(var(--sizeUnit) * 1.5);
+    padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
     text-align: center;
-    width: calc(5ch + var(--sizeUnit) * 5);
+    width: calc(5ch + var(--fg-size-unit) * 5);
 
     &::-webkit-calendar-picker-indicator {
         background: none;
@@ -47,17 +47,17 @@
     }
 
     &::placeholder {
-        color: var(--colorFa);
+        color: var(--fg-color-fa);
     }
 
     &:--readOnlySelector {
-        background-color: var(--colorMi);
-        border: 3px solid var(--colorDo);
+        background-color: var(--fg-color-mi);
+        border: 3px solid var(--fg-color-do);
     }
 
     &:--disabledSelector {
-        background-color: var(--background100);
-        border-color: var(--background100);
+        background-color: var(--fg-background-100);
+        border-color: var(--fg-background-100);
         cursor: not-allowed;
     }
 
@@ -66,21 +66,21 @@
     }
 
     &:--focusSelector {
-        background-color: var(--background000);
-        border-color: var(--colorRe);
+        background-color: var(--fg-background-000);
+        border-color: var(--fg-color-re);
         outline: none;
     }
 
     &:--invalidSelector:focus {
-        border-color: var(--colorError);
+        border-color: var(--fg-color-error);
     }
 }
 
 .icon {
-    --iconWidth: calc(var(--sizeUnit) * 4);
+    --iconWidth: calc(var(--fg-size-unit) * 4);
     --iconHeight: var(--toggleWidth);
 
-    color: var(--colorFa);
+    color: var(--fg-color-fa);
     cursor: pointer;
     height: var(--iconWidth);
     position: relative;
@@ -94,16 +94,16 @@
 .icon:has(+ .input:--invalidSelector:hover),
 .icon:has(+ .input:--invalidSelector:focus),
 .icon:has(+ .input:--invalidSelector):hover {
-    color: var(--colorError);
+    color: var(--fg-color-error);
 }
 
 .icon:hover:has(+ .input:not(:--disabledSelector)),
 .icon:has(+ .input:--hoverSelector) {
-    color: var(--colorRe);
+    color: var(--fg-color-re);
 }
 
 .icon:has(+ .input:--focusSelector) {
-    color: var(--colorDo);
+    color: var(--fg-color-do);
 }
 
 .icon:has(+ .input:--disabledSelector) {

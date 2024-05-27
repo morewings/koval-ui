@@ -8,6 +8,6 @@
     flex-grow: 1;
     height: calc(100vh + 333px);
     justify-content: flex-start; /* center items vertically, in this case */
-    margin: calc(var(--sizeUnit) / 2);
-    padding: calc(var(--sizeUnit) * 4);
+    margin: calc(var(--fg-size-unit) / 2);
+    padding: calc(var(--fg-size-unit) * 4);
 }

@@ -1,5 +1,5 @@
 .card {
-    border: 3px solid var(--colorDo);
+    border: 3px solid var(--fg-color-do);
     border-radius: 12px;
     display: flex;
     max-width: 100%;
@@ -19,11 +19,11 @@
 }
 
 .vertical .body {
-    padding: calc(var(--sizeUnit) * 3) calc(var(--sizeUnit) * 2);
+    padding: calc(var(--fg-size-unit) * 3) calc(var(--fg-size-unit) * 2);
 }
 
 .horizontal .body {
-    padding: calc(var(--sizeUnit) * 2) calc(var(--sizeUnit) * 3);
+    padding: calc(var(--fg-size-unit) * 2) calc(var(--fg-size-unit) * 3);
 }
 
 .vertical .header-image {
@@ -55,7 +55,7 @@
 }
 
 .horizontal .actions:not(:empty) {
-    border-left: 3px solid var(--colorDo);
+    border-left: 3px solid var(--fg-color-do);
 }
 
 .row {
@@ -71,23 +71,23 @@
 
 .action-button {
     align-items: center;
-    border-top: 3px solid var(--colorDo);
+    border-top: 3px solid var(--fg-color-do);
     cursor: pointer;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    font-weight: var(--fontWeightBolder);
-    padding: calc(var(--sizeUnit) * 2);
+    font-weight: var(--fg-font-weight-bolder);
+    padding: calc(var(--fg-size-unit) * 2);
     user-select: none;
 
     &:hover {
-        background: var(--colorDo);
-        color: var(--background000);
+        background: var(--fg-color-do);
+        color: var(--fg-background-000);
     }
 
     &:focus-visible {
-        background: var(--colorDo);
-        color: var(--background000);
+        background: var(--fg-color-do);
+        color: var(--fg-background-000);
     }
 
     &:active {
@@ -104,7 +104,7 @@
     justify-content: center;
 
     &:not(:only-child, :last-child) {
-        border-right: 3px solid var(--colorDo);
+        border-right: 3px solid var(--fg-color-do);
     }
 
     &:not(:only-child) {
@@ -126,24 +126,24 @@
 }
 
 .default {
-    color: var(--colorFa);
+    color: var(--fg-color-fa);
 }
 
 .link {
-    color: var(--colorAction);
+    color: var(--fg-color-action);
 }
 
 .success {
-    color: var(--colorSuccess);
+    color: var(--fg-color-success);
 }
 
 .danger {
-    color: var(--colorError);
+    color: var(--fg-color-error);
 }
 
 .action-icon {
-    margin-right: var(--sizeUnit);
-    width: calc(var(--sizeUnit) * 4);
+    margin-right: var(--fg-size-unit);
+    width: calc(var(--fg-size-unit) * 4);
 }
 
 .action-label {
