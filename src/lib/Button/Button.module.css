@@ -41,26 +41,6 @@
     }
 }
 
-/* Code to add text and icon shadows */
-
-/* .button {
-    &:hover:not(:disabled) .icon {
-        filter: drop-shadow(3px 3px 1px rgb(0 0 0 / 33%));
-    }
-
-    &:active:not(:disabled) .icon {
-        filter: none;
-    }
-
-    &:hover:not(:disabled) .content {
-        text-shadow: 3px 3px 2px rgb(0 0 0 / 33%);
-    }
-
-    &:active:not(:disabled) .content {
-        text-shadow: none;
-    }
-} */
-
 .content {
     overflow: hidden;
     text-align: center;
@@ -205,6 +185,7 @@
 }
 
 .icon {
+    filter: drop-shadow(var(--fg-text-shadow));
     flex-shrink: 0;
     height: calc(var(--font-size) * 1.2);
     width: calc(var(--font-size) * 1.2);
