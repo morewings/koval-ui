@@ -1,5 +1,3 @@
-// import {without} from 'lodash/fp';
-
 /**
  * Action names collection
  * @example

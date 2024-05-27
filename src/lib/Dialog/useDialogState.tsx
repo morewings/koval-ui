@@ -1,5 +1,4 @@
 import {useCallback} from 'react';
-import {last} from 'lodash/fp';
 
 import {useDialogContext} from './DialogContext';
 import type {DialogState} from './DialogReducer';
@@ -8,6 +7,10 @@ import {Actions} from './DialogReducer';
 const useSelector = (callback: (arg0: DialogState) => string | undefined) => {
     const {state} = useDialogContext();
     return callback(state);
+};
+
+const last = <TItem,>(arr: TItem[]) => {
+    return arr[arr.length - 1];
 };
 
 export const useDialogState = (id: string) => {
