@@ -16,15 +16,15 @@
 
 .page-button {
     align-items: center;
-    background: var(--colorFa);
+    background: var(--fg-color-fa);
     border-radius: 3px;
     color: white;
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    font-family: var(--fontFamilyMonospace);
-    font-size: var(--fontSizeSmall);
-    font-weight: var(--fontWeightBold);
+    font-family: var(--fg-font-family-monospace);
+    font-size: var(--fg-font-size-small);
+    font-weight: var(--fg-font-weight-bold);
     height: 24px;
     justify-content: center;
     letter-spacing: 0.8px;
@@ -32,27 +32,27 @@
     padding: 0 6px;
 
     &:hover {
-        background: var(--colorDo);
+        background: var(--fg-color-do);
     }
 
     &:focus {
-        background: var(--colorDo);
+        background: var(--fg-color-do);
     }
 
     &.active {
-        background: var(--colorDo);
+        background: var(--fg-color-do);
         pointer-events: none;
     }
 }
 
 .ellipsis {
     align-items: center;
-    color: var(--colorFa);
+    color: var(--fg-color-fa);
     cursor: default;
     display: flex;
     flex-direction: row;
-    font-size: var(--fontSizeLarge);
-    font-weight: var(--fontWeightBold);
+    font-size: var(--fg-font-size-large);
+    font-weight: var(--fg-font-weight-bold);
     height: 24px;
     justify-content: center;
     user-select: none;
@@ -79,24 +79,24 @@
 
 .input {
     appearance: textfield;
-    background-color: var(--colorMi);
-    border: 2px solid var(--colorMi);
-    border-radius: calc(var(--sizeUnit) * 0.66);
+    background-color: var(--fg-color-mi);
+    border: 2px solid var(--fg-color-mi);
+    border-radius: calc(var(--fg-size-unit) * 0.66);
     box-sizing: content-box;
     color: var(--textColor);
     flex-grow: 0;
-    font-size: var(--fontSizeSmall);
-    padding: calc(var(--sizeUnit) / 2) calc(var(--sizeUnit) * 1);
+    font-size: var(--fg-font-size-small);
+    padding: calc(var(--fg-size-unit) / 2) calc(var(--fg-size-unit) * 1);
     text-align: center;
     width: calc(var(--digits) * 1ch);
 
     &:focus {
-        background-color: var(--background000);
-        border-color: var(--colorDo);
+        background-color: var(--fg-background-000);
+        border-color: var(--fg-color-do);
         outline: none;
 
         &.error {
-            border-color: var(--colorError);
+            border-color: var(--fg-color-error);
         }
     }
 
@@ -109,19 +109,19 @@
     cursor: pointer;
 
     &:hover .icon {
-        color: var(--colorDo);
+        color: var(--fg-color-do);
     }
 
     &:focus .icon {
-        color: var(--colorDo);
+        color: var(--fg-color-do);
     }
 
     &:disabled .icon {
-        color: var(--background100);
+        color: var(--fg-background-100);
         cursor: not-allowed;
     }
 }
 
 .icon {
-    color: var(--colorFa);
+    color: var(--fg-color-fa);
 }

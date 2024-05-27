@@ -17,7 +17,7 @@
     background: lightseagreen;
     border: none;
     border-radius: 5px;
-    color: var(--background000);
+    color: var(--fg-background-000);
     cursor: pointer;
     display: block;
     font-size: 16px;

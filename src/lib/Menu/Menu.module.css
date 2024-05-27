@@ -5,14 +5,14 @@
 }
 
 .provider {
-    font-family: var(--fontFamily);
+    font-family: var(--fg-font-family);
 }
 
 .menu {
-    background: var(--background000);
-    border: calc(var(--sizeUnit) / 2) solid var(--colorDo);
-    border-radius: var(--sizeUnit);
-    box-shadow: var(--shadow100);
+    background: var(--fg-background-000);
+    border: calc(var(--fg-size-unit) / 2) solid var(--fg-color-do);
+    border-radius: var(--fg-size-unit);
+    box-shadow: var(--fg-shadow-100);
     box-sizing: border-box;
-    padding: var(--sizeUnit);
+    padding: var(--fg-size-unit);
 }

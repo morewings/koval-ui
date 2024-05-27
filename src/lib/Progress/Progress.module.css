@@ -2,12 +2,12 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    gap: var(--sizeUnit);
+    gap: var(--fg-size-unit);
 }
 
 .label {
-    color: var(--colorFa);
-    font-weight: var(--fontWeightBolder);
+    color: var(--fg-color-fa);
+    font-weight: var(--fg-font-weight-bolder);
     letter-spacing: 0.33px;
 }
 
@@ -26,9 +26,9 @@
 }
 
 .progress {
-    --color: var(--colorRe);
-    --background: var(--colorMi);
-    --height: calc(var(--sizeUnit) * 2);
+    --color: var(--fg-color-re);
+    --background: var(--fg-color-mi);
+    --height: calc(var(--fg-size-unit) * 2);
 
     appearance: none;
     background: var(--background);
@@ -36,7 +36,7 @@
     border-radius: calc(var(--height) / 2);
     height: var(--height);
     max-width: 100%;
-    width: calc(var(--sizeUnit) * 33);
+    width: calc(var(--fg-size-unit) * 33);
 
     &.dashed {
         mask:

@@ -1,10 +1,10 @@
 .button-group {
-    background: var(--background100);
+    background: var(--fg-background-100);
     border-radius: 3px;
     display: inline-flex;
-    gap: calc(var(--sizeUnit) * 2);
+    gap: calc(var(--fg-size-unit) * 2);
     max-width: 100%;
-    padding: calc(var(--sizeUnit) * 2);
+    padding: calc(var(--fg-size-unit) * 2);
     width: auto;
 
     &.horizontal {

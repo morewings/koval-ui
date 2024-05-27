@@ -2,19 +2,19 @@
     align-items: center;
     background-color: var(--bgColor);
     border: 3px solid var(--borderColor);
-    border-radius: calc(var(--sizeUnit) * 0.66);
+    border-radius: calc(var(--fg-size-unit) * 0.66);
     color: var(--textColor);
     cursor: pointer;
     display: inline-flex;
     flex-direction: row;
     font-size: var(--fontSize);
-    font-weight: var(--fontWeightBolder);
-    gap: calc(var(--sizeUnit) * var(--sizeScaleFactor) / 2);
+    font-weight: var(--fg-font-weight-bolder);
+    gap: calc(var(--fg-size-unit) * var(--sizeScaleFactor) / 2);
     letter-spacing: 1px;
     line-height: 1.2;
-    padding: calc(var(--sizeUnit) * var(--sizeScaleFactor))
-        calc(var(--sizeUnit) * 3 * var(--sizeScaleFactor));
-    text-shadow: var(--textShadow);
+    padding: calc(var(--fg-size-unit) * var(--sizeScaleFactor))
+        calc(var(--fg-size-unit) * 3 * var(--sizeScaleFactor));
+    text-shadow: var(--fg-text-shadow);
     user-select: none;
 
     &:hover {
@@ -37,7 +37,7 @@
     }
 
     &:focus-visible:not(:disabled) {
-        border-color: var(--colorRe);
+        border-color: var(--fg-color-re);
     }
 }
 
@@ -72,118 +72,118 @@
 /* Variants */
 
 .primary {
-    --borderColor: var(--colorDo);
-    --bgColor: var(--colorDo);
-    --textColor: var(--background000);
+    --borderColor: var(--fg-color-do);
+    --bgColor: var(--fg-color-do);
+    --textColor: var(--fg-background-000);
 
-    text-shadow: var(--textShadow);
+    text-shadow: var(--fg-text-shadow);
 
     &:hover {
-        --borderColor: var(--colorRe);
-        --bgColor: var(--colorRe);
-        --textColor: var(--background000);
+        --borderColor: var(--fg-color-re);
+        --bgColor: var(--fg-color-re);
+        --textColor: var(--fg-background-000);
     }
 
     &:disabled {
-        --borderColor: var(--background100);
-        --bgColor: var(--background000);
-        --textColor: var(--background300);
+        --borderColor: var(--fg-background-100);
+        --bgColor: var(--fg-background-000);
+        --textColor: var(--fg-background-300);
     }
 }
 
 .success {
-    --borderColor: var(--colorSuccess);
-    --bgColor: var(--colorSuccess);
-    --textColor: var(--background000);
+    --borderColor: var(--fg-color-success);
+    --bgColor: var(--fg-color-success);
+    --textColor: var(--fg-background-000);
 
     &:hover {
-        --borderColor: var(--colorSuccess);
+        --borderColor: var(--fg-color-success);
         --bgColor: transparent;
-        --textColor: var(--colorSuccess);
+        --textColor: var(--fg-color-success);
     }
 
     &:disabled {
-        --borderColor: var(--background100);
-        --bgColor: var(--background000);
-        --textColor: var(--background300);
+        --borderColor: var(--fg-background-100);
+        --bgColor: var(--fg-background-000);
+        --textColor: var(--fg-background-300);
     }
 }
 
 .danger {
-    --borderColor: var(--colorError);
-    --bgColor: var(--colorError);
-    --textColor: var(--background000);
+    --borderColor: var(--fg-color-error);
+    --bgColor: var(--fg-color-error);
+    --textColor: var(--fg-background-000);
 
     &:hover {
-        --borderColor: var(--colorError);
+        --borderColor: var(--fg-color-error);
         --bgColor: transparent;
-        --textColor: var(--colorError);
+        --textColor: var(--fg-color-error);
     }
 
     &:disabled {
-        --borderColor: var(--background100);
-        --bgColor: var(--background000);
-        --textColor: var(--background300);
+        --borderColor: var(--fg-background-100);
+        --bgColor: var(--fg-background-000);
+        --textColor: var(--fg-background-300);
     }
 }
 
 .action {
-    --borderColor: var(--colorAction);
-    --bgColor: var(--colorAction);
-    --textColor: var(--background000);
+    --borderColor: var(--fg-color-action);
+    --bgColor: var(--fg-color-action);
+    --textColor: var(--fg-background-000);
 
     &:hover {
-        --borderColor: var(--colorAction);
+        --borderColor: var(--fg-color-action);
         --bgColor: transparent;
-        --textColor: var(--colorAction);
+        --textColor: var(--fg-color-action);
     }
 
     &:disabled {
-        --borderColor: var(--background100);
-        --bgColor: var(--background000);
-        --textColor: var(--background300);
+        --borderColor: var(--fg-background-100);
+        --bgColor: var(--fg-background-000);
+        --textColor: var(--fg-background-300);
     }
 }
 
 .alternative {
-    --borderColor: var(--colorDo);
+    --borderColor: var(--fg-color-do);
     --bgColor: transparent;
-    --textColor: var(--colorRe);
+    --textColor: var(--fg-color-re);
 
     text-shadow: none;
 
     &:hover {
-        --borderColor: var(--colorRe);
-        --bgColor: var(--colorRe);
-        --textColor: var(--background000);
+        --borderColor: var(--fg-color-re);
+        --bgColor: var(--fg-color-re);
+        --textColor: var(--fg-background-000);
     }
 
     &:disabled {
-        --borderColor: var(--background100);
-        --bgColor: var(--background000);
-        --textColor: var(--background300);
+        --borderColor: var(--fg-background-100);
+        --bgColor: var(--fg-background-000);
+        --textColor: var(--fg-background-300);
     }
 }
 
 .link {
     --borderColor: transparent;
     --bgColor: transparent;
-    --textColor: var(--colorAction);
+    --textColor: var(--fg-color-action);
 
-    border-bottom-color: var(--colorAction);
-    padding: calc(var(--sizeUnit) * var(--sizeScaleFactor)) 0
-        calc(var(--sizeUnit) * var(--sizeScaleFactor));
+    border-bottom-color: var(--fg-color-action);
+    padding: calc(var(--fg-size-unit) * var(--sizeScaleFactor)) 0
+        calc(var(--fg-size-unit) * var(--sizeScaleFactor));
     text-shadow: none;
 
     &:hover {
-        border-bottom-color: var(--colorDo);
+        border-bottom-color: var(--fg-color-do);
     }
 
     &:disabled {
-        --bgColor: var(--background000);
-        --textColor: var(--background300);
+        --bgColor: var(--fg-background-000);
+        --textColor: var(--fg-background-300);
 
-        border-bottom-color: var(--background100);
+        border-bottom-color: var(--fg-background-100);
     }
 }
 
@@ -191,17 +191,17 @@
 
 .small {
     --sizeScaleFactor: 1;
-    --fontSize: var(--fontSizeSmall);
+    --fontSize: var(--fg-font-size-small);
 }
 
 .medium {
     --sizeScaleFactor: 1.5;
-    --fontSize: var(--fontSizeMedium);
+    --fontSize: var(--fg-font-size-medium);
 }
 
 .large {
     --sizeScaleFactor: 2;
-    --fontSize: var(--fontSizeLarge);
+    --fontSize: var(--fg-font-size-large);
 }
 
 .icon {

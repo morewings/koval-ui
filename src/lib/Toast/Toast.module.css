@@ -28,27 +28,27 @@
 }
 
 .toast {
-    --mainColor: var(--colorDo);
+    --mainColor: var(--fg-color-do);
 
-    background: var(--background000);
+    background: var(--fg-background-000);
     border: 3px solid var(--mainColor);
-    border-radius: var(--sizeUnit);
-    bottom: calc(var(--sizeUnit) * 6);
-    box-shadow: var(--shadow100);
+    border-radius: var(--fg-size-unit);
+    bottom: calc(var(--fg-size-unit) * 6);
+    box-shadow: var(--fg-shadow-100);
     left: 50%;
-    max-width: calc(var(--sizeUnit) * 55);
+    max-width: calc(var(--fg-size-unit) * 55);
     position: fixed;
 
     &.success {
-        --mainColor: var(--colorSuccess);
+        --mainColor: var(--fg-color-success);
     }
 
     &.error {
-        --mainColor: var(--colorError);
+        --mainColor: var(--fg-color-error);
     }
 
     &.warning {
-        --mainColor: var(--colorWarning);
+        --mainColor: var(--fg-color-warning);
     }
 }
 
@@ -61,22 +61,22 @@
 }
 
 .title {
-    color: var(--colorFa);
-    font-size: var(--fontSizeMedium);
-    font-weight: var(--fontWeightBolder);
+    color: var(--fg-color-fa);
+    font-size: var(--fg-font-size-medium);
+    font-weight: var(--fg-font-weight-bolder);
 
     &:not(:last-child) {
-        margin-bottom: var(--sizeUnit);
+        margin-bottom: var(--fg-size-unit);
     }
 }
 
 .content {
     align-items: center;
-    color: var(--colorFa);
+    color: var(--fg-color-fa);
     display: flex;
     flex-direction: row;
-    gap: calc(var(--sizeUnit) * 2);
-    padding: calc(var(--sizeUnit) * 2);
+    gap: calc(var(--fg-size-unit) * 2);
+    padding: calc(var(--fg-size-unit) * 2);
 }
 
 .left {
@@ -87,41 +87,41 @@
 
 .icon {
     color: var(--mainColor);
-    height: calc(var(--sizeUnit) * 6);
-    width: calc(var(--sizeUnit) * 6);
+    height: calc(var(--fg-size-unit) * 6);
+    width: calc(var(--fg-size-unit) * 6);
 }
 
 .body {
-    font-size: var(--fontSizeSmall);
+    font-size: var(--fg-font-size-small);
     line-height: 1.2;
 }
 
 .provider {
-    font-family: var(--fontFamily);
+    font-family: var(--fg-font-family);
 }
 
 .action {
     align-items: center;
-    background: var(--background000);
-    border-top: 1px solid var(--colorFa);
-    color: var(--colorFa);
+    background: var(--fg-background-000);
+    border-top: 1px solid var(--fg-color-fa);
+    color: var(--fg-color-fa);
     cursor: pointer;
     display: flex;
-    font-size: var(--fontSizeSmall);
-    font-weight: var(--fontWeightBolder);
-    gap: var(--sizeUnit);
+    font-size: var(--fg-font-size-small);
+    font-weight: var(--fg-font-weight-bolder);
+    gap: var(--fg-size-unit);
     justify-content: center;
-    padding: calc(var(--sizeUnit) / 2) 0;
+    padding: calc(var(--fg-size-unit) / 2) 0;
     width: 100%;
 
     &:hover {
-        background: var(--colorFa);
-        color: var(--background000);
+        background: var(--fg-color-fa);
+        color: var(--fg-background-000);
     }
 
     & svg {
-        height: calc(var(--sizeUnit) * 3);
-        width: calc(var(--sizeUnit) * 3);
+        height: calc(var(--fg-size-unit) * 3);
+        width: calc(var(--fg-size-unit) * 3);
     }
 }
 
@@ -144,35 +144,35 @@
 
 .action-button {
     align-items: center;
-    border-top: 1px solid var(--colorFa);
+    border-top: 1px solid var(--fg-color-fa);
     box-sizing: border-box;
     cursor: pointer;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
     flex-shrink: 1;
-    font-size: var(--fontSizeExtraSmall);
-    font-weight: var(--fontWeightBolder);
+    font-size: var(--fg-font-size-extra-small);
+    font-weight: var(--fg-font-weight-bolder);
     justify-content: center;
     line-height: 24px;
     overflow: hidden;
-    padding: calc(var(--sizeUnit) / 2) var(--sizeUnit);
+    padding: calc(var(--fg-size-unit) / 2) var(--fg-size-unit);
     text-overflow: ellipsis;
     user-select: none;
     white-space: nowrap;
 
     &:hover {
-        background: var(--colorFa);
-        color: var(--background000);
+        background: var(--fg-color-fa);
+        color: var(--fg-background-000);
     }
 
     &:focus-visible:not(:hover) {
-        color: var(--colorDo);
+        color: var(--fg-color-do);
     }
 
     &:active {
-        background: var(--colorFa);
-        color: var(--background000);
+        background: var(--fg-color-fa);
+        color: var(--fg-background-000);
 
         & .action-label,
         & .action-icon {
@@ -183,7 +183,7 @@
     }
 
     &:not(:only-child, :last-child) {
-        border-right: 1px solid var(--colorFa);
+        border-right: 1px solid var(--fg-color-fa);
     }
 
     &:not(:only-child) {
@@ -192,25 +192,25 @@
 }
 
 .default {
-    color: var(--colorFa);
+    color: var(--fg-color-fa);
 }
 
 .link {
-    color: var(--colorAction);
+    color: var(--fg-color-action);
 }
 
 .success {
-    color: var(--colorSuccess);
+    color: var(--fg-color-success);
 }
 
 .danger {
-    color: var(--colorError);
+    color: var(--fg-color-error);
 }
 
 .action-icon {
     flex-shrink: 0;
-    margin-right: calc(var(--sizeUnit) / 2);
-    width: calc(var(--sizeUnit) * 3);
+    margin-right: calc(var(--fg-size-unit) / 2);
+    width: calc(var(--fg-size-unit) * 3);
 }
 
 .action-label {

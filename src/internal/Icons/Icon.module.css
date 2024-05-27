@@ -1,8 +1,8 @@
 .icon {
     display: block;
     fill: currentcolor;
-    height: calc(var(--sizeUnit) * 4);
-    width: calc(var(--sizeUnit) * 4);
+    height: calc(var(--fg-size-unit) * 4);
+    width: calc(var(--fg-size-unit) * 4);
 }
 
 @keyframes spin {
@@ -16,13 +16,13 @@
 }
 
 .error {
-    color: var(--colorError);
+    color: var(--fg-color-error);
 }
 
 .valid {
-    color: var(--colorSuccess);
+    color: var(--fg-color-success);
 }
 
 .loading {
-    color: var(--colorAction);
+    color: var(--fg-color-action);
 }

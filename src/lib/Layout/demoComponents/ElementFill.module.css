@@ -1,5 +1,5 @@
 .fill {
-    --color: var(--colorDo);
+    --color: var(--fg-color-do);
 
     align-items: center; /* center items horizontally, in this case */
     background: color-mix(in srgb, var(--color) 20%, transparent);
@@ -8,12 +8,12 @@
     flex-direction: column; /* make flex direction vertical */
     flex-grow: 1;
     justify-content: center; /* center items vertically, in this case */
-    margin: calc(var(--sizeUnit) / 2);
-    padding: calc(var(--sizeUnit) * 3) 0;
+    margin: calc(var(--fg-size-unit) / 2);
+    padding: calc(var(--fg-size-unit) * 3) 0;
 }
 
 .text {
     color: var(--color);
-    font-size: var(--fontSizeLarge);
-    font-weight: var(--fontWeightBold);
+    font-size: var(--fg-font-size-large);
+    font-weight: var(--fg-font-weight-bold);
 }

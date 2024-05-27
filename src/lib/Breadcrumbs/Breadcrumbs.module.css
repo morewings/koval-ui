@@ -1,51 +1,51 @@
 .breadcrumbs {
     align-items: baseline;
-    background: var(--colorMi);
-    border-radius: var(--sizeUnit);
+    background: var(--fg-color-mi);
+    border-radius: var(--fg-size-unit);
     display: flex;
     flex-direction: row;
     max-width: 100%;
     overflow: auto;
-    padding: calc(var(--sizeUnit) * 3);
+    padding: calc(var(--fg-size-unit) * 3);
 }
 
 .crumb {
     align-items: baseline;
     display: flex;
     flex-direction: row;
-    font-size: var(--fontSizeLarge);
-    font-weight: var(--fontWeightBolder);
-    gap: var(--sizeUnit);
+    font-size: var(--fg-font-size-large);
+    font-weight: var(--fg-font-weight-bolder);
+    gap: var(--fg-size-unit);
     letter-spacing: 0.33px;
 
     &:not(:last-child) {
-        color: var(--colorAction);
+        color: var(--fg-color-action);
 
         & .text {
-            border-bottom: 2px solid var(--colorAction);
+            border-bottom: 2px solid var(--fg-color-action);
         }
 
         &:hover {
             & .text {
-                border-bottom-color: var(--colorRe);
-                color: var(--colorRe);
+                border-bottom-color: var(--fg-color-re);
+                color: var(--fg-color-re);
             }
 
             & .icon {
-                color: var(--colorRe);
+                color: var(--fg-color-re);
             }
         }
 
         &::after {
-            color: var(--background200);
+            color: var(--fg-background-200);
             content: "/";
-            font-weight: var(--fontWeightNormal);
-            padding: 0 calc(var(--sizeUnit) * 2);
+            font-weight: var(--fg-font-weight-normal);
+            padding: 0 calc(var(--fg-size-unit) * 2);
         }
     }
 
     &:last-child {
-        color: var(--colorRe);
+        color: var(--fg-color-re);
         cursor: default;
         pointer-events: none;
     }
@@ -64,19 +64,19 @@
 
 .icon {
     align-self: center;
-    height: calc(var(--sizeUnit) * 3);
-    width: calc(var(--sizeUnit) * 3);
+    height: calc(var(--fg-size-unit) * 3);
+    width: calc(var(--fg-size-unit) * 3);
 }
 
 .ellipsis {
     cursor: default;
-    font-size: var(--fontSizeLarge);
-    font-weight: var(--fontWeightBolder);
+    font-size: var(--fg-font-size-large);
+    font-weight: var(--fg-font-weight-bolder);
 
     &::after {
-        color: var(--background200);
+        color: var(--fg-background-200);
         content: "/";
-        font-weight: var(--fontWeightNormal);
-        padding: 0 calc(var(--sizeUnit) * 2);
+        font-weight: var(--fg-font-weight-normal);
+        padding: 0 calc(var(--fg-size-unit) * 2);
     }
 }
