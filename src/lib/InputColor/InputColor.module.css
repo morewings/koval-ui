@@ -2,8 +2,8 @@
 
 .wrapper {
     --gap: var(--fg-size-unit);
-    --selectedColor: var(--fg-color-do);
-    --invertedColor: var(--textColor);
+    --selected-color: var(--fg-color-do);
+    --inverted-color: var(--fg-text-color);
 
     align-items: center;
     display: flex;
@@ -15,13 +15,13 @@
 }
 
 .toggle {
-    --toggleWidth: calc(var(--fg-size-unit) * 4);
-    --toggleHeight: var(--toggleWidth);
+    --toggle-width: calc(var(--fg-size-unit) * 4);
+    --toggle-height: var(--toggle-width);
 
     cursor: pointer;
-    height: var(--toggleHeight);
+    height: var(--toggle-height);
     position: relative;
-    width: var(--toggleWidth);
+    width: var(--toggle-width);
 }
 
 .icon {
@@ -42,9 +42,9 @@
 
 .input {
     cursor: pointer;
-    height: var(--toggleHeight);
+    height: var(--toggle-height);
     opacity: 0;
-    width: var(--toggleWidth);
+    width: var(--toggle-width);
 
     &:--focusSelector {
         border-color: var(--fg-color-re);
@@ -68,11 +68,11 @@
 }
 
 .label {
-    background-color: var(--selectedColor);
-    border: 3px solid var(--selectedColor);
+    background-color: var(--selected-color);
+    border: 3px solid var(--selected-color);
     border-radius: calc(var(--fg-size-unit) * 0.66);
     box-sizing: content-box;
-    color: var(--invertedColor);
+    color: var(--inverted-color);
     cursor: pointer;
     flex-grow: 0;
     flex-shrink: 0;

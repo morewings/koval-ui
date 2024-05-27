@@ -1,14 +1,15 @@
 .vars {
-    --marginY: 0;
-    --marginX: 0;
+    --margin-y: 0;
+    --margin-x: 0;
+    --border-radius: 0;
 }
 
 .skeleton-frame {
-    border-radius: calc(var(--borderRadius) * 1px);
+    border-radius: calc(var(--border-radius) * 1px);
     box-shadow: 0 0 calc(var(--fg-size-unit) * 2) 0
         color-mix(in srgb, var(--fg-color-fa) 22%, transparent);
     height: var(--height);
-    margin: calc(var(--marginY) * 1px) calc(var(--marginX) * 1px);
+    margin: calc(var(--margin-y) * 1px) calc(var(--margin-x) * 1px);
     padding: calc(var(--fg-size-unit) * 3);
     width: var(--width);
 }
@@ -20,7 +21,7 @@
 }
 
 .skeleton-shape {
-    --loadingGrey: color-mix(in srgb, var(--fg-color-fa) 11%, transparent);
+    --loading-color: color-mix(in srgb, var(--fg-color-fa) 11%, transparent);
 
     animation: 1s loading ease-in-out infinite;
     background: linear-gradient(
@@ -29,18 +30,18 @@
             rgb(255 255 255 / 50%) 50%,
             rgb(255 255 255 / 0%) 60%
         )
-        var(--loadingGrey);
-    background-color: var(--loadingGrey);
+        var(--loading-color);
+    background-color: var(--loading-color);
     background-position-x: 180%;
     background-size: 200% 100%;
-    border-radius: calc(var(--borderRadius) * 1px);
+    border-radius: calc(var(--border-radius) * 1px);
     height: var(--height);
-    margin: calc(var(--marginY) * 1px) calc(var(--marginX) * 1px);
+    margin: calc(var(--margin-y) * 1px) calc(var(--margin-x) * 1px);
     width: var(--width);
 }
 
 .skeleton-text {
-    margin: calc(var(--marginY) * 1px) calc(var(--marginX) * 1px);
+    margin: calc(var(--margin-y) * 1px) calc(var(--margin-x) * 1px);
 }
 
 .skeleton-action {
@@ -49,7 +50,7 @@
     flex-direction: row;
     gap: calc(var(--fg-size-unit) * 4);
     justify-content: center;
-    margin: calc(var(--marginY) * 1px) calc(var(--marginX) * 1px);
+    margin: calc(var(--margin-y) * 1px) calc(var(--margin-x) * 1px);
 }
 
 .skeleton-button {

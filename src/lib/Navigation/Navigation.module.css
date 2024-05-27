@@ -24,8 +24,8 @@
 /* List styles */
 
 .nav-list {
-    --textColor: var(--fg-background-000);
-    --hoverColor: var(--fg-color-re);
+    --text-color: var(--fg-background-000);
+    --hover-color: var(--fg-color-re);
 
     display: flex;
     flex-grow: 0;
@@ -84,10 +84,10 @@
 /* Link styles */
 
 .nav-link {
-    --baseColor: var(--textColor);
+    --base-color: var(--text-color);
 
     align-items: center;
-    color: var(--baseColor);
+    color: var(--base-color);
     display: flex;
     flex-direction: row;
     font-size: 16px;
@@ -99,7 +99,7 @@
     user-select: none;
 
     &:hover {
-        --baseColor: var(--hoverColor);
+        --base-color: var(--hover-color);
 
         text-shadow: 1px 1px 1px var(--fg-color-mi);
 

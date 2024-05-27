@@ -37,9 +37,9 @@ export const SkeletonFrame = forwardRef<HTMLDivElement, Props>(
             () => ({
                 width: normalizeUnit(width),
                 height: normalizeUnit(height),
-                borderRadius,
-                marginY,
-                marginX,
+                'border-radius': borderRadius,
+                'margin-y': marginY,
+                'margin-x': marginX,
             }),
             [borderRadius, height, marginX, marginY, width]
         );

@@ -20,13 +20,13 @@
 }
 
 .input {
-    --bgColor: #fff;
-    --borderColor: var(--fg-color-fa);
-    --centerColor: var(--fg-color-sol);
+    --bg-color: #fff;
+    --border-color: var(--fg-color-fa);
+    --center-color: var(--fg-color-sol);
 
     appearance: none;
-    background-color: var(--bgColor);
-    border: 3px solid var(--borderColor);
+    background-color: var(--bg-color);
+    border: 3px solid var(--border-color);
     border-radius: 50%;
     cursor: pointer;
     display: block;
@@ -38,7 +38,7 @@
     &::before {
         --size: 0px;
 
-        background-color: var(--centerColor);
+        background-color: var(--center-color);
         border-radius: 50%;
         content: "";
         height: var(--size);
@@ -50,7 +50,7 @@
     }
 
     &:--disabledSelector {
-        --borderColor: var(--fg-background-100);
+        --border-color: var(--fg-background-100);
 
         cursor: not-allowed;
     }
@@ -60,8 +60,8 @@
     }
 
     &:--focusSelector {
-        --borderColor: var(--fg-color-do);
-        --centerColor: var(--fg-color-do);
+        --border-color: var(--fg-color-do);
+        --center-color: var(--fg-color-do);
     }
 
     &:--disabledSelector + .label {
@@ -72,12 +72,12 @@
 
 .wrapper:hover {
     .input:not(:--disabledSelector, :--invalidSelector) {
-        --borderColor: var(--fg-color-re);
-        --centerColor: var(--fg-color-do);
+        --border-color: var(--fg-color-re);
+        --center-color: var(--fg-color-do);
     }
 
     .input:--invalidSelector {
-        --borderColor: red;
+        --border-color: red;
     }
 
     .input:--invalidSelector + .label {

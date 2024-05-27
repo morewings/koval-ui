@@ -59,7 +59,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
         const {LocalRoot} = useLocalTheme();
         const theme = useMemo(
             () => ({
-                selectWidth: `${size}ch`,
+                'select-width': `${size}ch`,
             }),
             [size]
         );

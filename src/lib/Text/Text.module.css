@@ -1,9 +1,9 @@
 /* stylelint-disable no-descending-specificity */
 
 .text {
-    --bgColor: var(--fg-background-000);
+    --bg-color: var(--fg-background-000);
 
-    background-color: var(--bgColor);
+    background-color: var(--bg-color);
     width: 100%;
 }
 
@@ -75,7 +75,7 @@
 
 .text p,
 .paragraph {
-    color: var(--textColor);
+    color: var(--fg-text-color);
     font-size: var(--fg-font-size-text);
     line-height: 1.33;
 
@@ -96,7 +96,7 @@
 
 .text b,
 .bold {
-    color: var(--textColor);
+    color: var(--fg-text-color);
     font-weight: 600;
 }
 
@@ -108,7 +108,7 @@
 
 .text i,
 .italic {
-    color: var(--textColor);
+    color: var(--fg-text-color);
     font-style: italic;
 }
 
@@ -122,13 +122,13 @@
 .text mark,
 .marked {
     background: var(--fg-color-mi);
-    color: var(--textColor);
+    color: var(--fg-text-color);
     padding: 0 calc(var(--fg-size-unit) / 2);
 }
 
 .text small,
 .small {
-    color: var(--textColor);
+    color: var(--fg-text-color);
     font-size: 12px;
 }
 
@@ -149,14 +149,14 @@
 
 .text sub,
 .subscript {
-    color: var(--textColor);
+    color: var(--fg-text-color);
     font-size: var(--fg-font-size-extra-small);
     vertical-align: sub;
 }
 
 .text sup,
 .superscript {
-    color: var(--textColor);
+    color: var(--fg-text-color);
     font-size: var(--fg-font-size-extra-small);
     vertical-align: super;
 }
@@ -165,7 +165,7 @@
 .text ol,
 .ul,
 .ol {
-    color: var(--textColor);
+    color: var(--fg-text-color);
     padding-left: calc(var(--fg-size-unit) * 2);
 
     &:not(:last-child) {
@@ -309,7 +309,7 @@
 .text table {
     border: 2px solid var(--fg-background-000);
     border-collapse: collapse;
-    color: var(--textColor);
+    color: var(--fg-text-color);
     font-size: var(--fg-font-size-small);
     table-layout: auto;
     width: 100%;
@@ -326,7 +326,7 @@
     & th,
     & td {
         border: 1px solid var(--fg-background-100);
-        color: var(--textColor);
+        color: var(--fg-text-color);
         min-width: 166px;
         padding: 12px;
     }
@@ -358,7 +358,7 @@
 .code,
 .text code {
     background-color: var(--fg-background-100);
-    color: var(--textColor);
+    color: var(--fg-text-color);
     font-family: var(--fg-font-family-monospace);
     font-size: var(--fg-font-size-small);
     padding: 0 3px;
@@ -368,7 +368,7 @@
 .text pre {
     background-color: var(--fg-background-100);
     border-radius: var(--fg-size-unit);
-    color: var(--textColor);
+    color: var(--fg-text-color);
     display: block;
     font-family: var(--fg-font-family);
     font-size: var(--fg-font-size-small);
@@ -406,16 +406,16 @@
 .text meter {
     --background: var(--fg-background-100);
     --optimum: var(--fg-color-success);
-    --subOptimum: var(--fg-color-warning);
-    --subSubOptimum: var(--fg-color-error);
+    --sub-optimum: var(--fg-color-warning);
+    --sub-sub-optimum: var(--fg-color-error);
     --height: calc(var(--fg-size-unit) * 2);
-    --borderRadius: var(--fg-size-unit);
-    --borderColor: var(--fg-color-re);
+    --border-radius: var(--fg-size-unit);
+    --border-color: var(--fg-color-re);
 
     /* Style for Firefox */
     background: var(--background);
-    border: 1px solid var(--borderColor);
-    border-radius: var(--borderRadius);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
     display: inline-block;
     height: var(--height);
     width: calc(var(--fg-size-unit) * 25);
@@ -423,8 +423,8 @@
     /* Style for Chrome, etc. */
     &::-webkit-meter-bar {
         background: var(--background);
-        border: 1px solid var(--borderColor);
-        border-radius: var(--borderRadius);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
         height: var(--height);
     }
 
@@ -437,12 +437,12 @@
     /* The yellow (sub-optimum) bar */
     &:-moz-meter-sub-optimum::-moz-meter-bar,
     &::-webkit-meter-suboptimum-value {
-        background: var(--subOptimum);
+        background: var(--sub-optimum);
     }
 
     /* The red (even less good) bar */
     &::-webkit-meter-even-less-good-value,
     &:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-        background: var(--subSubOptimum);
+        background: var(--sub-sub-optimum);
     }
 }

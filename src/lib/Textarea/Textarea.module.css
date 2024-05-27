@@ -6,7 +6,7 @@
 
 .wrapper {
     --gap: var(--fg-size-unit);
-    --validationIconPlaceholder: calc(var(--fg-size-unit) * 4 + var(--gap));
+    --validation-icon-placeholder: calc(var(--fg-size-unit) * 4 + var(--gap));
 
     align-items: flex-start;
     display: flex;
@@ -24,7 +24,7 @@
     background-color: var(--fg-color-mi);
     border: 3px solid var(--fg-color-mi);
     border-radius: calc(var(--fg-size-unit) * 0.66);
-    color: var(--textColor);
+    color: var(--fg-text-color);
     flex: 1;
     font-size: var(--fg-font-size-small);
     line-height: 1.5;
@@ -33,7 +33,7 @@
     resize: var(--resize);
 
     &:last-child {
-        margin-right: var(--validationIconPlaceholder);
+        margin-right: var(--validation-icon-placeholder);
     }
 
     &:--focusSelector {

@@ -2,7 +2,7 @@
 
 .wrapper {
     --gap: var(--fg-size-unit);
-    --validationIconPlaceholder: calc(var(--fg-size-unit) * 4 + var(--gap));
+    --validation-icon-placeholder: calc(var(--fg-size-unit) * 4 + var(--gap));
 
     align-items: center;
     display: flex;
@@ -20,7 +20,7 @@
     background-color: var(--fg-color-mi);
     border: 3px solid var(--fg-color-mi);
     border-radius: calc(var(--fg-size-unit) * 0.66);
-    color: var(--textColor);
+    color: var(--fg-text-color);
     flex-grow: 0;
     flex-shrink: 0;
     font-family: var(--fg-font-family);
@@ -43,7 +43,7 @@
     }
 
     &:last-child {
-        margin-right: var(--validationIconPlaceholder);
+        margin-right: var(--validation-icon-placeholder);
     }
 
     &::placeholder {
@@ -77,14 +77,13 @@
 }
 
 .icon {
-    --iconWidth: calc(var(--fg-size-unit) * 4);
-    --iconHeight: var(--toggleWidth);
+    --icon-width: calc(var(--fg-size-unit) * 4);
 
     color: var(--fg-color-fa);
     cursor: pointer;
-    height: var(--iconWidth);
+    height: var(--icon-width);
     position: relative;
-    width: var(--iconWidth);
+    width: var(--icon-width);
 
     &:active {
         outline: none;

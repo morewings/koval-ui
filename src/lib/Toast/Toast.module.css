@@ -28,10 +28,10 @@
 }
 
 .toast {
-    --mainColor: var(--fg-color-do);
+    --main-color: var(--fg-color-do);
 
     background: var(--fg-background-000);
-    border: 3px solid var(--mainColor);
+    border: 3px solid var(--main-color);
     border-radius: var(--fg-size-unit);
     bottom: calc(var(--fg-size-unit) * 6);
     box-shadow: var(--fg-shadow-100);
@@ -40,15 +40,15 @@
     position: fixed;
 
     &.success {
-        --mainColor: var(--fg-color-success);
+        --main-color: var(--fg-color-success);
     }
 
     &.error {
-        --mainColor: var(--fg-color-error);
+        --main-color: var(--fg-color-error);
     }
 
     &.warning {
-        --mainColor: var(--fg-color-warning);
+        --main-color: var(--fg-color-warning);
     }
 }
 
@@ -86,7 +86,7 @@
 }
 
 .icon {
-    color: var(--mainColor);
+    color: var(--main-color);
     height: calc(var(--fg-size-unit) * 6);
     width: calc(var(--fg-size-unit) * 6);
 }

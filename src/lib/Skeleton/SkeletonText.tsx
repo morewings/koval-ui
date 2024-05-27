@@ -32,8 +32,8 @@ export const SkeletonText = forwardRef<HTMLDivElement, Props>(
             () => ({
                 width: normalizeUnit(width),
                 height: normalizeUnit(height),
-                marginY,
-                marginX,
+                'margin-y': marginY,
+                'margin-x': marginX,
             }),
             [height, marginX, marginY, width]
         );

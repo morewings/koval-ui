@@ -1,12 +1,12 @@
 @import url("@/internal/inputs/stateSelectorsInteractive.css");
 
 .vars {
-    --inputWidth: 16ch;
+    --input-width: 16ch;
 }
 
 .input-file {
     --gap: var(--fg-size-unit);
-    --validationIconPlaceholder: calc(var(--fg-size-unit) * 4 + var(--gap));
+    --validation-icon-placeholder: calc(var(--fg-size-unit) * 4 + var(--gap));
 
     align-items: center;
     display: flex;
@@ -18,24 +18,24 @@
 }
 
 .toggle {
-    --toggleWidth: calc(var(--fg-size-unit) * 4);
-    --toggleHeight: var(--toggleWidth);
+    --toggle-width: calc(var(--fg-size-unit) * 4);
+    --toggle-height: var(--toggle-width);
 
     cursor: pointer;
-    height: var(--toggleHeight);
+    height: var(--toggle-height);
     overflow: hidden;
     position: relative;
-    width: var(--toggleWidth);
+    width: var(--toggle-width);
 }
 
 .input {
     cursor: pointer;
-    height: var(--toggleHeight);
+    height: var(--toggle-height);
     left: 0;
     opacity: 0;
     position: absolute;
     top: 0;
-    width: var(--toggleWidth);
+    width: var(--toggle-width);
 
     &:disabled {
         cursor: not-allowed;
@@ -45,8 +45,8 @@
 .icon {
     color: var(--fg-color-fa);
     cursor: pointer;
-    height: var(--toggleHeight);
-    width: var(--toggleWidth);
+    height: var(--toggle-height);
+    width: var(--toggle-width);
 }
 
 .label {
@@ -58,17 +58,17 @@
     flex-grow: 1;
     font-size: var(--fg-font-size-medium);
     line-height: 1.2;
-    max-width: calc(100% - var(--validationIconPlaceholder));
+    max-width: calc(100% - var(--validation-icon-placeholder));
     min-height: calc(var(--fg-size-unit) * 6.33);
     min-width: 0;
     overflow: hidden;
     padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: var(--inputWidth);
+    width: var(--input-width);
 
     &:last-child {
-        margin-right: var(--validationIconPlaceholder);
+        margin-right: var(--validation-icon-placeholder);
     }
 }
 
