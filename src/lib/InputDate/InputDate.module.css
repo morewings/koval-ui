@@ -2,7 +2,7 @@
 
 .wrapper {
     --gap: var(--fg-size-unit);
-    --validationIconPlaceholder: calc(var(--fg-size-unit) * 4 + var(--gap));
+    --validation-icon-placeholder: calc(var(--fg-size-unit) * 4 + var(--gap));
 
     align-items: center;
     display: flex;
@@ -14,33 +14,33 @@
 }
 
 .toggle {
-    --toggleWidth: calc(var(--fg-size-unit) * 4);
-    --toggleHeight: var(--toggleWidth);
+    --toggle-width: calc(var(--fg-size-unit) * 4);
+    --toggle-height: var(--toggle-width);
 
     cursor: pointer;
-    height: var(--toggleHeight);
+    height: var(--toggle-height);
     position: relative;
-    width: var(--toggleWidth);
+    width: var(--toggle-width);
 }
 
 .icon {
     color: var(--fg-color-fa);
     cursor: pointer;
-    height: var(--toggleHeight);
+    height: var(--toggle-height);
     position: absolute;
-    width: var(--toggleWidth);
+    width: var(--toggle-width);
     z-index: 2;
 }
 
 .input {
     appearance: none;
     cursor: pointer;
-    height: var(--toggleHeight);
+    height: var(--toggle-height);
     left: 0;
     opacity: 0;
     position: absolute;
     top: 0;
-    width: var(--toggleWidth);
+    width: var(--toggle-width);
     z-index: 1;
 
     &:--disabledSelector {
@@ -65,7 +65,7 @@
     border: 3px solid var(--fg-color-mi);
     border-radius: calc(var(--fg-size-unit) * 0.66);
     box-sizing: content-box;
-    color: var(--textColor);
+    color: var(--fg-text-color);
     cursor: pointer;
     flex-grow: 0;
     flex-shrink: 0;
@@ -77,7 +77,7 @@
     width: 10ch;
 
     &:last-child {
-        margin-right: var(--validationIconPlaceholder);
+        margin-right: var(--validation-icon-placeholder);
     }
 }
 

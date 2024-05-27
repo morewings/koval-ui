@@ -43,7 +43,7 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
         const {LocalRoot} = useLocalTheme();
         const theme = useMemo(
             () => ({
-                inputWidth: `${size}ch`,
+                'input-width': `${size}ch`,
             }),
             [size]
         );

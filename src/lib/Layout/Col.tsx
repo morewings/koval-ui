@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {useLinkRefs} from '@/internal/hooks/useLinkRefs.ts';
 
-import {Offsets, Sizes} from './SizeTypes';
+import {Sizes} from './SizeTypes';
 import type {OffsetConfig, SizesConfig} from './SizeTypes';
 import classes from './Layout.module.css';
 
@@ -56,11 +56,11 @@ export const Col = forwardRef<HTMLElement, ColProps>(
                     [Sizes.md]: md ?? '',
                     [Sizes.lg]: lg ?? '',
                     [Sizes.xl]: xl ?? '',
-                    [Offsets.xs]: shiftXS ?? '',
-                    [Offsets.sm]: shiftSM ?? '',
-                    [Offsets.md]: shiftMD ?? '',
-                    [Offsets.lg]: shiftLG ?? '',
-                    [Offsets.xl]: shiftXL ?? '',
+                    [`shift-${Sizes.xs}`]: shiftXS ?? '',
+                    [`shift-${Sizes.sm}`]: shiftSM ?? '',
+                    [`shift-${Sizes.md}`]: shiftMD ?? '',
+                    [`shift-${Sizes.lg}`]: shiftLG ?? '',
+                    [`shift-${Sizes.xl}`]: shiftXL ?? '',
                 }),
             [xs, sm, md, lg, xl, shiftXS, shiftSM, shiftMD, shiftLG, shiftXL]
         );

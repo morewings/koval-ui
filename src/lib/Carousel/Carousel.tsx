@@ -79,7 +79,7 @@ export const Carousel = forwardRef<HTMLDivElement, Props>(
             () => ({
                 width: elementWidth,
                 height: elementHeight,
-                cellsAmount,
+                'cells-amount': cellsAmount,
                 rotations: visible,
             }),
             [elementWidth, elementHeight, cellsAmount, visible]

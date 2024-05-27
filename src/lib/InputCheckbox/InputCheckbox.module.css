@@ -7,13 +7,13 @@
 }
 
 .input {
-    --bgColor: #fff;
-    --borderColor: var(--fg-color-fa);
-    --centerColor: var(--fg-color-sol);
+    --bg-color: #fff;
+    --border-color: var(--fg-color-fa);
+    --center-color: var(--fg-color-sol);
 
     appearance: none;
-    background-color: var(--bgColor);
-    border: 3px solid var(--borderColor);
+    background-color: var(--bg-color);
+    border: 3px solid var(--border-color);
     border-radius: 3px;
     cursor: pointer;
     display: block;
@@ -25,7 +25,7 @@
     &::before {
         --size: 0px;
 
-        background-color: var(--centerColor);
+        background-color: var(--center-color);
         content: "";
         height: var(--size);
         left: 50%;
@@ -36,7 +36,7 @@
     }
 
     &:--disabledSelector {
-        --borderColor: var(--fg-background-100);
+        --border-color: var(--fg-background-100);
 
         cursor: not-allowed;
     }
@@ -46,22 +46,22 @@
     }
 
     &:--focusSelector {
-        --borderColor: var(--fg-color-do);
-        --centerColor: var(--fg-color-do);
+        --border-color: var(--fg-color-do);
+        --center-color: var(--fg-color-do);
     }
 }
 
 .label {
-    --validationIconPlaceholder: calc(var(--fg-size-unit) * 5);
+    --validation-icon-placeholder: calc(var(--fg-size-unit) * 5);
 
-    color: var(--textColor);
+    color: var(--fg-text-color);
     cursor: pointer;
     font-size: var(--fg-font-size-medium);
     margin-left: var(--fg-size-unit);
     margin-right: var(--fg-size-unit);
 
     &:last-child {
-        margin-right: var(--validationIconPlaceholder);
+        margin-right: var(--validation-icon-placeholder);
     }
 
     &.required::after {
@@ -84,12 +84,12 @@
 
 .wrapper:hover {
     .input:not(:--disabledSelector) {
-        --borderColor: var(--fg-color-re);
-        --centerColor: var(--fg-color-do);
+        --border-color: var(--fg-color-re);
+        --center-color: var(--fg-color-do);
     }
 
     .input:--invalidSelector {
-        --borderColor: red;
+        --border-color: red;
     }
 
     .input:--invalidSelector + .label {

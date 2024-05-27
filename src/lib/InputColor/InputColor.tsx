@@ -58,8 +58,8 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
         const displayValue = (value ?? defaultValue) as string;
         const theme = useMemo(
             () => ({
-                selectedColor: displayValue,
-                invertedColor: invertColor(displayValue, true),
+                'selected-color': displayValue,
+                'inverted-color': invertColor(displayValue, true),
             }),
             [displayValue]
         );
@@ -68,8 +68,8 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             (event: FocusEvent<HTMLInputElement>) => {
                 onFocus(event);
                 setTheme({
-                    selectedColor: event.target.value,
-                    invertedColor: invertColor(event.target.value, true),
+                    'selected-color': event.target.value,
+                    'inverted-color': invertColor(event.target.value, true),
                 });
             },
             [onFocus, setTheme]
@@ -80,7 +80,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
         const handleBlur = useCallback(
             (event: FocusEvent<HTMLInputElement>) => {
                 setTheme({
-                    invertedColor: invertColor(event.target.value, true),
+                    'inverted-color': invertColor(event.target.value, true),
                 });
 
                 if (labelRef?.current) {
@@ -96,8 +96,8 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 setTheme({
-                    selectedColor: event.target.value,
-                    invertedColor: 'transparent',
+                    'selected-color': event.target.value,
+                    'inverted-color': 'transparent',
                 });
             },
             [setTheme]

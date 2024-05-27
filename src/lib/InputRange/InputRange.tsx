@@ -103,7 +103,7 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
 
         const theme = useMemo(
             () => ({
-                outputLength: max.toString().length + scaleUnit.length,
+                'output-length': max.toString().length + scaleUnit.length,
             }),
             [max, scaleUnit]
         );

@@ -7,21 +7,14 @@ import {DialogProvider} from '@/lib/Dialog';
 import {NotificationProvider} from '@/lib/Notification';
 import {ToastProvider} from '@/lib/Toast';
 import {DrawerProvider} from '@/lib/Drawer';
-import {convertThemeVarName} from '@/internal/utils/convertThemeVarName.ts';
+import {convertTheme} from '@/internal/utils/convertThemeVarName.ts';
 
 import classes from './Provider.module.css';
 
 export type Props = {children?: ReactNode; theme?: typeof themeGeneric};
 
 export const Provider: FC<Props> = ({children, theme = themeGeneric}) => {
-    const convertedTheme = useMemo(() => {
-        const entries = Object.entries(theme).map(([key, value]) => [
-            convertThemeVarName(key),
-            value,
-        ]);
-        return Object.fromEntries(entries);
-    }, [theme]);
-    console.log('convertedTheme', convertedTheme);
+    const convertedTheme = useMemo(() => convertTheme(theme), [theme]);
     return (
         <RootThemeProvider theme={convertedTheme} className={classes.provider}>
             <DialogProvider>

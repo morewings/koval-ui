@@ -6,7 +6,7 @@
 }
 
 .dialog {
-    --shadowColor: color-mix(in srgb, var(--fg-color-fa) 66%, transparent);
+    --shadow-color: color-mix(in srgb, var(--fg-color-fa) 66%, transparent);
 
     border: none;
     border-radius: 6px;

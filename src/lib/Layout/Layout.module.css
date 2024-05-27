@@ -7,14 +7,14 @@
     --md: 0;
     --lg: 0;
     --xl: 0;
-    --shiftXS: 0;
-    --shiftSM: 0;
-    --shiftMD: 0;
-    --shiftLG: 0;
-    --shiftXL: 0;
+    --shift-xs: 0;
+    --shift-sm: 0;
+    --shift-md: 0;
+    --shift-lg: 0;
+    --shift-xl: 0;
     --gap: 0;
     --base: 0;
-    --containerWidth: 0;
+    --container-width: 0;
 }
 
 .grid {
@@ -23,7 +23,7 @@
     height: auto;
     margin: auto;
     max-width: 100%;
-    width: var(--containerWidth);
+    width: var(--container-width);
 }
 
 .row {
@@ -36,48 +36,48 @@
 }
 
 .column {
-    --gapsTotal: calc(var(--gap) * (var(--base) - 1));
-    --gapsIncluded: calc(var(--gap) * (var(--space) - 1));
-    --singleSpaceWidth: calc((100% - var(--gapsTotal)) / var(--base));
-    --shiftWidth: calc(var(--singleSpaceWidth) * var(--shift) + var(--gap) * var(--shift));
-    --columnWidth: calc(var(--singleSpaceWidth) * var(--space) + var(--gapsIncluded));
+    --gaps-total: calc(var(--gap) * (var(--base) - 1));
+    --gaps-included: calc(var(--gap) * (var(--space) - 1));
+    --single-space-width: calc((100% - var(--gaps-total)) / var(--base));
+    --shift-width: calc(var(--single-space-width) * var(--shift) + var(--gap) * var(--shift));
+    --column-width: calc(var(--single-space-width) * var(--space) + var(--gaps-included));
 
     flex: var(--space);
-    margin-left: var(--shiftWidth);
-    max-width: var(--columnWidth);
+    margin-left: var(--shift-width);
+    max-width: var(--column-width);
 
     &.xs {
         @media (--viewport-xs) {
             --space: var(--xs);
-            --shift: var(--shiftXS);
+            --shift: var(--shift-xs);
         }
     }
 
     &.sm {
         @media (--viewport-sm) {
             --space: var(--sm);
-            --shift: var(--shiftSM);
+            --shift: var(--shift-sm);
         }
     }
 
     &.md {
         @media (--viewport-md) {
             --space: var(--md);
-            --shift: var(--shiftMD);
+            --shift: var(--shift-md);
         }
     }
 
     &.lg {
         @media (--viewport-lg) {
             --space: var(--lg);
-            --shift: var(--shiftLG);
+            --shift: var(--shift-lg);
         }
     }
 
     &.xl {
         @media (--viewport-xl) {
             --space: var(--xl);
-            --shift: var(--shiftXL);
+            --shift: var(--shift-xl);
         }
     }
 

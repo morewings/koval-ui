@@ -2,7 +2,7 @@
     --width: 0;
     --height: 0;
     --rotations: 0;
-    --cellsAmount: 0;
+    --cells-amount: 0;
     --index: 0;
 }
 
@@ -25,8 +25,8 @@
 
 .viewport {
     /* See more at https://3dtransforms.desandro.com/carousel */
-    --rotate: calc(var(--rotations) * (360 / var(--cellsAmount)));
-    --translate: calc(var(--width) / (2 * tan(pi / var(--cellsAmount))));
+    --rotate: calc(var(--rotations) * (360 / var(--cells-amount)));
+    --translate: calc(var(--width) / (2 * tan(pi / var(--cells-amount))));
 
     box-sizing: border-box;
     height: 100%;
@@ -91,9 +91,9 @@
 }
 
 .cell {
-    --cellRotate: calc(var(--index) * (360 / var(--cellsAmount)));
+    --cell-rotate: calc(var(--index) * (360 / var(--cells-amount)));
 
     position: absolute;
-    transform: rotateY(calc(var(--cellRotate) * 1deg)) translateZ(calc(var(--translate) * 1px));
+    transform: rotateY(calc(var(--cell-rotate) * 1deg)) translateZ(calc(var(--translate) * 1px));
     transition: transform 1s ease-out;
 }

@@ -34,7 +34,7 @@ export const Grid = forwardRef<HTMLElement, Props>(
         const {LocalRoot, ref: internalRef} = useLocalTheme();
         useLinkRefs(ref, internalRef);
         const theme = useMemo(
-            () => ({containerWidth: normalizeWidth(width), base, gap: `${gap}px`}),
+            () => ({'container-width': normalizeWidth(width), base, gap: `${gap}px`}),
             [width, gap, base]
         );
         return (

@@ -83,7 +83,7 @@
     border: 2px solid var(--fg-color-mi);
     border-radius: calc(var(--fg-size-unit) * 0.66);
     box-sizing: content-box;
-    color: var(--textColor);
+    color: var(--fg-text-color);
     flex-grow: 0;
     font-size: var(--fg-font-size-small);
     padding: calc(var(--fg-size-unit) / 2) calc(var(--fg-size-unit) * 1);

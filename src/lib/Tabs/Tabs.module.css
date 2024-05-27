@@ -1,7 +1,7 @@
 .tabs {
-    --headerHeight: calc(var(--fg-size-unit) * 6);
+    --header-height: calc(var(--fg-size-unit) * 6);
     --width: 100%;
-    --borderSize: calc(var(--fg-size-unit) / 2);
+    --border-size: calc(var(--fg-size-unit) / 2);
 
     max-width: 100%;
     position: relative;
@@ -9,7 +9,7 @@
 }
 
 .viewport {
-    height: var(--headerHeight);
+    height: var(--header-height);
     position: relative;
     width: 100%;
 }
@@ -17,7 +17,7 @@
 .header {
     bottom: 0;
     display: flex;
-    height: var(--headerHeight);
+    height: var(--header-height);
     left: 0;
     overflow: auto;
     position: absolute;
@@ -31,13 +31,13 @@
     background: color-mix(in srgb, var(--fg-color-mi) 66%, transparent);
     display: flex;
     flex-direction: row;
-    height: calc(var(--headerHeight) - var(--borderSize));
+    height: calc(var(--header-height) - var(--border-size));
     justify-content: center;
     padding: calc(var(--fg-size-unit) / 1) calc(var(--fg-size-unit) / 2);
     position: absolute;
     right: 0;
     top: 0;
-    width: var(--headerHeight);
+    width: var(--header-height);
 
     & svg {
         color: var(--fg-color-fa);
@@ -54,7 +54,7 @@
 
 .button {
     align-items: center;
-    border-bottom: var(--borderSize) solid var(--fg-color-fa);
+    border-bottom: var(--border-size) solid var(--fg-color-fa);
     box-sizing: border-box;
     color: var(--fg-color-fa);
     cursor: pointer;
@@ -64,7 +64,7 @@
     flex-shrink: 0;
     font-weight: var(--fg-font-weight-bolder);
     gap: var(--fg-size-unit);
-    height: var(--headerHeight);
+    height: var(--header-height);
     justify-content: center;
     padding: 0 calc(var(--fg-size-unit) * 3);
     user-select: none;

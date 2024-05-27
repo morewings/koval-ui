@@ -13,10 +13,10 @@
 }
 
 .tooltip {
-    --bgColor: var(--fg-color-do);
+    --bg-color: var(--fg-color-do);
 
     background: var(--fg-background-000);
-    border: 3px solid var(--bgColor);
+    border: 3px solid var(--bg-color);
     border-radius: calc(var(--fg-size-unit) * 1);
     box-shadow: var(--fg-shadow-100);
     box-sizing: border-box;

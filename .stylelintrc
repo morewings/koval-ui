@@ -17,7 +17,9 @@
     "max-nesting-depth": 3,
     "selector-max-compound-selectors": 5,
     "declaration-block-no-redundant-longhand-properties": null,
-    "custom-property-pattern": null,
+    "custom-property-pattern": ["^([a-z][a-z0-9]*)(-[a-z0-9]+)*$", {
+      "message":  "Expected \"%s\" variable name to be kebab-case"
+    }],
     "no-descending-specificity": null
   },
   "plugins": [

@@ -1,19 +1,19 @@
 .button {
     align-items: center;
-    background-color: var(--bgColor);
-    border: 3px solid var(--borderColor);
+    background-color: var(--bg-color);
+    border: 3px solid var(--border-color);
     border-radius: calc(var(--fg-size-unit) * 0.66);
-    color: var(--textColor);
+    color: var(--text-color);
     cursor: pointer;
     display: inline-flex;
     flex-direction: row;
-    font-size: var(--fontSize);
+    font-size: var(--font-size);
     font-weight: var(--fg-font-weight-bolder);
-    gap: calc(var(--fg-size-unit) * var(--sizeScaleFactor) / 2);
+    gap: calc(var(--fg-size-unit) * var(--size-scale-factor) / 2);
     letter-spacing: 1px;
     line-height: 1.2;
-    padding: calc(var(--fg-size-unit) * var(--sizeScaleFactor))
-        calc(var(--fg-size-unit) * 3 * var(--sizeScaleFactor));
+    padding: calc(var(--fg-size-unit) * var(--size-scale-factor))
+        calc(var(--fg-size-unit) * 3 * var(--size-scale-factor));
     text-shadow: var(--fg-text-shadow);
     user-select: none;
 
@@ -72,107 +72,107 @@
 /* Variants */
 
 .primary {
-    --borderColor: var(--fg-color-do);
-    --bgColor: var(--fg-color-do);
-    --textColor: var(--fg-background-000);
+    --border-color: var(--fg-color-do);
+    --bg-color: var(--fg-color-do);
+    --text-color: var(--fg-background-000);
 
     text-shadow: var(--fg-text-shadow);
 
     &:hover {
-        --borderColor: var(--fg-color-re);
-        --bgColor: var(--fg-color-re);
-        --textColor: var(--fg-background-000);
+        --border-color: var(--fg-color-re);
+        --bg-color: var(--fg-color-re);
+        --text-color: var(--fg-background-000);
     }
 
     &:disabled {
-        --borderColor: var(--fg-background-100);
-        --bgColor: var(--fg-background-000);
-        --textColor: var(--fg-background-300);
+        --border-color: var(--fg-background-100);
+        --bg-color: var(--fg-background-000);
+        --text-color: var(--fg-background-300);
     }
 }
 
 .success {
-    --borderColor: var(--fg-color-success);
-    --bgColor: var(--fg-color-success);
-    --textColor: var(--fg-background-000);
+    --border-color: var(--fg-color-success);
+    --bg-color: var(--fg-color-success);
+    --text-color: var(--fg-background-000);
 
     &:hover {
-        --borderColor: var(--fg-color-success);
-        --bgColor: transparent;
-        --textColor: var(--fg-color-success);
+        --border-color: var(--fg-color-success);
+        --bg-color: transparent;
+        --text-color: var(--fg-color-success);
     }
 
     &:disabled {
-        --borderColor: var(--fg-background-100);
-        --bgColor: var(--fg-background-000);
-        --textColor: var(--fg-background-300);
+        --border-color: var(--fg-background-100);
+        --bg-color: var(--fg-background-000);
+        --text-color: var(--fg-background-300);
     }
 }
 
 .danger {
-    --borderColor: var(--fg-color-error);
-    --bgColor: var(--fg-color-error);
-    --textColor: var(--fg-background-000);
+    --border-color: var(--fg-color-error);
+    --bg-color: var(--fg-color-error);
+    --text-color: var(--fg-background-000);
 
     &:hover {
-        --borderColor: var(--fg-color-error);
-        --bgColor: transparent;
-        --textColor: var(--fg-color-error);
+        --border-color: var(--fg-color-error);
+        --bg-color: transparent;
+        --text-color: var(--fg-color-error);
     }
 
     &:disabled {
-        --borderColor: var(--fg-background-100);
-        --bgColor: var(--fg-background-000);
-        --textColor: var(--fg-background-300);
+        --border-color: var(--fg-background-100);
+        --bg-color: var(--fg-background-000);
+        --text-color: var(--fg-background-300);
     }
 }
 
 .action {
-    --borderColor: var(--fg-color-action);
-    --bgColor: var(--fg-color-action);
-    --textColor: var(--fg-background-000);
+    --border-color: var(--fg-color-action);
+    --bg-color: var(--fg-color-action);
+    --text-color: var(--fg-background-000);
 
     &:hover {
-        --borderColor: var(--fg-color-action);
-        --bgColor: transparent;
-        --textColor: var(--fg-color-action);
+        --border-color: var(--fg-color-action);
+        --bg-color: transparent;
+        --text-color: var(--fg-color-action);
     }
 
     &:disabled {
-        --borderColor: var(--fg-background-100);
-        --bgColor: var(--fg-background-000);
-        --textColor: var(--fg-background-300);
+        --border-color: var(--fg-background-100);
+        --bg-color: var(--fg-background-000);
+        --text-color: var(--fg-background-300);
     }
 }
 
 .alternative {
-    --borderColor: var(--fg-color-do);
-    --bgColor: transparent;
-    --textColor: var(--fg-color-re);
+    --border-color: var(--fg-color-do);
+    --bg-color: transparent;
+    --text-color: var(--fg-color-re);
 
     text-shadow: none;
 
     &:hover {
-        --borderColor: var(--fg-color-re);
-        --bgColor: var(--fg-color-re);
-        --textColor: var(--fg-background-000);
+        --border-color: var(--fg-color-re);
+        --bg-color: var(--fg-color-re);
+        --text-color: var(--fg-background-000);
     }
 
     &:disabled {
-        --borderColor: var(--fg-background-100);
-        --bgColor: var(--fg-background-000);
-        --textColor: var(--fg-background-300);
+        --border-color: var(--fg-background-100);
+        --bg-color: var(--fg-background-000);
+        --text-color: var(--fg-background-300);
     }
 }
 
 .link {
-    --borderColor: transparent;
-    --bgColor: transparent;
-    --textColor: var(--fg-color-action);
+    --border-color: transparent;
+    --bg-color: transparent;
+    --text-color: var(--fg-color-action);
 
     border-bottom-color: var(--fg-color-action);
-    padding: calc(var(--fg-size-unit) * var(--sizeScaleFactor)) 0
-        calc(var(--fg-size-unit) * var(--sizeScaleFactor));
+    padding: calc(var(--fg-size-unit) * var(--size-scale-factor)) 0
+        calc(var(--fg-size-unit) * var(--size-scale-factor));
     text-shadow: none;
 
     &:hover {
@@ -180,8 +180,8 @@
     }
 
     &:disabled {
-        --bgColor: var(--fg-background-000);
-        --textColor: var(--fg-background-300);
+        --bg-color: var(--fg-background-000);
+        --text-color: var(--fg-background-300);
 
         border-bottom-color: var(--fg-background-100);
     }
@@ -190,22 +190,22 @@
 /* Sizes */
 
 .small {
-    --sizeScaleFactor: 1;
-    --fontSize: var(--fg-font-size-small);
+    --size-scale-factor: 1;
+    --font-size: var(--fg-font-size-small);
 }
 
 .medium {
-    --sizeScaleFactor: 1.5;
-    --fontSize: var(--fg-font-size-medium);
+    --size-scale-factor: 1.5;
+    --font-size: var(--fg-font-size-medium);
 }
 
 .large {
-    --sizeScaleFactor: 2;
-    --fontSize: var(--fg-font-size-large);
+    --size-scale-factor: 2;
+    --font-size: var(--fg-font-size-large);
 }
 
 .icon {
     flex-shrink: 0;
-    height: calc(var(--fontSize) * 1.2);
-    width: calc(var(--fontSize) * 1.2);
+    height: calc(var(--font-size) * 1.2);
+    width: calc(var(--font-size) * 1.2);
 }
