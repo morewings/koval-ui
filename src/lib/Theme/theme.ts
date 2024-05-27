@@ -49,11 +49,4 @@ export const theme = {
     textShadow: '1px 1px 1px rgb(0 0 0 / 66%)',
 };
 
-// /* Color Theme Swatches in Hex */
-// .color-theme_logo-1-hex { color: #F2A007; }
-// .color-theme_logo-2-hex { color: #F25D07; }
-// .color-theme_logo-3-hex { color: #BF1506; }
-// .color-theme_logo-4-hex { color: #8C1308; }
-// .color-theme_logo-5-hex { color: #261111; }
-
 export type ThemeType = Partial<typeof theme>;

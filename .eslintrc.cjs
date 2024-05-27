@@ -109,6 +109,7 @@ module.exports = {
                 '**/setupTests.ts',
                 '**/*.stories.*',
                 'vite.config.ts',
+                'convertStyle.ts',
             ],
             rules: {
                 'import/no-extraneous-dependencies': [
@@ -140,7 +141,8 @@ module.exports = {
                         patterns: [
                             {
                                 group: ['**/environment/**'],
-                                message: 'Imports from environment directory are forbidden in the library files.',
+                                message:
+                                    'Imports from environment directory are forbidden in the library files.',
                             },
                         ],
                     },

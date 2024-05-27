@@ -27,5 +27,8 @@
     }
   },
   "include": ["src", "templates/**/*.ts", "templates/**/*.tsx"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "ts-node": {
+    "esm": true
+  }
 }
