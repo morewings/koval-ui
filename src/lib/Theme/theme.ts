@@ -53,6 +53,10 @@ export const theme = {
     borderRadius300: '6px',
     borderRadius400: '9px',
     borderRadius500: '12px',
+    // border widths
+    borderWidth100: '1px',
+    borderWidth200: '2px',
+    borderWidth300: '3px',
 };
 
 export type ThemeType = Partial<typeof theme>;

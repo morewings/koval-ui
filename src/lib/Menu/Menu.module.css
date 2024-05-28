@@ -10,7 +10,7 @@
 
 .menu {
     background: var(--fg-background-000);
-    border: calc(var(--fg-size-unit) / 2) solid var(--fg-color-do);
+    border: var(--fg-border-width-300) solid var(--fg-color-do);
     border-radius: var(--fg-border-radius-300);
     box-shadow: var(--fg-shadow-100);
     box-sizing: border-box;

@@ -18,7 +18,7 @@
 
 .input {
     background-color: var(--fg-color-mi);
-    border: 3px solid var(--fg-color-mi);
+    border: var(--fg-border-width-300) solid var(--fg-color-mi);
     border-radius: var(--fg-border-radius-300);
     color: var(--fg-text-color);
     flex: 1;
@@ -38,7 +38,7 @@
 
     &:--readOnlySelector {
         background-color: var(--fg-color-mi);
-        border: 3px solid var(--fg-color-do);
+        border: var(--fg-border-width-300) solid var(--fg-color-do);
         user-select: all;
     }
 

@@ -69,7 +69,7 @@
 
 .label {
     background-color: var(--selected-color);
-    border: 3px solid var(--selected-color);
+    border: var(--fg-border-width-300) solid var(--selected-color);
     border-radius: var(--fg-border-radius-300);
     box-sizing: content-box;
     color: var(--inverted-color);
