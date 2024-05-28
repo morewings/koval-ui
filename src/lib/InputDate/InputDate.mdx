@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
 import {InputDate} from './InputDate.tsx';
 import * as InputDateStories from "./InputDate.stories.tsx";
 
@@ -10,7 +10,7 @@ Text tba.
 
 <Primary />
 
-<ArgsTable of={InputDate}/>
+<ArgTypes of={InputDate}/>
 
 <Canvas>
     <Story of={InputDateStories.ControlledState} />

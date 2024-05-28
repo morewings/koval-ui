@@ -1,8 +1,8 @@
-import { Meta, ArgsTable, Story, Canvas, Source, Markdown } from "@storybook/blocks";
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
 import * as InputGroupStories from "./InputGroup.stories";
 import { InputGroup } from "./InputGroup";
 
-<Meta title="Inputs/Group" component={InputGroup} />
+<Meta title="Inputs/Group" of={InputGroupStories} />
 
 # Input group
 
@@ -12,7 +12,7 @@ import { InputGroup } from "./InputGroup";
 
 ## Props
 
-<ArgsTable of={InputGroup} />
+<ArgTypes of={InputGroup} />
 
 ## Imports
 
@@ -24,43 +24,7 @@ import a from 'b';
 
 ## Demo
 
-<Canvas><Story of={InputGroupStories.Example} /></Canvas>
-
-### Radio
-
-<Canvas of={InputGroupStories.Radio} />
-
-### Radio with built-in validation
-
-<Canvas of={InputGroupStories.RadioBuiltinValidation} />
-
-### Radio with hint
-
-<Canvas of={InputGroupStories.RadioHint} />
-
-### Radio disabled
-
-<Canvas of={InputGroupStories.RadioDisabled} />
-
-### Checkbox
-
-<Canvas of={InputGroupStories.Checkbox} />
-
-### Checkbox with custom validation
-
-<Canvas of={InputGroupStories.CheckboxCustomValidation} />
-
-### Checkbox without id
-
-<Canvas of={InputGroupStories.CheckboxNoId} />
-
-### Checkbox with hint
-
-<Canvas of={InputGroupStories.CheckboxHint} />
-
-### Checkbox disabled
-
-<Canvas of={InputGroupStories.CheckboxDisabled} />
+<Primary />
 
 
 
