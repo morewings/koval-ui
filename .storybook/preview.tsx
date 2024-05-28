@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react';
-import {Provider} from './../src/lib/Provider/index.ts';
+import {Provider} from './../src/lib/Provider/Provider.tsx';
 
 import 'the-new-css-reset/css/reset.css';
 
