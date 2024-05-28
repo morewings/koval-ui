@@ -1,7 +1,7 @@
 .breadcrumbs {
     align-items: baseline;
     background: var(--fg-color-mi);
-    border-radius: var(--fg-size-unit);
+    border-radius: var(--fg-border-radius-300);
     display: flex;
     flex-direction: row;
     max-width: 100%;

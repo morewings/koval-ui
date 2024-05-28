@@ -64,4 +64,4 @@ jobs:
           pnpm run generate:global Foo --dry-run
           pnpm run generate:icon Foo --dry-run
           pnpm run semantic-release --dry-run
-          pnpm run convert:style
+          pnpm run convert:theme

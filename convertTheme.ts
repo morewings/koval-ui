@@ -4,7 +4,7 @@ import {theme} from './src/lib/Theme/theme.ts';
 import {convertThemeVarName} from './src/internal/utils/convertThemeVarName';
 
 const styleString = Object.entries(theme)
-    .map(([key, value]) => `${convertThemeVarName(key)}: ${value};`)
+    .map(([key, value]) => `--${convertThemeVarName(key)}: ${value};`)
     .join('\n');
 
 const template = `

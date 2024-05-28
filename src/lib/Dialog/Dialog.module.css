@@ -9,7 +9,7 @@
     --shadow-color: color-mix(in srgb, var(--fg-color-fa) 66%, transparent);
 
     border: none;
-    border-radius: 6px;
+    border-radius: var(--fg-border-radius-300);
     box-shadow: var(--fg-shadow-200);
     max-height: calc(100vh - 2 * 12 * var(--fg-size-unit));
     max-width: calc(100% - var(--fg-size-unit) * 8);

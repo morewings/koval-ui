@@ -20,7 +20,7 @@
     appearance: textfield;
     background-color: var(--fg-color-mi);
     border: 3px solid var(--fg-color-mi);
-    border-radius: calc(var(--fg-size-unit) * 0.66);
+    border-radius: var(--fg-border-radius-300);
     color: var(--fg-text-color);
     flex-grow: 0;
     font-size: var(--fg-font-size-medium);
