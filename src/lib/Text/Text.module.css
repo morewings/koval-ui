@@ -187,7 +187,7 @@
     & li::before {
         align-self: center;
         background-color: var(--fg-color-fa);
-        border-radius: calc(var(--fg-size-unit) / 2);
+        border-radius: var(--fg-border-radius-200);
         content: " ";
         height: var(--fg-size-unit);
         margin-right: var(--fg-size-unit);
@@ -227,7 +227,7 @@
 .text blockquote {
     background: var(--fg-color-fa);
     border-left: 3px solid var(--fg-color-fa);
-    border-radius: 0 var(--fg-size-unit) var(--fg-size-unit) 0;
+    border-radius: 0 var(--fg-border-radius-300) var(--fg-border-radius-300) 0;
     color: var(--fg-color-mi);
     font-size: var(--fg-font-size-large);
     font-style: italic;

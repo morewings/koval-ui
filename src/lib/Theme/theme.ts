@@ -47,6 +47,12 @@ export const theme = {
     shadow100: '6px 6px 3px 0 var(--fg-shadow-Color)',
     shadow200: '9px 9px 3px 0 var(--fg-shadow-Color)',
     textShadow: '1px 1px 1px rgb(0 0 0 / 66%)',
+    // border radii
+    borderRadius100: '2px',
+    borderRadius200: '3px',
+    borderRadius300: '6px',
+    borderRadius400: '9px',
+    borderRadius500: '12px',
 };
 
 export type ThemeType = Partial<typeof theme>;

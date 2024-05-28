@@ -1,6 +1,6 @@
 .card {
     border: 3px solid var(--fg-color-do);
-    border-radius: 12px;
+    border-radius: var(--fg-border-radius-300);
     display: flex;
     max-width: 100%;
     overflow: hidden;

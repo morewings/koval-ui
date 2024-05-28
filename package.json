@@ -51,7 +51,7 @@
     "fix:code": "run-s 'lint:code --fix'",
     "lint:types": "tsc --pretty --noEmit",
     "lint:style": "stylelint ./src/**/*.css",
-    "convert:style": "tsx ./convertStyle.ts",
+    "convert:theme": "tsx ./convertTheme.ts",
     "lint:commits": "commitlint",
     "fix:style": "run-s 'lint:style --fix'",
     "test": "jest",

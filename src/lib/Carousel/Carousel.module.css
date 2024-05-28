@@ -80,7 +80,7 @@
 
 .dot {
     background: var(--fg-color-fa);
-    border-radius: var(--fg-size-unit);
+    border-radius: var(--fg-border-radius-300);
     flex-shrink: 0;
     height: calc(var(--fg-size-unit) * 1.5);
     width: calc(var(--fg-size-unit) * 1.5);

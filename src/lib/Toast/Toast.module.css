@@ -32,7 +32,7 @@
 
     background: var(--fg-background-000);
     border: 3px solid var(--main-color);
-    border-radius: var(--fg-size-unit);
+    border-radius: var(--fg-border-radius-300);
     bottom: calc(var(--fg-size-unit) * 6);
     box-shadow: var(--fg-shadow-100);
     left: 50%;

@@ -17,7 +17,7 @@
 
     background: var(--fg-background-000);
     border: 3px solid var(--bg-color);
-    border-radius: calc(var(--fg-size-unit) * 1);
+    border-radius: var(--fg-border-radius-300);
     box-shadow: var(--fg-shadow-100);
     box-sizing: border-box;
     min-width: calc(var(--fg-size-unit) * 24);

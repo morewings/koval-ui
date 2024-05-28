@@ -1,7 +1,7 @@
 .cell {
     align-items: center;
     background: var(--fg-color-re);
-    border-radius: 4px;
+    border-radius: var(--fg-border-radius-300);
     color: var(--fg-background-000);
     display: flex;
     flex-direction: column;
