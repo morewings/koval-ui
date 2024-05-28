@@ -44,9 +44,9 @@ export const theme = {
     colorAction: 'blue',
     // shadow config
     shadowColor: 'color-mix(in srgb, var(--fg-background-600) 11%, transparent)',
-    shadow050: '3px 3px 3px 0 var(--fg-shadow-Color)',
-    shadow100: '6px 6px 3px 0 var(--fg-shadow-Color)',
-    shadow200: '9px 9px 3px 0 var(--fg-shadow-Color)',
+    shadow050: '3px 3px 3px 0 var(--fg-shadow-color)',
+    shadow100: '6px 6px 3px 0 var(--fg-shadow-color)',
+    shadow200: '9px 9px 3px 0 var(--fg-shadow-color)',
     textShadow: '1px 1px 1px rgb(0 0 0 / 66%)',
     // border radii
     borderRadius100: '2px',
