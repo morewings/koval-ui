@@ -13,7 +13,7 @@
 
     appearance: none;
     background-color: var(--bg-color);
-    border: 3px solid var(--border-color);
+    border: var(--fg-border-width-300) solid var(--border-color);
     border-radius: var(--fg-border-radius-200);
     cursor: pointer;
     display: block;

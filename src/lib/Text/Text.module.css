@@ -307,7 +307,7 @@
 
 .table,
 .text table {
-    border: 2px solid var(--fg-background-000);
+    border: var(--fg-border-width-200) solid var(--fg-background-000);
     border-collapse: collapse;
     color: var(--fg-text-color);
     font-size: var(--fg-font-size-small);
@@ -325,7 +325,7 @@
 
     & th,
     & td {
-        border: 1px solid var(--fg-background-100);
+        border: var(--fg-border-width-100) solid var(--fg-background-100);
         color: var(--fg-text-color);
         min-width: 166px;
         padding: 12px;
@@ -414,7 +414,7 @@
 
     /* Style for Firefox */
     background: var(--background);
-    border: 1px solid var(--border-color);
+    border: var(--fg-border-width-100) solid var(--border-color);
     border-radius: var(--border-radius);
     display: inline-block;
     height: var(--height);
@@ -423,7 +423,7 @@
     /* Style for Chrome, etc. */
     &::-webkit-meter-bar {
         background: var(--background);
-        border: 1px solid var(--border-color);
+        border: var(--fg-border-width-100) solid var(--border-color);
         border-radius: var(--border-radius);
         height: var(--height);
     }
