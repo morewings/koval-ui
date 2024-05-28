@@ -7,7 +7,7 @@
 .skeleton-frame {
     border-radius: calc(var(--border-radius) * 1px);
     box-shadow: 0 0 calc(var(--fg-size-unit) * 2) 0
-        color-mix(in srgb, var(--fg-color-fa) 22%, transparent);
+        color-mix(in srgb, var(--fg-color-sol) 22%, transparent);
     height: var(--height);
     margin: calc(var(--margin-y) * 1px) calc(var(--margin-x) * 1px);
     padding: calc(var(--fg-size-unit) * 3);
@@ -21,7 +21,7 @@
 }
 
 .skeleton-shape {
-    --loading-color: color-mix(in srgb, var(--fg-color-fa) 11%, transparent);
+    --loading-color: color-mix(in srgb, var(--fg-color-sol) 11%, transparent);
 
     animation: 1s loading ease-in-out infinite;
     background: linear-gradient(

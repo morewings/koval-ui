@@ -43,7 +43,7 @@
 }
 
 .icon {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: pointer;
     height: var(--toggle-height);
     width: var(--toggle-width);
@@ -53,7 +53,7 @@
     background-color: var(--fg-color-mi);
     border: var(--fg-border-width-300) solid var(--fg-color-mi);
     border-radius: var(--fg-border-radius-300);
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: pointer;
     flex-grow: 1;
     font-size: var(--fg-font-size-medium);

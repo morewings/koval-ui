@@ -85,7 +85,7 @@
 }
 
 .icon {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     height: calc(var(--fg-size-unit) * 3);
     pointer-events: none;
     position: absolute;
@@ -100,7 +100,7 @@
 }
 
 .prefix {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: pointer;
     flex-shrink: 0;
     height: calc(var(--fg-size-unit) * 4);

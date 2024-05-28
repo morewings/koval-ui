@@ -47,7 +47,7 @@
     }
 
     &::placeholder {
-        color: var(--fg-color-fa);
+        color: var(--fg-color-sol);
     }
 
     &:--readOnlySelector {
@@ -79,7 +79,7 @@
 .icon {
     --icon-width: calc(var(--fg-size-unit) * 4);
 
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: pointer;
     height: var(--icon-width);
     position: relative;

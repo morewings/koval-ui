@@ -20,9 +20,9 @@
     --track-height: calc(var(--fg-size-unit) / 2);
     --slider-height: calc(var(--fg-size-unit) * 3);
     --slider-width: var(--slider-height);
-    --track-color: var(--fg-color-fa);
+    --track-color: var(--fg-color-sol);
     --track-color-active: var(--fg-color-re);
-    --thumb-color: var(--fg-color-sol);
+    --thumb-color: var(--fg-color-la);
     --thumb-color-active: var(--fg-color-do);
 
     &::-moz-range-track {
@@ -124,7 +124,7 @@
 }
 
 .scale {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: default;
     display: flex;
     flex-direction: column;
@@ -146,7 +146,7 @@
 }
 
 .output {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     flex-shrink: 0;
     font-size: var(--fg-font-size-medium);
     font-weight: var(--fg-font-weight-bold);
@@ -172,7 +172,7 @@
 }
 
 .prefix {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: pointer;
     flex-shrink: 0;
     height: calc(var(--fg-size-unit) * 4);

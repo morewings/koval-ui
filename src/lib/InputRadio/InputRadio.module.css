@@ -21,8 +21,8 @@
 
 .input {
     --bg-color: #fff;
-    --border-color: var(--fg-color-fa);
-    --center-color: var(--fg-color-sol);
+    --border-color: var(--fg-color-sol);
+    --center-color: var(--fg-color-la);
 
     appearance: none;
     background-color: var(--bg-color);

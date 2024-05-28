@@ -34,8 +34,9 @@ export const theme = {
     colorDo: '#e3a075',
     colorRe: '#61483a',
     colorMi: '#ffdea6',
-    colorFa: '#597480',
-    colorSol: '#99DFFF',
+    colorFa: '#20b2aa',
+    colorSol: '#597480',
+    colorLa: '#99DFFF',
     // info colors
     colorError: '#FF0000',
     colorWarning: 'orange',

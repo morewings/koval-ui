@@ -6,7 +6,7 @@
 }
 
 .label {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: pointer;
     font-size: var(--fg-font-size-large);
     font-weight: var(--fg-font-weight-bolder);

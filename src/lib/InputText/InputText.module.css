@@ -32,7 +32,7 @@
     }
 
     &::placeholder {
-        color: var(--fg-color-fa);
+        color: var(--fg-color-sol);
         opacity: 0.66;
     }
 
@@ -65,7 +65,7 @@
 }
 
 .prefix {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: pointer;
     flex-shrink: 0;
     height: calc(var(--fg-size-unit) * 4);

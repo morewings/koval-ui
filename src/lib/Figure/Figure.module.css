@@ -11,13 +11,13 @@
 
 .figure {
     background: var(--fg-background-000);
-    border: var(--fg-border-width-300) solid var(--fg-color-fa);
+    border: var(--fg-border-width-300) solid var(--fg-color-sol);
     display: flex;
     flex-direction: column;
     padding: calc(var(--fg-size-unit) * 2) calc(var(--fg-size-unit) * 2);
 
     & figcaption {
-        color: var(--fg-color-fa);
+        color: var(--fg-color-sol);
         font-size: var(--fg-font-size-small);
         font-style: italic;
         margin-top: calc(var(--fg-size-unit) * 2);

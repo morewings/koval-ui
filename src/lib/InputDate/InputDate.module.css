@@ -24,7 +24,7 @@
 }
 
 .icon {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: pointer;
     height: var(--toggle-height);
     position: absolute;

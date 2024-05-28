@@ -5,7 +5,7 @@
 }
 
 .legend:not(:empty) {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: default;
     font-size: var(--fg-font-size-large);
     font-weight: 500;

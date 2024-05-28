@@ -41,7 +41,7 @@
     }
 
     &::placeholder {
-        color: var(--fg-color-fa);
+        color: var(--fg-color-sol);
         opacity: 0.66;
     }
 
@@ -75,7 +75,7 @@
 
 .spinner {
     align-items: center; /* center items horizontally, in this case */
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: pointer;
     display: flex;
     flex-direction: column; /* make flex direction vertical */
