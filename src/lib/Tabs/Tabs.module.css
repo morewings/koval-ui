@@ -40,7 +40,7 @@
     width: var(--header-height);
 
     & svg {
-        color: var(--fg-color-fa);
+        color: var(--fg-color-sol);
     }
 }
 
@@ -54,9 +54,9 @@
 
 .button {
     align-items: center;
-    border-bottom: var(--border-size) solid var(--fg-color-fa);
+    border-bottom: var(--border-size) solid var(--fg-color-sol);
     box-sizing: border-box;
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     cursor: pointer;
     display: flex;
     flex-direction: row;

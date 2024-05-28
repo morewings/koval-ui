@@ -6,7 +6,7 @@
 }
 
 .dialog {
-    --shadow-color: color-mix(in srgb, var(--fg-color-fa) 66%, transparent);
+    --shadow-color: color-mix(in srgb, var(--fg-color-sol) 66%, transparent);
 
     border: none;
     border-radius: var(--fg-border-radius-300);
@@ -69,7 +69,7 @@
 
 .action-button {
     align-items: center;
-    border-top: 1px solid var(--fg-color-fa);
+    border-top: 1px solid var(--fg-color-sol);
     box-sizing: border-box;
     cursor: pointer;
     display: flex;
@@ -107,7 +107,7 @@
 
     @media (--viewport-md) {
         &:not(:only-child, :last-child) {
-            border-right: 1px solid var(--fg-color-fa);
+            border-right: 1px solid var(--fg-color-sol);
         }
 
         &:not(:only-child) {
@@ -117,7 +117,7 @@
 }
 
 .default {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
 }
 
 .link {

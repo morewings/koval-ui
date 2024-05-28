@@ -9,7 +9,7 @@
 
 .text h1,
 .header1 {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     font-size: var(--fg-font-size-h-1);
     font-weight: 600;
 
@@ -20,7 +20,7 @@
 
 .text h2,
 .header2 {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     font-size: var(--fg-font-size-h-2);
     font-weight: 600;
 
@@ -31,7 +31,7 @@
 
 .text h3,
 .header3 {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     font-size: var(--fg-font-size-h-3);
     font-weight: 600;
 
@@ -42,7 +42,7 @@
 
 .text h4,
 .header4 {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     font-size: var(--fg-font-size-h-4);
     font-weight: 600;
 
@@ -53,7 +53,7 @@
 
 .text h5,
 .header5 {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     font-size: var(--fg-font-size-h-5);
     font-weight: 600;
 
@@ -64,7 +64,7 @@
 
 .text h6,
 .header6 {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     font-size: var(--fg-font-size-h-6);
     font-weight: 600;
 
@@ -186,7 +186,7 @@
 
     & li::before {
         align-self: center;
-        background-color: var(--fg-color-fa);
+        background-color: var(--fg-color-sol);
         border-radius: var(--fg-border-radius-200);
         content: " ";
         height: var(--fg-size-unit);
@@ -211,7 +211,7 @@
 
     & li::before {
         align-self: center;
-        color: var(--fg-color-fa);
+        color: var(--fg-color-sol);
         content: counter(li);
         direction: rtl;
         font-size: var(--fg-font-size-small);
@@ -225,8 +225,8 @@
 
 .blockquote,
 .text blockquote {
-    background: var(--fg-color-fa);
-    border-left: 3px solid var(--fg-color-fa);
+    background: var(--fg-color-sol);
+    border-left: 3px solid var(--fg-color-sol);
     border-radius: 0 var(--fg-border-radius-300) var(--fg-border-radius-300) 0;
     color: var(--fg-color-mi);
     font-size: var(--fg-font-size-large);
@@ -274,7 +274,7 @@
     }
 
     & dd {
-        border-bottom: 1px solid var(--fg-color-fa);
+        border-bottom: 1px solid var(--fg-color-sol);
         margin-bottom: calc(var(--fg-size-unit) * 1);
         padding-bottom: calc(var(--fg-size-unit) * 1);
     }
@@ -320,7 +320,7 @@
 
     & > tr:hover td,
     & > *:not(tfoot) tr:hover td {
-        background-color: var(--fg-color-sol);
+        background-color: var(--fg-color-la);
     }
 
     & th,
@@ -343,7 +343,7 @@
     }
 
     & tfoot td {
-        background: var(--fg-color-fa);
+        background: var(--fg-color-sol);
         color: var(--fg-background-000);
         font-weight: var(--fg-font-weight-bold);
         letter-spacing: 0.3px;

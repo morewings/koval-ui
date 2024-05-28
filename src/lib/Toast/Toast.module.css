@@ -61,7 +61,7 @@
 }
 
 .title {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     font-size: var(--fg-font-size-medium);
     font-weight: var(--fg-font-weight-bolder);
 
@@ -72,7 +72,7 @@
 
 .content {
     align-items: center;
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
     display: flex;
     flex-direction: row;
     gap: calc(var(--fg-size-unit) * 2);
@@ -103,8 +103,8 @@
 .action {
     align-items: center;
     background: var(--fg-background-000);
-    border-top: 1px solid var(--fg-color-fa);
-    color: var(--fg-color-fa);
+    border-top: 1px solid var(--fg-color-sol);
+    color: var(--fg-color-sol);
     cursor: pointer;
     display: flex;
     font-size: var(--fg-font-size-small);
@@ -115,7 +115,7 @@
     width: 100%;
 
     &:hover {
-        background: var(--fg-color-fa);
+        background: var(--fg-color-sol);
         color: var(--fg-background-000);
     }
 
@@ -144,7 +144,7 @@
 
 .action-button {
     align-items: center;
-    border-top: 1px solid var(--fg-color-fa);
+    border-top: 1px solid var(--fg-color-sol);
     box-sizing: border-box;
     cursor: pointer;
     display: flex;
@@ -162,7 +162,7 @@
     white-space: nowrap;
 
     &:hover {
-        background: var(--fg-color-fa);
+        background: var(--fg-color-sol);
         color: var(--fg-background-000);
     }
 
@@ -171,7 +171,7 @@
     }
 
     &:active {
-        background: var(--fg-color-fa);
+        background: var(--fg-color-sol);
         color: var(--fg-background-000);
 
         & .action-label,
@@ -183,7 +183,7 @@
     }
 
     &:not(:only-child, :last-child) {
-        border-right: 1px solid var(--fg-color-fa);
+        border-right: 1px solid var(--fg-color-sol);
     }
 
     &:not(:only-child) {
@@ -192,7 +192,7 @@
 }
 
 .default {
-    color: var(--fg-color-fa);
+    color: var(--fg-color-sol);
 }
 
 .link {
