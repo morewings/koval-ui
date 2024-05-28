@@ -1,4 +1,4 @@
-import { Meta, ArgsTable, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
 import {Ul, Ol, Dl} from './Lists.tsx';
 import * as ListsStories from "./Lists.stories.tsx";
 
@@ -14,7 +14,7 @@ Text tba.
     <Story of={ListsStories.Unordered} />
 </Canvas>
 
-<ArgsTable of={Ul}/>
+<ArgTypes of={Ul}/>
 
 ## Ordered list
 
@@ -22,7 +22,7 @@ Text tba.
     <Story of={ListsStories.Ordered} />
 </Canvas>
 
-<ArgsTable of={Ol}/>
+<ArgTypes of={Ol}/>
 
 ## Description list
 
@@ -30,5 +30,5 @@ Text tba.
     <Story of={ListsStories.Description} />
 </Canvas>
 
-<ArgsTable of={Dl}/>
+<ArgTypes of={Dl}/>
 
