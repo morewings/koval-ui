@@ -19,7 +19,7 @@ export {InputNumber} from './InputNumber';
 export {Textarea} from './Textarea';
 export {Select} from './Select';
 export {theme} from './Theme';
-export type {ThemeType} from './Theme';
+export type {PublicThemeType as ThemeType} from './Theme';
 export {
     Text,
     P,

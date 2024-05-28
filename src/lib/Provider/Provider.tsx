@@ -2,7 +2,8 @@ import type {FC, ReactNode} from 'react';
 import {useMemo} from 'react';
 import {RootThemeProvider} from 'css-vars-hook';
 
-import {theme as themeGeneric} from '@/lib/Theme';
+import type {PublicThemeType} from '@/lib/Theme';
+import {theme} from '@/lib/Theme';
 import {DialogProvider} from '@/lib/Dialog';
 import {NotificationProvider} from '@/lib/Notification';
 import {ToastProvider} from '@/lib/Toast';
@@ -11,12 +12,18 @@ import {convertTheme} from '@/internal/utils/convertThemeVarName.ts';
 
 import classes from './Provider.module.css';
 
-export type Props = {children?: ReactNode; theme?: typeof themeGeneric};
+export type Props = {
+    children?: ReactNode;
+    /** Provide an object with theme colors and sizes parameters */
+    theme?: PublicThemeType;
+};
 
-export const Provider: FC<Props> = ({children, theme = themeGeneric}) => {
-    const convertedTheme = useMemo(() => convertTheme(theme), [theme]);
+export const Provider: FC<Props> = ({children, theme: themeProp}) => {
+    const normalizedTheme = useMemo(() => {
+        return convertTheme({...theme, ...themeProp});
+    }, [themeProp]);
     return (
-        <RootThemeProvider theme={convertedTheme} className={classes.provider}>
+        <RootThemeProvider theme={normalizedTheme} className={classes.provider}>
             <DialogProvider>
                 <NotificationProvider>
                     <ToastProvider>
