@@ -81,6 +81,9 @@
     overflow: hidden;
     padding: calc(var(--fg-size-unit) * 2);
     text-overflow: ellipsis;
+    transition:
+        background-color var(--fg-time-sm) ease-in-out,
+        color var(--fg-time-sm) ease-in-out;
     user-select: none;
     white-space: nowrap;
 
