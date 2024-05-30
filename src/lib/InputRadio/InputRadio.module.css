@@ -33,20 +33,25 @@
     height: 24px;
     margin: 0;
     position: relative;
+    transition:
+        background-color var(--fg-time-sm) ease-in-out,
+        border-color var(--fg-time-sm) ease-in-out;
     width: 24px;
 
     &::before {
-        --size: 0px;
-
         background-color: var(--center-color);
         border-radius: 50%;
         content: "";
-        height: var(--size);
+        height: calc(var(--fg-size-unit) * 1.5);
         left: 50%;
+        opacity: 0;
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: var(--size);
+        transition:
+            background-color var(--fg-time-sm) ease-in-out,
+            opacity var(--fg-time-sm) ease-in-out;
+        width: calc(var(--fg-size-unit) * 1.5);
     }
 
     &:--disabledSelector {
@@ -56,7 +61,7 @@
     }
 
     &:checked::before {
-        --size: 10px;
+        opacity: 1;
     }
 
     &:--focusSelector {

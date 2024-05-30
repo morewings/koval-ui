@@ -58,6 +58,7 @@ export const theme = {
     borderWidth100: '1px',
     borderWidth200: '2px',
     borderWidth300: '3px',
+    timeSM: '333ms',
 };
 
 export type ThemeType = Partial<typeof theme>;

@@ -28,6 +28,7 @@
     cursor: pointer;
     height: var(--toggle-height);
     position: absolute;
+    transition: color var(--fg-time-sm) ease-in-out;
     width: var(--toggle-width);
     z-index: 2;
 }
@@ -73,7 +74,10 @@
     height: calc(var(--fg-input-height) - var(--fg-size-unit) * 3);
     min-width: 0;
     padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
-    user-select: all;
+    transition:
+        background-color var(--fg-time-sm) ease-in-out,
+        border-color var(--fg-time-sm) ease-in-out;
+    user-select: none;
     width: 10ch;
 
     &:last-child {

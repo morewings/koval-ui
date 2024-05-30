@@ -31,6 +31,9 @@
     min-width: 0;
     padding: calc(var(--fg-size-unit) * 1) calc(var(--fg-size-unit) * 2);
     resize: var(--resize);
+    transition:
+        background-color var(--fg-time-sm) ease-in-out,
+        border-color var(--fg-time-sm) ease-in-out;
 
     &:last-child {
         margin-right: var(--validation-icon-placeholder);
@@ -79,6 +82,9 @@
     & svg {
         color: inherit;
         height: inherit;
+        transition:
+            background-color var(--fg-time-sm) ease-in-out,
+            border-color var(--fg-time-sm) ease-in-out;
         width: inherit;
     }
 

@@ -30,6 +30,7 @@
     letter-spacing: 0.8px;
     min-width: 24px;
     padding: 0 6px;
+    transition: background-color var(--fg-time-sm) ease-in-out;
 
     &:hover {
         background: var(--fg-color-do);
@@ -88,6 +89,9 @@
     font-size: var(--fg-font-size-small);
     padding: calc(var(--fg-size-unit) / 2) calc(var(--fg-size-unit) * 1);
     text-align: center;
+    transition:
+        background-color var(--fg-time-sm) ease-in-out,
+        border-color var(--fg-time-sm) ease-in-out;
     width: calc(var(--digits) * 1ch);
 
     &:focus {
@@ -107,6 +111,10 @@
 
 .navigation-button {
     cursor: pointer;
+
+    & .icon {
+        transition: color var(--fg-time-sm) ease-in-out;
+    }
 
     &:hover .icon {
         color: var(--fg-color-do);

@@ -15,6 +15,10 @@
     padding: calc(var(--fg-size-unit) * var(--size-scale-factor))
         calc(var(--fg-size-unit) * 3 * var(--size-scale-factor));
     text-shadow: var(--fg-text-shadow);
+    transition:
+        background-color var(--fg-time-sm) ease-in-out,
+        border-color var(--fg-time-sm) ease-in-out,
+        text-shadow var(--fg-time-sm) ease-in-out;
     user-select: none;
 
     &:hover {
