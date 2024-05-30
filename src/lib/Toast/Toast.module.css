@@ -100,31 +100,6 @@
     font-family: var(--fg-font-family);
 }
 
-.action {
-    align-items: center;
-    background: var(--fg-background-000);
-    border-top: 1px solid var(--fg-color-sol);
-    color: var(--fg-color-sol);
-    cursor: pointer;
-    display: flex;
-    font-size: var(--fg-font-size-small);
-    font-weight: var(--fg-font-weight-bolder);
-    gap: var(--fg-size-unit);
-    justify-content: center;
-    padding: calc(var(--fg-size-unit) / 2) 0;
-    width: 100%;
-
-    &:hover {
-        background: var(--fg-color-sol);
-        color: var(--fg-background-000);
-    }
-
-    & svg {
-        height: calc(var(--fg-size-unit) * 3);
-        width: calc(var(--fg-size-unit) * 3);
-    }
-}
-
 /* Actions */
 
 .actions {
@@ -158,6 +133,9 @@
     overflow: hidden;
     padding: calc(var(--fg-size-unit) / 2) var(--fg-size-unit);
     text-overflow: ellipsis;
+    transition:
+        background-color var(--fg-time-sm) ease-in-out,
+        color var(--fg-time-sm) ease-in-out;
     user-select: none;
     white-space: nowrap;
 
