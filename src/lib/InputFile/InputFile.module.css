@@ -46,6 +46,7 @@
     color: var(--fg-color-sol);
     cursor: pointer;
     height: var(--toggle-height);
+    transition: color var(--fg-time-sm) ease-in-out;
     width: var(--toggle-width);
 }
 

@@ -71,17 +71,20 @@
 
 .action-button {
     align-items: center;
-    border-top: 3px solid var(--fg-color-do);
+    border-top: 1px solid var(--fg-color-sol);
     cursor: pointer;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
     font-weight: var(--fg-font-weight-bolder);
     padding: calc(var(--fg-size-unit) * 2);
+    transition:
+        background-color var(--fg-time-sm) ease-in-out,
+        color var(--fg-time-sm) ease-in-out;
     user-select: none;
 
     &:hover {
-        background: var(--fg-color-do);
+        background: var(--fg-color-sol);
         color: var(--fg-background-000);
     }
 
@@ -104,7 +107,7 @@
     justify-content: center;
 
     &:not(:only-child, :last-child) {
-        border-right: 3px solid var(--fg-color-do);
+        border-right: 1px solid var(--fg-color-sol);
     }
 
     &:not(:only-child) {

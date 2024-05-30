@@ -28,12 +28,14 @@
     &::-moz-range-track {
         background: var(--track-color);
         height: var(--track-height);
+        transition: background-color var(--fg-time-sm) ease-in-out;
     }
 
     &::-webkit-slider-runnable-track {
         appearance: none;
         background: var(--track-color);
         height: var(--track-height);
+        transition: background-color var(--fg-time-sm) ease-in-out;
     }
 
     &::-webkit-slider-thumb {
@@ -44,6 +46,7 @@
         cursor: grab;
         height: var(--slider-height);
         margin-top: calc(var(--track-height) / 2 - var(--slider-height) / 2);
+        transition: background-color var(--fg-time-sm) ease-in-out;
         width: var(--slider-width);
     }
 
@@ -51,6 +54,7 @@
         background-color: var(--thumb-color);
         border: none;
         cursor: grab;
+        transition: background-color var(--fg-time-sm) ease-in-out;
     }
 
     &:--hoverSelector {

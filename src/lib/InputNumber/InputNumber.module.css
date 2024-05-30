@@ -27,6 +27,9 @@
     max-width: calc(100% - var(--validation-icon-placeholder));
     min-width: 0;
     padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
+    transition:
+        background-color var(--fg-time-sm) ease-in-out,
+        border-color var(--fg-time-sm) ease-in-out;
 
     @supports (background: -webkit-named-image(i)) {
         width: calc(var(--size) * 1ch);
@@ -87,6 +90,7 @@
     & svg {
         color: inherit;
         height: calc(var(--fg-size-unit) * 3);
+        transition: color var(--fg-time-sm) ease-in-out;
         width: calc(var(--fg-size-unit) * 3);
 
         &:active {

@@ -329,6 +329,7 @@
         color: var(--fg-text-color);
         min-width: 166px;
         padding: 12px;
+        transition: background-color var(--fg-time-sm) ease-in-out;
     }
 
     & th {

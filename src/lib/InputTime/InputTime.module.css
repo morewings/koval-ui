@@ -31,6 +31,9 @@
     min-width: 0;
     padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
     text-align: center;
+    transition:
+        background-color var(--fg-time-sm) ease-in-out,
+        border-color var(--fg-time-sm) ease-in-out;
     width: calc(5ch + var(--fg-size-unit) * 5);
 
     &::-webkit-calendar-picker-indicator {
@@ -83,6 +86,7 @@
     cursor: pointer;
     height: var(--icon-width);
     position: relative;
+    transition: color var(--fg-time-sm) ease-in-out;
     width: var(--icon-width);
 
     &:active {

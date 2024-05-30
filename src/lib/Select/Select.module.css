@@ -49,6 +49,9 @@
     padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 6) var(--fg-size-unit)
         calc(var(--fg-size-unit) * 1.5);
     text-overflow: ellipsis;
+    transition:
+        background-color var(--fg-time-sm) ease-in-out,
+        border-color var(--fg-time-sm) ease-in-out;
     white-space: nowrap;
     width: var(--select-width);
 
@@ -109,6 +112,7 @@
     & svg {
         color: inherit;
         height: inherit;
+        transition: color var(--fg-time-sm) ease-in-out;
         width: inherit;
     }
 }
