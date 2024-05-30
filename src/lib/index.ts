@@ -49,6 +49,7 @@ export {
     Code,
     Pre,
     Table,
+    S,
 } from './Text';
 export {Figure} from './Figure';
 export {Picture} from './Picture';

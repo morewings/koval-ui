@@ -64,6 +64,8 @@ export const Primary: Story = {
                         <br />
                         <small>This text is smaller</small>
                         <br />
+                        This is <s>strikethrough text</s>
+                        <br />
                         <del>This text is deleted</del>
                         <br />
                         <ins>This text is inserted</ins>

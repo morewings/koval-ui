@@ -86,8 +86,9 @@
 
 .text a,
 .link {
-    border-bottom: 1px solid var(--fg-color-action);
+    border-bottom: var(--fg-border-width-100) solid var(--fg-color-action);
     color: var(--fg-color-action);
+    transition: border-color var(--fg-time-sm) ease-in-out;
 
     &:hover {
         border-bottom-color: var(--fg-color-do);
@@ -137,7 +138,7 @@
     background: var(--fg-color-error);
     color: var(--fg-background-000);
     padding: 0 calc(var(--fg-size-unit) / 2);
-    text-decoration: var(--fg-background-000) solid line-through;
+    text-decoration: var(--fg-background-000) solid line-through var(--fg-border-width-200);
 }
 
 .text ins,
@@ -145,6 +146,14 @@
     background: var(--fg-color-success);
     color: var(--fg-background-000);
     padding: 0 calc(var(--fg-size-unit) / 2);
+
+    &::before {
+        content: ">";
+    }
+
+    &::after {
+        content: "<";
+    }
 }
 
 .text sub,
@@ -446,4 +455,10 @@
     &:-moz-meter-sub-sub-optimum::-moz-meter-bar {
         background: var(--sub-sub-optimum);
     }
+}
+
+.strike-through,
+.text s {
+    color: var(--fg-background-400);
+    text-decoration: var(--fg-text-color) solid line-through var(--fg-border-width-200);
 }
