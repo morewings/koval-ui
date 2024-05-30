@@ -1,5 +1,5 @@
 .card {
-    border: var(--fg-border-width-300) solid var(--fg-color-do);
+    border: var(--fg-border-width-200) solid var(--fg-background-100);
     border-radius: var(--fg-border-radius-300);
     display: flex;
     max-width: 100%;
@@ -55,7 +55,7 @@
 }
 
 .horizontal .actions:not(:empty) {
-    border-left: 3px solid var(--fg-color-do);
+    border-left: var(--fg-border-width-200) solid var(--fg-background-100);
 }
 
 .row {
@@ -71,7 +71,7 @@
 
 .action-button {
     align-items: center;
-    border-top: var(--fg-border-width-100) solid var(--fg-color-sol);
+    border-top: var(--fg-border-width-200) solid var(--fg-background-100);
     cursor: pointer;
     display: flex;
     flex-direction: row;
@@ -84,13 +84,12 @@
     user-select: none;
 
     &:hover {
-        background: var(--fg-color-sol);
+        background: var(--fg-color-do);
         color: var(--fg-background-000);
     }
 
-    &:focus-visible {
-        background: var(--fg-color-do);
-        color: var(--fg-background-000);
+    &:focus-visible:not(:hover) {
+        color: var(--fg-color-do);
     }
 
     &:active {
@@ -107,7 +106,7 @@
     justify-content: center;
 
     &:not(:only-child, :last-child) {
-        border-right: var(--fg-border-width-100) solid var(--fg-color-sol);
+        border-right: var(--fg-border-width-200) solid var(--fg-background-100);
     }
 
     &:not(:only-child) {
