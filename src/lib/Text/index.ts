@@ -15,6 +15,7 @@ export {
     Del,
     Kbd,
     Code,
+    S,
 } from './InlineElements.tsx';
 export {H1, H2, H3, H4, H5, H6} from './Headers.tsx';
 export {BlockQuote} from './BlockQuote.tsx';

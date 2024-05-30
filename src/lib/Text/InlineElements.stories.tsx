@@ -16,6 +16,7 @@ import {
     Strong,
     Kbd,
     Code,
+    S,
 } from './InlineElements.tsx';
 
 const meta = {
@@ -59,6 +60,8 @@ export const Primary: Story = {
                 This text is <Mark {...args}>marked</Mark>
                 <br />
                 This text is <Small {...args}>small</Small>
+                <br />
+                This is <S>strikethrough text</S>
                 <br />
                 This text is <Del {...args}>deleted</Del>
                 <br />
