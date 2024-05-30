@@ -7,6 +7,9 @@
 }
 
 .carousel {
+    --transition-duration: var(--fg-time-md);
+    --transition-timing-function: ease-out;
+
     display: flex;
     flex-direction: column;
     max-width: 100%;
@@ -32,7 +35,7 @@
     height: 100%;
     transform: translateZ(calc(var(--translate) * -1px)) rotateY(calc(var(--rotate) * -1deg));
     transform-style: preserve-3d;
-    transition: transform 1s;
+    transition: transform var(--transition-duration) var(--transition-timing-function);
     width: 100%;
 }
 
@@ -46,6 +49,7 @@
     justify-content: center;
     position: absolute;
     top: 0;
+    transition: background-color var(--fg-time-sm) ease-in-out;
     width: calc(var(--fg-size-unit) * 6);
     z-index: 2;
 
@@ -95,5 +99,5 @@
 
     position: absolute;
     transform: rotateY(calc(var(--cell-rotate) * 1deg)) translateZ(calc(var(--translate) * 1px));
-    transition: transform 1s ease-out;
+    transition: transform var(--transition-duration) var(--transition-timing-function);
 }
