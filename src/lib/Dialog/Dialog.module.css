@@ -69,7 +69,7 @@
 
 .action-button {
     align-items: center;
-    border-top: 1px solid var(--fg-color-sol);
+    border-top: 1px solid var(--fg-background-100);
     box-sizing: border-box;
     cursor: pointer;
     display: flex;
@@ -110,7 +110,7 @@
 
     @media (--viewport-md) {
         &:not(:only-child, :last-child) {
-            border-right: 1px solid var(--fg-color-sol);
+            border-right: 1px solid var(--fg-background-100);
         }
 
         &:not(:only-child) {
