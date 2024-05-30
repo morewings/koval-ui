@@ -74,10 +74,12 @@
     height: calc(var(--fg-input-height) - var(--fg-size-unit) * 3);
     min-width: 0;
     padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
+    text-align: center;
     transition:
         background-color var(--fg-time-sm) ease-in-out,
         border-color var(--fg-time-sm) ease-in-out;
     user-select: none;
+    white-space: nowrap;
     width: 10ch;
 
     &:last-child {
