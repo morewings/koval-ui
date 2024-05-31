@@ -18,7 +18,7 @@ export const SkeletonText = forwardRef<HTMLDivElement, Props>(
         {
             className,
             width = 'fluid',
-            height = 'fluid',
+            height,
             lines: linesProp = 3,
             marginY = 36,
             marginX = 0,

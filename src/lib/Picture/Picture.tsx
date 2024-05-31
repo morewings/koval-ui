@@ -1,8 +1,9 @@
 import type {DetailedHTMLProps, ImgHTMLAttributes} from 'react';
-import {forwardRef} from 'react';
+import {useCallback, forwardRef, useState} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
+import {SkeletonShape} from '@/lib/Skeleton';
 
 import classes from './Picture.module.css';
 
@@ -103,34 +104,51 @@ export type Props = DataAttributes &
 
 export const Picture = forwardRef<HTMLDivElement, Props>(
     ({className, alt, src, sources, width, height, loading = 'lazy', ...nativeProps}, ref) => {
+        const [isLoaded, setLoaded] = useState(false);
+        const handleLoad = useCallback(() => {
+            setLoaded(true);
+        }, []);
         return (
-            <picture {...nativeProps} className={classNames(classes.picture, className)} ref={ref}>
-                {sources?.map(
-                    ({
-                        src,
-                        mediaCondition,
-                        density = '1x',
-                        intrinsicWidth,
-                        slotWidth = '',
-                        type,
-                        width: srcWidth,
-                        height: srcHeight,
-                    }) => {
-                        const srcParam = intrinsicWidth ?? density;
-                        return (
-                            <source
-                                type={type}
-                                srcSet={`${src} ${srcParam}`}
-                                media={`${mediaCondition} ${slotWidth}`}
-                                width={srcWidth}
-                                height={srcHeight}
-                                key={src}
-                            />
-                        );
-                    }
+            <div className={classes.wrapper}>
+                <picture
+                    {...nativeProps}
+                    className={classNames(
+                        classes.picture,
+                        {[classes.loading]: !isLoaded},
+                        className
+                    )}
+                    ref={ref}
+                    onLoad={handleLoad}>
+                    {sources?.map(
+                        ({
+                            src,
+                            mediaCondition,
+                            density = '1x',
+                            intrinsicWidth,
+                            slotWidth = '',
+                            type,
+                            width: srcWidth,
+                            height: srcHeight,
+                        }) => {
+                            const srcParam = intrinsicWidth ?? density;
+                            return (
+                                <source
+                                    type={type}
+                                    srcSet={`${src} ${srcParam}`}
+                                    media={`${mediaCondition} ${slotWidth}`}
+                                    width={srcWidth}
+                                    height={srcHeight}
+                                    key={src}
+                                />
+                            );
+                        }
+                    )}
+                    <img width={width} height={height} loading={loading} src={src} alt={alt} />
+                </picture>
+                {!isLoaded && (
+                    <SkeletonShape width={width} height={height} className={classes.skeleton} />
                 )}
-                <img width={width} height={height} loading={loading} src={src} alt={alt} />
-            </picture>
+            </div>
         );
     }
 );

@@ -20,7 +20,7 @@ export const SkeletonShape = forwardRef<HTMLDivElement, Props>(
         {
             className,
             width = 'fluid',
-            height = 'fluid',
+            height,
             borderRadius = 6,
             marginY = 0,
             marginX = 0,

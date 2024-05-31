@@ -10,6 +10,8 @@
         color-mix(in srgb, var(--fg-color-sol) 22%, transparent);
     height: var(--height);
     margin: calc(var(--margin-y) * 1px) calc(var(--margin-x) * 1px);
+    max-height: 100%;
+    max-width: 100%;
     padding: calc(var(--fg-size-unit) * 3);
     width: var(--width);
 }
@@ -37,6 +39,8 @@
     border-radius: calc(var(--border-radius) * 1px);
     height: var(--height);
     margin: calc(var(--margin-y) * 1px) calc(var(--margin-x) * 1px);
+    max-height: 100%;
+    max-width: 100%;
     width: var(--width);
 }
 

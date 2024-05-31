@@ -23,7 +23,7 @@ export const SkeletonFrame = forwardRef<HTMLDivElement, Props>(
             children,
             className,
             width = 'fluid',
-            height = 'fluid',
+            height,
             borderRadius = 12,
             marginY = 0,
             marginX = 0,

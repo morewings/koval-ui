@@ -1,6 +1,15 @@
+.wrapper {
+    height: var(--height);
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+    width: var(--width);
+}
+
 .picture {
     max-height: 100%;
     max-width: 100%;
+    transition: opacity var(--fg-time-sm) ease-in;
 
     & img {
         display: block;
@@ -8,4 +17,14 @@
         max-height: inherit;
         max-width: inherit;
     }
+
+    &.loading {
+        opacity: 0;
+    }
+}
+
+.skeleton {
+    left: 0;
+    position: absolute;
+    top: 0;
 }

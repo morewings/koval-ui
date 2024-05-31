@@ -52,6 +52,10 @@ export const Primary: Story = {
 };
 
 export const Responsive: Story = {
+    parameters: {
+        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
+        layout: 'fullscreen',
+    },
     render: args => {
         return <Picture {...args} />;
     },
