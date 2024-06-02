@@ -14,7 +14,7 @@
     border: var(--fg-border-width-300) solid var(--fg-color-sol);
     display: flex;
     flex-direction: column;
-    padding: calc(var(--fg-size-unit) * 2) calc(var(--fg-size-unit) * 2);
+    padding: calc(var(--fg-size-unit) * 2);
 
     & figcaption {
         color: var(--fg-color-sol);

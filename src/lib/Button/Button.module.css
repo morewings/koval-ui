@@ -155,8 +155,7 @@
     --text-color: var(--fg-color-action);
 
     border-bottom-color: var(--fg-color-action);
-    padding: calc(var(--fg-size-unit) * var(--size-scale-factor)) 0
-        calc(var(--fg-size-unit) * var(--size-scale-factor));
+    padding: calc(var(--fg-size-unit) * var(--size-scale-factor)) 0;
     text-shadow: none;
 
     &:hover {
