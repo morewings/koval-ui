@@ -3,7 +3,7 @@ import {useMemo} from 'react';
 import {RootThemeProvider} from 'css-vars-hook';
 
 import type {PublicThemeType} from '@/lib/Theme';
-import {theme} from '@/lib/Theme';
+import {theme, themePodil} from '@/lib/Theme';
 import {DialogProvider} from '@/lib/Dialog';
 import {NotificationProvider} from '@/lib/Notification';
 import {ToastProvider} from '@/lib/Toast';
@@ -18,7 +18,7 @@ export type Props = {
     theme?: PublicThemeType;
 };
 
-export const Provider: FC<Props> = ({children, theme: themeProp}) => {
+export const Provider: FC<Props> = ({children, theme: themeProp = themePodil}) => {
     const normalizedTheme = useMemo(() => {
         return convertTheme({...theme, ...themeProp});
     }, [themeProp]);
