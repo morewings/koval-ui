@@ -1,4 +1,8 @@
-import type { Preview } from '@storybook/react';
+import type {Preview} from '@storybook/react';
+import {withThemeProvider} from 'storybook-addon-theme-provider';
+
+import {theme as themePodil} from '../src/lib/Theme/themePodil.ts';
+import {theme as themeDnipro} from '../src/lib/Theme/themeDnipro.ts';
 import {Provider} from './../src/lib/Provider/Provider.tsx';
 
 import 'the-new-css-reset/css/reset.css';
@@ -54,16 +58,31 @@ const preview: Preview = {
                 order: ['Intro', 'Layout', 'Inputs', 'Typography', 'Components'],
             },
         },
-        viewport: { viewports: customViewports },
+        viewport: {viewports: customViewports},
     },
 
-    decorators: [
-        (Story) => (
-            <Provider>
-                <Story />
-            </Provider>
-        ),
-    ],
+    decorators: [withThemeProvider(Provider)],
+
+    globals: {
+        // Set initially selected theme name
+        selectedTheme: 'Podil',
+        // Provide a list of available themes
+        themes: [
+            {
+                // Provide a name for the theme.
+                name: 'Podil',
+                // Set a color to display after theme name
+                color: '#e3a075',
+                // Provide object with foo theme data
+                themeObject: themePodil,
+            },
+            {
+                name: 'Dnipro',
+                color: '#20b2aa',
+                themeObject: themeDnipro,
+            },
+        ],
+    },
 };
 
 export default preview;

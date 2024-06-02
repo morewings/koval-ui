@@ -131,6 +131,7 @@ export default [
             '**/setupTests.ts',
             '**/*.stories.*',
             '*.config.{js,ts}',
+            '.storybook/*.{js,jsx,ts,tsx}',
         ],
         plugins: {
             import: pluginImport,
