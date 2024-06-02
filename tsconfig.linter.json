@@ -13,6 +13,7 @@
     ".storybook/*.tsx",
     "templates/**/*.ts",
     "templates/**/*.tsx",
+    "eslint.config.js"
   ],
   "exclude": ["./dist/**"]
 }
