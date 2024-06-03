@@ -48,3 +48,20 @@ export const Primary: Story = {
     },
     args: {},
 };
+
+export const Responsive: Story = {
+    parameters: {
+        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
+        layout: 'fullscreen',
+    },
+    render: () => {
+        return (
+            <SkeletonFrame width={480}>
+                <SkeletonShape height={240} />
+                <SkeletonText />
+                <SkeletonAction double={true} />
+            </SkeletonFrame>
+        );
+    },
+    args: {},
+};
