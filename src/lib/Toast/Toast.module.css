@@ -37,6 +37,7 @@
     box-shadow: var(--fg-shadow-100);
     left: 50%;
     max-width: calc(var(--fg-size-unit) * 55);
+    min-width: calc(var(--fg-size-unit) * 39);
     position: fixed;
 
     &.success {
