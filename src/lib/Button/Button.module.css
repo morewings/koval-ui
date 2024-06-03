@@ -147,6 +147,10 @@
         --bg-color: var(--fg-background-000);
         --text-color: var(--fg-background-300);
     }
+
+    & .icon {
+        filter: none;
+    }
 }
 
 .link {
@@ -167,6 +171,10 @@
         --text-color: var(--fg-background-300);
 
         border-bottom-color: var(--fg-background-100);
+    }
+
+    & .icon {
+        filter: none;
     }
 }
 
