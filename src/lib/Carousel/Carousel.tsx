@@ -1,11 +1,12 @@
 import type {ReactNode} from 'react';
-import {Children, forwardRef, useMemo, useState, useCallback, useRef, useEffect} from 'react';
+import {Children, forwardRef, useMemo, useState, useCallback, useRef} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {IconArrowLeft, IconArrowRight} from '@/internal/Icons';
 import {useLinkRefs} from '@/internal/hooks/useLinkRefs.ts';
+import {useResizeObserver} from '@/internal/hooks/useResizeObserver.ts';
 
 import {Cell} from './Cell.tsx';
 import {Dots} from './Dots.tsx';
@@ -66,14 +67,22 @@ export const Carousel = forwardRef<HTMLDivElement, Props>(
         const [elementWidth, setElementWidth] = useState(width);
         const [elementHeight, setElementHeight] = useState(height);
 
-        useEffect(() => {
-            const refWidth = viewPortRef.current?.offsetWidth;
-            if (refWidth !== elementWidth) {
-                const refHeight = refWidth && height * (refWidth / width);
-                refWidth && setElementWidth(refWidth);
-                refHeight && setElementHeight(refHeight);
-            }
-        }, [width, height, elementWidth]);
+        const handleResize = useCallback(
+            (parent?: HTMLDivElement | null) => {
+                const parentWidth = parent?.offsetWidth;
+                if (parentWidth && parentWidth < elementWidth) {
+                    const nextHeight = height * (parentWidth / width);
+                    setElementWidth(parentWidth);
+                    setElementHeight(nextHeight);
+                } else if (parentWidth && parentWidth > elementWidth) {
+                    setElementWidth(width);
+                    setElementHeight(height);
+                }
+            },
+            [elementWidth, height, width]
+        );
+
+        useResizeObserver(innerRef.current?.parentElement as HTMLDivElement, handleResize);
 
         const theme = useMemo(
             () => ({
