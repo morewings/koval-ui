@@ -98,7 +98,7 @@ export const Primary: Story = {
         );
         return (
             <Menu {...args} isOpen={isOpen} onToggle={handleToggle}>
-                <Button onClick={handleClick}>Button</Button>
+                <Button onClick={handleClick}>Toggle Menu</Button>
             </Menu>
         );
     },
