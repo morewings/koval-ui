@@ -17,6 +17,7 @@
     font-weight: var(--fg-font-weight-bolder);
     gap: var(--fg-size-unit);
     letter-spacing: 0.33px;
+    -webkit-tap-highlight-color: transparent;
 
     &:not(:last-child) {
         color: var(--fg-color-action);

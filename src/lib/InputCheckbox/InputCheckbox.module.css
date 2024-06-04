@@ -4,6 +4,7 @@
     align-items: center;
     display: flex;
     flex-direction: row;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .input {
@@ -64,6 +65,7 @@
     font-size: var(--fg-font-size-medium);
     margin-left: var(--fg-size-unit);
     margin-right: var(--fg-size-unit);
+    -webkit-tap-highlight-color: transparent;
 
     &:last-child {
         margin-right: var(--validation-icon-placeholder);

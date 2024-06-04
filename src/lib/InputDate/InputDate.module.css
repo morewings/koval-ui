@@ -10,6 +10,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
+    -webkit-tap-highlight-color: transparent;
     width: auto;
 }
 
@@ -28,6 +29,7 @@
     cursor: pointer;
     height: var(--toggle-height);
     position: absolute;
+    -webkit-tap-highlight-color: transparent;
     transition: color var(--fg-time-sm) ease-in-out;
     width: var(--toggle-width);
     z-index: 2;
@@ -74,6 +76,7 @@
     height: calc(var(--fg-input-height) - var(--fg-size-unit) * 3);
     min-width: 0;
     padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
+    -webkit-tap-highlight-color: transparent;
     text-align: center;
     transition:
         background-color var(--fg-time-sm) ease-in-out,

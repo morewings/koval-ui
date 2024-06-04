@@ -4,11 +4,13 @@
     align-items: center;
     display: flex;
     flex-direction: row;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .label {
     cursor: pointer;
     margin-left: var(--fg-size-unit);
+    -webkit-tap-highlight-color: transparent;
 
     &.required::after {
         color: var(--fg-color-do);

@@ -48,6 +48,7 @@
     flex-direction: column;
     justify-content: center;
     position: absolute;
+    -webkit-tap-highlight-color: transparent;
     top: 0;
     transition: background-color var(--fg-time-sm) ease-in-out;
     width: calc(var(--fg-size-unit) * 6);

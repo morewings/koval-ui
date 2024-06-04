@@ -133,6 +133,7 @@
     line-height: 24px;
     overflow: hidden;
     padding: var(--fg-size-unit);
+    -webkit-tap-highlight-color: transparent;
     text-overflow: ellipsis;
     transition:
         background-color var(--fg-time-sm) ease-in-out,

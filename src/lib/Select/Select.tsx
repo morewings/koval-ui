@@ -115,7 +115,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                         <Prefix />
                     </label>
                 )}
-                <div className={classes['icon-wrapper']}>
+                <div className={classes.iconWrapper}>
                     <select
                         {...nativeProps}
                         id={selectId}

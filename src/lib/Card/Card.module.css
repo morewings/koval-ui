@@ -78,6 +78,7 @@
     flex-grow: 1;
     font-weight: var(--fg-font-weight-bolder);
     padding: calc(var(--fg-size-unit) * 2);
+    -webkit-tap-highlight-color: transparent;
     transition:
         background-color var(--fg-time-sm) ease-in-out,
         color var(--fg-time-sm) ease-in-out;

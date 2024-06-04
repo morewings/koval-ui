@@ -71,6 +71,7 @@
 .button-collapsible {
     color: var(--fg-background-000);
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 
     &:hover {
         color: var(--fg-background-100);
@@ -95,6 +96,7 @@
     gap: var(--fg-size-unit);
     padding: calc(var(--fg-size-unit) / 2) 0;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
     text-shadow: var(--fg-text-shadow);
     user-select: none;
 

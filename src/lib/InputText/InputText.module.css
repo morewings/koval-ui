@@ -9,6 +9,7 @@
     flex-direction: row;
     gap: var(--gap);
     max-width: 100%;
+    -webkit-tap-highlight-color: transparent;
     width: auto;
 
     & > div {
