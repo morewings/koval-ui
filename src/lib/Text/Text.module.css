@@ -346,6 +346,14 @@
         color: var(--fg-background-000);
         font-weight: var(--fg-font-weight-bolder);
         letter-spacing: 0.3px;
+
+        &:first-of-type {
+            border-radius: var(--fg-border-radius-500) 0 0 0;
+        }
+
+        &:last-of-type {
+            border-radius: 0 var(--fg-border-radius-500) 0 0;
+        }
     }
 
     & td {
@@ -357,6 +365,14 @@
         color: var(--fg-background-000);
         font-weight: var(--fg-font-weight-bold);
         letter-spacing: 0.3px;
+
+        &:first-of-type {
+            border-radius: 0 0 0 var(--fg-border-radius-500);
+        }
+
+        &:last-of-type {
+            border-radius: 0 0 var(--fg-border-radius-500) 0;
+        }
     }
 
     & caption {

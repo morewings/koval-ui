@@ -97,7 +97,7 @@ export const Primary: Story = {
         );
         return (
             <Tooltip {...args} isOpen={isOpen} onToggle={handleToggle}>
-                <Button onClick={handleClick}>Button</Button>
+                <Button onClick={handleClick}>Toggle Tooltip</Button>
             </Tooltip>
         );
     },

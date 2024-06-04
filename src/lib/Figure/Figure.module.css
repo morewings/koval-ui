@@ -11,7 +11,8 @@
 
 .figure {
     background: var(--fg-background-000);
-    border: var(--fg-border-width-300) solid var(--fg-color-sol);
+    border: var(--fg-border-width-300) solid var(--fg-background-100);
+    border-radius: var(--fg-border-radius-300);
     display: flex;
     flex-direction: column;
     padding: calc(var(--fg-size-unit) * 2);
