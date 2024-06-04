@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react';
+import type {ComponentProps, ReactNode} from 'react';
 import {forwardRef, useMemo} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
@@ -7,9 +7,8 @@ import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useLinkRefs} from '@/internal/hooks/useLinkRefs.ts';
 import {Picture} from '@/lib';
+import {Action} from '@/internal/Actions';
 
-import type {Props as ActionProps} from './Action.tsx';
-import {Action} from './Action.tsx';
 import classes from './Card.module.css';
 
 enum Variants {
@@ -23,7 +22,10 @@ export type Props = DataAttributes &
         /** Provide an url for header image */
         headerImageUrl?: string;
         /** Provide an array of actions with callbacks */
-        actions?: (ActionProps | [ActionProps, ActionProps])[];
+        actions?: (
+            | ComponentProps<typeof Action>
+            | [ComponentProps<typeof Action>, ComponentProps<typeof Action>]
+        )[];
         /** Set vertical or horizontal layout for the card */
         variant?: keyof typeof Variants;
         /** Provide width of the card. Applied in vertical mode */
@@ -75,14 +77,14 @@ export const Card = forwardRef<HTMLDivElement, Props>(
                             const [left, right] = actionSlot;
                             return (
                                 <div key={`${id}-${i}`} className={classes.row}>
-                                    <Action {...left} />
-                                    <Action {...right} />
+                                    <Action {...left} className={classes.actionButton} />
+                                    <Action {...right} className={classes.actionButton} />
                                 </div>
                             );
                         } else {
                             return (
                                 <div key={`${id}-${i}`} className={classes.row}>
-                                    <Action {...actionSlot} />
+                                    <Action {...actionSlot} className={classes.actionButton} />
                                 </div>
                             );
                         }

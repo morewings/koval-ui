@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {Fragment, useCallback, useMemo} from 'react';
+import {type ComponentProps, Fragment, useCallback, useMemo} from 'react';
 import {fn} from '@storybook/test';
 
 import {Page} from '@/lib/Layout';
@@ -7,10 +7,10 @@ import {Button} from '@/lib/Button';
 import {ButtonGroup} from '@/lib/ButtonGroup';
 import {P} from '@/lib/Text';
 import {CloudUpload, IconFile} from '@/internal/Icons';
+import type {Action} from '@/internal/Actions';
 
 import {Dialog} from './Dialog.tsx';
 import {useDialogState} from './useDialogState.tsx';
-import type {Props as ActionProps} from './Action.tsx';
 
 const meta = {
     title: 'Components/Dialog',
@@ -181,7 +181,9 @@ export const DialogInDialog: Story = {
         const {closeDialog: closeFirst, openDialog: openFirst} = useDialogState('baz');
         const {closeDialog: closeSecond, openDialog: openSecond} = useDialogState('qux');
 
-        const actionsFirst = useMemo<[ActionProps, ActionProps][]>(
+        const actionsFirst = useMemo<
+            [ComponentProps<typeof Action>, ComponentProps<typeof Action>][]
+        >(
             () => [
                 [
                     {title: 'Close First', type: 'danger', onClick: closeFirst},
@@ -191,7 +193,7 @@ export const DialogInDialog: Story = {
             [closeFirst, openSecond]
         );
 
-        const actionsSecond = useMemo<ActionProps[]>(
+        const actionsSecond = useMemo<ComponentProps<typeof Action>[]>(
             () => [{title: 'Close Second', type: 'danger', onClick: closeSecond}],
             [closeSecond]
         );

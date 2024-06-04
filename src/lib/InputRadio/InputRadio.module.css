@@ -41,10 +41,12 @@
     width: 24px;
 
     &::before {
+        --size: calc((var(--fg-size-unit) * 2) - 2px);
+
         background-color: var(--center-color);
         border-radius: 50%;
         content: "";
-        height: calc(var(--fg-size-unit) * 1.5);
+        height: var(--size);
         left: 50%;
         opacity: 0;
         position: absolute;
@@ -53,7 +55,7 @@
         transition:
             background-color var(--fg-time-sm) ease-in-out,
             opacity var(--fg-time-sm) ease-in-out;
-        width: calc(var(--fg-size-unit) * 1.5);
+        width: var(--size);
     }
 
     &:--disabledSelector {

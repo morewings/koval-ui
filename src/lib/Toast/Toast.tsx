@@ -1,4 +1,4 @@
-import type {FC, ReactNode} from 'react';
+import type {ComponentProps, FC, ReactNode} from 'react';
 import {useEffect} from 'react';
 import {forwardRef} from 'react';
 import classNames from 'classnames';
@@ -10,11 +10,10 @@ import {IconClose, IconError, IconInfo, IconSuccess, IconWarning} from '@/intern
 import {useInterval} from '@/internal/hooks/useInterval.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {TransitionSlideBottom} from '@/internal/Transitions';
+import {Action} from '@/internal/Actions';
 
 import {useToastState} from './useToastState.tsx';
 import classes from './Toast.module.css';
-import type {Props as ActionProps} from './Action.tsx';
-import {Action} from './Action.tsx';
 
 enum Variants {
     default = 'default',
@@ -29,7 +28,10 @@ export type Props = DataAttributes &
         id: NonNullable<LibraryProps['id']>;
         children?: ReactNode;
         /** Provide an array of actions with callbacks */
-        actions?: (ActionProps | [ActionProps, ActionProps])[];
+        actions?: (
+            | ComponentProps<typeof Action>
+            | [ComponentProps<typeof Action>, ComponentProps<typeof Action>]
+        )[];
         /**
          * Provide Icon component to show instead default one
          */
@@ -115,20 +117,30 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
                                         const [left, right] = actionSlot;
                                         return (
                                             <div key={`${id}-${i}`} className={classes.row}>
-                                                <Action {...left} />
-                                                <Action {...right} />
+                                                <Action
+                                                    {...left}
+                                                    className={classes.actionButton}
+                                                />
+                                                <Action
+                                                    {...right}
+                                                    className={classes.actionButton}
+                                                />
                                             </div>
                                         );
                                     } else {
                                         return (
                                             <div key={`${id}-${i}`} className={classes.row}>
-                                                <Action {...actionSlot} />
+                                                <Action
+                                                    {...actionSlot}
+                                                    className={classes.actionButton}
+                                                />
                                             </div>
                                         );
                                     }
                                 })}
                                 <div key={`${id}-close`} className={classes.row}>
                                     <Action
+                                        className={classes.actionButton}
                                         onClick={closeToast}
                                         icon={IconClose}
                                         title={closeLabel}
