@@ -1,4 +1,4 @@
-import type {ReactNode, MouseEvent, KeyboardEvent} from 'react';
+import type {ReactNode, MouseEvent, KeyboardEvent, ComponentProps} from 'react';
 import {forwardRef, useEffect, useCallback} from 'react';
 import classNames from 'classnames';
 
@@ -7,10 +7,9 @@ import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {IconClose} from '@/internal/Icons';
 import {H3} from '@/lib';
 import {useFocusTrap} from '@/internal/hooks/useFocusTrap.ts';
+import {Action} from '@/internal/Actions';
 
 import {TransitionDialog} from './TransitionDialog.tsx';
-import type {Props as ActionProps} from './Action.tsx';
-import {Action} from './Action.tsx';
 import {useDialogState} from './useDialogState.tsx';
 import classes from './Dialog.module.css';
 
@@ -26,7 +25,10 @@ export type Props = DataAttributes &
         /** Display close icon at the right top corner */
         showCloseButton?: boolean;
         /** Provide an array of actions with callbacks */
-        actions?: (ActionProps | [ActionProps, ActionProps])[];
+        actions?: (
+            | ComponentProps<typeof Action>
+            | [ComponentProps<typeof Action>, ComponentProps<typeof Action>]
+        )[];
         /** Set a title of dialog */
         dialogTitle?: string;
         /** Provide a localized value for close button */

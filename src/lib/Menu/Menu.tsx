@@ -68,7 +68,7 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
                             });
                         },
                     }),
-                offset(12),
+                offset(18),
                 autoPlacement(),
             ],
         });

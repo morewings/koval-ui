@@ -1,3 +1,5 @@
+@import url("@/lib/Layout/customMedia.css");
+
 .card {
     border: var(--fg-border-width-200) solid var(--fg-background-100);
     border-radius: var(--fg-border-radius-300);
@@ -69,36 +71,14 @@
     flex-grow: 1;
 }
 
-.action-button {
-    align-items: center;
-    border-top: var(--fg-border-width-200) solid var(--fg-background-100);
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    font-weight: var(--fg-font-weight-bolder);
-    padding: calc(var(--fg-size-unit) * 2);
-    -webkit-tap-highlight-color: transparent;
-    transition:
-        background-color var(--fg-time-sm) ease-in-out,
-        color var(--fg-time-sm) ease-in-out;
-    user-select: none;
+.card .action-button {
+    @media (--viewport-md) {
+        &:not(:only-child, :last-child) {
+            border-right: none;
+        }
 
-    &:hover {
-        background: var(--fg-color-do);
-        color: var(--fg-background-000);
-    }
-
-    &:focus-visible:not(:hover) {
-        color: var(--fg-color-do);
-    }
-
-    &:active {
-        & .action-label,
-        & .action-icon {
-            left: 3px;
-            position: relative;
-            top: 3px;
+        &:not(:only-child) {
+            width: auto;
         }
     }
 }
@@ -126,31 +106,4 @@
 
 .horizontal .row:first-child .action-button:first-child {
     border-top: none;
-}
-
-.default {
-    color: var(--fg-color-sol);
-}
-
-.link {
-    color: var(--fg-color-action);
-}
-
-.success {
-    color: var(--fg-color-success);
-}
-
-.danger {
-    color: var(--fg-color-error);
-}
-
-.action-icon {
-    margin-right: var(--fg-size-unit);
-    width: calc(var(--fg-size-unit) * 4);
-}
-
-.action-label {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }

@@ -4,18 +4,19 @@ import {useCallback} from 'react';
 import classNames from 'classnames';
 
 import {IconSuccess, IconDanger, IconLink} from '@/internal/Icons';
-import {ActionTypes} from '@/internal/Actions';
 
-import classes from './Toast.module.css';
+import {ActionTypes} from './ActionTypes.ts';
+import classes from './Action.module.css';
 
 export type Props = {
     title?: string;
     icon?: FC<HTMLAttributes<HTMLOrSVGElement> & unknown>;
     type?: keyof typeof ActionTypes;
     onClick: (name: MouseEvent<HTMLButtonElement>) => void;
+    className?: string;
 };
 
-export const Action: FC<Props> = ({title, icon, type = 'default', onClick}) => {
+export const Action: FC<Props> = ({title, icon, type = 'default', onClick, className}) => {
     const ActionIcon = useMemo(
         () =>
             icon ??
@@ -39,12 +40,16 @@ export const Action: FC<Props> = ({title, icon, type = 'default', onClick}) => {
         <button
             title={title}
             onClick={handleClick}
-            className={classNames(classes.actionButton, {
-                [classes.default]: type === ActionTypes.default,
-                [classes.link]: type === ActionTypes.link,
-                [classes.success]: type === ActionTypes.success,
-                [classes.danger]: type === ActionTypes.danger,
-            })}>
+            className={classNames(
+                classes.actionButton,
+                {
+                    [classes.default]: type === ActionTypes.default,
+                    [classes.link]: type === ActionTypes.link,
+                    [classes.success]: type === ActionTypes.success,
+                    [classes.danger]: type === ActionTypes.danger,
+                },
+                className
+            )}>
             {ActionIcon && <ActionIcon className={classes.actionIcon} />}
             {title && <span className={classes.actionLabel}>{title}</span>}
         </button>
