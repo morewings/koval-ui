@@ -73,7 +73,7 @@ const actionsTwo = [
 // TODO: why args don't work here?
 
 export const Primary: Story = {
-    render: () => {
+    render: args => {
         const {openDialog} = useDialogState('foo');
         const handleOpen = useCallback(() => {
             openDialog();
@@ -84,7 +84,7 @@ export const Primary: Story = {
                 <div style={{display: 'flex', gap: '12px'}}>
                     <Button onClick={handleOpen}>Open dialog</Button>
                 </div>
-                <Dialog id="foo" dialogTitle="This is the title of dialog!">
+                <Dialog {...args} id="foo" dialogTitle="This is the title of dialog!">
                     <P>
                         On the other hand, we denounce with righteous indignation and dislike men
                         who are so beguiled and demoralized by the charms of pleasure of the moment,
@@ -120,7 +120,7 @@ export const Primary: Story = {
 };
 
 export const LongText: Story = {
-    render: () => {
+    render: args => {
         const {openDialog} = useDialogState('bazz');
 
         return (
@@ -128,7 +128,7 @@ export const LongText: Story = {
                 <div style={{display: 'flex', gap: '12px'}}>
                     <Button onClick={openDialog}>Open dialog</Button>
                 </div>
-                <Dialog id="bazz" dialogTitle="This is the title of dialog!">
+                <Dialog {...args} id="bazz" dialogTitle="This is the title of dialog!">
                     <P>
                         On the other hand, we denounce with righteous indignation and dislike men
                         who are so beguiled and demoralized by the charms of pleasure of the moment,
