@@ -55,6 +55,7 @@
     "lint:commits": "commitlint",
     "fix:style": "run-s 'lint:style --fix'",
     "test": "jest",
+    "coverage": "run-s 'test --coverage'",
     "preview": "vite preview",
     "start:docs": "storybook dev -p 6006 --no-open",
     "build:docs": "storybook build",

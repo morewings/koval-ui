@@ -3,6 +3,8 @@
 [![types included](https://img.shields.io/github/package-json/types/morewings/react-forge-ui)](https://github.com/morewings/react-forge-ui)
 [![npm version](https://badge.fury.io/js/react-forge-ui.svg)](https://www.npmjs.com/package/react-forge-ui)
 [![npm bundle size](https://deno.bundlejs.com/badge?q=react-forge-ui@latest&config={"esbuild":{"external":["react","react-dom"]}})](https://bundlejs.com/?bundle&q=react-forge-ui@latest&config={"analysis":"treemap","esbuild":{"external":["react","react-dom"]}})
+[![Maintainability](https://api.codeclimate.com/v1/badges/e29c783c1a63b2055378/maintainability)](https://codeclimate.com/github/morewings/react-forge-ui/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e29c783c1a63b2055378/test_coverage)](https://codeclimate.com/github/morewings/react-forge-ui/test_coverage)
 
 # Forge React components library
 
