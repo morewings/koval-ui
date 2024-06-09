@@ -14,12 +14,15 @@ export const useInterval = ({callback, interval, condition = true}: Props) => {
     }, [callback]);
 
     useEffect(() => {
+        let id: NodeJS.Timeout;
         const tick = () => {
             savedCallback.current?.();
         };
         if (interval !== null && condition) {
-            const id = setInterval(tick, interval);
-            return () => clearInterval(id);
+            id = setInterval(tick, interval);
         }
+        return () => {
+            id && clearInterval(id);
+        };
     }, [condition, interval]);
 };
