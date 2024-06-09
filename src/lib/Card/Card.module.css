@@ -87,7 +87,7 @@
     justify-content: center;
 
     &:not(:only-child, :last-child) {
-        border-right: var(--fg-border-width-200) solid var(--fg-background-100);
+        border-right: var(--fg-border-width-100) solid var(--fg-background-100);
     }
 
     &:not(:only-child) {

@@ -5,7 +5,6 @@ import {forwardRef, Fragment} from 'react';
 import classNames from 'classnames';
 import {useFloating, autoUpdate, size, offset, autoPlacement} from '@floating-ui/react-dom';
 import {useRootTheme, useLocalTheme} from 'css-vars-hook';
-import type {Placement} from '@floating-ui/react-dom';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Portal} from '@/internal/Portal';
@@ -40,8 +39,6 @@ export type Props = DataAttributes &
         alignWidth?: boolean;
         /** Set design of Menu */
         variant?: keyof typeof Variants;
-        /** Define recommended placement for Tooltip content, applied when possible */
-        placement?: Placement;
     };
 
 export const Menu = forwardRef<HTMLDivElement, Props>(
@@ -56,7 +53,6 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
             trapFocus = true,
             alignWidth = true,
             variant = Variants.plain,
-            placement: placementProp = 'bottom',
             ...nativeProps
         },
         ref
@@ -71,7 +67,6 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
         const {refs, floatingStyles} = useFloating<HTMLDivElement>({
             strategy: 'fixed',
             whileElementsMounted: autoUpdate,
-            placement: placementProp,
             middleware: [
                 alignWidth &&
                     size({
