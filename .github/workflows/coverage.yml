@@ -52,6 +52,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v6.0.0
         env:
