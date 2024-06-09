@@ -6,6 +6,8 @@ import {Button} from '@/lib/Button';
 import {InputGroup} from '@/lib/InputGroup';
 import {InputRadio} from '@/lib';
 import {Ul} from '@/lib/Text';
+import {actionsMockMultipleFlat} from '@/internal/Actions';
+import {Actions} from '@/lib/Actions';
 
 import {Menu} from './Menu.tsx';
 
@@ -24,6 +26,8 @@ const focusable = (
         <InputRadio value="bazz" label="This is a bazz name" key="bazz" />
     </InputGroup>
 );
+
+const actions = <Actions variant="inverted" actions={actionsMockMultipleFlat} />;
 
 const meta = {
     title: 'Components/Menu',
@@ -65,14 +69,16 @@ const meta = {
             },
         },
         content: {
-            options: ['nonFocusable', 'focusable'], // An array of serializable values
+            options: ['actions', 'nonFocusable', 'focusable'], // An array of serializable values
             mapping: {
+                actions,
                 nonFocusable,
                 focusable,
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio',
                 labels: {
+                    actions: 'Actions Menu',
                     nonFocusable: 'Non-Focusable Menu',
                     focusable: 'Focusable Menu',
                 },

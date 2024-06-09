@@ -5,6 +5,7 @@ import {forwardRef, Fragment} from 'react';
 import classNames from 'classnames';
 import {useFloating, autoUpdate, size, offset, autoPlacement} from '@floating-ui/react-dom';
 import {useRootTheme, useLocalTheme} from 'css-vars-hook';
+import type {Placement} from '@floating-ui/react-dom';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Portal} from '@/internal/Portal';
@@ -12,6 +13,11 @@ import {useDismiss} from '@/internal/hooks/useDismiss.ts';
 import {useFocusTrap} from '@/internal/hooks/useFocusTrap.ts';
 
 import classes from './Menu.module.css';
+
+enum Variants {
+    bordered = 'bordered',
+    plain = 'plain',
+}
 
 export type Props = DataAttributes &
     LibraryProps & {
@@ -32,6 +38,10 @@ export type Props = DataAttributes &
         trapFocus?: boolean;
         /** Align Menu width with reference element */
         alignWidth?: boolean;
+        /** Set design of Menu */
+        variant?: keyof typeof Variants;
+        /** Define recommended placement for Tooltip content, applied when possible */
+        placement?: Placement;
     };
 
 export const Menu = forwardRef<HTMLDivElement, Props>(
@@ -45,6 +55,8 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
             onToggle = () => {},
             trapFocus = true,
             alignWidth = true,
+            variant = Variants.plain,
+            placement: placementProp = 'bottom',
             ...nativeProps
         },
         ref
@@ -59,6 +71,7 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
         const {refs, floatingStyles} = useFloating<HTMLDivElement>({
             strategy: 'fixed',
             whileElementsMounted: autoUpdate,
+            placement: placementProp,
             middleware: [
                 alignWidth &&
                     size({
@@ -96,7 +109,14 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
                                 <div
                                     {...nativeProps}
                                     ref={ref}
-                                    className={classNames(classes.menu, className)}>
+                                    className={classNames(
+                                        classes.menu,
+                                        {
+                                            [classes.bordered]: variant === Variants.bordered,
+                                            [classes.plain]: variant === Variants.plain,
+                                        },
+                                        className
+                                    )}>
                                     {content}
                                 </div>
                             </LocalRoot>

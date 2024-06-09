@@ -1,0 +1,30 @@
+/* Menu styles */
+
+.actions {
+    max-width: 240px;
+
+    & .action-row {
+        &:first-of-type {
+            & .action-button {
+                border-top: none;
+            }
+        }
+    }
+}
+
+.primary-action {
+    color: var(--fg-color-sol);
+    justify-content: start;
+}
+
+.inverted-action {
+    --icon-shadow: drop-shadow(var(--fg-text-shadow));
+
+    color: var(--fg-background-000);
+    justify-content: start;
+    text-shadow: var(--fg-text-shadow);
+
+    &:hover {
+        background: var(--fg-color-re);
+    }
+}
