@@ -67,7 +67,6 @@
     height: var(--header-height);
     justify-content: center;
     padding: 0 calc(var(--fg-size-unit) * 3);
-    -webkit-tap-highlight-color: transparent;
     user-select: none;
 
     &:hover {

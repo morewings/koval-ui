@@ -16,7 +16,6 @@
     line-height: 1.2;
     padding: calc(var(--fg-size-unit) * var(--size-scale-factor))
         calc(var(--fg-size-unit) * 3 * var(--size-scale-factor));
-    -webkit-tap-highlight-color: transparent;
     text-shadow: var(--fg-text-shadow);
     transition:
         background-color var(--fg-time-sm) ease-in-out,

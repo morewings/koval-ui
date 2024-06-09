@@ -1,0 +1,9 @@
+@import url("the-new-css-reset/css/reset.css");
+
+button,
+a,
+input,
+label,
+select {
+    -webkit-tap-highlight-color: transparent;
+}

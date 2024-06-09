@@ -1,5 +1,5 @@
 /* Bundle css reset before everything else */
-import 'the-new-css-reset/css/reset.css';
+import '@/lib/CSSReset/reset.css';
 
 export {Provider} from './Provider';
 export {Col, Row, Grid, Main, Footer, Sidebar, Header, Content, Page} from './Layout';

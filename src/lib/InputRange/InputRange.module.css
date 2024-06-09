@@ -181,7 +181,6 @@
     cursor: pointer;
     flex-shrink: 0;
     height: calc(var(--fg-size-unit) * 4);
-    -webkit-tap-highlight-color: transparent;
     width: calc(var(--fg-size-unit) * 4);
 
     & svg {

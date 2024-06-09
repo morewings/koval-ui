@@ -81,7 +81,6 @@
     font-size: var(--fg-font-size-medium);
     min-width: 0;
     padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
-    -webkit-tap-highlight-color: transparent;
     width: 7ch;
 
     &:--disabledSelector {
