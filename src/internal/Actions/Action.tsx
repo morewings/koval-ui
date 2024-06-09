@@ -6,17 +6,23 @@ import classNames from 'classnames';
 import {IconSuccess, IconDanger, IconLink} from '@/internal/Icons';
 
 import {ActionTypes} from './ActionTypes.ts';
-import classes from './Action.module.css';
+import classes from './Actions.module.css';
 
 export type Props = {
     title?: string;
     icon?: FC<HTMLAttributes<HTMLOrSVGElement> & unknown>;
     type?: keyof typeof ActionTypes;
-    onClick: (name: MouseEvent<HTMLButtonElement>) => void;
+    onClick?: (name: MouseEvent<HTMLButtonElement>) => void;
     className?: string;
 };
 
-export const Action: FC<Props> = ({title, icon, type = 'default', onClick, className}) => {
+export const Action: FC<Props> = ({
+    title,
+    icon,
+    type = 'default',
+    onClick = () => {},
+    className,
+}) => {
     const ActionIcon = useMemo(
         () =>
             icon ??

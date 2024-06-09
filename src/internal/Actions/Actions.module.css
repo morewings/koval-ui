@@ -1,7 +1,18 @@
 @import url("@/lib/Layout/customMedia.css");
 
+.row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media (--viewport-md) {
+        flex-direction: row;
+    }
+}
+
 .action-button {
     --icon-size: calc(var(--fg-size-unit) * 4);
+    --icon-shadow: none;
 
     align-items: center;
     border-top: 1px solid var(--fg-background-100);
@@ -72,6 +83,7 @@
 }
 
 .action-icon {
+    filter: var(--icon-shadow);
     flex-shrink: 0;
     margin-right: var(--fg-size-unit);
     width: var(--icon-size);

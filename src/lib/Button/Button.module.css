@@ -1,4 +1,6 @@
 .button {
+    --icon-shadow: drop-shadow(var(--fg-text-shadow));
+
     align-items: center;
     background-color: var(--bg-color);
     border: var(--fg-border-width-300) solid var(--border-color);
@@ -197,7 +199,7 @@
 }
 
 .icon {
-    filter: drop-shadow(var(--fg-text-shadow));
+    filter: var(--icon-shadow);
     flex-shrink: 0;
     height: calc(var(--font-size) * 1.2);
     width: calc(var(--font-size) * 1.2);

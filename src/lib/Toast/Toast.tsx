@@ -1,4 +1,4 @@
-import type {ComponentProps, FC, ReactNode} from 'react';
+import type {FC, ReactNode} from 'react';
 import {useEffect} from 'react';
 import {forwardRef} from 'react';
 import classNames from 'classnames';
@@ -10,6 +10,7 @@ import {IconClose, IconError, IconInfo, IconSuccess, IconWarning} from '@/intern
 import {useInterval} from '@/internal/hooks/useInterval.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {TransitionSlideBottom} from '@/internal/Transitions';
+import type {ActionProps} from '@/internal/Actions';
 import {Action} from '@/internal/Actions';
 
 import {useToastState} from './useToastState.tsx';
@@ -28,10 +29,7 @@ export type Props = DataAttributes &
         id: NonNullable<LibraryProps['id']>;
         children?: ReactNode;
         /** Provide an array of actions with callbacks */
-        actions?: (
-            | ComponentProps<typeof Action>
-            | [ComponentProps<typeof Action>, ComponentProps<typeof Action>]
-        )[];
+        actions?: (ActionProps | [ActionProps, ActionProps])[];
         /**
          * Provide Icon component to show instead default one
          */
