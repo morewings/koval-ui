@@ -6,16 +6,13 @@ name: Release
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-  build-publish:
+  collect-coverage:
 
     runs-on: ubuntu-latest
-#    permissions:
-#      contents: write # to be able to publish a GitHub release
-#      issues: write # to be able to comment on released issues
-#      pull-requests: write # to be able to comment on released pull requests
-#      id-token: write # to enable use of OIDC for npm provenance
 
     steps:
       - name: Cancel Workflow Action
@@ -55,11 +52,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Build and publish NPM package
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v6.0.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          pnpm install
-          pnpm run build
-          pnpm run semantic-release
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+        with:
+          coverageCommand: pnpm run coverage
+          coverageLocations: |
+            ${{github.workspace}}/coverage/lcov.info:lcov
