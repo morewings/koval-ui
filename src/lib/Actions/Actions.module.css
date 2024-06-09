@@ -13,6 +13,8 @@
 }
 
 .primary-action {
+    --icon-size: calc(var(--fg-size-unit) * 3);
+
     color: var(--fg-color-sol);
     font-size: var(--fg-font-size-small);
     justify-content: start;
@@ -20,6 +22,7 @@
 
 .inverted-action {
     --icon-shadow: drop-shadow(var(--fg-text-shadow));
+    --icon-size: calc(var(--fg-size-unit) * 3);
 
     color: var(--fg-background-000);
     font-size: var(--fg-font-size-small);

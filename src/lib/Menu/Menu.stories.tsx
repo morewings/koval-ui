@@ -27,7 +27,8 @@ const focusable = (
     </InputGroup>
 );
 
-const actions = <Actions variant="inverted" actions={actionsMockMultipleFlat} />;
+const actionsPrimary = <Actions variant="primary" actions={actionsMockMultipleFlat} />;
+const actionsInverted = <Actions variant="inverted" actions={actionsMockMultipleFlat} />;
 
 const meta = {
     title: 'Components/Menu',
@@ -69,16 +70,18 @@ const meta = {
             },
         },
         content: {
-            options: ['actions', 'nonFocusable', 'focusable'], // An array of serializable values
+            options: ['actions-primary', 'actions-inverted', 'nonFocusable', 'focusable'], // An array of serializable values
             mapping: {
-                actions,
+                'actions-primary': actionsPrimary,
+                'actions-inverted': actionsInverted,
                 nonFocusable,
                 focusable,
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio',
                 labels: {
-                    actions: 'Actions Menu',
+                    'actions-primary': 'Actions Menu (Primary)',
+                    'actions-inverted': 'Actions Menu (Inverted)',
                     nonFocusable: 'Non-Focusable Menu',
                     focusable: 'Focusable Menu',
                 },
@@ -109,6 +112,8 @@ export const Primary: Story = {
         );
     },
     args: {
-        content: nonFocusable,
+        content: actionsPrimary,
+        variant: 'plain',
+        alignWidth: false,
     },
 };

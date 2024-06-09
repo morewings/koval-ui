@@ -13,16 +13,15 @@
     box-shadow: var(--fg-shadow-100);
     box-sizing: border-box;
     overflow: hidden;
+    padding: 0;
 }
 
 .bordered {
     background: var(--fg-background-000);
     border: var(--fg-border-width-300) solid var(--fg-color-do);
-    padding: var(--fg-size-unit);
 }
 
 .plain {
     background: var(--fg-color-do);
     border: none;
-    padding: 0;
 }
