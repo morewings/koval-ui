@@ -5,7 +5,7 @@ import {theme as themePodil} from '../src/lib/Theme/themePodil.ts';
 import {theme as themeDnipro} from '../src/lib/Theme/themeDnipro.ts';
 import {Provider} from './../src/lib/Provider/Provider.tsx';
 
-import 'the-new-css-reset/css/reset.css';
+import '@/lib/CSSReset/reset.css';
 
 const customViewports = {
     viewportXS: {

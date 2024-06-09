@@ -65,7 +65,6 @@
     min-width: 0;
     overflow: hidden;
     padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
-    -webkit-tap-highlight-color: transparent;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: var(--input-width);

@@ -30,7 +30,6 @@
     letter-spacing: 0.8px;
     min-width: 24px;
     padding: 0 6px;
-    -webkit-tap-highlight-color: transparent;
     transition: background-color var(--fg-time-sm) ease-in-out;
 
     &:hover {
@@ -89,7 +88,6 @@
     flex-grow: 0;
     font-size: var(--fg-font-size-small);
     padding: calc(var(--fg-size-unit) / 2) calc(var(--fg-size-unit) * 1);
-    -webkit-tap-highlight-color: transparent;
     text-align: center;
     transition:
         background-color var(--fg-time-sm) ease-in-out,
@@ -113,7 +111,6 @@
 
 .navigation-button {
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
 
     & .icon {
         transition: color var(--fg-time-sm) ease-in-out;
