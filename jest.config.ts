@@ -9,4 +9,18 @@ export default {
         '\\.(gif|ttf|eot|svg|png)$': 'identity-obj-proxy',
         '\\.css$': 'identity-obj-proxy',
     },
+    coverageReporters: [
+        [
+            'lcov',
+            {
+                projectRoot: '.',
+            },
+        ],
+    ],
+    collectCoverageFrom: [
+        'src/lib/**/*.ts',
+        'src/lib/**/*.tsx',
+        '!src/lib/**/index.ts',
+        '!**/node_modules/**',
+    ],
 };

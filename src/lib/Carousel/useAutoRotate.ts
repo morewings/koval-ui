@@ -17,7 +17,7 @@ export const useAutoRotate = ({rotateFn, interval = null, ref, rewindFn}: Props)
     const isActiveTab = useDocumentVisible();
     const isEnabled = Boolean(interval) && isInViewport && isActiveTab;
     useEffect(() => {
-        !isActiveTab && rewindFn();
-    }, [isActiveTab, rewindFn]);
+        (!isActiveTab || !isInViewport) && rewindFn();
+    }, [isActiveTab, rewindFn, isInViewport]);
     useInterval({callback: rotateFn, interval, condition: isEnabled});
 };
