@@ -5,7 +5,8 @@
 
     & .action-row {
         &:first-of-type {
-            & .action-button {
+            & .primary-action,
+            & .inverted-action {
                 border-top: none;
             }
         }
