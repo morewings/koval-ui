@@ -11,7 +11,7 @@ import {useInterval} from '@/internal/hooks/useInterval.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {TransitionSlideBottom} from '@/internal/Transitions';
 import type {ActionProps} from '@/internal/Actions';
-import {ActionButton} from '@/internal/Actions';
+import {ActionsTree, ActionButton} from '@/internal/Actions';
 
 import {useToastState} from './useToastState.tsx';
 import classes from './Toast.module.css';
@@ -110,32 +110,10 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
                                 </div>
                             </div>
                             <footer className={classes.actions}>
-                                {actions.map((actionSlot, i) => {
-                                    if (Array.isArray(actionSlot)) {
-                                        const [left, right] = actionSlot;
-                                        return (
-                                            <div key={`${id}-${i}`} className={classes.row}>
-                                                <ActionButton
-                                                    {...left}
-                                                    className={classes.actionButton}
-                                                />
-                                                <ActionButton
-                                                    {...right}
-                                                    className={classes.actionButton}
-                                                />
-                                            </div>
-                                        );
-                                    } else {
-                                        return (
-                                            <div key={`${id}-${i}`} className={classes.row}>
-                                                <ActionButton
-                                                    {...actionSlot}
-                                                    className={classes.actionButton}
-                                                />
-                                            </div>
-                                        );
-                                    }
-                                })}
+                                <ActionsTree
+                                    actions={actions}
+                                    classNameAction={classes.actionButton}
+                                />
                                 <div key={`${id}-close`} className={classes.row}>
                                     <ActionButton
                                         className={classes.actionButton}
