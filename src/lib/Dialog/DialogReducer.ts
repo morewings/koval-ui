@@ -1,3 +1,5 @@
+import {without} from '@/internal/utils/without.ts';
+
 /**
  * Action names collection
  * @example
@@ -28,10 +30,6 @@ export type DialogAction = {
     id: Id;
     /** Action name */
     type: Actions;
-};
-
-const without = <TValue>(value: TValue, array: TValue[]) => {
-    return array.filter(member => member !== value);
 };
 
 export const DialogReducer = (state = initialState, action: DialogAction): DialogState => {

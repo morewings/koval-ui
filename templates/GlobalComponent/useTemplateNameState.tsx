@@ -1,12 +1,10 @@
 import {useCallback} from 'react';
 
+import {last} from '@/internal/utils/last.ts';
+
 import {useTemplateNameContext} from './TemplateNameContext.ts';
 import type {TemplateNameState} from './TemplateNameReducer.ts';
 import {Actions} from './TemplateNameReducer.ts';
-
-const last = <TItem,>(arr: TItem[]) => {
-    return arr[arr.length - 1];
-};
 
 const useSelector = (callback: (arg0: TemplateNameState) => string | undefined) => {
     const {state} = useTemplateNameContext();

@@ -1,3 +1,5 @@
+import {without} from '@/internal/utils/without.ts';
+
 /**
  * Action names collection
  * @example
@@ -30,11 +32,10 @@ export type TemplateNameAction = {
     type: Actions;
 };
 
-const without = <TValue>(value: TValue, array: TValue[]) => {
-    return array.filter(member => member !== value);
-};
-
-export const TemplateNameReducer = (state = initialState, action: TemplateNameAction): TemplateNameState => {
+export const TemplateNameReducer = (
+    state = initialState,
+    action: TemplateNameAction
+): TemplateNameState => {
     switch (action.type) {
         case Actions.TEMPLATE_NAME_CLOSE: {
             const {id} = action;
