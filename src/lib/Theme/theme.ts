@@ -38,10 +38,10 @@ export const theme = {
     colorSol: '#597480',
     colorLa: '#99DFFF',
     // info colors
-    colorError: '#FF0000',
-    colorWarning: 'orange',
-    colorSuccess: 'green',
-    colorAction: 'blue',
+    colorError: '#FF004F',
+    colorWarning: '#FFC72C',
+    colorSuccess: '#3c9d74',
+    colorAction: '#2100FF',
     // shadow config
     shadowColor: 'color-mix(in srgb, var(--fg-background-600) 11%, transparent)',
     shadow050: '3px 3px 3px 0 var(--fg-shadow-color)',
