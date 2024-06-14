@@ -3,15 +3,11 @@ import {forwardRef} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import type {ActionProps} from '@/internal/Actions';
-import {ActionsTree} from '@/internal/Actions';
 
+import type {Props as ActionProps} from './ActionButton.tsx';
+import {ActionsTree} from './ActionsTree.tsx';
+import {Variants} from './Variants.ts';
 import classes from './Actions.module.css';
-
-enum Variants {
-    primary = 'primary',
-    inverted = 'inverted',
-}
 
 export type Props = DataAttributes &
     LibraryProps & {

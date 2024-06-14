@@ -1,95 +1,38 @@
 @import url("@/lib/Layout/customMedia.css");
 
-.row {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+/* Action list style. Has to be separate file to avoid conflicts with single action */
 
-    @media (--viewport-md) {
-        flex-direction: row;
+.actions {
+    max-width: 240px;
+
+    & .action-row {
+        &:first-of-type {
+            & .primary-action,
+            & .inverted-action {
+                border-top: none;
+            }
+        }
     }
 }
 
-.action-button {
-    --icon-size: calc(var(--fg-size-unit) * 4);
-    --icon-shadow: none;
+.primary-action {
+    --icon-size: calc(var(--fg-size-unit) * 3);
 
-    align-items: center;
-    border-top: 1px solid var(--fg-background-100);
-    box-sizing: border-box;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    flex-shrink: 1;
-    font-weight: var(--fg-font-weight-bolder);
-    justify-content: center;
-    overflow: hidden;
-    padding: calc(var(--fg-size-unit) * 2);
-    text-overflow: ellipsis;
-    transition:
-        background-color var(--fg-time-sm) ease-in-out,
-        color var(--fg-time-sm) ease-in-out;
-    user-select: none;
-    white-space: nowrap;
+    color: var(--fg-color-sol);
+    font-size: var(--fg-font-size-small);
+    justify-content: start;
+}
+
+.inverted-action {
+    --icon-shadow: drop-shadow(var(--fg-text-shadow));
+    --icon-size: calc(var(--fg-size-unit) * 3);
+
+    color: var(--fg-background-000);
+    font-size: var(--fg-font-size-small);
+    justify-content: start;
+    text-shadow: var(--fg-text-shadow);
 
     &:hover {
-        background: var(--fg-color-do);
-        color: var(--fg-background-000);
+        background: var(--fg-color-re);
     }
-
-    &:focus-visible:not(:hover) {
-        color: var(--fg-color-do);
-    }
-
-    &:active {
-        background: var(--fg-color-do);
-        color: var(--fg-background-000);
-
-        & .action-label,
-        & .action-icon {
-            left: 3px;
-            position: relative;
-            top: 3px;
-        }
-    }
-
-    @media (--viewport-md) {
-        &:not(:only-child, :last-child) {
-            border-right: 1px solid var(--fg-background-100);
-        }
-
-        &:not(:only-child) {
-            width: 50%;
-        }
-    }
-}
-
-.default {
-    color: var(--fg-color-sol);
-}
-
-.link {
-    color: var(--fg-color-action);
-}
-
-.success {
-    color: var(--fg-color-success);
-}
-
-.danger {
-    color: var(--fg-color-error);
-}
-
-.action-icon {
-    filter: var(--icon-shadow);
-    flex-shrink: 0;
-    margin-right: var(--fg-size-unit);
-    width: var(--icon-size);
-}
-
-.action-label {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }

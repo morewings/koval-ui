@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import {IconSuccess, IconDanger, IconLink} from '@/internal/Icons';
 
 import {ActionTypes} from './ActionTypes.ts';
-import classes from './Actions.module.css';
+import classes from './ActionButton.module.css';
 
 export type Props = {
     title?: string;
@@ -16,7 +16,7 @@ export type Props = {
     className?: string;
 };
 
-export const Action: FC<Props> = ({
+export const ActionButton: FC<Props> = ({
     title,
     icon,
     type = 'default',

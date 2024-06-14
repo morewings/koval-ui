@@ -56,7 +56,7 @@ export {Picture} from './Picture';
 export {Dialog, useDialogState} from './Dialog';
 export {Carousel} from './Carousel';
 export {Tabs, Tab} from './Tabs';
-export {Menu} from './Menu';
+export {Menu, MenuActions} from './Menu';
 export {Tooltip} from './Tooltip';
 export {Notification, useNotificationState} from './Notification';
 export {Toast, useToastState} from './Toast';

@@ -7,7 +7,7 @@ import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {IconClose} from '@/internal/Icons';
 import {H3} from '@/lib';
 import {useFocusTrap} from '@/internal/hooks/useFocusTrap.ts';
-import {Action} from '@/internal/Actions';
+import {ActionButton} from '@/internal/Actions';
 
 import {TransitionDialog} from './TransitionDialog.tsx';
 import {useDialogState} from './useDialogState.tsx';
@@ -26,8 +26,8 @@ export type Props = DataAttributes &
         showCloseButton?: boolean;
         /** Provide an array of actions with callbacks */
         actions?: (
-            | ComponentProps<typeof Action>
-            | [ComponentProps<typeof Action>, ComponentProps<typeof Action>]
+            | ComponentProps<typeof ActionButton>
+            | [ComponentProps<typeof ActionButton>, ComponentProps<typeof ActionButton>]
         )[];
         /** Set a title of dialog */
         dialogTitle?: string;
@@ -120,21 +120,21 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
                                     const [left, right] = actionSlot;
                                     return (
                                         <div key={`${id}-${i}`} className={classes.row}>
-                                            <Action {...left} />
-                                            <Action {...right} />
+                                            <ActionButton {...left} />
+                                            <ActionButton {...right} />
                                         </div>
                                     );
                                 } else {
                                     return (
                                         <div key={`${id}-${i}`} className={classes.row}>
-                                            <Action {...actionSlot} />
+                                            <ActionButton {...actionSlot} />
                                         </div>
                                     );
                                 }
                             })}
                             {showCloseButton && (
                                 <div key={`${id}-close`} className={classes.row}>
-                                    <Action
+                                    <ActionButton
                                         onClick={handleSelfClose}
                                         icon={IconClose}
                                         title={closeLabel}
