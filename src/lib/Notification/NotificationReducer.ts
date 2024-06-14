@@ -1,3 +1,5 @@
+import {without} from '@/internal/utils/without.ts';
+
 /**
  * Action names collection
  * @example
@@ -76,10 +78,6 @@ type RegisterAction = {
 };
 
 export type NotificationAction = CloseAction | OpenAction | RegisterAction;
-
-const without = <TValue>(value: TValue, array: TValue[]) => {
-    return array.filter(member => member !== value);
-};
 
 const omit = <TObject extends Record<string, unknown>>(obj: TObject, key: keyof TObject) => {
     const nextObject = {...obj};
