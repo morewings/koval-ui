@@ -7,7 +7,7 @@ import {Button} from '@/lib/Button';
 import {ButtonGroup} from '@/lib/ButtonGroup';
 import {P} from '@/lib/Text';
 import {CloudUpload, IconFile} from '@/internal/Icons';
-import type {Action} from '@/internal/Actions';
+import type {ActionButton} from '@/internal/Actions';
 
 import {Dialog} from './Dialog.tsx';
 import {useDialogState} from './useDialogState.tsx';
@@ -182,7 +182,7 @@ export const DialogInDialog: Story = {
         const {closeDialog: closeSecond, openDialog: openSecond} = useDialogState('qux');
 
         const actionsFirst = useMemo<
-            [ComponentProps<typeof Action>, ComponentProps<typeof Action>][]
+            [ComponentProps<typeof ActionButton>, ComponentProps<typeof ActionButton>][]
         >(
             () => [
                 [
@@ -193,7 +193,7 @@ export const DialogInDialog: Story = {
             [closeFirst, openSecond]
         );
 
-        const actionsSecond = useMemo<ComponentProps<typeof Action>[]>(
+        const actionsSecond = useMemo<ComponentProps<typeof ActionButton>[]>(
             () => [{title: 'Close Second', type: 'danger', onClick: closeSecond}],
             [closeSecond]
         );

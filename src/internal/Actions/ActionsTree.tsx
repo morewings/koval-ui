@@ -2,24 +2,24 @@ import type {FC, ComponentProps} from 'react';
 import {useId} from 'react';
 import classNames from 'classnames';
 
-import {Action} from './Action.tsx';
-import classes from './Actions.module.css';
+import {ActionButton} from './ActionButton.tsx';
+import classes from './ActionButton.module.css';
 
 export type Props = {
     actions?: (
-        | ComponentProps<typeof Action>
-        | [ComponentProps<typeof Action>, ComponentProps<typeof Action>]
+        | ComponentProps<typeof ActionButton>
+        | [ComponentProps<typeof ActionButton>, ComponentProps<typeof ActionButton>]
     )[];
     classNameRow?: string;
     classNameAction?: string;
-    actionComponent?: FC<ComponentProps<typeof Action>>;
+    actionComponent?: FC<ComponentProps<typeof ActionButton>>;
 };
 
 export const ActionsTree: FC<Props> = ({
     actions = [],
     classNameRow,
     classNameAction,
-    actionComponent: ActionButton = Action,
+    actionComponent: ActionComponent = ActionButton,
 }) => {
     const id = useId();
     return actions.map((actionSlot, i) => {
@@ -27,11 +27,11 @@ export const ActionsTree: FC<Props> = ({
             const [left, right] = actionSlot;
             return (
                 <div key={`${id}-${i}`} className={classNames(classes.row, classNameRow)}>
-                    <ActionButton
+                    <ActionComponent
                         {...left}
                         className={classNames(classes.actionButton, classNameAction)}
                     />
-                    <ActionButton
+                    <ActionComponent
                         {...right}
                         className={classNames(classes.actionButton, classNameAction)}
                     />
@@ -40,7 +40,7 @@ export const ActionsTree: FC<Props> = ({
         } else {
             return (
                 <div key={`${id}-${i}`} className={classNames(classes.row, classNameRow)}>
-                    <ActionButton
+                    <ActionComponent
                         {...actionSlot}
                         className={classNames(classes.actionButton, classNameAction)}
                     />

@@ -11,7 +11,7 @@ import {useInterval} from '@/internal/hooks/useInterval.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {TransitionSlideBottom} from '@/internal/Transitions';
 import type {ActionProps} from '@/internal/Actions';
-import {Action} from '@/internal/Actions';
+import {ActionButton} from '@/internal/Actions';
 
 import {useToastState} from './useToastState.tsx';
 import classes from './Toast.module.css';
@@ -115,11 +115,11 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
                                         const [left, right] = actionSlot;
                                         return (
                                             <div key={`${id}-${i}`} className={classes.row}>
-                                                <Action
+                                                <ActionButton
                                                     {...left}
                                                     className={classes.actionButton}
                                                 />
-                                                <Action
+                                                <ActionButton
                                                     {...right}
                                                     className={classes.actionButton}
                                                 />
@@ -128,7 +128,7 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
                                     } else {
                                         return (
                                             <div key={`${id}-${i}`} className={classes.row}>
-                                                <Action
+                                                <ActionButton
                                                     {...actionSlot}
                                                     className={classes.actionButton}
                                                 />
@@ -137,7 +137,7 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
                                     }
                                 })}
                                 <div key={`${id}-close`} className={classes.row}>
-                                    <Action
+                                    <ActionButton
                                         className={classes.actionButton}
                                         onClick={closeToast}
                                         icon={IconClose}

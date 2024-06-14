@@ -12,11 +12,7 @@ import {useDismiss} from '@/internal/hooks/useDismiss.ts';
 import {useFocusTrap} from '@/internal/hooks/useFocusTrap.ts';
 
 import classes from './Menu.module.css';
-
-enum Variants {
-    bordered = 'bordered',
-    plain = 'plain',
-}
+import {Variants} from './Variants.ts';
 
 export type Props = DataAttributes &
     LibraryProps & {

@@ -7,9 +7,9 @@ import {InputGroup} from '@/lib/InputGroup';
 import {InputRadio} from '@/lib';
 import {Ul} from '@/lib/Text';
 import {actionsMockMultipleFlat} from '@/internal/Actions';
-import {Actions} from '@/lib/Actions';
 
 import {Menu} from './Menu.tsx';
+import {MenuActions} from './MenuActions.tsx';
 
 const nonFocusable = (
     <Ul>
@@ -26,9 +26,6 @@ const focusable = (
         <InputRadio value="bazz" label="This is a bazz name" key="bazz" />
     </InputGroup>
 );
-
-const actionsPrimary = <Actions variant="primary" actions={actionsMockMultipleFlat} />;
-const actionsInverted = <Actions variant="inverted" actions={actionsMockMultipleFlat} />;
 
 const meta = {
     title: 'Components/Menu',
@@ -64,24 +61,25 @@ const meta = {
                 disable: true,
             },
         },
+        isOpen: {
+            table: {
+                disable: true,
+            },
+        },
         referenceClassName: {
             table: {
                 disable: true,
             },
         },
         content: {
-            options: ['actions-primary', 'actions-inverted', 'nonFocusable', 'focusable'], // An array of serializable values
+            options: ['nonFocusable', 'focusable'], // An array of serializable values
             mapping: {
-                'actions-primary': actionsPrimary,
-                'actions-inverted': actionsInverted,
                 nonFocusable,
                 focusable,
             }, // Maps serializable option values to complex arg values
             control: {
                 type: 'radio',
                 labels: {
-                    'actions-primary': 'Actions Menu (Primary)',
-                    'actions-inverted': 'Actions Menu (Inverted)',
                     nonFocusable: 'Non-Focusable Menu',
                     focusable: 'Focusable Menu',
                 },
@@ -112,8 +110,46 @@ export const Primary: Story = {
         );
     },
     args: {
-        content: actionsPrimary,
-        variant: 'plain',
-        alignWidth: false,
+        content: focusable,
+        variant: 'bordered',
+        alignWidth: true,
+    },
+};
+
+export const ActionsMenu: Story = {
+    name: 'Actions',
+    render: args => {
+        const [isOpen, setOpen] = useState(false);
+        const handleClick = useCallback(() => {
+            setOpen(!isOpen);
+        }, [isOpen]);
+        const handleToggle = useCallback(
+            (openState: boolean) => {
+                setOpen(openState);
+            },
+            [setOpen]
+        );
+        return (
+            <MenuActions
+                {...args}
+                actions={actionsMockMultipleFlat}
+                isOpen={isOpen}
+                onToggle={handleToggle}>
+                <Button onClick={handleClick}>Toggle Menu</Button>
+            </MenuActions>
+        );
+    },
+    args: {},
+    argTypes: {
+        content: {
+            table: {
+                disable: true,
+            },
+        },
+        alignWidth: {
+            table: {
+                disable: true,
+            },
+        },
     },
 };

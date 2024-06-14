@@ -7,7 +7,7 @@ import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useLinkRefs} from '@/internal/hooks/useLinkRefs.ts';
 import {Picture} from '@/lib';
-import {Action} from '@/internal/Actions';
+import {ActionButton} from '@/internal/Actions';
 
 import classes from './Card.module.css';
 
@@ -23,8 +23,8 @@ export type Props = DataAttributes &
         headerImageUrl?: string;
         /** Provide an array of actions with callbacks */
         actions?: (
-            | ComponentProps<typeof Action>
-            | [ComponentProps<typeof Action>, ComponentProps<typeof Action>]
+            | ComponentProps<typeof ActionButton>
+            | [ComponentProps<typeof ActionButton>, ComponentProps<typeof ActionButton>]
         )[];
         /** Set vertical or horizontal layout for the card */
         variant?: keyof typeof Variants;
@@ -77,14 +77,17 @@ export const Card = forwardRef<HTMLDivElement, Props>(
                             const [left, right] = actionSlot;
                             return (
                                 <div key={`${id}-${i}`} className={classes.row}>
-                                    <Action {...left} className={classes.actionButton} />
-                                    <Action {...right} className={classes.actionButton} />
+                                    <ActionButton {...left} className={classes.actionButton} />
+                                    <ActionButton {...right} className={classes.actionButton} />
                                 </div>
                             );
                         } else {
                             return (
                                 <div key={`${id}-${i}`} className={classes.row}>
-                                    <Action {...actionSlot} className={classes.actionButton} />
+                                    <ActionButton
+                                        {...actionSlot}
+                                        className={classes.actionButton}
+                                    />
                                 </div>
                             );
                         }
