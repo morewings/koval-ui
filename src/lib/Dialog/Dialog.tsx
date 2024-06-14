@@ -7,7 +7,7 @@ import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {IconClose} from '@/internal/Icons';
 import {H3} from '@/lib';
 import {useFocusTrap} from '@/internal/hooks/useFocusTrap.ts';
-import {ActionButton} from '@/internal/Actions';
+import {ActionButton, ActionsTree} from '@/internal/Actions';
 
 import {TransitionDialog} from './TransitionDialog.tsx';
 import {useDialogState} from './useDialogState.tsx';
@@ -115,23 +115,7 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
                         )}
                         <div className={classNames(classes.body, className)}>{children}</div>
                         <footer className={classes.actions}>
-                            {actions.map((actionSlot, i) => {
-                                if (Array.isArray(actionSlot)) {
-                                    const [left, right] = actionSlot;
-                                    return (
-                                        <div key={`${id}-${i}`} className={classes.row}>
-                                            <ActionButton {...left} />
-                                            <ActionButton {...right} />
-                                        </div>
-                                    );
-                                } else {
-                                    return (
-                                        <div key={`${id}-${i}`} className={classes.row}>
-                                            <ActionButton {...actionSlot} />
-                                        </div>
-                                    );
-                                }
-                            })}
+                            <ActionsTree actions={actions} />
                             {showCloseButton && (
                                 <div key={`${id}-close`} className={classes.row}>
                                     <ActionButton

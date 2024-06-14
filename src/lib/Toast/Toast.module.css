@@ -114,7 +114,7 @@
     width: 100%;
 }
 
-.toast .action-button {
+.action-button {
     --icon-size: calc(var(--fg-size-unit) * 3);
 
     font-size: var(--fg-font-size-small);

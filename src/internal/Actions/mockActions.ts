@@ -2,7 +2,8 @@
 import {fn} from '@storybook/test';
 
 import {CloudUpload, IconFile} from '@/internal/Icons';
-import type {Props as ActionProps} from '@/internal/Actions/ActionButton.tsx';
+
+import type {Props as ActionProps} from './ActionButton.tsx';
 
 export const actionsMockMultiple = [
     {title: 'Default Action', onClick: fn()},

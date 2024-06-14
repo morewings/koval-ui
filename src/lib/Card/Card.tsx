@@ -7,7 +7,8 @@ import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useLinkRefs} from '@/internal/hooks/useLinkRefs.ts';
 import {Picture} from '@/lib';
-import {ActionButton} from '@/internal/Actions';
+import type {ActionButton} from '@/internal/Actions';
+import {ActionsTree} from '@/internal/Actions';
 
 import classes from './Card.module.css';
 
@@ -72,26 +73,11 @@ export const Card = forwardRef<HTMLDivElement, Props>(
                 {headerImageUrl && <Picture className={classes.headerImage} src={headerImageUrl} />}
                 <div className={classes.body}>{children}</div>
                 <footer className={classes.actions}>
-                    {actions.map((actionSlot, i) => {
-                        if (Array.isArray(actionSlot)) {
-                            const [left, right] = actionSlot;
-                            return (
-                                <div key={`${id}-${i}`} className={classes.row}>
-                                    <ActionButton {...left} className={classes.actionButton} />
-                                    <ActionButton {...right} className={classes.actionButton} />
-                                </div>
-                            );
-                        } else {
-                            return (
-                                <div key={`${id}-${i}`} className={classes.row}>
-                                    <ActionButton
-                                        {...actionSlot}
-                                        className={classes.actionButton}
-                                    />
-                                </div>
-                            );
-                        }
-                    })}
+                    <ActionsTree
+                        actions={actions}
+                        classNameAction={classes.actionButton}
+                        classNameRow={classes.row}
+                    />
                 </footer>
             </LocalRoot>
         );
