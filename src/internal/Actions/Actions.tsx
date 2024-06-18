@@ -16,19 +16,37 @@ export type Props = DataAttributes &
         actions?: (ActionProps | [ActionProps, ActionProps])[];
         /** Set design of Actions block */
         variant?: keyof typeof Variants;
+        /** Provide CSS class name for action button */
+        classNameAction?: string;
+        /** Provide CSS class name for action button row container */
+        classNameRow?: string;
     };
 
 export const Actions = forwardRef<HTMLDivElement, Props>(
-    ({children, className, actions = [], variant = Variants.primary, ...nativeProps}, ref) => {
+    (
+        {
+            children,
+            className,
+            actions = [],
+            variant = Variants.primary,
+            classNameAction,
+            classNameRow,
+            ...nativeProps
+        },
+        ref
+    ) => {
         return (
             <div {...nativeProps} className={classNames(classes.actions, className)} ref={ref}>
                 <ActionsTree
                     actions={actions}
-                    classNameAction={classNames({
-                        [classes.primaryAction]: variant === Variants.primary,
-                        [classes.invertedAction]: variant === Variants.inverted,
-                    })}
-                    classNameRow={classes.actionRow}
+                    classNameAction={classNames(
+                        {
+                            [classes.primaryAction]: variant === Variants.primary,
+                            [classes.invertedAction]: variant === Variants.inverted,
+                        },
+                        classNameAction
+                    )}
+                    classNameRow={classNames(classes.actionRow, classNameRow)}
                 />
             </div>
         );

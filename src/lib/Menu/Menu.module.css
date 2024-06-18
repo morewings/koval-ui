@@ -25,3 +25,11 @@
     background: var(--fg-color-do);
     border: none;
 }
+
+.row {
+    &:first-of-type {
+        & .action-button {
+            border-top: none;
+        }
+    }
+}

@@ -8,10 +8,6 @@
     & .action-row {
         & .primary-action,
         & .inverted-action {
-            &:first-of-type {
-                border-top: none;
-            }
-
             &:not(:only-child, :last-child) {
                 border-right: var(--fg-border-width-100) solid var(--fg-background-100);
             }
