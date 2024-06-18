@@ -112,13 +112,8 @@ export const Carousel = forwardRef<HTMLDivElement, Props>(
             setVisible(visible + 1);
         }, [visible, setVisible]);
 
-        const handleRewind = useCallback(() => {
-            setVisible(initialState);
-        }, [initialState]);
-
         useAutoRotate({
             rotateFn: handleRotate,
-            rewindFn: handleRewind,
             interval: autoRotate && autoRotate * 1000,
             ref: innerRef,
         });
