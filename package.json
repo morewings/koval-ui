@@ -1,12 +1,12 @@
 {
-  "name": "react-forge-ui",
-  "homepage": "https://morewings.github.io/react-forge-ui/",
+  "name": "koval-ui",
+  "homepage": "https://morewings.github.io/koval-ui/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/morewings/react-forge-ui"
+    "url": "https://github.com/morewings/koval-ui"
   },
   "bugs": {
-    "url": "https://github.com/morewings/react-forge-ui/issues"
+    "url": "https://github.com/morewings/koval-ui/issues"
   },
   "license": "MIT",
   "private": false,
