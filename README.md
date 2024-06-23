@@ -1,20 +1,16 @@
-# Rename notice
+[![Deploy Storybook](https://github.com/morewings/koval-ui/actions/workflows/pages.yml/badge.svg)](https://github.com/morewings/koval-ui/actions/workflows/pages.yml)
+[![Post-merge tasks](https://github.com/morewings/koval-ui/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/koval-ui/actions/workflows/merge-jobs.yml)
+[![types included](https://img.shields.io/github/package-json/types/morewings/koval-ui)](https://github.com/morewings/koval-ui)
+[![npm version](https://badge.fury.io/js/koval-ui.svg)](https://www.npmjs.com/package/koval-ui)
+[![npm bundle size](https://deno.bundlejs.com/badge?q=koval-ui@latest&config={"esbuild":{"external":["react","react-dom"]}})](https://bundlejs.com/?bundle&q=koval-ui@latest&config={"analysis":"treemap","esbuild":{"external":["react","react-dom"]}})
+[![Maintainability](https://api.codeclimate.com/v1/badges/e29c783c1a63b2055378/maintainability)](https://codeclimate.com/github/morewings/koval-ui/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e29c783c1a63b2055378/test_coverage)](https://codeclimate.com/github/morewings/koval-ui/test_coverage)
 
-Forge name is already taken by another library. So from now on this library name is **Koval UI**. Please update your dependencies to `"koval-ui": "0.12.19"`.
-
-[![Deploy Storybook](https://github.com/morewings/react-forge-ui/actions/workflows/pages.yml/badge.svg)](https://github.com/morewings/react-forge-ui/actions/workflows/pages.yml)
-[![Post-merge tasks](https://github.com/morewings/react-forge-ui/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/react-forge-ui/actions/workflows/merge-jobs.yml)
-[![types included](https://img.shields.io/github/package-json/types/morewings/react-forge-ui)](https://github.com/morewings/react-forge-ui)
-[![npm version](https://badge.fury.io/js/react-forge-ui.svg)](https://www.npmjs.com/package/react-forge-ui)
-[![npm bundle size](https://deno.bundlejs.com/badge?q=react-forge-ui@latest&config={"esbuild":{"external":["react","react-dom"]}})](https://bundlejs.com/?bundle&q=react-forge-ui@latest&config={"analysis":"treemap","esbuild":{"external":["react","react-dom"]}})
-[![Maintainability](https://api.codeclimate.com/v1/badges/e29c783c1a63b2055378/maintainability)](https://codeclimate.com/github/morewings/react-forge-ui/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/e29c783c1a63b2055378/test_coverage)](https://codeclimate.com/github/morewings/react-forge-ui/test_coverage)
-
-# Forge React components library
+# Koval components library
 
 [![NPM library Create React App template logo](./design/logo.png)](#)
 
-React Forge UI is component library built for modern browsers. Each component tries to utilize built in browser APIs to full extent.
+Koval UI is component library built for modern browsers. Each component tries to utilize built in browser APIs to full extent.
 
 ## Features
 
@@ -26,21 +22,21 @@ React Forge UI is component library built for modern browsers. Each component tr
 - Built-in form validation.
 - Typography components.
 
-See [Forge Storybook](https://morewings.github.io/react-forge-ui/).
+See [Koval Storybook](https://morewings.github.io/koval-ui/).
 
 ## Quickstart
 
 Install library with the package manager of your choice
 
 ```bash
-npm i react-forge-ui
+npm i koval-ui
 ```
 
-Include Forge css styles and wrap your application with Provider.
+Include Koval css styles and wrap your application with Provider.
 
 ```jsx
-import {Provider} from 'react-forge-ui';
-import 'react-forge-ui/dist/style.css'
+import {Provider} from 'koval-ui';
+import 'koval-ui/dist/style.css'
 
 const App = ({children}) => {
     //...

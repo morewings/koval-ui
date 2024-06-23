@@ -14,7 +14,7 @@ export type Props = DataAttributes &
     };
 
 export const NavPanel = forwardRef<HTMLDivElement, Props>(
-    ({children, className, name = 'Forge App', ...nativeProps}, ref) => {
+    ({children, className, name = 'Koval App', ...nativeProps}, ref) => {
         return (
             <div {...nativeProps} className={classNames(classes.navPanel, className)} ref={ref}>
                 {name && <NavBrand>{name}</NavBrand>}
