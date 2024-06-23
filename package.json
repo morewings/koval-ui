@@ -3,7 +3,7 @@
   "homepage": "https://morewings.github.io/koval-ui/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/morewings/koval-ui"
+    "url": "https://github.com/morewings/koval-ui.git"
   },
   "bugs": {
     "url": "https://github.com/morewings/koval-ui/issues"
@@ -41,7 +41,7 @@
     "css-modules",
     "typescript"
   ],
-  "description": "Missing React, typescript NPM library creation template",
+  "description": "React components collection with minimalistic design. Supports theming, layout and input validation.",
   "scripts": {
     "dev": "vite",
     "clean:lib": "rm -rf dist",
