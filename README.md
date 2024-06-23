@@ -3,8 +3,8 @@
 [![types included](https://img.shields.io/github/package-json/types/morewings/koval-ui)](https://github.com/morewings/koval-ui)
 [![npm version](https://badge.fury.io/js/koval-ui.svg)](https://www.npmjs.com/package/koval-ui)
 [![npm bundle size](https://deno.bundlejs.com/badge?q=koval-ui@latest&config={"esbuild":{"external":["react","react-dom"]}})](https://bundlejs.com/?bundle&q=koval-ui@latest&config={"analysis":"treemap","esbuild":{"external":["react","react-dom"]}})
-[![Maintainability](https://api.codeclimate.com/v1/badges/e29c783c1a63b2055378/maintainability)](https://codeclimate.com/github/morewings/koval-ui/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/e29c783c1a63b2055378/test_coverage)](https://codeclimate.com/github/morewings/koval-ui/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/bd5faa98bfe0416e4ce4/maintainability)](https://codeclimate.com/github/morewings/koval-ui/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/bd5faa98bfe0416e4ce4/test_coverage)](https://codeclimate.com/github/morewings/koval-ui/test_coverage)
 
 # Koval components library
 
