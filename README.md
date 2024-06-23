@@ -1,3 +1,7 @@
+# Rename notice
+
+Forge name is already taken by another library. So from now on this library name is **Koval UI**. Please update your dependencies to `"koval-ui": "0.12.19"`.
+
 [![Deploy Storybook](https://github.com/morewings/react-forge-ui/actions/workflows/pages.yml/badge.svg)](https://github.com/morewings/react-forge-ui/actions/workflows/pages.yml)
 [![Post-merge tasks](https://github.com/morewings/react-forge-ui/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/react-forge-ui/actions/workflows/merge-jobs.yml)
 [![types included](https://img.shields.io/github/package-json/types/morewings/react-forge-ui)](https://github.com/morewings/react-forge-ui)
