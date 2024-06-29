@@ -22,6 +22,7 @@ Koval UI is component library built for modern browsers. Each component tries to
 - Built-in form validation.
 - Typography components.
 
+Read [Koval docs](https://koval.support/)
 See [Koval Storybook](https://morewings.github.io/koval-ui/).
 
 ## Quickstart
