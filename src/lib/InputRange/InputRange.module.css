@@ -5,8 +5,8 @@
 }
 
 .input-range {
-    --gap: var(--fg-size-unit);
-    --validation-icon-placeholder: calc(var(--fg-size-unit) * 4 + var(--gap));
+    --gap: var(--kg-size-unit);
+    --validation-icon-placeholder: calc(var(--kg-size-unit) * 4 + var(--gap));
 
     align-items: flex-start;
     display: flex;
@@ -14,29 +14,29 @@
     gap: var(--gap);
     max-width: 100%;
     -webkit-tap-highlight-color: transparent;
-    width: var(--fg-input-width);
+    width: var(--kg-input-width);
 }
 
 .input {
-    --track-height: calc(var(--fg-size-unit) / 2);
-    --slider-height: calc(var(--fg-size-unit) * 3);
+    --track-height: calc(var(--kg-size-unit) / 2);
+    --slider-height: calc(var(--kg-size-unit) * 3);
     --slider-width: var(--slider-height);
-    --track-color: var(--fg-color-sol);
-    --track-color-active: var(--fg-color-re);
-    --thumb-color: var(--fg-color-la);
-    --thumb-color-active: var(--fg-color-do);
+    --track-color: var(--kg-color-sol);
+    --track-color-active: var(--kg-color-re);
+    --thumb-color: var(--kg-color-la);
+    --thumb-color-active: var(--kg-color-do);
 
     &::-moz-range-track {
         background: var(--track-color);
         height: var(--track-height);
-        transition: background-color var(--fg-time-sm) ease-in-out;
+        transition: background-color var(--kg-time-sm) ease-in-out;
     }
 
     &::-webkit-slider-runnable-track {
         appearance: none;
         background: var(--track-color);
         height: var(--track-height);
-        transition: background-color var(--fg-time-sm) ease-in-out;
+        transition: background-color var(--kg-time-sm) ease-in-out;
     }
 
     &::-webkit-slider-thumb {
@@ -47,7 +47,7 @@
         cursor: grab;
         height: var(--slider-height);
         margin-top: calc(var(--track-height) / 2 - var(--slider-height) / 2);
-        transition: background-color var(--fg-time-sm) ease-in-out;
+        transition: background-color var(--kg-time-sm) ease-in-out;
         width: var(--slider-width);
     }
 
@@ -55,7 +55,7 @@
         background-color: var(--thumb-color);
         border: none;
         cursor: grab;
-        transition: background-color var(--fg-time-sm) ease-in-out;
+        transition: background-color var(--kg-time-sm) ease-in-out;
     }
 
     &:--hoverSelector {
@@ -70,21 +70,21 @@
 
     &:--disabledSelector {
         &::-moz-range-thumb {
-            background-color: var(--fg-background-100);
+            background-color: var(--kg-background-100);
             cursor: not-allowed;
         }
 
         &::-webkit-slider-thumb {
-            background-color: var(--fg-background-100);
+            background-color: var(--kg-background-100);
             cursor: not-allowed;
         }
 
         &::-moz-range-track {
-            background: var(--fg-background-100);
+            background: var(--kg-background-100);
         }
 
         &::-webkit-slider-runnable-track {
-            background: var(--fg-background-100);
+            background: var(--kg-background-100);
         }
     }
 
@@ -119,23 +119,23 @@
 
     &:--invalidSelector:focus {
         &::-moz-range-track {
-            background: var(--fg-color-error);
+            background: var(--kg-color-error);
         }
 
         &::-webkit-slider-runnable-track {
-            background: var(--fg-color-error);
+            background: var(--kg-color-error);
         }
     }
 }
 
 .scale {
-    color: var(--fg-color-sol);
+    color: var(--kg-color-sol);
     cursor: default;
     display: flex;
     flex-direction: column;
-    font-family: var(--fg-font-family);
-    font-size: var(--fg-font-size-extra-small);
-    font-weight: var(--fg-font-weight-bold);
+    font-family: var(--kg-font-family);
+    font-size: var(--kg-font-size-extra-small);
+    font-weight: var(--kg-font-weight-bold);
     justify-content: space-between;
     user-select: none;
     width: 100%;
@@ -143,7 +143,7 @@
 }
 
 .input:--disabledSelector + .scale {
-    color: var(--fg-background-100);
+    color: var(--kg-background-100);
 }
 
 .mark {
@@ -151,10 +151,10 @@
 }
 
 .output {
-    color: var(--fg-color-sol);
+    color: var(--kg-color-sol);
     flex-shrink: 0;
-    font-size: var(--fg-font-size-medium);
-    font-weight: var(--fg-font-weight-bold);
+    font-size: var(--kg-font-size-medium);
+    font-weight: var(--kg-font-weight-bold);
     text-align: right;
     width: calc(var(--output-length) * 1ch);
 
@@ -164,11 +164,11 @@
 }
 
 .scale-wrapper:has(.input:--disabledSelector) + .output {
-    color: var(--fg-background-100);
+    color: var(--kg-background-100);
 }
 
 .scale-wrapper:has(.input:--invalidSelector:focus) + .output {
-    color: var(--fg-color-error);
+    color: var(--kg-color-error);
 }
 
 .validation {
@@ -177,11 +177,11 @@
 }
 
 .prefix {
-    color: var(--fg-color-sol);
+    color: var(--kg-color-sol);
     cursor: pointer;
     flex-shrink: 0;
-    height: calc(var(--fg-size-unit) * 4);
-    width: calc(var(--fg-size-unit) * 4);
+    height: calc(var(--kg-size-unit) * 4);
+    width: calc(var(--kg-size-unit) * 4);
 
     & svg {
         color: inherit;
@@ -190,11 +190,11 @@
     }
 
     &:hover {
-        color: var(--fg-color-do);
+        color: var(--kg-color-do);
     }
 }
 
 .prefix:has(+ .scale-wrapper .input:--invalidSelector):hover,
 .prefix:has(+ .scale-wrapper .input:--invalidSelector:focus) {
-    color: var(--fg-color-error);
+    color: var(--kg-color-error);
 }

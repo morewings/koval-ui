@@ -1,9 +1,9 @@
 @import url("@/internal/inputs/stateSelectorsInteractive.css");
 
 .wrapper {
-    --gap: var(--fg-size-unit);
-    --selected-color: var(--fg-color-do);
-    --inverted-color: var(--fg-text-color);
+    --gap: var(--kg-size-unit);
+    --selected-color: var(--kg-color-do);
+    --inverted-color: var(--kg-text-color);
 
     align-items: center;
     display: flex;
@@ -16,7 +16,7 @@
 }
 
 .toggle {
-    --toggle-width: calc(var(--fg-size-unit) * 4);
+    --toggle-width: calc(var(--kg-size-unit) * 4);
     --toggle-height: var(--toggle-width);
 
     cursor: pointer;
@@ -27,19 +27,19 @@
 
 .icon {
     align-items: center;
-    color: var(--fg-color-sol);
+    color: var(--kg-color-sol);
     cursor: pointer;
     display: flex;
     flex-direction: row; /* make flex direction horizontal */
-    height: calc(var(--fg-size-unit) * 4);
+    height: calc(var(--kg-size-unit) * 4);
     justify-content: center; /* center items horizontally, in this case */
     left: 50%;
     pointer-events: none;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    transition: color var(--fg-time-sm) ease-in-out;
-    width: calc(var(--fg-size-unit) * 4);
+    transition: color var(--kg-time-sm) ease-in-out;
+    width: calc(var(--kg-size-unit) * 4);
 }
 
 .input {
@@ -49,7 +49,7 @@
     width: var(--toggle-width);
 
     &:--focusSelector {
-        border-color: var(--fg-color-re);
+        border-color: var(--kg-color-re);
     }
 
     &:--disabledSelector {
@@ -58,49 +58,49 @@
 }
 
 .input:--disabledSelector + .icon {
-    color: var(--fg-background-100);
+    color: var(--kg-background-100);
 }
 
 .input:--focusSelector + .icon {
-    color: var(--fg-color-do);
+    color: var(--kg-color-do);
 }
 
 .input:--invalidSelector:focus + .icon {
-    color: var(--fg-color-error);
+    color: var(--kg-color-error);
 }
 
 .label {
     background-color: var(--selected-color);
-    border: var(--fg-border-width-300) solid var(--selected-color);
-    border-radius: var(--fg-border-radius-300);
+    border: var(--kg-border-width-300) solid var(--selected-color);
+    border-radius: var(--kg-border-radius-300);
     box-sizing: content-box;
     color: var(--inverted-color);
     cursor: pointer;
     flex-grow: 0;
     flex-shrink: 0;
-    font-size: var(--fg-font-size-medium);
+    font-size: var(--kg-font-size-medium);
     min-width: 0;
-    padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
+    padding: var(--kg-size-unit) calc(var(--kg-size-unit) * 1.5);
     width: 7ch;
 
     &:--disabledSelector {
-        background-color: var(--fg-background-100);
-        border-color: var(--fg-background-100);
+        background-color: var(--kg-background-100);
+        border-color: var(--kg-background-100);
         cursor: not-allowed;
     }
 }
 
 .toggle:has(.input:--focusSelector) + .label {
-    border-color: var(--fg-color-re);
+    border-color: var(--kg-color-re);
 }
 
 .toggle:has(.input:--invalidSelector) + .label {
-    border-color: var(--fg-color-error);
+    border-color: var(--kg-color-error);
 }
 
 .toggle:has(.input:--disabledSelector) + .label {
-    background: var(--fg-background-100);
-    border-color: var(--fg-background-100);
+    background: var(--kg-background-100);
+    border-color: var(--kg-background-100);
     cursor: not-allowed;
     user-select: none;
 }
@@ -108,21 +108,21 @@
 .toggle:has(.input:--readOnlySelector:focus) + .label,
 .toggle:has(.input:--readOnlySelector:hover) + .label,
 .toggle:has(.input:--readOnlySelector) + .label:hover {
-    background-color: var(--fg-color-mi);
-    border: 3px solid var(--fg-color-do);
+    background-color: var(--kg-color-mi);
+    border: 3px solid var(--kg-color-do);
 }
 
 .wrapper:hover {
     & .input + .icon {
-        color: var(--fg-color-re);
+        color: var(--kg-color-re);
     }
 
     & .input:--disabledSelector + .icon {
-        color: var(--fg-background-100);
+        color: var(--kg-background-100);
     }
 
     & .input:--invalidSelector + .icon {
-        color: var(--fg-color-error);
+        color: var(--kg-color-error);
     }
 }
 

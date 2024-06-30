@@ -5,28 +5,28 @@
 }
 
 .legend:not(:empty) {
-    color: var(--fg-color-sol);
+    color: var(--kg-color-sol);
     cursor: default;
-    font-size: var(--fg-font-size-large);
+    font-size: var(--kg-font-size-large);
     font-weight: 500;
-    margin-bottom: calc(var(--fg-size-unit) * 1.5);
+    margin-bottom: calc(var(--kg-size-unit) * 1.5);
     user-select: none;
 
     &.disabled {
-        color: var(--fg-background-200);
+        color: var(--kg-background-200);
     }
 }
 
 .inputs {
     display: flex;
     flex-direction: column;
-    padding-left: calc(var(--fg-size-unit) * 2);
-    row-gap: calc(var(--fg-size-unit) * 1.5);
+    padding-left: calc(var(--kg-size-unit) * 2);
+    row-gap: calc(var(--kg-size-unit) * 1.5);
 }
 
 .hint {
-    color: var(--fg-background-300);
-    font-size: var(--fg-font-size-extra-small);
-    margin-top: calc(var(--fg-size-unit) * 1.5);
+    color: var(--kg-background-300);
+    font-size: var(--kg-font-size-extra-small);
+    margin-top: calc(var(--kg-size-unit) * 1.5);
     width: 100%;
 }

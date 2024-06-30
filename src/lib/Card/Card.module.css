@@ -1,8 +1,8 @@
 @import url("@/lib/Layout/customMedia.css");
 
 .card {
-    border: var(--fg-border-width-200) solid var(--fg-background-100);
-    border-radius: var(--fg-border-radius-300);
+    border: var(--kg-border-width-200) solid var(--kg-background-100);
+    border-radius: var(--kg-border-radius-300);
     display: flex;
     max-width: 100%;
     overflow: hidden;
@@ -21,11 +21,11 @@
 }
 
 .vertical .body {
-    padding: calc(var(--fg-size-unit) * 3) calc(var(--fg-size-unit) * 2);
+    padding: calc(var(--kg-size-unit) * 3) calc(var(--kg-size-unit) * 2);
 }
 
 .horizontal .body {
-    padding: calc(var(--fg-size-unit) * 2) calc(var(--fg-size-unit) * 3);
+    padding: calc(var(--kg-size-unit) * 2) calc(var(--kg-size-unit) * 3);
 }
 
 .vertical .header-image {
@@ -57,7 +57,7 @@
 }
 
 .horizontal .actions:not(:empty) {
-    border-left: var(--fg-border-width-200) solid var(--fg-background-100);
+    border-left: var(--kg-border-width-200) solid var(--kg-background-100);
 }
 
 .row {
@@ -87,7 +87,7 @@
     justify-content: center;
 
     &:not(:only-child, :last-child) {
-        border-right: var(--fg-border-width-100) solid var(--fg-background-100);
+        border-right: var(--kg-border-width-100) solid var(--kg-background-100);
     }
 
     &:not(:only-child) {

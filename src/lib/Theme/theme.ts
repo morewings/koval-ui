@@ -43,10 +43,10 @@ export const theme = {
     colorSuccess: '#3c9d74',
     colorAction: '#2100FF',
     // shadow config
-    shadowColor: 'color-mix(in srgb, var(--fg-background-600) 11%, transparent)',
-    shadow050: '3px 3px 3px 0 var(--fg-shadow-color)',
-    shadow100: '6px 6px 3px 0 var(--fg-shadow-color)',
-    shadow200: '9px 9px 3px 0 var(--fg-shadow-color)',
+    shadowColor: 'color-mix(in srgb, var(--kg-background-600) 11%, transparent)',
+    shadow050: '3px 3px 3px 0 var(--kg-shadow-color)',
+    shadow100: '6px 6px 3px 0 var(--kg-shadow-color)',
+    shadow200: '9px 9px 3px 0 var(--kg-shadow-color)',
     textShadow: '1px 1px 1px rgb(0 0 0 / 66%)',
     // border radii
     borderRadius100: '2px',

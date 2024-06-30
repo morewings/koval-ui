@@ -1,51 +1,51 @@
 .breadcrumbs {
     align-items: baseline;
-    background: var(--fg-color-mi);
-    border-radius: var(--fg-border-radius-300);
+    background: var(--kg-color-mi);
+    border-radius: var(--kg-border-radius-300);
     display: flex;
     flex-direction: row;
     max-width: 100%;
     overflow: auto;
-    padding: calc(var(--fg-size-unit) * 3);
+    padding: calc(var(--kg-size-unit) * 3);
 }
 
 .crumb {
     align-items: baseline;
     display: flex;
     flex-direction: row;
-    font-size: var(--fg-font-size-large);
-    font-weight: var(--fg-font-weight-bolder);
-    gap: var(--fg-size-unit);
+    font-size: var(--kg-font-size-large);
+    font-weight: var(--kg-font-weight-bolder);
+    gap: var(--kg-size-unit);
     letter-spacing: 0.33px;
 
     &:not(:last-child) {
-        color: var(--fg-color-action);
+        color: var(--kg-color-action);
 
         & .text {
-            border-bottom: 2px solid var(--fg-color-action);
+            border-bottom: 2px solid var(--kg-color-action);
         }
 
         &:hover {
             & .text {
-                border-bottom-color: var(--fg-color-re);
-                color: var(--fg-color-re);
+                border-bottom-color: var(--kg-color-re);
+                color: var(--kg-color-re);
             }
 
             & .icon {
-                color: var(--fg-color-re);
+                color: var(--kg-color-re);
             }
         }
 
         &::after {
-            color: var(--fg-background-200);
+            color: var(--kg-background-200);
             content: "/";
-            font-weight: var(--fg-font-weight-normal);
-            padding: 0 calc(var(--fg-size-unit) * 2);
+            font-weight: var(--kg-font-weight-normal);
+            padding: 0 calc(var(--kg-size-unit) * 2);
         }
     }
 
     &:last-child {
-        color: var(--fg-color-re);
+        color: var(--kg-color-re);
         cursor: default;
         pointer-events: none;
     }
@@ -64,19 +64,19 @@
 
 .icon {
     align-self: center;
-    height: calc(var(--fg-size-unit) * 3);
-    width: calc(var(--fg-size-unit) * 3);
+    height: calc(var(--kg-size-unit) * 3);
+    width: calc(var(--kg-size-unit) * 3);
 }
 
 .ellipsis {
     cursor: default;
-    font-size: var(--fg-font-size-large);
-    font-weight: var(--fg-font-weight-bolder);
+    font-size: var(--kg-font-size-large);
+    font-weight: var(--kg-font-weight-bolder);
 
     &::after {
-        color: var(--fg-background-200);
+        color: var(--kg-background-200);
         content: "/";
-        font-weight: var(--fg-font-weight-normal);
-        padding: 0 calc(var(--fg-size-unit) * 2);
+        font-weight: var(--kg-font-weight-normal);
+        padding: 0 calc(var(--kg-size-unit) * 2);
     }
 }

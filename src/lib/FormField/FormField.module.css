@@ -3,29 +3,29 @@
     flex-direction: column;
     max-width: 100%;
     -webkit-tap-highlight-color: transparent;
-    width: var(--fg-input-width);
+    width: var(--kg-input-width);
 }
 
 .label {
-    color: var(--fg-color-sol);
+    color: var(--kg-color-sol);
     cursor: pointer;
-    font-size: var(--fg-font-size-large);
-    font-weight: var(--fg-font-weight-bolder);
+    font-size: var(--kg-font-size-large);
+    font-weight: var(--kg-font-weight-bolder);
     line-height: 1;
-    margin-bottom: calc(var(--fg-size-unit) * 2);
+    margin-bottom: calc(var(--kg-size-unit) * 2);
 
     &.required::after {
-        color: var(--fg-color-do);
+        color: var(--kg-color-do);
         content: "*";
         font-size: 24px;
         line-height: 18px;
-        margin-left: calc(var(--fg-size-unit) / 2);
+        margin-left: calc(var(--kg-size-unit) / 2);
     }
 }
 
 .hint {
-    color: var(--fg-background-300);
-    font-size: var(--fg-font-size-extra-small);
-    margin-top: var(--fg-size-unit);
+    color: var(--kg-background-300);
+    font-size: var(--kg-font-size-extra-small);
+    margin-top: var(--kg-size-unit);
     width: 100%;
 }

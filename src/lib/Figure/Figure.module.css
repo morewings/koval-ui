@@ -6,22 +6,22 @@
     display: flex;
     flex-direction: row;
     justify-content: var(--position);
-    margin-bottom: calc(var(--fg-size-unit) * 3);
+    margin-bottom: calc(var(--kg-size-unit) * 3);
 }
 
 .figure {
-    background: var(--fg-background-000);
-    border: var(--fg-border-width-300) solid var(--fg-background-100);
-    border-radius: var(--fg-border-radius-300);
+    background: var(--kg-background-000);
+    border: var(--kg-border-width-300) solid var(--kg-background-100);
+    border-radius: var(--kg-border-radius-300);
     display: flex;
     flex-direction: column;
-    padding: calc(var(--fg-size-unit) * 2);
+    padding: calc(var(--kg-size-unit) * 2);
 
     & figcaption {
-        color: var(--fg-color-sol);
-        font-size: var(--fg-font-size-small);
+        color: var(--kg-color-sol);
+        font-size: var(--kg-font-size-small);
         font-style: italic;
-        margin-top: calc(var(--fg-size-unit) * 2);
+        margin-top: calc(var(--kg-size-unit) * 2);
         text-align: center;
     }
 

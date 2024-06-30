@@ -55,19 +55,19 @@
 }
 
 .slide-top-enter {
-    animation: slide-top var(--fg-time-sm) ease-out both;
+    animation: slide-top var(--kg-time-sm) ease-out both;
 
     &::backdrop {
-        animation: backdrop-fade var(--fg-time-sm) ease-in both;
+        animation: backdrop-fade var(--kg-time-sm) ease-in both;
     }
 }
 
 .slide-top-exit {
-    animation: slide-top var(--fg-time-sm) ease-out both;
+    animation: slide-top var(--kg-time-sm) ease-out both;
     animation-direction: reverse;
 
     &::backdrop {
-        animation: backdrop-fade var(--fg-time-sm) ease-in both;
+        animation: backdrop-fade var(--kg-time-sm) ease-in both;
         animation-direction: reverse;
     }
 }
@@ -94,13 +94,13 @@
 
 .backdrop-fade-enter {
     &::backdrop {
-        animation: backdrop-fade var(--fg-time-sm) ease-in both;
+        animation: backdrop-fade var(--kg-time-sm) ease-in both;
     }
 }
 
 .backdrop-fade-exit {
     &::backdrop {
-        animation: backdrop-fade var(--fg-time-sm) ease-in both;
+        animation: backdrop-fade var(--kg-time-sm) ease-in both;
         animation-direction: reverse;
     }
 }
@@ -136,11 +136,11 @@
 }
 
 .slide-bottom-enter {
-    animation: slide-in-bottom var(--fg-time-sm) cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-in-bottom var(--kg-time-sm) cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .slide-bottom-exit {
-    animation: slide-out-bottom var(--fg-time-sm) cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    animation: slide-out-bottom var(--kg-time-sm) cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
 .slide-bottom-enter-done {
@@ -179,7 +179,7 @@
 }
 
 .slide-left-enter {
-    animation: slide-in-left var(--fg-time-sm) ease-out both;
+    animation: slide-in-left var(--kg-time-sm) ease-out both;
     transform: translate(-100%, 0);
 }
 
@@ -188,7 +188,7 @@
 }
 
 .slide-left-exit {
-    animation: slide-out-left var(--fg-time-sm) ease-out both;
+    animation: slide-out-left var(--kg-time-sm) ease-out both;
 }
 
 .slide-left-exit-done {
@@ -222,7 +222,7 @@
 }
 
 .slide-right-enter {
-    animation: slide-in-right var(--fg-time-sm) ease-out both;
+    animation: slide-in-right var(--kg-time-sm) ease-out both;
     transform: translate(100%, 0);
 }
 
@@ -231,7 +231,7 @@
 }
 
 .slide-right-exit {
-    animation: slide-out-right var(--fg-time-sm) ease-out both;
+    animation: slide-out-right var(--kg-time-sm) ease-out both;
 }
 
 .slide-right-exit-done {

@@ -1,13 +1,13 @@
 .long {
     align-items: center; /* center items horizontally, in this case */
     background: color-mix(in srgb, rebeccapurple 20%, transparent);
-    border: var(--fg-border-width-200) dashed rebeccapurple;
+    border: var(--kg-border-width-200) dashed rebeccapurple;
     color: rebeccapurple;
     display: flex;
     flex-direction: column; /* make flex direction vertical */
     flex-grow: 1;
     height: calc(100vh + 333px);
     justify-content: flex-start; /* center items vertically, in this case */
-    margin: calc(var(--fg-size-unit) / 2);
-    padding: calc(var(--fg-size-unit) * 4);
+    margin: calc(var(--kg-size-unit) / 2);
+    padding: calc(var(--kg-size-unit) * 4);
 }

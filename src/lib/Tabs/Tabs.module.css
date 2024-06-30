@@ -1,7 +1,7 @@
 .tabs {
-    --header-height: calc(var(--fg-size-unit) * 6);
+    --header-height: calc(var(--kg-size-unit) * 6);
     --width: 100%;
-    --border-size: calc(var(--fg-size-unit) / 2);
+    --border-size: calc(var(--kg-size-unit) / 2);
 
     max-width: 100%;
     position: relative;
@@ -28,19 +28,19 @@
 
 .overflow-indicator {
     align-items: center;
-    background: color-mix(in srgb, var(--fg-color-mi) 66%, transparent);
+    background: color-mix(in srgb, var(--kg-color-mi) 66%, transparent);
     display: flex;
     flex-direction: row;
     height: calc(var(--header-height) - var(--border-size));
     justify-content: center;
-    padding: calc(var(--fg-size-unit) / 1) calc(var(--fg-size-unit) / 2);
+    padding: calc(var(--kg-size-unit) / 1) calc(var(--kg-size-unit) / 2);
     position: absolute;
     right: 0;
     top: 0;
     width: var(--header-height);
 
     & svg {
-        color: var(--fg-color-sol);
+        color: var(--kg-color-sol);
     }
 }
 
@@ -49,40 +49,40 @@
 }
 
 .content {
-    padding: calc(var(--fg-size-unit) * 2) calc(var(--fg-size-unit) * 3);
+    padding: calc(var(--kg-size-unit) * 2) calc(var(--kg-size-unit) * 3);
 }
 
 .button {
     align-items: center;
-    border-bottom: var(--border-size) solid var(--fg-color-sol);
+    border-bottom: var(--border-size) solid var(--kg-color-sol);
     box-sizing: border-box;
-    color: var(--fg-color-sol);
+    color: var(--kg-color-sol);
     cursor: pointer;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
     flex-shrink: 0;
-    font-weight: var(--fg-font-weight-bolder);
-    gap: var(--fg-size-unit);
+    font-weight: var(--kg-font-weight-bolder);
+    gap: var(--kg-size-unit);
     height: var(--header-height);
     justify-content: center;
-    padding: 0 calc(var(--fg-size-unit) * 3);
+    padding: 0 calc(var(--kg-size-unit) * 3);
     user-select: none;
 
     &:hover {
-        color: var(--fg-color-do);
+        color: var(--kg-color-do);
     }
 
     &.selected {
-        border-color: var(--fg-color-do);
+        border-color: var(--kg-color-do);
         cursor: default;
         pointer-events: none;
     }
 }
 
 .icon {
-    height: calc(var(--fg-size-unit) * 3);
-    width: calc(var(--fg-size-unit) * 3);
+    height: calc(var(--kg-size-unit) * 3);
+    width: calc(var(--kg-size-unit) * 3);
 }
 
 .tab {

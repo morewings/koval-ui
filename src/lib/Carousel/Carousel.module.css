@@ -7,7 +7,7 @@
 }
 
 .carousel {
-    --transition-duration: var(--fg-time-md);
+    --transition-duration: var(--kg-time-md);
     --transition-timing-function: ease-out;
 
     display: flex;
@@ -42,19 +42,19 @@
 .navigation {
     align-items: center;
     bottom: 0;
-    color: var(--fg-color-sol);
+    color: var(--kg-color-sol);
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: absolute;
     top: 0;
-    transition: background-color var(--fg-time-sm) ease-in-out;
-    width: calc(var(--fg-size-unit) * 6);
+    transition: background-color var(--kg-time-sm) ease-in-out;
+    width: calc(var(--kg-size-unit) * 6);
     z-index: 2;
 
     &:hover {
-        background: color-mix(in srgb, var(--fg-color-mi) 66%, transparent);
+        background: color-mix(in srgb, var(--kg-color-mi) 66%, transparent);
     }
 
     &.left {
@@ -67,8 +67,8 @@
 }
 
 .icon {
-    height: calc(var(--fg-size-unit) * 6);
-    width: calc(var(--fg-size-unit) * 6);
+    height: calc(var(--kg-size-unit) * 6);
+    width: calc(var(--kg-size-unit) * 6);
 }
 
 .dots {
@@ -76,21 +76,21 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: calc(var(--fg-size-unit) * 1.5);
-    height: calc(var(--fg-size-unit) * 5);
+    gap: calc(var(--kg-size-unit) * 1.5);
+    height: calc(var(--kg-size-unit) * 5);
     justify-content: center;
     overflow: hidden;
 }
 
 .dot {
-    background: var(--fg-color-sol);
-    border-radius: var(--fg-border-radius-300);
+    background: var(--kg-color-sol);
+    border-radius: var(--kg-border-radius-300);
     flex-shrink: 0;
-    height: calc(var(--fg-size-unit) * 1.5);
-    width: calc(var(--fg-size-unit) * 1.5);
+    height: calc(var(--kg-size-unit) * 1.5);
+    width: calc(var(--kg-size-unit) * 1.5);
 
     &.active {
-        background: var(--fg-color-do);
+        background: var(--kg-color-do);
     }
 }
 

@@ -1,8 +1,8 @@
 .cell {
     align-items: center;
-    background: var(--fg-color-re);
-    border-radius: var(--fg-border-radius-300);
-    color: var(--fg-background-000);
+    background: var(--kg-color-re);
+    border-radius: var(--kg-border-radius-300);
+    color: var(--kg-background-000);
     display: flex;
     flex-direction: column;
     height: 64px;
