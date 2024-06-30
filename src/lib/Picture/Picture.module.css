@@ -8,7 +8,7 @@
 .picture {
     max-height: 100%;
     max-width: 100%;
-    transition: opacity var(--fg-time-sm) ease-in;
+    transition: opacity var(--kg-time-sm) ease-in;
 
     & img {
         display: block;

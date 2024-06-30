@@ -9,30 +9,30 @@
         & .primary-action,
         & .inverted-action {
             &:not(:only-child, :last-child) {
-                border-right: var(--fg-border-width-100) solid var(--fg-background-100);
+                border-right: var(--kg-border-width-100) solid var(--kg-background-100);
             }
         }
     }
 }
 
 .primary-action {
-    --icon-size: calc(var(--fg-size-unit) * 3);
+    --icon-size: calc(var(--kg-size-unit) * 3);
 
-    color: var(--fg-color-sol);
-    font-size: var(--fg-font-size-small);
+    color: var(--kg-color-sol);
+    font-size: var(--kg-font-size-small);
     justify-content: start;
 }
 
 .inverted-action {
-    --icon-shadow: drop-shadow(var(--fg-text-shadow));
-    --icon-size: calc(var(--fg-size-unit) * 3);
+    --icon-shadow: drop-shadow(var(--kg-text-shadow));
+    --icon-size: calc(var(--kg-size-unit) * 3);
 
-    color: var(--fg-background-000);
-    font-size: var(--fg-font-size-small);
+    color: var(--kg-background-000);
+    font-size: var(--kg-font-size-small);
     justify-content: start;
-    text-shadow: var(--fg-text-shadow);
+    text-shadow: var(--kg-text-shadow);
 
     &:hover {
-        background: var(--fg-color-re);
+        background: var(--kg-color-re);
     }
 }

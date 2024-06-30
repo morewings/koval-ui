@@ -1,8 +1,8 @@
 @import url("@/internal/inputs/stateSelectorsTextual.css");
 
 .wrapper {
-    --gap: var(--fg-size-unit);
-    --validation-icon-placeholder: calc(var(--fg-size-unit) * 4 + var(--gap));
+    --gap: var(--kg-size-unit);
+    --validation-icon-placeholder: calc(var(--kg-size-unit) * 4 + var(--gap));
 
     align-items: center;
     display: flex;
@@ -19,18 +19,18 @@
 
 .input {
     appearance: textfield;
-    background-color: var(--fg-color-mi);
-    border: var(--fg-border-width-300) solid var(--fg-color-mi);
-    border-radius: var(--fg-border-radius-300);
-    color: var(--fg-text-color);
+    background-color: var(--kg-color-mi);
+    border: var(--kg-border-width-300) solid var(--kg-color-mi);
+    border-radius: var(--kg-border-radius-300);
+    color: var(--kg-text-color);
     flex-grow: 0;
-    font-size: var(--fg-font-size-medium);
+    font-size: var(--kg-font-size-medium);
     max-width: calc(100% - var(--validation-icon-placeholder));
     min-width: 0;
-    padding: var(--fg-size-unit) calc(var(--fg-size-unit) * 1.5);
+    padding: var(--kg-size-unit) calc(var(--kg-size-unit) * 1.5);
     transition:
-        background-color var(--fg-time-sm) ease-in-out,
-        border-color var(--fg-time-sm) ease-in-out;
+        background-color var(--kg-time-sm) ease-in-out,
+        border-color var(--kg-time-sm) ease-in-out;
 
     @supports (background: -webkit-named-image(i)) {
         width: calc(var(--size) * 1ch);
@@ -45,19 +45,19 @@
     }
 
     &::placeholder {
-        color: var(--fg-color-sol);
+        color: var(--kg-color-sol);
         opacity: 0.66;
     }
 
     &:--readOnlySelector {
-        background-color: var(--fg-color-mi);
-        border: 3px solid var(--fg-color-do);
+        background-color: var(--kg-color-mi);
+        border: 3px solid var(--kg-color-do);
         user-select: all;
     }
 
     &:--disabledSelector {
-        background-color: var(--fg-background-100);
-        border-color: var(--fg-background-100);
+        background-color: var(--kg-background-100);
+        border-color: var(--kg-background-100);
         cursor: not-allowed;
     }
 
@@ -66,41 +66,41 @@
     }
 
     &:--focusSelector {
-        background-color: var(--fg-background-000);
-        border-color: var(--fg-color-re);
+        background-color: var(--kg-background-000);
+        border-color: var(--kg-color-re);
         outline: none;
     }
 
     &:--invalidSelector:focus {
-        background-color: var(--fg-background-000);
-        border-color: var(--fg-color-error);
+        background-color: var(--kg-background-000);
+        border-color: var(--kg-color-error);
     }
 }
 
 .spinner {
     align-items: center; /* center items horizontally, in this case */
-    color: var(--fg-color-sol);
+    color: var(--kg-color-sol);
     cursor: pointer;
     display: flex;
     flex-direction: column; /* make flex direction vertical */
     flex-shrink: 0;
-    height: calc(var(--fg-size-unit) * 6);
+    height: calc(var(--kg-size-unit) * 6);
     justify-content: center; /* center items vertically, in this case */
-    width: calc(var(--fg-size-unit) * 4);
+    width: calc(var(--kg-size-unit) * 4);
 
     & svg {
         color: inherit;
-        height: calc(var(--fg-size-unit) * 3);
-        transition: color var(--fg-time-sm) ease-in-out;
-        width: calc(var(--fg-size-unit) * 3);
+        height: calc(var(--kg-size-unit) * 3);
+        transition: color var(--kg-time-sm) ease-in-out;
+        width: calc(var(--kg-size-unit) * 3);
 
         &:active {
-            color: var(--fg-color-do);
+            color: var(--kg-color-do);
         }
     }
 
     &:hover {
-        color: var(--fg-color-re);
+        color: var(--kg-color-re);
     }
 }
 
@@ -108,7 +108,7 @@
     cursor: not-allowed;
 
     & svg {
-        color: var(--fg-background-100);
+        color: var(--kg-background-100);
         pointer-events: none;
     }
 }
@@ -116,15 +116,15 @@
 .spinner:has(+ .input:--invalidSelector):hover,
 .spinner:has(+ .input:--invalidSelector:hover),
 .spinner:has(+ .input:--invalidSelector:focus) {
-    color: var(--fg-color-error);
+    color: var(--kg-color-error);
 }
 
 .spinner:has(+ .input:--focusSelector) {
-    color: var(--fg-color-do);
+    color: var(--kg-color-do);
 }
 
 .spinner:has(+ .input:--hoverSelector) {
-    color: var(--fg-color-re);
+    color: var(--kg-color-re);
 }
 
 .validation {

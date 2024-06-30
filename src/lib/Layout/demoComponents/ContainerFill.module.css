@@ -2,13 +2,13 @@
     align-items: center; /* center items horizontally, in this case */
     background-image: linear-gradient(
         45deg,
-        var(--fg-color-la) 25%,
-        var(--fg-color-mi) 25%,
-        var(--fg-color-mi) 50%,
-        var(--fg-color-la) 50%,
-        var(--fg-color-la) 75%,
-        var(--fg-color-mi) 75%,
-        var(--fg-color-mi) 100%
+        var(--kg-color-la) 25%,
+        var(--kg-color-mi) 25%,
+        var(--kg-color-mi) 50%,
+        var(--kg-color-la) 50%,
+        var(--kg-color-la) 75%,
+        var(--kg-color-mi) 75%,
+        var(--kg-color-mi) 100%
     );
     background-size: 56.57px 56.57px;
     display: flex;
@@ -18,9 +18,9 @@
 }
 
 .text {
-    background: var(--fg-background-000);
-    color: var(--fg-color-sol);
-    font-size: var(--fg-font-size-large);
-    font-weight: var(--fg-font-weight-bold);
-    padding: calc(var(--fg-size-unit) * 4);
+    background: var(--kg-background-000);
+    color: var(--kg-color-sol);
+    font-size: var(--kg-font-size-large);
+    font-weight: var(--kg-font-weight-bold);
+    padding: calc(var(--kg-size-unit) * 4);
 }

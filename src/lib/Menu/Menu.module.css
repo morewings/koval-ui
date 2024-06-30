@@ -5,24 +5,24 @@
 }
 
 .provider {
-    font-family: var(--fg-font-family);
+    font-family: var(--kg-font-family);
 }
 
 .menu {
-    border-radius: var(--fg-border-radius-300);
-    box-shadow: var(--fg-shadow-100);
+    border-radius: var(--kg-border-radius-300);
+    box-shadow: var(--kg-shadow-100);
     box-sizing: border-box;
     overflow: hidden;
     padding: 0;
 }
 
 .bordered {
-    background: var(--fg-background-000);
-    border: var(--fg-border-width-300) solid var(--fg-color-do);
+    background: var(--kg-background-000);
+    border: var(--kg-border-width-300) solid var(--kg-color-do);
 }
 
 .plain {
-    background: var(--fg-color-do);
+    background: var(--kg-color-do);
     border: none;
 }
 

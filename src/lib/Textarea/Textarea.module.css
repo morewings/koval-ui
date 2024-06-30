@@ -5,8 +5,8 @@
 }
 
 .wrapper {
-    --gap: var(--fg-size-unit);
-    --validation-icon-placeholder: calc(var(--fg-size-unit) * 4 + var(--gap));
+    --gap: var(--kg-size-unit);
+    --validation-icon-placeholder: calc(var(--kg-size-unit) * 4 + var(--gap));
 
     align-items: flex-start;
     display: flex;
@@ -22,48 +22,48 @@
 }
 
 .textarea {
-    background-color: var(--fg-color-mi);
-    border: var(--fg-border-width-300) solid var(--fg-color-mi);
-    border-radius: var(--fg-border-radius-300);
-    color: var(--fg-text-color);
+    background-color: var(--kg-color-mi);
+    border: var(--kg-border-width-300) solid var(--kg-color-mi);
+    border-radius: var(--kg-border-radius-300);
+    color: var(--kg-text-color);
     flex: 1;
-    font-size: var(--fg-font-size-small);
+    font-size: var(--kg-font-size-small);
     line-height: 1.5;
     min-width: 0;
-    padding: calc(var(--fg-size-unit) * 1) calc(var(--fg-size-unit) * 2);
+    padding: calc(var(--kg-size-unit) * 1) calc(var(--kg-size-unit) * 2);
     resize: var(--resize);
     transition:
-        background-color var(--fg-time-sm) ease-in-out,
-        border-color var(--fg-time-sm) ease-in-out;
+        background-color var(--kg-time-sm) ease-in-out,
+        border-color var(--kg-time-sm) ease-in-out;
 
     &:last-child {
         margin-right: var(--validation-icon-placeholder);
     }
 
     &:--focusSelector {
-        background-color: var(--fg-background-000);
-        border-color: var(--fg-color-re);
+        background-color: var(--kg-background-000);
+        border-color: var(--kg-color-re);
         outline: none;
     }
 
     &:--invalidSelector:focus {
-        background-color: var(--fg-background-000);
-        border-color: var(--fg-color-error);
+        background-color: var(--kg-background-000);
+        border-color: var(--kg-color-error);
     }
 
     &::placeholder {
-        color: var(--fg-color-sol);
+        color: var(--kg-color-sol);
         opacity: 0.66;
     }
 
     &:--readOnlySelector {
-        background-color: var(--fg-color-mi);
-        border: var(--fg-border-width-300) solid var(--fg-color-do);
+        background-color: var(--kg-color-mi);
+        border: var(--kg-border-width-300) solid var(--kg-color-do);
     }
 
     &:--disabledSelector {
-        background-color: var(--fg-background-100);
-        border-color: var(--fg-background-100);
+        background-color: var(--kg-background-100);
+        border-color: var(--kg-background-100);
         cursor: not-allowed;
     }
 
@@ -73,40 +73,40 @@
 }
 
 .prefix {
-    color: var(--fg-color-sol);
+    color: var(--kg-color-sol);
     cursor: pointer;
     flex-shrink: 0;
-    height: calc(var(--fg-size-unit) * 4);
-    margin-top: var(--fg-size-unit);
-    width: calc(var(--fg-size-unit) * 4);
+    height: calc(var(--kg-size-unit) * 4);
+    margin-top: var(--kg-size-unit);
+    width: calc(var(--kg-size-unit) * 4);
 
     & svg {
         color: inherit;
         height: inherit;
         transition:
-            background-color var(--fg-time-sm) ease-in-out,
-            border-color var(--fg-time-sm) ease-in-out;
+            background-color var(--kg-time-sm) ease-in-out,
+            border-color var(--kg-time-sm) ease-in-out;
         width: inherit;
     }
 
     &:hover {
-        color: var(--fg-color-re);
+        color: var(--kg-color-re);
     }
 }
 
 .prefix:has(+ .textarea:--invalidSelector):hover,
 .prefix:has(+ .textarea:--invalidSelector:focus) {
-    color: var(--fg-color-error);
+    color: var(--kg-color-error);
 }
 
 .prefix:has(+ .textarea:--focusSelector) {
-    color: var(--fg-color-do);
+    color: var(--kg-color-do);
 }
 
 .prefix:has(+ .textarea:--hoverSelector) {
-    color: var(--fg-color-re);
+    color: var(--kg-color-re);
 }
 
 .validation {
-    margin-top: var(--fg-size-unit);
+    margin-top: var(--kg-size-unit);
 }

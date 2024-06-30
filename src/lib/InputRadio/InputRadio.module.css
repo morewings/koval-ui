@@ -9,25 +9,25 @@
 
 .label {
     cursor: pointer;
-    margin-left: var(--fg-size-unit);
+    margin-left: var(--kg-size-unit);
 
     &.required::after {
-        color: var(--fg-color-do);
+        color: var(--kg-color-do);
         content: "*";
         font-size: 24px;
         line-height: 18px;
-        margin-left: calc(var(--fg-size-unit) / 2);
+        margin-left: calc(var(--kg-size-unit) / 2);
     }
 }
 
 .input {
     --bg-color: #fff;
-    --border-color: var(--fg-color-sol);
-    --center-color: var(--fg-color-la);
+    --border-color: var(--kg-color-sol);
+    --center-color: var(--kg-color-la);
 
     appearance: none;
     background-color: var(--bg-color);
-    border: var(--fg-border-width-300) solid var(--border-color);
+    border: var(--kg-border-width-300) solid var(--border-color);
     border-radius: 50%;
     cursor: pointer;
     display: block;
@@ -35,12 +35,12 @@
     margin: 0;
     position: relative;
     transition:
-        background-color var(--fg-time-sm) ease-in-out,
-        border-color var(--fg-time-sm) ease-in-out;
+        background-color var(--kg-time-sm) ease-in-out,
+        border-color var(--kg-time-sm) ease-in-out;
     width: 24px;
 
     &::before {
-        --size: calc((var(--fg-size-unit) * 2) - 2px);
+        --size: calc((var(--kg-size-unit) * 2) - 2px);
 
         background-color: var(--center-color);
         border-radius: 50%;
@@ -52,13 +52,13 @@
         top: 50%;
         transform: translate(-50%, -50%);
         transition:
-            background-color var(--fg-time-sm) ease-in-out,
-            opacity var(--fg-time-sm) ease-in-out;
+            background-color var(--kg-time-sm) ease-in-out,
+            opacity var(--kg-time-sm) ease-in-out;
         width: var(--size);
     }
 
     &:--disabledSelector {
-        --border-color: var(--fg-background-100);
+        --border-color: var(--kg-background-100);
 
         cursor: not-allowed;
     }
@@ -68,20 +68,20 @@
     }
 
     &:--focusSelector {
-        --border-color: var(--fg-color-do);
-        --center-color: var(--fg-color-do);
+        --border-color: var(--kg-color-do);
+        --center-color: var(--kg-color-do);
     }
 
     &:--disabledSelector + .label {
-        color: var(--fg-background-200);
+        color: var(--kg-background-200);
         cursor: not-allowed;
     }
 }
 
 .wrapper:hover {
     .input:not(:--disabledSelector, :--invalidSelector) {
-        --border-color: var(--fg-color-re);
-        --center-color: var(--fg-color-do);
+        --border-color: var(--kg-color-re);
+        --center-color: var(--kg-color-do);
     }
 
     .input:--invalidSelector {
@@ -89,7 +89,7 @@
     }
 
     .input:--invalidSelector + .label {
-        color: var(--fg-color-error);
+        color: var(--kg-color-error);
     }
 }
 

@@ -9,27 +9,27 @@
 }
 
 .provider {
-    font-family: var(--fg-font-family);
+    font-family: var(--kg-font-family);
 }
 
 .tooltip {
-    --bg-color: var(--fg-color-do);
+    --bg-color: var(--kg-color-do);
 
-    background: var(--fg-background-000);
-    border: var(--fg-border-width-300) solid var(--bg-color);
-    border-radius: var(--fg-border-radius-300);
-    box-shadow: var(--fg-shadow-100);
+    background: var(--kg-background-000);
+    border: var(--kg-border-width-300) solid var(--bg-color);
+    border-radius: var(--kg-border-radius-300);
+    box-shadow: var(--kg-shadow-100);
     box-sizing: border-box;
-    min-width: calc(var(--fg-size-unit) * 24);
-    padding: calc(var(--fg-size-unit) * 2);
+    min-width: calc(var(--kg-size-unit) * 24);
+    padding: calc(var(--kg-size-unit) * 2);
 }
 
 .arrow {
-    --size: calc((var(--fg-size-unit) * 3));
+    --size: calc((var(--kg-size-unit) * 3));
     --left: auto;
     --top: auto;
 
-    background: var(--fg-background-000);
+    background: var(--kg-background-000);
     border-bottom: inherit;
     border-right: inherit;
     height: var(--size);
@@ -37,7 +37,7 @@
     width: var(--size);
 
     &.top {
-        box-shadow: var(--fg-shadow-050);
+        box-shadow: var(--kg-shadow-050);
         left: calc(var(--left) * 1px);
         top: calc(100% - (var(--size) / 2) - 1px);
         transform: rotate(45deg);
@@ -50,7 +50,7 @@
     }
 
     &.left {
-        box-shadow: var(--fg-shadow-050);
+        box-shadow: var(--kg-shadow-050);
         left: calc(100% - (var(--size) / 2) - 1px);
         top: calc(var(--top) * 1px);
         transform: rotate(315deg);

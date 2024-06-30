@@ -1,29 +1,29 @@
 .provider {
-    font-family: var(--fg-font-family), sans-serif;
+    font-family: var(--kg-font-family), sans-serif;
 }
 
 .drawer {
-    background: var(--fg-color-do);
+    background: var(--kg-color-do);
     bottom: 0;
     display: flex;
     flex-direction: column;
-    padding: calc(var(--fg-size-unit) * 8) calc(var(--fg-size-unit) * 4);
+    padding: calc(var(--kg-size-unit) * 8) calc(var(--kg-size-unit) * 4);
     position: fixed;
     top: 0;
     width: 300px;
 }
 
 .left {
-    box-shadow: var(--fg-shadow-100);
+    box-shadow: var(--kg-shadow-100);
     left: 0;
 }
 
 .right {
-    box-shadow: calc(var(--fg-size-unit) * -1) var(--fg-size-unit) calc(var(--fg-size-unit) / 2) 0
-        var(--fg-shadow-color);
+    box-shadow: calc(var(--kg-size-unit) * -1) var(--kg-size-unit) calc(var(--kg-size-unit) / 2) 0
+        var(--kg-shadow-color);
     right: 0;
 }
 
 .brand {
-    margin-bottom: calc(var(--fg-size-unit) * 4);
+    margin-bottom: calc(var(--kg-size-unit) * 4);
 }

@@ -1,7 +1,7 @@
 import type {ThemeType} from '@/lib';
 
 export const convertThemeVarName = (str: string) =>
-    `fg-${str
+    `kg-${str
         // camelToKebabCase
         .replace(/(?<![A-Z])[A-Z]/g, (letter: string) => `-${letter.toLowerCase()}`)
         // split numbers
