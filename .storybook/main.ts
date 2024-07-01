@@ -33,6 +33,8 @@ const config: StorybookConfig = {
             plugins: await withoutVitePlugins(config.plugins, ['vite:dts']),
         };
     },
+
+    staticDirs: ['../public'],
 };
 
 export default config;
