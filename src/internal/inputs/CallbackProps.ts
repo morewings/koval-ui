@@ -5,21 +5,19 @@ export type CallbackPropsTextual<TElement = HTMLInputElement> = {
      * Provide value for controlled TextInput.
      * Setting this prop enables controlled mode.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#value
-     * @see https://naspersclassifieds.atlassian.net/wiki/spaces/NDS/pages/57169350329/RFC+Nexus+Input+API#Controllable-state
      */
     value?: InputHTMLAttributes<TElement>['value'];
     /**
      * Provide value for non-controlled TextInput.
      * Setting this prop enables non-controlled mode.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#value
-     * @see https://naspersclassifieds.atlassian.net/wiki/spaces/NDS/pages/57169350329/RFC+Nexus+Input+API#Uncontrolled-input
      */
     defaultValue?: InputHTMLAttributes<TElement>['defaultValue'];
     /**
-     * Disable input.
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#disabled
+     * Makes the element not mutable, meaning the user can not edit the control
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly
      */
-    disabled?: InputHTMLAttributes<TElement>['disabled'];
+    readOnly?: InputHTMLAttributes<HTMLInputElement>['readOnly'];
     /**
      * Set on change callback to get Event object.
      * @see https://reactjs.org/docs/events.html#form-events
@@ -58,21 +56,14 @@ export type CallbackPropsInteractive = {
      * Provide default checked state for non-controlled CheckboxInput.
      * Setting this prop enables non-controlled mode.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#additional_attributes
-     * @see https://naspersclassifieds.atlassian.net/wiki/spaces/NDS/pages/57169350329/RFC+Nexus+Input+API#Uncontrolled-input
      */
     defaultChecked?: InputHTMLAttributes<HTMLInputElement>['checked'];
     /**
      * Provide checked state for controlled CheckboxInput.
      * Setting this prop enables controlled mode.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#additional_attributes
-     * @see https://naspersclassifieds.atlassian.net/wiki/spaces/NDS/pages/57169350329/RFC+Nexus+Input+API#Controllable-state
      */
     checked?: InputHTMLAttributes<HTMLInputElement>['checked'];
-    /**
-     * Disable input.
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#disabled
-     */
-    disabled?: InputHTMLAttributes<HTMLInputElement>['disabled'];
     /**
      * Set on change callback to get Event object.
      * @see https://reactjs.org/docs/events.html#form-events
