@@ -7,9 +7,11 @@ import {useLocalTheme} from 'css-vars-hook';
 import {IconError, IconValid, IconLoader} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsNumeric, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import {useRevalidateOnFormChange} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 import {useControllableState} from '@/internal/hooks/useControllableState.ts';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './InputRange.module.css';
 
@@ -68,11 +70,16 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
             max = 100,
             bars = 5,
             scaleUnit = '',
+            revalidateOnFormChange,
             ...nativeProps
         },
         ref
     ) => {
         const {validateTextual, validity, setValidity} = useValidation({validatorFn});
+
+        const inputRef = useInternalRef(ref);
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,

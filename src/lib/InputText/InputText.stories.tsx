@@ -88,6 +88,11 @@ const meta = {
                 disable: true,
             },
         },
+        revalidateOnFormChange: {
+            table: {
+                disable: true,
+            },
+        },
         validatorFn: {
             options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
             mapping: {

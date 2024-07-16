@@ -1,16 +1,20 @@
-import { Meta, ArgTypes, Story } from "@storybook/blocks";
+import { Meta, ArgTypes, Story, Markdown } from "@storybook/blocks";
 
 import { Provider } from "./Provider";
 
-<Meta title="Provider" component={Provider} />
+<Meta title="Theme/Provider" component={Provider} />
 
-# Example Component Demo
+# Provider
 
-## Counter props
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Provider} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+## Provider props
 
 <ArgTypes of={Provider} />
-
-## Description
-
-`Provider` component provides user basic interface to increment counter by one.
 

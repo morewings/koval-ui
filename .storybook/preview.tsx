@@ -55,7 +55,7 @@ const preview: Preview = {
         },
         options: {
             storySort: {
-                order: ['Intro', 'Layout', 'Inputs', 'Typography', 'Components'],
+                order: ['Intro', 'Theme', 'Layout', 'Inputs', 'Typography', 'Components'],
             },
         },
         viewport: {viewports: customViewports},

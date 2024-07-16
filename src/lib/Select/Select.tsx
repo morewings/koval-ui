@@ -10,6 +10,7 @@ import type {
     CallbackPropsTextual,
     ValidationProps,
 } from '@/internal/inputs';
+import {useRevalidateOnFormChange} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
@@ -52,6 +53,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
             multiple,
             children,
             size = 16,
+            revalidateOnFormChange,
             ...nativeProps
         },
         ref
@@ -65,6 +67,10 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
         );
 
         const {validateTextual, validity, setValidity} = useValidation({validatorFn});
+
+        const inputRef = useInternalRef(ref);
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
@@ -82,8 +88,6 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
         }, [setValidity]);
 
         const selectId = useInternalId(id);
-
-        const inputRef = useInternalRef(ref);
 
         const [dropdownState, setDropdownState] = useState<keyof typeof DropdownState>('close');
 

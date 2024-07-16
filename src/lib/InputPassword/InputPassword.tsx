@@ -7,8 +7,10 @@ import classNames from 'classnames';
 import {IconError, IconValid, IconLoader, IconLock, IconLockOpen} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import {useRevalidateOnFormChange} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './InputPassword.module.css';
 
@@ -40,11 +42,16 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
             id,
             readOnly,
             size = 16,
+            revalidateOnFormChange,
             ...nativeProps
         },
         ref
     ) => {
         const {validateTextual, validity, setValidity} = useValidation({validatorFn});
+
+        const inputRef = useInternalRef(ref);
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
