@@ -6,8 +6,10 @@ import {useLocalTheme} from 'css-vars-hook';
 import {IconError, IconValid, IconLoader} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import {useRevalidateOnFormChange} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './Textarea.module.css';
 
@@ -64,11 +66,16 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
             cols = 20,
             rows = 3,
             resize = 'both',
+            revalidateOnFormChange,
             ...nativeProps
         },
         ref
     ) => {
         const {validateTextual, validity, setValidity} = useValidation({validatorFn});
+
+        const inputRef = useInternalRef(ref);
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,

@@ -3,7 +3,12 @@ import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
+import {
+    ValidationState,
+    defaultValidator,
+    useValidation,
+    useRevalidateOnFormChange,
+} from '@/internal/inputs';
 import type {
     NativePropsInteractive,
     CallbackPropsInteractive,
@@ -11,6 +16,7 @@ import type {
 } from '@/internal/inputs';
 import {IconError, IconLoader, IconValid} from '@/internal/Icons';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './InputCheckbox.module.css';
 
@@ -39,12 +45,17 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             label,
             validatorFn = defaultValidator,
             required,
+            revalidateOnFormChange,
             ...nativeProps
         },
         ref
     ) => {
         const id = useInternalId(idProp);
         const {validateInteractive, validity, setValidity} = useValidation({validatorFn});
+
+        const inputRef = useInternalRef(ref);
+        useRevalidateOnFormChange(inputRef, validateInteractive, revalidateOnFormChange);
+
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,

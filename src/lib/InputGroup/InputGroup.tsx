@@ -10,7 +10,6 @@ import {
 import classNames from 'classnames';
 
 import type {LibraryProps, DataAttributes} from '@/internal/LibraryAPI';
-import type {ValidationState} from '@/internal/inputs';
 
 import classes from './InputGroup.module.css';
 
@@ -23,7 +22,6 @@ type ChildProps = {
 
 export type Props = DataAttributes &
     LibraryProps & {
-        validation?: keyof typeof ValidationState;
         label?: string;
         children: ReactElement<ChildProps & unknown>[];
         name: string;
@@ -37,21 +35,7 @@ export type Props = DataAttributes &
     };
 
 export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
-    (
-        {
-            className,
-            validation,
-            id,
-            label,
-            children,
-            name,
-            disabled,
-            hint,
-            required,
-            ...nativeProps
-        },
-        ref
-    ) => {
+    ({className, id, label, children, name, disabled, hint, required, ...nativeProps}, ref) => {
         const childrenWithProps = useMemo(() => {
             return Children.map(children, element => {
                 if (isValidElement(element)) {

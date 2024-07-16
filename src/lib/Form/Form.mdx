@@ -1,32 +1,26 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown } from "@storybook/blocks";
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
 import * as FormStories from "./Form.stories";
 import { Form } from "./Form";
 
-<Meta title="Inputs/Form" component={Form} />
+<Meta title="Inputs/Form" of={FormStories} />
 
 # Form
 
 Form wraps `HTMLFormElement` with some useful features.
 
-## Icon props
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Form} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+## Form props
 
 <ArgTypes of={Form} />
 
-## Description
 
-`Icon` is an icon.
-
-## Imports
-
-<Source format={true} code={`
-const a = 'b';
-import a from 'b';
-`} />
-
-
-## Demo
-
-### Basic example
-<Canvas of={FormStories.Example} />
+<Primary />
 
 

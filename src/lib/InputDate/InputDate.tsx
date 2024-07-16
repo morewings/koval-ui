@@ -6,9 +6,11 @@ import classNames from 'classnames';
 import {IconError, IconValid, IconLoader, IconCalendar} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import {useRevalidateOnFormChange} from '@/internal/inputs';
 import {defaultValidator} from '@/internal/inputs';
 import {ValidationState, useValidation} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './InputDate.module.css';
 
@@ -33,6 +35,7 @@ export const InputDate = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             defaultValue,
             validatorFn = defaultValidator,
+            revalidateOnFormChange,
             ...nativeProps
         },
         ref
@@ -46,6 +49,10 @@ export const InputDate = forwardRef<HTMLInputElement, Props>(
             [ValidationState.valid]: IconValid,
             [ValidationState.inProgress]: IconLoader,
         }[validity!];
+
+        const inputRef = useInternalRef(ref);
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+
         const displayValue = (value ?? defaultValue) as string;
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {

@@ -5,8 +5,14 @@ import classNames from 'classnames';
 import {IconError, IconValid, IconLoader} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
-import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
+import {
+    ValidationState,
+    defaultValidator,
+    useValidation,
+    useRevalidateOnFormChange,
+} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './InputText.module.css';
 
@@ -29,6 +35,8 @@ export type Props = DataAttributes &
         prefix?: FC;
     };
 
+const ChangeEvent = new Event('change', {bubbles: false});
+
 export const InputText = forwardRef<HTMLInputElement, Props>(
     (
         {
@@ -49,17 +57,22 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             size = 16,
             id,
             required,
+            revalidateOnFormChange,
             ...nativeProps
         },
         ref
     ) => {
         const {validateTextual, validity, setValidity} = useValidation({validatorFn});
 
+        const inputRef = useInternalRef(ref);
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
             [ValidationState.inProgress]: IconLoader,
         }[validity!];
+
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 onChange(event);
@@ -95,7 +108,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                     readOnly={readOnly}
                     placeholder={placeholder}
                     className={classes.input}
-                    ref={ref}
+                    ref={inputRef}
                     disabled={disabled}
                     type={type}
                     value={value}

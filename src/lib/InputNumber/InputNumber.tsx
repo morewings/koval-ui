@@ -7,6 +7,7 @@ import {useLocalTheme} from 'css-vars-hook';
 import {IconError, IconValid, IconLoader, IconArrowUp, IconArrowDown} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsNumeric, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import {useRevalidateOnFormChange} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
@@ -41,11 +42,16 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
             validatorFn = defaultValidator,
             size = 10,
             step = 1,
+            revalidateOnFormChange,
             ...nativeProps
         },
         ref
     ) => {
         const {validateTextual, validity, setValidity} = useValidation({validatorFn});
+
+        const inputRef = useInternalRef(ref);
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
@@ -61,8 +67,6 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
         const handleInvalid = useCallback(() => {
             setValidity(ValidationState.error);
         }, [setValidity]);
-
-        const inputRef = useInternalRef(ref);
 
         const handleDecrement = useCallback(() => {
             inputRef.current!.stepDown();
