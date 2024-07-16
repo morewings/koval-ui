@@ -7,6 +7,12 @@ export enum ValidationState {
 }
 
 export type ValidationProps = {
+    /** Enable to re-run validation when any field in the form changes */
+    revalidateOnFormChange?: boolean;
+    /**
+     * Provide callback function to validate input.
+     * @see https://koval.support/inputs/input-validation
+     */
     validatorFn?: (
         value: unknown,
         validityState: ValidityState,

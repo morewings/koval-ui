@@ -33,8 +33,6 @@ const meta = {
         onReset: fn(),
         onChange: fn(),
         onInvalid: fn(),
-        autoComplete: 'off',
-        autoCapitalize: 'off',
         noValidate: false,
     },
     argTypes: {
@@ -92,7 +90,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Example: Story = {
+export const Primary: Story = {
     args: {
         onSubmit: (event, state) => {
             event.preventDefault();
@@ -171,5 +169,47 @@ export const Example: Story = {
                 </div>
             </Fragment>
         ),
+    },
+};
+
+export const ComplexValidation: Story = {
+    name: 'Complex validation',
+    args: {
+        onSubmit: (event, state) => {
+            event.preventDefault();
+            console.log('onSubmit', state);
+        },
+    },
+    render: args => {
+        const validatorFn = (
+            value: unknown,
+            _: unknown,
+            formState: Record<string, FormDataEntryValue>
+        ) => {
+            console.log('formState', formState);
+            if (formState['case-selector'] === 'lowercase') {
+                const isLowerCase = (value as string).toLowerCase() === value;
+                return isLowerCase ? '' : 'Only lower case allowed.';
+            } else if (formState['case-selector'] === 'uppercase') {
+                const isUpperCase = (value as string).toUpperCase() === value;
+                return isUpperCase ? '' : 'Only upper case allowed.';
+            }
+            return '';
+        };
+        return (
+            <Form {...args}>
+                <InputGroup name="case-selector">
+                    <InputRadio defaultChecked={true} label="Allow uppercase" value="uppercase" />
+                    <InputRadio label="Allow lowercase" value="lowercase" />
+                </InputGroup>
+                <InputText
+                    revalidateOnFormChange={true}
+                    validatorFn={validatorFn}
+                    name="text"
+                    placeholder="Validity changes according to user choise"
+                />
+                <Button type="submit">Submit</Button>
+            </Form>
+        );
     },
 };
