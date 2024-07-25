@@ -1,4 +1,5 @@
-import type {ChangeEvent, FC, InputHTMLAttributes} from 'react';
+import type {FC, InputHTMLAttributes} from 'react';
+import type {ChangeEvent} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
@@ -10,6 +11,7 @@ import {
     defaultValidator,
     useValidation,
     useRevalidateOnFormChange,
+    useSyncValidation,
 } from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
@@ -32,10 +34,11 @@ export type Props = DataAttributes &
          * Define the width of the input in characters
          */
         size?: InputHTMLAttributes<HTMLInputElement>['size'];
+        /**
+         * Provide an icon to prepend to the input
+         */
         prefix?: FC;
     };
-
-const ChangeEvent = new Event('change', {bubbles: false});
 
 export const InputText = forwardRef<HTMLInputElement, Props>(
     (
@@ -58,6 +61,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             id,
             required,
             revalidateOnFormChange,
+            validationState,
             ...nativeProps
         },
         ref
@@ -66,6 +70,8 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+
+        useSyncValidation({inputRef, setValidity, validationState});
 
         const ValidationIcon = {
             [ValidationState.error]: IconError,

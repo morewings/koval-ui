@@ -4,14 +4,17 @@ import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
 
-import {IconPalette} from '@/internal/Icons';
+import {IconError, IconLoader, IconPalette, IconValid} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {
     CallbackPropsTextual,
     ValidationProps,
     NativePropsInteractive,
 } from '@/internal/inputs';
+import {ValidationState} from '@/internal/inputs';
+import {useSyncValidation, useValidation, defaultValidator} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './InputColor.module.css';
 import {invertColor} from './invertColor.ts';
@@ -48,11 +51,24 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             defaultValue,
             id: idProp,
             predefinedColors = [],
+            validationState,
             ...nativeProps
         },
         ref
     ) => {
+        const {validity, setValidity} = useValidation({
+            validatorFn: defaultValidator,
+        });
         const id = useInternalId(idProp);
+
+        const inputRef = useInternalRef(ref);
+        useSyncValidation({inputRef, setValidity, validationState});
+
+        const ValidationIcon = {
+            [ValidationState.error]: IconError,
+            [ValidationState.valid]: IconValid,
+            [ValidationState.inProgress]: IconLoader,
+        }[validity!];
 
         const {LocalRoot, setTheme} = useLocalTheme();
         const displayValue = (value ?? defaultValue) as string;
@@ -112,7 +128,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                     <input
                         {...nativeProps}
                         id={id}
-                        ref={ref}
+                        ref={inputRef}
                         type="color"
                         disabled={disabled}
                         defaultValue={displayValue}
@@ -129,6 +145,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                 <label htmlFor={id} className={classes.label} ref={labelRef}>
                     {displayValue.toLowerCase() || placeholder}
                 </label>
+                {validity && <ValidationIcon />}
                 {hasPredefinedColors && (
                     <datalist id={predefinedColorsListId}>
                         {predefinedColors.map(color => {
