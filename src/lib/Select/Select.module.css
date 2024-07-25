@@ -43,7 +43,6 @@
     border-radius: var(--kg-border-radius-300);
     color: var(--kg-text-color);
     cursor: pointer;
-    flex: 1;
     font-size: var(--kg-font-size-medium);
     max-width: 100%;
     min-width: 0;

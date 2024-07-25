@@ -26,7 +26,6 @@
     border: var(--kg-border-width-300) solid var(--kg-color-mi);
     border-radius: var(--kg-border-radius-300);
     color: var(--kg-text-color);
-    flex: 1;
     font-size: var(--kg-font-size-small);
     line-height: 1.5;
     min-width: 0;
