@@ -18,4 +18,9 @@ export type ValidationProps = {
         validityState: ValidityState,
         formState: FormState
     ) => string | Promise<string>;
+    /**
+     * Set external validation state for input. NB! On change validation takes preference over this.
+     * @see ValidationState
+     */
+    validationState?: keyof typeof ValidationState;
 };

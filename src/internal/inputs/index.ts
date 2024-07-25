@@ -17,3 +17,4 @@ export {
 } from './validatorMocks.ts';
 export {useHandleFormReset} from './useHandleFormReset.ts';
 export {useRevalidateOnFormChange} from './useRevalidateOnFormChange.ts';
+export {useSyncValidation} from './useSyncValidation.ts';
