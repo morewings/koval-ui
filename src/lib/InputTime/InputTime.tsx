@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import {IconError, IconValid, IconLoader, IconClock} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import {useExternalValidation} from '@/internal/inputs';
 import {useRevalidateOnFormChange} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
@@ -36,6 +37,8 @@ export const InputTime = forwardRef<HTMLInputElement, Props>(
             defaultValue,
             validatorFn = defaultValidator,
             revalidateOnFormChange,
+            validationState,
+            errorMessage,
             ...nativeProps
         },
         ref
@@ -44,6 +47,7 @@ export const InputTime = forwardRef<HTMLInputElement, Props>(
         const {validity, setValidity, validateTextual} = useValidation({validatorFn});
 
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
 
         const ValidationIcon = {
             [ValidationState.error]: IconError,

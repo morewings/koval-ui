@@ -6,9 +6,13 @@ import classNames from 'classnames';
 import {IconError, IconValid, IconLoader, IconCalendar} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
-import {useRevalidateOnFormChange} from '@/internal/inputs';
-import {defaultValidator} from '@/internal/inputs';
-import {ValidationState, useValidation} from '@/internal/inputs';
+import {
+    useRevalidateOnFormChange,
+    useExternalValidation,
+    defaultValidator,
+    ValidationState,
+    useValidation,
+} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
@@ -36,6 +40,8 @@ export const InputDate = forwardRef<HTMLInputElement, Props>(
             defaultValue,
             validatorFn = defaultValidator,
             revalidateOnFormChange,
+            validationState,
+            errorMessage,
             ...nativeProps
         },
         ref
@@ -44,14 +50,17 @@ export const InputDate = forwardRef<HTMLInputElement, Props>(
         const labelRef = useRef<HTMLLabelElement>(null);
 
         const {validateTextual, validity, setValidity} = useValidation({validatorFn});
+
+        const inputRef = useInternalRef(ref);
+
+        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
             [ValidationState.inProgress]: IconLoader,
         }[validity!];
-
-        const inputRef = useInternalRef(ref);
-        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
 
         const displayValue = (value ?? defaultValue) as string;
         const handleChange = useCallback(
@@ -95,7 +104,7 @@ export const InputDate = forwardRef<HTMLInputElement, Props>(
                     <input
                         {...nativeProps}
                         id={id}
-                        ref={ref}
+                        ref={inputRef}
                         className={classes.input}
                         type="date"
                         disabled={disabled}

@@ -23,4 +23,10 @@ export type ValidationProps = {
      * @see ValidationState
      */
     validationState?: keyof typeof ValidationState;
+    /**
+     * Provide custom message for external validation errors. Applies only to errors reported by
+     * validationState prop.
+     * @see validationState
+     */
+    errorMessage?: string;
 };
