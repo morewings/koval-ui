@@ -11,8 +11,13 @@ import type {
     ValidationProps,
     NativePropsInteractive,
 } from '@/internal/inputs';
-import {ValidationState} from '@/internal/inputs';
-import {useSyncValidation, useValidation, defaultValidator} from '@/internal/inputs';
+import {useRevalidateOnFormChange} from '@/internal/inputs';
+import {
+    ValidationState,
+    useExternalValidation,
+    useValidation,
+    defaultValidator,
+} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
@@ -23,7 +28,7 @@ export type Props = DataAttributes &
     LibraryProps &
     NativePropsInteractive &
     CallbackPropsTextual &
-    Omit<ValidationProps, 'validatorFn'> & {
+    ValidationProps & {
         /**
          * Set text for placeholder.
          * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder
@@ -52,17 +57,22 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             id: idProp,
             predefinedColors = [],
             validationState,
+            errorMessage,
+            revalidateOnFormChange,
+            validatorFn = defaultValidator,
             ...nativeProps
         },
         ref
     ) => {
-        const {validity, setValidity} = useValidation({
-            validatorFn: defaultValidator,
+        const {validity, setValidity, validateTextual} = useValidation({
+            validatorFn,
         });
         const id = useInternalId(idProp);
 
         const inputRef = useInternalRef(ref);
-        useSyncValidation({inputRef, setValidity, validationState});
+        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
+
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
 
         const ValidationIcon = {
             [ValidationState.error]: IconError,

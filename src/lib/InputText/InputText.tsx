@@ -11,7 +11,7 @@ import {
     defaultValidator,
     useValidation,
     useRevalidateOnFormChange,
-    useSyncValidation,
+    useExternalValidation,
 } from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
@@ -62,6 +62,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             required,
             revalidateOnFormChange,
             validationState,
+            errorMessage,
             ...nativeProps
         },
         ref
@@ -71,7 +72,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
 
-        useSyncValidation({inputRef, setValidity, validationState});
+        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
 
         const ValidationIcon = {
             [ValidationState.error]: IconError,

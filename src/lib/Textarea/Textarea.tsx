@@ -6,6 +6,7 @@ import {useLocalTheme} from 'css-vars-hook';
 import {IconError, IconValid, IconLoader} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import {useExternalValidation} from '@/internal/inputs';
 import {useRevalidateOnFormChange} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
@@ -67,6 +68,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
             rows = 3,
             resize = 'both',
             revalidateOnFormChange,
+            validationState,
+            errorMessage,
             ...nativeProps
         },
         ref
@@ -75,6 +78,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
+
+        console.log('validity', validity);
+        console.log('validationState', validationState);
 
         const ValidationIcon = {
             [ValidationState.error]: IconError,
@@ -132,7 +139,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
                     id={textareaId}
                     placeholder={placeholder}
                     className={classes.textarea}
-                    ref={ref}
+                    ref={inputRef}
                     disabled={disabled}
                     value={value}
                     defaultValue={defaultValue}

@@ -8,7 +8,7 @@ import {
     defaultValidator,
     useValidation,
     useRevalidateOnFormChange,
-    useSyncValidation,
+    useExternalValidation,
 } from '@/internal/inputs';
 import type {
     NativePropsInteractive,
@@ -49,6 +49,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             required,
             revalidateOnFormChange,
             validationState,
+            errorMessage,
             ...nativeProps
         },
         ref
@@ -59,7 +60,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateInteractive, revalidateOnFormChange);
 
-        useSyncValidation({inputRef, setValidity, validationState});
+        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
 
         const ValidationIcon = {
             [ValidationState.error]: IconError,

@@ -6,7 +6,8 @@ import {ValidationState} from '@/internal/inputs';
 export type Props = {
     validationState?: keyof typeof ValidationState;
     setValidity: Dispatch<SetStateAction<keyof typeof ValidationState | null>>;
-    inputRef: MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null>;
+    inputRef: MutableRefObject<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>;
+    errorMessage?: string;
 };
 
 /**
@@ -15,14 +16,22 @@ export type Props = {
  * NB! On change validation takes preference.
  * @see ValidationState
  */
-export const useSyncValidation = ({validationState, inputRef, setValidity}: Props) => {
+export const useExternalValidation = ({
+    validationState,
+    inputRef,
+    setValidity,
+    errorMessage = ValidationState.error,
+}: Props) => {
     useEffect(() => {
+        // Empty string is considered to be positive validation result for HTMLInputElement.setCustomValidity
+        const normalizedErrorMessage = errorMessage ? errorMessage : ValidationState.error;
         if (validationState === ValidationState.error && inputRef.current) {
-            inputRef.current.setCustomValidity(ValidationState.error);
+            console.log('ValidationState.error', validationState, inputRef.current);
+            inputRef.current.setCustomValidity(normalizedErrorMessage);
             setValidity(ValidationState.error);
         } else if (validationState && inputRef.current) {
             inputRef.current.setCustomValidity('');
             setValidity(validationState);
         }
-    }, [inputRef, setValidity, validationState]);
+    }, [errorMessage, inputRef, setValidity, validationState]);
 };

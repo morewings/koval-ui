@@ -10,6 +10,7 @@ import type {
     CallbackPropsTextual,
     ValidationProps,
 } from '@/internal/inputs';
+import {useExternalValidation} from '@/internal/inputs';
 import {useRevalidateOnFormChange} from '@/internal/inputs';
 import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
@@ -54,6 +55,8 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
             children,
             size = 16,
             revalidateOnFormChange,
+            validationState,
+            errorMessage,
             ...nativeProps
         },
         ref
@@ -70,6 +73,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
 
         const ValidationIcon = {
             [ValidationState.error]: IconError,

@@ -7,8 +7,13 @@ import classNames from 'classnames';
 import {IconError, IconValid, IconLoader, IconLock, IconLockOpen} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
-import {useRevalidateOnFormChange} from '@/internal/inputs';
-import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
+import {
+    ValidationState,
+    defaultValidator,
+    useValidation,
+    useRevalidateOnFormChange,
+    useExternalValidation,
+} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
@@ -43,6 +48,8 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
             readOnly,
             size = 16,
             revalidateOnFormChange,
+            validationState,
+            errorMessage,
             ...nativeProps
         },
         ref
@@ -51,6 +58,7 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
 
         const ValidationIcon = {
             [ValidationState.error]: IconError,
@@ -109,7 +117,7 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
                     readOnly={readOnly}
                     placeholder={placeholder}
                     className={classes.input}
-                    ref={ref}
+                    ref={inputRef}
                     disabled={disabled}
                     type={type}
                     value={value}

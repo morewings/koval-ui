@@ -7,15 +7,23 @@ import {useLocalTheme} from 'css-vars-hook';
 
 import {IconError, IconValid, IconLoader, IconFile} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import type {NativePropsTextual, CallbackPropsTextual} from '@/internal/inputs';
-import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
+import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
+import {
+    useRevalidateOnFormChange,
+    useExternalValidation,
+    defaultValidator,
+    ValidationState,
+    useValidation,
+} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './InputFile.module.css';
 
 export type Props = DataAttributes &
     LibraryProps &
     Omit<NativePropsTextual, 'inputMode' | 'maxLength' | 'minLength' | 'pattern' | 'readOnly'> &
+    ValidationProps &
     CallbackPropsTextual & {
         accept?: InputHTMLAttributes<HTMLInputElement>['accept'];
         multiple?: InputHTMLAttributes<HTMLInputElement>['multiple'];
@@ -36,6 +44,10 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             defaultValue,
             size = 16,
+            validationState,
+            errorMessage,
+            revalidateOnFormChange,
+            validatorFn = defaultValidator,
             ...nativeProps
         },
         ref
@@ -51,8 +63,12 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
         const id = useInternalId(idProp);
         const [filename, setFileName] = useState('');
         const {validateTextual, validity, setValidity} = useValidation({
-            validatorFn: defaultValidator,
+            validatorFn,
         });
+        const inputRef = useInternalRef(ref);
+        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
@@ -79,7 +95,7 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
                         type="file"
                         placeholder={placeholder}
                         className={classes.input}
-                        ref={ref}
+                        ref={inputRef}
                         disabled={disabled}
                         value={value}
                         defaultValue={defaultValue}
