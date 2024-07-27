@@ -80,9 +80,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
         useExternalValidation({inputRef, setValidity, validationState, errorMessage});
 
-        console.log('validity', validity);
-        console.log('validationState', validationState);
-
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,

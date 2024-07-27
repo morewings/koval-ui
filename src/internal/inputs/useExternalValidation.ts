@@ -26,7 +26,6 @@ export const useExternalValidation = ({
         // Empty string is considered to be positive validation result for HTMLInputElement.setCustomValidity
         const normalizedErrorMessage = errorMessage ? errorMessage : ValidationState.error;
         if (validationState === ValidationState.error && inputRef.current) {
-            console.log('ValidationState.error', validationState, inputRef.current);
             inputRef.current.setCustomValidity(normalizedErrorMessage);
             setValidity(ValidationState.error);
         } else if (validationState && inputRef.current) {
