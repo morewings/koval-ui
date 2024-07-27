@@ -72,7 +72,12 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
 
-        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
+        const {resetExternalValidation} = useExternalValidation({
+            inputRef,
+            setValidity,
+            validationState,
+            errorMessage,
+        });
 
         const ValidationIcon = {
             [ValidationState.error]: IconError,
@@ -82,9 +87,10 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
 
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
+                resetExternalValidation();
                 onChange(event);
             },
-            [onChange]
+            [onChange, resetExternalValidation]
         );
 
         const handleInvalid = useCallback(() => {
