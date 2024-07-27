@@ -1,5 +1,5 @@
 import type {Dispatch, SetStateAction, MutableRefObject} from 'react';
-import {useEffect} from 'react';
+import {useEffect, useState, useCallback} from 'react';
 
 import {ValidationState} from '@/internal/inputs';
 
@@ -17,11 +17,17 @@ export type Props = {
  * @see ValidationState
  */
 export const useExternalValidation = ({
-    validationState,
+    validationState: validationStateProp,
     inputRef,
     setValidity,
     errorMessage = ValidationState.error,
 }: Props) => {
+    const [validationState, setValidationState] = useState(validationStateProp);
+
+    useEffect(() => {
+        setValidationState(validationStateProp);
+    }, [validationStateProp]);
+
     useEffect(() => {
         // Empty string is considered to be positive validation result for HTMLInputElement.setCustomValidity
         const normalizedErrorMessage = errorMessage ? errorMessage : ValidationState.error;
@@ -33,4 +39,10 @@ export const useExternalValidation = ({
             setValidity(validationState);
         }
     }, [errorMessage, inputRef, setValidity, validationState]);
+
+    const resetExternalValidation = useCallback(() => {
+        setValidationState(undefined);
+    }, []);
+
+    return {resetExternalValidation};
 };
