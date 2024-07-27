@@ -15,6 +15,7 @@ export {InputColor} from './InputColor';
 export {InputTime} from './InputTime';
 export {InputRange} from './InputRange';
 export {InputFile} from './InputFile';
+export {InputPassword} from './InputPassword';
 export {InputNumber} from './InputNumber';
 export {Textarea} from './Textarea';
 export {Select} from './Select';
