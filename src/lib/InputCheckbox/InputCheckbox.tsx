@@ -98,9 +98,6 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
                     onKeyDown={onKeyDown}
                     onInput={validateInteractive}
                     onInvalid={handleInvalid}
-                    onReset={() => {
-                        console.log('reset!');
-                    }}
                     required={required}
                 />
                 <label
