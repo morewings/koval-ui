@@ -5,13 +5,13 @@ import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
 
-import {IconError, IconValid, IconLoader, IconFile} from '@/internal/Icons';
+import {IconFile} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {
     useRevalidateOnFormChange,
     useExternalValidation,
-    defaultValidator,
+    useValidationIcon,
     ValidationState,
     useValidation,
 } from '@/internal/inputs';
@@ -44,10 +44,9 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             defaultValue,
             size = 16,
-            validationState,
             errorMessage,
             revalidateOnFormChange,
-            validatorFn = defaultValidator,
+            validation,
             ...nativeProps
         },
         ref
@@ -63,17 +62,13 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
         const id = useInternalId(idProp);
         const [filename, setFileName] = useState('');
         const {validateTextual, validity, setValidity} = useValidation({
-            validatorFn,
+            validation,
         });
         const inputRef = useInternalRef(ref);
-        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
+        useExternalValidation({errorMessage, inputRef, setValidity, validation});
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
 
-        const ValidationIcon = {
-            [ValidationState.error]: IconError,
-            [ValidationState.valid]: IconValid,
-            [ValidationState.inProgress]: IconLoader,
-        }[validity!];
+        const ValidationIcon = useValidationIcon(validity);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 onChange(event);

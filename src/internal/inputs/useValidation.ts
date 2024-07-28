@@ -1,8 +1,8 @@
-import type {FormEvent} from 'react';
+import type {FormEvent, Dispatch, SetStateAction} from 'react';
 import {useCallback, useState} from 'react';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
-import type {ValidationProps} from './ValidationProps.ts';
+import type {ValidationProps, ValidatorFn} from './ValidationProps.ts';
 import {ValidationState} from './ValidationProps.ts';
 import {defaultValidator} from './defaultValidator.ts';
 import {useHandleFormReset} from './useHandleFormReset.ts';
@@ -19,31 +19,15 @@ const getValue = <TEvent extends FormEvent, TElement extends HTMLInputElement>(
         : (event.target as TElement).value;
 };
 
-export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInputElement>({
+const useValidatorFn = <TEvent extends FormEvent, TElement extends HTMLInputElement>({
     validatorFn,
-}: ValidationProps) => {
-    const hasCustomValidation = validatorFn !== defaultValidator;
-    const [customValidation, setCustomValidation] = useState(hasCustomValidation);
-
-    const isAsync = validatorFn?.constructor.name === 'AsyncFunction';
-
-    const [validity, setValidity] = useState<keyof typeof ValidationState | null>(null);
-
-    useHandleFormReset(setValidity);
-
-    const reportValidity = useCallback(
-        (event: TEvent) => {
-            const isValid = (event.target as TElement).reportValidity();
-            if (!isValid && !customValidation) {
-                setCustomValidation(true);
-            }
-            const validState = customValidation ? ValidationState.valid : null;
-            const nextValidationState = isValid ? validState : ValidationState.error;
-            setValidity(nextValidationState);
-        },
-        [customValidation, setValidity]
-    );
-
+    reportValidity,
+    setValidity,
+}: {
+    validatorFn: ValidatorFn;
+    reportValidity: (event: TEvent) => void;
+    setValidity: Dispatch<SetStateAction<keyof typeof ValidationState>>;
+}) => {
     const createValidatorSync = useCallback(
         (mode: InputMode, event: TEvent) => {
             const value = getValue(event, mode);
@@ -58,6 +42,8 @@ export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInp
         },
         [validatorFn, reportValidity]
     );
+
+    const createValidatorExternal = useCallback(() => {}, []);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const debouncedValidator = useCallback(AwesomeDebouncePromise(validatorFn!, 1000), [
@@ -86,22 +72,89 @@ export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInp
         [setValidity, debouncedValidator, reportValidity]
     );
 
+    return {createValidatorSync, createValidatorAsync, createValidatorExternal};
+};
+
+const createValidatorFn = (validation: ValidationProps['validation']): ValidatorFn => {
+    if (typeof validation === 'function') {
+        return validation;
+    }
+    return defaultValidator;
+};
+
+enum Modes {
+    async = 'async',
+    external = 'external',
+    sync = 'sync',
+}
+
+const getMode = (validation: ValidationProps['validation']) => {
+    if (validation?.constructor.name === 'AsyncFunction') {
+        return Modes.async;
+    } else if (typeof validation === 'string') {
+        return Modes.external;
+    }
+
+    return Modes.sync;
+};
+
+export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInputElement>({
+    validation,
+}: ValidationProps) => {
+    const validatorFn = createValidatorFn(validation);
+    const mode = getMode(validation);
+
+    const [validity, setValidity] = useState<keyof typeof ValidationState>(
+        ValidationState.pristine
+    );
+
+    useHandleFormReset(setValidity);
+
+    // reportValidity gets invoked only if validation is set to custom validator fn
+    const reportValidity = useCallback((event: TEvent) => {
+        const isValid = (event.target as TElement).reportValidity();
+        const nextValidationState = isValid ? ValidationState.valid : ValidationState.error;
+        setValidity(nextValidationState);
+    }, []);
+
+    const {createValidatorAsync, createValidatorSync, createValidatorExternal} = useValidatorFn({
+        validatorFn,
+        reportValidity,
+        setValidity,
+    });
+
     const validateInteractive = useCallback(
         (event: TEvent) => {
-            return isAsync
-                ? createValidatorAsync('interactive', event)
-                : createValidatorSync('interactive', event);
+            switch (mode) {
+                case 'sync': {
+                    return createValidatorSync('interactive', event);
+                }
+                case 'async': {
+                    return createValidatorAsync('interactive', event);
+                }
+                case 'external': {
+                    return createValidatorExternal();
+                }
+            }
         },
-        [createValidatorAsync, createValidatorSync, isAsync]
+        [createValidatorAsync, createValidatorExternal, createValidatorSync, mode]
     );
 
     const validateTextual = useCallback(
         (event: TEvent) => {
-            return isAsync
-                ? createValidatorAsync('textual', event)
-                : createValidatorSync('textual', event);
+            switch (mode) {
+                case 'sync': {
+                    return createValidatorSync('textual', event);
+                }
+                case 'async': {
+                    return createValidatorAsync('textual', event);
+                }
+                case 'external': {
+                    return createValidatorExternal();
+                }
+            }
         },
-        [createValidatorSync, isAsync, createValidatorAsync]
+        [mode, createValidatorSync, createValidatorAsync, createValidatorExternal]
     );
 
     return {validateInteractive, validateTextual, validity, setValidity};

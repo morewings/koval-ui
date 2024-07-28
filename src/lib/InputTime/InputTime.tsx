@@ -2,12 +2,12 @@ import type {ChangeEvent, KeyboardEvent} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
-import {IconError, IconValid, IconLoader, IconClock} from '@/internal/Icons';
+import {IconClock} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {useExternalValidation} from '@/internal/inputs';
 import {useRevalidateOnFormChange} from '@/internal/inputs';
-import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
+import {ValidationState, useValidationIcon, useValidation} from '@/internal/inputs';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './InputTime.module.css';
@@ -35,25 +35,20 @@ export const InputTime = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
-            validatorFn = defaultValidator,
             revalidateOnFormChange,
-            validationState,
+            validation,
             errorMessage,
             ...nativeProps
         },
         ref
     ) => {
         const inputRef = useInternalRef(ref);
-        const {validity, setValidity, validateTextual} = useValidation({validatorFn});
+        const {validity, setValidity, validateTextual} = useValidation({validation});
 
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
-        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
+        useExternalValidation({errorMessage, inputRef, setValidity, validation});
 
-        const ValidationIcon = {
-            [ValidationState.error]: IconError,
-            [ValidationState.valid]: IconValid,
-            [ValidationState.inProgress]: IconLoader,
-        }[validity!];
+        const ValidationIcon = useValidationIcon(validity);
 
         const handleInvalid = useCallback(() => {
             setValidity(ValidationState.error);

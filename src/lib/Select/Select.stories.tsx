@@ -2,8 +2,8 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 import {type ChangeEvent, useCallback, useState} from 'react';
 
-import {validatorAsync, validatorSync} from '@/internal/inputs';
-import {CloudUpload} from '@/internal/Icons';
+import {validationControl} from '@/internal/inputs/storybook/validationControl.ts';
+import {prefixControl} from '@/internal/inputs/storybook/prefixControl.ts';
 
 import {Select} from './Select.tsx';
 
@@ -91,38 +91,8 @@ const meta = {
                 disable: true,
             },
         },
-        validatorFn: {
-            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
-            mapping: {
-                noValidator: undefined,
-                syncValidator: validatorSync,
-                asyncValidator: validatorAsync,
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noValidator: 'No custom validator',
-                    syncValidator: 'Sync validator (value.length < 4)',
-                    asyncValidator: 'Async validator (value.length < 4)',
-                },
-            },
-        },
-        prefix: {
-            options: ['noPrefix', 'withPrefix'],
-            mapping: {
-                noPrefix: undefined,
-                withPrefix: CloudUpload,
-            },
-            control: {
-                type: 'radio',
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noPrefix: 'No prefix',
-                    withPrefix: 'With prefix',
-                },
-            },
-        },
+        validation: validationControl,
+        prefix: prefixControl,
     },
 } as Meta<typeof Select>;
 

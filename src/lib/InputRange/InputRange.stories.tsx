@@ -2,8 +2,8 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 import {type ChangeEvent, useCallback, useState} from 'react';
 
-import {CloudUpload} from '@/internal/Icons';
-import {timeout} from '@/internal/inputs';
+import {prefixControl} from '@/internal/inputs/storybook/prefixControl.ts';
+import {validationControlNumber} from '@/internal/inputs/storybook/validationControl.ts';
 
 import {InputRange} from './InputRange.tsx';
 
@@ -91,51 +91,8 @@ const meta = {
                 disable: true,
             },
         },
-        validatorFn: {
-            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
-            mapping: {
-                noValidator: undefined,
-                syncValidator: (value: number) => {
-                    if (value > 66) {
-                        return 'Too big';
-                    }
-                    return '';
-                },
-                asyncValidator: async (value: number) => {
-                    console.log('Value captured:', value);
-                    await timeout(1000);
-                    if (value > 66) {
-                        return `Too big. Value captured: ${value}`;
-                    } else {
-                        return '';
-                    }
-                },
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noValidator: 'No custom validator',
-                    syncValidator: 'Sync validator (value > 66 )',
-                    asyncValidator: 'Async validator (value > 66 )',
-                },
-            },
-        },
-        prefix: {
-            options: ['noPrefix', 'withPrefix'],
-            mapping: {
-                noPrefix: undefined,
-                withPrefix: CloudUpload,
-            },
-            control: {
-                type: 'radio',
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noPrefix: 'No prefix',
-                    withPrefix: 'With prefix',
-                },
-            },
-        },
+        validation: validationControlNumber,
+        prefix: prefixControl,
     },
 } as Meta<typeof InputRange>;
 

@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "private": false,
-  "version": "0.12.32",
+  "version": "0.13.0",
   "type": "module",
   "files": [
     "dist",
@@ -81,7 +81,8 @@
     "awesome-debounce-promise": "^2.1.0",
     "classnames": "^2.5.1",
     "css-vars-hook": "^0.7.6",
-    "the-new-css-reset": "^1.11.2"
+    "the-new-css-reset": "^1.11.2",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "19.3.0",

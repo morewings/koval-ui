@@ -18,3 +18,4 @@ export {
 export {useHandleFormReset} from './useHandleFormReset.ts';
 export {useRevalidateOnFormChange} from './useRevalidateOnFormChange.ts';
 export {useExternalValidation} from './useExternalValidation.ts';
+export {useValidationIcon} from './useValidationIcon.tsx';

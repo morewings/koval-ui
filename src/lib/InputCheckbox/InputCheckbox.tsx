@@ -5,17 +5,16 @@ import classNames from 'classnames';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {
     ValidationState,
-    defaultValidator,
     useValidation,
     useRevalidateOnFormChange,
     useExternalValidation,
+    useValidationIcon,
 } from '@/internal/inputs';
 import type {
     NativePropsInteractive,
     CallbackPropsInteractive,
     ValidationProps,
 } from '@/internal/inputs';
-import {IconError, IconLoader, IconValid} from '@/internal/Icons';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
@@ -45,28 +44,23 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             defaultChecked,
             id: idProp,
             label,
-            validatorFn = defaultValidator,
             required,
             revalidateOnFormChange,
-            validationState,
+            validation,
             errorMessage,
             ...nativeProps
         },
         ref
     ) => {
         const id = useInternalId(idProp);
-        const {validateInteractive, validity, setValidity} = useValidation({validatorFn});
+        const {validateInteractive, validity, setValidity} = useValidation({validation});
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateInteractive, revalidateOnFormChange);
 
-        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
+        useExternalValidation({errorMessage, inputRef, setValidity, validation});
 
-        const ValidationIcon = {
-            [ValidationState.error]: IconError,
-            [ValidationState.valid]: IconValid,
-            [ValidationState.inProgress]: IconLoader,
-        }[validity!];
+        const ValidationIcon = useValidationIcon(validity);
 
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {

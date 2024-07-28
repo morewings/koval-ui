@@ -215,7 +215,7 @@ export const CheckboxCustomValidation: Story = {
                 label="This is a foo name"
                 key="zork"
                 required
-                validatorFn={value => {
+                validation={value => {
                     return !value ? 'Custom message' : '';
                 }}
             />,
@@ -230,7 +230,7 @@ export const CheckboxCustomValidation: Story = {
                 value="bazz"
                 label="This is a bazz name"
                 key="bork"
-                validatorFn={value => {
+                validation={value => {
                     return !value ? 'Custom message' : '';
                 }}
             />,
