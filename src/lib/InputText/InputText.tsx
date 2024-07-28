@@ -1,5 +1,5 @@
-import type {FC, InputHTMLAttributes} from 'react';
-import type {ChangeEvent} from 'react';
+import type {ChangeEvent, FC, InputHTMLAttributes} from 'react';
+import {Fragment} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
@@ -8,7 +8,6 @@ import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {
     ValidationState,
-    defaultValidator,
     useValidation,
     useRevalidateOnFormChange,
     useExternalValidation,
@@ -55,42 +54,39 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
-            validatorFn = defaultValidator,
             readOnly,
             size = 16,
             id,
             required,
             revalidateOnFormChange,
-            validationState,
-            errorMessage,
+            errorMessage = ValidationState.error,
+            validation,
             ...nativeProps
         },
         ref
     ) => {
-        const {validateTextual, validity, setValidity} = useValidation({validatorFn});
-
         const inputRef = useInternalRef(ref);
-        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
 
-        const {resetExternalValidation} = useExternalValidation({
-            inputRef,
-            setValidity,
-            validationState,
-            errorMessage,
+        const {validateTextual, validity, setValidity} = useValidation({
+            validation,
         });
+
+        useExternalValidation({errorMessage, inputRef, setValidity, validation});
+
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
 
         const ValidationIcon = {
             [ValidationState.error]: IconError,
             [ValidationState.valid]: IconValid,
             [ValidationState.inProgress]: IconLoader,
+            [ValidationState.pristine]: Fragment,
         }[validity!];
 
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                resetExternalValidation();
                 onChange(event);
             },
-            [onChange, resetExternalValidation]
+            [onChange]
         );
 
         const handleInvalid = useCallback(() => {

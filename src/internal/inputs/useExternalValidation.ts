@@ -1,11 +1,12 @@
 import type {Dispatch, SetStateAction, MutableRefObject} from 'react';
-import {useEffect, useState, useCallback} from 'react';
+import {useEffect} from 'react';
 
+import type {ValidationProps} from '@/internal/inputs';
 import {ValidationState} from '@/internal/inputs';
 
 export type Props = {
-    validationState?: keyof typeof ValidationState;
-    setValidity: Dispatch<SetStateAction<keyof typeof ValidationState | null>>;
+    validation?: ValidationProps['validation'];
+    setValidity: Dispatch<SetStateAction<keyof typeof ValidationState>>;
     inputRef: MutableRefObject<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>;
     errorMessage?: string;
 };
@@ -13,36 +14,29 @@ export type Props = {
 /**
  * React hook designed to contain effects which synchronize input validation
  * with external validation state via prop or context (TODO).
- * NB! On change validation takes preference.
  * @see ValidationState
  */
-export const useExternalValidation = ({
-    validationState: validationStateProp,
-    inputRef,
-    setValidity,
-    errorMessage = ValidationState.error,
-}: Props) => {
-    const [validationState, setValidationState] = useState(validationStateProp);
-
+export const useExternalValidation = ({validation, inputRef, setValidity, errorMessage}: Props) => {
     useEffect(() => {
-        setValidationState(validationStateProp);
-    }, [validationStateProp]);
-
-    useEffect(() => {
-        // Empty string is considered to be positive validation result for HTMLInputElement.setCustomValidity
-        const normalizedErrorMessage = errorMessage ? errorMessage : ValidationState.error;
-        if (validationState === ValidationState.error && inputRef.current) {
-            inputRef.current.setCustomValidity(normalizedErrorMessage);
-            setValidity(ValidationState.error);
-        } else if (validationState && inputRef.current) {
-            inputRef.current.setCustomValidity('');
-            setValidity(validationState);
+        if (typeof validation === 'string') {
+            setValidity(validation);
+            switch (validation) {
+                case 'valid': {
+                    inputRef.current?.setCustomValidity('');
+                    break;
+                }
+                case 'error': {
+                    inputRef.current?.setCustomValidity(errorMessage || ValidationState.error);
+                    break;
+                }
+                case 'inProgress': {
+                    inputRef.current?.setCustomValidity(errorMessage || ValidationState.inProgress);
+                    break;
+                }
+                default: {
+                    inputRef.current?.setCustomValidity('');
+                }
+            }
         }
-    }, [errorMessage, inputRef, setValidity, validationState]);
-
-    const resetExternalValidation = useCallback(() => {
-        setValidationState(undefined);
-    }, []);
-
-    return {resetExternalValidation};
+    }, [errorMessage, inputRef, setValidity, validation]);
 };

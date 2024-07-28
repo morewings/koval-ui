@@ -3,7 +3,7 @@ import {fn} from '@storybook/test';
 import type {ChangeEvent} from 'react';
 import {useCallback, useState} from 'react';
 
-import {timeout} from '@/internal/inputs';
+import {timeout, ValidationState} from '@/internal/inputs';
 
 import {InputTime} from './InputTime.tsx';
 
@@ -94,8 +94,16 @@ const meta = {
                 disable: true,
             },
         },
-        validatorFn: {
-            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
+        validation: {
+            options: [
+                'noValidator',
+                'syncValidator',
+                'asyncValidator',
+                'error',
+                'valid',
+                'inProgress',
+                'pristine',
+            ],
             mapping: {
                 noValidator: undefined,
                 syncValidator: (value?: unknown) => {
@@ -115,14 +123,21 @@ const meta = {
                         return '';
                     }
                 },
-            }, // Maps serializable option values to complex arg values
+                error: ValidationState.error,
+                valid: ValidationState.valid,
+                inProgress: ValidationState.inProgress,
+                pristine: ValidationState.pristine,
+            },
             control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                type: 'radio',
                 labels: {
-                    // 'labels' maps option values to string labels
                     noValidator: 'No custom validator',
                     syncValidator: 'Sync validator (value === 23:23)',
                     asyncValidator: 'Async validator (value === 23:23)',
+                    error: 'External validation: "error"',
+                    valid: 'External validation: "valid"',
+                    inProgress: 'External validation: "inProgress"',
+                    pristine: 'External validation: "pristine"',
                 },
             },
         },

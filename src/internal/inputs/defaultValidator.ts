@@ -1,3 +1,3 @@
-import type {ValidationProps} from './ValidationProps.ts';
+import type {ValidatorFn} from './ValidationProps.ts';
 
-export const defaultValidator: ValidationProps['validatorFn'] = (_: unknown | undefined) => '';
+export const defaultValidator: ValidatorFn = (_: unknown | undefined) => '';

@@ -2,6 +2,8 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 import {type ChangeEvent, useCallback, useState} from 'react';
 
+import {ValidationState} from '@/internal/inputs';
+
 import {InputColor} from './InputColor.tsx';
 
 const meta = {
@@ -20,6 +22,7 @@ const meta = {
         required: false,
         placeholder: '#000000',
         disabled: false,
+        errorMessage: 'External validation error',
     },
     argTypes: {
         value: {
@@ -104,6 +107,25 @@ const meta = {
                 labels: {
                     noColors: 'No predefined colors',
                     withColors: 'With predefined colors',
+                },
+            },
+        },
+        validation: {
+            // TODO: add function validation example
+            options: ['error', 'valid', 'inProgress', 'pristine'],
+            mapping: {
+                error: ValidationState.error,
+                valid: ValidationState.valid,
+                inProgress: ValidationState.inProgress,
+                pristine: ValidationState.pristine,
+            },
+            control: {
+                type: 'radio',
+                labels: {
+                    error: 'External validation: "error"',
+                    valid: 'External validation: "valid"',
+                    inProgress: 'External validation: "inProgress"',
+                    pristine: 'External validation: "pristine"',
                 },
             },
         },

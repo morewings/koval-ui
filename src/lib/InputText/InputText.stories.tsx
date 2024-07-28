@@ -2,8 +2,9 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 import {type ChangeEvent, useCallback, useState} from 'react';
 
-import {validatorSync, validatorAsync} from '@/internal/inputs';
-import {CloudUpload} from '@/internal/Icons';
+import {prefixControl} from '@/internal/inputs/storybook/prefixControl.ts';
+import {validationControl} from '@/internal/inputs/storybook/validationControl.ts';
+import {patternControl} from '@/internal/inputs/storybook/patternControl.ts';
 
 import {InputText} from './InputText';
 
@@ -26,6 +27,7 @@ const meta = {
         disabled: false,
         autoComplete: 'off',
         size: 16,
+        errorMessage: 'External error message example.',
     },
     argTypes: {
         onClick: {
@@ -93,53 +95,9 @@ const meta = {
                 disable: true,
             },
         },
-        validatorFn: {
-            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
-            mapping: {
-                noValidator: undefined,
-                syncValidator: validatorSync,
-                asyncValidator: validatorAsync,
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noValidator: 'No custom validator',
-                    syncValidator: 'Sync validator (value.length < 4)',
-                    asyncValidator: 'Async validator (value.length < 4)',
-                },
-            },
-        },
-        pattern: {
-            options: ['noPattern', 'withPattern'], // An array of serializable values
-            mapping: {
-                noPattern: undefined,
-                withPattern: '[^@\\s]+@[^@\\s]+',
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noPattern: 'No pattern',
-                    withPattern: 'With pattern ([^@\\s]+@[^@\\s]+)',
-                },
-            },
-        },
-        prefix: {
-            options: ['noPrefix', 'withPrefix'],
-            mapping: {
-                noPrefix: undefined,
-                withPrefix: CloudUpload,
-            },
-            control: {
-                type: 'radio',
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noPrefix: 'No prefix',
-                    withPrefix: 'With prefix',
-                },
-            },
-        },
+        validation: validationControl,
+        pattern: patternControl,
+        prefix: prefixControl,
     },
 } as Meta<typeof InputText>;
 

@@ -3,11 +3,11 @@ import {useEffect} from 'react';
 
 import {useFormSelectors} from '@/lib/Form';
 
-import type {ValidationState} from './ValidationProps.ts';
+import {ValidationState} from './ValidationProps.ts';
 
-export const useHandleFormReset = (setValidity: Dispatch<ValidationState | null>) => {
+export const useHandleFormReset = (setValidity: Dispatch<ValidationState>) => {
     const {pristine} = useFormSelectors();
     useEffect(() => {
-        pristine && setValidity(null);
+        pristine && setValidity(ValidationState.pristine);
     }, [pristine, setValidity]);
 };

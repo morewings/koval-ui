@@ -2,10 +2,9 @@ import type {ChangeEvent, FC} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
-import {IconError, IconValid, IconLoader} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
-import {ValidationState, defaultValidator, useValidation} from '@/internal/inputs';
+import {useValidationIcon, ValidationState, useValidation} from '@/internal/inputs';
 
 import classes from './TemplateName.module.css';
 
@@ -31,17 +30,14 @@ export const TemplateName = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
-            validatorFn = defaultValidator,
+            validation,
+            errorMessage,
             ...nativeProps
         },
         ref
     ) => {
-        const {validateTextual, validity, setValidity} = useValidation({validatorFn});
-        const ValidationIcon = {
-            [ValidationState.error]: IconError,
-            [ValidationState.valid]: IconValid,
-            [ValidationState.inProgress]: IconLoader,
-        }[validity!];
+        const {validateTextual, validity, setValidity} = useValidation({validation});
+        const ValidationIcon = useValidationIcon(validity);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 onChange(event);

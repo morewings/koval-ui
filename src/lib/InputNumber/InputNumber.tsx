@@ -1,18 +1,17 @@
 import type {ChangeEvent, InputHTMLAttributes, FormEvent} from 'react';
-import {useMemo} from 'react';
-import {forwardRef, useCallback} from 'react';
+import {forwardRef, useCallback, useMemo} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
 
-import {IconError, IconValid, IconLoader, IconArrowUp, IconArrowDown} from '@/internal/Icons';
+import {IconArrowUp, IconArrowDown} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsNumeric, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {
     ValidationState,
-    defaultValidator,
     useValidation,
     useExternalValidation,
     useRevalidateOnFormChange,
+    useValidationIcon,
 } from '@/internal/inputs';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
@@ -44,27 +43,22 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
-            validatorFn = defaultValidator,
             size = 10,
             step = 1,
             revalidateOnFormChange,
-            validationState,
-            errorMessage,
+            errorMessage = ValidationState.error,
+            validation,
             ...nativeProps
         },
         ref
     ) => {
-        const {validateTextual, validity, setValidity} = useValidation({validatorFn});
+        const {validateTextual, validity, setValidity} = useValidation({validation});
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
-        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
+        useExternalValidation({errorMessage, inputRef, setValidity, validation});
 
-        const ValidationIcon = {
-            [ValidationState.error]: IconError,
-            [ValidationState.valid]: IconValid,
-            [ValidationState.inProgress]: IconLoader,
-        }[validity!];
+        const ValidationIcon = useValidationIcon(validity);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 onChange(event);

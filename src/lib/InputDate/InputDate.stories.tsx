@@ -4,6 +4,7 @@ import type {ChangeEvent} from 'react';
 import {useState, useCallback} from 'react';
 
 import {timeout} from '@/internal/inputs/validatorMocks.ts';
+import {ValidationState} from '@/internal/inputs';
 
 import {InputDate} from './InputDate.tsx';
 
@@ -24,6 +25,7 @@ const meta = {
         placeholder: 'YYYY-MM-DD',
         disabled: false,
         readOnly: false,
+        errorMessage: 'External validation error',
     },
     argTypes: {
         value: {
@@ -97,8 +99,16 @@ const meta = {
                 disable: true,
             },
         },
-        validatorFn: {
-            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
+        validation: {
+            options: [
+                'noValidator',
+                'syncValidator',
+                'asyncValidator',
+                'error',
+                'valid',
+                'inProgress',
+                'pristine',
+            ],
             mapping: {
                 noValidator: undefined,
                 syncValidator: (value?: unknown) => {
@@ -118,14 +128,21 @@ const meta = {
                         return `Last captured: ${value}`;
                     }
                 },
-            }, // Maps serializable option values to complex arg values
+                error: ValidationState.error,
+                valid: ValidationState.valid,
+                inProgress: ValidationState.inProgress,
+                pristine: ValidationState.pristine,
+            },
             control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                type: 'radio',
                 labels: {
-                    // 'labels' maps option values to string labels
                     noValidator: 'No custom validator',
                     syncValidator: 'Sync validator (2018-07-23)',
                     asyncValidator: 'Async validator (2018-07-23)',
+                    error: 'External validation: "error"',
+                    valid: 'External validation: "valid"',
+                    inProgress: 'External validation: "inProgress"',
+                    pristine: 'External validation: "pristine"',
                 },
             },
         },

@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 import {type ChangeEvent, useCallback, useState} from 'react';
 
-import {timeout} from '@/internal/inputs';
+import {validationControlNumber} from '@/internal/inputs/storybook/validationControl.ts';
 
 import {InputNumber} from './InputNumber.tsx';
 
@@ -103,36 +103,7 @@ const meta = {
                 disable: true,
             },
         },
-        validatorFn: {
-            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
-            mapping: {
-                noValidator: undefined,
-                syncValidator: (value: number) => {
-                    if (value > 66) {
-                        return 'Too big';
-                    }
-                    return '';
-                },
-                asyncValidator: async (value: number) => {
-                    console.log('Value captured:', value);
-                    await timeout(1000);
-                    if (value > 66) {
-                        return `Too big. Value captured: ${value}`;
-                    } else {
-                        return '';
-                    }
-                },
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noValidator: 'No custom validator',
-                    syncValidator: 'Sync validator (value > 66 )',
-                    asyncValidator: 'Async validator (value > 66 )',
-                },
-            },
-        },
+        validation: validationControlNumber,
     },
 } as Meta<typeof InputNumber>;
 

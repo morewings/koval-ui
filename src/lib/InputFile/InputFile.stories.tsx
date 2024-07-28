@@ -1,6 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
+import {ValidationState} from '@/internal/inputs';
+
 import {InputFile} from './InputFile.tsx';
 
 const meta = {
@@ -96,6 +98,25 @@ const meta = {
         onChange: {
             table: {
                 disable: true,
+            },
+        },
+        validation: {
+            // TODO: add function validation example
+            options: ['error', 'valid', 'inProgress', 'pristine'],
+            mapping: {
+                error: ValidationState.error,
+                valid: ValidationState.valid,
+                inProgress: ValidationState.inProgress,
+                pristine: ValidationState.pristine,
+            },
+            control: {
+                type: 'radio',
+                labels: {
+                    error: 'External validation: "error"',
+                    valid: 'External validation: "valid"',
+                    inProgress: 'External validation: "inProgress"',
+                    pristine: 'External validation: "pristine"',
+                },
             },
         },
     },

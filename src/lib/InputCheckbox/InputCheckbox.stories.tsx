@@ -3,7 +3,7 @@ import {useState, useCallback} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
-import {validatorAsyncBoolean, validatorSyncBoolean} from '@/internal/inputs';
+import {validationControlBoolean} from '@/internal/inputs/storybook/validationControl.ts';
 
 import {InputCheckbox} from './InputCheckbox.tsx';
 
@@ -23,6 +23,7 @@ const meta = {
         value: '',
         disabled: false,
         required: false,
+        errorMessage: 'External validation error',
     },
     argTypes: {
         value: {control: 'text'},
@@ -96,23 +97,7 @@ const meta = {
                 disable: true,
             },
         },
-        validatorFn: {
-            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
-            mapping: {
-                noValidator: undefined,
-                syncValidator: validatorSyncBoolean,
-                asyncValidator: validatorAsyncBoolean,
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noValidator: 'No custom validator',
-                    syncValidator: 'Sync validator (value !== true)',
-                    asyncValidator: 'Async validator (value !== true)',
-                },
-            },
-        },
+        validation: validationControlBoolean,
     },
 } as Meta<typeof InputCheckbox>;
 
@@ -166,23 +151,6 @@ Controlled.argTypes = {
     defaultChecked: {
         table: {
             disable: true,
-        },
-    },
-    validatorFn: {
-        options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
-        mapping: {
-            noValidator: undefined,
-            syncValidator: validatorSyncBoolean,
-            asyncValidator: validatorAsyncBoolean,
-        }, // Maps serializable option values to complex arg values
-        control: {
-            type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-            labels: {
-                // 'labels' maps option values to string labels
-                noValidator: 'No custom validator',
-                syncValidator: 'Sync validator (value !== true)',
-                asyncValidator: 'Async validator (value !== true)',
-            },
         },
     },
 };

@@ -4,7 +4,7 @@ import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
 
-import {IconError, IconLoader, IconPalette, IconValid} from '@/internal/Icons';
+import {IconPalette} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {
     CallbackPropsTextual,
@@ -12,12 +12,7 @@ import type {
     NativePropsInteractive,
 } from '@/internal/inputs';
 import {useRevalidateOnFormChange} from '@/internal/inputs';
-import {
-    ValidationState,
-    useExternalValidation,
-    useValidation,
-    defaultValidator,
-} from '@/internal/inputs';
+import {useExternalValidation, useValidation, useValidationIcon} from '@/internal/inputs';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
@@ -56,29 +51,24 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             defaultValue,
             id: idProp,
             predefinedColors = [],
-            validationState,
             errorMessage,
             revalidateOnFormChange,
-            validatorFn = defaultValidator,
+            validation,
             ...nativeProps
         },
         ref
     ) => {
         const {validity, setValidity, validateTextual} = useValidation({
-            validatorFn,
+            validation,
         });
         const id = useInternalId(idProp);
 
         const inputRef = useInternalRef(ref);
-        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
+        useExternalValidation({errorMessage, inputRef, setValidity, validation});
 
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
 
-        const ValidationIcon = {
-            [ValidationState.error]: IconError,
-            [ValidationState.valid]: IconValid,
-            [ValidationState.inProgress]: IconLoader,
-        }[validity!];
+        const ValidationIcon = useValidationIcon(validity);
 
         const {LocalRoot, setTheme} = useLocalTheme();
         const displayValue = (value ?? defaultValue) as string;

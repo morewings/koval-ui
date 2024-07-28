@@ -4,12 +4,12 @@ import {useState} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
-import {IconError, IconValid, IconLoader, IconLock, IconLockOpen} from '@/internal/Icons';
+import {IconLock, IconLockOpen} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {
     ValidationState,
-    defaultValidator,
+    useValidationIcon,
     useValidation,
     useRevalidateOnFormChange,
     useExternalValidation,
@@ -43,28 +43,23 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
             onKeyDown = () => {},
             onKeyUp = () => {},
             defaultValue,
-            validatorFn = defaultValidator,
             id,
             readOnly,
             size = 16,
             revalidateOnFormChange,
-            validationState,
+            validation,
             errorMessage,
             ...nativeProps
         },
         ref
     ) => {
-        const {validateTextual, validity, setValidity} = useValidation({validatorFn});
+        const {validateTextual, validity, setValidity} = useValidation({validation});
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
-        useExternalValidation({inputRef, setValidity, validationState, errorMessage});
+        useExternalValidation({errorMessage, inputRef, setValidity, validation});
 
-        const ValidationIcon = {
-            [ValidationState.error]: IconError,
-            [ValidationState.valid]: IconValid,
-            [ValidationState.inProgress]: IconLoader,
-        }[validity!];
+        const ValidationIcon = useValidationIcon(validity);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 onChange(event);

@@ -2,7 +2,8 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 import {type ChangeEvent, useCallback, useState} from 'react';
 
-import {validatorAsync, validatorSync} from '@/internal/inputs';
+import {validationControl} from '@/internal/inputs/storybook/validationControl.ts';
+import {patternControl} from '@/internal/inputs/storybook/patternControl.ts';
 
 import {InputPassword} from './InputPassword.tsx';
 
@@ -107,43 +108,13 @@ const meta = {
                 disable: true,
             },
         },
-        validatorFn: {
-            options: ['noValidator', 'syncValidator', 'asyncValidator'], // An array of serializable values
-            mapping: {
-                noValidator: undefined,
-                syncValidator: validatorSync,
-                asyncValidator: validatorAsync,
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noValidator: 'No custom validator',
-                    syncValidator: 'Sync validator (value.length < 4)',
-                    asyncValidator: 'Async validator (value.length < 4)',
-                },
-            },
-        },
+        validation: validationControl,
         prefix: {
             table: {
                 disable: true,
             },
         },
-        pattern: {
-            options: ['noPattern', 'withPattern'], // An array of serializable values
-            mapping: {
-                noPattern: undefined,
-                withPattern: '[^@\\s]+@[^@\\s]+',
-            }, // Maps serializable option values to complex arg values
-            control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    noPattern: 'No pattern',
-                    withPattern: 'With pattern ([^@\\s]+@[^@\\s]+)',
-                },
-            },
-        },
+        pattern: patternControl,
     },
 } as Meta<typeof InputPassword>;
 
