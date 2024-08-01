@@ -148,7 +148,7 @@
     "stylelint": "16.6.1",
     "stylelint-config-standard": "36.0.1",
     "stylelint-order": "6.0.4",
-    "stylelint-prettier": "5.0.0",
+    "stylelint-prettier": "5.0.2",
     "ts-jest": "29.2.3",
     "ts-node": "10.9.2",
     "tsx": "4.16.0",
