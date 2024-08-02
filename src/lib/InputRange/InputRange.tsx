@@ -76,7 +76,9 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
         },
         ref
     ) => {
-        const {validateTextual, validity, setValidity} = useValidation({validation});
+        const hasValidators = Boolean(validation) || Boolean(nativeProps.required);
+
+        const {validateTextual, validity, setValidity} = useValidation({validation, hasValidators});
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);

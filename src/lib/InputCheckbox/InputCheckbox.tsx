@@ -53,7 +53,13 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
         ref
     ) => {
         const id = useInternalId(idProp);
-        const {validateInteractive, validity, setValidity} = useValidation({validation});
+
+        const hasValidators = Boolean(validation) || Boolean(required);
+
+        const {validateInteractive, validity, setValidity} = useValidation({
+            validation,
+            hasValidators,
+        });
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateInteractive, revalidateOnFormChange);

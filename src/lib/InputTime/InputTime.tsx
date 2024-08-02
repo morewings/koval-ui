@@ -43,7 +43,12 @@ export const InputTime = forwardRef<HTMLInputElement, Props>(
         ref
     ) => {
         const inputRef = useInternalRef(ref);
-        const {validity, setValidity, validateTextual} = useValidation({validation});
+        const hasValidators =
+            Boolean(validation) ||
+            typeof nativeProps.min === 'string' ||
+            typeof nativeProps.max === 'string';
+
+        const {validity, setValidity, validateTextual} = useValidation({validation, hasValidators});
 
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
         useExternalValidation({errorMessage, inputRef, setValidity, validation});

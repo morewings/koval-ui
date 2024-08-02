@@ -100,7 +100,8 @@ const getMode = (validation: ValidationProps['validation']) => {
 
 export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInputElement>({
     validation,
-}: ValidationProps) => {
+    hasValidators,
+}: ValidationProps & {hasValidators: boolean}) => {
     const validatorFn = createValidatorFn(validation);
     const mode = getMode(validation);
 
@@ -111,11 +112,14 @@ export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInp
     useHandleFormReset(setValidity);
 
     // reportValidity gets invoked only if validation is set to custom validator fn
-    const reportValidity = useCallback((event: TEvent) => {
-        const isValid = (event.target as TElement).reportValidity();
-        const nextValidationState = isValid ? ValidationState.valid : ValidationState.error;
-        setValidity(nextValidationState);
-    }, []);
+    const reportValidity = useCallback(
+        (event: TEvent) => {
+            const isValid = (event.target as TElement).reportValidity();
+            const nextValidationState = isValid ? ValidationState.valid : ValidationState.error;
+            hasValidators && setValidity(nextValidationState);
+        },
+        [hasValidators]
+    );
 
     const {createValidatorAsync, createValidatorSync, createValidatorExternal} = useValidatorFn({
         validatorFn,

@@ -58,8 +58,11 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
         },
         ref
     ) => {
+        const hasValidators = Boolean(validation);
+
         const {validity, setValidity, validateTextual} = useValidation({
             validation,
+            hasValidators,
         });
         const id = useInternalId(idProp);
 
