@@ -68,7 +68,9 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
             [size]
         );
 
-        const {validateTextual, validity, setValidity} = useValidation({validation});
+        const hasValidators = Boolean(validation);
+
+        const {validateTextual, validity, setValidity} = useValidation({validation, hasValidators});
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);

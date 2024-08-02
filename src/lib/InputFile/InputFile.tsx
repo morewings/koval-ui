@@ -61,8 +61,10 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
 
         const id = useInternalId(idProp);
         const [filename, setFileName] = useState('');
+        const hasValidators = Boolean(validation);
         const {validateTextual, validity, setValidity} = useValidation({
             validation,
+            hasValidators,
         });
         const inputRef = useInternalRef(ref);
         useExternalValidation({errorMessage, inputRef, setValidity, validation});

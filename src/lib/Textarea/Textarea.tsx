@@ -72,7 +72,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
         },
         ref
     ) => {
-        const {validateTextual, validity, setValidity} = useValidation({validation});
+        const hasValidators =
+            Boolean(validation) ||
+            Boolean(nativeProps.required) ||
+            typeof nativeProps.maxLength === 'number' ||
+            typeof nativeProps.minLength === 'number';
+
+        const {validateTextual, validity, setValidity} = useValidation({validation, hasValidators});
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);

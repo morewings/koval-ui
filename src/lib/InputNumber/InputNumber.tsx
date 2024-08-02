@@ -44,7 +44,7 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
             onKeyUp = () => {},
             defaultValue,
             size = 10,
-            step = 1,
+            step,
             revalidateOnFormChange,
             errorMessage = ValidationState.error,
             validation,
@@ -52,7 +52,17 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
         },
         ref
     ) => {
-        const {validateTextual, validity, setValidity} = useValidation({validation});
+        const hasValidators =
+            Boolean(validation) ||
+            Boolean(nativeProps.required) ||
+            typeof nativeProps.min === 'number' ||
+            typeof nativeProps.min === 'string' ||
+            typeof nativeProps.max === 'number' ||
+            typeof nativeProps.max === 'string' ||
+            typeof step === 'number' ||
+            typeof step === 'string';
+
+        const {validateTextual, validity, setValidity} = useValidation({validation, hasValidators});
 
         const inputRef = useInternalRef(ref);
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);

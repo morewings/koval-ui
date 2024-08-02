@@ -21,13 +21,13 @@ const meta = {
         required: false,
         readOnly: false,
         disabled: false,
-        min: -100,
-        max: 100,
-        step: 10,
         size: 9,
     },
     argTypes: {
         value: {control: 'text'},
+        step: {control: 'number'},
+        min: {control: 'number'},
+        max: {control: 'number'},
         defaultValue: {
             table: {
                 disable: true,

@@ -23,9 +23,9 @@ export type Props = DataAttributes &
     CallbackPropsTextual &
     ValidationProps & {
         /**
-         * Define a type of TextInput. Allows developer to optionally set one from supported
+         * Define a type of TextInput. Allows a developer to optionally set one from supported
          * text-like input types instead of default 'text'.
-         * Non-text types such as `number` or `week` are not allowed.
+         * Non-text types such as `number` or `week` aren't allowed.
          * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types
          */
         type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
@@ -67,8 +67,16 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
     ) => {
         const inputRef = useInternalRef(ref);
 
+        const hasValidators =
+            Boolean(validation) ||
+            Boolean(required) ||
+            typeof nativeProps.maxLength === 'number' ||
+            typeof nativeProps.minLength === 'number' ||
+            typeof nativeProps.pattern === 'string';
+
         const {validateTextual, validity, setValidity} = useValidation({
             validation,
+            hasValidators,
         });
 
         useExternalValidation({errorMessage, inputRef, setValidity, validation});

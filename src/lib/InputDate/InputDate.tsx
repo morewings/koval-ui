@@ -45,10 +45,15 @@ export const InputDate = forwardRef<HTMLInputElement, Props>(
         },
         ref
     ) => {
+        const hasValidators =
+            Boolean(validation) ||
+            typeof nativeProps.min === 'string' ||
+            typeof nativeProps.max === 'string';
+
         const id = useInternalId(idProp);
         const labelRef = useRef<HTMLLabelElement>(null);
 
-        const {validateTextual, validity, setValidity} = useValidation({validation});
+        const {validateTextual, validity, setValidity} = useValidation({validation, hasValidators});
 
         const inputRef = useInternalRef(ref);
 

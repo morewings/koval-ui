@@ -36,7 +36,13 @@ export const TemplateName = forwardRef<HTMLInputElement, Props>(
         },
         ref
     ) => {
-        const {validateTextual, validity, setValidity} = useValidation({validation});
+        const hasValidators =
+            Boolean(validation) ||
+            Boolean(nativeProps.required) ||
+            typeof nativeProps.maxLength === 'number' ||
+            typeof nativeProps.minLength === 'number' ||
+            typeof nativeProps.pattern === 'string';
+        const {validateTextual, validity, setValidity} = useValidation({validation, hasValidators});
         const ValidationIcon = useValidationIcon(validity);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
