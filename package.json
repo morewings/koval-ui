@@ -155,7 +155,7 @@
     "typescript": "5.4.5",
     "typescript-eslint": "7.18.0",
     "vite": "5.3.5",
-    "vite-plugin-dts": "3.9.1",
+    "vite-plugin-dts": "4.0.1",
     "vite-plugin-svgr": "4.2.0"
   }
 }
