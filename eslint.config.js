@@ -131,6 +131,7 @@ export default [
             '**/*.stories.*',
             '*.config.{js,ts}',
             '.storybook/*.{js,jsx,ts,tsx}',
+            'src/env/**/*.{ts,tsx}',
         ],
         plugins: {
             import: pluginImport,
