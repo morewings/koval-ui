@@ -9,21 +9,6 @@ addons.setConfig({
     theme: kovalTheme,
 });
 
-// addons.add(TOOL_ID, {
-//     type: types.TOOL,
-//     title: 'Theme provider',
-//     match: ({viewMode}) => !!(viewMode && viewMode.match(/^(story|docs)$/)),
-//     render: ThemeSwitcherTool,
-// });
-//
-// // Register the panel
-// addons.add(PANEL_ID, {
-//     type: types.PANEL,
-//     title: 'Theme playground',
-//     match: ({viewMode}) => viewMode === 'story',
-//     render: Panel,
-// });
-
 // Register the addon
 addons.register(ADDON_ID, () => {
     // Register the tool
