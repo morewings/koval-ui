@@ -9,7 +9,6 @@ const config: StorybookConfig = {
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
         '@storybook/addon-storysource',
-        'storybook-addon-theme-provider',
     ],
 
     framework: {
