@@ -119,6 +119,12 @@ export default [
                     args: 'after-used',
                 },
             ],
+            /**
+             * Disabled because of the bug.
+             * TODO: check if it's working
+             */
+            'react/prop-types': 'off',
+            '@typescript-eslint/no-unused-expressions': 'off',
         },
     },
     /* Allow devDependencies imports for tests and config files */

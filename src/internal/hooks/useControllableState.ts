@@ -3,7 +3,7 @@ import {useCallback, useState} from 'react';
 
 import {useCallbackRef} from './useCallbackRef.ts';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 const isFunction = <T extends Function = Function>(value: unknown): value is T =>
     typeof value === 'function';
 
