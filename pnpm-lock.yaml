@@ -78,8 +78,11 @@ importers:
       '@storybook/components':
         specifier: 8.2.8
         version: 8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6)))
+      '@storybook/core-events':
+        specifier: 8.2.9
+        version: 8.2.9(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6)))
       '@storybook/icons':
-        specifier: ^1.2.10
+        specifier: 1.2.10
         version: 1.2.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@storybook/manager-api':
         specifier: 8.2.8
@@ -210,6 +213,9 @@ importers:
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
+      react-ga:
+        specifier: 3.3.1
+        version: 3.3.1(prop-types@15.8.1)(react@18.3.1)
       semantic-release:
         specifier: 24.0.0
         version: 24.0.0(typescript@5.4.5)
@@ -218,7 +224,7 @@ importers:
         version: 8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))
       storybook-addon-theme-provider:
         specifier: 0.2.2
-        version: 0.2.2(@storybook/blocks@8.2.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/components@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/core-events@8.1.11)(@storybook/manager-api@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/preview-api@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/theming@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/types@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 0.2.2(@storybook/blocks@8.2.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/components@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/core-events@8.2.9(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/manager-api@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/preview-api@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/theming@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/types@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       stylelint:
         specifier: 16.8.1
         version: 16.8.1(typescript@5.4.5)
@@ -2025,8 +2031,10 @@ packages:
     peerDependencies:
       storybook: ^8.2.8
 
-  '@storybook/core-events@8.1.11':
-    resolution: {integrity: sha512-vXaNe2KEW9BGlLrg0lzmf5cJ0xt+suPjWmEODH5JqBbrdZ67X6ApA2nb6WcxDQhykesWCuFN5gp1l+JuDOBi7A==}
+  '@storybook/core-events@8.2.9':
+    resolution: {integrity: sha512-8VS6k2ySAYdG2VBWxb66Vko7Pqd429TIdkrw1/u2N0IPsvPsdbs3WaOTyxOMB1e39YUCpD/IZUOPdxX2lC3g4w==}
+    peerDependencies:
+      storybook: ^8.2.9
 
   '@storybook/core@8.2.8':
     resolution: {integrity: sha512-Wwm/Txh87hbxqU9OaxXwdGAmdRBjDn7rlZEPjNBx0tt43SQ11fKambY7nVWrWuw46YsJpdF9V/PQr4noNEXXEA==}
@@ -6061,6 +6069,12 @@ packages:
       react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
       react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
 
+  react-ga@3.3.1:
+    resolution: {integrity: sha512-4Vc0W5EvXAXUN/wWyxvsAKDLLgtJ3oLmhYYssx+YzphJpejtOst6cbIHCIyF50Fdxuf5DDKqRYny24yJ2y7GFQ==}
+    peerDependencies:
+      prop-types: ^15.6.0
+      react: ^15.6.2 || ^16.0 || ^17 || ^18
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -9553,11 +9567,9 @@ snapshots:
     dependencies:
       storybook: 8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))
 
-  '@storybook/core-events@8.1.11':
+  '@storybook/core-events@8.2.9(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6)))':
     dependencies:
-      '@storybook/csf': 0.1.11
-      ts-dedent: 2.2.0
-    optional: true
+      storybook: 8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))
 
   '@storybook/core@8.2.8':
     dependencies:
@@ -14204,6 +14216,11 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-is: 18.1.0
 
+  react-ga@3.3.1(prop-types@15.8.1)(react@18.3.1):
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.3.1
+
   react-is@16.13.1: {}
 
   react-is@17.0.2: {}
@@ -14741,11 +14758,11 @@ snapshots:
 
   statuses@2.0.1: {}
 
-  storybook-addon-theme-provider@0.2.2(@storybook/blocks@8.2.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/components@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/core-events@8.1.11)(@storybook/manager-api@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/preview-api@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/theming@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/types@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  storybook-addon-theme-provider@0.2.2(@storybook/blocks@8.2.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/components@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/core-events@8.2.9(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/manager-api@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/preview-api@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/theming@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(@storybook/types@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     optionalDependencies:
       '@storybook/blocks': 8.2.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6)))
       '@storybook/components': 8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6)))
-      '@storybook/core-events': 8.1.11
+      '@storybook/core-events': 8.2.9(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6)))
       '@storybook/manager-api': 8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6)))
       '@storybook/preview-api': 8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6)))
       '@storybook/theming': 8.2.8(storybook@8.2.8(@babel/preset-env@7.24.6(@babel/core@7.24.6)))
