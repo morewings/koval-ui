@@ -1,6 +1,6 @@
 import {addons, types} from '@storybook/manager-api';
 import {STORY_CHANGED, STORY_ERRORED, STORY_MISSING} from '@storybook/core-events';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 
 import {TOOL_ID, PANEL_ID, ADDON_ID} from '../src/env/theme-playground/constants';
 import {ThemeSwitcherTool} from '../src/env/theme-playground/ThemeSwitcherTool';
@@ -31,30 +31,18 @@ addons.register(ADDON_ID, () => {
 });
 
 addons.register('storybook/google-analytics', api => {
-    //@ts-expect-error window
-    ReactGA.initialize(window.STORYBOOK_GA_ID, window.STORYBOOK_REACT_GA_OPTIONS);
+    ReactGA.initialize('G-RKLSD9625E');
 
     api.on(STORY_CHANGED, () => {
-        const {path} = api.getUrlState();
-        ReactGA.pageview(path);
+        const {path, storyId} = api.getUrlState();
+        ReactGA.send({hitType: 'pageview', page: path, title: storyId});
     });
-    api.on(STORY_ERRORED, ({description}: {description: string}) => {
-        ReactGA.exception({
-            description,
-            fatal: true,
-        });
+    api.on(STORY_ERRORED, () => {
+        const {path, storyId} = api.getUrlState();
+        ReactGA.send({hitType: 'exception', page: path, title: storyId, fatal: true});
     });
     api.on(STORY_MISSING, (id: string) => {
-        ReactGA.exception({
-            description: `attempted to render ${id}, but it is missing`,
-            fatal: false,
-        });
+        const {path} = api.getUrlState();
+        ReactGA.send({hitType: 'exception', page: path, title: id, fatal: true});
     });
 });
-
-/* eslint-disable ssr-friendly/no-dom-globals-in-module-scope */
-//@ts-expect-error window
-window.STORYBOOK_GA_ID = 'G-RKLSD9625E';
-//@ts-expect-error window
-window.STORYBOOK_REACT_GA_OPTIONS = {};
-/* eslint-enable ssr-friendly/no-dom-globals-in-module-scope */

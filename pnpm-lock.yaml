@@ -213,9 +213,9 @@ importers:
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
-      react-ga:
-        specifier: 3.3.1
-        version: 3.3.1(prop-types@15.8.1)(react@18.3.1)
+      react-ga4:
+        specifier: 2.1.0
+        version: 2.1.0
       semantic-release:
         specifier: 24.0.0
         version: 24.0.0(typescript@5.4.5)
@@ -6069,11 +6069,8 @@ packages:
       react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
       react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
 
-  react-ga@3.3.1:
-    resolution: {integrity: sha512-4Vc0W5EvXAXUN/wWyxvsAKDLLgtJ3oLmhYYssx+YzphJpejtOst6cbIHCIyF50Fdxuf5DDKqRYny24yJ2y7GFQ==}
-    peerDependencies:
-      prop-types: ^15.6.0
-      react: ^15.6.2 || ^16.0 || ^17 || ^18
+  react-ga4@2.1.0:
+    resolution: {integrity: sha512-ZKS7PGNFqqMd3PJ6+C2Jtz/o1iU9ggiy8Y8nUeksgVuvNISbmrQtJiZNvC/TjDsqD0QlU5Wkgs7i+w9+OjHhhQ==}
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -14216,10 +14213,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-is: 18.1.0
 
-  react-ga@3.3.1(prop-types@15.8.1)(react@18.3.1):
-    dependencies:
-      prop-types: 15.8.1
-      react: 18.3.1
+  react-ga4@2.1.0: {}
 
   react-is@16.13.1: {}
 
