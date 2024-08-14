@@ -30,9 +30,9 @@ addons.register(ADDON_ID, () => {
     });
 });
 
-addons.register('storybook/google-analytics', api => {
-    ReactGA.initialize('G-RKLSD9625E');
+ReactGA.initialize('G-RKLSD9625E');
 
+addons.register('storybook/google-analytics', api => {
     api.on(STORY_CHANGED, () => {
         const {path, storyId} = api.getUrlState();
         ReactGA.send({hitType: 'pageview', page: path, title: storyId});
