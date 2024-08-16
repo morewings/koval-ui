@@ -1,4 +1,4 @@
-import {Children, cloneElement, forwardRef} from 'react';
+import {Children, cloneElement, forwardRef, useMemo} from 'react';
 import type {ReactElement} from 'react';
 import classNames from 'classnames';
 
@@ -25,9 +25,10 @@ export const FormField = forwardRef<HTMLDivElement, Props>(
     ({className, children, label, hint, required, ...nativeProps}, ref) => {
         const inputProps = Children.only(children).props;
         const id = useInternalId(inputProps.id);
-        const childrenWithProps = inputProps.id
-            ? Children.only(children)
-            : cloneElement(Children.only(children), {id});
+        const childrenWithProps = useMemo(
+            () => cloneElement(Children.only(children), {id}),
+            [children, id]
+        );
         return (
             <div {...nativeProps} ref={ref} className={classNames(classes.wrapper, className)}>
                 <label
