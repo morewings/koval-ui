@@ -1,7 +1,5 @@
 import {useEffect, useLayoutEffect} from 'react';
 
-export function isBrowser() {
-    return Boolean(globalThis?.document);
-}
+import {isBrowser} from '@/internal/utils/isBrowser.ts';
 
 export const useSafeLayoutEffect = isBrowser() ? useLayoutEffect : useEffect;
