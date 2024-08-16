@@ -50,18 +50,20 @@ export const Drawer = forwardRef<HTMLDivElement, Props>(
             <Portal>
                 <Transition show={isOpen} nodeRef={ref}>
                     <LocalRoot theme={getTheme()} className={classes.provider}>
-                        <div
-                            {...nativeProps}
-                            className={classNames(
-                                classes.drawer,
-                                {
-                                    [classes.left]: placement === Placements.left,
-                                    [classes.right]: placement === Placements.right,
-                                },
-                                className
-                            )}
-                            ref={ref}>
-                            {children}
+                        <div className={classes.backdrop}>
+                            <div
+                                {...nativeProps}
+                                className={classNames(
+                                    classes.drawer,
+                                    {
+                                        [classes.left]: placement === Placements.left,
+                                        [classes.right]: placement === Placements.right,
+                                    },
+                                    className
+                                )}
+                                ref={ref}>
+                                {children}
+                            </div>
                         </div>
                     </LocalRoot>
                 </Transition>
