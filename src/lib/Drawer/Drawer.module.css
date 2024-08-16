@@ -13,6 +13,16 @@
     width: 300px;
 }
 
+.backdrop {
+    background: color-mix(in srgb, var(--kg-color-mi) 33%, transparent);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: background-color var(--kg-time-md) ease-in-out;
+}
+
 .left {
     box-shadow: var(--kg-shadow-100);
     left: 0;
