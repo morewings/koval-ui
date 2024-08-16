@@ -4,16 +4,11 @@ import {fn} from '@storybook/test';
 
 import {Picture, Button} from '@/lib';
 
-import {
-    TransitionFade,
-    TransitionSlideBottom,
-    TransitionSlideRight,
-    TransitionSlideLeft,
-} from './index.ts';
+import {TransitionSlideBottom, TransitionSlideRight, TransitionSlideLeft} from './index.ts';
 
 const meta = {
     title: 'Internal/Transitions',
-    component: TransitionFade,
+    component: TransitionSlideBottom,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
@@ -60,39 +55,11 @@ const meta = {
             },
         },
     },
-} as Meta<typeof TransitionFade>;
+} as Meta<typeof TransitionSlideBottom>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
-export const Fade: Story = {
-    render: args => {
-        const ref = useRef(null);
-        const [visible, setVisible] = useState(true);
-        const handleClick = useCallback(() => {
-            setVisible(!visible);
-        }, [visible]);
-        const transitionName = visible ? 'exit' : 'enter';
-        return (
-            <div>
-                <div style={{marginBottom: 32}}>
-                    <Button onClick={handleClick}>Trigger {transitionName} transition</Button>
-                </div>
-                <TransitionFade {...args} show={visible} nodeRef={ref}>
-                    <Picture
-                        ref={ref}
-                        src="https://picsum.photos/333/333"
-                        width={333}
-                        height={333}
-                        alt="Image description"
-                    />
-                </TransitionFade>
-            </div>
-        );
-    },
-    args: {},
-};
 
 export const SlideBottom: Story = {
     render: args => {
