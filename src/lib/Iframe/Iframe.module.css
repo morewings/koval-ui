@@ -1,0 +1,25 @@
+.vars {
+    --width: 0px;
+    --height: 0px;
+}
+
+.size-container {
+    height: calc(var(--height) * 1px);
+    max-height: 100%;
+    max-width: 100%;
+    width: calc(var(--width) * 1px);
+}
+
+.ratio-container {
+    padding-top: calc((var(--height) / var(--width)) * 100%);
+    position: relative;
+    width: 100%;
+}
+
+.iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
