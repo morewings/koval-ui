@@ -81,6 +81,10 @@ export type Props = DataAttributes &
          * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/allow
          */
         permissions: PermissionsConfig;
+        /**
+         * Enable to render border around iframe
+         */
+        showBorder?: boolean;
     };
 
 export const Iframe = forwardRef<HTMLIFrameElement, Props>(
@@ -100,6 +104,7 @@ export const Iframe = forwardRef<HTMLIFrameElement, Props>(
             sandbox: sandboxProp,
             permissions: permissionsProp,
             onLoad = () => {},
+            showBorder = true,
             ...nativeProps
         },
         ref
@@ -123,25 +128,27 @@ export const Iframe = forwardRef<HTMLIFrameElement, Props>(
 
         const {LocalRoot} = useLocalTheme();
         return (
-            <LocalRoot theme={theme} className={classes.sizeContainer}>
-                <div className={classes.ratioContainer}>
-                    <iframe
-                        {...nativeProps}
-                        className={classNames(classes.iframe, className)}
-                        ref={ref}
-                        onLoad={onLoad}
-                        loading={loading}
-                        name={name}
-                        width={width}
-                        height={height}
-                        src={src}
-                        title={title}
-                        srcDoc={srcDoc}
-                        allow={permissions}
-                        referrerPolicy={referrerPolicy}
-                        allowFullScreen={allowFullScreen}
-                        sandbox={sandbox}
-                    />
+            <LocalRoot theme={theme} className={classNames({[classes.frame]: showBorder})}>
+                <div className={classes.sizeContainer}>
+                    <div className={classes.ratioContainer}>
+                        <iframe
+                            {...nativeProps}
+                            className={classNames(classes.iframe, className)}
+                            ref={ref}
+                            onLoad={onLoad}
+                            loading={loading}
+                            name={name}
+                            width={width}
+                            height={height}
+                            src={src}
+                            title={title}
+                            srcDoc={srcDoc}
+                            allow={permissions}
+                            referrerPolicy={referrerPolicy}
+                            allowFullScreen={allowFullScreen}
+                            sandbox={sandbox}
+                        />
+                    </div>
                 </div>
             </LocalRoot>
         );

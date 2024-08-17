@@ -12,6 +12,7 @@ const meta = {
     },
     args: {
         onLoad: fn(),
+        showBorder: false,
     },
     argTypes: {
         className: {

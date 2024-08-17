@@ -3,6 +3,13 @@
     --height: 0px;
 }
 
+.frame {
+    border: calc(var(--kg-size-unit)) solid var(--kg-background-100);
+    border-radius: var(--kg-border-radius-300);
+    border-top-width: calc(var(--kg-size-unit) * 4);
+    width: min-content;
+}
+
 .size-container {
     height: calc(var(--height) * 1px);
     max-height: 100%;
@@ -17,6 +24,7 @@
 }
 
 .iframe {
+    border: none;
     height: 100%;
     left: 0;
     position: absolute;
