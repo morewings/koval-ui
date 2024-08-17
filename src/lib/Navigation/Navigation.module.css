@@ -8,6 +8,11 @@
     justify-content: space-between;
     padding: calc(var(--kg-size-unit) * 2) calc(var(--kg-size-unit) * 4);
     width: 100%;
+
+    &.sticky {
+        position: sticky;
+        top: 0;
+    }
 }
 
 .name {
