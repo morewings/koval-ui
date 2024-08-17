@@ -16,6 +16,11 @@ const meta = {
         showEllipsis: false,
     },
     argTypes: {
+        linkComponent: {
+            table: {
+                disable: true,
+            },
+        },
         className: {
             table: {
                 disable: true,
