@@ -4,7 +4,7 @@ import {forwardRef, Fragment} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import {useMatchMedia} from '@/internal/hooks/useMatchMedia.tsx';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {IconMenu} from '@/internal/Icons';
 import {Drawer, useDrawerState} from '@/lib/Drawer';
 
@@ -19,8 +19,8 @@ export type Props = DataAttributes &
     LibraryProps & {
         children?: ReactNode;
         layout?: keyof typeof Layouts;
-        collapsible?: boolean;
-        collapsibleLabel?: string;
+        collapsedLabel?: string;
+        collapsed?: boolean;
     };
 
 export const NavList = forwardRef<HTMLDivElement, Props>(
@@ -29,14 +29,15 @@ export const NavList = forwardRef<HTMLDivElement, Props>(
             children,
             className,
             layout = Layouts.vertical,
-            collapsible = true,
-            collapsibleLabel = 'Toggle menu',
+            collapsedLabel = 'Toggle menu',
+            collapsed: collapsedProp,
             ...nativeProps
         },
         ref
     ) => {
-        const isBigScreen = useMatchMedia('(width >= 640px)');
-        const collapsed = collapsible && !isBigScreen && layout === Layouts.horizontal;
+        // const isBigScreen = useMatchMedia('(width >= 640px)');
+        const internalRef = useInternalRef(ref);
+        const collapsed = collapsedProp && layout === Layouts.horizontal;
         const {openDrawer, isOpen, closeDrawer} = useDrawerState('foo');
         const handleClick = useCallback(() => {
             !isOpen && openDrawer();
@@ -48,14 +49,14 @@ export const NavList = forwardRef<HTMLDivElement, Props>(
                     type="button"
                     onClick={handleClick}
                     className={classes.buttonCollapsible}
-                    aria-label={collapsibleLabel}>
+                    aria-label={collapsedLabel}>
                     <IconMenu className={classes.iconCollapsible} />
                 </button>
                 <Drawer id="foo">
                     <div
                         {...nativeProps}
                         className={classNames(classes.navList, classes.vertical, className)}
-                        ref={ref}>
+                        ref={internalRef}>
                         {children}
                     </div>
                 </Drawer>
@@ -72,7 +73,7 @@ export const NavList = forwardRef<HTMLDivElement, Props>(
                     },
                     className
                 )}
-                ref={ref}>
+                ref={internalRef}>
                 {children}
             </div>
         );

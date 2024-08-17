@@ -82,6 +82,7 @@
     "classnames": "^2.5.1",
     "css-vars-hook": "^0.7.6",
     "the-new-css-reset": "^1.11.2",
+    "use-debounce": "^10.0.3",
     "yup": "^1.4.0"
   },
   "devDependencies": {

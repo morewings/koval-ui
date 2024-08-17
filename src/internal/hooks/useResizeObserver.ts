@@ -1,6 +1,6 @@
 import {useSafeLayoutEffect} from './useSafeLayoutEffect.ts';
 
-/** Triggers callback when element resizes */
+/** Triggers callback when the element resizes */
 export const useResizeObserver = <TElement extends HTMLElement>(
     element: TElement | null | undefined,
     onResize: (element?: TElement | null) => void

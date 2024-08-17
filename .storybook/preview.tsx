@@ -1,9 +1,9 @@
 import type {Preview} from '@storybook/react';
 // import {withThemeProvider} from 'storybook-addon-theme-provider';
 
-import {theme as themePodil} from '../src/lib/Theme/themePodil.ts';
-import {theme as themeDnipro} from '../src/lib/Theme/themeDnipro.ts';
-import {Provider} from './../src/lib/Provider/Provider.tsx';
+import {theme as themePodil} from '../src/lib/Theme/themePodil';
+import {theme as themeDnipro} from '../src/lib/Theme/themeDnipro';
+import {Provider} from './../src/lib/Provider/Provider';
 import {withThemeProvider} from './../src/env/theme-playground/ThemeSwitcherTool';
 
 import '@/lib/CSSReset/reset.css';
