@@ -69,3 +69,5 @@ export {Drawer, useDrawerState} from './Drawer';
 export {Breadcrumbs} from './Breadcrumbs';
 export {ButtonGroup} from './ButtonGroup';
 export {SkeletonShape, SkeletonAction, SkeletonFrame, SkeletonText} from './Skeleton';
+export {Iframe} from './Iframe';
+export type {PermissionsConfig, SandboxConfig} from './Iframe';
