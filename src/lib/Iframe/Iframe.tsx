@@ -74,13 +74,13 @@ export type Props = DataAttributes &
         /**
          * Provide a callback to capture iframe loaded event.
          */
-        onLoad: (event: SyntheticEvent<HTMLIFrameElement>) => void;
+        onLoad?: (event: SyntheticEvent<HTMLIFrameElement>) => void;
         /**
          * Provide a PermissionsConfig object.
          * @see PermissionsConfig
          * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/allow
          */
-        permissions: PermissionsConfig;
+        permissions?: PermissionsConfig;
         /**
          * Enable to render border around iframe
          */
