@@ -32,7 +32,7 @@ export type Props = DataAttributes &
          * import Link from 'next/link'
          * <Breadcrumbs linkComponent={Link} />
          */
-        linkComponent: FC<LinkProps & unknown>;
+        linkComponent?: FC<LinkProps & unknown>;
     };
 
 const conditionallyAddEllipsis = (items: JSX.Element[], showEllipsis: boolean) => {
