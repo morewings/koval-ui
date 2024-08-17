@@ -12,12 +12,19 @@ import {NavBrand} from './NavBrand.tsx';
 
 export type Props = DataAttributes &
     LibraryProps & {
+        /**
+         * Provide a site/app name to render inside the panel on the left
+         */
         name?: string;
         children?: ReactNode;
+        /**
+         * Enable to make the panel sticky
+         */
+        sticky?: boolean;
     };
 
 export const NavPanel = forwardRef<HTMLDivElement, Props>(
-    ({children, className, name = 'Koval App', ...nativeProps}, ref) => {
+    ({children, className, name = 'Koval App', sticky, ...nativeProps}, ref) => {
         const internalRef = useInternalRef(ref);
         const {overflowX} = useIsOverflow(internalRef);
         const childrenWithProps = useMemo(
@@ -30,7 +37,7 @@ export const NavPanel = forwardRef<HTMLDivElement, Props>(
         return (
             <div
                 {...nativeProps}
-                className={classNames(classes.navPanel, className)}
+                className={classNames(classes.navPanel, {[classes.sticky]: sticky}, className)}
                 ref={internalRef}>
                 {name && <NavBrand>{name}</NavBrand>}
                 {childrenWithProps}
