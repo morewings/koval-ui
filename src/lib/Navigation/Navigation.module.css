@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    max-width: 100%;
     padding: calc(var(--kg-size-unit) * 2) calc(var(--kg-size-unit) * 4);
     width: 100%;
 }
@@ -98,6 +97,7 @@
     position: relative;
     text-shadow: var(--kg-text-shadow);
     user-select: none;
+    white-space: nowrap;
 
     &:hover {
         --base-color: var(--hover-color);

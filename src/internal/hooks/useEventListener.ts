@@ -4,14 +4,21 @@ export enum EventType {
     keydown = 'keydown',
     mousedown = 'mousedown',
     animationend = 'animationend',
+    resize = 'resize',
 }
 
+/**
+ * Utility hook to subscribe to browser events.
+ * @param eventType - Select an event to subscribe to
+ * @param callback - Event callback function
+ * @param element - Provide an HTMLElement to attach event handlers. Optional, defaults to window
+ */
 export const useEventListener = <TEvent, TElement extends HTMLElement | null>(
     eventType: keyof typeof EventType,
     callback: (event: TEvent) => void,
-    elementProp?: TElement
+    element?: TElement
 ) => {
-    const element = elementProp ?? window;
+    const targetElement = element ?? window;
     const callbackRef = useRef(callback);
 
     useEffect(() => {
@@ -19,11 +26,11 @@ export const useEventListener = <TEvent, TElement extends HTMLElement | null>(
     }, [callback]);
 
     useEffect(() => {
-        if (element == null) return;
+        if (targetElement == null) return;
         const handler = ((e: TEvent) =>
             callbackRef.current(e)) as unknown as EventListenerOrEventListenerObject;
-        element.addEventListener(eventType, handler);
+        targetElement.addEventListener(eventType, handler);
 
-        return () => element.removeEventListener(eventType, handler);
-    }, [eventType, element]);
+        return () => targetElement.removeEventListener(eventType, handler);
+    }, [eventType, targetElement]);
 };
