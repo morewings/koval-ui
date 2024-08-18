@@ -24,3 +24,10 @@
     top: 0;
     width: 100%;
 }
+
+.loader {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+}

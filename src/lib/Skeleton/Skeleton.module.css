@@ -23,7 +23,7 @@
 }
 
 .skeleton-shape {
-    --loading-color: color-mix(in srgb, var(--kg-color-sol) 11%, transparent);
+    --loading-color: color-mix(in srgb, var(--kg-color-sol) 11%, var(--kg-background-000));
 
     animation: var(--kg-time-xl) loading ease-in-out infinite;
     background: linear-gradient(

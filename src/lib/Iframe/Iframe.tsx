@@ -4,12 +4,15 @@ import type {
     IframeHTMLAttributes,
     SyntheticEvent,
 } from 'react';
+import {useCallback} from 'react';
+import {useState} from 'react';
 import {useMemo} from 'react';
 import {forwardRef} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
+import {SkeletonShape} from '@/lib/Skeleton';
 
 import classes from './Iframe.module.css';
 import type {SandboxConfig, PermissionsConfig} from './types.ts';
@@ -104,6 +107,16 @@ export const Iframe = forwardRef<HTMLIFrameElement, Props>(
         },
         ref
     ) => {
+        const [isLoaded, setIsLoaded] = useState(false);
+
+        const handleLoad = useCallback(
+            (event: SyntheticEvent<HTMLIFrameElement>) => {
+                onLoad(event);
+                setIsLoaded(true);
+            },
+            [onLoad]
+        );
+
         const sandbox =
             sandboxProp &&
             Object.entries(sandboxProp)
@@ -129,7 +142,7 @@ export const Iframe = forwardRef<HTMLIFrameElement, Props>(
                         {...nativeProps}
                         className={classNames(classes.iframe, className)}
                         ref={ref}
-                        onLoad={onLoad}
+                        onLoad={handleLoad}
                         loading={loading}
                         name={name}
                         width={width}
@@ -142,6 +155,14 @@ export const Iframe = forwardRef<HTMLIFrameElement, Props>(
                         allowFullScreen={allowFullScreen}
                         sandbox={sandbox}
                     />
+                    {!isLoaded && (
+                        <SkeletonShape
+                            width={width}
+                            height={height}
+                            borderRadius={0}
+                            className={classes.loader}
+                        />
+                    )}
                 </div>
             </LocalRoot>
         );
