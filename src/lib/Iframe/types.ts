@@ -81,7 +81,7 @@ export type SandboxConfig = {
     'allow-top-navigation-to-custom-protocols'?: boolean;
 };
 
-export type Permission = `https://${string}` | 'self' | '*' | 'src' | 'none' | true;
+export type Permission = `https://${string}` | 'self' | '*' | 'src' | 'none' | boolean;
 
 export type PermissionsConfig = {
     /**
@@ -97,7 +97,7 @@ export type PermissionsConfig = {
      */
     'ambient-light-sensor'?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the Attribution Reporting API.
+     * Responsible for the Attribution Reporting API.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/attribution-reporting
      */
     'attribution-reporting'?: Permission | Permission[];
@@ -140,7 +140,7 @@ export type PermissionsConfig = {
      */
     'document-domain'?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the Encrypted Media Extensions API (EME).
+     * Responsible for the Encrypted Media Extensions API (EME).
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/encrypted-media
      */
     'encrypted-media'?: Permission | Permission[];
@@ -150,12 +150,12 @@ export type PermissionsConfig = {
      */
     fullscreen?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the Gamepad API.
+     * Responsible for the Gamepad API.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/gamepad
      */
     gamepad?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the Geolocation Interface.
+     * Responsible for the Geolocation Interface.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/geolocation
      */
     geolocation?: Permission | Permission[];
@@ -166,20 +166,19 @@ export type PermissionsConfig = {
      */
     gyroscope?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the WebHID API
+     * Responsible for the WebHID API
      * to connect to uncommon or exotic human interface devices such as alternative keyboards or gamepads.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/hid
      */
     hid?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the Federated Credential Management API (FedCM),
-     * and more specifically the navigator.credentials.get() method with an identity option.
+     * Responsible for the Federated Credential Management API (FedCM),
+     * and more specifically, the navigator.credentials.get() method with an identity option.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/identity-credentials-get
      */
     'identity-credentials-get'?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed
-     * to use the Idle Detection API to detect when users are interacting with their devices,
+     * Responsible for the Idle Detection API to detect when users are interacting with their devices,
      * for example, to report "available"/"away" status in chat applications.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/idle-detection
      */
@@ -203,18 +202,18 @@ export type PermissionsConfig = {
      */
     microphone?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the Web MIDI API.
+     * Responsible for the Web MIDI API.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/midi
      */
     midi?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the WebOTP API to request a one-time password
+     * Responsible for the WebOTP API to request a one-time password
      * (OTP) from a specially formatted SMS message sent by the app's server
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/otp-credentials
      */
     'otp-credentials'?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the Payment Request API.
+     * Responsible for the Payment Request API.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/payment
      */
     payment?: Permission | Permission[];
@@ -243,14 +242,14 @@ export type PermissionsConfig = {
      */
     'screen-wake-lock'?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the Web Serial API to communicate with serial devices,
+     * Responsible for the Web Serial API to communicate with serial devices,
      * either directly connected via a serial port, or via USB or Bluetooth devices emulating a serial port.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/serial
      */
     serial?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the Audio Output Devices API to list and select speakers.
-     * @see Controls whether the iframe is allowed to use the Audio Output Devices API to list and select speakers.
+     * Responsible for the Audio Output Devices API to list and select speakers.
+     * @see Responsible for the Audio Output Devices API to list and select speakers.
      */
     'speaker-selection'?: Permission | Permission[];
     /**
@@ -259,12 +258,12 @@ export type PermissionsConfig = {
      */
     'storage-access'?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the WebUSB API.
+     * Responsible for the WebUSB API.
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/usb
      */
     usb?: Permission | Permission[];
     /**
-     * Controls whether the iframe is allowed to use the Navigator.share() of Web Share API
+     * Responsible for the Navigator.share() of Web Share API
      * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/web-share
      */
     'web-share'?: Permission | Permission[];

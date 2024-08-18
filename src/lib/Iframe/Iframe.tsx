@@ -73,7 +73,7 @@ export type Props = DataAttributes &
          * @see SandboxConfig
          * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/sandbox
          */
-        sandbox?: SandboxConfig;
+        sandboxConfig?: SandboxConfig;
         /**
          * Provide a callback to capture iframe loaded event.
          */
@@ -83,7 +83,7 @@ export type Props = DataAttributes &
          * @see PermissionsConfig
          * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/allow
          */
-        permissions?: PermissionsConfig;
+        permissionsConfig?: PermissionsConfig;
     };
 
 export const Iframe = forwardRef<HTMLIFrameElement, Props>(
@@ -100,8 +100,8 @@ export const Iframe = forwardRef<HTMLIFrameElement, Props>(
             title,
             srcDoc,
             loading,
-            sandbox: sandboxProp,
-            permissions: permissionsProp,
+            sandboxConfig,
+            permissionsConfig,
             onLoad = () => {},
             ...nativeProps
         },
@@ -118,13 +118,13 @@ export const Iframe = forwardRef<HTMLIFrameElement, Props>(
         );
 
         const sandbox =
-            sandboxProp &&
-            Object.entries(sandboxProp)
+            sandboxConfig &&
+            Object.entries(sandboxConfig)
                 .filter(([_, value]) => value)
                 .map(([key]) => key)
                 .join(' ');
 
-        const permissions = permissionsProp && convertPermissions(permissionsProp);
+        const allow = permissionsConfig && convertPermissions(permissionsConfig);
 
         const theme = useMemo(
             () => ({
@@ -150,7 +150,7 @@ export const Iframe = forwardRef<HTMLIFrameElement, Props>(
                         src={src}
                         title={title}
                         srcDoc={srcDoc}
-                        allow={permissions}
+                        allow={allow}
                         referrerPolicy={referrerPolicy}
                         allowFullScreen={allowFullScreen}
                         sandbox={sandbox}

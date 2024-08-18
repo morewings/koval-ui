@@ -15,6 +15,7 @@ const normalizeValue = (value: string | boolean) => {
 
 export const convertPermissions = (permissions: PermissionsConfig) => {
     return Object.entries(permissions)
+        .filter(([_, value]) => value !== false)
         .map(([key, value]) => (Array.isArray(value) ? [key, value] : [key, [value]]))
         .map(([key, value]) => {
             return [key, (value as Permission[]).map(normalizeValue).join(' ')];
