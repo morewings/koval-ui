@@ -10,7 +10,7 @@
 
 [![NPM library Create React App template logo](./design/logo.png)](#)
 
-Koval UI is component library built for modern browsers. Each component tries to utilize built in browser APIs to full extent.
+Koval UI is a React component library built for modern browsers. Each component tries to utilize built-in browser APIs to full extent.
 
 ## Features
 
