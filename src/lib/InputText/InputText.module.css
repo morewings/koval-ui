@@ -23,6 +23,7 @@
     border-radius: var(--kg-border-radius-300);
     color: var(--kg-text-color);
     font-size: var(--kg-font-size-medium);
+    font-variant-numeric: tabular-nums;
     max-width: 100%;
     min-width: 0;
     padding: var(--kg-size-unit) calc(var(--kg-size-unit) * 1.5);

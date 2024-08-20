@@ -22,15 +22,14 @@
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    font-family: var(--kg-font-family-monospace);
     font-size: var(--kg-font-size-small);
+    font-variant-numeric: tabular-nums;
     font-weight: var(--kg-font-weight-bold);
     height: 24px;
     justify-content: center;
     letter-spacing: 0.8px;
     min-width: 24px;
     padding: 0 6px;
-    transition: background-color var(--kg-time-sm) ease-in-out;
 
     &:hover {
         background: var(--kg-color-do);

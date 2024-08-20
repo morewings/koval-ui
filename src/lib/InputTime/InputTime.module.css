@@ -26,6 +26,7 @@
     flex-shrink: 0;
     font-family: var(--kg-font-family);
     font-size: var(--kg-font-size-medium);
+    font-variant-numeric: tabular-nums;
     font-weight: var(--kg-font-weight-bolder);
     height: var(--kg-input-height);
     line-height: var(--kg-font-size-medium);

@@ -25,16 +25,14 @@
     color: var(--kg-text-color);
     flex-grow: 0;
     font-size: var(--kg-font-size-medium);
+    font-variant-numeric: tabular-nums;
     max-width: calc(100% - var(--validation-icon-placeholder));
     min-width: 0;
     padding: var(--kg-size-unit) calc(var(--kg-size-unit) * 1.5);
     transition:
         background-color var(--kg-time-sm) ease-in-out,
         border-color var(--kg-time-sm) ease-in-out;
-
-    @supports (background: -webkit-named-image(i)) {
-        width: calc(var(--size) * 1ch);
-    }
+    width: calc(var(--size) * 1ch);
 
     &:last-child {
         margin-right: var(--validation-icon-placeholder);
