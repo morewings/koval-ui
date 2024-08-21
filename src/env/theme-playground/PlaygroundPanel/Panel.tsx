@@ -5,17 +5,14 @@ import React, {useCallback, useEffect} from 'react';
 import {useChannel} from '@storybook/manager-api';
 import {AddonPanel, ActionBar} from '@storybook/components';
 import {useAddonState} from '@storybook/manager-api';
+import type {Addon_RenderOptions} from '@storybook/types';
 
 import {useGlobalThemesManager} from './../useGlobalThemes.ts';
 import {EVENTS} from '../constants';
 import {Playground} from './Playground';
 import {ADDON_ID} from '../constants';
 
-type PanelProps = {
-    active: boolean;
-};
-
-export const Panel: FC<PanelProps> = props => {
+export const Panel: FC<Partial<Addon_RenderOptions>> = props => {
     const [theme, setTheme] = useAddonState(ADDON_ID, {});
 
     const {themes, selectedTheme} = useGlobalThemesManager();
@@ -50,7 +47,7 @@ export const Panel: FC<PanelProps> = props => {
     }, [emit]);
 
     return (
-        <AddonPanel {...props}>
+        <AddonPanel active={Boolean(props.active)}>
             <Playground
                 vanillaTheme={vanillaTheme}
                 theme={theme}
