@@ -12,8 +12,8 @@ importers:
         specifier: ^2.0.8
         version: 2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@material-symbols/svg-700':
-        specifier: ^0.21.0
-        version: 0.21.2
+        specifier: ^0.22.0
+        version: 0.22.2
       awesome-debounce-promise:
         specifier: ^2.1.0
         version: 2.1.0
@@ -1650,8 +1650,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@material-symbols/svg-700@0.21.2':
-    resolution: {integrity: sha512-bzpMcrz4rmQ7gd7/psrvhRIcbTSu+o2/x4JZDc2uekCG8Y3N2T+ak3/bmdpgVSAAu6CIPrYwNhFPHWqXIbwinw==}
+  '@material-symbols/svg-700@0.22.2':
+    resolution: {integrity: sha512-bpQhbOMFRKqXOOAl9Gly/Hz0fezEZDhPvVZVOvZaADnefVIB5xT6fbCyVFv8DC+781VD0daZtnFQ2T/Gm2CC+g==}
 
   '@mdx-js/react@3.0.1':
     resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
@@ -9062,7 +9062,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@material-symbols/svg-700@0.21.2': {}
+  '@material-symbols/svg-700@0.22.2': {}
 
   '@mdx-js/react@3.0.1(@types/react@18.3.4)(react@18.3.1)':
     dependencies:
