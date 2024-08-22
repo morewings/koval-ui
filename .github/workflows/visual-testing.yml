@@ -2,11 +2,6 @@ name: Visual Testing
 
 on:
   push:
-    branches:
-      - master
-      - 'fix/**'
-      - 'feat/**'
-      - 'refactor/**'
 
 jobs:
   chromatic:
@@ -60,7 +55,7 @@ jobs:
           buildScriptName: "build:docs"
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           onlyChanged: true
-          skip: "@(chore/**|docs/**)"
+          skip: "renovate/**"
           exitOnceUploaded: true
           autoAcceptChanges: "master"
           exitZeroOnChanges: true
