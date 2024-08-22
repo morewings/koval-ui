@@ -78,7 +78,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.8",
-    "@material-symbols/svg-700": "^0.21.0",
+    "@material-symbols/svg-700": "^0.22.0",
     "awesome-debounce-promise": "^2.1.0",
     "classnames": "^2.5.1",
     "css-vars-hook": "^0.7.6",
