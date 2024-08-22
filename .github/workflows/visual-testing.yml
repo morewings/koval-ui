@@ -7,6 +7,7 @@ jobs:
   chromatic:
     name: chromatic
     runs-on: ubuntu-latest
+    if: contains(github.actor, 'renovate') == false
     steps:
       - name: Cancel Workflow Action
         uses: styfle/cancel-workflow-action@0.12.1
