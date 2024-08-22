@@ -69,6 +69,7 @@
     "generate:icon": "npx generate-react-cli component --type=icon --flat",
     "commitlint": "commitlint",
     "semantic-release": "semantic-release",
+    "chromatic": "chromatic --exit-zero-on-changes --only-changed",
     "prepare": "is-ci || husky"
   },
   "peerDependencies": {
@@ -122,6 +123,7 @@
     "@vitejs/plugin-react": "4.3.1",
     "@yelo/rollup-node-external": "1.0.1",
     "alias-hq": "6.2.3",
+    "chromatic": "11.7.1",
     "commitizen": "4.3.0",
     "commitlint": "19.3.0",
     "cz-conventional-changelog": "3.3.0",

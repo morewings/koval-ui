@@ -49,6 +49,7 @@ const meta = {
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
+        chromatic: {disableSnapshot: true},
     },
     args: {
         caption: 'This is caption!',
