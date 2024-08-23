@@ -4,7 +4,7 @@ import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
 
-import {IconPalette} from '@/internal/Icons';
+import {IconSwatches} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {
     CallbackPropsTextual,
@@ -143,7 +143,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                         onChange={handleChange}
                         list={hasPredefinedColors ? predefinedColorsListId : undefined}
                     />
-                    <IconPalette className={classNames(classes.icon)} />
+                    <IconSwatches className={classNames(classes.icon)} />
                 </div>
                 <label htmlFor={id} className={classes.label} ref={labelRef}>
                     {displayValue.toLowerCase() || placeholder}

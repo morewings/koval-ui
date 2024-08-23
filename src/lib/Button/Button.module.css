@@ -54,11 +54,11 @@
 }
 
 .content {
+    flex: auto;
     overflow: hidden;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 100%;
 }
 
 /* Variants */
@@ -210,6 +210,7 @@
     --border-width: var(--kg-border-width-200);
 
     letter-spacing: 0.3px;
+    padding: var(--kg-size-unit) calc(var(--kg-size-unit) * 2);
 }
 
 .medium {

@@ -40,3 +40,6 @@ export {IconClear} from './IconClear.tsx';
 export {IconInvertSelection} from './IconInvertSelection.tsx';
 export {IconSortAsc} from './IconSortAsc.tsx';
 export {IconSortDesc} from './IconSortDesc.tsx';
+export {IconSwatches} from './IconSwatches.tsx';
+export {IconNotification} from './IconNotification.tsx';
+export {IconErrorOutline} from './IconErrorOutline.tsx';

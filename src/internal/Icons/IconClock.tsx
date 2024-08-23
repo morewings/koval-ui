@@ -1,5 +1,5 @@
 import type {FC, SVGProps} from 'react';
-import Clock from '@material-symbols/svg-700/sharp/nest_clock_farsight_analog.svg?react';
+import Icon from '@phosphor-icons/core/assets/fill/watch-fill.svg?react';
 import classNames from 'classnames';
 
 import classes from './Icon.module.css';
@@ -9,5 +9,5 @@ type Props = SVGProps<SVGSVGElement> & {
 };
 
 export const IconClock: FC<Props> = ({className, ...restProps}) => {
-    return <Clock className={classNames(classes.icon, className)} {...restProps} />;
+    return <Icon className={classNames(classes.icon, className)} {...restProps} />;
 };

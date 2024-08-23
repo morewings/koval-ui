@@ -6,7 +6,7 @@ import {useRootTheme, useLocalTheme} from 'css-vars-hook';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Portal} from '@/internal/Portal';
-import {IconClose, IconError, IconInfo, IconSuccess, IconWarning} from '@/internal/Icons';
+import {IconClose, IconError, IconSuccess, IconWarning, IconNotification} from '@/internal/Icons';
 import {useInterval} from '@/internal/hooks/useInterval.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import {TransitionSlideBottom} from '@/internal/Transitions';
@@ -31,10 +31,10 @@ export type Props = DataAttributes &
         /** Provide an array of actions with callbacks */
         actions?: (ActionProps | [ActionProps, ActionProps])[];
         /**
-         * Provide Icon component to show instead default one
+         * Provide an Icon component to show instead default one
          */
         icon?: FC;
-        /** Select design variant of Toast to show */
+        /** Select a design variant of Toast to show */
         variant?: keyof typeof Variants;
         /** Provide a main text to display inside Toast */
         title: string;
@@ -72,7 +72,7 @@ export const Toast = forwardRef<HTMLDivElement, Props>(
         const Icon = IconProp
             ? IconProp
             : {
-                  [Variants.default]: IconInfo,
+                  [Variants.default]: IconNotification,
                   [Variants.error]: IconError,
                   [Variants.success]: IconSuccess,
                   [Variants.warning]: IconWarning,

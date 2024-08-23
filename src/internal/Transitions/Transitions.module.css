@@ -6,32 +6,26 @@
 
 @keyframes slide-top {
     0% {
+        filter: blur(36px);
         opacity: 0;
         transform: translateY(-1000px);
     }
 
     100% {
+        filter: blur(0);
         opacity: 1;
         transform: translateY(0);
     }
 }
 
 .slide-top-enter {
-    animation: slide-top var(--kg-time-sm) ease-out both;
-
-    &::backdrop {
-        animation: backdrop-fade var(--kg-time-sm) ease-in both;
-    }
+    animation: slide-top var(--kg-time-sm) cubic-bezier(0.23, 1, 0.32, 1) both;
+    animation-delay: var(--kg-time-xs);
 }
 
 .slide-top-exit {
     animation: slide-top var(--kg-time-sm) ease-out both;
     animation-direction: reverse;
-
-    &::backdrop {
-        animation: backdrop-fade var(--kg-time-sm) ease-in both;
-        animation-direction: reverse;
-    }
 }
 
 /**
@@ -56,13 +50,14 @@
 
 .backdrop-fade-enter {
     &::backdrop {
-        animation: backdrop-fade var(--kg-time-sm) ease-in both;
+        animation: backdrop-fade var(--kg-time-md) ease-in both;
     }
 }
 
 .backdrop-fade-exit {
     &::backdrop {
-        animation: backdrop-fade var(--kg-time-sm) ease-in both;
+        animation: backdrop-fade var(--kg-time-md) ease-in both;
+        animation-delay: var(--kg-time-xs);
         animation-direction: reverse;
     }
 }
@@ -198,4 +193,34 @@
 
 .slide-right-exit-done {
     transform: translate(100%, 0);
+}
+
+/**
+ * ----------------------------------------
+ * animation scale-in
+ * ----------------------------------------
+ */
+
+@keyframes scale-in {
+    0% {
+        filter: blur(36px);
+        opacity: 0;
+        transform: scaleY(0);
+    }
+
+    100% {
+        filter: blur(0);
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+.scale-in-enter {
+    animation: scale-in var(--kg-time-sm) cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation-delay: var(--kg-time-xs);
+}
+
+.scale-in-exit {
+    animation: scale-in var(--kg-time-sm) cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation-direction: reverse;
 }

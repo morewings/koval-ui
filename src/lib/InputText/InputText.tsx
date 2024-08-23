@@ -3,7 +3,7 @@ import {Fragment} from 'react';
 import {forwardRef, useCallback} from 'react';
 import classNames from 'classnames';
 
-import {IconError, IconValid, IconLoader} from '@/internal/Icons';
+import {IconErrorOutline, IconValid, IconLoader} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
 import {
@@ -84,7 +84,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
         useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
 
         const ValidationIcon = {
-            [ValidationState.error]: IconError,
+            [ValidationState.error]: IconErrorOutline,
             [ValidationState.valid]: IconValid,
             [ValidationState.inProgress]: IconLoader,
             [ValidationState.pristine]: Fragment,
