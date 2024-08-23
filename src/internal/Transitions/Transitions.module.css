@@ -6,9 +6,9 @@
 
 @keyframes slide-top {
     0% {
-        filter: blur(36px);
-        opacity: 0;
-        transform: translateY(-1000px);
+        filter: blur(66px);
+        opacity: 0.33;
+        transform: translateY(-666px);
     }
 
     100% {
@@ -24,7 +24,7 @@
 }
 
 .slide-top-exit {
-    animation: slide-top var(--kg-time-sm) ease-out both;
+    animation: slide-top var(--kg-time-sm) ease-in both;
     animation-direction: reverse;
 }
 
@@ -203,7 +203,7 @@
 
 @keyframes scale-in {
     0% {
-        filter: blur(36px);
+        filter: blur(42px);
         opacity: 0;
         transform: scaleY(0);
     }

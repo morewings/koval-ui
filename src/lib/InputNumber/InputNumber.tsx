@@ -58,9 +58,7 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
             typeof nativeProps.min === 'number' ||
             typeof nativeProps.min === 'string' ||
             typeof nativeProps.max === 'number' ||
-            typeof nativeProps.max === 'string' ||
-            typeof step === 'number' ||
-            typeof step === 'string';
+            typeof nativeProps.max === 'string';
 
         const {validateTextual, validity, setValidity} = useValidation({validation, hasValidators});
 

@@ -20,7 +20,9 @@
     width: calc(var(--kg-size-unit) * 77);
 
     &::backdrop {
-        background: color-mix(in srgb, var(--kg-color-do) 33%, transparent);
+        backdrop-filter: blur(6px);
+        background-color: color-mix(in srgb, var(--kg-color-do) 33%, transparent);
+        transition: background-color var(--kg-time-sm) ease-in;
     }
 }
 

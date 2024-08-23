@@ -1,0 +1,24 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {DataTable} from './DataTable.tsx';
+import * as DataTableStories from "./DataTable.stories.tsx";
+
+<Meta title="Components/DataTable" of={DataTableStories} />
+
+# DataTable
+
+## Description
+
+The DataTable component in Koval UI is a highly customizable and accessible table component built using `@tanstack/react-table`. It supports various features such as pagination, sorting, filtering, and row selection, making it easy to manage and display tabular data.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {DataTable} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={DataTable}/>
+

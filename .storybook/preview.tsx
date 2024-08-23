@@ -10,31 +10,31 @@ import '@/lib/CSSReset/reset.css';
 
 const customViewports = {
     viewportXS: {
-        name: 'viewport-xs: 320×568',
+        name: '📱viewport-xs: 320×568',
         styles: {
             width: '320px',
             height: '568px',
         },
     },
     viewportSM: {
-        name: 'viewport-sm: 640×960',
+        name: 'viewport-sm: 768×1024',
         styles: {
-            width: '640px',
-            height: '960px',
+            width: '768px',
+            height: '1024px',
         },
     },
     viewportMD: {
-        name: 'viewport-md: 992×1194',
+        name: 'viewport-md: 1024×768',
         styles: {
-            width: '992px',
-            height: '1194px',
+            width: '1024px',
+            height: '768px',
         },
     },
     viewportLG: {
-        name: 'viewport-lg: 1366×768',
+        name: 'viewport-lg: 1440×900',
         styles: {
-            width: '1366px',
-            height: '768px',
+            width: '1440px',
+            height: '900px',
         },
     },
     viewportXL: {

@@ -1,9 +1,9 @@
-import type {ChangeEvent, FC, SelectHTMLAttributes, FocusEvent, ReactNode} from 'react';
-import {forwardRef, useCallback, useState, useMemo} from 'react';
+import type {ChangeEvent, FC, SelectHTMLAttributes, ReactNode} from 'react';
+import {forwardRef, useCallback, useMemo} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
 
-import {IconExpand, IconCollapse} from '@/internal/Icons';
+import {IconExpand} from '@/internal/Icons';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {
     NativePropsInteractive,
@@ -17,11 +17,6 @@ import {useInternalId} from '@/internal/hooks/useInternalId.ts';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './Select.module.css';
-
-enum DropdownState {
-    open = 'open',
-    close = 'close',
-}
 
 export type Props = DataAttributes &
     LibraryProps &
@@ -90,29 +85,6 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
 
         const selectId = useInternalId(id);
 
-        const [dropdownState, setDropdownState] = useState<keyof typeof DropdownState>('close');
-
-        const Icon = {
-            [DropdownState.close]: IconCollapse,
-            [DropdownState.open]: IconExpand,
-        }[dropdownState];
-
-        const handleFocus = useCallback(
-            (event: FocusEvent<HTMLSelectElement>) => {
-                onFocus(event);
-                setDropdownState(DropdownState.close);
-            },
-            [onFocus, setDropdownState]
-        );
-
-        const handleBlur = useCallback(
-            (event: FocusEvent<HTMLSelectElement>) => {
-                onBlur(event);
-                setDropdownState(DropdownState.open);
-            },
-            [onBlur, setDropdownState]
-        );
-
         return (
             <LocalRoot theme={theme} className={classNames(classes.wrapper, className)}>
                 {Prefix && (
@@ -130,15 +102,15 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                         disabled={disabled}
                         value={value}
                         onChange={handleChange}
-                        onBlur={handleBlur}
-                        onFocus={handleFocus}
+                        onFocus={onFocus}
+                        onBlur={onBlur}
                         onKeyUp={onKeyUp}
                         onKeyDown={onKeyDown}
                         onInvalid={handleInvalid}
                         onInput={validateTextual}>
                         {children}
                     </select>
-                    {!multiple && <Icon className={classes.icon} />}
+                    {!multiple && <IconExpand className={classes.icon} />}
                 </div>
                 {validity && <ValidationIcon className={classes.validation} />}
             </LocalRoot>

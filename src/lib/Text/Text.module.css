@@ -310,74 +310,67 @@
 
 /* Used only in Table component */
 .table-wrapper {
-    overflow-x: auto;
-    width: 100%;
+    max-height: 100vh;
+    max-width: 100%;
+    overflow: auto;
+    width: min-content;
+
+    @supports (max-height: 100dvh) {
+        max-height: 100dvh;
+    }
 }
 
 .table,
 .text table {
-    border: var(--kg-border-width-200) solid var(--kg-background-000);
-    border-collapse: collapse;
+    border: none;
+    border-collapse: separate;
+    border-spacing: 0 0;
     color: var(--kg-text-color);
     font-size: var(--kg-font-size-small);
     table-layout: auto;
-    width: 100%;
-
-    &:not(:last-child) {
-        margin-bottom: calc(var(--kg-size-unit) * 2);
-    }
+    width: min-content;
 
     & > tr:hover td,
     & > *:not(tfoot) tr:hover td {
-        background-color: var(--kg-color-la);
+        background-color: var(--kg-color-mi);
     }
 
     & th,
     & td {
-        border: var(--kg-border-width-100) solid var(--kg-background-100);
+        border-bottom: var(--kg-border-width-100) solid var(--kg-background-100);
+        border-right: var(--kg-border-width-100) solid var(--kg-background-100);
         color: var(--kg-text-color);
-        min-width: 166px;
-        padding: 12px;
+        padding: calc(var(--kg-size-unit) * 2);
         transition: background-color var(--kg-time-sm) ease-in-out;
+
+        &:first-child {
+            border-left: var(--kg-border-width-100) solid var(--kg-background-100);
+        }
     }
 
     & th {
-        background: var(--kg-color-re);
+        background: var(--kg-color-do);
         color: var(--kg-background-000);
         font-weight: var(--kg-font-weight-bolder);
         letter-spacing: 0.3px;
-
-        &:first-of-type {
-            border-radius: var(--kg-border-radius-500) 0 0 0;
-        }
-
-        &:last-of-type {
-            border-radius: 0 var(--kg-border-radius-500) 0 0;
-        }
+        text-shadow: var(--kg-text-shadow);
+        white-space: nowrap;
     }
 
     & td {
         background: var(--kg-background-000);
     }
 
-    & tfoot td {
+    & tfoot th {
         background: var(--kg-color-sol);
         color: var(--kg-background-000);
         font-weight: var(--kg-font-weight-bold);
         letter-spacing: 0.3px;
-
-        &:first-of-type {
-            border-radius: 0 0 0 var(--kg-border-radius-500);
-        }
-
-        &:last-of-type {
-            border-radius: 0 0 var(--kg-border-radius-500) 0;
-        }
     }
 
     & caption {
         font-size: var(--kg-font-size-large);
-        padding: 12px 0;
+        padding: calc(var(--kg-size-unit) * 2) 0;
     }
 }
 

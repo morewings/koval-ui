@@ -73,3 +73,21 @@ export {Iframe} from './Iframe';
 export type {PermissionsConfig, SandboxConfig} from './Iframe';
 export {NumberCurrency, NumberDecimal, NumberPercent, NumberUnit} from './Number';
 export {DateTime} from './DateTime';
+export {DataTable, ProcessingModes, RenderModes, ColumnTypes, SortingModes} from './DataTable';
+export type {
+    TableData,
+    EditState,
+    Column,
+    CellComponent,
+    SortingFn,
+    ColumnFormatOptions,
+    FooterCell,
+    HeaderCell,
+    FilterInput,
+    AccessorFn,
+    ColumnPinningState,
+    PaginationState,
+    ColumnFiltersState,
+    RowSelectionState,
+    SortingState,
+} from './DataTable';

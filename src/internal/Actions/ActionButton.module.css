@@ -1,11 +1,14 @@
 @import url("@/lib/Layout/customMedia.css");
+@import url("@/internal/inputs/stateSelectorsInteractive.css");
+
+@custom-selector :--activeSelector :active:not(:disabled);
 
 .row {
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    @media (--viewport-md) {
+    @media (--viewport-sm) {
         flex-direction: row;
     }
 }
@@ -33,16 +36,21 @@
     user-select: none;
     white-space: nowrap;
 
-    &:hover {
+    &:--hoverSelector {
         background: var(--kg-color-do);
         color: var(--kg-background-000);
     }
 
-    &:focus-visible:not(:hover) {
+    &:--focusSelector {
         color: var(--kg-color-do);
     }
 
-    &:active {
+    &:--disabledSelector {
+        color: var(--kg-background-200);
+        cursor: not-allowed;
+    }
+
+    &:--activeSelector {
         background: var(--kg-color-do);
         color: var(--kg-background-000);
 
@@ -54,7 +62,7 @@
         }
     }
 
-    @media (--viewport-md) {
+    @media (--viewport-sm) {
         &:not(:only-child, :last-child) {
             border-right: 1px solid var(--kg-background-100);
         }

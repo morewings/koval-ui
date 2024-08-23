@@ -9,7 +9,9 @@ import type {NumberProps} from './types.ts';
 import {Styles} from './types.ts';
 import {LocaleMatchers, Notations, CompactDisplayModes, SignDisplayModes} from './types.ts';
 
-export type Props = DataAttributes & LibraryProps & NumberProps;
+export type Props = DataAttributes &
+    LibraryProps &
+    Omit<NumberProps, 'unitDisplay' | 'unit' | 'currency' | 'currencyDisplay' | 'currencySign'>;
 
 export const NumberDecimal = forwardRef<HTMLSpanElement, Props>(
     (
@@ -72,7 +74,11 @@ export const NumberDecimal = forwardRef<HTMLSpanElement, Props>(
         );
         return (
             value && (
-                <span {...nativeProps} className={classNames(classes.number, className)} ref={ref}>
+                <span
+                    {...nativeProps}
+                    title={formattedValue}
+                    className={classNames(classes.number, className)}
+                    ref={ref}>
                     {formattedValue}
                 </span>
             )
