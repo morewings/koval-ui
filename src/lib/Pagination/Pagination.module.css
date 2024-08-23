@@ -4,7 +4,7 @@
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: calc(var(--kg-size-unit) * 4);
     justify-content: center;
     max-width: 100%;
 }
@@ -71,7 +71,7 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    gap: 12px;
+    gap: calc(var(--kg-size-unit) * 2);
     justify-content: center;
 }
 
@@ -79,7 +79,7 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    gap: 3px;
+    gap: var(--kg-size-unit);
     justify-content: center;
 }
 

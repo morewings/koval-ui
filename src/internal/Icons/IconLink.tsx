@@ -1,5 +1,5 @@
 import type {FC, SVGProps} from 'react';
-import Icon from '@material-symbols/svg-700/sharp/link.svg?react';
+import Icon from '@phosphor-icons/core/assets/bold/link-bold.svg?react';
 import classNames from 'classnames';
 
 import classes from './Icon.module.css';

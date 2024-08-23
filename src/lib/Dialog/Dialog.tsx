@@ -12,6 +12,7 @@ import {ActionButton, ActionsTree} from '@/internal/Actions';
 import {TransitionDialog} from './TransitionDialog.tsx';
 import {useDialogState} from './useDialogState.tsx';
 import classes from './Dialog.module.css';
+import {Animations} from './types.ts';
 
 export type Props = DataAttributes &
     LibraryProps & {
@@ -35,6 +36,8 @@ export type Props = DataAttributes &
         closeLabel?: string;
         /** Enable a focus trap for Dialog */
         trapFocus?: boolean;
+        /** Select Dialog animation style */
+        animation?: keyof typeof Animations;
     };
 
 export const Dialog = forwardRef<HTMLDialogElement, Props>(
@@ -50,6 +53,7 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
             dialogTitle,
             closeLabel = 'Close',
             trapFocus = true,
+            animation = Animations['slide-top'],
             ...nativeProps
         },
         ref
@@ -96,6 +100,7 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
 
         return (
             <TransitionDialog
+                animation={animation}
                 unmountNode={true}
                 show={isOpen}
                 nodeRef={dialogRef}

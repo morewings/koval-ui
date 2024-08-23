@@ -24,6 +24,7 @@ const meta = {
         showCloseButton: true,
         closeLabel: 'Close',
         trapFocus: true,
+        animation: 'slide-top',
     },
     argTypes: {
         className: {
