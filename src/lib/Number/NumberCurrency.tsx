@@ -2,32 +2,16 @@ import {forwardRef, useMemo} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import type {CurrencyCodes} from '@/internal/locale';
 import {useBrowserLocale} from '@/internal/locale';
 import classes from '@/lib/Number/Number.module.css';
 
-import type {NumberProps, CurrencySignModes} from './types.ts';
+import type {NumberProps} from './types.ts';
 import {Styles} from './types.ts';
 import {LocaleMatchers, CurrencyDisplayTypes, SignDisplayModes} from './types.ts';
 
 export type Props = DataAttributes &
     LibraryProps &
-    Omit<NumberProps, 'notation' | 'compactDisplay'> & {
-        /**
-         * Provide ISO 4217 currency code
-         * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currency_2
-         */
-        currency: keyof typeof CurrencyCodes;
-        /**
-         * How to display the currency in currency formatting
-         * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencydisplay
-         */
-        currencyDisplay?: keyof typeof CurrencyDisplayTypes;
-        /**
-         * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencysign
-         */
-        currencySign?: keyof typeof CurrencySignModes;
-    };
+    Omit<NumberProps, 'notation' | 'compactDisplay' | 'unitDisplay' | 'unit'>;
 
 export const NumberCurrency = forwardRef<HTMLSpanElement, Props>(
     (
@@ -95,7 +79,11 @@ export const NumberCurrency = forwardRef<HTMLSpanElement, Props>(
         );
         return (
             value && (
-                <span {...nativeProps} className={classNames(classes.number, className)} ref={ref}>
+                <span
+                    {...nativeProps}
+                    title={formattedValue}
+                    className={classNames(classes.number, className)}
+                    ref={ref}>
                     {formattedValue}
                 </span>
             )

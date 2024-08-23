@@ -1,5 +1,5 @@
 import type {Range} from '@/internal/utils/rangeType.ts';
-import type {Locale} from '@/internal/locale';
+import type {Units, CurrencyCodes, Locale} from '@/internal/locale';
 
 export enum Styles {
     decimal = 'decimal',
@@ -110,6 +110,32 @@ export type NumberProps = {
      * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#signdisplay
      */
     signDisplay?: keyof typeof SignDisplayModes;
+    /**
+     * Provide a unit for the number
+     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2
+     */
+    // Unit specific props
+    unit?: keyof typeof Units;
+    /**
+     * The unit formatting style to use in unit formatting
+     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unitdisplay
+     */
+    unitDisplay?: keyof typeof UnitDisplayModes;
+    // Currency specific props
+    /**
+     * Provide ISO 4217 currency code
+     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currency_2
+     */
+    currency: keyof typeof CurrencyCodes;
+    /**
+     * How to display the currency in currency formatting
+     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencydisplay
+     */
+    currencyDisplay?: keyof typeof CurrencyDisplayTypes;
+    /**
+     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencysign
+     */
+    currencySign?: keyof typeof CurrencySignModes;
 };
 
 export enum CurrencyDisplayTypes {

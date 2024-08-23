@@ -1,0 +1,47 @@
+@import url("@/lib/Layout/customMedia.css");
+
+.dialog {
+    min-height: min-content;
+    width: max-content;
+}
+
+.delete-dialog {
+    min-height: min-content;
+    min-width: max-content;
+    width: calc(var(--kg-size-unit) * 50);
+}
+
+.fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--kg-size-unit) * 3);
+
+    @media (--viewport-sm) {
+        flex-direction: row;
+        gap: calc(var(--kg-size-unit) * 2);
+    }
+}
+
+.field {
+    width: max-content;
+
+    &.value-field {
+        max-width: 100%;
+        width: calc(var(--kg-size-unit) * 39);
+    }
+}
+
+.number-range {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--kg-size-unit) * 3);
+
+    @media (--viewport-sm) {
+        flex-direction: row;
+        gap: 0;
+    }
+
+    & .number-field {
+        width: max-content;
+    }
+}

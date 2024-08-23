@@ -11,7 +11,16 @@ import {LocaleMatchers, SignDisplayModes} from './types.ts';
 
 export type Props = DataAttributes &
     LibraryProps &
-    Omit<NumberProps, 'notation' | 'compactDisplay'>;
+    Omit<
+        NumberProps,
+        | 'notation'
+        | 'compactDisplay'
+        | 'unitDisplay'
+        | 'unit'
+        | 'currency'
+        | 'currencyDisplay'
+        | 'currencySign'
+    >;
 
 export const NumberPercent = forwardRef<HTMLSpanElement, Props>(
     (
@@ -68,7 +77,11 @@ export const NumberPercent = forwardRef<HTMLSpanElement, Props>(
         );
         return (
             value && (
-                <span {...nativeProps} className={classNames(classes.number, className)} ref={ref}>
+                <span
+                    {...nativeProps}
+                    title={formattedValue}
+                    className={classNames(classes.number, className)}
+                    ref={ref}>
                     {formattedValue}
                 </span>
             )

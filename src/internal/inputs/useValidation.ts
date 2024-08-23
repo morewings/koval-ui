@@ -1,4 +1,4 @@
-import type {FormEvent, Dispatch, SetStateAction} from 'react';
+import type {Dispatch, FormEvent, SetStateAction} from 'react';
 import {useCallback, useState} from 'react';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
@@ -111,14 +111,19 @@ export const useValidation = <TEvent extends FormEvent, TElement extends HTMLInp
 
     useHandleFormReset(setValidity);
 
-    // reportValidity gets invoked only if validation is set to custom validator fn
     const reportValidity = useCallback(
         (event: TEvent) => {
             const isValid = (event.target as TElement).reportValidity();
-            const nextValidationState = isValid ? ValidationState.valid : ValidationState.error;
-            hasValidators && setValidity(nextValidationState);
+            const ValidState = hasValidators ? ValidationState.valid : ValidationState.pristine;
+            const nextValidationState = isValid ? ValidState : ValidationState.error;
+            /**
+             * Change state only when input has validators or is in the error state.
+             * This is required to avoid always showing a green checkmark for input without validation.
+             */
+            (hasValidators || validity === ValidationState.error) &&
+                setValidity(nextValidationState);
         },
-        [hasValidators]
+        [hasValidators, validity]
     );
 
     const {createValidatorAsync, createValidatorSync, createValidatorExternal} = useValidatorFn({

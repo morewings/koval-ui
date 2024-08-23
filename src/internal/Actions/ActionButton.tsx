@@ -14,6 +14,7 @@ export type Props = {
     type?: keyof typeof ActionTypes;
     onClick?: (name: MouseEvent<HTMLButtonElement>) => void;
     className?: string;
+    disabled?: boolean;
 };
 
 export const ActionButton: FC<Props> = ({
@@ -22,6 +23,7 @@ export const ActionButton: FC<Props> = ({
     type = 'default',
     onClick = () => {},
     className,
+    disabled,
 }) => {
     const ActionIcon = useMemo(
         () =>
@@ -44,6 +46,7 @@ export const ActionButton: FC<Props> = ({
 
     return (
         <button
+            disabled={disabled}
             title={title}
             onClick={handleClick}
             className={classNames(

@@ -70,12 +70,12 @@ const tableDemo = (
         </tbody>
         <tfoot>
             <tr>
-                <td>Footer content 1</td>
-                <td>Footer content 2</td>
-                <td>Footer content 3</td>
-                <td>Footer content 4</td>
-                <td>Footer content 5</td>
-                <td>Footer content 6</td>
+                <th>Footer content 1</th>
+                <th>Footer content 2</th>
+                <th>Footer content 3</th>
+                <th>Footer content 4</th>
+                <th>Footer content 5</th>
+                <th>Footer content 6</th>
             </tr>
         </tfoot>
     </Fragment>

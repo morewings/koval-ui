@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react';
+import type {MutableRefObject, ReactNode} from 'react';
 import {forwardRef} from 'react';
 import classNames from 'classnames';
 
@@ -9,12 +9,14 @@ import classes from './Text.module.css';
 export type Props = DataAttributes &
     LibraryProps & {
         children: ReactNode;
+        wrapperRef?: MutableRefObject<HTMLDivElement | null>;
+        wrapperClassName?: string;
     };
 
 export const Table = forwardRef<HTMLTableElement, Props>(
-    ({children, className, ...nativeProps}, ref) => {
+    ({children, className, wrapperRef, wrapperClassName, ...nativeProps}, ref) => {
         return (
-            <div className={classes['table-wrapper']}>
+            <div ref={wrapperRef} className={classNames(classes.tableWrapper, wrapperClassName)}>
                 <table {...nativeProps} className={classNames(classes.table, className)} ref={ref}>
                     {children}
                 </table>

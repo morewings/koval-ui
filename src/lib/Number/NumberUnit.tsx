@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {useBrowserLocale} from '@/internal/locale';
 import classes from '@/lib/Number/Number.module.css';
-import type {Units} from '@/internal/locale';
+import {Units} from '@/internal/locale';
 
 import type {NumberProps} from './types.ts';
 import {Styles, UnitDisplayModes} from './types.ts';
@@ -12,18 +12,7 @@ import {LocaleMatchers, Notations, CompactDisplayModes, SignDisplayModes} from '
 
 export type Props = DataAttributes &
     LibraryProps &
-    NumberProps & {
-        /**
-         * Provide a unit for the number
-         * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2
-         */
-        unit: keyof typeof Units;
-        /**
-         * The unit formatting style to use in unit formatting
-         * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unitdisplay
-         */
-        unitDisplay?: keyof typeof UnitDisplayModes;
-    };
+    Omit<NumberProps, 'currency' | 'currencyDisplay' | 'currencySign'>;
 
 export const NumberUnit = forwardRef<HTMLSpanElement, Props>(
     (
@@ -46,7 +35,7 @@ export const NumberUnit = forwardRef<HTMLSpanElement, Props>(
             compactDisplay = CompactDisplayModes.short,
             grouping,
             signDisplay = SignDisplayModes.auto,
-            unit,
+            unit = Units.liter,
             unitDisplay = UnitDisplayModes.short,
             ...nativeProps
         },
@@ -92,7 +81,11 @@ export const NumberUnit = forwardRef<HTMLSpanElement, Props>(
         );
         return (
             value && (
-                <span {...nativeProps} className={classNames(classes.number, className)} ref={ref}>
+                <span
+                    {...nativeProps}
+                    title={formattedValue}
+                    className={classNames(classes.number, className)}
+                    ref={ref}>
                     {formattedValue}
                 </span>
             )
