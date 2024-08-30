@@ -1,0 +1,22 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {NumberCurrency} from './NumberCurrency.tsx';
+import * as NumberCurrencyStories from "./NumberCurrency.stories.tsx";
+
+<Meta title="Typography/Number/Currency" of={NumberCurrencyStories} />
+
+# Currency formatted number
+
+`NumberCurrency` component formats and displays provided `value` as a **currency string**.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {NumberCurrency} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={NumberCurrency} sort="requiredFirst" />
+

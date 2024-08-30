@@ -32,20 +32,14 @@
   },
   "keywords": [
     "react",
-    "template",
-    "react-testing-library",
-    "testing-library",
-    "eslint",
-    "npm",
-    "rollup",
+    "components-library",
+    "css",
+    "layout",
     "stylelint",
-    "library",
-    "package",
-    "vite",
-    "css-modules",
-    "typescript"
+    "typescript",
+    "post-css"
   ],
-  "description": "React components collection with minimalistic design. Supports theming, layout and input validation.",
+  "description": "React components collection with minimalistic design. Supports theming, layout, and input validation.",
   "scripts": {
     "dev": "vite",
     "clean:lib": "rm -rf dist",

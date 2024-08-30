@@ -47,7 +47,7 @@ const meta = {
             },
         },
         actions: {
-            options: ['noActions', 'withActions'], // An array of serializable values
+            options: ['noActions', 'withActions'],
             mapping: {
                 noActions: undefined,
                 withActions: [
@@ -55,11 +55,10 @@ const meta = {
                     {name: 'bar', title: 'Bar Action'},
                     {name: 'bazz', title: 'Bazz Action'},
                 ],
-            }, // Maps serializable option values to complex arg values
+            },
             control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                type: 'radio',
                 labels: {
-                    // 'labels' maps option values to string labels
                     noActions: 'No actions',
                     withActions: 'With actions',
                 },

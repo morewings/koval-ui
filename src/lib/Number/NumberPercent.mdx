@@ -1,0 +1,22 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {NumberPercent} from './NumberPercent.tsx';
+import * as NumberPercentStories from "./NumberPercent.stories.tsx";
+
+<Meta title="Typography/Number/Decimal" of={NumberPercentStories} />
+
+# Percent formatted number
+
+`NumberPercent` component formats and displays provided `value` as a percentage.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {NumberPercent} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={NumberPercent}/>
+
