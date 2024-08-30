@@ -71,3 +71,4 @@ export {ButtonGroup} from './ButtonGroup';
 export {SkeletonShape, SkeletonAction, SkeletonFrame, SkeletonText} from './Skeleton';
 export {Iframe} from './Iframe';
 export type {PermissionsConfig, SandboxConfig} from './Iframe';
+export {NumberCurrency, NumberDecimal, NumberPercent, NumberUnit} from './Number';

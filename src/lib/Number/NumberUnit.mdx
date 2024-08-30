@@ -1,0 +1,22 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {NumberUnit} from './NumberUnit.tsx';
+import * as NumberUnitStories from "./NumberUnit.stories.tsx";
+
+<Meta title="Typography/Number/Decimal" of={NumberUnitStories} />
+
+# Number with localized unit
+
+`NumberUnit` component formats and displays provided `value` as a formatted number and appends one of supported units.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {NumberUnit} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={NumberUnit}/>
+

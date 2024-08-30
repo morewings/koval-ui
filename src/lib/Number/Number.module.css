@@ -1,0 +1,4 @@
+.number {
+    font-size: inherit;
+    font-variant-numeric: tabular-nums;
+}

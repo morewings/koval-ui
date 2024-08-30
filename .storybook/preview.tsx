@@ -56,7 +56,19 @@ const preview: Preview = {
         },
         options: {
             storySort: {
-                order: ['Intro', 'Theme', 'Layout', 'Inputs', 'Typography', 'Components'],
+                method: 'alphabetical',
+                order: [
+                    'Intro',
+                    'Theme',
+                    'Layout',
+                    ['Intro'],
+                    'Inputs',
+                    ['Intro'],
+                    'Typography',
+                    ['Intro'],
+                    'Components',
+                    ['Intro'],
+                ],
             },
         },
         viewport: {viewports: customViewports},

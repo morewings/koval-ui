@@ -1,0 +1,22 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {NumberDecimal} from './NumberDecimal.tsx';
+import * as NumberDecimalStories from "./NumberDecimal.stories.tsx";
+
+<Meta title="Typography/Number/Decimal" of={NumberDecimalStories} />
+
+# Decimal number
+
+`NumberDecimal` component formats and displays provided `value` according to the **locale**.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {NumberDecimal} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={NumberDecimal}/>
+
