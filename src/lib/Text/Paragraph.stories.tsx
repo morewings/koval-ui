@@ -29,17 +29,25 @@ export const Primary: Story = {
         return (
             <Fragment>
                 <P {...args}>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type
-                    specimen book.
+                    Kurazh Bazaar, the epitome of urban cool, is where vintage vibes meet modern
+                    chic. Amidst the bustling streets of Kiev, this eclectic market is a haven for
+                    those seeking unique finds and artisanal treasures. From retro vinyl records to
+                    handcrafted jewelry, every corner of Kurazh Bazaar tells a story of creativity
+                    and passion.
                 </P>
                 <P>
-                    It has survived not only five centuries, but also the leap into electronic
-                    typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                    recently with desktop publishing software like Aldus PageMaker including
-                    versions of Lorem Ipsum.
+                    Picture yourself sipping on a cold brew coffee, the aroma mingling with the
+                    scent of freshly baked artisanal bread. As you stroll through the bazaar, you
+                    encounter a myriad of stalls offering everything from retro fashion to bespoke
+                    furniture. The air is alive with the sounds of indie bands strumming their
+                    guitars and the chatter of like-minded souls.
+                </P>
+                <P>
+                    Kurazh Bazaar is more than just a market; it’s a celebration of individuality
+                    and artistic expression. Here, you can lose yourself in the eclectic mix of old
+                    and new, where every item has a story and every corner invites exploration.
+                    Embrace the bohemian spirit and let your inner hipster thrive in this urban
+                    oasis.
                 </P>
             </Fragment>
         );

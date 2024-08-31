@@ -41,11 +41,10 @@ const tableDemo = (
             <tr>
                 <td>Body content 1</td>
                 <td>
-                    It has survived not only five centuries, but also the leap into electronic
-                    typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                    recently with desktop publishing software like Aldus PageMaker including
-                    versions of Lorem Ipsum.
+                    Sip on locally brewed kombucha as you wander through stalls adorned with
+                    bohemian tapestries and indie art. The air is filled with the aroma of freshly
+                    ground coffee and the sound of live acoustic sets. It’s not just a market; it’s
+                    a community where free spirits gather to celebrate individuality and style.
                 </td>
                 <td>Body content 3</td>
                 <td>Body content 4</td>
