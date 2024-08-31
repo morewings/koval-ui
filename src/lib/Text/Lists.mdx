@@ -1,4 +1,4 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import { Meta, ArgTypes, Story, Stories, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
 import {Ul, Ol, Dl} from './Lists.tsx';
 import * as ListsStories from "./Lists.stories.tsx";
 
@@ -6,29 +6,25 @@ import * as ListsStories from "./Lists.stories.tsx";
 
 # Lists
 
-Text tba.
+This chapter provides a collection of list components designed to display ordered, unordered, and definition lists.
 
-## Unordered list
+## Imports
 
-<Canvas>
-    <Story of={ListsStories.Unordered} />
-</Canvas>
+<Markdown>{`
+\`\`\`ts
+import {Ol, Ul, Dl} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+
+## Props
 
 <ArgTypes of={Ul}/>
 
-## Ordered list
 
-<Canvas>
-    <Story of={ListsStories.Ordered} />
-</Canvas>
+<Primary />
 
-<ArgTypes of={Ol}/>
+<Stories includePrimary={false} />
 
-## Description list
 
-<Canvas>
-    <Story of={ListsStories.Description} />
-</Canvas>
-
-<ArgTypes of={Dl}/>
 

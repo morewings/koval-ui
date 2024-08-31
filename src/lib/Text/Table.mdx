@@ -1,16 +1,24 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import { Meta, ArgTypes, Stories, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
 import {Table} from './Table.tsx';
 import * as TableStories from "./Table.stories.tsx";
 
 <Meta title="Typography/Header" of={TableStories} />
 
-# Text
+# Table
 
-Text tba.
+`Table` component is designed to display tabular data in a structured and accessible manner.
 
-## Responsive
+## Imports
 
-<Story of={TableStories.Responsive} />
+<Markdown>{`
+\`\`\`ts
+import {Table} from 'koval-ui';
+\`\`\`
+`}</Markdown>
 
 <ArgTypes of={Table}/>
+
+<Primary />
+
+<Stories includePrimary={false} />
 

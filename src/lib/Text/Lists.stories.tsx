@@ -23,7 +23,8 @@ export default meta;
 // @ts-expect-error too complex
 type Story = StoryObj<typeof meta>;
 
-export const Unordered: Story = {
+export const Primary: Story = {
+    name: 'Unordered',
     render: args => {
         return (
             <Ul {...args}>
