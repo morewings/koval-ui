@@ -1,4 +1,5 @@
 import type {Range} from '@/internal/utils/rangeType.ts';
+import type {Locale} from '@/internal/locale';
 
 export enum Styles {
     decimal = 'decimal',
@@ -74,10 +75,11 @@ export type NumberProps = {
     /** Provide a value to be formatted */
     value?: number;
     /**
-     * Provide one or multiple locales to render
-     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#locales
+     * Provide a string with a BCP 47 language tag or an Intl.Locale instance,
+     * or an array of such locale identifiers. Defaults to user setting
+     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#locales
      */
-    locale?: string | string[];
+    locale?: Locale;
     /**
      * The locale matching algorithm to use
      * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#localematcher

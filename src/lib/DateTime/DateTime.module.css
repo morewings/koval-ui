@@ -1,5 +1,8 @@
-.number {
+.date-time {
     font-size: inherit;
     font-variant-numeric: tabular-nums;
+}
+
+.no-wrap {
     white-space: nowrap;
 }
