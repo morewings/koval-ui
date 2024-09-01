@@ -3,6 +3,7 @@ import {Fragment} from 'react';
 // import {fn} from '@storybook/test';
 
 import {NumberDecimal, NumberUnit, NumberPercent, NumberCurrency} from '@/lib/Number';
+import {DateTime} from '@/lib/DateTime';
 
 import {
     A,
@@ -75,13 +76,15 @@ export const Primary: Story = {
                 <br />
                 This is <Code {...args}>code</Code>
                 <br />
-                The number is <NumberDecimal value={666123.97} />
+                The number is: <NumberDecimal value={666123.97} />
                 <br />
-                The percentage is <NumberPercent value={0.82} />
+                The percentage is: <NumberPercent value={0.82} />
                 <br />
-                The revenue is <NumberCurrency value={100000.06} currency="UAH" />
+                The revenue is: <NumberCurrency value={100000.06} currency="UAH" />
                 <br />
-                The volume of barrel is <NumberUnit value={250.5} unit="liter" />
+                The volume of barrel is: <NumberUnit value={250.5} unit="liter" />
+                <br />
+                This was the day: <DateTime value="2019-03-15T16:30:00.000Z" />
                 <br />
             </Fragment>
         );

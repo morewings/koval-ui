@@ -2,9 +2,9 @@ import type {Meta, StoryObj} from '@storybook/react';
 // import {fn} from '@storybook/test';
 
 import {Units} from '@/internal/utils/units.ts';
+import {localeControl} from '@/internal/locale';
 
 import {NumberUnit} from './NumberUnit.tsx';
-import {localeControl} from './localeControl.ts';
 import {CompactDisplayModes, LocaleMatchers, SignDisplayModes} from './types.ts';
 
 const meta = {

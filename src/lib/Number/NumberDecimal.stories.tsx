@@ -1,8 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react';
 // import {fn} from '@storybook/test';
 
+import {localeControl} from '@/internal/locale';
+
 import {NumberDecimal} from './NumberDecimal.tsx';
-import {localeControl} from './localeControl.ts';
 import {CompactDisplayModes, LocaleMatchers, SignDisplayModes} from './types.ts';
 
 const meta = {

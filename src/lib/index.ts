@@ -72,3 +72,4 @@ export {SkeletonShape, SkeletonAction, SkeletonFrame, SkeletonText} from './Skel
 export {Iframe} from './Iframe';
 export type {PermissionsConfig, SandboxConfig} from './Iframe';
 export {NumberCurrency, NumberDecimal, NumberPercent, NumberUnit} from './Number';
+export {DateTime} from './DateTime';

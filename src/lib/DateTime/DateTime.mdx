@@ -1,0 +1,24 @@
+import { Meta, ArgTypes, Stories, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {DateTime} from './DateTime.tsx';
+import * as DateTimeStories from "./DateTime.stories.tsx";
+
+<Meta title="Typography/DateTime" of={DateTimeStories} />
+
+# Date and time formatter
+
+`DateTime` component formats and displays provided value (ISO 8601, [date time string format](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format)) as a localized string.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {DateTime} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={DateTime} sort="requiredFirst" />
+
+<Stories includePrimary={false} />
+
