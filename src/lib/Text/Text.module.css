@@ -283,7 +283,7 @@
     }
 
     & dd {
-        border-bottom: 1px solid var(--kg-color-sol);
+        border-bottom: 1px solid var(--kg-background-200);
         margin-bottom: calc(var(--kg-size-unit) * 1);
         padding-bottom: calc(var(--kg-size-unit) * 1);
     }

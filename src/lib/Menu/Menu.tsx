@@ -3,6 +3,7 @@ import {useCallback} from 'react';
 import {useState, useEffect} from 'react';
 import {forwardRef, Fragment} from 'react';
 import classNames from 'classnames';
+import type {Placement} from '@floating-ui/react-dom';
 import {useFloating, autoUpdate, size, offset, autoPlacement} from '@floating-ui/react-dom';
 import {useRootTheme, useLocalTheme} from 'css-vars-hook';
 
@@ -10,6 +11,7 @@ import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {Portal} from '@/internal/Portal';
 import {useDismiss} from '@/internal/hooks/useDismiss.ts';
 import {useFocusTrap} from '@/internal/hooks/useFocusTrap.ts';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './Menu.module.css';
 import {Variants} from './Variants.ts';
@@ -17,7 +19,7 @@ import {Variants} from './Variants.ts';
 export type Props = DataAttributes &
     LibraryProps & {
         children: ReactNode;
-        /** Control visibility of Menu */
+        /** Control visibility of the Menu */
         isOpen?: boolean;
         /**
          * Provide Tooltip content
@@ -29,12 +31,16 @@ export type Props = DataAttributes &
         referenceClassName?: string;
         /** Provide callback for open/close events */
         onToggle?: (openState: boolean) => void;
-        /** Focus on first element when open and trap focus */
+        /** Focus on the first element when open and trap focus */
         trapFocus?: boolean;
-        /** Align Menu width with reference element */
+        /** Align Menu width with a reference element */
         alignWidth?: boolean;
         /** Set design of Menu */
         variant?: keyof typeof Variants;
+        /**
+         * Define which relative positions Menu can be placed in
+         */
+        allowedPlacements?: Placement[];
     };
 
 export const Menu = forwardRef<HTMLDivElement, Props>(
@@ -49,10 +55,12 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
             trapFocus = true,
             alignWidth = true,
             variant = Variants.plain,
+            allowedPlacements,
             ...nativeProps
         },
         ref
     ) => {
+        const menuRef = useInternalRef(ref);
         const [isOpen, setOpen] = useState(openProp);
         useEffect(() => {
             setOpen(openProp);
@@ -73,7 +81,7 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
                         },
                     }),
                 offset(18),
-                autoPlacement(),
+                autoPlacement({allowedPlacements}),
             ],
         });
         const {LocalRoot} = useLocalTheme();
@@ -83,7 +91,7 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
             setOpen(false);
         }, [setOpen]);
 
-        useDismiss(handleDismiss, refs.reference, isOpen);
+        useDismiss(handleDismiss, menuRef, isOpen);
         useFocusTrap(refs.floating.current, isOpen, trapFocus);
 
         return (
@@ -95,11 +103,14 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
                 </div>
                 {isOpen && (
                     <Portal>
-                        <div ref={refs.setFloating} style={floatingStyles}>
+                        <div
+                            ref={refs.setFloating}
+                            style={floatingStyles}
+                            className={classes.floating}>
                             <LocalRoot className={classes.provider} theme={getTheme()}>
                                 <div
                                     {...nativeProps}
-                                    ref={ref}
+                                    ref={menuRef}
                                     className={classNames(
                                         classes.menu,
                                         {

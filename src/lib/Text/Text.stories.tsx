@@ -37,17 +37,21 @@ export const Primary: Story = {
                     <h5>Header 5</h5>
                     <h6>Header 6</h6>
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        This text is <a href="#">long url example</a>. Lorem Ipsum has been the
-                        industry&apos;s standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book.
+                        Closer’s vibe is a blend of <a href="#">avant-garde and bohemian</a>. Art
+                        installations and graffiti murals adorn the space, each piece telling a
+                        story of rebellion and innovation. The club’s intimate corners invite
+                        whispered conversations and spontaneous connections, fostering a sense of
+                        community among its patrons.
                     </p>
                     <p>
-                        It has survived not only five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was popularised in the
-                        1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker
-                        including versions of Lorem Ipsum.
+                        The bar at Closer is a mixologist’s dream. Craft cocktails, infused with
+                        local flavors and exotic ingredients, are served with flair. Whether you’re
+                        sipping on a classic Negroni or a bespoke creation, each drink is a
+                        testament to the club’s commitment to quality and creativity. Closer’s
+                        events are legendary, from all-night raves to art exhibitions and live
+                        performances. The club’s calendar is a curated selection of experiences that
+                        push the boundaries of conventional nightlife. It’s a place where you can
+                        lose yourself in the music and find inspiration in the art.
                     </p>
                     <p>
                         This text is <a href="#">url</a>

@@ -1,3 +1,5 @@
+@import url("@/lib/Layout/customMedia.css");
+
 .pagination {
     align-items: center;
     display: flex;
@@ -10,8 +12,12 @@
 .buttons {
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    gap: calc(var(--kg-size-unit) * 3);
     min-width: 288px;
+
+    &.short {
+        justify-content: end;
+    }
 }
 
 .page-button {
@@ -35,7 +41,7 @@
         background: var(--kg-color-do);
     }
 
-    &:focus {
+    &:focus-visible {
         background: var(--kg-color-do);
     }
 
@@ -119,7 +125,7 @@
         color: var(--kg-color-do);
     }
 
-    &:focus .icon {
+    &:focus-visible .icon {
         color: var(--kg-color-do);
     }
 

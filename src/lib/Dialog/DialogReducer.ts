@@ -12,13 +12,16 @@ export enum Actions {
     DIALOG_OPEN = 'DIALOG_OPEN',
 }
 
+/** Dialog parameters */
+export type DialogParams = Record<string, unknown>;
+
 /** Dialog ID type */
 export type Id = string;
 
 /** Dialog state type */
 export type DialogState = {
     /** List of open modals' IDs */
-    open: Id[];
+    open: {id: Id; params?: DialogParams}[];
 };
 
 export const initialState = {
@@ -30,23 +33,25 @@ export type DialogAction = {
     id: Id;
     /** Action name */
     type: Actions;
+    /** Optional Dialog parameters */
+    params?: DialogParams;
 };
 
 export const DialogReducer = (state = initialState, action: DialogAction): DialogState => {
     switch (action.type) {
         case Actions.DIALOG_CLOSE: {
             const {id} = action;
-            const nextOpen = without(id, state.open);
+            const nextOpen = without(({id: dialogId}) => dialogId !== id, state.open);
             return {
                 ...state,
                 open: nextOpen,
             };
         }
         case Actions.DIALOG_OPEN: {
-            const {id} = action;
+            const {id, params} = action;
             return {
                 ...state,
-                open: [...state.open, id],
+                open: [...state.open, {id, params}],
             };
         }
         default:

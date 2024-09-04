@@ -1,9 +1,10 @@
 .button {
     --icon-shadow: drop-shadow(var(--kg-text-shadow));
+    --border-width: var(--kg-border-width-300);
 
     align-items: center;
     background-color: var(--bg-color);
-    border: var(--kg-border-width-300) solid var(--border-color);
+    border: var(--border-width) solid var(--border-color);
     border-radius: var(--kg-border-radius-300);
     color: var(--text-color);
     cursor: pointer;
@@ -18,9 +19,10 @@
         calc(var(--kg-size-unit) * 3 * var(--size-scale-factor));
     text-shadow: var(--kg-text-shadow);
     transition:
-        background-color var(--kg-time-sm) ease-in-out,
-        border-color var(--kg-time-sm) ease-in-out,
-        text-shadow var(--kg-time-sm) ease-in-out;
+        background-color var(--kg-time-xs) linear,
+        border-color var(--kg-time-xs) linear,
+        text-shadow var(--kg-time-xs) linear,
+        color var(--kg-time-xs) linear;
     user-select: none;
 
     &:hover {
@@ -30,6 +32,10 @@
     &:disabled {
         cursor: not-allowed;
         text-shadow: none;
+
+        & .icon {
+            filter: none;
+        }
     }
 
     &:active:not(:disabled) .content,
@@ -201,6 +207,9 @@
 .small {
     --size-scale-factor: 1;
     --font-size: var(--kg-font-size-small);
+    --border-width: var(--kg-border-width-200);
+
+    letter-spacing: 0.3px;
 }
 
 .medium {

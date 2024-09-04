@@ -15,13 +15,13 @@ import classes from './Pagination.module.css';
 export type Props = DataAttributes &
     LibraryProps & {
         children?: ReactNode;
-        /** Set total amount of pages */
+        /** Set the total number of pages */
         totalPages: number;
         /** Callback to run on page change */
         onPageSelect: (pageNumber: number) => void;
-        /** Set selected page externally */
+        /** Set the selected page externally */
         selectedPage: number;
-        /** Show navigation block on the right */
+        /** Show the navigation block on the right */
         showNavigation?: boolean;
         /** Show page number buttons on the left */
         showPageButtons?: boolean;
@@ -54,15 +54,20 @@ export const Pagination = forwardRef<HTMLDivElement, Props>(
             checkValidity,
         } = usePagePaginationState(totalPages, selectedPageProp);
 
-        const [inputPage, setInputPage] = useState<number | null>(selectedPage);
-
         useEffect(() => {
             setSelectedPage(selectedPageProp);
         }, [selectedPageProp, setSelectedPage]);
 
+        const [inputPage, setInputPage] = useState<number>(selectedPage);
+
+        useEffect(() => {
+            setInputPage(selectedPage);
+        }, [selectedPage]);
+
         const handlePageSelect = useCallback(
             (pageNumber: number) => {
                 setSelectedPage(pageNumber);
+                setInputPage(pageNumber);
                 onPageSelect(pageNumber);
             },
             [onPageSelect, setSelectedPage]
@@ -80,8 +85,8 @@ export const Pagination = forwardRef<HTMLDivElement, Props>(
 
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                const nextValue = event.target.value !== '' ? parseInt(event.target.value) : null;
-                setInputPage(nextValue);
+                const nextValue = parseInt(event.target.value);
+                event.target.value !== '' && setInputPage(nextValue);
             },
             [setInputPage]
         );
@@ -111,7 +116,7 @@ export const Pagination = forwardRef<HTMLDivElement, Props>(
         return (
             <div {...nativeProps} className={classNames(classes.pagination, className)} ref={ref}>
                 {showPageButtons && (
-                    <div className={classes.buttons}>
+                    <div className={classNames(classes.buttons, {[classes.short]: !isLong})}>
                         {!isLong &&
                             createArray(totalPages).map((_, i) => {
                                 const pageNumber = i + 1;
@@ -176,7 +181,7 @@ export const Pagination = forwardRef<HTMLDivElement, Props>(
                                 step="1"
                                 size={maxDigits}
                                 type="number"
-                                defaultValue={selectedPage}
+                                value={inputPage}
                                 onChange={handleInputChange}
                                 onKeyUp={handleInputEnter}
                             />

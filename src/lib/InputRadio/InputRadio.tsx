@@ -67,11 +67,13 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
                     onKeyDown={onKeyDown}
                     required={required}
                 />
-                <label
-                    className={classNames(classes.label, {[classes.required]: required})}
-                    htmlFor={id}>
-                    {label}
-                </label>
+                {label && (
+                    <label
+                        className={classNames(classes.label, {[classes.required]: required})}
+                        htmlFor={id}>
+                        {label}
+                    </label>
+                )}
             </div>
         );
     }

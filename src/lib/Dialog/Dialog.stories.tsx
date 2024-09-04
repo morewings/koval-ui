@@ -71,6 +71,8 @@ const actionsTwo = [
 ];
 
 // TODO: why args don't work here?
+// Dude, this sounds scary.
+// Dima from the future.
 
 export const Primary: Story = {
     render: args => {
@@ -86,12 +88,11 @@ export const Primary: Story = {
                 </div>
                 <Dialog {...args} id="foo" dialogTitle="This is the title of dialog!">
                     <P>
-                        On the other hand, we denounce with righteous indignation and dislike men
-                        who are so beguiled and demoralized by the charms of pleasure of the moment,
-                        so blinded by desire, that they cannot foresee the pain and trouble that are
-                        bound to ensue; and equal blame belongs to those who fail in their duty
-                        through weakness of will, which is the same as saying through shrinking from
-                        toil and pain
+                        In the heart of Podil, street art tells stories of the past and present.
+                        Murals adorn the walls, each one a masterpiece that captures the essence of
+                        this eclectic district. Vinyl records spin in cozy cafes, where baristas
+                        craft lattes with intricate foam art. It’s a place where creativity flows as
+                        freely as the Dnipro River.
                     </P>
                 </Dialog>
             </Page>
@@ -122,52 +123,56 @@ export const Primary: Story = {
 export const LongText: Story = {
     render: args => {
         const {openDialog} = useDialogState('bazz');
+        const handleClick = useCallback(() => {
+            openDialog();
+        }, []);
 
         return (
             <Fragment>
                 <div style={{display: 'flex', gap: '12px'}}>
-                    <Button onClick={openDialog}>Open dialog</Button>
+                    <Button onClick={handleClick}>Open dialog</Button>
                 </div>
                 <Dialog {...args} id="bazz" dialogTitle="This is the title of dialog!">
                     <P>
-                        On the other hand, we denounce with righteous indignation and dislike men
-                        who are so beguiled and demoralized by the charms of pleasure of the moment,
-                        so blinded by desire, that they cannot foresee the pain and trouble that are
-                        bound to ensue; and equal blame belongs to those who fail in their duty
-                        through weakness of will, which is the same as saying through shrinking from
-                        toil and pain
+                        Podil, the heartbeat of Kyiv, is where vintage vibes meet modern chic.
+                        Amidst cobblestone streets and artisanal coffee shops, you’ll find a blend
+                        of history and hipster culture. The aroma of freshly brewed coffee mingles
+                        with the scent of blooming flowers from local markets, creating an
+                        atmosphere that’s both nostalgic and contemporary.
                     </P>
                     <P>
-                        On the other hand, we denounce with righteous indignation and dislike men
-                        who are so beguiled and demoralized by the charms of pleasure of the moment,
-                        so blinded by desire, that they cannot foresee the pain and trouble that are
-                        bound to ensue; and equal blame belongs to those who fail in their duty
-                        through weakness of will, which is the same as saying through shrinking from
-                        toil and pain
+                        In the heart of Podil, street art tells stories of the past and present.
+                        Murals adorn the walls, each one a masterpiece that captures the essence of
+                        this eclectic district. Vinyl records spin in cozy cafes, where baristas
+                        craft lattes with intricate foam art. It’s a place where creativity flows as
+                        freely as the Dnipro River.
                     </P>
                     <P>
-                        On the other hand, we denounce with righteous indignation and dislike men
-                        who are so beguiled and demoralized by the charms of pleasure of the moment,
-                        so blinded by desire, that they cannot foresee the pain and trouble that are
-                        bound to ensue; and equal blame belongs to those who fail in their duty
-                        through weakness of will, which is the same as saying through shrinking from
-                        toil and pain
+                        Podil’s nightlife is a tapestry of craft beer bars, speakeasies, and live
+                        music venues. As the sun sets, the district comes alive with the sounds of
+                        indie bands and the clinking of glasses. Rooftop bars offer panoramic views
+                        of the city, where you can sip on locally brewed ales while watching the
+                        stars twinkle above.
                     </P>
                     <P>
-                        On the other hand, we denounce with righteous indignation and dislike men
-                        who are so beguiled and demoralized by the charms of pleasure of the moment,
-                        so blinded by desire, that they cannot foresee the pain and trouble that are
-                        bound to ensue; and equal blame belongs to those who fail in their duty
-                        through weakness of will, which is the same as saying through shrinking from
-                        toil and pain
+                        The district’s markets are a treasure trove for vintage enthusiasts. From
+                        retro clothing boutiques to antique shops, Podil is a haven for those who
+                        appreciate the charm of yesteryears. Handmade jewelry, quirky souvenirs, and
+                        unique finds await those who wander through its bustling streets.
                     </P>
                     <P>
-                        On the other hand, we denounce with righteous indignation and dislike men
-                        who are so beguiled and demoralized by the charms of pleasure of the moment,
-                        so blinded by desire, that they cannot foresee the pain and trouble that are
-                        bound to ensue; and equal blame belongs to those who fail in their duty
-                        through weakness of will, which is the same as saying through shrinking from
-                        toil and pain
+                        Podil’s culinary scene is a fusion of traditional Ukrainian flavors and
+                        modern gastronomy. Farm-to-table restaurants serve dishes made from locally
+                        sourced ingredients, while food trucks offer gourmet street food. Whether
+                        you’re craving borscht or a vegan burger, Podil’s eateries cater to every
+                        palate.
+                    </P>
+                    <P>
+                        Art galleries and studios dot the district, showcasing the works of local
+                        artists. Workshops and pop-up events invite visitors to unleash their
+                        creativity. In Podil, every corner is an invitation to explore, discover,
+                        and be inspired by the vibrant culture that defines this unique part of
+                        Kyiv.
                     </P>
                 </Dialog>
             </Fragment>
@@ -181,13 +186,27 @@ export const DialogInDialog: Story = {
         const {closeDialog: closeFirst, openDialog: openFirst} = useDialogState('baz');
         const {closeDialog: closeSecond, openDialog: openSecond} = useDialogState('qux');
 
+        const handleOpenFirst = useCallback(() => {
+            openFirst();
+        }, [openFirst]);
+
+        const handleOpenSecond = useCallback(() => {
+            openSecond();
+        }, [openSecond]);
+
         const actionsFirst = useMemo<
             [ComponentProps<typeof ActionButton>, ComponentProps<typeof ActionButton>][]
         >(
             () => [
                 [
                     {title: 'Close First', type: 'danger', onClick: closeFirst},
-                    {title: 'Open Second', type: 'success', onClick: openSecond},
+                    {
+                        title: 'Open Second',
+                        type: 'success',
+                        onClick: () => {
+                            openSecond();
+                        },
+                    },
                 ],
             ],
             [closeFirst, openSecond]
@@ -201,8 +220,8 @@ export const DialogInDialog: Story = {
         return (
             <Fragment>
                 <ButtonGroup>
-                    <Button onClick={openFirst}>Open first</Button>
-                    <Button onClick={openSecond}>Open second</Button>
+                    <Button onClick={handleOpenFirst}>Open first</Button>
+                    <Button onClick={handleOpenSecond}>Open second</Button>
                 </ButtonGroup>
                 <Dialog id="baz" actions={actionsFirst} showCloseButton={false}>
                     <P>This is 1st level Dialog.</P>

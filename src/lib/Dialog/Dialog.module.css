@@ -32,8 +32,10 @@
 }
 
 .header {
-    padding: calc(3 * var(--kg-size-unit)) calc(3 * var(--kg-size-unit))
-        calc(2 * var(--kg-size-unit));
+    border-bottom: var(--kg-border-width-100) solid var(--kg-background-100);
+    line-height: 1;
+    margin-bottom: calc(2 * var(--kg-size-unit));
+    padding: calc(2 * var(--kg-size-unit)) calc(3 * var(--kg-size-unit));
 }
 
 .body {

@@ -2,9 +2,9 @@ import {forwardRef, useMemo} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import {useBrowserLocale} from '@/internal/hooks/useBrowserLocale.ts';
+import {useBrowserLocale} from '@/internal/locale';
 import classes from '@/lib/Number/Number.module.css';
-import type {Units} from '@/internal/utils/units.ts';
+import type {Units} from '@/internal/locale';
 
 import type {NumberProps} from './types.ts';
 import {Styles, UnitDisplayModes} from './types.ts';
