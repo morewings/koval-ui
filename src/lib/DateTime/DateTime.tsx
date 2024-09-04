@@ -2,7 +2,7 @@ import {forwardRef, useMemo} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import {useBrowserLocale} from '@/internal/hooks/useBrowserLocale.ts';
+import {useBrowserLocale} from '@/internal/locale';
 import type {Locale} from '@/internal/locale';
 
 import classes from './DateTime.module.css';

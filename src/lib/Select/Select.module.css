@@ -53,6 +53,7 @@
     transition:
         background-color var(--kg-time-sm) ease-in-out,
         border-color var(--kg-time-sm) ease-in-out;
+    user-select: none;
     white-space: nowrap;
     width: var(--select-width);
 

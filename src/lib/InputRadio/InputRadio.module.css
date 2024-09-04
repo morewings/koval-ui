@@ -51,9 +51,7 @@
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        transition:
-            background-color var(--kg-time-sm) ease-in-out,
-            opacity var(--kg-time-sm) ease-in-out;
+        transition: background-color var(--kg-time-sm) ease-in-out;
         width: var(--size);
     }
 

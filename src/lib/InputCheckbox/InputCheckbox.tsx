@@ -1,5 +1,5 @@
 import type {ChangeEvent} from 'react';
-import {forwardRef, useCallback} from 'react';
+import {forwardRef, useCallback, useEffect} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
@@ -25,8 +25,13 @@ export type Props = DataAttributes &
     NativePropsInteractive &
     CallbackPropsInteractive &
     ValidationProps & {
-        /** Set a text for checkbox label */
+        /** Set a text for the checkbox label */
         label?: string;
+        /**
+         * Set an indeterminate state for the checkbox
+         * @see https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate
+         */
+        indeterminate?: boolean;
     };
 
 export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
@@ -48,6 +53,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             revalidateOnFormChange,
             validation,
             errorMessage,
+            indeterminate = false,
             ...nativeProps
         },
         ref
@@ -79,11 +85,17 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             setValidity(ValidationState.error);
         }, [setValidity]);
 
+        useEffect(() => {
+            if (inputRef.current) {
+                inputRef.current.indeterminate = indeterminate;
+            }
+        }, [indeterminate, inputRef]);
+
         return (
             <div className={classNames(classes.wrapper, className)}>
                 <input
                     {...nativeProps}
-                    className={classes.input}
+                    className={classNames(classes.input, {[classes.indeterminate]: indeterminate})}
                     ref={inputRef}
                     disabled={disabled}
                     type="checkbox"
@@ -100,11 +112,13 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
                     onInvalid={handleInvalid}
                     required={required}
                 />
-                <label
-                    className={classNames(classes.label, {[classes.required]: required})}
-                    htmlFor={id}>
-                    {label}
-                </label>
+                {label && (
+                    <label
+                        className={classNames(classes.label, {[classes.required]: required})}
+                        htmlFor={id}>
+                        {label}
+                    </label>
+                )}
                 {validity && <ValidationIcon className={classes.icon} />}
             </div>
         );

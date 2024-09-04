@@ -29,11 +29,11 @@ export type Props = DataAttributes &
             | ComponentProps<typeof ActionButton>
             | [ComponentProps<typeof ActionButton>, ComponentProps<typeof ActionButton>]
         )[];
-        /** Set a title of dialog */
+        /** Set a title of Dialog */
         dialogTitle?: string;
         /** Provide a localized value for close button */
         closeLabel?: string;
-        /** Enable focus trap for Dialog */
+        /** Enable a focus trap for Dialog */
         trapFocus?: boolean;
     };
 
@@ -109,11 +109,11 @@ export const Dialog = forwardRef<HTMLDialogElement, Props>(
                     ref={dialogRef}>
                     <div className={classes.flex}>
                         {dialogTitle && (
-                            <header className={classNames(classes.header, className)}>
+                            <header className={classNames(classes.header)}>
                                 <H3>{dialogTitle}</H3>
                             </header>
                         )}
-                        <div className={classNames(classes.body, className)}>{children}</div>
+                        <div className={classNames(classes.body)}>{children}</div>
                         <footer className={classes.actions}>
                             <ActionsTree actions={actions} />
                             {showCloseButton && (

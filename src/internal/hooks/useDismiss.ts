@@ -24,7 +24,7 @@ export const useDismiss = <TElement extends HTMLElement | null>(
 
     const handleMouseDown = useCallback(
         (event: MouseEvent<TElement>) => {
-            if (isOpen && (event.target as TElement)!.contains(ref.current)) {
+            if (isOpen && !ref.current!.contains(event.target as TElement)) {
                 callback();
             }
         },

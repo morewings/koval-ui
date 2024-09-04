@@ -2,9 +2,9 @@ import {forwardRef, useMemo} from 'react';
 import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
-import {useBrowserLocale} from '@/internal/hooks/useBrowserLocale.ts';
+import type {CurrencyCodes} from '@/internal/locale';
+import {useBrowserLocale} from '@/internal/locale';
 import classes from '@/lib/Number/Number.module.css';
-import type {CurrencyCodes} from '@/internal/utils/currencyCodes.ts';
 
 import type {NumberProps, CurrencySignModes} from './types.ts';
 import {Styles} from './types.ts';

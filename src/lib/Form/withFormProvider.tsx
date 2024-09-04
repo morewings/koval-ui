@@ -13,7 +13,7 @@ export const withFormProvider = <TProps extends JSX.IntrinsicAttributes>(
         const memoizedValue = useMemo(() => ({state, dispatch}), [state]);
         return (
             <Provider value={memoizedValue}>
-                <Component {...props} ref={ref} />
+                <Component {...(props as TProps)} ref={ref} />
             </Provider>
         );
     });

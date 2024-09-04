@@ -10,7 +10,7 @@
     gap: var(--gap);
     max-width: 100%;
     -webkit-tap-highlight-color: transparent;
-    width: 300px;
+    width: auto;
 
     & > div {
         flex: 0 1 auto;
