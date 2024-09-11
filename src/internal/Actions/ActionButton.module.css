@@ -62,7 +62,7 @@
         }
     }
 
-    @media (--viewport-sm) {
+    @media (--viewport-md) {
         &:not(:only-child, :last-child) {
             border-right: 1px solid var(--kg-background-100);
         }
