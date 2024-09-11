@@ -1,8 +1,8 @@
 @import url("@/lib/Layout/customMedia.css");
 
 .dialog {
-    min-height: min-content;
-    width: max-content;
+    min-height: min-content !important;
+    width: max-content !important;
 }
 
 .delete-dialog {
@@ -16,7 +16,7 @@
     flex-direction: column;
     gap: calc(var(--kg-size-unit) * 3);
 
-    @media (--viewport-sm) {
+    @media (--viewport-md) {
         flex-direction: row;
         gap: calc(var(--kg-size-unit) * 2);
     }
@@ -36,7 +36,7 @@
     flex-direction: column;
     gap: calc(var(--kg-size-unit) * 3);
 
-    @media (--viewport-sm) {
+    @media (--viewport-md) {
         flex-direction: row;
         gap: 0;
     }

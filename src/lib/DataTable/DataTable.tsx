@@ -24,8 +24,9 @@ import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import {useBrowserLocale} from '@/internal/locale';
 import type {Locale} from '@/internal/locale';
-import {I, Table} from '@/lib';
+import {I, Table, Button} from '@/lib';
 import {useInternalId} from '@/internal/hooks/useInternalId.ts';
+import {IconFilterOff} from '@/internal/Icons';
 
 import {useColumnFilters} from './tableFeatures/useColumnFilters.ts';
 import classes from './DataTable.module.css';
@@ -301,6 +302,10 @@ export const DataTable = forwardRef<HTMLTableElement, Props>(
             [table]
         );
 
+        const handleResetFilters = useCallback(() => {
+            table.resetColumnFilters();
+        }, [table]);
+
         const {handleEdit, handleDelete, handleDeleteRequest, handleEditRequest} = useEdit({
             rowSelection,
             onEdit,
@@ -472,6 +477,26 @@ export const DataTable = forwardRef<HTMLTableElement, Props>(
                                         })}
                                     </tr>
                                 ))}
+                            </tbody>
+                        )}
+                        {rows.length === 0 && (
+                            <tbody>
+                                <tr>
+                                    <td colSpan={table.getAllColumns().length}>
+                                        <div className={classes.noDataWarning}>
+                                            <span>No data to render.</span>
+                                            {columnFilters.length > 0 && (
+                                                <Button
+                                                    onClick={handleResetFilters}
+                                                    prefix={IconFilterOff}
+                                                    size="small"
+                                                    variant="alternative">
+                                                    Reset all filters
+                                                </Button>
+                                            )}
+                                        </div>
+                                    </td>
+                                </tr>
                             </tbody>
                         )}
                         <tfoot className={classes.tableFooter}>
