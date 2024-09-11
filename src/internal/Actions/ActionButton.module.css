@@ -8,7 +8,7 @@
     flex-direction: column;
     width: 100%;
 
-    @media (--viewport-sm) {
+    @media (--viewport-md) {
         flex-direction: row;
     }
 }
