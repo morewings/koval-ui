@@ -249,7 +249,7 @@
     color: var(--kg-color-sol);
     display: flex;
     flex-direction: row;
-    gap: 18px;
+    gap: var(--kg-size-unit);
     height: calc(var(--cell-height) * 1px);
     justify-content: center;
     max-width: 100vw;

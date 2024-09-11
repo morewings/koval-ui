@@ -490,7 +490,7 @@ export const DataTable = forwardRef<HTMLTableElement, Props>(
                                                     onClick={handleResetFilters}
                                                     prefix={IconFilterOff}
                                                     size="small"
-                                                    variant="alternative">
+                                                    variant="link">
                                                     Reset all filters
                                                 </Button>
                                             )}
