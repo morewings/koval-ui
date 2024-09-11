@@ -138,10 +138,13 @@ export const Pagination = forwardRef<HTMLDivElement, Props>(
                                     pageNumber={first}
                                 />
                                 <div className={classes.ellipsis}>&hellip;</div>
-                                {visible.map(pageNumber => {
+                                {visible.map((pageNumber, i) => {
                                     const isActive = pageNumber === selectedPage;
                                     return (
                                         <PageButton
+                                            className={classNames({
+                                                [classes.centerButton]: i !== 1,
+                                            })}
                                             key={pageNumber}
                                             isActive={isActive}
                                             onClick={handlePageSelect}

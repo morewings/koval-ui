@@ -61,13 +61,12 @@ export const Pagination: FC<Props> = ({
 
     const isBigScreen = useMatchMedia('(width >= 768px)');
 
-    const displayPageButtons = isBigScreen || pagesAmount <= 7;
     const displayPageNavigation = isBigScreen || pagesAmount > 7;
 
     return (
         <div className={classes.paginationWrapper}>
             <PaginationVanilla
-                showPageButtons={displayPageButtons}
+                showPageButtons={true}
                 showNavigation={displayPageNavigation}
                 onPageSelect={setCurrentPage}
                 selectedPage={currentPage}
