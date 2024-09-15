@@ -1,5 +1,6 @@
 /**
- * List of available currency codes
+ * List of available currency codes. ISO 4217
+ * @see https://www.iso.org/iso-4217-currency-codes.html
  */
 export enum CurrencyCodes {
     USD = 'USD',

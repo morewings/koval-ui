@@ -1,0 +1,24 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {NameCurrency} from './NameCurrency.tsx';
+import * as NameCurrencyStories from "./NameCurrency.stories.tsx";
+
+<Meta title="Typography/Name/Currency" of={NameCurrencyStories} />
+
+# NameCurrency
+
+## Description
+
+Displays localized currency name, based on the provided a three-letter ISO 4217 code.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {NameCurrency} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={NameCurrency}/>
+

@@ -1,0 +1,24 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {NameTime} from './NameTime.tsx';
+import * as NameTimeStories from "./NameTime.stories.tsx";
+
+<Meta title="Typography/Name/Time" of={NameTimeStories} />
+
+# NameLanguage
+
+## Description
+
+Displays localized time period name. `era`, `year`, `quarter`, `month`, `weekOfYear`, `weekday`, `day`, `dayPeriod`, `hour`, `minute`, `second`, `timeZoneName` are supported.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {NameTime} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={NameTime}/>
+
