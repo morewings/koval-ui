@@ -1,0 +1,24 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {Flag} from './Flag.tsx';
+import * as FlagStories from "./Flag.stories.tsx";
+
+<Meta title="Components/Flag" of={FlagStories} />
+
+# Flag
+
+## Description
+
+Display a chosen country flag based on provided `countryCode` (a two-letter ISO 3166 region code).
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Flag} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={Flag}/>
+

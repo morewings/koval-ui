@@ -180,7 +180,7 @@ export enum CountryCodes {
     PR = 'Puerto Rico',
     QA = 'Qatar',
     RE = 'Reunion',
-    MKD = 'Republic of North Macedonia',
+    MK = 'Republic of North Macedonia',
     RO = 'Romania',
     RU = 'Russian Federation',
     RW = 'Rwanda',
