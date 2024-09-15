@@ -91,3 +91,4 @@ export type {
     RowSelectionState,
     SortingState,
 } from './DataTable';
+export {NameCurrency, NameLanguage, NameRegion, NameTime} from './Name';

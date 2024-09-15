@@ -1,0 +1,24 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {NameLanguage} from './NameLanguage.tsx';
+import * as NameLanguageStories from "./NameLanguage.stories.tsx";
+
+<Meta title="Typography/Name/Language" of={NameLanguageStories} />
+
+# NameLanguage
+
+## Description
+
+Displays localized language name, based on the provided a two-letter ISO 639-1 code.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {NameLanguage} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={NameLanguage}/>
+
