@@ -92,3 +92,4 @@ export type {
     SortingState,
 } from './DataTable';
 export {NameCurrency, NameLanguage, NameRegion, NameTime} from './Name';
+export {Flag} from './Flag';

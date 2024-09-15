@@ -1,0 +1,18 @@
+.vars {
+    --size: 0;
+}
+
+.container {
+    container-type: size;
+    display: inline-block;
+    height: calc(var(--size) * 1px);
+    max-width: 100%;
+    overflow: hidden;
+    width: calc(var(--size) * 1px);
+}
+
+.flag {
+    cursor: default;
+    font-size: 100cqb;
+    line-height: 1;
+}
