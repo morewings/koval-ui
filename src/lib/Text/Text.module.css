@@ -330,8 +330,9 @@
     table-layout: auto;
     width: min-content;
 
+    /* First selector needed as a backup for poor formatted tables */
     & > tr:hover td,
-    & > *:not(tfoot) tr:hover td {
+    & > tbody tr:hover td {
         background-color: var(--kg-color-mi);
     }
 

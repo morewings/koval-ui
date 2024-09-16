@@ -63,7 +63,7 @@ export const EditDialog: FC<Props> = memo(({id, columnsConfig = [], selectionAmo
     const [selectedColumn, setSelectedColumn] = useState(columnsConfig[0].id);
 
     useEffect(() => {
-        setSelectedColumn(dialogParams?.columnId as string);
+        dialogParams?.columnId && setSelectedColumn(dialogParams?.columnId as string);
     }, [dialogParams?.columnId]);
 
     const handleColumnSelect = useCallback((event: ChangeEvent<HTMLSelectElement>) => {

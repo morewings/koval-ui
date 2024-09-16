@@ -58,7 +58,7 @@ export const FilterDialog: FC<Props> = memo(({id, onApplyFiler, columnFilters, t
     );
 
     useEffect(() => {
-        setSelectedColumn(dialogParams?.columnId as string);
+        dialogParams?.columnId && setSelectedColumn(dialogParams?.columnId as string);
     }, [dialogParams?.columnId]);
 
     const handleColumnSelect = useCallback((event: ChangeEvent<HTMLSelectElement>) => {

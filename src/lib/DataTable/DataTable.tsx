@@ -481,8 +481,10 @@ export const DataTable = forwardRef<HTMLTableElement, Props>(
                         )}
                         {rows.length === 0 && (
                             <tbody>
-                                <tr>
-                                    <td colSpan={table.getAllColumns().length}>
+                                <tr className={classes.noDataRow}>
+                                    <td
+                                        className={classes.noDataCell}
+                                        colSpan={table.getAllColumns().length}>
                                         <div className={classes.noDataWarning}>
                                             <span>No data to render.</span>
                                             {columnFilters.length > 0 && (

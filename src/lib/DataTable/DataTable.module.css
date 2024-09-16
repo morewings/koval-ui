@@ -34,7 +34,7 @@
     min-height: 88px;
     overflow: auto;
     position: relative;
-    transition: height var(--kg-time-sm) ease-in;
+    transition: height var(--kg-time-xs) ease-in;
     width: min-content;
 
     &.selectable {
@@ -244,6 +244,19 @@
     margin-top: calc(var(--kg-size-unit) * 2);
 }
 
+.no-data-row {
+    &:hover {
+        & .no-data-cell {
+            background: var(--kg-background-000);
+        }
+    }
+}
+
+.no-data-cell {
+    height: calc(var(--cell-height) * 1px);
+    position: relative;
+}
+
 .no-data-warning {
     align-items: center;
     color: var(--kg-color-sol);
@@ -252,5 +265,8 @@
     gap: var(--kg-size-unit);
     height: calc(var(--cell-height) * 1px);
     justify-content: center;
-    max-width: 100vw;
+    left: 0;
+    max-width: 100%;
+    position: sticky;
+    width: 100vw;
 }
