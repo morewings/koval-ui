@@ -1,0 +1,22 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {InputNumeric} from './InputNumeric.tsx';
+import * as InputNumericStories from "./InputNumeric.stories.tsx";
+
+<Meta title="Inputs/Numeric" of={InputNumericStories} />
+
+# InputNumeric
+
+`InputNumeric` aims to provide better replacement for [InputNumber](?path=/docs/inputs-number--docs). Supports decimal numbers with or without floating point notation (`0.01`). Scientific notation (`-4.70e+9`) is also supported.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {InputNumeric} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={InputNumeric}/>
+

@@ -17,6 +17,7 @@ export {InputRange} from './InputRange';
 export {InputFile} from './InputFile';
 export {InputPassword} from './InputPassword';
 export {InputNumber} from './InputNumber';
+export {InputNumeric} from './InputNumeric';
 export {Textarea} from './Textarea';
 export {Select} from './Select';
 export {themePodil, themeDnipro} from './Theme';

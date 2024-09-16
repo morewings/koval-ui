@@ -1,14 +1,13 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
-import {type ChangeEvent, useCallback, useState} from 'react';
 
 import {validationControlNumber} from '@/internal/inputs/storybook/validationControl.ts';
 
-import {InputNumber} from './InputNumber.tsx';
+import {InputNumeric} from './InputNumeric.tsx';
 
 const meta = {
-    title: 'Inputs/Number',
-    component: InputNumber,
+    title: 'Inputs/Numeric',
+    component: InputNumeric,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
@@ -20,15 +19,16 @@ const meta = {
         onKeyUp: fn(),
         onChange: fn(),
         required: false,
-        readOnly: false,
-        disabled: false,
-        size: 9,
+        size: 12,
+        min: -999,
+        max: 999,
+        step: 1,
+        stepperInterval: 666,
+        placeholder: 'Enter decimal',
+        mode: 'natural',
     },
     argTypes: {
-        value: {control: 'text'},
-        step: {control: 'number'},
-        min: {control: 'number'},
-        max: {control: 'number'},
+        value: {control: 'number'},
         defaultValue: {
             table: {
                 disable: true,
@@ -106,53 +106,14 @@ const meta = {
         },
         validation: validationControlNumber,
     },
-} as Meta<typeof InputNumber>;
+} as Meta<typeof InputNumeric>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     render: args => {
-        return <InputNumber {...args} />;
+        return <InputNumeric {...args} />;
     },
     args: {},
-};
-
-export const Controlled: Story = {
-    render: args => {
-        const [value, setValue] = useState<string | number>(33);
-        const handleChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                setValue(event.target.value);
-            },
-            [setValue]
-        );
-        return <InputNumber {...args} onChange={handleChange} value={value} />;
-    },
-};
-
-Controlled.args = {
-    step: 11,
-};
-
-Controlled.argTypes = {
-    defaultValue: {
-        table: {
-            disable: true,
-        },
-    },
-    value: {
-        table: {
-            disable: true,
-        },
-    },
-};
-
-Controlled.parameters = {
-    docs: {
-        source: {
-            language: 'tsx',
-            type: 'code',
-        },
-    },
 };

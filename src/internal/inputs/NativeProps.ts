@@ -68,6 +68,10 @@ export type NativePropsNumeric = Omit<
     NativePropsTextual,
     'inputMode' | 'pattern' | 'maxLength' | 'minLength'
 > & {
+    /**
+     * Define the minimum value that is acceptable and valid for the input
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/min
+     */
     min?: InputHTMLAttributes<HTMLInputElement>['min'];
     /**
      * Define the maximum value that is acceptable and valid for the input

@@ -11,6 +11,7 @@ import {Select} from '@/lib/Select';
 import {InputFile} from '@/lib/InputFile';
 import {InputNumber} from '@/lib/InputNumber';
 import {InputPassword} from '@/lib/InputPassword';
+import {InputNumeric} from '@/lib/InputNumeric';
 
 import {FormField} from './FormField';
 
@@ -130,6 +131,7 @@ const meta = {
                 file: <InputFile />,
                 password: <InputPassword />,
                 number: <InputNumber />,
+                numeric: <InputNumeric />,
                 select: (
                     <Select>
                         <option value="Option 1">Option 1</option>
