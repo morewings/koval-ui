@@ -4,7 +4,14 @@ import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {NativePropsTextual, CallbackPropsTextual, ValidationProps} from '@/internal/inputs';
-import {useValidationIcon, ValidationState, useValidation} from '@/internal/inputs';
+import {
+    useRevalidateOnFormChange,
+    useExternalValidation,
+    useValidationIcon,
+    ValidationState,
+    useValidation,
+} from '@/internal/inputs';
+import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 
 import classes from './TemplateName.module.css';
 
@@ -32,17 +39,25 @@ export const TemplateName = forwardRef<HTMLInputElement, Props>(
             defaultValue,
             validation,
             errorMessage,
+            revalidateOnFormChange,
             ...nativeProps
         },
         ref
     ) => {
+        const inputRef = useInternalRef(ref);
+
         const hasValidators =
             Boolean(validation) ||
             Boolean(nativeProps.required) ||
             typeof nativeProps.maxLength === 'number' ||
             typeof nativeProps.minLength === 'number' ||
             typeof nativeProps.pattern === 'string';
+
         const {validateTextual, validity, setValidity} = useValidation({validation, hasValidators});
+
+        useRevalidateOnFormChange(inputRef, validateTextual, revalidateOnFormChange);
+        useExternalValidation({errorMessage, inputRef, setValidity, validation});
+
         const ValidationIcon = useValidationIcon(validity);
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
@@ -61,7 +76,7 @@ export const TemplateName = forwardRef<HTMLInputElement, Props>(
                     {...nativeProps}
                     placeholder={placeholder}
                     className={classes.input}
-                    ref={ref}
+                    ref={inputRef}
                     disabled={disabled}
                     value={value}
                     defaultValue={defaultValue}

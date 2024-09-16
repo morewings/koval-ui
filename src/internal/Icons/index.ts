@@ -44,3 +44,4 @@ export {IconNotification} from './IconNotification.tsx';
 export {IconErrorOutline} from './IconErrorOutline.tsx';
 export {IconSortOff} from './IconSortOff.tsx';
 export {IconColumns} from './IconColumns.tsx';
+export {IconNumeric} from './IconNumeric.tsx';
