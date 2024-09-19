@@ -1,37 +1,27 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
-import type {ChangeEvent} from 'react';
-import {useState, useCallback} from 'react';
 
 import {validationControlDate} from '@/internal/inputs/storybook/validationControl.ts';
 
-import {InputDate} from './InputDate.tsx';
+import {InputDateTime} from './InputDateTime.tsx';
 
 const meta = {
-    title: 'Inputs/Date',
-    component: InputDate,
+    title: 'Inputs/DateTime',
+    component: InputDateTime,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {
-        onClick: fn(),
         onBlur: fn(),
         onFocus: fn(),
         onKeyDown: fn(),
         onKeyUp: fn(),
+        onChange: fn(),
         required: false,
-        placeholder: 'YYYY-MM-DD',
-        disabled: false,
-        readOnly: false,
-        errorMessage: 'External validation error',
     },
     argTypes: {
-        value: {
-            table: {
-                disable: true,
-            },
-        },
+        value: {control: 'text'},
         defaultValue: {control: 'text'},
         onClick: {
             table: {
@@ -44,6 +34,11 @@ const meta = {
             },
         },
         onFocus: {
+            table: {
+                disable: true,
+            },
+        },
+        autoComplete: {
             table: {
                 disable: true,
             },
@@ -93,55 +88,22 @@ const meta = {
                 disable: true,
             },
         },
-        revalidateOnFormChange: {
+        validation: validationControlDate,
+        prefix: {
             table: {
                 disable: true,
             },
         },
-        validation: validationControlDate,
     },
-} as Meta<typeof InputDate>;
+} as Meta<typeof InputDateTime>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Non-controlled state',
     render: args => {
-        return <InputDate {...args} />;
+        return <InputDateTime {...args} />;
     },
-    args: {
-        defaultValue: '2018-07-22',
-        min: '2018-01-01',
-        max: '2018-12-31',
-    },
-};
-
-export const ControlledState: Story = {
-    render: args => {
-        const [value, setValue] = useState('2018-07-22');
-        const handleChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                console.log('Value captured:', event.target.value);
-                setValue(event.target.value);
-            },
-            [setValue]
-        );
-        return <InputDate {...args} value={value} onChange={handleChange} />;
-    },
-};
-
-ControlledState.args = {
-    min: '2018-01-01',
-    max: '2018-12-31',
-};
-
-ControlledState.argTypes = {};
-
-ControlledState.parameters = {
-    docs: {
-        source: {
-            language: 'tsx',
-            type: 'code',
-        },
-    },
+    args: {},
 };

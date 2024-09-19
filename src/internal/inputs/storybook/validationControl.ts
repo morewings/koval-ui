@@ -121,3 +121,51 @@ export const validationControlNumber = {
         },
     },
 };
+
+export const validationControlDate = {
+    options: [
+        'noValidator',
+        'syncValidator',
+        'asyncValidator',
+        'error',
+        'valid',
+        'inProgress',
+        'pristine',
+    ],
+    mapping: {
+        noValidator: undefined,
+        syncValidator: (value?: unknown) => {
+            console.log('Value captured:', value);
+            if (value && value.toString().includes('2018-07-23')) {
+                return '';
+            } else {
+                return 'Should be 2018-07-23';
+            }
+        },
+        asyncValidator: async (value?: unknown) => {
+            console.log('Value captured:', value);
+            await timeout(5000);
+            if (value && value.toString().includes('2018-07-23')) {
+                return '';
+            } else {
+                return `Last captured: ${value}`;
+            }
+        },
+        error: ValidationState.error,
+        valid: ValidationState.valid,
+        inProgress: ValidationState.inProgress,
+        pristine: ValidationState.pristine,
+    },
+    control: {
+        type: 'radio',
+        labels: {
+            noValidator: 'No custom validator',
+            syncValidator: 'Sync validator (2018-07-23)',
+            asyncValidator: 'Async validator (2018-07-23)',
+            error: 'External validation: "error"',
+            valid: 'External validation: "valid"',
+            inProgress: 'External validation: "inProgress"',
+            pristine: 'External validation: "pristine"',
+        },
+    },
+};

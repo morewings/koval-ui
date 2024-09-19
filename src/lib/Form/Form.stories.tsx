@@ -8,6 +8,7 @@ import {InputGroup} from '@/lib/InputGroup';
 import {InputCheckbox} from '@/lib/InputCheckbox';
 import {InputRadio} from '@/lib/InputRadio';
 import {InputDate} from '@/lib/InputDate';
+import {InputDateTime} from '@/lib/InputDateTime';
 import {InputColor} from '@/lib/InputColor';
 import {InputTime} from '@/lib/InputTime';
 import {InputRange} from '@/lib/InputRange';
@@ -134,11 +135,14 @@ export const Primary: Story = {
                 <FormField label="Date input">
                     <InputDate required defaultValue="2018-07-22" />
                 </FormField>
-                <FormField label="Color input">
-                    <InputColor value="#CCCCCC" />
-                </FormField>
                 <FormField label="Time input">
                     <InputTime required />
+                </FormField>
+                <FormField label="DateTime input">
+                    <InputDateTime required value="1982-06-06T18:18" />
+                </FormField>
+                <FormField label="Color input">
+                    <InputColor value="#CCCCCC" />
                 </FormField>
                 <FormField label="Range input">
                     <InputRange required={true} />

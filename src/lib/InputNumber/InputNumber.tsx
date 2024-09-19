@@ -1,4 +1,5 @@
 import type {ChangeEvent, InputHTMLAttributes, FormEvent} from 'react';
+import {useEffect} from 'react';
 import {forwardRef, useCallback, useMemo} from 'react';
 import classNames from 'classnames';
 import {useLocalTheme} from 'css-vars-hook';
@@ -28,7 +29,9 @@ export type Props = DataAttributes &
         size?: InputHTMLAttributes<HTMLInputElement>['size'];
     };
 
-const ChangeEventSpinner = new Event('change', {bubbles: true});
+const SPINNER_EVENT_TYPE = 'change_spinner';
+
+const ChangeEventSpinner = new Event(SPINNER_EVENT_TYPE, {bubbles: true});
 
 export const InputNumber = forwardRef<HTMLInputElement, Props>(
     (
@@ -73,6 +76,13 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
             },
             [onChange]
         );
+
+        useEffect(() => {
+            inputRef.current?.addEventListener(SPINNER_EVENT_TYPE, event => {
+                // TODO: improve type
+                onChange(event as unknown as ChangeEvent<HTMLInputElement>);
+            });
+        }, [inputRef, onChange]);
 
         const handleInvalid = useCallback(() => {
             setValidity(ValidationState.error);

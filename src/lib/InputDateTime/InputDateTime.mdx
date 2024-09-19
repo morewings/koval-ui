@@ -1,0 +1,22 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {InputDateTime} from './InputDateTime.tsx';
+import * as InputDateTimeStories from "./InputDateTime.stories.tsx";
+
+<Meta title="Inputs/DateTime" of={InputDateTimeStories} />
+
+# InputDateTime
+
+`InputDateTime` is created to replace `<input type="datetime-local" />`.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {InputDateTime} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={InputDateTime}/>
+
