@@ -12,11 +12,11 @@ export type Props = DataAttributes &
         children: ReactElement;
         /** Set text label */
         label: string;
-        /** Set hint text to be displayed below input */
+        /** Set hint text to be displayed below the input */
         hint?: string;
         /**
          * Renders * character after label indicating required input status.
-         * Also set automatically when required input provided.
+         * Also, set automatically when required input is provided.
          */
         required?: boolean;
     };
@@ -25,9 +25,14 @@ export const FormField = forwardRef<HTMLDivElement, Props>(
     ({className, children, label, hint, required, ...nativeProps}, ref) => {
         const inputProps = Children.only(children).props;
         const id = useInternalId(inputProps.id);
+        const hintId = `${id}-hint`;
         const childrenWithProps = useMemo(
-            () => cloneElement(Children.only(children), {id}),
-            [children, id]
+            () =>
+                cloneElement(Children.only(children), {
+                    id,
+                    ...(hint && {'aria-describedby': hintId}),
+                }),
+            [children, hint, hintId, id]
         );
         return (
             <div {...nativeProps} ref={ref} className={classNames(classes.wrapper, className)}>
@@ -39,7 +44,11 @@ export const FormField = forwardRef<HTMLDivElement, Props>(
                     {label}
                 </label>
                 {childrenWithProps}
-                {hint && <div className={classes.hint}>{hint}</div>}
+                {hint && (
+                    <div className={classes.hint} id={hintId}>
+                        {hint}
+                    </div>
+                )}
             </div>
         );
     }
