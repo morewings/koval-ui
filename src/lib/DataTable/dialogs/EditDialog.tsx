@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import {Dialog, useDialogState} from '@/lib/Dialog';
 import {FormField} from '@/lib/FormField';
 import {InputText} from '@/lib/InputText';
-import {InputNumber} from '@/lib/InputNumber';
+import {InputNumeric} from '@/lib/InputNumeric';
 import {InputDate} from '@/lib/InputDate';
 import {Select} from '@/lib/Select';
 import {IconEdit, IconClose, IconColumns} from '@/internal/Icons';
@@ -49,9 +49,9 @@ const withValueMapping = <TProps extends JSX.IntrinsicAttributes>(Component: FC<
 
 const valueInputMapping = {
     [ColumnTypes.text]: withValueMapping(InputText),
-    [ColumnTypes.currency]: withValueMapping(InputNumber),
-    [ColumnTypes.decimal]: withValueMapping(InputNumber),
-    [ColumnTypes.unit]: withValueMapping(InputNumber),
+    [ColumnTypes.currency]: withValueMapping(InputNumeric),
+    [ColumnTypes.decimal]: withValueMapping(InputNumeric),
+    [ColumnTypes.unit]: withValueMapping(InputNumeric),
     [ColumnTypes.percentage]: PercentageInput,
     [ColumnTypes.select]: withValueMapping(InputText),
     [ColumnTypes.date]: withValueMapping(InputDate),

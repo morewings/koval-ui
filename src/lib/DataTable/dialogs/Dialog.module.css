@@ -2,7 +2,7 @@
 
 .dialog {
     min-height: min-content !important;
-    width: max-content !important;
+    width: calc(var(--kg-size-unit) * 82) !important;
 }
 
 .delete-dialog {
