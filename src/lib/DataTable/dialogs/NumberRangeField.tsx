@@ -3,7 +3,7 @@ import {useMemo} from 'react';
 import {useEffect} from 'react';
 import {useCallback, useState} from 'react';
 
-import {FormField, InputNumber} from '@/lib';
+import {FormField, InputNumeric} from '@/lib';
 import type {NumberProps} from '@/lib/Number';
 
 import classes from './Dialog.module.css';
@@ -61,12 +61,17 @@ export const NumberRangeField: FC<Props> = ({
     return (
         <div className={classes.numberRange}>
             <FormField className={classes.numberField} label="From:">
-                <InputNumber step={step} value={from ?? ''} onChange={handleMinChange} />
+                <InputNumeric
+                    mode="floating"
+                    step={step}
+                    value={from ?? ''}
+                    onChange={handleMinChange}
+                />
             </FormField>
             <FormField className={classes.numberField} label="To:">
-                <InputNumber
+                <InputNumeric
+                    mode="floating"
                     step={step}
-                    autoComplete="off"
                     value={to || ''}
                     onChange={handleMaxChange}
                 />

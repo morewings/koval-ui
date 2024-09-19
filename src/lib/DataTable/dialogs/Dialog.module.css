@@ -17,6 +17,7 @@
     gap: calc(var(--kg-size-unit) * 3);
 
     @media (--viewport-md) {
+        align-items: start;
         flex-direction: row;
         gap: calc(var(--kg-size-unit) * 2);
     }
@@ -35,11 +36,6 @@
     display: flex;
     flex-direction: column;
     gap: calc(var(--kg-size-unit) * 3);
-
-    @media (--viewport-md) {
-        flex-direction: row;
-        gap: 0;
-    }
 
     & .number-field {
         width: max-content;
