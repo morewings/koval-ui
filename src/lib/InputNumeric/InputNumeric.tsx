@@ -114,8 +114,8 @@ export const InputNumeric = forwardRef<HTMLInputElement, Props>(
         const handleKeyUp = useCallback(
             (event: KeyboardEvent<HTMLInputElement>) => {
                 if (
-                    event.key === 'ArrowDown' ||
-                    (event.key === 'ArrowUp' && mode !== Modes.scientific)
+                    (event.key === 'ArrowDown' || event.key === 'ArrowUp') &&
+                    mode !== Modes.scientific
                 ) {
                     event.currentTarget.reportValidity();
                     onChange(event as unknown as ChangeEvent<HTMLInputElement>);

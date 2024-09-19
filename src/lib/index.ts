@@ -11,6 +11,7 @@ export {InputGroup} from './InputGroup';
 export {InputRadio} from './InputRadio';
 export {InputText} from './InputText';
 export {InputDate} from './InputDate';
+export {InputDateTime} from './InputDateTime';
 export {InputColor} from './InputColor';
 export {InputTime} from './InputTime';
 export {InputRange} from './InputRange';

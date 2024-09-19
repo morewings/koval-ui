@@ -1,0 +1,21 @@
+@import url("@/internal/inputs/stateSelectorsTextual.css");
+
+.wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: var(--kg-size-unit);
+    position: relative;
+}
+
+.input-marionette {
+    --size: calc(var(--kg-size-unit) * 4);
+
+    height: var(--size);
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: var(--size);
+}

@@ -12,6 +12,7 @@ import {InputFile} from '@/lib/InputFile';
 import {InputNumber} from '@/lib/InputNumber';
 import {InputPassword} from '@/lib/InputPassword';
 import {InputNumeric} from '@/lib/InputNumeric';
+import {InputDateTime} from '@/lib/InputDateTime';
 
 import {FormField} from './FormField';
 
@@ -112,6 +113,7 @@ const meta = {
             options: [
                 'text',
                 'date',
+                'dateTime',
                 'color',
                 'time',
                 'range',
@@ -120,10 +122,12 @@ const meta = {
                 'password',
                 'textarea',
                 'number',
+                'numeric',
             ], // An array of serializable values
             mapping: {
                 text: <InputText />,
                 date: <InputDate />,
+                dateTime: <InputDateTime />,
                 color: <InputColor defaultValue="#CECECE" />,
                 time: <InputTime />,
                 range: <InputRange />,
@@ -146,6 +150,7 @@ const meta = {
                     // 'labels' maps option values to string labels
                     text: 'With Text Input',
                     date: 'With Date Input',
+                    dateTime: 'With DateTime Input',
                     color: 'With Color Input',
                     time: 'With Time Input',
                     range: 'With Range Input',
@@ -154,6 +159,7 @@ const meta = {
                     file: 'With File Input',
                     password: 'With Password Input',
                     number: 'With Number Input',
+                    numeric: 'With Numeric Input',
                 },
             },
         },
