@@ -101,7 +101,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    name: 'Non-controlled state',
+    name: 'Non-controlled state 🚧️',
     render: args => {
         return <InputDateTime {...args} />;
     },
