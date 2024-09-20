@@ -9,9 +9,9 @@
 }
 
 .delete-dialog {
-    min-height: min-content;
-    min-width: max-content;
-    width: calc(var(--kg-size-unit) * 50);
+    min-height: min-content !important;
+    min-width: max-content !important;
+    width: calc(var(--kg-size-unit) * 50) !important;
 }
 
 .fieldset {
