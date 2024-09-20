@@ -85,7 +85,7 @@ export const EditDialog: FC<Props> = memo(({id, columnsConfig = [], selectionAmo
 
     useEffect(() => {
         setSelectionValue('');
-    }, [selectedType]);
+    }, [selectedColumn]);
 
     const handleEdit = useCallback(() => {
         onEdit(selectedColumn || columnsConfig[0].id, selectionValue);

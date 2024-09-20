@@ -84,19 +84,16 @@ export const FilterDialog: FC<Props> = memo(({id, onApplyFiler, columnFilters, t
         [FilterField, selectedType]
     );
 
-    const step = useMemo(() => {
-        const isPercentage =
-            selectedColumn &&
-            tableContext.getColumn(selectedColumn)?.columnDef.meta?.type === ColumnTypes.percentage;
-        return isPercentage ? 0.01 : undefined;
-    }, [selectedColumn, tableContext]);
-
     const tableFilterValue = useMemo(() => {
         const columnFilter = columnFilters.find(({id}) => id === selectedColumn);
         return columnFilter?.value !== undefined ? (columnFilter?.value as FilterValue) : '';
     }, [columnFilters, selectedColumn]);
 
     const [filterValue, setFilterValue] = useState(tableFilterValue);
+
+    useEffect(() => {
+        setFilterValue('');
+    }, [selectedColumn]);
 
     const hasFilter = Array.isArray(filterValue)
         ? filterValue.every(value => Boolean(value))
@@ -170,7 +167,6 @@ export const FilterDialog: FC<Props> = memo(({id, onApplyFiler, columnFilters, t
                     </Select>
                 </FormField>*/}
                 <InputField
-                    step={step}
                     value={filterValue}
                     onChange={handleFilterChange}
                     cellProps={cellProps}
