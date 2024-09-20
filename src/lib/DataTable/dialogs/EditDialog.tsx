@@ -39,7 +39,7 @@ const withValueMapping = <TProps extends JSX.IntrinsicAttributes>(Component: FC<
             },
             [onChange]
         );
-        return <Component {...(restProps as TProps)} onChange={handleChange} />;
+        return <Component {...(restProps as TProps)} mode="floating" onChange={handleChange} />;
     };
 
     Wrapped.displayName = Component.displayName;
