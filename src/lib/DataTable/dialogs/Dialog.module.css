@@ -2,7 +2,10 @@
 
 .dialog {
     min-height: min-content !important;
-    width: calc(var(--kg-size-unit) * 82) !important;
+
+    @media (--viewport-sm) {
+        width: calc(var(--kg-size-unit) * 82) !important;
+    }
 }
 
 .delete-dialog {
@@ -16,7 +19,7 @@
     flex-direction: column;
     gap: calc(var(--kg-size-unit) * 3);
 
-    @media (--viewport-md) {
+    @media (--viewport-sm) {
         align-items: start;
         flex-direction: row;
         gap: calc(var(--kg-size-unit) * 2);
