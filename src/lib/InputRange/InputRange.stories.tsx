@@ -27,6 +27,7 @@ const meta = {
         step: 1,
         scaleUnit: 'F',
         disabled: false,
+        displayScale: true,
     },
     argTypes: {
         value: {control: 'text'},
