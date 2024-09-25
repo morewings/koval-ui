@@ -55,7 +55,9 @@
         background-color: var(--thumb-color);
         border: none;
         cursor: grab;
+        height: var(--slider-height);
         transition: background-color var(--kg-time-sm) ease-in-out;
+        width: var(--slider-width);
     }
 
     &:--hoverSelector {
