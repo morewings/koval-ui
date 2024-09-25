@@ -23,6 +23,10 @@ export type Props = DataAttributes &
         prefix?: FC<{className?: string} & SVGProps<SVGSVGElement> & unknown>;
         bars?: number;
         scaleUnit?: string;
+        /**
+         * Enable to display scale below input
+         */
+        displayScale?: boolean;
     };
 
 const createOptions = ({
@@ -72,6 +76,7 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
             revalidateOnFormChange,
             validation,
             errorMessage,
+            displayScale,
             ...nativeProps
         },
         ref
@@ -143,9 +148,11 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
                         min={min}
                         max={max}
                     />
-                    <datalist id={scaleId} className={classes.scale}>
-                        {createOptions({min: Number(min), max: Number(max), bars, scaleUnit})}
-                    </datalist>
+                    {displayScale && (
+                        <datalist id={scaleId} className={classes.scale}>
+                            {createOptions({min: Number(min), max: Number(max), bars, scaleUnit})}
+                        </datalist>
+                    )}
                 </div>
                 {/* TODO: add htmlFor when CSS vars hook supports it */}
                 <LocalRoot as="output" theme={theme} className={classes.output}>

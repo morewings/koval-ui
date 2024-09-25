@@ -1,0 +1,24 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {Video} from './Video.tsx';
+import * as VideoStories from "./Video.stories.tsx";
+
+<Meta title="Components/Video" of={VideoStories} />
+
+# Video
+
+## Description
+
+`Video` component plays provided video file using Video Embed element.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Video} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={Video}/>
+
