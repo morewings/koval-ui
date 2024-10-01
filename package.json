@@ -121,7 +121,7 @@
     "@vitejs/plugin-react": "4.3.2",
     "@yelo/rollup-node-external": "1.0.1",
     "alias-hq": "6.2.4",
-    "chromatic": "11.7.1",
+    "chromatic": "11.11.0",
     "commitizen": "4.3.1",
     "commitlint": "19.4.1",
     "cz-conventional-changelog": "3.3.0",
