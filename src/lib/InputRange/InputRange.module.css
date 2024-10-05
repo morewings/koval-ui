@@ -98,7 +98,7 @@
         }
     }
 
-    &:active:not(:--disabledSelector),
+    &:active:not(:disabled),
     &:--focusSelector {
         &::-moz-range-thumb {
             background-color: var(--thumb-color-active);
