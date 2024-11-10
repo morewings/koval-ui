@@ -1,0 +1,24 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import {Audio} from './Audio.tsx';
+import * as AudioStories from "./Audio.stories.tsx";
+
+<Meta title="Components/Audio" of={AudioStories} />
+
+# Audio
+
+## Description
+
+`Audio` component plays provided audio file using a Video Embed element.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {Audio} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={Audio}/>
+
