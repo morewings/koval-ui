@@ -95,3 +95,4 @@ export type {
 } from './DataTable';
 export {NameCurrency, NameLanguage, NameRegion, NameTime} from './Name';
 export {Flag} from './Flag';
+export {Audio} from './Audio';

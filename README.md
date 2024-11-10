@@ -8,7 +8,7 @@
 
 # Koval components library
 
-[![NPM library Create React App template logo](./design/logo-repo-social.png)](#)
+[![NPM library Create React App template logo](./design/logo-repo.png)](#)
 
 Koval UI is a React component library built for modern browsers. Each component tries to utilize built-in browser APIs to full extent.
 

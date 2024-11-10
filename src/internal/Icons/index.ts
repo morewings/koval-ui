@@ -54,3 +54,4 @@ export {IconPictureInPicture} from './IconPictureInPicture.tsx';
 export {IconDownloadVideo} from './IconDownloadVideo.tsx';
 export {IconVideo} from './IconVideo.tsx';
 export {IconSpeed} from './IconSpeed.tsx';
+export {IconAudio} from './IconAudio.tsx';

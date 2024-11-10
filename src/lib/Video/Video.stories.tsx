@@ -95,7 +95,6 @@ export const Primary: Story = {
         return <Video {...args} />;
     },
     args: {
-        // @ts-expect-error TODO: some strange type issue with mutually exclusive props
         src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
     },
 };
@@ -106,7 +105,6 @@ export const Sources: Story = {
         return <Video {...args} />;
     },
     args: {
-        // @ts-expect-error TODO: some strange type issue with mutually exclusive props
         sources: [
             {
                 src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',

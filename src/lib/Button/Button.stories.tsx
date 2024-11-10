@@ -38,34 +38,32 @@ const meta = {
         },
         variant: {
             control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                type: 'radio',
             },
         },
         prefix: {
-            options: ['noPrefix', 'withPrefix'], // An array of serializable values
+            options: ['noPrefix', 'withPrefix'],
             mapping: {
                 noPrefix: undefined,
                 withPrefix: IconFile,
-            }, // Maps serializable option values to complex arg values
+            },
             control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                type: 'radio',
                 labels: {
-                    // 'labels' maps option values to string labels
                     noPrefix: 'No prefix',
                     withPrefix: 'With prefix',
                 },
             },
         },
         suffix: {
-            options: ['noSuffix', 'withSuffix'], // An array of serializable values
+            options: ['noSuffix', 'withSuffix'],
             mapping: {
                 noSuffix: undefined,
                 withSuffix: CloudUpload,
-            }, // Maps serializable option values to complex arg values
+            },
             control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                type: 'radio',
                 labels: {
-                    // 'labels' maps option values to string labels
                     noSuffix: 'No suffix',
                     withSuffix: 'With suffix',
                 },

@@ -15,6 +15,8 @@ import {
     IconVideo,
 } from '@/internal/Icons';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
+import type {Source} from '@/internal/MediaEmbeds';
+import {getFileName} from '@/internal/MediaEmbeds';
 
 import classes from './Video.module.css';
 import {usePlay, PlayModes} from './usePlay.ts';
@@ -22,21 +24,6 @@ import {useTime} from './useTime.ts';
 import {useFullscreen} from './useFullscreen.ts';
 import {useSound} from './useSound.ts';
 import {useLoadingState} from './useLoadingState.ts';
-
-export type Source = {
-    src: string;
-    /**
-     * Provide the source video MIME type
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#type
-     */
-    type?: string;
-    /**
-     * Provide media condition for the source video
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#media
-     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries
-     */
-    mediaCondition?: string;
-};
 
 enum PreloadModes {
     none = 'none',
@@ -123,34 +110,18 @@ export type Props = DataAttributes &
          * Set a callback to run when the user pauses the video
          */
         onPause?: (event: SyntheticEvent<HTMLVideoElement>) => void;
-    } & (
-        | {
-              /**
-               * Provide video url
-               * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#src
-               */
-              src?: string;
-              /**
-               * Provide video sources configs array. An advanced alternative to `src` prop
-               * @see SourceDensity
-               * @see SourceWidth
-               */
-              sources?: never;
-          }
-        | {
-              /**
-               * Provide video url
-               * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#src
-               */
-              src?: never;
-              /**
-               * Provide video sources configs array. An advanced alternative to `src` prop
-               * @see SourceDensity
-               * @see SourceWidth
-               */
-              sources?: Source[];
-          }
-    );
+        /**
+         * Provide video url
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#src
+         */
+        src?: string;
+        /**
+         * Provide video sources configs array. An advanced alternative to `src` prop
+         * @see SourceDensity
+         * @see SourceWidth
+         */
+        sources?: Source[];
+    };
 
 const getFormattedTime = (totalSeconds = 0) => {
     const minutes = new Intl.NumberFormat(undefined, {minimumIntegerDigits: 2}).format(
@@ -160,11 +131,6 @@ const getFormattedTime = (totalSeconds = 0) => {
         Math.floor(totalSeconds % 60)
     );
     return `${minutes}:${seconds}`;
-};
-
-const getFileName = (url?: string) => {
-    const splitted = url?.split('/') || [];
-    return splitted[splitted.length - 1];
 };
 
 const normalizeSize = (size?: number | string) => {
