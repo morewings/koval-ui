@@ -193,8 +193,8 @@ importers:
         specifier: 0.9.0
         version: 0.9.0(eslint@9.11.1(jiti@1.21.0))(typescript@5.4.5)
       generate-react-cli:
-        specifier: 8.4.8
-        version: 8.4.8
+        specifier: 8.4.9
+        version: 8.4.9
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -1830,10 +1830,6 @@ packages:
 
   '@inquirer/expand@2.3.0':
     resolution: {integrity: sha512-qnJsUcOGCSG1e5DTOErmv2BPQqrtT6uzqn1vI/aYGiPKq+FgslGZmtdnXbhuI7IlT7OByDoEEqdnhUnVR2hhLw==}
-    engines: {node: '>=18'}
-
-  '@inquirer/figures@1.0.3':
-    resolution: {integrity: sha512-ErXXzENMH5pJt5/ssXV0DfWUZqly8nGzf0UcBV9xTnP+KyffE2mqyxIMBrZ8ijQck2nU0TQm40EQB53YreyWHw==}
     engines: {node: '>=18'}
 
   '@inquirer/figures@1.0.6':
@@ -4325,8 +4321,8 @@ packages:
   functions-have-names@1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
 
-  generate-react-cli@8.4.8:
-    resolution: {integrity: sha512-qFLBXdRLcdwrCw8KSAv20ThX7bxerug/oDaA3QG9HmG0fVWmX0DpkwtPr7GVXOnwG17KYMkC10fLaIVsIXXqTA==}
+  generate-react-cli@8.4.9:
+    resolution: {integrity: sha512-Rk3G9uXoFRDU8vi/xlHQm3d7iE6dos9ofcjsqzAaTwbSE6k1UnwrSD9UEpJjuhH9Nk/A5yDogXUHkwShitobkA==}
     engines: {node: '>=10.x', npm: '>= 6.x'}
     hasBin: true
 
@@ -4671,8 +4667,8 @@ packages:
     resolution: {integrity: sha512-QAgPDQMEgrDssk1XiwwHoOGYF9BAbUcc1+j+FhEvaOt8/cKRqyLn0U5qA6F74fGhTMGxf92pOvPBeh29jQJDTQ==}
     engines: {node: '>=12.0.0'}
 
-  inquirer@9.3.4:
-    resolution: {integrity: sha512-Hp6meNSDzp+Oc9JNUUlYsK81dxaPrrBRa7H/s3+yebCDRJe4UNKYSkEUZoIcuKJjNipBLPKsuc7BvO6tLzo/KA==}
+  inquirer@9.3.7:
+    resolution: {integrity: sha512-LJKFHCSeIRq9hanN14IlOtPSTe3lNES7TYDTE2xxdAy1LS5rYphajK1qtwvj3YmQXvvk0U2Vbmcni8P9EIQW9w==}
     engines: {node: '>=18'}
 
   internal-slot@1.0.7:
@@ -9174,8 +9170,6 @@ snapshots:
       '@inquirer/type': 1.5.5
       yoctocolors-cjs: 2.1.2
 
-  '@inquirer/figures@1.0.3': {}
-
   '@inquirer/figures@1.0.6': {}
 
   '@inquirer/input@2.3.0':
@@ -12283,14 +12277,14 @@ snapshots:
 
   functions-have-names@1.2.3: {}
 
-  generate-react-cli@8.4.8:
+  generate-react-cli@8.4.9:
     dependencies:
       chalk: 5.3.0
       commander: 12.1.0
       deep-keys: 0.5.0
       dotenv: 16.4.5
       fs-extra: 11.2.0
-      inquirer: 9.3.4
+      inquirer: 9.3.7
       lodash: 4.17.21
       replace: 1.2.2
 
@@ -12661,9 +12655,9 @@ snapshots:
       through: 2.3.8
       wrap-ansi: 7.0.0
 
-  inquirer@9.3.4:
+  inquirer@9.3.7:
     dependencies:
-      '@inquirer/figures': 1.0.3
+      '@inquirer/figures': 1.0.6
       ansi-escapes: 4.3.2
       cli-width: 4.1.0
       external-editor: 3.1.0
