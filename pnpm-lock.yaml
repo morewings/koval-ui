@@ -238,8 +238,8 @@ importers:
         specifier: 8.2.9
         version: 8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))
       storybook-addon-theme-provider:
-        specifier: 0.2.2
-        version: 0.2.2(@storybook/blocks@8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/components@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/core-events@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/manager-api@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/preview-api@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/theming@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/types@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 0.2.8
+        version: 0.2.8(@storybook/components@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/manager-api@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/preview-api@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/theming@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/types@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       stylelint:
         specifier: 16.9.0
         version: 16.9.0(typescript@5.4.5)
@@ -2133,6 +2133,13 @@ packages:
 
   '@phosphor-icons/core@2.1.1':
     resolution: {integrity: sha512-v4ARvrip4qBCImOE5rmPUylOEK4iiED9ZyKjcvzuezqMaiRASCHKcRIuvvxL/twvLpkfnEODCOJp5dM4eZilxQ==}
+
+  '@phosphor-icons/react@2.1.7':
+    resolution: {integrity: sha512-g2e2eVAn1XG2a+LI09QU3IORLhnFNAFkNbo2iwbX6NOKSLOwvEMmTa7CgOzEbgNWR47z8i8kwjdvYZ5fkGx1mQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>= 16.8'
+      react-dom: '>= 16.8'
 
   '@pkgr/core@0.1.1':
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
@@ -6733,12 +6740,10 @@ packages:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
 
-  storybook-addon-theme-provider@0.2.2:
-    resolution: {integrity: sha512-sEzVXh3v55Z3vPA1qvaDeILJRLCDnRzvTBVREGsuYO/1N6Cb8wBK3XN4O/gK7VgarL7WtfuWRqOBKXgTeaicdQ==}
+  storybook-addon-theme-provider@0.2.8:
+    resolution: {integrity: sha512-bDKXM74beLuk0yJZ1E6cut+DCWy2qESCJoxAbTPh4IkJ+J9XNss63v+0kkg/dybuajhAU9lheIs7LhHQEVuytA==}
     peerDependencies:
-      '@storybook/blocks': '>=7.0.0'
       '@storybook/components': '>=7.0.0'
-      '@storybook/core-events': '>=7.0.0'
       '@storybook/manager-api': '>=7.0.0'
       '@storybook/preview-api': '>=7.0.0'
       '@storybook/theming': '>=7.0.0'
@@ -6746,11 +6751,7 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     peerDependenciesMeta:
-      '@storybook/blocks':
-        optional: true
       '@storybook/components':
-        optional: true
-      '@storybook/core-events':
         optional: true
       '@storybook/manager-api':
         optional: true
@@ -9750,6 +9751,11 @@ snapshots:
       '@octokit/openapi-types': 22.2.0
 
   '@phosphor-icons/core@2.1.1': {}
+
+  '@phosphor-icons/react@2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@pkgr/core@0.1.1': {}
 
@@ -15068,11 +15074,11 @@ snapshots:
 
   statuses@2.0.1: {}
 
-  storybook-addon-theme-provider@0.2.2(@storybook/blocks@8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/components@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/core-events@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/manager-api@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/preview-api@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/theming@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/types@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  storybook-addon-theme-provider@0.2.8(@storybook/components@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/manager-api@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/preview-api@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/theming@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(@storybook/types@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@phosphor-icons/react': 2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     optionalDependencies:
-      '@storybook/blocks': 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2)))
       '@storybook/components': 8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2)))
-      '@storybook/core-events': 8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2)))
       '@storybook/manager-api': 8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2)))
       '@storybook/preview-api': 8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2)))
       '@storybook/theming': 8.2.9(storybook@8.2.9(@babel/preset-env@7.24.6(@babel/core@7.25.2)))
