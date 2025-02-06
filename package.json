@@ -72,7 +72,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.1",
-    "@material-symbols/svg-700": "^0.22.2",
+    "@material-symbols/svg-700": "^0.28.0",
     "@phosphor-icons/core": "^2.1.1",
     "@tanstack/react-table": "^8.20.5",
     "@tanstack/react-virtual": "^3.10.7",
