@@ -48,17 +48,19 @@ export const Panel: FC<Partial<Addon_RenderOptions>> = props => {
 
     return (
         <AddonPanel active={Boolean(props.active)}>
-            <Playground
-                vanillaTheme={vanillaTheme}
-                theme={theme}
-                onColorChange={handleColorChange}
-                onBackgroundInvert={handleBackgroundInvert}
-            />
-            <ActionBar
-                actionItems={[
-                    // {title: 'Save theme', onClick: () => {}},
-                    {title: 'Reset theme', onClick: handleReset},
-                ]}></ActionBar>
+            <div>
+                <Playground
+                    vanillaTheme={vanillaTheme}
+                    theme={theme}
+                    onColorChange={handleColorChange}
+                    onBackgroundInvert={handleBackgroundInvert}
+                />
+                <ActionBar
+                    actionItems={[
+                        // {title: 'Save theme', onClick: () => {}},
+                        {title: 'Reset theme', onClick: handleReset},
+                    ]}></ActionBar>
+            </div>
         </AddonPanel>
     );
 };

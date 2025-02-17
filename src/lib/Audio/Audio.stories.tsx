@@ -6,7 +6,7 @@ import audioFile from './sample.mp3';
 import posterFile from './poster.jpeg';
 
 const meta = {
-    title: 'Components/Audio',
+    title: 'Embeds & IFrame/Audio',
     component: Audio,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
