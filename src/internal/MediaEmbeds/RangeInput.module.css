@@ -72,7 +72,7 @@
         }
     }
 
-    &:active:not(:--disabledSelector) {
+    &:active {
         &::-moz-range-thumb {
             cursor: grabbing;
         }
