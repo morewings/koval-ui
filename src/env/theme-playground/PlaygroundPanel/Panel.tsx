@@ -1,7 +1,7 @@
 import type {FC} from 'react';
 // @ts-expect-error TODO: maybe fix later
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback, useEffect, Fragment} from 'react';
 import {useChannel} from '@storybook/manager-api';
 import {AddonPanel, ActionBar} from '@storybook/components';
 import {useAddonState} from '@storybook/manager-api';
@@ -48,7 +48,7 @@ export const Panel: FC<Partial<Addon_RenderOptions>> = props => {
 
     return (
         <AddonPanel active={Boolean(props.active)}>
-            <div>
+            <Fragment>
                 <Playground
                     vanillaTheme={vanillaTheme}
                     theme={theme}
@@ -60,7 +60,7 @@ export const Panel: FC<Partial<Addon_RenderOptions>> = props => {
                         // {title: 'Save theme', onClick: () => {}},
                         {title: 'Reset theme', onClick: handleReset},
                     ]}></ActionBar>
-            </div>
+            </Fragment>
         </AddonPanel>
     );
 };
