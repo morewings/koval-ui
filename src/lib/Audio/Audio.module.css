@@ -150,6 +150,8 @@
 }
 
 .navigation-input {
+    --track-color: var(--kg-color-re);
+
     width: 100%;
 }
 
@@ -165,6 +167,8 @@
     }
 
     & .volume-input {
+        --track-color: var(--kg-color-re);
+
         width: 100%;
     }
 

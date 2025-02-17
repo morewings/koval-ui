@@ -2,7 +2,6 @@
     --track-height: calc(var(--kg-size-unit) / 3);
     --slider-height: calc(var(--kg-size-unit) * 2);
     --slider-width: var(--slider-height);
-    --track-color: var(--kg-color-re);
     --track-color-active: var(--kg-color-mi);
     --thumb-color: var(--kg-color-re);
     --thumb-color-active: var(--kg-background-000);

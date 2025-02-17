@@ -33,24 +33,24 @@ type Element = HTMLAudioElement;
 export type Props = DataAttributes &
     LibraryProps & {
         /**
-         * A URL for an image to be shown while the video is downloading.
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#poster
+         * A URL for an image to be shown left to audio controls.
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#poster
          */
         poster?: string;
         /**
-         * Set a callback to run when the video is buffered enough to play on the user side
+         * Set a callback to run when the audio is buffered enough to play on the user side
          */
         onReady?: (event: SyntheticEvent<Element>) => void;
         /**
-         * Set a callback to capture video errors
+         * Set a callback to capture audio errors
          */
         onError?: (event: SyntheticEvent<Element>) => void;
         /**
-         * Set a callback to run when the user plays the video
+         * Set a callback to run when the user plays the audio
          */
         onPlay?: (event: SyntheticEvent<Element>) => void;
         /**
-         * Set a callback to run when the user pauses the video
+         * Set a callback to run when the user pauses the audio
          */
         onPause?: (event: SyntheticEvent<Element>) => void;
         /**

@@ -200,6 +200,7 @@
         --track-height: var(--range-height);
         --slider-height: calc(var(--kg-size-unit) * 2);
         --slider-width: var(--slider-height);
+        --track-color: var(--kg-background-000);
 
         direction: rtl;
         height: var(--range-height);
@@ -260,6 +261,9 @@
     gap: var(--kg-size-unit);
 
     & .range {
+        --track-color: var(--kg-background-000);
+        --thumb-color: var(--kg-color-do);
+
         /* Don't display volume control on mobile devices (aka small screens). Device settings should be used instead */
         display: none;
         width: calc(var(--kg-size-unit) * 16);
@@ -316,124 +320,10 @@
 .timeline-container {
     & .range {
         --thumb-color: var(--kg-color-do);
+        --track-color: var(--kg-background-000);
         --track-height: calc(var(--kg-size-unit) / 2);
 
         width: 100%;
-    }
-}
-
-.range {
-    --track-height: calc(var(--kg-size-unit) / 3);
-    --slider-height: calc(var(--kg-size-unit) * 2);
-    --slider-width: var(--slider-height);
-    --track-color: var(--kg-background-000);
-    --track-color-active: var(--kg-color-mi);
-    --thumb-color: var(--kg-color-do);
-    --thumb-color-active: var(--kg-color-do);
-
-    filter: drop-shadow(var(--kg-text-shadow));
-
-    &::-moz-range-track {
-        background: var(--track-color);
-        height: var(--track-height);
-        transition: background-color var(--kg-time-sm) ease-in-out;
-    }
-
-    &::-webkit-slider-runnable-track {
-        appearance: none;
-        background: var(--track-color);
-        height: var(--track-height);
-        transition: background-color var(--kg-time-sm) ease-in-out;
-    }
-
-    &::-webkit-slider-thumb {
-        appearance: none;
-        background-color: var(--thumb-color);
-        border: none;
-        border-radius: 50%;
-        cursor: grab;
-        height: var(--slider-height);
-        margin-top: calc(var(--track-height) / 2 - var(--slider-height) / 2);
-        transition: background-color var(--kg-time-sm) ease-in-out;
-        width: var(--slider-width);
-    }
-
-    &::-moz-range-thumb {
-        background-color: var(--thumb-color);
-        border: none;
-        cursor: grab;
-        height: var(--slider-height);
-        transition: background-color var(--kg-time-sm) ease-in-out;
-        width: var(--slider-width);
-    }
-
-    &:--hoverSelector {
-        &::-moz-range-track {
-            background: var(--track-color-active);
-        }
-
-        &::-webkit-slider-runnable-track {
-            background: var(--track-color-active);
-        }
-    }
-
-    &:--disabledSelector {
-        &::-moz-range-thumb {
-            background-color: var(--kg-background-100);
-            cursor: not-allowed;
-        }
-
-        &::-webkit-slider-thumb {
-            background-color: var(--kg-background-100);
-            cursor: not-allowed;
-        }
-
-        &::-moz-range-track {
-            background: var(--kg-background-100);
-        }
-
-        &::-webkit-slider-runnable-track {
-            background: var(--kg-background-100);
-        }
-    }
-
-    &:active:not(:--disabledSelector) {
-        &::-moz-range-thumb {
-            cursor: grabbing;
-        }
-
-        &::-webkit-slider-thumb {
-            cursor: grabbing;
-        }
-    }
-
-    &:active:not(:--disabledSelector),
-    &:--focusSelector {
-        &::-moz-range-thumb {
-            background-color: var(--thumb-color-active);
-        }
-
-        &::-webkit-slider-thumb {
-            background-color: var(--thumb-color-active);
-        }
-
-        &::-moz-range-track {
-            background: var(--track-color-active);
-        }
-
-        &::-webkit-slider-runnable-track {
-            background: var(--track-color-active);
-        }
-    }
-
-    &:--invalidSelector:focus {
-        &::-moz-range-track {
-            background: var(--kg-color-error);
-        }
-
-        &::-webkit-slider-runnable-track {
-            background: var(--kg-color-error);
-        }
     }
 }
 
