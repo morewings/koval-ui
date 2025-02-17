@@ -1,6 +1,5 @@
 export const theme = {
-    fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
+    fontFamily: `'Rubik Variable', sans-serif`,
     fontFamilyMonospace: `"SF Mono", "Courier New", FreeMono, "Nimbus Mono PS", Cousine, monospace`,
     sizeUnit: '6px',
     inputWidth: '240px',

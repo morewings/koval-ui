@@ -7,6 +7,8 @@ import {Provider} from './../src/lib/Provider/Provider';
 import {withThemeProvider} from './../src/env/theme-playground/ThemeSwitcherTool';
 
 import '@/lib/CSSReset/reset.css';
+import '@fontsource-variable/rubik';
+import '@fontsource-variable/rubik/wght-italic.css';
 
 const customViewports = {
     viewportXS: {
