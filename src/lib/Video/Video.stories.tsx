@@ -5,7 +5,7 @@ import {Video} from './Video.tsx';
 import poster from './poster.jpg';
 
 const meta = {
-    title: 'Components/Video',
+    title: 'Embeds & IFrame/Video',
     component: Video,
     parameters: {
         layout: 'fullscreen',

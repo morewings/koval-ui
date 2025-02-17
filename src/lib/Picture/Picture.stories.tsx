@@ -4,7 +4,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {Picture} from './Picture.tsx';
 
 const meta = {
-    title: 'Components/Picture',
+    title: 'Embeds & IFrame/Picture',
     component: Picture,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout

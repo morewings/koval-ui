@@ -68,6 +68,8 @@ const preview: Preview = {
                     ['Intro'],
                     'Typography',
                     ['Intro'],
+                    'Embeds & IFrame',
+                    ['Intro'],
                     'Components',
                     ['Intro'],
                 ],

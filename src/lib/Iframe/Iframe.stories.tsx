@@ -4,7 +4,7 @@ import {fn} from '@storybook/test';
 import {Iframe} from './Iframe.tsx';
 
 const meta = {
-    title: 'Components/Iframe',
+    title: 'Embeds & IFrame/Iframe',
     component: Iframe,
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
