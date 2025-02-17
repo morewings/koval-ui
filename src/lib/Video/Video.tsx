@@ -16,14 +16,18 @@ import {
 } from '@/internal/Icons';
 import {useInternalRef} from '@/internal/hooks/useInternalRef.ts';
 import type {Source} from '@/internal/MediaEmbeds';
-import {getFileName} from '@/internal/MediaEmbeds';
+import {
+    getFileName,
+    usePlay,
+    PlayModes,
+    useLoadingState,
+    useTime,
+    useSound,
+} from '@/internal/MediaEmbeds';
+import rangeInputClasses from '@/internal/MediaEmbeds/RangeInput.module.css';
 
 import classes from './Video.module.css';
-import {usePlay, PlayModes} from './usePlay.ts';
-import {useTime} from './useTime.ts';
 import {useFullscreen} from './useFullscreen.ts';
-import {useSound} from './useSound.ts';
-import {useLoadingState} from './useLoadingState.ts';
 
 enum PreloadModes {
     none = 'none',
@@ -168,10 +172,10 @@ export const Video = forwardRef<HTMLVideoElement, Props>(
         },
         ref
     ) => {
-        const videoRef = useInternalRef(ref);
+        const embedRef = useInternalRef(ref);
 
-        const {playMode, handleTogglePlay, handlePlay, handlePause} = usePlay({
-            videoRef,
+        const {playMode, handleTogglePlay, handlePlay, handlePause} = usePlay<HTMLVideoElement>({
+            embedRef,
             onPlay,
             onPause,
         });
@@ -179,17 +183,17 @@ export const Video = forwardRef<HTMLVideoElement, Props>(
         const [duration, setDuration] = useState(0);
 
         const {handleLoadedMetaData, handleError, handleCanPlay, readyToPlay} = useLoadingState({
-            videoRef,
+            embedRef,
             onError,
             onReady,
             setDuration,
         });
 
-        const {isFullScreen, handleFullscreen} = useFullscreen(videoRef);
+        const {isFullScreen, handleFullscreen} = useFullscreen(embedRef);
 
-        const {volume, handleSetVolume, muted, handleToggleMuted} = useSound({videoRef, mutedProp});
+        const {volume, handleSetVolume, muted, handleToggleMuted} = useSound({embedRef, mutedProp});
 
-        const {handleSetTime, currentTime} = useTime({videoRef, playMode});
+        const {handleSetTime, currentTime} = useTime({embedRef, playMode});
 
         const IconTogglePlay = useMemo(() => {
             return playMode === PlayModes.pause || playMode === PlayModes.pristine
@@ -202,8 +206,8 @@ export const Video = forwardRef<HTMLVideoElement, Props>(
         }, [muted]);
 
         const handlePip = useCallback(() => {
-            videoRef.current?.requestPictureInPicture?.();
-        }, [videoRef]);
+            embedRef.current?.requestPictureInPicture?.();
+        }, [embedRef]);
 
         const {LocalRoot} = useLocalTheme();
 
@@ -232,7 +236,7 @@ export const Video = forwardRef<HTMLVideoElement, Props>(
                     onLoadedMetadata={handleLoadedMetaData}
                     onPause={handlePause}
                     onPlay={handlePlay}
-                    ref={videoRef}>
+                    ref={embedRef}>
                     {sources.map(({src, type, mediaCondition}) => {
                         return <source key={src} src={src} type={type} media={mediaCondition} />;
                     })}
@@ -250,12 +254,12 @@ export const Video = forwardRef<HTMLVideoElement, Props>(
                     <div className={classes.overlayTitle}>
                         <IconVideo className={classes.icon} />
                         <span className={classes.title}>
-                            {title || getFileName(videoRef.current?.currentSrc)}
+                            {title || getFileName(embedRef.current?.currentSrc)}
                         </span>
                         {showDownload && (
                             <a
-                                href={videoRef.current?.currentSrc}
-                                download={getFileName(videoRef.current?.currentSrc)}
+                                href={embedRef.current?.currentSrc}
+                                download={getFileName(embedRef.current?.currentSrc)}
                                 className={classes.button}>
                                 <IconDownloadVideo className={classes.icon} />
                             </a>
@@ -266,7 +270,7 @@ export const Video = forwardRef<HTMLVideoElement, Props>(
                     <div className={classes.overlayControls}>
                         <div className={classes.timelineContainer}>
                             <input
-                                className={classes.range}
+                                className={classNames(rangeInputClasses.range, classes.range)}
                                 type="range"
                                 onChange={handleSetTime}
                                 value={currentTime}
@@ -305,7 +309,10 @@ export const Video = forwardRef<HTMLVideoElement, Props>(
                                         step={0.01}
                                         value={muted ? 0 : volume}
                                         onChange={handleSetVolume}
-                                        className={classes.range}
+                                        className={classNames(
+                                            rangeInputClasses.range,
+                                            classes.range
+                                        )}
                                     />
                                 </fieldset>
                                 {enablePictureInPicture && (
