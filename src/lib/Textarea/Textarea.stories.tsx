@@ -109,6 +109,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Non-controlled',
     render: args => {
         return <Textarea {...args} />;
     },
@@ -118,7 +119,7 @@ export const Primary: Story = {
     },
 };
 
-export const ControlledState: Story = {
+export const Controlled: Story = {
     render: args => {
         const [value, setValue] = useState(args.value);
         const handleChange = useCallback(
@@ -136,11 +137,11 @@ export const ControlledState: Story = {
     },
 };
 
-ControlledState.args = {
+Controlled.args = {
     value: 'Controlled value',
 };
 
-ControlledState.argTypes = {
+Controlled.argTypes = {
     defaultValue: {
         table: {
             disable: true,
@@ -148,7 +149,7 @@ ControlledState.argTypes = {
     },
 };
 
-ControlledState.parameters = {
+Controlled.parameters = {
     docs: {
         source: {
             language: 'tsx',

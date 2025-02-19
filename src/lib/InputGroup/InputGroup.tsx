@@ -22,15 +22,29 @@ type ChildProps = {
 
 export type Props = DataAttributes &
     LibraryProps & {
+        /**
+         * Set a label text for the group
+         */
         label?: string;
         children: ReactElement<ChildProps & unknown>[];
+        /**
+         * Provide a name for each input control in the group
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name
+         */
         name: string;
         /**
-         * Disable input.
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
+         * Disable all inputs in the group
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#disabled
          */
         disabled?: FieldsetHTMLAttributes<HTMLFieldSetElement>['disabled'];
+        /**
+         * Make all inputs in the group required
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/required
+         */
         required?: boolean;
+        /**
+         * Set a text for the hint displayed below the group
+         */
         hint?: string;
     };
 

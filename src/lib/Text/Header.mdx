@@ -1,12 +1,20 @@
 import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {H1, H2} from './Headers.tsx';
+import {H1} from './Headers.tsx';
 import * as HeaderStories from "./Header.stories.tsx";
 
 <Meta title="Typography/Header" of={HeaderStories} />
 
-# Text
+# Headers
 
-Text tba.
+Set of customizable and accessible heading elements (`H1` to `H6`).
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {H1, H2, H3, H4, H5, H6} from 'koval-ui';
+\`\`\`
+`}</Markdown>
 
 <Primary />
 

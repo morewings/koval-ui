@@ -46,6 +46,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Grid layout examples',
     args: {
         width: 1280,
         base: 12,
@@ -76,6 +77,7 @@ export const Primary: Story = {
 };
 
 export const Width: Story = {
+    name: 'Fixed and fluid width',
     parameters: {
         // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',

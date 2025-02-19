@@ -97,6 +97,7 @@ const actions = [
 ];
 
 export const Primary: Story = {
+    name: 'Single',
     render: args => {
         const id = 'foo';
         const {openToast, closeToast} = useToastState(id);

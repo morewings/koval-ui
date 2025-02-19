@@ -47,6 +47,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Page layout examples',
     render: args => {
         return <Page {...args} />;
     },
@@ -97,6 +98,7 @@ export const Primary: Story = {
 };
 
 export const WithGrid: Story = {
+    name: 'Page & grid layout examples',
     render: args => {
         return <Page {...args} />;
     },

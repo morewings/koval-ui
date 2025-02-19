@@ -18,6 +18,26 @@ const meta = {
                 disable: true,
             },
         },
+        id: {
+            table: {
+                disable: true,
+            },
+        },
+        role: {
+            table: {
+                disable: true,
+            },
+        },
+        wrapperRef: {
+            table: {
+                disable: true,
+            },
+        },
+        wrapperClassName: {
+            table: {
+                disable: true,
+            },
+        },
     },
 } as Meta<typeof Table>;
 
@@ -82,6 +102,7 @@ const tableDemo = (
 );
 
 export const Primary: Story = {
+    name: 'Basic',
     render: args => {
         return <Table {...args}>{tableDemo}</Table>;
     },

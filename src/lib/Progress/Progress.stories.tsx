@@ -37,6 +37,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Basic',
     render: args => {
         return <Progress {...args} />;
     },

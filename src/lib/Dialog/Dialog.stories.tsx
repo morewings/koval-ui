@@ -76,6 +76,7 @@ const actionsTwo = [
 // Dima from the future.
 
 export const Primary: Story = {
+    name: 'Basic dialog',
     render: args => {
         const {openDialog} = useDialogState('foo');
         const handleOpen = useCallback(() => {
@@ -122,6 +123,7 @@ export const Primary: Story = {
 };
 
 export const LongText: Story = {
+    name: 'With long text',
     render: args => {
         const {openDialog} = useDialogState('bazz');
         const handleClick = useCallback(() => {

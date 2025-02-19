@@ -1,9 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
 // import {fn} from '@storybook/test';
 
-import {NavLink, NavList} from '@/lib';
+import {NavLink} from '@/lib';
 import {CloudUpload} from '@/internal/Icons';
 
+import {NavList} from './NavList.tsx';
 import {NavPanel} from './NavPanel.tsx';
 
 const meta = {
@@ -39,6 +40,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Demo',
     render: args => {
         return (
             <NavPanel {...args}>

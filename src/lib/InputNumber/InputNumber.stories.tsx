@@ -112,6 +112,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Non-controlled',
     render: args => {
         return <InputNumber {...args} />;
     },
@@ -129,30 +130,19 @@ export const Controlled: Story = {
         );
         return <InputNumber {...args} onChange={handleChange} value={value} />;
     },
-};
-
-Controlled.args = {
-    step: 11,
-};
-
-Controlled.argTypes = {
-    defaultValue: {
-        table: {
-            disable: true,
-        },
+    args: {
+        step: 11,
     },
-    value: {
-        table: {
-            disable: true,
+    argTypes: {
+        defaultValue: {
+            table: {
+                disable: true,
+            },
         },
-    },
-};
-
-Controlled.parameters = {
-    docs: {
-        source: {
-            language: 'tsx',
-            type: 'code',
+        value: {
+            table: {
+                disable: true,
+            },
         },
     },
 };

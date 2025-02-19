@@ -2,7 +2,8 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {Fragment, useCallback} from 'react';
 
 // import {fn} from '@storybook/test';
-import {NavList, NavLink, H2, Button, NavBrand} from '@/lib';
+import {NavLink, H2, Button, NavBrand} from '@/lib';
+import {NavList} from '@/lib/Navigation';
 import {CloudUpload, IconFile} from '@/internal/Icons';
 import {ButtonGroup} from '@/lib/ButtonGroup';
 
@@ -41,6 +42,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Single',
     render: args => {
         const {isOpen, closeDrawer, openDrawer} = useDrawerState(args.id);
         const handleClick = useCallback(() => {

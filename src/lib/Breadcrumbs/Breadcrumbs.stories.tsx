@@ -53,6 +53,7 @@ const itemsMock = [
 ];
 
 export const Primary: Story = {
+    name: 'Demo',
     render: args => {
         return <Breadcrumbs {...args} />;
     },

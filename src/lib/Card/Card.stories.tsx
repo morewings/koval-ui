@@ -90,6 +90,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Demo',
     render: args => {
         return (
             <Card {...args}>

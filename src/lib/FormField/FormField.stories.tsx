@@ -20,7 +20,6 @@ const meta = {
     title: 'Inputs/FormField',
     component: FormField,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {
@@ -30,10 +29,10 @@ const meta = {
         onKeyDown: fn(),
         onKeyUp: fn(),
         hint: 'This is hint',
+        required: false,
+        id: undefined,
     },
     argTypes: {
-        value: {control: 'text'},
-        defaultValue: {control: 'text'},
         onClick: {
             table: {
                 disable: true,
@@ -59,11 +58,6 @@ const meta = {
                 disable: true,
             },
         },
-        id: {
-            table: {
-                disable: true,
-            },
-        },
         role: {
             table: {
                 disable: true,
@@ -80,11 +74,6 @@ const meta = {
             },
         },
         name: {
-            table: {
-                disable: true,
-            },
-        },
-        required: {
             table: {
                 disable: true,
             },
@@ -109,6 +98,20 @@ const meta = {
                 disable: true,
             },
         },
+        id: {
+            options: ['noId', 'withId'],
+            mapping: {
+                noId: undefined,
+                withId: 'foo-id',
+            },
+            control: {
+                type: 'radio',
+                labels: {
+                    noId: 'No id',
+                    withId: 'With id',
+                },
+            },
+        },
         children: {
             options: [
                 'text',
@@ -123,7 +126,7 @@ const meta = {
                 'textarea',
                 'number',
                 'numeric',
-            ], // An array of serializable values
+            ],
             mapping: {
                 text: <InputText />,
                 date: <InputDate />,
@@ -143,11 +146,10 @@ const meta = {
                         <option value="Option 3">Option 3</option>
                     </Select>
                 ),
-            }, // Maps serializable option values to complex arg values
+            },
             control: {
-                type: 'radio', // Type 'select' is automatically inferred when 'options' is defined
+                type: 'radio',
                 labels: {
-                    // 'labels' maps option values to string labels
                     text: 'With Text Input',
                     date: 'With Date Input',
                     dateTime: 'With DateTime Input',
@@ -170,18 +172,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'With all inputs',
     args: {
         label: 'foo',
-    },
-    render: ({children = <InputText />, ...args}) => {
-        return <FormField {...args}>{children}</FormField>;
-    },
-};
-
-export const ExampleWithId: Story = {
-    args: {
-        label: 'foo',
-        id: 'foo',
     },
     render: ({children = <InputText />, ...args}) => {
         return <FormField {...args}>{children}</FormField>;

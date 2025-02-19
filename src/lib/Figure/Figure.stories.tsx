@@ -94,6 +94,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Basic demo',
     render: ({children, ...args}) => {
         return <Figure {...args}>{children}</Figure>;
     },

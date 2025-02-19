@@ -1,5 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
+import {type ChangeEvent, useCallback, useState} from 'react';
 
 import {validationControlNumber} from '@/internal/inputs/storybook/validationControl.ts';
 
@@ -23,12 +24,15 @@ const meta = {
         min: -999,
         max: 999,
         step: 1,
-        stepperInterval: 666,
         placeholder: 'Enter decimal',
         mode: 'natural',
     },
     argTypes: {
-        value: {control: 'number'},
+        value: {
+            table: {
+                disable: true,
+            },
+        },
         defaultValue: {
             table: {
                 disable: true,
@@ -112,8 +116,25 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Non-controlled',
     render: args => {
         return <InputNumeric {...args} />;
     },
     args: {},
+};
+
+export const Controlled: Story = {
+    render: args => {
+        const [value, setValue] = useState(args.value);
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                setValue(event.target.value);
+            },
+            [setValue]
+        );
+        return <InputNumeric {...args} onChange={handleChange} value={value} />;
+    },
+    args: {
+        step: 11,
+    },
 };

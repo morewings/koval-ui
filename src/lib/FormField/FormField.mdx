@@ -1,19 +1,20 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Primary } from "@storybook/blocks";
+import { Meta, ArgTypes, Story, Canvas, Markdown, Primary } from "@storybook/blocks";
 import * as FormFieldStories from "./FormField.stories";
 import { FormField } from "./FormField";
 
 <Meta title="Inputs/FormField" of={FormFieldStories} />
 
-# Icon
+# Form Field
 
-Description
+`FormField` component is a customizable and accessible form field container. It supports labels, hint text, and required indicators, and ensures proper association between labels and input elements. The component integrates seamlessly with various input elements.
 
 ## Imports
 
-<Source format={true} code={`
-const a = 'b';
-import a from 'b';
-`} />
+<Markdown>{`
+\`\`\`ts
+import {FormField} from 'koval-ui';
+\`\`\`
+`}</Markdown>
 
 <Primary />
 
