@@ -1,5 +1,4 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {Fragment} from 'react';
 import {fn} from '@storybook/test';
 
 import {InputText} from '@/lib/InputText';
@@ -27,7 +26,6 @@ const meta = {
     title: 'Inputs/Form',
     component: Form,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {
@@ -93,13 +91,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    args: {
-        onSubmit: (event, state) => {
-            event.preventDefault();
-            console.log('onSubmit', state);
-        },
-        children: (
-            <Fragment>
+    name: 'With all available inputs',
+    render: args => {
+        return (
+            <Form {...args}>
                 <FormField label="Required input">
                     <InputText
                         autoComplete="off"
@@ -175,13 +170,19 @@ export const Primary: Story = {
                         Reset
                     </Button>
                 </div>
-            </Fragment>
-        ),
+            </Form>
+        );
+    },
+    args: {
+        onSubmit: (event, state) => {
+            event.preventDefault();
+            console.log('onSubmit', state);
+        },
     },
 };
 
 export const ComplexValidation: Story = {
-    name: 'Complex validation',
+    name: 'Complex validation example',
     args: {
         onSubmit: (event, state) => {
             event.preventDefault();

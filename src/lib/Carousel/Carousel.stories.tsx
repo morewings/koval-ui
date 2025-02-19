@@ -45,6 +45,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Demo with images',
     render: args => {
         return (
             <Carousel {...args}>
@@ -97,6 +98,7 @@ export const Primary: Story = {
 };
 
 export const ComplexContent: Story = {
+    name: 'Demo with complex content',
     render: args => {
         return (
             <Carousel {...args}>

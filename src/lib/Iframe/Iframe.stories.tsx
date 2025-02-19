@@ -41,6 +41,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Basic demo',
     render: args => {
         return <Iframe {...args} />;
     },
@@ -83,7 +84,7 @@ export const Primary: Story = {
 };
 
 export const WithFullPermissions: Story = {
-    name: 'Demo: all permissions',
+    name: 'Demo with all permissions',
     render: args => {
         return <Iframe {...args} />;
     },

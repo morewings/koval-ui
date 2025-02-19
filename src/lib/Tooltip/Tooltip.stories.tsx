@@ -84,6 +84,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Demo',
     render: args => {
         const [isOpen, setOpen] = useState(false);
         const handleClick = useCallback(() => {

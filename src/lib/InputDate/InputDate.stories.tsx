@@ -106,6 +106,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Non-controlled',
     render: args => {
         return <InputDate {...args} />;
     },
@@ -117,6 +118,7 @@ export const Primary: Story = {
 };
 
 export const ControlledState: Story = {
+    name: 'Controlled',
     render: args => {
         const [value, setValue] = useState('2018-07-22');
         const handleChange = useCallback(

@@ -1,12 +1,12 @@
 import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import * as FormStories from "./Form.stories";
-import { Form } from "./Form";
+import * as FormStories from "./Form.stories.tsx";
+import { Form, FormVanilla } from "./Form.tsx";
 
 <Meta title="Inputs/Form" of={FormStories} />
 
 # Form
 
-Form wraps `HTMLFormElement` with some useful features.
+`Form` is a customizable and accessible input built as a drop-in replacement for `HTMLFormElement`.
 
 ## Imports
 
@@ -18,7 +18,7 @@ import {Form} from 'koval-ui';
 
 ## Form props
 
-<ArgTypes of={Form} />
+<ArgTypes of={FormVanilla} />
 
 
 <Primary />

@@ -1,5 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
+import {type ChangeEvent, useCallback, useState} from 'react';
 
 import {ValidationState} from '@/internal/inputs';
 
@@ -126,30 +127,28 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Controlled',
     render: args => {
-        return <InputFile {...args} />;
+        const [value, setValue] = useState('');
+        const handleChange = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                console.log('Value captured:', event.target.value);
+                setValue(event.target.value);
+            },
+            [setValue]
+        );
+        return <InputFile {...args} value={value} onChange={handleChange} />;
     },
     args: {},
 };
 
-export const WithCode: Story = {
+export const NonControlled: Story = {
+    name: 'Non-Controlled',
     render: args => {
-        // here comes the code
-        return <InputFile {...args} />;
+        const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+            console.log('Value captured:', event.target.value);
+        }, []);
+        return <InputFile {...args} onChange={handleChange} defaultValue="" />;
     },
-};
-
-WithCode.args = {
-    id: 'foo',
-};
-
-WithCode.argTypes = {};
-
-WithCode.parameters = {
-    docs: {
-        source: {
-            language: 'tsx',
-            type: 'code',
-        },
-    },
+    args: {},
 };

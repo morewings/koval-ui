@@ -1,4 +1,4 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Primary } from "@storybook/blocks";
+import { Meta, ArgTypes, Story, Canvas, Markdown, Primary } from "@storybook/blocks";
 import * as InputRadioStories from "./InputRadio.stories";
 import { InputRadio } from "./InputRadio";
 
@@ -8,14 +8,15 @@ import { InputRadio } from "./InputRadio";
 
 ## Description
 
-`Icon` is an icon.
+`InputRadio` is a customizable and accessible input built as a drop-in replacement for `HTMLInputElement` of corresponding type.  It supports labels.
 
 ## Imports
 
-<Source format={true} code={`
-const a = 'b';
-import a from 'b';
-`} />
+<Markdown>{`
+\`\`\`ts
+import {InputRadio} from 'koval-ui';
+\`\`\`
+`}</Markdown>
 
 <Primary />
 

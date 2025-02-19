@@ -12,24 +12,45 @@ import {useFormActions, useFormSelectors} from './useFormContext.ts';
 
 type FormState = Record<string, FormDataEntryValue>;
 
-type NativeProps = {
-    name?: FormHTMLAttributes<HTMLFormElement>['name'];
-    autoCapitalize?: FormHTMLAttributes<HTMLFormElement>['autoCapitalize'];
-    autoComplete?: FormHTMLAttributes<HTMLFormElement>['autoComplete'];
-    noValidate?: FormHTMLAttributes<HTMLFormElement>['noValidate'];
-};
-
-type CallbackProps = {
-    onSubmit?: (event: SyntheticEvent<HTMLFormElement>, formState: FormState) => void;
-    onInvalid?: (event: InvalidEvent<HTMLFormElement>, formState: FormState) => void;
-    onReset?: (event: ChangeEvent<HTMLFormElement>, formState: FormState) => void;
-    onChange?: (event: ChangeEvent<HTMLFormElement>, formState: FormState) => void;
-};
-
 type Props = DataAttributes &
-    NativeProps &
-    LibraryProps &
-    CallbackProps & {
+    LibraryProps & {
+        /**
+         * Set the name of the HTMLFormElement.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/name
+         */
+        name?: FormHTMLAttributes<HTMLFormElement>['name'];
+        /**
+         * Define whether inputted text is automatically capitalized and, if so, in what manner.
+         * Relevant for mobile devices with virtual keyboards or voice input
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize
+         */
+        autoCapitalize?: FormHTMLAttributes<HTMLFormElement>['autoCapitalize'];
+        /**
+         * Control autocomplete behavior
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
+         */
+        autoComplete?: FormHTMLAttributes<HTMLFormElement>['autoComplete'];
+        /**
+         * Disable validation
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#novalidate
+         */
+        noValidate?: FormHTMLAttributes<HTMLFormElement>['noValidate'];
+        /**
+         * Callback when the form was submitted. Gets form state as a second parameter
+         */
+        onSubmit?: (event: SyntheticEvent<HTMLFormElement>, formState: FormState) => void;
+        /**
+         * Callback when the form has failed validation. Gets form state as a second parameter
+         */
+        onInvalid?: (event: InvalidEvent<HTMLFormElement>, formState: FormState) => void;
+        /**
+         * Callback when the form was reset. Gets form state as a second parameter
+         */
+        onReset?: (event: ChangeEvent<HTMLFormElement>, formState: FormState) => void;
+        /**
+         * Callback when the form content was change. Gets form state as a second parameter
+         */
+        onChange?: (event: ChangeEvent<HTMLFormElement>, formState: FormState) => void;
         children: ReactNode;
     };
 
@@ -113,6 +134,8 @@ const Form = forwardRef<HTMLFormElement, Props>(
 );
 
 Form.displayName = 'Form';
+
+export {Form as FormVanilla};
 
 const WrappedForm = withFormProvider(Form);
 
