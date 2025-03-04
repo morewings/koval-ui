@@ -161,7 +161,7 @@
     "typescript-eslint": "8.8.0",
     "unique-names-generator": "^4.7.1",
     "vite": "6.1.0",
-    "vite-plugin-dts": "4.5.0",
+    "vite-plugin-dts": "4.5.3",
     "vite-plugin-svgr": "4.3.0"
   },
   "pnpm": {
