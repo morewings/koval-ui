@@ -124,6 +124,7 @@
 }
 
 .prefix:has(+ .icon-wrapper .select:--disabledSelector) {
+    color: var(--kg-background-100);
     cursor: not-allowed;
 }
 

@@ -93,6 +93,11 @@
     }
 }
 
+.prefix:has(+ .textarea:--disabledSelector) {
+    color: var(--kg-background-100);
+    cursor: not-allowed;
+}
+
 .prefix:has(+ .textarea:--invalidSelector):hover,
 .prefix:has(+ .textarea:--invalidSelector:focus) {
     color: var(--kg-color-error);

@@ -87,6 +87,11 @@
     }
 }
 
+.prefix:has(+ .input:--disabledSelector) {
+    color: var(--kg-background-100);
+    cursor: not-allowed;
+}
+
 .prefix:has(+ .input:--invalidSelector):hover,
 .prefix:has(+ .input:--invalidSelector:hover),
 .prefix:has(+ .input:--invalidSelector:focus) {
