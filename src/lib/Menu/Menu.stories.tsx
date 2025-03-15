@@ -71,6 +71,11 @@ const meta = {
                 disable: true,
             },
         },
+        allowedPlacements: {
+            table: {
+                disable: true,
+            },
+        },
         content: {
             options: ['nonFocusable', 'focusable'], // An array of serializable values
             mapping: {
@@ -92,7 +97,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    name: 'Basic 🚧️',
+    name: 'Basic',
     render: args => {
         const [isOpen, setOpen] = useState(false);
         const handleClick = useCallback(() => {
@@ -118,7 +123,7 @@ export const Primary: Story = {
 };
 
 export const ActionsMenu: Story = {
-    name: 'Actions 🚧️',
+    name: 'Actions',
     render: args => {
         const [isOpen, setOpen] = useState(false);
         const handleClick = useCallback(() => {
