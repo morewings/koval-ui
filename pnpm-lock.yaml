@@ -15,8 +15,8 @@ importers:
         specifier: ^5.1.1
         version: 5.1.1
       '@material-symbols/svg-700':
-        specifier: ^0.28.2
-        version: 0.28.2
+        specifier: ^0.29.0
+        version: 0.29.1
       '@phosphor-icons/core':
         specifier: ^2.1.1
         version: 2.1.1
@@ -1905,6 +1905,7 @@ packages:
   '@faker-js/faker@9.0.3':
     resolution: {integrity: sha512-lWrrK4QNlFSU+13PL9jMbMKLJYXDFu3tQfayBsMXX7KL/GiQeqfB1CzHkqD5UHBUtPAuPo6XwGbMFNdVMZObRA==}
     engines: {node: '>=18.0.0', npm: '>=9.0.0'}
+    deprecated: Please update to a newer version
 
   '@floating-ui/core@1.6.4':
     resolution: {integrity: sha512-a4IowK4QkXl4SCWTGUR0INAfEOX3wtsYw3rKK5InQEHMGObkR8Xk44qYQD9P4r6HHw0iIfK6GUKECmY8sTkqRA==}
@@ -2104,8 +2105,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@material-symbols/svg-700@0.28.2':
-    resolution: {integrity: sha512-R02PisGtrvoCpsdukSghz/S9tXqS3L5Uw96pEvDs+P45LvYVzY20plFMRtXFmP8n3OHj/KfjhU0bdRchOeSC0A==}
+  '@material-symbols/svg-700@0.29.1':
+    resolution: {integrity: sha512-6C4hXysRSulU2OxTJx6DI5oA8yLJ0GKseuucZiG/bmuK7h548bGgRQsHm/FX0WvtSf4mYR2PdnNa3fmdl+L6Bw==}
 
   '@mdx-js/react@3.0.1':
     resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
@@ -9620,7 +9621,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@material-symbols/svg-700@0.28.2': {}
+  '@material-symbols/svg-700@0.29.1': {}
 
   '@mdx-js/react@3.0.1(@types/react@18.3.10)(react@18.3.1)':
     dependencies:
