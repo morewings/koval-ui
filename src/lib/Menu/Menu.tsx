@@ -1,7 +1,5 @@
 import type {ReactNode} from 'react';
-import {useCallback} from 'react';
-import {useState, useEffect} from 'react';
-import {forwardRef, Fragment} from 'react';
+import {useCallback, forwardRef, Fragment, useState, useEffect} from 'react';
 import classNames from 'classnames';
 import type {Placement} from '@floating-ui/react-dom';
 import {useFloating, autoUpdate, size, offset, autoPlacement} from '@floating-ui/react-dom';
@@ -43,6 +41,21 @@ export type Props = DataAttributes &
         allowedPlacements?: Placement[];
     };
 
+const allowedPlacementsDefault: Placement[] = [
+    'bottom',
+    'left',
+    'right',
+    'top',
+    'bottom-end',
+    'bottom-start',
+    'left-start',
+    'left-end',
+    'right-start',
+    'right-end',
+    'top-start',
+    'top-end',
+];
+
 export const Menu = forwardRef<HTMLDivElement, Props>(
     (
         {
@@ -55,7 +68,7 @@ export const Menu = forwardRef<HTMLDivElement, Props>(
             trapFocus = true,
             alignWidth = true,
             variant = Variants.plain,
-            allowedPlacements,
+            allowedPlacements = allowedPlacementsDefault,
             ...nativeProps
         },
         ref

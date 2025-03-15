@@ -1,4 +1,5 @@
 import type {FC, ComponentProps} from 'react';
+import type {Placement} from '@floating-ui/react-dom';
 
 import {Actions, Variants as ActionVariants} from '@/internal/Actions';
 
@@ -10,6 +11,15 @@ import classes from './Menu.module.css';
 export type Props = Omit<MenuProps, 'content' | 'alignWidth'> & {
     actions?: ComponentProps<typeof Actions>['actions'];
 };
+
+const allowedPlacements: Placement[] = [
+    'bottom',
+    'top',
+    'bottom-end',
+    'bottom-start',
+    'top-start',
+    'top-end',
+];
 
 export const MenuActions: FC<Props> = ({
     children,
@@ -26,6 +36,7 @@ export const MenuActions: FC<Props> = ({
     return (
         <Menu
             {...restProps}
+            allowedPlacements={allowedPlacements}
             variant={variant}
             content={
                 <Actions
