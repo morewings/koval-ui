@@ -166,10 +166,16 @@ export const Pagination = forwardRef<HTMLDivElement, Props>(
                 {showNavigation && (
                     <LocalRoot className={classes.navigation} theme={theme}>
                         <div className={classes.navigationBlock}>
-                            <button onClick={handleDecrement} className={classes.navigationButton}>
+                            <button
+                                disabled={totalPages === 1}
+                                onClick={handleDecrement}
+                                className={classes.navigationButton}>
                                 <IconBackward className={classes.icon} />
                             </button>
-                            <button onClick={handleIncrement} className={classes.navigationButton}>
+                            <button
+                                disabled={totalPages === 1}
+                                onClick={handleIncrement}
+                                className={classes.navigationButton}>
                                 <IconForward className={classes.icon} />
                             </button>
                         </div>
