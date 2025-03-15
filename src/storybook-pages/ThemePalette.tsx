@@ -40,13 +40,13 @@ export const ThemePalette: FC<{theme: PublicThemeType}> = ({theme}) => {
                 title="Background colors"
                 subtitle="Contrast and elevations"
                 colors={{
-                    background000: theme.background000 as string,
-                    background100: theme.background100 as string,
-                    background200: theme.background200 as string,
-                    background300: theme.background300 as string,
-                    background400: theme.background400 as string,
-                    background500: theme.background500 as string,
-                    background600: theme.background600 as string,
+                    'b-000': theme.background000 as string,
+                    'b-100': theme.background100 as string,
+                    'b-200': theme.background200 as string,
+                    'b-300': theme.background300 as string,
+                    'b-400': theme.background400 as string,
+                    'b-500': theme.background500 as string,
+                    'b-600': theme.background600 as string,
                 }}
             />
         </ColorPalette>
