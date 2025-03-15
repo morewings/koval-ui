@@ -196,6 +196,11 @@
     }
 }
 
+.prefix:has(+ .scale-wrapper .input:--disabledSelector) {
+    color: var(--kg-background-100);
+    cursor: not-allowed;
+}
+
 .prefix:has(+ .scale-wrapper .input:--invalidSelector):hover,
 .prefix:has(+ .scale-wrapper .input:--invalidSelector:focus) {
     color: var(--kg-color-error);

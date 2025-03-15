@@ -96,6 +96,11 @@
     }
 }
 
+.icon:has(+ .input:--disabledSelector) {
+    color: var(--kg-background-100);
+    cursor: not-allowed;
+}
+
 .icon:has(+ .input:--invalidSelector:hover),
 .icon:has(+ .input:--invalidSelector:focus),
 .icon:has(+ .input:--invalidSelector):hover {
@@ -109,8 +114,4 @@
 
 .icon:has(+ .input:--focusSelector) {
     color: var(--kg-color-do);
-}
-
-.icon:has(+ .input:--disabledSelector) {
-    cursor: not-allowed;
 }
