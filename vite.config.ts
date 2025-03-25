@@ -42,6 +42,7 @@ export default defineConfig({
                 whitelist: [/^the-new-css-reset/, /^@material-symbols/, /^@phosphor-icons/],
             }),
             output: {
+                banner: "'use client';",
                 // Provide global variables to use in the UMD build
                 // for externalized deps
                 globals: {
