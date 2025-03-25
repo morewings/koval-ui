@@ -128,7 +128,7 @@ export const LongText: Story = {
         const {openDialog} = useDialogState('bazz');
         const handleClick = useCallback(() => {
             openDialog();
-        }, []);
+        }, [openDialog]);
 
         return (
             <Fragment>
