@@ -4,6 +4,7 @@ import {fn} from '@storybook/test';
 import {Picture} from '@/lib/Picture';
 import {Figure} from '@/lib/Figure';
 
+import type {Props} from './Carousel.tsx';
 import {Carousel} from './Carousel.tsx';
 
 const meta = {
@@ -42,7 +43,7 @@ const meta = {
 } as Meta<typeof Carousel>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Demo with images',

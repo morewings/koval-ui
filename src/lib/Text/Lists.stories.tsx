@@ -1,5 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 
+import type {Props} from './Lists.tsx';
 import {Ol, Ul, Dl} from './Lists.tsx';
 
 const meta = {
@@ -20,8 +21,7 @@ const meta = {
 } as Meta<typeof Ul | typeof Ol | typeof Dl>;
 
 export default meta;
-// @ts-expect-error too complex
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Unordered',

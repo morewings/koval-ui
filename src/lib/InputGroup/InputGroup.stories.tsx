@@ -3,6 +3,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {InputRadio} from '@/lib/InputRadio';
 import {InputCheckbox} from '@/lib/InputCheckbox';
 
+import type {Props} from './InputGroup.tsx';
 import {InputGroup} from './InputGroup.tsx';
 
 const meta = {
@@ -67,7 +68,7 @@ const meta = {
 } as Meta<typeof InputGroup>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Checkbox group',

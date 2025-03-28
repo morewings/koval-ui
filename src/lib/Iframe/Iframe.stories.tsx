@@ -1,6 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
+import type {Props} from './Iframe.tsx';
 import {Iframe} from './Iframe.tsx';
 
 const meta = {
@@ -38,7 +39,7 @@ const meta = {
 } as Meta<typeof Iframe>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Basic demo',

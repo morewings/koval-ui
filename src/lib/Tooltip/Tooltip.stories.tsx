@@ -7,6 +7,7 @@ import {InputGroup} from '@/lib/InputGroup';
 import {InputRadio} from '@/lib';
 import {Ul} from '@/lib/Text';
 
+import type {Props} from './Tooltip';
 import {Tooltip} from './Tooltip';
 
 const nonFocusable = (
@@ -81,7 +82,7 @@ const meta = {
 } as Meta<typeof Tooltip>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Demo',

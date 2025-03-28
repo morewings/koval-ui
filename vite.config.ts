@@ -60,9 +60,7 @@ export default defineConfig({
             localsConvention: 'camelCase',
         },
         postcss: {
-            plugins: [
-                postcssPresetEnv({stage: 1}), // add options if needed
-            ],
+            plugins: [postcssPresetEnv({stage: 1})],
         },
     },
 });

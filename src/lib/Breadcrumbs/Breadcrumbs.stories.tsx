@@ -3,6 +3,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 
 import {CloudUpload} from '@/internal/Icons';
 
+import type {Props} from './Breadcrumbs.tsx';
 import {Breadcrumbs} from './Breadcrumbs.tsx';
 
 const meta = {
@@ -40,7 +41,7 @@ const meta = {
 } as Meta<typeof Breadcrumbs>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 const itemsMock = [
     {name: 'Main page', url: 'http://foo', icon: CloudUpload},

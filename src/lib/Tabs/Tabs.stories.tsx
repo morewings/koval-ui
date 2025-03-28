@@ -5,6 +5,7 @@ import {IconFile, CloudUpload} from '@/internal/Icons';
 import {Figure} from '@/lib/Figure';
 import {Picture} from '@/lib/Picture';
 
+import type {Props} from './Tabs.tsx';
 import {Tabs} from './Tabs.tsx';
 import {Tab} from './Tab.tsx';
 
@@ -97,7 +98,7 @@ const meta = {
 } as Meta<typeof Tabs>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Demo',

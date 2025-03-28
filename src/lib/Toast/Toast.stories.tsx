@@ -6,6 +6,7 @@ import {CloudUpload, IconFile} from '@/internal/Icons';
 import {Button} from '@/lib/Button';
 import {ButtonGroup} from '@/lib/ButtonGroup';
 
+import type {Props} from './Toast.tsx';
 import {Toast} from './Toast.tsx';
 import {useToastState} from './useToastState.tsx';
 
@@ -83,7 +84,7 @@ const meta = {
 } as Meta<typeof Toast>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 const actions = [
     {title: 'Default Action', onClick: fn()},
