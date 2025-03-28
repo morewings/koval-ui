@@ -14,6 +14,7 @@ import {InputPassword} from '@/lib/InputPassword';
 import {InputNumeric} from '@/lib/InputNumeric';
 import {InputDateTime} from '@/lib/InputDateTime';
 
+import type {Props} from './FormField';
 import {FormField} from './FormField';
 
 const meta = {
@@ -169,7 +170,7 @@ const meta = {
 } as Meta<typeof FormField>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'With all inputs',

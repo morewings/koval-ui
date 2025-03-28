@@ -3,6 +3,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 
 import {localeControl, CurrencyCodes} from '@/internal/locale';
 
+import type {Props} from './NumberCurrency.tsx';
 import {NumberCurrency} from './NumberCurrency.tsx';
 import {SignDisplayModes, CurrencyDisplayTypes, CurrencySignModes} from './types.ts';
 
@@ -66,7 +67,7 @@ const meta = {
 } as Meta<typeof NumberCurrency>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Currency',

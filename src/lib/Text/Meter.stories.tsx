@@ -1,6 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 // import {fn} from '@storybook/test';
 
+import type {Props} from './Meter.tsx';
 import {Meter} from './Meter.tsx';
 
 const meta = {
@@ -27,7 +28,7 @@ const meta = {
 } as Meta<typeof Meter>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Demo',

@@ -1,6 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 // import {fn} from '@storybook/test';
 
+import type {Props} from './Picture.tsx';
 import {Picture} from './Picture.tsx';
 
 const meta = {
@@ -32,7 +33,7 @@ const meta = {
 } as Meta<typeof Picture>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Demo basic',

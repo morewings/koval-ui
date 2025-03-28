@@ -1,5 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 
+import type {Props} from './Page.tsx';
 import {Page} from './Page.tsx';
 import {
     noChildren,
@@ -44,7 +45,7 @@ const meta = {
 } as Meta<typeof Page>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Page layout examples',

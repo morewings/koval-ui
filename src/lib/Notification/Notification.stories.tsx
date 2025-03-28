@@ -1,4 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
+import type {ComponentProps} from 'react';
 import {Fragment} from 'react';
 import {fn} from '@storybook/test';
 
@@ -46,7 +47,7 @@ export const Primary: Story = {
                     <Button onClick={openNotification}>open notification</Button>
                     <Button onClick={closeNotification}>close notification</Button>
                 </ButtonGroup>
-                <Notification {...args} />
+                <Notification {...(args as ComponentProps<typeof Notification>)} />
             </Fragment>
         );
     },

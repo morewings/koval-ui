@@ -5,6 +5,7 @@ import {Fragment} from 'react';
 import {NumberDecimal, NumberUnit, NumberPercent, NumberCurrency} from '@/lib/Number';
 import {DateTime} from '@/lib/DateTime';
 
+import type {Props} from './InlineElements.tsx';
 import {
     A,
     Del,
@@ -40,8 +41,7 @@ const meta = {
 } as Meta<typeof B | typeof A | typeof Ins | typeof Del>;
 
 export default meta;
-// @ts-expect-error too complex
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Demo',

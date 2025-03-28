@@ -8,6 +8,7 @@ import {InputRadio} from '@/lib';
 import {Ul} from '@/lib/Text';
 import {actionsMockMultipleFlat} from '@/internal/Actions';
 
+import type {Props} from './Menu.tsx';
 import {Menu} from './Menu.tsx';
 import {MenuActions} from './MenuActions.tsx';
 
@@ -94,7 +95,7 @@ const meta = {
 } as Meta<typeof Menu>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Basic',

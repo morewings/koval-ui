@@ -1,5 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
+import type {ComponentProps} from 'react';
 
 import {InputText} from '@/lib/InputText';
 import {FormField} from '@/lib/FormField';
@@ -88,7 +89,7 @@ const meta = {
 } as Meta<typeof Form>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<ComponentProps<typeof Form>>;
 
 export const Primary: Story = {
     name: 'With all available inputs',

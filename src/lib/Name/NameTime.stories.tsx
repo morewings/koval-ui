@@ -3,6 +3,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 // import {fn} from '@storybook/test';
 import {localeControl} from '@/internal/locale';
 
+import type {Props} from './NameTime.tsx';
 import {NameTime} from './NameTime.tsx';
 
 const meta = {
@@ -36,7 +37,7 @@ const meta = {
 } as Meta<typeof NameTime>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     render: args => {

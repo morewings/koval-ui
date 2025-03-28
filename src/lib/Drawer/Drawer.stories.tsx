@@ -7,6 +7,7 @@ import {NavList} from '@/lib/Navigation';
 import {CloudUpload, IconFile} from '@/internal/Icons';
 import {ButtonGroup} from '@/lib/ButtonGroup';
 
+import type {Props} from './Drawer.tsx';
 import {Drawer} from './Drawer.tsx';
 import {useDrawerState} from './useDrawerState.tsx';
 import classes from './Drawer.module.css';
@@ -39,7 +40,7 @@ const meta = {
 } as Meta<typeof Drawer>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Single',

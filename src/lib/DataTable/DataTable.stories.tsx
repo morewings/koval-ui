@@ -11,6 +11,7 @@ import type {
 import {get} from '@/internal/utils/get.ts';
 import {localeControl} from '@/internal/locale';
 
+import type {Props} from './DataTable.tsx';
 import {DataTable} from './DataTable.tsx';
 import {generateData} from './mocks/generateData.ts';
 import {demoColumns} from './mocks/demoColumns.ts';
@@ -246,7 +247,7 @@ const meta = {
 } as Meta<typeof DataTable>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Virtual',

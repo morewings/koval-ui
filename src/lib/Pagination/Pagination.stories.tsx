@@ -1,6 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 
+import type {Props} from './Pagination.tsx';
 import {Pagination} from './Pagination.tsx';
 
 const meta = {
@@ -40,7 +41,7 @@ const meta = {
 } as Meta<typeof Pagination>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Props>;
 
 export const Primary: Story = {
     name: 'Demo',
