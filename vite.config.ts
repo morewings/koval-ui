@@ -43,20 +43,20 @@ export default defineConfig({
                 whitelist: [/^the-new-css-reset/, /^@material-symbols/, /^@phosphor-icons/],
             }),
             output: {
-                // to enable tree shaking
+                // enable tree shaking
                 preserveModules: true,
-                inlineDynamicImports: false,
-                // to ensure Next.js compatibility
+                // inlineDynamicImports: false,
+                // ensure Next.js compatibility
                 banner: "'use client';",
                 // Provide global variables to use in the UMD build
                 // for externalized deps
-                globals: {
-                    react: 'React',
-                    'react/jsx-runtime': 'JsxRuntime',
-                    'css-vars-hook': 'CssVarsHook',
-                    classnames: 'ClassNames',
-                    'awesome-debounce-promise': 'AwesomeDebouncePromise',
-                },
+                // globals: {
+                //     react: 'React',
+                //     'react/jsx-runtime': 'JsxRuntime',
+                //     'css-vars-hook': 'CssVarsHook',
+                //     classnames: 'ClassNames',
+                //     'awesome-debounce-promise': 'AwesomeDebouncePromise',
+                // },
             },
         },
     },
