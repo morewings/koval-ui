@@ -34,7 +34,7 @@ export default defineConfig({
             name: 'Library name',
             // the proper extensions will be added
             fileName: 'index',
-            formats: ['es'],
+            formats: ['es', 'cjs'],
         },
         rollupOptions: {
             // make sure to externalize deps that shouldn't be bundled
