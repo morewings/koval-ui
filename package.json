@@ -10,20 +10,20 @@
   },
   "license": "MIT",
   "private": false,
-  "version": "0.18.5",
+  "version": "0.19.0-alpha.2",
   "type": "module",
   "files": [
     "dist",
     "README.md"
   ],
-  "main": "./dist/index.umd.cjs",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs"
+      "require": "./dist/index.cjs"
     },
     "./dist/": {
       "import": "./dist/",

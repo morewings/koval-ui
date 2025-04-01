@@ -29,29 +29,23 @@ export default defineConfig({
     build: {
         sourcemap: true,
         lib: {
-            // Could also be a dictionary or array of multiple entry points
             entry: resolve(__dirname, 'src/lib/index.ts'),
-            name: 'Library name',
+            name: 'Koval UI',
             // the proper extensions will be added
             fileName: 'index',
+            formats: ['es', 'cjs'],
         },
         rollupOptions: {
-            // make sure to externalize deps that shouldn't be bundled
-            // into your library
+            // make sure to externalize deps that
+            // shouldn't be bundled into your library
             external: external({
                 whitelist: [/^the-new-css-reset/, /^@material-symbols/, /^@phosphor-icons/],
             }),
             output: {
+                // enable tree shaking
+                preserveModules: true,
+                // ensure Next.js compatibility
                 banner: "'use client';",
-                // Provide global variables to use in the UMD build
-                // for externalized deps
-                globals: {
-                    react: 'React',
-                    'react/jsx-runtime': 'JsxRuntime',
-                    'css-vars-hook': 'CssVarsHook',
-                    classnames: 'ClassNames',
-                    'awesome-debounce-promise': 'AwesomeDebouncePromise',
-                },
             },
         },
     },
