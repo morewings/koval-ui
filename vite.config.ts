@@ -34,6 +34,7 @@ export default defineConfig({
             name: 'Library name',
             // the proper extensions will be added
             fileName: 'index',
+            formats: ['es'],
         },
         rollupOptions: {
             // make sure to externalize deps that shouldn't be bundled
@@ -42,6 +43,10 @@ export default defineConfig({
                 whitelist: [/^the-new-css-reset/, /^@material-symbols/, /^@phosphor-icons/],
             }),
             output: {
+                // to enable tree shaking
+                preserveModules: true,
+                inlineDynamicImports: false,
+                // to ensure Next.js compatibility
                 banner: "'use client';",
                 // Provide global variables to use in the UMD build
                 // for externalized deps
