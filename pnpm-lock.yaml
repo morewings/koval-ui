@@ -16,7 +16,7 @@ importers:
         version: 5.2.5
       '@material-symbols/svg-700':
         specifier: ^0.29.0
-        version: 0.29.1
+        version: 0.29.2
       '@phosphor-icons/core':
         specifier: ^2.1.1
         version: 2.1.1
@@ -1833,8 +1833,8 @@ packages:
   '@keyv/serialize@1.0.3':
     resolution: {integrity: sha512-qnEovoOp5Np2JDGonIDL6Ayihw0RhnRh6vxPuHo4RDn1UOzwEo4AeIfpL6UGIrsceWrCMiVPgwRjbHu4vYFc3g==}
 
-  '@material-symbols/svg-700@0.29.1':
-    resolution: {integrity: sha512-6C4hXysRSulU2OxTJx6DI5oA8yLJ0GKseuucZiG/bmuK7h548bGgRQsHm/FX0WvtSf4mYR2PdnNa3fmdl+L6Bw==}
+  '@material-symbols/svg-700@0.29.2':
+    resolution: {integrity: sha512-PTcHfN3s5NWal569Zerh1k72+Ci6oWBAx3oKPbBhTkeMWs2BLXLmwg5orfw8ImdJ8RwsbjaAZAvlB3pHKAwuhQ==}
 
   '@mdx-js/react@3.1.0':
     resolution: {integrity: sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==}
@@ -9175,7 +9175,7 @@ snapshots:
     dependencies:
       buffer: 6.0.3
 
-  '@material-symbols/svg-700@0.29.1': {}
+  '@material-symbols/svg-700@0.29.2': {}
 
   '@mdx-js/react@3.1.0(@types/react@18.3.10)(react@18.3.1)':
     dependencies:
