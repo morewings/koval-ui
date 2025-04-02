@@ -32,7 +32,12 @@ export default defineConfig({
             entry: resolve(__dirname, 'src/lib/index.ts'),
             name: 'Koval UI',
             // the proper extensions will be added
-            fileName: 'index',
+            fileName: (format, entryName) => {
+                if (entryName === 'src/lib/index') {
+                    return `index.${format === 'es' ? 'js' : 'cjs'}`;
+                }
+                return `${entryName}.${format === 'es' ? 'js' : 'cjs'}`;
+            },
             formats: ['es', 'cjs'],
         },
         rollupOptions: {
