@@ -151,7 +151,7 @@
     "storybook": "^8.6.2",
     "storybook-addon-theme-provider": "^0.2.9",
     "stylelint": "16.17.0",
-    "stylelint-config-standard": "36.0.1",
+    "stylelint-config-standard": "37.0.0",
     "stylelint-order": "6.0.4",
     "stylelint-prettier": "5.0.3",
     "ts-jest": "29.2.5",
