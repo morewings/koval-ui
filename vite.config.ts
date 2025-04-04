@@ -9,7 +9,9 @@ import postcssPresetEnv from 'postcss-preset-env';
 import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({command}) => ({
+    // don't bundle public directory
+    publicDir: command === 'build' ? false : 'public',
     resolve: {
         alias: hq.get('rollup'),
     },
@@ -29,29 +31,28 @@ export default defineConfig({
     build: {
         sourcemap: true,
         lib: {
-            // Could also be a dictionary or array of multiple entry points
             entry: resolve(__dirname, 'src/lib/index.ts'),
-            name: 'Library name',
+            name: 'KovalUI',
             // the proper extensions will be added
-            fileName: 'index',
+            fileName: (format, entryName) => {
+                if (entryName === 'src/lib/index') {
+                    return `index.${format === 'es' ? 'js' : 'cjs'}`;
+                }
+                return `${entryName}.${format === 'es' ? 'js' : 'cjs'}`;
+            },
+            formats: ['es', 'cjs'],
         },
         rollupOptions: {
-            // make sure to externalize deps that shouldn't be bundled
-            // into your library
+            // make sure to externalize deps that
+            // shouldn't be bundled into your library
             external: external({
                 whitelist: [/^the-new-css-reset/, /^@material-symbols/, /^@phosphor-icons/],
             }),
             output: {
+                // enable tree shaking
+                preserveModules: true,
+                // ensure Next.js compatibility
                 banner: "'use client';",
-                // Provide global variables to use in the UMD build
-                // for externalized deps
-                globals: {
-                    react: 'React',
-                    'react/jsx-runtime': 'JsxRuntime',
-                    'css-vars-hook': 'CssVarsHook',
-                    classnames: 'ClassNames',
-                    'awesome-debounce-promise': 'AwesomeDebouncePromise',
-                },
             },
         },
     },
@@ -63,4 +64,4 @@ export default defineConfig({
             plugins: [postcssPresetEnv({stage: 1})],
         },
     },
-});
+}));
