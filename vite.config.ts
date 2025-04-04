@@ -9,7 +9,9 @@ import postcssPresetEnv from 'postcss-preset-env';
 import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({command}) => ({
+    // don't bundle public directory
+    publicDir: command === 'build' ? false : 'public',
     resolve: {
         alias: hq.get('rollup'),
     },
@@ -30,7 +32,7 @@ export default defineConfig({
         sourcemap: true,
         lib: {
             entry: resolve(__dirname, 'src/lib/index.ts'),
-            name: 'Koval UI',
+            name: 'KovalUI',
             // the proper extensions will be added
             fileName: (format, entryName) => {
                 if (entryName === 'src/lib/index') {
@@ -62,4 +64,4 @@ export default defineConfig({
             plugins: [postcssPresetEnv({stage: 1})],
         },
     },
-});
+}));
