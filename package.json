@@ -163,13 +163,5 @@
     "vite": "6.2.5",
     "vite-plugin-dts": "4.5.3",
     "vite-plugin-svgr": "4.3.0"
-  },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "esbuild"
-    ],
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
   }
 }
