@@ -17,6 +17,7 @@ export const theme = {
     fontSizeSmall: '14px',
     fontSizeExtraSmall: '12px',
     // font weights
+    fontWeightLighter: 300,
     fontWeightNormal: 400,
     fontWeightBolder: 500,
     fontWeightBold: 600,
