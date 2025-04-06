@@ -18,7 +18,6 @@ export const useEventListener = <TEvent, TElement extends HTMLElement | null>(
     callback: (event: TEvent) => void,
     element?: TElement
 ) => {
-    const targetElement = element ?? window;
     const callbackRef = useRef(callback);
 
     useEffect(() => {
@@ -26,11 +25,12 @@ export const useEventListener = <TEvent, TElement extends HTMLElement | null>(
     }, [callback]);
 
     useEffect(() => {
+        const targetElement = element ?? window;
         if (targetElement == null) return;
         const handler = ((e: TEvent) =>
             callbackRef.current(e)) as unknown as EventListenerOrEventListenerObject;
         targetElement.addEventListener(eventType, handler);
 
         return () => targetElement.removeEventListener(eventType, handler);
-    }, [eventType, targetElement]);
+    }, [element, eventType]);
 };
