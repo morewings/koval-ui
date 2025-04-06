@@ -37,6 +37,8 @@ export default defineConfig(({command}) => ({
             fileName: (format, entryName) => {
                 if (entryName === 'src/lib/index') {
                     return `index.${format === 'es' ? 'js' : 'cjs'}`;
+                } else if (entryName.includes('node_modules')) {
+                    return `external/module.${format === 'es' ? 'js' : 'cjs'}`;
                 }
                 return `${entryName}.${format === 'es' ? 'js' : 'cjs'}`;
             },
