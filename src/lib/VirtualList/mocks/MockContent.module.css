@@ -1,0 +1,12 @@
+.wrapper {
+    border: 2px solid var(--kg-color-do);
+    border-bottom: 1px solid var(--kg-color-do);
+    border-top: 1px solid var(--kg-color-do);
+    margin-right: calc(var(--kg-size-unit) * 3);
+    padding: calc(var(--kg-size-unit) * 2);
+}
+
+.info {
+    display: flex;
+    gap: calc(var(--kg-size-unit) * 3);
+}

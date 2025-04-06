@@ -1,0 +1,27 @@
+.vars {
+    --total-size: 0;
+    --first-item-start-position: 0;
+}
+
+.virtual-list {
+    height: calc(var(--height) * 1px);
+    max-width: 100%;
+    overflow: auto;
+    width: calc(var(--width) * 1px);
+}
+
+.height-container {
+    height: calc(var(--total-size) * 1px);
+    position: relative;
+    width: 100%;
+}
+
+.viewport {
+    --item-shift: calc(var(--first-item-start-position) * 1px);
+
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translateY(var(--item-shift));
+    width: 100%;
+}

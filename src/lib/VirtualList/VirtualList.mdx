@@ -1,0 +1,25 @@
+import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
+import { VirtualList } from "./VirtualList.tsx";
+import * as VirtualListStories from "./VirtualList.stories.tsx";
+
+<Meta title="Components/VirtualList" of={VirtualListStories} />
+
+# VirtualList
+
+## Description
+
+`VirtualList` can render up to 42 000 of complex list elements.
+This is achieved by using _virtualization_ of rendered list elements.
+Component allows to render items of _static_ (i.e. same for all) and _variable_ (can be different) heights.
+
+## Imports
+
+<Markdown>{`
+\`\`\`ts
+import {VirtualList} from 'koval-ui';
+\`\`\`
+`}</Markdown>
+
+<Primary />
+
+<ArgTypes of={VirtualList} />
