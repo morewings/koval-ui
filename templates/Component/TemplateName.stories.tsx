@@ -39,25 +39,3 @@ export const Primary: Story = {
     },
     args: {},
 };
-
-export const WithCode: Story = {
-    render: args => {
-        // here comes the code
-        return <TemplateName {...args} />;
-    },
-};
-
-WithCode.args = {
-    id: 'foo',
-};
-
-WithCode.argTypes = {};
-
-WithCode.parameters = {
-    docs: {
-        source: {
-            language: 'tsx',
-            type: 'code',
-        },
-    },
-};
