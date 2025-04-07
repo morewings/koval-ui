@@ -1,4 +1,6 @@
 @import url("the-new-css-reset/css/reset.css");
+@import url("@fontsource-variable/rubik/index.css");
+@import url("@fontsource-variable/rubik/wght-italic.css");
 
 html {
     overscroll-behavior: contain;
