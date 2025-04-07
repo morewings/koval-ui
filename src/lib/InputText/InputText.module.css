@@ -31,10 +31,6 @@
         background-color var(--kg-time-sm) ease-in-out,
         border-color var(--kg-time-sm) ease-in-out;
 
-    &:last-child {
-        margin-right: var(--validation-icon-placeholder);
-    }
-
     &::placeholder {
         color: var(--kg-color-sol);
         opacity: 0.66;
@@ -65,6 +61,12 @@
     &:--invalidSelector:focus {
         background-color: var(--kg-background-000);
         border-color: var(--kg-color-error);
+    }
+}
+
+.with-validation-icon {
+    & .input:last-child {
+        margin-right: var(--validation-icon-placeholder);
     }
 }
 

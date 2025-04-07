@@ -68,6 +68,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
             revalidateOnFormChange,
             validation,
             errorMessage,
+            displayIcon = true,
             ...nativeProps
         },
         ref
@@ -149,7 +150,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
                     onInput={handleInput}
                     onSelect={handleSelect}
                 />
-                {validity && <ValidationIcon className={classes.validation} />}
+                {displayIcon && validity && <ValidationIcon className={classes.validation} />}
             </LocalRoot>
         );
     }

@@ -54,6 +54,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
             validation,
             errorMessage,
             indeterminate = false,
+            displayIcon = true,
             ...nativeProps
         },
         ref
@@ -92,7 +93,12 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
         }, [indeterminate, inputRef]);
 
         return (
-            <div className={classNames(classes.wrapper, className)}>
+            <div
+                className={classNames(
+                    classes.wrapper,
+                    {[classes.withValidationIcon]: displayIcon},
+                    className
+                )}>
                 <input
                     {...nativeProps}
                     className={classNames(classes.input, {[classes.indeterminate]: indeterminate})}
@@ -119,7 +125,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, Props>(
                         {label}
                     </label>
                 )}
-                {validity && <ValidationIcon className={classes.icon} />}
+                {displayIcon && validity && <ValidationIcon className={classes.icon} />}
             </div>
         );
     }

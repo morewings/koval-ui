@@ -68,17 +68,11 @@
 }
 
 .label {
-    --validation-icon-placeholder: calc(var(--kg-size-unit) * 5);
-
     color: var(--kg-text-color);
     cursor: pointer;
     font-size: var(--kg-font-size-medium);
     margin-left: var(--kg-size-unit);
     margin-right: var(--kg-size-unit);
-
-    &:last-child {
-        margin-right: var(--validation-icon-placeholder);
-    }
 
     &.required::after {
         color: var(--kg-color-do);
@@ -86,6 +80,14 @@
         font-size: 24px;
         line-height: 18px;
         margin-left: calc(var(--kg-size-unit) / 2);
+    }
+}
+
+.with-validation-icon {
+    --validation-icon-placeholder: calc(var(--kg-size-unit) * 5);
+
+    & .label:last-child {
+        margin-right: var(--validation-icon-placeholder);
     }
 }
 

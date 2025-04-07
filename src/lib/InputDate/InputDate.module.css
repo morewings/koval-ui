@@ -83,8 +83,10 @@
     user-select: none;
     white-space: nowrap;
     width: 10ch;
+}
 
-    &:last-child {
+.with-validation-icon {
+    & .label:last-child {
         margin-right: var(--validation-icon-placeholder);
     }
 }

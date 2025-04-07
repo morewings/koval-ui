@@ -118,7 +118,12 @@ export const InputDateTime = forwardRef<HTMLInputElement, Props>(
                         onKeyDown={onKeyDown}
                         onInvalid={handleInvalid}
                     />
-                    <InputDate value={date} onChange={handleSetDate} validation={validity} />
+                    <InputDate
+                        value={date}
+                        onChange={handleSetDate}
+                        validation={validity}
+                        displayIcon={false}
+                    />
                     <InputTime value={time} onChange={handleSetTime} validation={validity} />
                 </div>
             </Fragment>

@@ -77,6 +77,7 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
             validation,
             errorMessage,
             displayScale,
+            displayIcon = true,
             ...nativeProps
         },
         ref
@@ -121,7 +122,12 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
         );
 
         return (
-            <div className={classNames(classes['input-range'], className)}>
+            <div
+                className={classNames(
+                    classes['input-range'],
+                    {[classes.withValidationIcon]: displayIcon},
+                    className
+                )}>
                 {Prefix && (
                     <label className={classes.prefix} htmlFor={inputId}>
                         <Prefix />
@@ -158,7 +164,7 @@ export const InputRange = forwardRef<HTMLInputElement, Props>(
                 <LocalRoot as="output" theme={theme} className={classes.output}>
                     {displayValue || Number(max) / 2} {scaleUnit}
                 </LocalRoot>
-                {validity && <ValidationIcon className={classes.validation} />}
+                {displayIcon && validity && <ValidationIcon className={classes.validation} />}
             </div>
         );
     }

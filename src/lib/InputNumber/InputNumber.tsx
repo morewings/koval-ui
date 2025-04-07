@@ -51,6 +51,7 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
             revalidateOnFormChange,
             errorMessage = ValidationState.error,
             validation,
+            displayIcon = true,
             ...nativeProps
         },
         ref
@@ -104,7 +105,13 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
         const theme = useMemo(() => ({size}), [size]);
 
         return (
-            <LocalRoot className={classNames(classes.wrapper, className)} theme={theme}>
+            <LocalRoot
+                className={classNames(
+                    classes.wrapper,
+                    {[classes.withValidationIcon]: displayIcon},
+                    className
+                )}
+                theme={theme}>
                 <div className={classes.spinner}>
                     <IconArrowUp tabIndex={-1} onClick={handleIncrement} />
                     <IconArrowDown tabIndex={-1} onClick={handleDecrement} />
@@ -128,7 +135,7 @@ export const InputNumber = forwardRef<HTMLInputElement, Props>(
                     onInvalid={handleInvalid}
                     onInput={validateTextual}
                 />
-                {validity && <ValidationIcon className={classes.validation} />}
+                {displayIcon && validity && <ValidationIcon className={classes.validation} />}
             </LocalRoot>
         );
     }

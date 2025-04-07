@@ -35,10 +35,6 @@
         background-color var(--kg-time-sm) ease-in-out,
         border-color var(--kg-time-sm) ease-in-out;
 
-    &:last-child {
-        margin-right: var(--validation-icon-placeholder);
-    }
-
     &:--focusSelector {
         background-color: var(--kg-background-000);
         border-color: var(--kg-color-re);
@@ -68,6 +64,12 @@
 
     &:--focusSelector::placeholder {
         color: transparent;
+    }
+}
+
+.with-validation-icon {
+    & .textarea:last-child {
+        margin-right: var(--validation-icon-placeholder);
     }
 }
 

@@ -49,6 +49,7 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
             revalidateOnFormChange,
             validation,
             errorMessage,
+            displayIcon = true,
             ...nativeProps
         },
         ref
@@ -104,7 +105,12 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
         }, [type, setType]);
 
         return (
-            <div className={classNames(classes.wrapper, className)}>
+            <div
+                className={classNames(
+                    classes.wrapper,
+                    {[classes.withValidationIcon]: displayIcon},
+                    className
+                )}>
                 <label
                     tabIndex={-1}
                     onClick={handleIconClick}
@@ -133,7 +139,7 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
                     onInput={validateTextual}
                     onSelect={handleSelect}
                 />
-                {validity && <ValidationIcon />}
+                {displayIcon && validity && <ValidationIcon />}
             </div>
         );
     }

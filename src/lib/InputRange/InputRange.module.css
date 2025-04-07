@@ -159,8 +159,10 @@
     font-weight: var(--kg-font-weight-bold);
     text-align: right;
     width: calc(var(--output-length) * 1ch);
+}
 
-    &:last-child {
+.with-validation-icon {
+    & .output:last-child {
         margin-right: var(--validation-icon-placeholder);
     }
 }

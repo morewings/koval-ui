@@ -54,6 +54,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
             errorMessage,
             revalidateOnFormChange,
             validation,
+            displayIcon = true,
             ...nativeProps
         },
         ref
@@ -148,7 +149,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
                 <label htmlFor={id} className={classes.label} ref={labelRef}>
                     {displayValue.toLowerCase() || placeholder}
                 </label>
-                {validity && <ValidationIcon />}
+                {displayIcon && validity && <ValidationIcon />}
                 {hasPredefinedColors && (
                     <datalist id={predefinedColorsListId}>
                         {predefinedColors.map(color => {

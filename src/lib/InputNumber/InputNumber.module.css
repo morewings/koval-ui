@@ -39,10 +39,6 @@
         text-align: left;
     }
 
-    &:last-child {
-        margin-right: var(--validation-icon-placeholder);
-    }
-
     &::-webkit-inner-spin-button {
         appearance: none;
     }
@@ -77,6 +73,12 @@
     &:--invalidSelector:focus {
         background-color: var(--kg-background-000);
         border-color: var(--kg-color-error);
+    }
+}
+
+.with-validation-icon {
+    & .input:last-child {
+        margin-right: var(--validation-icon-placeholder);
     }
 }
 
