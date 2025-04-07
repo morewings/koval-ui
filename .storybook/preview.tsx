@@ -6,9 +6,7 @@ import {theme as themeDnipro} from '../src/lib/Theme/themeDnipro';
 import {Provider} from './../src/lib/Provider/Provider';
 import {withThemeProvider} from './../src/env/theme-playground/ThemeSwitcherTool';
 
-import '@/lib/CSSReset/reset.css';
-import '@fontsource-variable/rubik';
-import '@fontsource-variable/rubik/wght-italic.css';
+import '@/lib/CSS/styles.css';
 
 const customViewports = {
     viewportXS: {
