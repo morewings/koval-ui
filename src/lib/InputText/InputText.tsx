@@ -61,6 +61,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
             revalidateOnFormChange,
             errorMessage = ValidationState.error,
             validation,
+            displayIcon = true,
             ...nativeProps
         },
         ref
@@ -139,7 +140,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                     onInput={validateTextual}
                     onSelect={handleSelect}
                 />
-                {validity && <ValidationIcon />}
+                {displayIcon && validity && <ValidationIcon />}
             </div>
         );
     }

@@ -68,8 +68,10 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     width: var(--input-width);
+}
 
-    &:last-child {
+.with-validation-icon {
+    & .label:last-child {
         margin-right: var(--validation-icon-placeholder);
     }
 }

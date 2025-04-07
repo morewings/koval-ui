@@ -41,6 +41,7 @@ export const InputDate = forwardRef<HTMLInputElement, Props>(
             revalidateOnFormChange,
             validation,
             errorMessage,
+            displayIcon = true,
             ...nativeProps
         },
         ref
@@ -99,7 +100,12 @@ export const InputDate = forwardRef<HTMLInputElement, Props>(
         );
 
         return (
-            <div className={classNames(classes.wrapper, className)}>
+            <div
+                className={classNames(
+                    classes.wrapper,
+                    {[classes.withValidationIcon]: displayIcon},
+                    className
+                )}>
                 <div className={classes.toggle}>
                     <input
                         {...nativeProps}
@@ -125,7 +131,7 @@ export const InputDate = forwardRef<HTMLInputElement, Props>(
                 <label htmlFor={id} className={classes.label} ref={labelRef}>
                     {displayValue || placeholder}
                 </label>
-                {validity && <ValidationIcon className={classes.validity} />}
+                {displayIcon && validity && <ValidationIcon className={classes.validity} />}
             </div>
         );
     }

@@ -47,6 +47,7 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
             errorMessage,
             revalidateOnFormChange,
             validation,
+            displayIcon = true,
             ...nativeProps
         },
         ref
@@ -84,7 +85,13 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
             setValidity(ValidationState.error);
         }, [setValidity]);
         return (
-            <LocalRoot theme={theme} className={classNames(classes['input-file'], className)}>
+            <LocalRoot
+                theme={theme}
+                className={classNames(
+                    classes['input-file'],
+                    {[classes.withValidationIcon]: displayIcon},
+                    className
+                )}>
                 <div className={classes.toggle}>
                     <input
                         {...nativeProps}
@@ -109,7 +116,7 @@ export const InputFile = forwardRef<HTMLInputElement, Props>(
                 <label htmlFor={id} className={classes.label}>
                     {filename || placeholder}
                 </label>
-                {validity && <ValidationIcon className={classes.validity} />}
+                {displayIcon && validity && <ValidationIcon className={classes.validity} />}
             </LocalRoot>
         );
     }

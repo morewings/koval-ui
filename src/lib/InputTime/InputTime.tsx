@@ -38,6 +38,7 @@ export const InputTime = forwardRef<HTMLInputElement, Props>(
             revalidateOnFormChange,
             validation,
             errorMessage,
+            displayIcon = true,
             ...nativeProps
         },
         ref
@@ -107,7 +108,7 @@ export const InputTime = forwardRef<HTMLInputElement, Props>(
                     onChange={handleChange}
                     onInput={validateTextual}
                 />
-                {validity && <ValidationIcon />}
+                {displayIcon && validity && <ValidationIcon />}
             </div>
         );
     }

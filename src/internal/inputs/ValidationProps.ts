@@ -34,4 +34,9 @@ export type ValidationProps = {
      * @see https://koval.support/inputs/input-validation
      */
     validation?: keyof typeof ValidationState | ValidatorFn;
+    /**
+     * Enable to display validation icon on the right side of the input.
+     * Empty space is reserved for validation icon.
+     */
+    displayIcon?: boolean;
 };

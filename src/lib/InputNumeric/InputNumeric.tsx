@@ -68,6 +68,7 @@ export const InputNumeric = forwardRef<HTMLInputElement, Props>(
             size = 12,
             mode = Modes.natural,
             revalidateOnFormChange,
+            displayIcon = true,
             ...nativeProps
         },
         ref
@@ -128,7 +129,12 @@ export const InputNumeric = forwardRef<HTMLInputElement, Props>(
         const pattern = patternMapping[mode];
 
         return (
-            <div className={classNames(classes.wrapper, className)}>
+            <div
+                className={classNames(
+                    classes.wrapper,
+                    {[classes.withValidationIcon]: displayIcon},
+                    className
+                )}>
                 <label className={classes.prefix} htmlFor={id}>
                     <IconNumeric />
                 </label>
@@ -154,7 +160,7 @@ export const InputNumeric = forwardRef<HTMLInputElement, Props>(
                     onInvalid={handleInvalid}
                     onInput={validateTextual}
                 />
-                {validity && <ValidationIcon />}
+                {displayIcon && validity && <ValidationIcon />}
             </div>
         );
     }

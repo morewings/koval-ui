@@ -47,10 +47,6 @@
         display: none;
     }
 
-    &:last-child {
-        margin-right: var(--validation-icon-placeholder);
-    }
-
     &::placeholder {
         color: var(--kg-color-sol);
     }
@@ -78,6 +74,12 @@
 
     &:--invalidSelector:focus {
         border-color: var(--kg-color-error);
+    }
+}
+
+.with-validation-icon {
+    & .input:last-child {
+        margin-right: var(--validation-icon-placeholder);
     }
 }
 
