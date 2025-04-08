@@ -42,6 +42,7 @@ export default defineConfig(({command}) => ({
                 }
                 return `${entryName}.${format === 'es' ? 'js' : 'cjs'}`;
             },
+            cssFileName: 'index',
             formats: ['es', 'cjs'],
         },
         rollupOptions: {

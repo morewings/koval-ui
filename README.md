@@ -38,7 +38,7 @@ Include Koval css styles and wrap your application with Provider.
 
 ```jsx
 import {Provider} from 'koval-ui';
-import 'koval-ui/dist/koval-ui.css'
+import 'koval-ui/dist/index.css'
 
 const App = ({children}) => {
     //...
