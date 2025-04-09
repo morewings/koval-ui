@@ -21,7 +21,7 @@ export {InputNumber} from './InputNumber';
 export {InputNumeric} from './InputNumeric';
 export {Textarea} from './Textarea';
 export {Select} from './Select';
-export {themePodil, themeDnipro} from './Theme';
+export {themePodil, themeDnipro, themeDovzhenko} from './Theme';
 export type {PublicThemeType as ThemeType} from './Theme';
 export {
     Text,

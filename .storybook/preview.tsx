@@ -3,6 +3,7 @@ import type {Preview} from '@storybook/react';
 
 import {theme as themePodil} from '../src/lib/Theme/themePodil';
 import {theme as themeDnipro} from '../src/lib/Theme/themeDnipro';
+import {theme as themeDovzhenko} from '../src/lib/Theme/themeDovzhenko';
 import {Provider} from './../src/lib/Provider/Provider';
 import {withThemeProvider} from './../src/env/theme-playground/ThemeSwitcherTool';
 
@@ -95,6 +96,11 @@ const preview: Preview = {
                 name: 'Dnipro',
                 color: '#20b2aa',
                 themeObject: themeDnipro,
+            },
+            {
+                name: 'Dovzhenko',
+                color: '#6e6e6e',
+                themeObject: themeDovzhenko,
             },
         ],
     },
