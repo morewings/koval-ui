@@ -1,5 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
-import { themePodil, themeDnipro } from "@/lib/index.js";
+import { themePodil, themeDnipro, themeDovzhenko } from "@/lib/Theme/index.ts";
 import { ThemePalette } from "./ThemePalette.tsx";
 
 <Meta title="Themes" />
@@ -8,12 +8,18 @@ import { ThemePalette } from "./ThemePalette.tsx";
 
 ## Podil
 
-Default theme.
+Default theme. Named after my favorite Kiev district.
 
 <ThemePalette theme={themePodil} />
 
 ## Dnipro
 
-Complementary theme.
+Complementary theme to Podil. Has brand and accent cololrs switched places.
 
 <ThemePalette theme={themeDnipro} />
+
+## Dovzhenko
+
+Black and white theme for testing purposes. Named after Alexander Dovzhenko, famous movie director.
+
+<ThemePalette theme={themeDovzhenko} />
