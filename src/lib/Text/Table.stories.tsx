@@ -8,7 +8,6 @@ const meta = {
     title: 'Typography/Table',
     component: Table,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {},

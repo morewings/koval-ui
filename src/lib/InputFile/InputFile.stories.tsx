@@ -10,7 +10,6 @@ const meta = {
     title: 'Inputs/File',
     component: InputFile,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {

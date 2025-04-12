@@ -15,7 +15,6 @@ const meta = {
     title: 'Layout/Grid',
     component: Grid,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
     },
     argTypes: {
@@ -79,7 +78,6 @@ export const Primary: Story = {
 export const Width: Story = {
     name: 'Fixed and fluid width',
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     render: () => (
@@ -120,7 +118,6 @@ export const Width: Story = {
 export const GridInsideGrid: Story = {
     name: 'Grid inside Grid',
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
         controls: {hideNoControlsWarning: true},
     },

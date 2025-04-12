@@ -10,7 +10,6 @@ const meta = {
     title: 'Typography/Number/Unit',
     component: NumberUnit,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {

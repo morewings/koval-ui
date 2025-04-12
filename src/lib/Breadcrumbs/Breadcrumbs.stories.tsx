@@ -10,7 +10,6 @@ const meta = {
     title: 'Components/Breadcrumbs',
     component: Breadcrumbs,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
     },
     args: {
