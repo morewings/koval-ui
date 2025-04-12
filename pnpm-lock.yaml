@@ -33,8 +33,8 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1
       css-vars-hook:
-        specifier: 0.7.9
-        version: 0.7.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 0.8.0
+        version: 0.8.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       the-new-css-reset:
         specifier: ^1.11.3
         version: 1.11.3
@@ -3406,8 +3406,8 @@ packages:
     resolution: {integrity: sha512-0eW44TGN5SQXU1mWSkKwFstI/22X2bG1nYzZTYMAWjylYURhse752YgbE4Cx46AC+bAvI+/dYTPRk1LqSUnu6w==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
 
-  css-vars-hook@0.7.9:
-    resolution: {integrity: sha512-tEY8Gb24kDPVD2d81KlEXf1t1vHKc5dCpt/hyX98ZYOPQCfdRrg96Yy5Vvs09y2OGxVhLNLrjPZs5OMpqqRasg==}
+  css-vars-hook@0.8.0:
+    resolution: {integrity: sha512-o7tw+2ipPTtnzuz32STykXALLypZwrJUKVlkdawLdjeiqSybkvwXTxKufmyaUCBd6BsCBIlQcFmMzWOQBbyNNQ==}
     engines: {node: '>=16'}
     peerDependencies:
       react: '>=18.2.0'
@@ -11039,7 +11039,7 @@ snapshots:
       mdn-data: 2.12.2
       source-map-js: 1.2.1
 
-  css-vars-hook@0.7.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  css-vars-hook@0.8.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)

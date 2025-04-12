@@ -27,8 +27,8 @@ export const TableCell = forwardRef<HTMLTableCellElement, Props>(
         useLinkRefs(ref, localRef);
         const theme = useMemo(
             () => ({
-                'left-margin': leftMargin,
-                'right-margin': rightMargin,
+                ...(leftMargin && {'left-margin': leftMargin}),
+                ...(rightMargin && {'right-margin': rightMargin}),
             }),
             [leftMargin, rightMargin]
         );

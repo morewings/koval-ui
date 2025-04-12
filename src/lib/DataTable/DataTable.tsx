@@ -211,7 +211,7 @@ export const DataTable = forwardRef<HTMLTableElement, Props>(
 
         const theme = useMemo(
             () => ({
-                'table-height': tableHeight,
+                ...(tableHeight && {'table-height': tableHeight}),
                 'cell-height': CELL_HEIGHT,
                 'max-height': maxHeight,
             }),
