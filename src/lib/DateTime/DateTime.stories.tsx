@@ -9,7 +9,6 @@ const meta = {
     title: 'Typography/DateTime',
     component: DateTime,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {

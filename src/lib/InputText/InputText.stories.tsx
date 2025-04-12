@@ -12,7 +12,6 @@ const meta = {
     title: 'Inputs/Text',
     component: InputText,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {

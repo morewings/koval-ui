@@ -11,7 +11,6 @@ const meta = {
     title: 'Inputs/Range',
     component: InputRange,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {

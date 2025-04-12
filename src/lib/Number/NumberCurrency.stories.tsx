@@ -11,7 +11,6 @@ const meta = {
     title: 'Typography/Number/Currency',
     component: NumberCurrency,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
     args: {

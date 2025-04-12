@@ -73,16 +73,16 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
-    "@fontsource-variable/rubik": "^5.1.1",
-    "@material-symbols/svg-700": "^0.29.0",
+    "@fontsource-variable/rubik": "^5.2.5",
+    "@material-symbols/svg-700": "^0.31.0",
     "@phosphor-icons/core": "^2.1.1",
     "@tanstack/react-table": "^8.21.2",
-    "@tanstack/react-virtual": "^3.13.0",
+    "@tanstack/react-virtual": "^3.13.6",
     "awesome-debounce-promise": "^2.1.0",
     "classnames": "^2.5.1",
     "css-vars-hook": "0.8.0",
     "the-new-css-reset": "^1.11.3",
-    "use-debounce": "^10.0.3"
+    "use-debounce": "^10.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "19.8.0",

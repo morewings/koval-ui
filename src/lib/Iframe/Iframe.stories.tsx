@@ -8,7 +8,6 @@ const meta = {
     title: 'Embeds & IFrame/Iframe',
     component: Iframe,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullsreen',
     },
     args: {

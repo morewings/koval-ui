@@ -26,7 +26,6 @@ const meta = {
     title: 'Components/DataTable',
     component: DataTable,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
     },
     args: {

@@ -8,7 +8,6 @@ const meta = {
     title: 'Embeds & IFrame/Picture',
     component: Picture,
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
         chromatic: {disableSnapshot: true},
     },
@@ -56,7 +55,6 @@ export const Primary: Story = {
 
 export const Responsive: Story = {
     parameters: {
-        // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'fullscreen',
     },
     render: args => {
