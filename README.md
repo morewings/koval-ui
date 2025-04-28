@@ -26,6 +26,8 @@ Read [Koval docs](https://koval.support/)
 
 See [Koval Storybook](https://morewings.github.io/koval-ui/).
 
+<a href="https://www.producthunt.com/posts/koval-ui?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-koval&#0045;ui" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=957861&theme=dark&t=1745849295565" alt="Koval&#0032;UI - &#0032;React&#0032;Components&#0032;Library&#0058;&#0032;browser&#0045;first&#0032;and&#0032;minimalistic | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 ## Quickstart
 
 Install library with the package manager of your choice
