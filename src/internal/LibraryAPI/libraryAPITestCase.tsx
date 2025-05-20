@@ -6,7 +6,6 @@ export {};
 //
 // /**
 //  * Test utility containing a set of tests to cover Library API features.
-//  * @see https://storybook.olxtech.pl/?path=/docs/experimental-library-api--page
 //  * @see LibraryProps
 //  * @example
 //  * // inside test file
