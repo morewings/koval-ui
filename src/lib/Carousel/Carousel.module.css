@@ -1,14 +1,13 @@
 .vars {
-    --width: 0;
-    --height: 0;
     --rotations: 0;
     --cells-amount: 0;
     --index: 0;
+    --aspect-ratio: 0;
+    --responsive-width: 0;
 }
 
 .carousel {
-    --transition-duration: var(--kg-time-md);
-    --transition-timing-function: ease-out;
+    --width: 0;
 
     display: flex;
     flex-direction: column;
@@ -17,25 +16,32 @@
 }
 
 .scene {
-    aspect-ratio: calc(var(--width) / var(--height));
-    max-width: 100%;
-    overflow: hidden;
-
-    /* Perspective makes Carousel look more 3Dish. Which may be needed for expanded design. perspective: 666px; */
+    aspect-ratio: var(--aspect-ratio);
     position: relative;
-    width: calc(var(--width) * 1px);
+
+    &.normal {
+        overflow: hidden;
+    }
+
+    &.exposed {
+        overflow: visible;
+        perspective: 666px;
+
+        & img {
+            opacity: 0.33;
+        }
+    }
 }
 
 .viewport {
-    /* See more at https://3dtransforms.desandro.com/carousel */
     --rotate: calc(var(--rotations) * (360 / var(--cells-amount)));
-    --translate: calc(var(--width) / (2 * tan(pi / var(--cells-amount))));
+    --translate: calc(var(--responsive-width) / (2 * tan(pi / var(--cells-amount))));
 
     box-sizing: border-box;
     height: 100%;
     transform: translateZ(calc(var(--translate) * -1px)) rotateY(calc(var(--rotate) * -1deg));
     transform-style: preserve-3d;
-    transition: transform var(--transition-duration) var(--transition-timing-function);
+    transition: transform 666ms ease-out;
     width: 100%;
 }
 
@@ -66,11 +72,6 @@
     }
 }
 
-.icon {
-    height: calc(var(--kg-size-unit) * 6);
-    width: calc(var(--kg-size-unit) * 6);
-}
-
 .dots {
     align-items: center;
     display: flex;
@@ -97,7 +98,24 @@
 .cell {
     --cell-rotate: calc(var(--index) * (360 / var(--cells-amount)));
 
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
     position: absolute;
+    right: 0;
+    top: 0;
     transform: rotateY(calc(var(--cell-rotate) * 1deg)) translateZ(calc(var(--translate) * 1px));
-    transition: transform var(--transition-duration) var(--transition-timing-function);
+    transform-style: preserve-3d;
+    transition: transform var(--kg-time-md) ease-out;
+
+    & img {
+        display: block;
+    }
+}
+
+.icon {
+    height: calc(var(--kg-size-unit) * 6);
+    width: calc(var(--kg-size-unit) * 6);
 }
