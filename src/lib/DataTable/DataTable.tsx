@@ -203,7 +203,9 @@ export const DataTable = forwardRef<HTMLTableElement, Props>(
 
         const wrapperRef = useRef(null);
 
-        const {height: tableHeight} = useResizeObserver(tableRef);
+        const tableRect = useResizeObserver(tableRef);
+
+        const tableHeight = tableRect?.height;
 
         const {LocalRoot} = useLocalTheme();
 

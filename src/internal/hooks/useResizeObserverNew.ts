@@ -1,58 +1,22 @@
-import {type MutableRefObject, useEffect, useMemo, useRef, useState} from 'react';
+import type {MutableRefObject} from 'react';
+import {useEffect, useState, useDeferredValue} from 'react';
 
-// Unfinished. TODO: make it work.
-export function useResizeObserver<TElement extends HTMLElement | null>(
-    ref: MutableRefObject<TElement>
-) {
-    const frameID = useRef(0);
+export const useResizeObserver = (ref: MutableRefObject<HTMLElement | null>) => {
+    const [rect, setRect] = useState<DOMRectReadOnly>();
 
-    const [size, setSize] = useState<ResizeObserverSize>();
-
-    const result = useMemo(
-        () => ({width: size?.inlineSize, height: size?.blockSize}),
-        [size?.blockSize, size?.inlineSize]
-    );
-
-    const observer = useMemo(
-        () =>
-            typeof window !== 'undefined'
-                ? new ResizeObserver((entries: ResizeObserverEntry[]) => {
-                      const entry = entries[0];
-
-                      if (entry) {
-                          cancelAnimationFrame(frameID.current);
-
-                          frameID.current = requestAnimationFrame(() => {
-                              if (ref.current) {
-                                  setSize(entry.borderBoxSize[0]);
-                              }
-                          });
-                      }
-                  })
-                : null,
-        [] // eslint-disable-line react-hooks/exhaustive-deps
-    );
+    const deferredRect = useDeferredValue(rect);
 
     useEffect(() => {
-        if (ref.current) {
-            observer?.observe(ref.current, {box: 'border-box'});
-        }
-
-        return () => {
-            observer?.disconnect();
-
-            if (frameID.current) {
-                cancelAnimationFrame(frameID.current);
+        const observer = new ResizeObserver(() => {
+            if (ref.current) {
+                const boundingRect = ref.current.getBoundingClientRect();
+                setRect(boundingRect);
             }
-        };
-    }, [ref.current]); // eslint-disable-line react-hooks/exhaustive-deps
+        });
+        ref.current && observer.observe(ref.current);
 
-    return result;
-}
+        return () => observer.disconnect();
+    }, [ref]);
 
-export function useElementSize<TElement extends HTMLElement | null>(
-    ref: MutableRefObject<TElement>
-) {
-    const {width, height} = useResizeObserver(ref);
-    return {width, height};
-}
+    return deferredRect;
+};
