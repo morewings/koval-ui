@@ -1,7 +1,7 @@
 import type {MutableRefObject} from 'react';
 import {useState, useEffect} from 'react';
 
-import {useResizeObserver} from './useResizeObserver.ts';
+import {useResizeObserver} from '@/internal/hooks/useResizeObserverNew.ts';
 
 export type Props = {
     width: number;
