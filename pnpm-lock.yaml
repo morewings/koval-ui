@@ -274,8 +274,8 @@ importers:
         specifier: 6.2.7
         version: 6.2.7(@types/node@20.17.57)(jiti@2.4.2)(tsx@4.19.3)(yaml@2.7.1)
       vite-plugin-dts:
-        specifier: 4.5.3
-        version: 4.5.3(@types/node@20.17.57)(rollup@4.34.8)(typescript@5.4.5)(vite@6.2.7(@types/node@20.17.57)(jiti@2.4.2)(tsx@4.19.3)(yaml@2.7.1))
+        specifier: 4.5.4
+        version: 4.5.4(@types/node@20.17.57)(rollup@4.34.8)(typescript@5.4.5)(vite@6.2.7(@types/node@20.17.57)(jiti@2.4.2)(tsx@4.19.3)(yaml@2.7.1))
       vite-plugin-svgr:
         specifier: 4.3.0
         version: 4.3.0(rollup@4.34.8)(typescript@5.4.5)(vite@6.2.7(@types/node@20.17.57)(jiti@2.4.2)(tsx@4.19.3)(yaml@2.7.1))
@@ -6922,8 +6922,8 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vite-plugin-dts@4.5.3:
-    resolution: {integrity: sha512-P64VnD00dR+e8S26ESoFELqc17+w7pKkwlBpgXteOljFyT0zDwD8hH4zXp49M/kciy//7ZbVXIwQCekBJjfWzA==}
+  vite-plugin-dts@4.5.4:
+    resolution: {integrity: sha512-d4sOM8M/8z7vRXHHq/ebbblfaxENjogAAekcfcDCCwAyvGqnPrc7f4NZbvItS+g4WTgerW0xDwSz5qz11JT3vg==}
     peerDependencies:
       typescript: '*'
       vite: '*'
@@ -7552,8 +7552,7 @@ snapshots:
 
   '@babel/helper-string-parser@7.25.9': {}
 
-  '@babel/helper-string-parser@7.27.1':
-    optional: true
+  '@babel/helper-string-parser@7.27.1': {}
 
   '@babel/helper-validator-identifier@7.24.7': {}
 
@@ -7607,7 +7606,6 @@ snapshots:
   '@babel/parser@7.27.2':
     dependencies:
       '@babel/types': 7.27.1
-    optional: true
 
   '@babel/plugin-bugfix-firefox-class-in-computed-class-key@7.27.1(@babel/core@7.26.0)':
     dependencies:
@@ -8489,7 +8487,6 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
-    optional: true
 
   '@bcoe/v8-coverage@0.2.3': {}
 
@@ -10425,7 +10422,7 @@ snapshots:
 
   '@vue/compiler-core@3.5.13':
     dependencies:
-      '@babel/parser': 7.27.0
+      '@babel/parser': 7.27.2
       '@vue/shared': 3.5.13
       entities: 4.5.0
       estree-walker: 2.0.2
@@ -15122,14 +15119,14 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite-plugin-dts@4.5.3(@types/node@20.17.57)(rollup@4.34.8)(typescript@5.4.5)(vite@6.2.7(@types/node@20.17.57)(jiti@2.4.2)(tsx@4.19.3)(yaml@2.7.1)):
+  vite-plugin-dts@4.5.4(@types/node@20.17.57)(rollup@4.34.8)(typescript@5.4.5)(vite@6.2.7(@types/node@20.17.57)(jiti@2.4.2)(tsx@4.19.3)(yaml@2.7.1)):
     dependencies:
       '@microsoft/api-extractor': 7.51.1(@types/node@20.17.57)
       '@rollup/pluginutils': 5.1.4(rollup@4.34.8)
       '@volar/typescript': 2.4.11
       '@vue/language-core': 2.2.0(typescript@5.4.5)
       compare-versions: 6.1.1
-      debug: 4.4.0
+      debug: 4.4.1
       kolorist: 1.8.0
       local-pkg: 1.1.1
       magic-string: 0.30.17
