@@ -119,7 +119,7 @@
     "@types/react-dom": "18.3.0",
     "@typescript-eslint/eslint-plugin": "8.32.1",
     "@typescript-eslint/parser": "8.32.1",
-    "@vitejs/plugin-react": "4.3.4",
+    "@vitejs/plugin-react": "4.5.1",
     "@yelo/rollup-node-external": "1.0.1",
     "alias-hq": "6.2.4",
     "chromatic": "11.29.0",
