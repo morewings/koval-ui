@@ -112,7 +112,12 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
         const inputId = useInternalId(id);
 
         return (
-            <div className={classNames(classes.wrapper, className)}>
+            <div
+                className={classNames(
+                    classes.wrapper,
+                    {[classes.withValidationIcon]: displayIcon},
+                    className
+                )}>
                 {Prefix && (
                     <label className={classes.prefix} htmlFor={inputId}>
                         <Prefix />
@@ -140,7 +145,7 @@ export const InputText = forwardRef<HTMLInputElement, Props>(
                     onInput={validateTextual}
                     onSelect={handleSelect}
                 />
-                {displayIcon && validity && <ValidationIcon />}
+                {displayIcon && validity && <ValidationIcon className={classes.validation} />}
             </div>
         );
     }

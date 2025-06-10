@@ -107,3 +107,7 @@
 .prefix:has(+ .input:--hoverSelector) {
     color: var(--kg-color-re);
 }
+
+.validation {
+    flex-shrink: 0;
+}
