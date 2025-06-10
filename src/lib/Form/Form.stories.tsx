@@ -1,6 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
 import type {ComponentProps} from 'react';
+import {useCallback} from 'react';
 
 import {InputText} from '@/lib/InputText';
 import {FormField} from '@/lib/FormField';
@@ -224,205 +225,48 @@ export const ComplexValidation: Story = {
     },
 };
 
-// const onSubmit = (data: unknown) => console.log(data);
-//
-// type Inputs = {
-//     exampleHint: string;
-// };
-//
-// export const ExternalValidation1: Story = {
-//     name: 'Hook form validation',
-//     args: {
-//         onSubmit: (event, state) => {
-//             event.preventDefault();
-//             console.log('onSubmit', state);
-//         },
-//     },
-//     render: () => {
-//         /**
-//          * React hook form basic setup. Click Submit to validate.
-//          * @see https://react-hook-form.com/docs/useform
-//          */
-//         const {
-//             register,
-//             handleSubmit,
-//             formState: {errors},
-//         } = useForm<Inputs>();
-//
-//         const validityState = errors.exampleHint ? ValidationState.error : ValidationState.valid;
-//
-//         return (
-//             <Form onSubmit={handleSubmit(onSubmit)}>
-//                 <FormField
-//                     label="Error message as a hint"
-//                     // Display hook form errors as hint message below input
-//                     hint={errors.exampleHint?.message as string}>
-//                     <InputText
-//                         {...register('exampleHint', {
-//                             required: 'This field is required!',
-//                             minLength: 3,
-//                         })}
-//                         // Synchronize input validation state with React Hook Form
-//                         validation={validityState}
-//                         // Set browser input error message
-//                         errorMessage={errors.exampleHint?.message as string}
-//                     />
-//                 </FormField>
-//                 <div>
-//                     <Button type="submit">Submit</Button>
-//                 </div>
-//             </Form>
-//         );
-//     },
-// };
-//
-// /**
-//  * Form validation schema
-//  * @see https://github.com/jquense/yup?tab=readme-ov-file#schema-basics
-//  */
-// const schema = yup
-//     .object({
-//         firstName: yup.string().required(),
-//         age: yup.number().nullable().positive().integer(),
-//     })
-//     .required();
-//
-// export const ExternalValidation2: Story = {
-//     name: 'Hook form validation state',
-//     args: {
-//         onSubmit: (event, state) => {
-//             event.preventDefault();
-//             console.log('onSubmit', state);
-//         },
-//     },
-//     render: () => {
-//         /**
-//          * React hook form basic setup
-//          * @see https://react-hook-form.com/docs/useform
-//          */
-//         const {register, handleSubmit, formState} = useForm({
-//             // Here set schema validation
-//             resolver: yupResolver(schema),
-//             defaultValues: {
-//                 firstName: undefined,
-//                 age: null,
-//             },
-//         });
-//
-//         const getValidity = useCallback(
-//             (fieldName: string) => {
-//                 // @ts-ignore
-//                 const validState = formState.dirtyFields[fieldName]
-//                     ? ValidationState.valid
-//                     : ValidationState.pristine;
-//                 // @ts-ignore
-//                 return formState.errors[fieldName] ? ValidationState.error : validState;
-//             },
-//             [formState.dirtyFields, formState.errors]
-//         );
-//
-//         return (
-//             <Form onSubmit={handleSubmit(onSubmit)}>
-//                 <FormField
-//                     label="First name"
-//                     // Set conditional hint from React Hook Form state
-//                     hint={formState.errors.firstName?.message}>
-//                     <InputText
-//                         {...register('firstName')}
-//                         // Synchronize input validation state with React Hook Form
-//                         validation={getValidity('firstName')}
-//                         // Set browser input error message
-//                         errorMessage={formState.errors.firstName?.message}
-//                     />
-//                 </FormField>
-//                 <FormField label="Age" hint={formState.errors.age?.message}>
-//                     <InputNumber
-//                         {...register('age')}
-//                         validation={getValidity('age')}
-//                         errorMessage={formState.errors.age?.message}
-//                     />
-//                 </FormField>
-//                 <div>
-//                     <Button type="submit">Submit</Button>
-//                     <Button type="reset" variant="alternative">
-//                         Reset
-//                     </Button>
-//                 </div>
-//             </Form>
-//         );
-//     },
-// };
-//
-// const validationSchemaFormik = yup.object({
-//     email: yup.string().email('Enter a valid email').required('Email is required'),
-//     password: yup
-//         .string()
-//         .min(8, 'Password should be of minimum 8 characters length')
-//         .required('Password is required'),
-// });
-//
-// export const ExternalValidation3: Story = {
-//     name: 'Hook form validation Formik',
-//     args: {
-//         onSubmit: (event, state) => {
-//             event.preventDefault();
-//             console.log('onSubmit', state);
-//         },
-//     },
-//     render: () => {
-//         /**
-//          * React hook form basic setup
-//          * @see https://react-hook-form.com/docs/useform
-//          */
-//         const formik = useFormik({
-//             initialValues: {
-//                 email: 'foobar@example.com',
-//                 password: 'foobar',
-//             },
-//             validationSchema: validationSchemaFormik,
-//             onSubmit: values => {
-//                 console.log(values);
-//             },
-//         });
-//         const emailValidationState =
-//             formik.touched.email && Boolean(formik.errors.email)
-//                 ? ValidationState.error
-//                 : ValidationState.valid;
-//         const emailHint = formik.touched.email ? formik.errors.email : undefined;
-//         const passwordValidationState =
-//             formik.touched.password && Boolean(formik.errors.password)
-//                 ? ValidationState.error
-//                 : ValidationState.valid;
-//         const passwordHint = formik.touched.password ? formik.errors.password : undefined;
-//
-//         return (
-//             <Form onSubmit={formik.handleSubmit}>
-//                 {/* This input field displays hint below input when validation fails */}
-//                 <FormField label="Email" hint={emailHint}>
-//                     <InputText
-//                         name="email"
-//                         value={formik.values.email}
-//                         onChange={formik.handleChange}
-//                         onBlur={formik.handleBlur}
-//                         validation={emailValidationState}
-//                         errorMessage={formik.errors.email}
-//                     />
-//                 </FormField>
-//                 {/* This input field tries to display browser input error tooltip */}
-//                 <FormField label="Password" hint={passwordHint}>
-//                     <InputText
-//                         name="password"
-//                         value={formik.values.password}
-//                         onChange={formik.handleChange}
-//                         onBlur={formik.handleBlur}
-//                         validation={passwordValidationState}
-//                         errorMessage={formik.errors.password}
-//                     />
-//                 </FormField>
-//                 <div>
-//                     <Button type="submit">Submit</Button>
-//                 </div>
-//             </Form>
-//         );
-//     },
-// };
+export const Password: Story = {
+    name: 'Password with confirmation',
+    args: {
+        onSubmit: (event, state) => {
+            event.preventDefault();
+            console.log('onSubmit', state);
+        },
+    },
+    render: args => {
+        const validatePasswordConfirmation = useCallback(
+            (value: unknown, _: unknown, formState: Record<string, FormDataEntryValue>) => {
+                if (Boolean(value) && value !== formState['password']) {
+                    return "Passwords don't match";
+                }
+                return '';
+            },
+            []
+        );
+        return (
+            <Form {...args}>
+                <FormField
+                    label="Password:"
+                    hint="Minimum 6 characters, at least one letter, one number and one special character.">
+                    <InputPassword
+                        autoComplete="off"
+                        pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$"
+                        required={true}
+                        name="password"
+                        placeholder="******"
+                    />
+                </FormField>
+                <FormField label="Confirm password:" hint="Retype password from previous field.">
+                    <InputPassword
+                        autoComplete="off"
+                        validation={validatePasswordConfirmation}
+                        required={true}
+                        revalidateOnFormChange={true}
+                        name="password_confirmation"
+                        placeholder="******"
+                    />
+                </FormField>
+            </Form>
+        );
+    },
+};
