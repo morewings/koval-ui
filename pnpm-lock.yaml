@@ -154,8 +154,8 @@ importers:
         specifier: 6.2.4
         version: 6.2.4(@babel/preset-env@7.24.6(@babel/core@7.26.10))
       chromatic:
-        specifier: 11.29.0
-        version: 11.29.0
+        specifier: 12.2.0
+        version: 12.2.0
       commitizen:
         specifier: 4.3.1
         version: 4.3.1(@types/node@20.17.57)(typescript@5.4.5)
@@ -3159,8 +3159,8 @@ packages:
     resolution: {integrity: sha512-OAlb+T7V4Op9OwdkjmguYRqncdlx5JiofwOAUkmTF+jNdHwzTaTs4sRAGpzLF3oOz5xAyDGrPgeIDFQmDOTiJw==}
     engines: {node: '>= 16'}
 
-  chromatic@11.29.0:
-    resolution: {integrity: sha512-yisBlntp9hHVj19lIQdpTlcYIXuU9H/DbFuu6tyWHmj6hWT2EtukCCcxYXL78XdQt1vm2GfIrtgtKpj/Rzmo4A==}
+  chromatic@12.2.0:
+    resolution: {integrity: sha512-GswmBW9ZptAoTns1BMyjbm55Z7EsIJnUvYKdQqXIBZIKbGErmpA+p4c0BYA+nzw5B0M+rb3Iqp1IaH8TFwIQew==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -10719,7 +10719,7 @@ snapshots:
 
   check-error@2.1.1: {}
 
-  chromatic@11.29.0: {}
+  chromatic@12.2.0: {}
 
   ci-info@3.9.0: {}
 
