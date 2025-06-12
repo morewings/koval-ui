@@ -2,6 +2,7 @@
 [![Post-merge tasks](https://github.com/morewings/koval-ui/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/koval-ui/actions/workflows/merge-jobs.yml)
 [![types included](https://img.shields.io/github/package-json/types/morewings/koval-ui)](https://github.com/morewings/koval-ui)
 [![npm version](https://badge.fury.io/js/koval-ui.svg)](https://www.npmjs.com/package/koval-ui)
+[![npm downloads](https://img.shields.io/npm/dm/koval-ui)](https://www.npmcharts.com/compare/koval-ui?interval=7)
 [![npm bundle size](https://deno.bundlejs.com/badge?q=koval-ui@latest&config={"esbuild":{"external":["react","react-dom"]}})](https://bundlejs.com/?bundle&q=koval-ui@latest&config={"analysis":"treemap","esbuild":{"external":["react","react-dom"]}})
 [![Maintainability](https://api.codeclimate.com/v1/badges/bd5faa98bfe0416e4ce4/maintainability)](https://codeclimate.com/github/morewings/koval-ui/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bd5faa98bfe0416e4ce4/test_coverage)](https://codeclimate.com/github/morewings/koval-ui/test_coverage)
