@@ -11,7 +11,7 @@
 
 [![NPM library Create React App template logo](./design/logo-repo.png)](#)
 
-Koval UI: A modern React Ccmponent library designed for experimentation & performance. Koval  UI provides a comprehensive set of components (layout, various inputs, form, data table and carousel), all built with native browser APIs at their core. This approach minimizes JavaScript overhead, improving stable performance and reducing bundle size. Ideal for developers building cutting-edge applications, AI interfaces, or rapidly prototyping new ideas. 
+Koval UI: A modern React component library designed for experimentation & performance. Koval UI provides a comprehensive set of components (layout, various inputs, form, data table and carousel), all built with native browser APIs at their core. This approach minimizes JavaScript overhead, improving stable performance and reducing bundle size. Ideal for developers building cutting-edge applications, AI interfaces, or rapidly prototyping new ideas. 
 
 Explore Koval UI and accelerate your next project!
 
