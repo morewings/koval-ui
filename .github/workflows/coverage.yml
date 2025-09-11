@@ -56,10 +56,5 @@ jobs:
         run: pnpm install
 
       - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v9.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-        with:
-          coverageCommand: pnpm run coverage
-          coverageLocations: |
-            ${{github.workspace}}/coverage/lcov.info:lcov
+        run: pnpm run test
+        
