@@ -58,7 +58,7 @@ jobs:
           pnpm run lint:commits --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
           pnpm run lint:code --quiet
           pnpm run lint:style --quiet
-          pnpm run build
+          pnpm run build --logLevel silent
           pnpm run generate:component Foo --dry-run
           pnpm run generate:input Foo --dry-run
           pnpm run generate:global Foo --dry-run
