@@ -2,18 +2,18 @@ import {resolve} from 'path';
 
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
-import hq from 'alias-hq';
 import external from '@yelo/rollup-node-external';
 import dts from 'vite-plugin-dts';
 import postcssPresetEnv from 'postcss-preset-env';
 import svgr from 'vite-plugin-svgr';
+import {kitchen} from 'alias-kitchen';
 
 // https://vitejs.dev/config/
 export default defineConfig(({command}) => ({
     // don't bundle public directory
     publicDir: command === 'build' ? false : 'public',
     resolve: {
-        alias: hq.get('rollup'),
+        alias: kitchen({recipe: 'vite'}),
     },
     plugins: [
         svgr({
