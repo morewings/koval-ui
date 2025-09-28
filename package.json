@@ -65,7 +65,8 @@
     "commitlint": "commitlint",
     "semantic-release": "semantic-release",
     "chromatic": "chromatic --exit-zero-on-changes --only-changed",
-    "prepare": "is-ci || husky"
+    "prepare": "is-ci || husky",
+    "lint-staged": "lint-staged"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -121,7 +122,7 @@
     "@typescript-eslint/parser": "8.32.1",
     "@vitejs/plugin-react": "4.5.1",
     "@yelo/rollup-node-external": "1.0.1",
-    "alias-hq": "6.2.4",
+    "alias-kitchen": "0.1.1",
     "chromatic": "12.2.0",
     "commitizen": "4.3.1",
     "commitlint": "19.8.1",

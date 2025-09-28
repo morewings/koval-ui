@@ -1,3 +1,5 @@
+import {kitchen} from 'alias-kitchen';
+
 export default {
     preset: 'ts-jest',
     testEnvironment: 'jest-environment-jsdom',
@@ -8,6 +10,7 @@ export default {
     moduleNameMapper: {
         '\\.(gif|ttf|eot|svg|png)$': 'identity-obj-proxy',
         '\\.css$': 'identity-obj-proxy',
+        ...kitchen({recipe: 'jest'}),
     },
     coverageReporters: [
         [
