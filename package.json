@@ -74,7 +74,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
-    "@fontsource-variable/rubik": "^5.2.5",
+    "@fontsource-variable/rubik": "^5.2.8",
     "@material-symbols/svg-700": "^0.31.0",
     "@phosphor-icons/core": "^2.1.1",
     "@tanstack/react-table": "^8.21.2",
