@@ -35,9 +35,6 @@ importers:
       css-vars-hook:
         specifier: 0.8.2
         version: 0.8.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      the-new-css-reset:
-        specifier: ^1.11.3
-        version: 1.11.3
       use-debounce:
         specifier: ^10.0.4
         version: 10.0.5(react@18.3.1)
@@ -5736,9 +5733,6 @@ packages:
   text-extensions@2.4.0:
     resolution: {integrity: sha512-te/NtwBwfiNRLf9Ijqx3T0nlqZiQ2XrrtBvu+cLL8ZRrGkO0NHTug8MYFKyoSrv/sHTaSKfilUkizV6XhxMJ3g==}
     engines: {node: '>=8'}
-
-  the-new-css-reset@1.11.3:
-    resolution: {integrity: sha512-61SB81vu9foUyEIqoU1CeqxrdlsVjJojj/CBXoG8BdvlKFsllB0Rza63DblnRqH+3uttPj3FGWo7+c9nu7MT+A==}
 
   thenify-all@1.6.0:
     resolution: {integrity: sha512-RNxQH/qI8/t3thXJDwcstUO4zeqo64+Uy/+sNVRBx4Xn2OX+OZ9oP+iJnNFqplFra2ZUVeKCSa2oVWi3T4uVmA==}
@@ -12488,8 +12482,6 @@ snapshots:
       minimatch: 3.1.2
 
   text-extensions@2.4.0: {}
-
-  the-new-css-reset@1.11.3: {}
 
   thenify-all@1.6.0:
     dependencies:

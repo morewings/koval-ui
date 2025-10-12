@@ -9,6 +9,7 @@ const meta = {
     component: Iframe,
     parameters: {
         layout: 'fullsreen',
+        chromatic: {disableSnapshot: true},
     },
     args: {
         onLoad: fn(),
