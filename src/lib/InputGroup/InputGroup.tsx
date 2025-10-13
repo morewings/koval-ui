@@ -6,6 +6,7 @@ import {
     type ReactElement,
     type FieldsetHTMLAttributes,
     useMemo,
+    type ChangeEvent,
 } from 'react';
 import classNames from 'classnames';
 
@@ -18,10 +19,15 @@ type ChildProps = {
     disabled?: Props['disabled'];
     required?: Props['required'];
     id?: Props['id'];
+    onChange?: Props['onChange'];
 };
 
 export type Props = DataAttributes &
     LibraryProps & {
+        /**
+         * Provide onChange callback for the whole group
+         */
+        onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
         /**
          * Set a label text for the group
          */
@@ -49,7 +55,10 @@ export type Props = DataAttributes &
     };
 
 export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
-    ({className, id, label, children, name, disabled, hint, required, ...nativeProps}, ref) => {
+    (
+        {className, id, label, children, name, disabled, hint, required, onChange, ...nativeProps},
+        ref
+    ) => {
         const childrenWithProps = useMemo(() => {
             return Children.map(children, element => {
                 if (isValidElement(element)) {
@@ -61,11 +70,14 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
                     if (required !== undefined && typeof element.props.required !== 'boolean') {
                         nextProps.required = required;
                     }
+                    if (onChange !== undefined && typeof element.props.required === 'function') {
+                        nextProps.onChange = onChange;
+                    }
                     return cloneElement<ChildProps>(element, nextProps);
                 }
                 return element;
             });
-        }, [children, disabled, name, required]);
+        }, [children, disabled, name, onChange, required]);
         return (
             <fieldset
                 {...nativeProps}
