@@ -15,6 +15,7 @@ const meta = {
     },
     args: {
         onClick: fn(),
+        onChange: fn(),
         onBlur: fn(),
         onFocus: fn(),
         onKeyDown: fn(),
@@ -26,6 +27,11 @@ const meta = {
     },
     argTypes: {
         value: {control: 'text'},
+        onChange: {
+            table: {
+                disable: true,
+            },
+        },
         onClick: {
             table: {
                 disable: true,
@@ -82,11 +88,6 @@ const meta = {
             },
         },
         form: {
-            table: {
-                disable: true,
-            },
-        },
-        onChange: {
             table: {
                 disable: true,
             },

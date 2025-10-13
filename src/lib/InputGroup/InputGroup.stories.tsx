@@ -1,4 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
+import {fn} from '@storybook/test';
 
 import {InputRadio} from '@/lib/InputRadio';
 import {InputCheckbox} from '@/lib/InputCheckbox';
@@ -13,6 +14,7 @@ const meta = {
         layout: 'centered',
     },
     args: {
+        onChange: fn(),
         disabled: false,
         hint: 'This is group hint!',
         required: false,
@@ -20,6 +22,11 @@ const meta = {
         name: 'input-group-example',
     },
     argTypes: {
+        onChange: {
+            table: {
+                disable: true,
+            },
+        },
         role: {
             table: {
                 disable: true,

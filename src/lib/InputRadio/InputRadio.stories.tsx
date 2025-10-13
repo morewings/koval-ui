@@ -12,6 +12,7 @@ const meta = {
     },
     args: {
         onClick: fn(),
+        onChange: fn(),
         onBlur: fn(),
         onFocus: fn(),
         onKeyDown: fn(),
