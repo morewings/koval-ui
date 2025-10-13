@@ -87,12 +87,8 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
         const handleFocus = useCallback(
             (event: FocusEvent<HTMLInputElement>) => {
                 onFocus(event);
-                setTheme({
-                    'selected-color': event.target.value,
-                    'inverted-color': invertColor(event.target.value, true),
-                });
             },
-            [onFocus, setTheme]
+            [onFocus]
         );
 
         const labelRef = useRef<HTMLLabelElement>(null);
@@ -100,6 +96,7 @@ export const InputColor = forwardRef<HTMLInputElement, Props>(
         const handleBlur = useCallback(
             (event: FocusEvent<HTMLInputElement>) => {
                 setTheme({
+                    'selected-color': event.target.value,
                     'inverted-color': invertColor(event.target.value, true),
                 });
 
