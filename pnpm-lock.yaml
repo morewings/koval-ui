@@ -148,8 +148,8 @@ importers:
         specifier: 1.0.1
         version: 1.0.1
       alias-kitchen:
-        specifier: 0.1.1
-        version: 0.1.1
+        specifier: 0.2.3
+        version: 0.2.3
       chromatic:
         specifier: 12.2.0
         version: 12.2.0
@@ -2181,8 +2181,8 @@ packages:
   ajv@8.13.0:
     resolution: {integrity: sha512-PRA911Blj99jR5RMeTunVbNXMF6Lp4vZXnk5GQjcnUWUTsrXtekg/pnmFFI2u/I36Y/2bITGS30GZCXei6uNkA==}
 
-  alias-kitchen@0.1.1:
-    resolution: {integrity: sha512-+5RGQC66agYMaRPdf6ICAFAEMdvZohE7AZbSyLIGvUCI5yk2aP0a1BBvP7SdjzSvURnXACjSMbVOJ9sWIyYUrw==}
+  alias-kitchen@0.2.3:
+    resolution: {integrity: sha512-TPMJwllaKUiZKijfsH2FNjegYza8J6s2uCUyv/dJJEy3DIgjDrL71saEsp+Q5KE5gPW6OWOCavQJqcVSRga11g==}
 
   alien-signals@0.4.14:
     resolution: {integrity: sha512-itUAVzhczTmP2U5yX67xVpsbbOiquusbWVyA9N+sy6+r6YVbFkahXvNCeEPWEOMhwDYwbVbGHFkVL03N9I5g+Q==}
@@ -8475,7 +8475,7 @@ snapshots:
       require-from-string: 2.0.2
       uri-js: 4.4.1
 
-  alias-kitchen@0.1.1:
+  alias-kitchen@0.2.3:
     dependencies:
       get-tsconfig: 4.10.1
 
