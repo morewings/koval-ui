@@ -1,7 +1,7 @@
 @import url("@/internal/inputs/stateSelectorsInteractive.css");
 
 .wrapper {
-    --bg-color: var(--kg-background-000);
+    --bg-color: transparent;
     --border-color: var(--kg-color-sol);
     --border-hover-color: var(--kg-color-re);
     --center-color: var(--kg-color-sol);

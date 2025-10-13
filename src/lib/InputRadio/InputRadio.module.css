@@ -21,7 +21,7 @@
 }
 
 .input {
-    --bg-color: #fff;
+    --bg-color: transparent;
     --border-color: var(--kg-color-sol);
     --center-color: var(--kg-color-la);
 
