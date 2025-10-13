@@ -20,8 +20,6 @@ const meta = {
         onChange: fn(),
         required: false,
         size: 12,
-        min: -999,
-        max: 999,
         step: 1,
         placeholder: 'Enter decimal',
         mode: 'natural',

@@ -70,7 +70,7 @@ export const InputGroup = forwardRef<HTMLFieldSetElement, Props>(
                     if (required !== undefined && typeof element.props.required !== 'boolean') {
                         nextProps.required = required;
                     }
-                    if (onChange !== undefined && typeof element.props.required === 'function') {
+                    if (onChange !== undefined) {
                         nextProps.onChange = onChange;
                     }
                     return cloneElement<ChildProps>(element, nextProps);
