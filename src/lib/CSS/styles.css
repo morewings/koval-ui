@@ -1,7 +1,7 @@
 @import url("@fontsource-variable/rubik/index.css");
-@import url("@fontsource-variable/rubik/wght-italic.css");
 
 html {
+    font-synthesis: style;
     overscroll-behavior: contain;
     text-size-adjust: none;
 }

@@ -18,6 +18,8 @@
     --icon-shadow: none;
 
     align-items: center;
+    background: transparent;
+    border: none;
     border-top: var(--kg-border-width-100) solid var(--kg-background-100);
     box-sizing: border-box;
     cursor: pointer;
