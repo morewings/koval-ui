@@ -40,7 +40,7 @@ export type Props = DataAttributes &
         title: string;
         /** Provide an additional text to display inside Toast */
         body?: string;
-        /** Callback triggered when user click closes Toast */
+        /** Callback triggered when the user closes Toast */
         onToggle?: (isOpen: boolean) => void;
         /** Set time in seconds to auto close Toast */
         autoClose?: number;

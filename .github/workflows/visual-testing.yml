@@ -60,3 +60,5 @@ jobs:
           exitOnceUploaded: true
           autoAcceptChanges: "master"
           exitZeroOnChanges: true
+          untraced: |
+            ".storybook/preview.tsx"

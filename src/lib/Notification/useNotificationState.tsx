@@ -79,8 +79,8 @@ export const useNotificationState = (id: string) => {
 
     return {
         /**
-         * Show notification to the user.
-         * Warning! Will not work from component scope. Needs to be run as an effect
+         * Show a notification to the user.
+         * Warning! Will not work from a component scope. Needs to be run as an effect
          * @example
          * const {openNotificaton} = useNotificationState(id);
          * const handleClick = useCallback(() => {
@@ -89,13 +89,13 @@ export const useNotificationState = (id: string) => {
          */
         openNotification,
         /**
-         * Hide notification.
-         * Warning! Will not work from component scope. Needs to be run as an effect
+         * Hide a notification.
+         * Warning! Will not work from a component scope. Needs to be run as an effect
          * @example
-         * const {openNotificaton} = useNotificationState(id);
+         * const {closeNotification} = useNotificationState(id);
          * const handleClick = useCallback(() => {
-         *     openNotification();
-         * }, [openNotification]);
+         *     closeNotification();
+         * }, [closeNotification]);
          */
         closeNotification,
         /** Current visibility of notification */
