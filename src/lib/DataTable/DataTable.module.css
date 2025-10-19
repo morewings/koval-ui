@@ -63,13 +63,13 @@
 .table-header {
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: var(--kg-z-index-200);
 }
 
 .table-footer {
     bottom: 0;
     position: sticky;
-    z-index: 2;
+    z-index: var(--kg-z-index-200);
 }
 
 .table-cell {
@@ -78,11 +78,11 @@
 
     position: relative;
     vertical-align: middle;
-    z-index: 0;
+    z-index: var(--kg-z-index-000);
 
     &.pinned {
         position: sticky;
-        z-index: 1;
+        z-index: var(--kg-z-index-100);
     }
 
     &.pinned-header {
