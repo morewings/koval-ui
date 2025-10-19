@@ -31,7 +31,7 @@
     position: absolute;
     transition: color var(--kg-time-sm) ease-in-out;
     width: var(--toggle-width);
-    z-index: 2;
+    z-index: var(--kg-z-index-200);
 }
 
 .input {
@@ -43,7 +43,7 @@
     position: absolute;
     top: 0;
     width: var(--toggle-width);
-    z-index: 1;
+    z-index: var(--kg-z-index-100);
 
     &:--disabledSelector {
         cursor: not-allowed;

@@ -20,7 +20,7 @@ export type Props = DataAttributes &
         /** Control visibility of the Menu */
         isOpen?: boolean;
         /**
-         * Provide Tooltip content
+         * Provide Menu content
          * @example
          * <Menu content={<div>Foo<div>} //... />
          */

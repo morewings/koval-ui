@@ -63,6 +63,12 @@ export const theme = {
     timeMD: '666ms',
     timeLG: '999ms',
     timeXL: '1666ms',
+    zIndex000: 0,
+    zIndex100: 1,
+    zIndex200: 33,
+    zIndex300: 666,
+    zIndex400: 9999,
+    zIndexMax: 2147483647,
 };
 
 export type ThemeType = Partial<typeof theme>;

@@ -10,7 +10,8 @@
     padding: calc(var(--kg-size-unit) * 8) calc(var(--kg-size-unit) * 4);
     position: fixed;
     top: 0;
-    width: 300px;
+    width: calc(var(--kg-size-unit) * 50);
+    z-index: var(--kg-z-index-300);
 }
 
 .backdrop {

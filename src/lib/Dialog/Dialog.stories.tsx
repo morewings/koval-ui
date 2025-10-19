@@ -70,10 +70,6 @@ const actionsTwo = [
     ],
 ];
 
-// TODO: why args don't work here?
-// Dude, this sounds scary.
-// Dima from the future.
-
 export const Primary: Story = {
     name: 'Basic dialog',
     render: args => {

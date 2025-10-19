@@ -57,7 +57,7 @@
     top: 0;
     transition: background-color var(--kg-time-sm) ease-in-out;
     width: calc(var(--kg-size-unit) * 6);
-    z-index: 2;
+    z-index: var(--kg-z-index-200);
 
     &:hover {
         background: color-mix(in srgb, var(--kg-color-mi) 66%, transparent);
