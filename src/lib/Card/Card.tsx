@@ -12,7 +12,7 @@ import {ActionsTree} from '@/internal/Actions';
 
 import classes from './Card.module.css';
 
-enum Variants {
+enum Layouts {
     horizontal = 'horizontal',
     vertical = 'vertical',
 }
@@ -27,8 +27,8 @@ export type Props = DataAttributes &
             | ComponentProps<typeof ActionButton>
             | [ComponentProps<typeof ActionButton>, ComponentProps<typeof ActionButton>]
         )[];
-        /** Set vertical or horizontal layout for the card */
-        variant?: keyof typeof Variants;
+        /** Set a vertical or horizontal layout for the card */
+        layout?: keyof typeof Layouts;
         /** Provide width of the card. Applied in vertical mode */
         width?: number;
         /** Provide height of the card. Applied in horizontal mode */
@@ -43,7 +43,7 @@ export const Card = forwardRef<HTMLDivElement, Props>(
             headerImageUrl,
             actions = [],
             id: idProp,
-            variant = 'vertical',
+            layout = Layouts.vertical,
             width,
             height,
             ...nativeProps
@@ -65,8 +65,8 @@ export const Card = forwardRef<HTMLDivElement, Props>(
                 className={classNames(
                     classes.card,
                     {
-                        [classes.vertical]: variant === Variants.vertical,
-                        [classes.horizontal]: variant === Variants.horizontal,
+                        [classes.vertical]: layout === Layouts.vertical,
+                        [classes.horizontal]: layout === Layouts.horizontal,
                     },
                     className
                 )}>

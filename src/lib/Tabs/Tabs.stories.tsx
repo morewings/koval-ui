@@ -11,15 +11,13 @@ import {Tab} from './Tab.tsx';
 
 const simpleSet = [
     <Tab name="foo" key="foo">
-        There are many variations of passages of Lorem Ipsum available, but the majority have
-        suffered alteration in some form, by injected humour, or randomised words which look even
-        slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure
-        there anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on
-        the Internet tend to repeat predefined chunks as necessary, making this the first true
-        generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a
-        handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The
-        generated Lorem Ipsum is therefore always free from repetition, injected humour, or
-        non-characteristic words etc.
+        Khvylʹovyy represents a cornerstone of Kiev vibrant nightlife, nestled in the historic Podil
+        district. This venue provides a unique atmosphere where signature cocktails and craft
+        beverages are served. By day, it is a hub for creative minds and casual meetings,
+        transforming as evening approaches. The space frequently hosts diverse events, from
+        electronic music sets and live DJ performances to cultural gatherings and local markets. It
+        stands as a popular destination for both residents and visitors seeking an authentic Kyiv
+        bar experience.
     </Tab>,
     <Tab name="bar" icon={IconFile} key="bar">
         <Figure>

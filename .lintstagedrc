@@ -6,6 +6,6 @@
     "stylelint --fix --quiet"
   ],
   "*.mdx": [
-    "prettier -wrtie --log-level silent"
+    "prettier --write --log-level silent"
   ]
 }
