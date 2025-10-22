@@ -55,12 +55,12 @@ export type Props = DataAttributes &
         onPause?: (event: SyntheticEvent<Element>) => void;
         /**
          * Provide audio file url
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#src
          */
         src?: string;
         /**
          * Provide audio sources configs array. An advanced alternative to `src` prop
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
+         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/source
          */
         sources?: Source[];
         /**
