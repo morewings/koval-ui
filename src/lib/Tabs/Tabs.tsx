@@ -14,10 +14,14 @@ import classes from './Tabs.module.css';
 
 export type Props = DataAttributes &
     LibraryProps & {
+        /** Set a pre-selected Tab name */
         selected?: string;
+        /** Define common width for all portions */
         width?: number;
+        /** Define common height for all portions */
         height?: number;
         children: ReactElement<TabProps> | ReactElement<TabProps>[];
+        /** Callback when user selects different Tab */
         onToggle?: (tabName: string) => void;
     };
 

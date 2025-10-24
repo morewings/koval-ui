@@ -1,3 +1,5 @@
+// BCP 47 language tag format
+
 export enum LanguageCodes {
     aa = 'Afar',
     ab = 'Abkhaz',
