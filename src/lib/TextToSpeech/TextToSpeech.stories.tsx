@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 // import {fn} from '@storybook/test';
 
-import {P, H3} from '@/lib/Text';
+import {P, H3, H4} from '@/lib/Text';
 
 import {TextToSpeech} from './TextToSpeech.tsx';
 
@@ -57,7 +57,7 @@ export const Primary: Story = {
                         the global techno movement.
                     </P>
 
-                    <H3>A Labyrinth of Discovery</H3>
+                    <H4>A Labyrinth of Discovery</H4>
                     <P>
                         The physical space of Closer is a sprawling, multi-faceted complex designed
                         for exploration. It defies the conventional nightclub layout, offering a
