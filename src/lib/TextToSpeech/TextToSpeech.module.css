@@ -37,6 +37,10 @@
         left: 1px;
         top: 1px;
     }
+
+    &:hover {
+        --button-color: var(--kg-color-do);
+    }
 }
 
 .label {
@@ -45,7 +49,6 @@
     user-select: none;
 }
 
-.size {
-    font-size: var(--kg-font-size-extra-small);
+.restart {
     margin-left: auto;
 }

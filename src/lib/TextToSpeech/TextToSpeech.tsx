@@ -4,12 +4,10 @@ import classNames from 'classnames';
 
 import type {DataAttributes, LibraryProps} from '@/internal/LibraryAPI';
 import type {LanguageCodes} from '@/internal/locale';
-import {IconPlayPause} from '@/internal/Icons';
-import {NumberUnit} from '@/lib/Number';
+import {IconPlay, IconPause, IconRepeat} from '@/internal/Icons';
 
 import classes from './TextToSpeech.module.css';
 import {useSpeechSynth} from './useSpeechSynth.ts';
-import {useTextLength} from './useTextLength.ts';
 
 export type Props = DataAttributes &
     LibraryProps & {
@@ -29,9 +27,21 @@ export type Props = DataAttributes &
          */
         pauseLabel?: string;
         /**
-         * Enable byte counter on the right side
+         * Provide a text label for restart action
          */
-        showCounter?: boolean;
+        restartLabel?: string;
+        /**
+         * Callback when a user starts speech
+         */
+        onSpeak?: (event: SpeechSynthesisEvent) => void;
+        /**
+         * Callback when a user pauses speech
+         */
+        onPause?: (event: SpeechSynthesisEvent) => void;
+        /**
+         * Callback when a text fragment is finished reading
+         */
+        onEnd?: (event: SpeechSynthesisEvent) => void;
     };
 
 export const TextToSpeech = forwardRef<HTMLDivElement, Props>(
@@ -42,22 +52,31 @@ export const TextToSpeech = forwardRef<HTMLDivElement, Props>(
             language = 'en',
             playLabel = 'Read the text',
             pauseLabel = 'Pause reading',
-            showCounter = true,
+            restartLabel = 'Restart reading',
+            onSpeak = () => {},
+            onPause = () => {},
+            onEnd = () => {},
             ...nativeProps
         },
         ref
     ) => {
         const wrapperRef = useRef<HTMLDivElement>(null);
 
-        const {speak, pause, isSpeaking} = useSpeechSynth({language, ref: wrapperRef});
-
-        const length = useTextLength(wrapperRef);
+        const {speak, pause, isSpeaking, restart} = useSpeechSynth({
+            language,
+            ref: wrapperRef,
+            onSpeak,
+            onEnd,
+            onPause,
+        });
 
         const labelId = useId();
 
         const handleClick = useCallback(() => {
             !isSpeaking ? speak() : pause();
         }, [isSpeaking, pause, speak]);
+
+        const Icon = isSpeaking ? IconPause : IconPlay;
 
         return (
             <div {...nativeProps} className={classNames(classes.wrapper, className)} ref={ref}>
@@ -66,15 +85,18 @@ export const TextToSpeech = forwardRef<HTMLDivElement, Props>(
                         onClick={handleClick}
                         className={classes.button}
                         aria-describedby={labelId}>
-                        <IconPlayPause className={classes.icon} />
+                        <Icon className={classes.icon} />
                     </button>
                     <div className={classes.label} id={labelId}>
                         {!isSpeaking ? playLabel : pauseLabel}
                     </div>
-                    {showCounter && (
-                        <div className={classes.size}>
-                            <NumberUnit value={length} unit="byte" locale={language} />
-                        </div>
+                    {isSpeaking && (
+                        <button
+                            aria-description={restartLabel}
+                            onClick={restart}
+                            className={classNames(classes.button, classes.restart)}>
+                            <IconRepeat className={classes.icon} />
+                        </button>
                     )}
                 </div>
                 <div ref={wrapperRef}>{children}</div>

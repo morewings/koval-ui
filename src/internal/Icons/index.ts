@@ -55,4 +55,4 @@ export {IconDownloadVideo} from './IconDownloadVideo.tsx';
 export {IconVideo} from './IconVideo.tsx';
 export {IconSpeed} from './IconSpeed.tsx';
 export {IconAudio} from './IconAudio.tsx';
-export {IconPlayPause} from './IconPlayPause.tsx';
+export {IconRepeat} from './IconRepeat.tsx';
