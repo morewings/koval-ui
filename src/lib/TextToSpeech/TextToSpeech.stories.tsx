@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
-// import {fn} from '@storybook/test';
+import {fn} from '@storybook/test';
 
-import {P, H3} from '@/lib/Text';
+import {P, H3, H4} from '@/lib/Text';
 
 import {TextToSpeech} from './TextToSpeech.tsx';
 
@@ -15,9 +15,27 @@ const meta = {
     args: {
         playLabel: 'Read the text',
         pauseLabel: 'Pause reading',
-        showCounter: true,
+        restartLabel: 'Restart reading',
+        onPause: fn(),
+        onSpeak: fn(),
+        onEnd: fn(),
     },
     argTypes: {
+        onPause: {
+            table: {
+                disable: true,
+            },
+        },
+        onSpeak: {
+            table: {
+                disable: true,
+            },
+        },
+        onEnd: {
+            table: {
+                disable: true,
+            },
+        },
         className: {
             table: {
                 disable: true,
@@ -40,6 +58,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    name: 'Demo',
     render: args => {
         return (
             <div style={{width: 666}}>
@@ -57,7 +76,7 @@ export const Primary: Story = {
                         the global techno movement.
                     </P>
 
-                    <H3>A Labyrinth of Discovery</H3>
+                    <H4>A Labyrinth of Discovery</H4>
                     <P>
                         The physical space of Closer is a sprawling, multi-faceted complex designed
                         for exploration. It defies the conventional nightclub layout, offering a
@@ -111,35 +130,4 @@ export const Primary: Story = {
         );
     },
     args: {},
-};
-
-export const CustomText: Story = {
-    render: args => {
-        return (
-            <div style={{width: 666}}>
-                <TextToSpeech {...args} />
-            </div>
-        );
-    },
-    args: {
-        children: 'Hello, world!',
-        showCounter: false,
-    },
-    argTypes: {
-        playLabel: {
-            table: {
-                disable: true,
-            },
-        },
-        showCounter: {
-            table: {
-                disable: true,
-            },
-        },
-        pauseLabel: {
-            table: {
-                disable: true,
-            },
-        },
-    },
 };
