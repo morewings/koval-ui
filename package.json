@@ -87,7 +87,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
-    "@eslint/compat": "1.4.0",
+    "@eslint/compat": "1.4.1",
     "@eslint/js": "9.23.0",
     "@faker-js/faker": "9.9.0",
     "@semantic-release/commit-analyzer": "13.0.1",
