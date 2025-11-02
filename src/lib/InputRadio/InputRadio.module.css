@@ -23,7 +23,7 @@
 .input {
     --bg-color: transparent;
     --border-color: var(--kg-color-sol);
-    --center-color: var(--kg-color-la);
+    --center-color: var(--kg-color-sol);
 
     appearance: none;
     background-color: var(--bg-color);
@@ -35,8 +35,8 @@
     margin: 0;
     position: relative;
     transition:
-        background-color var(--kg-time-sm) ease-in-out,
-        border-color var(--kg-time-sm) ease-in-out;
+        background-color var(--kg-time-xs) ease-in-out,
+        border-color var(--kg-time-xs) ease-in-out;
     width: 24px;
 
     &::before {
@@ -51,7 +51,7 @@
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        transition: background-color var(--kg-time-sm) ease-in-out;
+        transition: background-color var(--kg-time-xs) ease-in-out;
         width: var(--size);
     }
 
