@@ -71,7 +71,7 @@ export const Text: Story = {
                     Closer tirelessly delivers. It stands as a testament to the city&#39;s vibrant
                     youth culture and its deep connection to the global techno movement.
                 </P>
-                <H2>A Labyrinth of Discovery</H2>
+                <H2>Labyrinth of Discovery</H2>
                 <P>
                     The physical space of Closer is a sprawling, multi-faceted complex designed for
                     exploration. It defies the conventional nightclub layout, offering a maze-like
@@ -104,7 +104,7 @@ export const Text: Story = {
                     venue with a unique soul, attracting a diverse community of artists, musicians,
                     and thinkers
                 </P>
-                <H5>A Community and Atmosphere</H5>
+                <H5>Community and Atmosphere</H5>
                 <P>
                     The spirit of Closer is defined by its community. The club is renowned for its
                     inclusive and liberating atmosphere, welcoming a diverse clientele united by a
@@ -115,7 +115,7 @@ export const Text: Story = {
                     the dance floor is filled with those who are there to contribute to the
                     collective experience.
                 </P>
-                <H6>A Cultural Hub</H6>
+                <H6>Cultural Hub</H6>
                 <P>
                     The complex also houses other creative ventures, such as a record shop,
                     showrooms, and design studios, making it a true self-contained cultural cluster.
