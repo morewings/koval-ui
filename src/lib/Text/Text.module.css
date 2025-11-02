@@ -7,8 +7,37 @@
     width: 100%;
 }
 
+.header {
+    --icon-size: 0;
+
+    & .anchor {
+        color: var(--kg-color-do);
+        display: inline-block;
+        margin-left: var(--kg-size-unit);
+        opacity: 0;
+        vertical-align: middle;
+
+        &:hover {
+            color: var(--kg-color-re);
+        }
+
+        & .icon {
+            height: var(--icon-size);
+            width: var(--icon-size);
+        }
+    }
+
+    &:hover {
+        & .anchor {
+            opacity: 1;
+        }
+    }
+}
+
 .text h1,
 .header1 {
+    --icon-size: var(--kg-font-size-h-1);
+
     color: var(--kg-color-sol);
     font-size: var(--kg-font-size-h-1);
     font-weight: var(--kg-font-weight-normal);
@@ -20,56 +49,66 @@
 
 .text h2,
 .header2 {
+    --icon-size: var(--kg-font-size-h-2);
+
     color: var(--kg-color-sol);
     font-size: var(--kg-font-size-h-2);
     font-weight: var(--kg-font-weight-normal);
 
     &:not(:last-child) {
-        margin-bottom: calc(var(--kg-size-unit) * 1.5);
+        margin-bottom: var(--kg-size-unit);
     }
 }
 
 .text h3,
 .header3 {
+    --icon-size: var(--kg-font-size-h-3);
+
     color: var(--kg-color-sol);
     font-size: var(--kg-font-size-h-3);
     font-weight: var(--kg-font-weight-normal);
 
     &:not(:last-child) {
-        margin-bottom: calc(var(--kg-size-unit) * 1.5);
+        margin-bottom: var(--kg-size-unit);
     }
 }
 
 .text h4,
 .header4 {
+    --icon-size: var(--kg-font-size-h-4);
+
     color: var(--kg-color-sol);
     font-size: var(--kg-font-size-h-4);
     font-weight: var(--kg-font-weight-normal);
 
     &:not(:last-child) {
-        margin-bottom: calc(var(--kg-size-unit) * 1);
+        margin-bottom: var(--kg-size-unit);
     }
 }
 
 .text h5,
 .header5 {
+    --icon-size: var(--kg-font-size-h-5);
+
     color: var(--kg-color-sol);
     font-size: var(--kg-font-size-h-5);
     font-weight: var(--kg-font-weight-bolder);
 
     &:not(:last-child) {
-        margin-bottom: calc(var(--kg-size-unit) * 1);
+        margin-bottom: var(--kg-size-unit);
     }
 }
 
 .text h6,
 .header6 {
+    --icon-size: var(--kg-font-size-h-6);
+
     color: var(--kg-color-sol);
     font-size: var(--kg-font-size-h-6);
     font-weight: var(--kg-font-weight-bolder);
 
     &:not(:last-child) {
-        margin-bottom: calc(var(--kg-size-unit) * 1);
+        margin-bottom: calc(var(--kg-size-unit) * 0.5);
     }
 }
 
