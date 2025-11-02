@@ -35,14 +35,14 @@ export const Primary: Story = {
                     handcrafted jewelry, every corner of Kurazh Bazaar tells a story of creativity
                     and passion.
                 </P>
-                <P>
+                <P {...args}>
                     Picture yourself sipping on a cold brew coffee, the aroma mingling with the
                     scent of freshly baked artisanal bread. As you stroll through the bazaar, you
                     encounter a myriad of stalls offering everything from retro fashion to bespoke
                     furniture. The air is alive with the sounds of indie bands strumming their
                     guitars and the chatter of like-minded souls.
                 </P>
-                <P>
+                <P {...args}>
                     Kurazh Bazaar is more than just a market; it’s a celebration of individuality
                     and artistic expression. Here, you can lose yourself in the eclectic mix of old
                     and new, where every item has a story and every corner invites exploration.

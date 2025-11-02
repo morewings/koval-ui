@@ -118,6 +118,14 @@
     font-size: var(--kg-font-size-text);
     line-height: 1.33;
 
+    &.manual {
+        hyphens: manual;
+    }
+
+    &.auto {
+        hyphens: auto;
+    }
+
     &:not(:last-child) {
         margin-bottom: calc(var(--kg-size-unit) * 2);
     }
