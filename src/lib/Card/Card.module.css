@@ -1,6 +1,7 @@
 @import url("@/lib/Layout/customMedia.css");
 
 .card {
+    background: var(--kg-background-000);
     border: var(--kg-border-width-200) solid var(--kg-background-100);
     border-radius: var(--kg-border-radius-300);
     display: flex;
