@@ -16,7 +16,7 @@
     min-height: calc(var(--kg-size-unit) * 42);
     outline: none;
     padding: 0;
-    position: fixed;
+    position: relative;
     width: calc(var(--kg-size-unit) * 77);
 
     &::backdrop {
