@@ -5,7 +5,8 @@
 }
 
 .floating {
-    z-index: var(--kg-z-index-300);
+    /* Impossible to set via variable because it's outside of Provider */
+    z-index: 9999;
 }
 
 .provider {
