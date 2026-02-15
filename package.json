@@ -77,7 +77,7 @@
     "@fontsource-variable/rubik": "^5.2.8",
     "@material-symbols/svg-700": "^0.31.0",
     "@phosphor-icons/core": "^2.1.1",
-    "@tanstack/react-table": "^8.21.2",
+    "@tanstack/react-table": "^8.21.3",
     "@tanstack/react-virtual": "^3.13.9",
     "awesome-debounce-promise": "^2.1.0",
     "classnames": "^2.5.1",
