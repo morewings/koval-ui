@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "private": false,
-  "version": "0.20.6",
+  "version": "0.20.7",
   "type": "module",
   "files": [
     "dist",
