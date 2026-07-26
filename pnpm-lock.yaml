@@ -36,8 +36,8 @@ importers:
         specifier: 0.8.4
         version: 0.8.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       use-debounce:
-        specifier: ^10.0.4
-        version: 10.0.5(react@18.3.1)
+        specifier: ^10.1.1
+        version: 10.1.1(react@18.3.1)
     devDependencies:
       '@commitlint/cli':
         specifier: 20.5.3
@@ -5862,8 +5862,8 @@ packages:
     resolution: {integrity: sha512-n2huDr9h9yzd6exQVnH/jU5mr+Pfx08LRXXZhkLLetAMESRj+anQsTAh940iMrIetKAmry9coFuZQ2jY8/p3WA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  use-debounce@10.0.5:
-    resolution: {integrity: sha512-Q76E3lnIV+4YT9AHcrHEHYmAd9LKwUAbPXDm7FlqVGDHiSOhX3RDjT8dm0AxbJup6WgOb1YEcKyCr11kBJR5KQ==}
+  use-debounce@10.1.1:
+    resolution: {integrity: sha512-kvds8BHR2k28cFsxW8k3nc/tRga2rs1RHYCqmmGqb90MEeE++oALwzh2COiuBLO1/QXiOuShXoSN2ZpWnMmvuQ==}
     engines: {node: '>= 16.0.0'}
     peerDependencies:
       react: '*'
@@ -12288,7 +12288,7 @@ snapshots:
 
   url-join@5.0.0: {}
 
-  use-debounce@10.0.5(react@18.3.1):
+  use-debounce@10.1.1(react@18.3.1):
     dependencies:
       react: 18.3.1
 
