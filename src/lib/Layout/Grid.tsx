@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react';
+import type {ElementType, ReactNode} from 'react';
 import {useLocalTheme} from 'css-vars-hook';
 import {useMemo, forwardRef} from 'react';
 import classNames from 'classnames';
@@ -18,7 +18,7 @@ export type Props = DataAttributes &
         /** Set a gap between columns in pixels */
         gap?: number;
         /** Select HTML element to render as a container */
-        as?: string;
+        as?: ElementType;
         children: ReactNode;
     };
 

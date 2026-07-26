@@ -1,5 +1,5 @@
 import {forwardRef} from 'react';
-import type {ReactNode} from 'react';
+import type {ReactNode, ElementType} from 'react';
 import {useLocalTheme} from 'css-vars-hook';
 import classNames from 'classnames';
 
@@ -11,7 +11,7 @@ import classes from './Layout.module.css';
 type RowProps = DataAttributes &
     LibraryProps & {
         /** Select an HTML element to render as a container */
-        as?: string;
+        as?: ElementType;
         children: ReactNode;
     };
 
