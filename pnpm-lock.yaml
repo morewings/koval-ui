@@ -71,7 +71,7 @@ importers:
         version: 14.1.1(semantic-release@25.0.3(supports-color@8.1.1)(typescript@5.9.3))(supports-color@8.1.1)
       '@storybook/addon-essentials':
         specifier: 8.6.14
-        version: 8.6.14(@types/react@18.3.28)(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
+        version: 8.6.14(@types/react@18.3.31)(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
       '@storybook/addon-interactions':
         specifier: 8.6.14
         version: 8.6.14(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
@@ -122,7 +122,7 @@ importers:
         version: 6.9.1
       '@testing-library/react':
         specifier: 16.3.2
-        version: 16.3.2(@testing-library/dom@10.4.0)(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 16.3.2(@testing-library/dom@10.4.0)(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/jest':
         specifier: 30.0.0
         version: 30.0.0
@@ -130,11 +130,11 @@ importers:
         specifier: 24.10.4
         version: 24.10.4
       '@types/react':
-        specifier: 18.3.28
-        version: 18.3.28
+        specifier: 18.3.31
+        version: 18.3.31
       '@types/react-dom':
         specifier: 18.3.7
-        version: 18.3.7(@types/react@18.3.28)
+        version: 18.3.7(@types/react@18.3.31)
       '@typescript-eslint/eslint-plugin':
         specifier: 8.59.2
         version: 8.59.2(@typescript-eslint/parser@8.59.2(eslint@9.24.0(jiti@2.4.2)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@9.24.0(jiti@2.4.2)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3)
@@ -2361,8 +2361,8 @@ packages:
     peerDependencies:
       '@types/react': ^18.0.0
 
-  '@types/react@18.3.28':
-    resolution: {integrity: sha512-z9VXpC7MWrhfWipitjNdgCauoMLRdIILQsAEV+ZesIzBq/oUlxk0m3ApZuMFCXdnS4U7KrI+l3WRUEGQ8K1QKw==}
+  '@types/react@18.3.31':
+    resolution: {integrity: sha512-vfEqpXTvwT91yhmwdfouStN2hSKwTvyRs8qpLfADyrq/kxDw0hZM7Wk9Ug1FELj8hIby+S/+kQCSRFF32nv2Qw==}
 
   '@types/resolve@1.20.6':
     resolution: {integrity: sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==}
@@ -8127,10 +8127,10 @@ snapshots:
 
   '@material-symbols/svg-700@0.31.7': {}
 
-  '@mdx-js/react@3.1.0(@types/react@18.3.28)(react@18.3.1)':
+  '@mdx-js/react@3.1.0(@types/react@18.3.31)(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 18.3.28
+      '@types/react': 18.3.31
       react: 18.3.1
 
   '@microsoft/api-extractor-model@7.31.1(@types/node@24.10.4)':
@@ -8586,9 +8586,9 @@ snapshots:
       storybook: 8.6.17(prettier@3.8.3)(supports-color@8.1.1)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-docs@8.6.14(@types/react@18.3.28)(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))':
+  '@storybook/addon-docs@8.6.14(@types/react@18.3.31)(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))':
     dependencies:
-      '@mdx-js/react': 3.1.0(@types/react@18.3.28)(react@18.3.1)
+      '@mdx-js/react': 3.1.0(@types/react@18.3.31)(react@18.3.1)
       '@storybook/blocks': 8.6.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
       '@storybook/csf-plugin': 8.6.14(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
       '@storybook/react-dom-shim': 8.6.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
@@ -8599,12 +8599,12 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-essentials@8.6.14(@types/react@18.3.28)(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))':
+  '@storybook/addon-essentials@8.6.14(@types/react@18.3.31)(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))':
     dependencies:
       '@storybook/addon-actions': 8.6.14(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
       '@storybook/addon-backgrounds': 8.6.14(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
       '@storybook/addon-controls': 8.6.14(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
-      '@storybook/addon-docs': 8.6.14(@types/react@18.3.28)(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
+      '@storybook/addon-docs': 8.6.14(@types/react@18.3.31)(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
       '@storybook/addon-highlight': 8.6.14(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
       '@storybook/addon-measure': 8.6.14(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
       '@storybook/addon-outline': 8.6.14(storybook@8.6.17(prettier@3.8.3)(supports-color@8.1.1))
@@ -8974,15 +8974,15 @@ snapshots:
       picocolors: 1.1.1
       redent: 3.0.0
 
-  '@testing-library/react@16.3.2(@testing-library/dom@10.4.0)(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@testing-library/react@16.3.2(@testing-library/dom@10.4.0)(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.27.0
       '@testing-library/dom': 10.4.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.28
-      '@types/react-dom': 18.3.7(@types/react@18.3.28)
+      '@types/react': 18.3.31
+      '@types/react-dom': 18.3.7(@types/react@18.3.31)
 
   '@testing-library/user-event@14.5.2(@testing-library/dom@10.4.0)':
     dependencies:
@@ -9074,11 +9074,11 @@ snapshots:
 
   '@types/prop-types@15.7.12': {}
 
-  '@types/react-dom@18.3.7(@types/react@18.3.28)':
+  '@types/react-dom@18.3.7(@types/react@18.3.31)':
     dependencies:
-      '@types/react': 18.3.28
+      '@types/react': 18.3.31
 
-  '@types/react@18.3.28':
+  '@types/react@18.3.31':
     dependencies:
       '@types/prop-types': 15.7.12
       csstype: 3.2.3
