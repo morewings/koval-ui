@@ -13,7 +13,8 @@
     ".storybook/*.tsx",
     "templates/**/*.ts",
     "templates/**/*.tsx",
-    "eslint.config.js"
+    "eslint.config.js",
+    "vitest.shims.d.ts"
   ],
   "exclude": ["./dist/**"]
 }

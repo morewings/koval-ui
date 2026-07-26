@@ -1,29 +1,27 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Testing and coverage
-
+name: Unit & UI tests
 on:
-  push:
-    branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, beta ]
+
+concurrency:
+  group: "checks-${{ github.head_ref || github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
 
 jobs:
   unit-tests:
-
+    name: 'Unit tests'
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.61.0-noble
 
     steps:
-      - name: Cancel Workflow Action
-        uses: styfle/cancel-workflow-action@0.12.1
-        with:
-          access_token: ${{ github.token }}
-
       - name: Checkout
         uses: actions/checkout@v6
-        with:
-          persist-credentials: false
 
       - name: Read .nvmrc
         run: echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
@@ -37,7 +35,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 11
           run_install: false
 
       - name: Get pnpm store directory
@@ -55,6 +53,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Test & publish code coverage
-        run: pnpm run test
-        
+      - name: Test Unit
+        run: pnpm run test --reporter=github-actions

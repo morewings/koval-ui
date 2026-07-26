@@ -131,6 +131,7 @@ export default [
     {
         files: [
             '**/*.spec.*',
+            '**/*.test.*',
             '**/testUtils/*.{js,jsx,ts,tsx}',
             '*/*.{js,jsx,ts,tsx}',
             '**/setupTests.ts',
