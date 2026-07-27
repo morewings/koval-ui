@@ -7,12 +7,32 @@ import react from '@vitejs/plugin-react';
 import {kitchen} from 'alias-kitchen';
 import {storybookTest} from '@storybook/addon-vitest/vitest-plugin';
 import svgr from 'vite-plugin-svgr';
+import postcssPresetEnv from 'postcss-preset-env';
+
+import {wrapInLayerPlugin} from './wrapInLayerPlugin';
 
 const dirname =
     typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
+    css: {
+        modules: {
+            localsConvention: 'camelCase',
+        },
+        postcss: {
+            plugins: [
+                postcssPresetEnv({
+                    stage: 1,
+                    features: {
+                        'cascade-layers': false,
+                        'all-property': false,
+                    },
+                }),
+                wrapInLayerPlugin(),
+            ],
+        },
+    },
     plugins: [
         svgr({
             svgrOptions: {
