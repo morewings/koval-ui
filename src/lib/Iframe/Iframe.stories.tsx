@@ -1,5 +1,5 @@
-import type {Meta, StoryObj} from '@storybook/react';
-import {fn} from '@storybook/test';
+import type {Meta, StoryObj} from '@storybook/react-vite';
+import {fn} from 'storybook/test';
 
 import type {Props} from './Iframe.tsx';
 import {Iframe} from './Iframe.tsx';

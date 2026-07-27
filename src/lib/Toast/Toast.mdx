@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {Toast} from './Toast.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { Toast } from "./Toast.tsx";
 import * as ToastStories from "./Toast.stories.tsx";
 
 <Meta title="Components/Toast" of={ToastStories} />
@@ -20,5 +28,4 @@ import {Toast, useToastState} from 'koval-ui';
 
 <Primary />
 
-<ArgTypes of={Toast}/>
-
+<ArgTypes of={Toast} />

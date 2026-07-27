@@ -1,6 +1,5 @@
 import type {FC} from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import {ColorPalette, ColorItem} from '@storybook/blocks';
+import {ColorPalette, ColorItem} from '@storybook/addon-docs/blocks';
 
 import type {PublicThemeType} from '@/lib/Theme';
 

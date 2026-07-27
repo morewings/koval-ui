@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {Meter} from './Meter.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { Meter } from "./Meter.tsx";
 import * as MeterStories from "./Meter.stories.tsx";
 
 <Meta title="Typography/Meter" of={MeterStories} />
@@ -8,7 +16,7 @@ import * as MeterStories from "./Meter.stories.tsx";
 
 ## Description
 
-`Meter` is component to show progress.  It supports properties such as `max`, `min`, `value`, `low`, `high`, and `optimum`.
+`Meter` is component to show progress. It supports properties such as `max`, `min`, `value`, `low`, `high`, and `optimum`.
 
 ## Imports
 
@@ -20,5 +28,4 @@ import {Meter} from 'koval-ui';
 
 <Primary />
 
-<ArgTypes of={Meter}/>
-
+<ArgTypes of={Meter} />

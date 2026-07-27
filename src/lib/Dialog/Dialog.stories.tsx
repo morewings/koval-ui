@@ -1,6 +1,6 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react-vite';
 import {type ComponentProps, Fragment, useCallback, useMemo} from 'react';
-import {fn} from '@storybook/test';
+import {fn} from 'storybook/test';
 
 import {Page} from '@/lib/Layout';
 import {Button} from '@/lib/Button';

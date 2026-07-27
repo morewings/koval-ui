@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {Dialog} from './Dialog.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { Dialog } from "./Dialog.tsx";
 import * as DialogStories from "./Dialog.stories.tsx";
 
 <Meta title="Components/Dialog" of={DialogStories} />
@@ -18,7 +26,6 @@ import {Dialog, DialogFooter, DialogBody, DialogHeader, useDialogState} from 'ko
 \`\`\`
 `}</Markdown>
 
-<ArgTypes of={Dialog}/>
+<ArgTypes of={Dialog} />
 
 <Primary />
-

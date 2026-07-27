@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {Button} from './Button.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { Button } from "./Button.tsx";
 import * as ButtonStories from "./Button.stories";
 
 <Meta title="Inputs/Button" component={Button} of={ButtonStories} />
@@ -18,5 +26,4 @@ import {Button} from 'koval-ui';
 
 <Primary />
 
-<ArgTypes of={Button}/>
-
+<ArgTypes of={Button} />

@@ -1,4 +1,4 @@
-import {addons, types} from '@storybook/manager-api';
+import {addons, types} from 'storybook/manager-api';
 
 import {TOOL_ID, PANEL_ID, ADDON_ID} from '../src/env/theme-playground/constants';
 import {ThemeSwitcherTool} from '../src/env/theme-playground/ThemeSwitcherTool';

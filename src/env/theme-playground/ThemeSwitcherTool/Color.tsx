@@ -2,7 +2,7 @@ import type {FC} from 'react';
 // @ts-expect-error TODO: maybe fix later
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
-import {styled} from '@storybook/theming';
+import {styled} from 'storybook/theming';
 
 const gradient =
     'linear-gradient(-45deg, transparent, transparent 45%, pink 45%, pink 55%, transparent 55%, transparent 100%)';

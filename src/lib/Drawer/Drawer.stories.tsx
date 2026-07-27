@@ -1,7 +1,7 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react-vite';
 import {Fragment, useCallback} from 'react';
 
-// import {fn} from '@storybook/test';
+// import {fn} from 'storybook/test';
 import {NavLink, H2, Button, NavBrand} from '@/lib';
 import {NavList} from '@/lib/Navigation';
 import {CloudUpload, IconFile} from '@/internal/Icons';

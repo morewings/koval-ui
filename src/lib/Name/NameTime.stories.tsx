@@ -1,6 +1,6 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react-vite';
 
-// import {fn} from '@storybook/test';
+// import {fn} from 'storybook/test';
 import {localeControl} from '@/internal/locale';
 
 import type {Props} from './NameTime.tsx';

@@ -1,5 +1,5 @@
-import {useGlobals as useGlobalsManager} from '@storybook/manager-api';
-import {useGlobals as useGlobalsPreview} from '@storybook/preview-api';
+import {useGlobals as useGlobalsManager} from 'storybook/manager-api';
+import {useGlobals as useGlobalsPreview} from 'storybook/preview-api';
 import {useCallback} from 'react';
 
 import type {ThemeConfigType} from './types.ts';

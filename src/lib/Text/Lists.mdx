@@ -1,5 +1,14 @@
-import { Meta, ArgTypes, Story, Stories, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {Ul, Ol, Dl} from './Lists.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Stories,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { Ul, Ol, Dl } from "./Lists.tsx";
 import * as ListsStories from "./Lists.stories.tsx";
 
 <Meta title="Typography/Lists" of={ListsStories} />
@@ -16,15 +25,10 @@ import {Ol, Ul, Dl} from 'koval-ui';
 \`\`\`
 `}</Markdown>
 
-
 ## Props
 
-<ArgTypes of={Ul}/>
-
+<ArgTypes of={Ul} />
 
 <Primary />
 
 <Stories includePrimary={false} />
-
-
-

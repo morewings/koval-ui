@@ -1,7 +1,7 @@
 // @ts-expect-error TODO: maybe fix later
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, {memo, useCallback} from 'react';
-import {IconButton, WithTooltipPure} from '@storybook/components';
+import {IconButton, WithTooltipPure} from 'storybook/internal/components';
 import {MirrorIcon} from '@storybook/icons';
 
 import {TOOL_ID} from '../constants';

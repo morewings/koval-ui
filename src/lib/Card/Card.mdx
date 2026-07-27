@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {Card} from './Card.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { Card } from "./Card.tsx";
 import * as CardStories from "./Card.stories.tsx";
 
 <Meta title="Components/Card" of={CardStories} />
@@ -20,5 +28,4 @@ import {Card} from 'koval-ui';
 
 <Primary />
 
-<ArgTypes of={Card}/>
-
+<ArgTypes of={Card} />

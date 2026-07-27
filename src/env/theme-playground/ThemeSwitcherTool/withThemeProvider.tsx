@@ -2,7 +2,7 @@ import type {FC, ReactNode} from 'react';
 // @ts-expect-error TODO: maybe fix later
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, {useState, useCallback, useEffect} from 'react';
-import {useChannel} from '@storybook/preview-api';
+import {useChannel} from 'storybook/preview-api';
 
 import type {PublicThemeType} from './../../../lib/Theme';
 import {EVENTS} from '../constants';

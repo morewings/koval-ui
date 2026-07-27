@@ -2,7 +2,7 @@ import type {FC} from 'react';
 // @ts-expect-error TODO: maybe fix later
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
-import {ListItem, TooltipMessage} from '@storybook/components';
+import {ListItem, TooltipMessage} from 'storybook/internal/components';
 
 import type {ThemeConfigType} from '../types';
 import {useGlobalThemesManager} from '../useGlobalThemes';

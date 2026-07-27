@@ -1,5 +1,5 @@
-import type {Meta, StoryObj} from '@storybook/react';
-import {fn} from '@storybook/test';
+import type {Meta, StoryObj} from '@storybook/react-vite';
+import {fn} from 'storybook/test';
 
 import {P, H2} from '@/lib';
 import {IconFile, CloudUpload} from '@/internal/Icons';

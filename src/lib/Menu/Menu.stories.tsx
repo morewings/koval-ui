@@ -1,6 +1,6 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react-vite';
 import {useCallback, useState} from 'react';
-import {fn} from '@storybook/test';
+import {fn} from 'storybook/test';
 
 import {Button} from '@/lib/Button';
 import {InputGroup} from '@/lib/InputGroup';

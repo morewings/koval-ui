@@ -2,10 +2,10 @@ import type {FC} from 'react';
 // @ts-expect-error TODO: maybe fix later
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, {useCallback, useEffect, Fragment} from 'react';
-import {useChannel} from '@storybook/manager-api';
-import {AddonPanel, ActionBar} from '@storybook/components';
-import {useAddonState} from '@storybook/manager-api';
-import type {Addon_RenderOptions} from '@storybook/types';
+import {useChannel} from 'storybook/manager-api';
+import {AddonPanel, ActionBar} from 'storybook/internal/components';
+import {useAddonState} from 'storybook/manager-api';
+import type {Addon_RenderOptions} from 'storybook/internal/types';
 
 import {useGlobalThemesManager} from './../useGlobalThemes.ts';
 import {EVENTS} from '../constants';

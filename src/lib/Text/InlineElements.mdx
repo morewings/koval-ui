@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {B} from './InlineElements.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { B } from "./InlineElements.tsx";
 import * as InlineElementsStories from "./InlineElements.stories.tsx";
 
 <Meta title="Typography/Inline Elements" of={InlineElementsStories} />
@@ -18,5 +26,4 @@ import {A, B, Strong, I, Em, Mark, Small, Del, Ins, Sub, Sup, Kbd, Code, S} from
 
 <Primary />
 
-<ArgTypes of={B}/>
-
+<ArgTypes of={B} />
