@@ -106,7 +106,7 @@
     "@types/react-dom": "18.3.7",
     "@typescript-eslint/eslint-plugin": "8.59.2",
     "@typescript-eslint/parser": "8.59.2",
-    "@vitejs/plugin-react": "4.7.0",
+    "@vitejs/plugin-react": "6.0.4",
     "@vitest/browser-playwright": "4.1.10",
     "@yelo/rollup-node-external": "1.0.1",
     "alias-kitchen": "0.2.4",
