@@ -54,6 +54,7 @@
     "fix:style": "run-s 'lint:style --fix'",
     "fix:mdx": "prettier ./src/**/*.mdx --write --check",
     "test": "vitest run --config=vitest.config.ts --project=unit",
+    "test:storybook": "vitest run --config=vitest.config.ts --project=storybook",
     "test:watch": "vitest watch --config=vitest.config.ts --project=unit",
     "coverage": "run-s 'test --coverage'",
     "preview": "vite preview",
@@ -96,9 +97,12 @@
     "@semantic-release/github": "12.0.9",
     "@semantic-release/npm": "13.1.5",
     "@semantic-release/release-notes-generator": "14.1.1",
+    "@storybook/addon-docs": "10.5.4",
     "@storybook/addon-links": "10.5.4",
+    "@storybook/addon-mcp": "0.7.0",
+    "@storybook/addon-vitest": "10.5.4",
     "@storybook/builder-vite": "10.5.4",
-    "@storybook/icons": "^2.1.0",
+    "@storybook/icons": "2.1.0",
     "@storybook/react-vite": "10.5.4",
     "@testing-library/react": "16.3.2",
     "@types/node": "24.10.4",
@@ -137,7 +141,6 @@
     "react-dom": "18.3.1",
     "semantic-release": "25.0.8",
     "storybook": "10.5.4",
-    "storybook-addon-theme-provider": "0.2.10",
     "stylelint": "16.17.0",
     "stylelint-config-standard": "37.0.0",
     "stylelint-order": "6.0.4",
@@ -152,7 +155,6 @@
     "vite-plugin-svgr": "4.3.0",
     "vitest": "4.1.10",
     "vitest-browser-react": "2.2.0",
-    "@storybook/addon-docs": "10.5.4",
-    "@storybook/addon-mcp": "^0.7.0"
+    "@vitest/coverage-v8": "4.1.10"
   }
 }
