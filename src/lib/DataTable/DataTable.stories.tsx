@@ -570,6 +570,7 @@ export const PaginatedControlled: Story = {
 
 export const Maximum: Story = {
     name: '50 thousand rows 🐌',
+    tags: ['!test'],
     render: args => {
         return <DataTable {...args} />;
     },

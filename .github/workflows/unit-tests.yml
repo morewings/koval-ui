@@ -55,3 +55,6 @@ jobs:
 
       - name: Test Unit
         run: pnpm run test --reporter=github-actions
+
+      - name: Test UI/Storybook
+        run: pnpm run test:storybook --reporter=github-actions
