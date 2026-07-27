@@ -1,4 +1,4 @@
-import type {Preview} from '@storybook/react';
+import type {Preview} from '@storybook/react-vite';
 // import {withThemeProvider} from 'storybook-addon-theme-provider';
 
 import {theme as themePodil} from '../src/lib/Theme/themePodil';
@@ -74,7 +74,7 @@ const preview: Preview = {
                 ],
             },
         },
-        viewport: {viewports: customViewports},
+        viewport: {options: customViewports},
     },
 
     decorators: [withThemeProvider(Provider)],

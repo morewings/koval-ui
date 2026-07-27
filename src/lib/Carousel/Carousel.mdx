@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {Carousel} from './Carousel.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { Carousel } from "./Carousel.tsx";
 import * as CarouselStories from "./Carousel.stories.tsx";
 
 <Meta title="Components/Carousel" of={CarouselStories} />
@@ -8,7 +16,7 @@ import * as CarouselStories from "./Carousel.stories.tsx";
 
 ## Description
 
-`Carousel` component allows users to cycle through a series of content items, such as images or text, within a single container. It  includes navigation controls.  It supports properties for setting dimensions, default visible item, autorotation interval, and visibility of navigation dots and arrows.
+`Carousel` component allows users to cycle through a series of content items, such as images or text, within a single container. It includes navigation controls. It supports properties for setting dimensions, default visible item, autorotation interval, and visibility of navigation dots and arrows.
 
 ## Imports
 
@@ -20,5 +28,4 @@ import {Carousel} from 'koval-ui';
 
 <Primary />
 
-<ArgTypes of={Carousel}/>
-
+<ArgTypes of={Carousel} />

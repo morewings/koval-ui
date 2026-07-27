@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import {fn} from '@storybook/test';
+import {fn} from 'storybook/test';
 
 import {CloudUpload, IconFile} from '@/internal/Icons';
 

@@ -2,8 +2,8 @@ import type {FC} from 'react';
 // @ts-expect-error TODO: maybe fix later
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, {useCallback} from 'react';
-import {styled} from '@storybook/theming';
-// import {BooleanControl} from '@storybook/blocks';
+import {styled} from 'storybook/theming';
+// import {BooleanControl} from '@storybook/addon-docs/blocks';
 
 import type {PublicThemeType} from './../../../lib/Theme';
 import {ColorsList} from '../types';

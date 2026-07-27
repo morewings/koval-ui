@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {InputDate} from './InputDate.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { InputDate } from "./InputDate.tsx";
 import * as InputDateStories from "./InputDate.stories.tsx";
 
 <Meta title="Inputs/Date" of={InputDateStories} />
@@ -18,9 +26,8 @@ import {InputDate} from 'koval-ui';
 
 <Primary />
 
-<ArgTypes of={InputDate}/>
+<ArgTypes of={InputDate} />
 
 <Canvas>
     <Story of={InputDateStories.ControlledState} />
 </Canvas>
-

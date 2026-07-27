@@ -1,4 +1,4 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react-vite';
 
 import type {Props} from './Lists.tsx';
 import {Ol, Ul, Dl} from './Lists.tsx';

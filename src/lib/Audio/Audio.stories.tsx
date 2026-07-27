@@ -1,5 +1,5 @@
-import type {Meta, StoryObj} from '@storybook/react';
-// import {fn} from '@storybook/test';
+import type {Meta, StoryObj} from '@storybook/react-vite';
+// import {fn} from 'storybook/test';
 
 import {Audio} from './Audio.tsx';
 import audioFile from './sample.mp3';

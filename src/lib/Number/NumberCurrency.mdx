@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {NumberCurrency} from './NumberCurrency.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { NumberCurrency } from "./NumberCurrency.tsx";
 import * as NumberCurrencyStories from "./NumberCurrency.stories.tsx";
 
 <Meta title="Typography/Number/Currency" of={NumberCurrencyStories} />
@@ -19,4 +27,3 @@ import {NumberCurrency} from 'koval-ui';
 <Primary />
 
 <ArgTypes of={NumberCurrency} sort="requiredFirst" />
-

@@ -1,7 +1,7 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react-vite';
 import type {ComponentProps} from 'react';
 import {Fragment} from 'react';
-import {fn} from '@storybook/test';
+import {fn} from 'storybook/test';
 
 import {Button} from '@/lib';
 import {ButtonGroup} from '@/lib/ButtonGroup';

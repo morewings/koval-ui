@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {Video} from './Video.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { Video } from "./Video.tsx";
 import * as VideoStories from "./Video.stories.tsx";
 
 <Meta title="Embeds & IFrame/Video" of={VideoStories} />
@@ -9,7 +17,6 @@ import * as VideoStories from "./Video.stories.tsx";
 ## Description
 
 `Video` component plays provided video file using a `HTMLVideoElement`.
-
 
 ## Imports
 
@@ -21,5 +28,4 @@ import {Video} from 'koval-ui';
 
 <Primary />
 
-<ArgTypes of={Video}/>
-
+<ArgTypes of={Video} />

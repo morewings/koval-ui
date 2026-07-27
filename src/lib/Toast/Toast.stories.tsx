@@ -1,6 +1,6 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react-vite';
 import {Fragment} from 'react';
-import {fn} from '@storybook/test';
+import {fn} from 'storybook/test';
 
 import {CloudUpload, IconFile} from '@/internal/Icons';
 import {Button} from '@/lib/Button';

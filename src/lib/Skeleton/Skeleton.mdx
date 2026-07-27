@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {SkeletonFrame} from './SkeletonFrame.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { SkeletonFrame } from "./SkeletonFrame.tsx";
 import * as SkeletonStories from "./Skeleton.stories.tsx";
 
 <Meta title="Components/Skeleton" of={SkeletonStories} />
@@ -8,7 +16,7 @@ import * as SkeletonStories from "./Skeleton.stories.tsx";
 
 ## Description
 
-`Skeleton`  is a placeholder that mimics the structure of the content that is being loaded. It provides a visual indication to users that content is being loaded and helps to improve the perceived performance of an application by showing a preview of the layout before the actual content is available.
+`Skeleton` is a placeholder that mimics the structure of the content that is being loaded. It provides a visual indication to users that content is being loaded and helps to improve the perceived performance of an application by showing a preview of the layout before the actual content is available.
 
 ## Imports
 
@@ -20,5 +28,4 @@ import {Skeleton} from 'koval-ui';
 
 <Primary />
 
-<ArgTypes of={SkeletonFrame}/>
-
+<ArgTypes of={SkeletonFrame} />

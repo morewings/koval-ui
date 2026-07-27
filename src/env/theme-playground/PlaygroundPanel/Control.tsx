@@ -2,8 +2,8 @@ import type {FC} from 'react';
 // @ts-expect-error TODO: maybe fix later
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, {useState, useEffect, useCallback} from 'react';
-import {styled} from '@storybook/theming';
-import {ColorControl} from '@storybook/blocks';
+import {styled} from 'storybook/theming';
+import {ColorControl} from '@storybook/addon-docs/blocks';
 
 export type Props = {
     onChange: (name: string, value?: string) => void;

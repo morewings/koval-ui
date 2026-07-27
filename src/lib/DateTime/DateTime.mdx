@@ -1,5 +1,13 @@
-import { Meta, ArgTypes, Stories, Canvas, Source, Markdown, Primary } from "@storybook/blocks";
-import {DateTime} from './DateTime.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Stories,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+} from "@storybook/addon-docs/blocks";
+import { DateTime } from "./DateTime.tsx";
 import * as DateTimeStories from "./DateTime.stories.tsx";
 
 <Meta title="Typography/DateTime" of={DateTimeStories} />
@@ -21,4 +29,3 @@ import {DateTime} from 'koval-ui';
 <ArgTypes of={DateTime} sort="requiredFirst" />
 
 <Stories includePrimary={false} />
-

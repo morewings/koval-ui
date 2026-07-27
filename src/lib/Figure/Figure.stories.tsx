@@ -1,4 +1,4 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react-vite';
 
 import {Picture} from '@/lib/Picture';
 import {Text, Table} from '@/lib/Text';

@@ -1,10 +1,19 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Markdown, Primary, Controls } from "@storybook/blocks";
-import {Page} from './Page.tsx';
-import {Header} from './Header.tsx';
-import {Footer} from './Footer.tsx';
-import {Main} from './Main.tsx';
-import {Sidebar} from './Sidebar.tsx';
-import {Content} from './Content.tsx';
+import {
+    Meta,
+    ArgTypes,
+    Story,
+    Canvas,
+    Source,
+    Markdown,
+    Primary,
+    Controls,
+} from "@storybook/addon-docs/blocks";
+import { Page } from "./Page.tsx";
+import { Header } from "./Header.tsx";
+import { Footer } from "./Footer.tsx";
+import { Main } from "./Main.tsx";
+import { Sidebar } from "./Sidebar.tsx";
+import { Content } from "./Content.tsx";
 import * as PageStories from "./Page.stories.tsx";
 
 <Meta title="Layout/Page" of={PageStories} />
@@ -23,27 +32,26 @@ import {Page, Header, Content, Sidebar, Main, Footer} from 'koval-ui';
 
 ## Page props
 
-<ArgTypes of={Page}/>
+<ArgTypes of={Page} />
 
 <Primary />
 
 ## Header props
 
-<ArgTypes of={Header}/>
+<ArgTypes of={Header} />
 
 ## Content props
 
-<ArgTypes of={Content}/>
+<ArgTypes of={Content} />
 
 ## Footer props
 
-<ArgTypes of={Footer}/>
+<ArgTypes of={Footer} />
 
 ## Sidebar props
 
-<ArgTypes of={Sidebar}/>
+<ArgTypes of={Sidebar} />
 
 ## Main props
 
-<ArgTypes of={Main}/>
-
+<ArgTypes of={Main} />

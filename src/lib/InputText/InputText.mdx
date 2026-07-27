@@ -1,4 +1,4 @@
-import { Meta, ArgTypes, Story, Canvas, Source, Primary } from "@storybook/blocks";
+import { Meta, ArgTypes, Story, Canvas, Source, Primary } from "@storybook/addon-docs/blocks";
 import * as InputTextStories from "./InputText.stories";
 import { InputText } from "./InputText";
 
@@ -6,19 +6,20 @@ import { InputText } from "./InputText";
 
 # Text Input
 
-`InputText` is a customizable and accessible input built as a drop-in replacement for `HTMLInputElement` of corresponding type.  It supports various text-like input types (for example, `text`, `email`, `password`).
+`InputText` is a customizable and accessible input built as a drop-in replacement for `HTMLInputElement` of corresponding type. It supports various text-like input types (for example, `text`, `email`, `password`).
 
 ## Imports
 
-<Source format={true} language="ts" code={`
+<Source
+    format={true}
+    language="ts"
+    code={`
 import {InputText} from 'koval-ui';
-`} />
+`}
+/>
 
 <Primary />
 
 ## Icon props
 
 <ArgTypes of={InputText} />
-
-
-

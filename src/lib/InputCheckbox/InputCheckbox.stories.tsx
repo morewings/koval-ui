@@ -1,7 +1,7 @@
 import type {ChangeEvent} from 'react';
 import {useState, useCallback} from 'react';
-import type {Meta, StoryObj} from '@storybook/react';
-import {fn} from '@storybook/test';
+import type {Meta, StoryObj} from '@storybook/react-vite';
+import {fn} from 'storybook/test';
 
 import {validationControlBoolean} from '@/internal/inputs/storybook/validationControl.ts';
 
