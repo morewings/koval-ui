@@ -11,8 +11,6 @@
     "convertTheme.ts",
     ".storybook/*.ts",
     ".storybook/*.tsx",
-    "templates/**/*.ts",
-    "templates/**/*.tsx",
     "eslint.config.js",
     "vitest.shims.d.ts"
   ],
