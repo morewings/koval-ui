@@ -1,5 +1,4 @@
 @import url("@fontsource-variable/rubik/index.css");
-@import url("modern-normalize/modern-normalize.css") layer(koval-reset);
 
 /* 1. Establish the strict priority order for consumers */
 @layer koval-reset, koval-components;

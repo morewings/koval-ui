@@ -84,7 +84,6 @@
     "awesome-debounce-promise": "^2.1.0",
     "classnames": "^2.5.1",
     "css-vars-hook": "0.8.4",
-    "modern-normalize": "^3.0.1",
     "use-debounce": "^10.1.1"
   },
   "devDependencies": {

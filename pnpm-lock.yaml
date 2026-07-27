@@ -35,9 +35,6 @@ importers:
       css-vars-hook:
         specifier: 0.8.4
         version: 0.8.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      modern-normalize:
-        specifier: ^3.0.1
-        version: 3.0.1
       use-debounce:
         specifier: ^10.1.1
         version: 10.1.1(react@18.3.1)
@@ -4733,10 +4730,6 @@ packages:
 
   mlly@1.7.4:
     resolution: {integrity: sha512-qmdSIPC4bDJXgZTCR7XosJiNKySV7O215tsPtDN9iEO/7q/76b/ijtgRu/+epFXSJhijtTCCGp3DWS549P3xKw==}
-
-  modern-normalize@3.0.1:
-    resolution: {integrity: sha512-VqlMdYi59Uch6fnUPxnpijWUQe+TW6zeWCvyr6Mb7JibheHzSuAAoJi2c71ZwIaWKpECpGpYHoaaBp6rBRr+/g==}
-    engines: {node: '>=6'}
 
   mrmime@2.0.1:
     resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
@@ -11147,8 +11140,6 @@ snapshots:
       pathe: 2.0.3
       pkg-types: 1.3.1
       ufo: 1.5.4
-
-  modern-normalize@3.0.1: {}
 
   mrmime@2.0.1: {}
 
