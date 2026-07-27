@@ -87,8 +87,8 @@
     "use-debounce": "^10.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.5.3",
-    "@commitlint/config-conventional": "20.5.3",
+    "@commitlint/cli": "21.2.1",
+    "@commitlint/config-conventional": "21.2.0",
     "@eslint/compat": "1.4.1",
     "@eslint/js": "9.39.5",
     "@faker-js/faker": "9.9.0",
@@ -116,7 +116,7 @@
     "alias-kitchen": "0.2.4",
     "chromatic": "18.1.0",
     "commitizen": "4.3.2",
-    "commitlint": "20.5.3",
+    "commitlint": "21.2.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "9.39.5",
     "eslint-config-prettier": "10.1.8",
