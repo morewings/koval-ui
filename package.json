@@ -110,7 +110,7 @@
     "@vitest/browser-playwright": "4.1.10",
     "@yelo/rollup-node-external": "1.0.1",
     "alias-kitchen": "0.2.4",
-    "chromatic": "12.2.0",
+    "chromatic": "18.1.0",
     "commitizen": "4.3.2",
     "commitlint": "20.5.3",
     "cz-conventional-changelog": "3.3.0",
