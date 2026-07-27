@@ -211,8 +211,8 @@ importers:
         specifier: 37.0.0
         version: 37.0.0(stylelint@16.17.0(supports-color@8.1.1)(typescript@5.9.3))
       stylelint-order:
-        specifier: 6.0.4
-        version: 6.0.4(stylelint@16.17.0(supports-color@8.1.1)(typescript@5.9.3))
+        specifier: 8.1.1
+        version: 8.1.1(stylelint@16.17.0(supports-color@8.1.1)(typescript@5.9.3))
       stylelint-prettier:
         specifier: 5.0.3
         version: 5.0.3(prettier@3.8.3)(stylelint@16.17.0(supports-color@8.1.1)(typescript@5.9.3))
@@ -5322,8 +5322,8 @@ packages:
     resolution: {integrity: sha512-8sLjZwK0R+JlxlYcTuVnyT2v+htpdrjDOKuMcOVdYjt52Lh8hWRYpxBPoKx/Zg+bcjc3wx6fmQevMmUztS/ccA==}
     engines: {node: '>=4'}
 
-  postcss-sorting@8.0.2:
-    resolution: {integrity: sha512-M9dkSrmU00t/jK7rF6BZSZauA5MAaBW4i5EnJXspMwt4iqTh/L9j6fgMnbElEOfyRyfLfVbIHj/R52zHzAPe1Q==}
+  postcss-sorting@10.0.0:
+    resolution: {integrity: sha512-TXbU+h6vVRW+86c/+ewhWq9k7pr7ijASTnepVhCQiC87zAOTkvB1v2dHyWP+ggstSTX/PNvjzS+IOqzejndz9w==}
     peerDependencies:
       postcss: ^8.4.20
 
@@ -5833,10 +5833,11 @@ packages:
     peerDependencies:
       stylelint: ^16.13.0
 
-  stylelint-order@6.0.4:
-    resolution: {integrity: sha512-0UuKo4+s1hgQ/uAxlYU4h0o0HS4NiQDud0NAUNI0aa8FJdmYHA5ZZTFHiV5FpmE3071e9pZx5j0QpVJW5zOCUA==}
+  stylelint-order@8.1.1:
+    resolution: {integrity: sha512-LqsEB6VggJuu5v10RtkrQsBObcdwBE7GuAOlwfc/LR3VL/w8UqKX2BOLIjhyGt0Gne/njo7gRNGiJAKhfmPMNw==}
+    engines: {node: '>=20.19.0'}
     peerDependencies:
-      stylelint: ^14.0.0 || ^15.0.0 || ^16.0.1
+      stylelint: ^16.18.0 || ^17.0.0
 
   stylelint-prettier@5.0.3:
     resolution: {integrity: sha512-B6V0oa35ekRrKZlf+6+jA+i50C4GXJ7X1PPmoCqSUoXN6BrNF6NhqqhanvkLjqw2qgvrS0wjdpeC+Tn06KN3jw==}
@@ -11753,7 +11754,7 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-sorting@8.0.2(postcss@8.5.18):
+  postcss-sorting@10.0.0(postcss@8.5.18):
     dependencies:
       postcss: 8.5.18
 
@@ -12411,10 +12412,10 @@ snapshots:
       stylelint: 16.17.0(supports-color@8.1.1)(typescript@5.9.3)
       stylelint-config-recommended: 15.0.0(stylelint@16.17.0(supports-color@8.1.1)(typescript@5.9.3))
 
-  stylelint-order@6.0.4(stylelint@16.17.0(supports-color@8.1.1)(typescript@5.9.3)):
+  stylelint-order@8.1.1(stylelint@16.17.0(supports-color@8.1.1)(typescript@5.9.3)):
     dependencies:
       postcss: 8.5.18
-      postcss-sorting: 8.0.2(postcss@8.5.18)
+      postcss-sorting: 10.0.0(postcss@8.5.18)
       stylelint: 16.17.0(supports-color@8.1.1)(typescript@5.9.3)
 
   stylelint-prettier@5.0.3(prettier@3.8.3)(stylelint@16.17.0(supports-color@8.1.1)(typescript@5.9.3)):
