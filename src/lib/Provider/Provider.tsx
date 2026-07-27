@@ -1,6 +1,7 @@
 import type {FC, ReactNode} from 'react';
 import {useMemo} from 'react';
 import {RootThemeProvider} from 'css-vars-hook';
+import classNames from 'classnames';
 
 import type {PublicThemeType} from '@/lib/Theme';
 import {theme, themePodil} from '@/lib/Theme';
@@ -23,7 +24,9 @@ export const Provider: FC<Props> = ({children, theme: themeProp = themePodil}) =
         return convertTheme({...theme, ...themeProp});
     }, [themeProp]);
     return (
-        <RootThemeProvider theme={normalizedTheme} className={classes.provider}>
+        <RootThemeProvider
+            theme={normalizedTheme}
+            className={classNames('koval-provider', classes.provider)}>
             <DialogProvider>
                 <NotificationProvider>
                     <ToastProvider>
