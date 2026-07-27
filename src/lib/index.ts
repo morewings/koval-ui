@@ -1,4 +1,3 @@
-/* Bundle css reset before everything else */
 import '@/lib/CSS/styles.css';
 
 export {Provider} from './Provider';
