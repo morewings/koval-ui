@@ -29,7 +29,6 @@ koval-ui/
 │   ├── storybook-pages/      # Documentation & Storybook custom pages
 │   ├── env/                  # Environment configs (Forbidden to import in src/lib/)
 │   └── main.tsx              # Local Vite dev entry point
-├── templates/                # Scaffolding templates for `generate-react-cli`
 ├── .storybook/               # Storybook configuration
 ├── design/                   # Asset and logo design files
 ├── dist/                     # Compiled library output (dist/index.js, dist/index.cjs, dist/index.d.ts, dist/index.css)
@@ -68,7 +67,6 @@ koval-ui/
   4. Relative parent / sibling / index (`../`, `./`)
 - **Restricted Imports**:
   - Files inside `src/lib/` **must not** import from `src/env/`.
-  - Files inside `src/` **must not** import from `templates/`.
   - Files inside `src/lib/` **must not** import `devDependencies` (only `peerDependencies` allowed).
 
 ### CSS & Styling Rules

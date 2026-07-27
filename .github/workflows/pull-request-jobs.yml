@@ -4,6 +4,10 @@ on:
   pull_request:
     branches: [ master, beta ]
 
+concurrency:
+  group: "lint-${{ github.head_ref || github.ref }}"
+  cancel-in-progress: true
+
 jobs:
   lint-test:
 
@@ -11,10 +15,6 @@ jobs:
 
 
     steps:
-      - name: Cancel Workflow Action
-        uses: styfle/cancel-workflow-action@0.12.1
-        with:
-          access_token: ${{ github.token }}
 
       - name: Checkout
         uses: actions/checkout@v7

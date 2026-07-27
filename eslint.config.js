@@ -171,23 +171,6 @@ export default [
             ],
         },
     },
-    /* Disable `template` directory imports for all files */
-    {
-        files: ['src/**/*.{js,jsx,ts,tsx}'],
-        rules: {
-            'no-restricted-imports': [
-                'error',
-                {
-                    patterns: [
-                        {
-                            group: ['**/templates/**'],
-                            message: 'Imports from templates directory are forbidden.',
-                        },
-                    ],
-                },
-            ],
-        },
-    },
     /**
      * Disable rules of hooks for story files in order to have better story code display.
      * @see TemplateName.stories.tsx

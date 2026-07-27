@@ -26,7 +26,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "templates/**/*.ts", "templates/**/*.tsx"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "ts-node": {
     "esm": true
