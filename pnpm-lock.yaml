@@ -118,8 +118,8 @@ importers:
         specifier: 0.2.4
         version: 0.2.4
       chromatic:
-        specifier: 12.2.0
-        version: 12.2.0
+        specifier: 18.1.0
+        version: 18.1.0
       commitizen:
         specifier: 4.3.2
         version: 4.3.2(@types/node@24.10.4)(typescript@5.9.3)
@@ -2811,16 +2811,20 @@ packages:
     resolution: {integrity: sha512-OAlb+T7V4Op9OwdkjmguYRqncdlx5JiofwOAUkmTF+jNdHwzTaTs4sRAGpzLF3oOz5xAyDGrPgeIDFQmDOTiJw==}
     engines: {node: '>= 16'}
 
-  chromatic@12.2.0:
-    resolution: {integrity: sha512-GswmBW9ZptAoTns1BMyjbm55Z7EsIJnUvYKdQqXIBZIKbGErmpA+p4c0BYA+nzw5B0M+rb3Iqp1IaH8TFwIQew==}
+  chromatic@18.1.0:
+    resolution: {integrity: sha512-I9av8lUc5CQRlYzwKpmOG9cwYvZ4AFmTvtHeNrzOMC1353F9xYw45CHpSNIsNKuOiqqmzci9esXQd5akl0fi6w==}
+    engines: {node: '>=22.0.0'}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
       '@chromatic-com/playwright': ^0.*.* || ^1.0.0
+      '@chromatic-com/vitest': ^0.*.* || ^1.0.0
     peerDependenciesMeta:
       '@chromatic-com/cypress':
         optional: true
       '@chromatic-com/playwright':
+        optional: true
+      '@chromatic-com/vitest':
         optional: true
 
   ci-info@4.2.0:
@@ -8940,7 +8944,9 @@ snapshots:
 
   check-error@2.1.1: {}
 
-  chromatic@12.2.0: {}
+  chromatic@18.1.0:
+    dependencies:
+      semver: 7.7.4
 
   ci-info@4.2.0: {}
 
