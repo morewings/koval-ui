@@ -1,7 +1,8 @@
 import type {FC} from 'react';
+import classNames from 'classnames';
 
-import {Button, NumberDecimal, Strong} from '@/lib';
-import {IconClear, IconDelete, IconEdit} from '@/internal/Icons';
+import {Button, NumberDecimal} from '@/lib';
+import {IconClear, IconDelete, IconEdit, IconSelectedRows} from '@/internal/Icons';
 
 import classes from './DataTable.module.css';
 
@@ -52,15 +53,12 @@ export const SelectableActions: FC<Props> = ({
                     Edit row(s)
                 </Button>
             </div>
-            <div className={classes.rowSelectionText}>
-                <Strong>
-                    <NumberDecimal value={selectedRows} />
-                </Strong>{' '}
-                of{' '}
-                <Strong>
-                    <NumberDecimal value={totalRows} />
-                </Strong>{' '}
-                rows selected
+            <div
+                className={classNames(classes.rowSelectionText, {
+                    [classes.empty]: selectedRows === 0,
+                })}>
+                <NumberDecimal value={selectedRows} /> | <NumberDecimal value={totalRows} />
+                <IconSelectedRows className={classes.rowSelectionIcon} />
             </div>
         </div>
     );
