@@ -56,3 +56,4 @@ export {IconVideo} from './IconVideo.tsx';
 export {IconSpeed} from './IconSpeed.tsx';
 export {IconAudio} from './IconAudio.tsx';
 export {IconRepeat} from './IconRepeat.tsx';
+export {IconSelectedRows} from './IconSelectedRows.tsx';
