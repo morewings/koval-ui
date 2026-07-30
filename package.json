@@ -148,7 +148,7 @@
     "unique-names-generator": "4.7.1",
     "vite": "8.1.5",
     "vite-plugin-dts": "4.5.4",
-    "vite-plugin-svgr": "4.3.0",
+    "vite-plugin-svgr": "5.2.0",
     "vitest": "4.1.10",
     "vitest-browser-react": "2.2.0"
   }
