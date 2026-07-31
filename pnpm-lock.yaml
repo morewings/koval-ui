@@ -11,9 +11,6 @@ importers:
       '@floating-ui/react-dom':
         specifier: ^2.1.9
         version: 2.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@fontsource-variable/rubik':
-        specifier: ^5.3.0
-        version: 5.3.0
       '@material-symbols/svg-700':
         specifier: ^0.45.9
         version: 0.45.9
@@ -54,6 +51,9 @@ importers:
       '@faker-js/faker':
         specifier: 9.9.0
         version: 9.9.0
+      '@fontsource-variable/rubik':
+        specifier: 5.3.0
+        version: 5.3.0
       '@semantic-release/commit-analyzer':
         specifier: 13.0.1
         version: 13.0.1(semantic-release@25.0.8(supports-color@10.2.2)(typescript@5.9.3))(supports-color@10.2.2)

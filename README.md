@@ -9,7 +9,7 @@
 
 [![NPM library Create React App template logo](./design/logo-repo.png)](#)
 
-Koval UI: A modern React component library designed for experimentation & performance. Koval UI provides a comprehensive set of components (layout, various inputs, form, data table and carousel), all built with native browser APIs at their core. This approach minimizes JavaScript overhead, improving stable performance and reducing bundle size. Ideal for developers building cutting-edge applications, AI interfaces, or rapidly prototyping new ideas. 
+Koval UI: A modern React component library designed for experimentation & performance. Koval UI provides a comprehensive set of components (layout, various inputs, form, data table and carousel), all built with native browser APIs at their core. This approach minimizes JavaScript overhead, improving stable performance and reducing bundle size. Ideal for developers building cutting-edge applications, AI interfaces, or rapidly prototyping new ideas.
 
 Explore Koval UI and accelerate your next project!
 
@@ -31,17 +31,24 @@ See [Koval Storybook](https://morewings.github.io/koval-ui/).
 
 ## Quickstart
 
-Install library with the package manager of your choice
+Install library with the package manager of your choice.
+
+> [!TIP]
+> Rubik variable font is required by Koval default theme.
 
 ```bash
 npm i koval-ui
+// Install the required font
+npm i @fontsource-variable/rubik
 ```
 
-Include Koval css styles and wrap your application with Provider.
+Include Koval CSS styles and wrap your application with Provider.
 
 ```jsx
 import {Provider} from 'koval-ui';
 import 'koval-ui/dist/index.css';
+// Include installed Rubik variable font in the build
+import '@fontsource-variable/rubik/wght.css';
 
 const App = ({children}) => {
     //...

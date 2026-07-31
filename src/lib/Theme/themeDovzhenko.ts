@@ -4,6 +4,7 @@ import type {PublicThemeType} from './PublicThemeType.ts';
 
 export const theme = {
     ...themeInternal,
+    fontFamily: 'system-ui',
     colorDo: '#808080',
     colorRe: '#3d3d3d',
     colorMi: '#d5d5d5',

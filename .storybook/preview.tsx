@@ -6,6 +6,7 @@ import {theme as themeDnipro} from '../src/lib/Theme/themeDnipro';
 import {theme as themeDovzhenko} from '../src/lib/Theme/themeDovzhenko';
 import {Provider} from './../src/lib/Provider/Provider';
 import {withThemeProvider} from './../src/env/theme-playground/ThemeSwitcherTool';
+import '@fontsource-variable/rubik/wght.css';
 
 import '@/lib/CSS/styles.css';
 
