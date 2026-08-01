@@ -128,7 +128,7 @@
     "identity-obj-proxy": "3.0.0",
     "is-ci": "4.1.0",
     "lint-staged": "17.2.0",
-    "npm-run-all2": "9.0.2",
+    "npm-run-all2": "9.0.3",
     "playwright": "1.61.0",
     "postcss": "8.5.23",
     "postcss-preset-env": "11.3.2",
