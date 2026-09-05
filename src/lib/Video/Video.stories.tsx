@@ -2,7 +2,9 @@ import type {Meta, StoryObj} from '@storybook/react-vite';
 import {fn} from 'storybook/test';
 
 import {Video} from './Video.tsx';
-import poster from './poster.jpg';
+import poster from './poster.png';
+import webmVideo from './dub.webm';
+import mp4Video from './dub.mp4';
 
 const meta = {
     title: 'Embeds & IFrame/Video',
@@ -11,9 +13,9 @@ const meta = {
         layout: 'fullscreen',
     },
     args: {
-        width: 720,
-        height: 405,
-        title: 'Big Buck Bunny',
+        width: 1280,
+        height: 720,
+        title: 'Sons of AI - Koval in the Code',
         poster: poster,
         loop: false,
         muted: false,
@@ -95,7 +97,7 @@ export const Primary: Story = {
         return <Video {...args} />;
     },
     args: {
-        src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        src: webmVideo,
     },
 };
 
@@ -107,7 +109,11 @@ export const Sources: Story = {
     args: {
         sources: [
             {
-                src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+                src: webmVideo,
+                type: 'video/webm',
+            },
+            {
+                src: mp4Video,
                 type: 'video/mp4',
             },
         ],
